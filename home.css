@@ -71,6 +71,7 @@ header {
     z-index: 2;
     top: 44px;
     left: 0;
+    font-family: "NotoSans Bold", sans-serif;
     background-color: #313233;
     overflow-x: hidden;
     transition: 0.5s;
@@ -145,6 +146,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 .main-header, .main-footer {
+    font-family: "NotoSans Bold", sans-serif;
     border-top: 4px solid #5A5B5C;
     border-bottom: 4px solid #333334;
 }
