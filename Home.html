@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public_style.css">
     <link rel="stylesheet" href="./home.css">
-    <script src="./home.js"></script>
-    <title>Home Page</title>
-<!--    <style>-->
-<!--        -->
-<!--    </style>-->
+    <!--    <style>-->
+    <!--        -->
+    <!--    </style>-->
+    <title>Minecraft版本库</title>
 </head>
 <body>
 <header>
@@ -22,27 +21,47 @@
                                                                     width="32"></div>
 </header>
 <main>
+    <div class="main"><div style="font-size: 28px">版本库早期预览</div></div>
+    <div class="tooltip-area">
+        <div class="tooltip normal_tip">发现问题或有好的建议?欢迎<a>向我们提出</a>!</div>
+    </div>
     <div class="main">
         <div class="title1">基岩版 - Bedrock Edition</div>
         <div class="description1">标准发行版本</div>
     </div>
-    <div class="tooltip-area"><div class="tooltip information_tip">欢迎关注<a href="https://github.com/Spectrollay/mclang_cn" target="_blank">中文译名修正项目</a>!</div></div>
+    <div class="tooltip-area">
+        <div class="tooltip information_tip">欢迎关注<a href="https://github.com/Spectrollay/mclang_cn" target="_blank"
+                                                        onclick="playSound1()">中文译名修正项目</a>!
+        </div>
+    </div>
     <div class="main">
+        <br>
         <div class="title2">1.21</div>
         <div class="description2">官方原版下载</div>
-        <button class="btn normal_btn">Download</button>
-        <button class="btn green_btn">Download(Recommend)</button>
-        <button class="btn red_btn">Download(Warning)</button>
-        <button class="btn disabled_btn">Download(Unavailable)</button>
+        <button class="btn normal_btn" onclick="playSound1()">Download</button>
+        <button class="btn green_btn" onclick="playSound2()">Download(Recommend)</button>
+        <button class="btn red_btn" onclick="playSound1()">Download(Warning)</button>
+        <button class="btn disabled_btn">Download(Disabled)</button>
         <br>
     </div>
     <div class="main">
-        <div class="title2">1.20</div>
+        <br>
+        <div class="title2">1.20 - 足迹与故事</div>
         <div class="description2">去验证版下载</div>
-        <button class="btn normal_btn">Download</button>
-        <button class="btn green_btn">Download(Recommend)</button>
+        <button class="btn normal_btn" onclick="playSound1()">Download</button>
+        <button class="btn green_btn" onclick="playSound2()">Download(Recommend)</button>
         <br>
     </div>
+    <div class="main"></div>
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
+<!--    <div class="main"></div>-->
     <div class="block_spacing"></div>
     <div class="main">
         <div class="title1">携带版 - Pocket Edition</div>
@@ -76,93 +95,96 @@
     <div class="block_spacing"></div>
     <div class="main"></div>
     <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
-    <div class="main"></div>
+    <div class="block_spacing"></div>
+    <div class="main">
+        <br>
+        <div class="preview_title">欢迎观看设计预览!</div>
+        <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
+        <button class="btn green_btn preview_feedback_btn" onclick="playSound2()">提出反馈</button>
+        <br>
+    </div>
 </main>
 <div id="sidebar" class="sidebar">
     <div class="sidebar_list">
         <div class="sidebar_item">基岩版</div>
-        <a class="sidebar_item" href="#btna">中文译名修正</a>
-        <div class="sidebar_item">1.21</div>
-        <div class="sidebar_item">1.20</div>
-        <div class="sidebar_item">1.19</div>
-        <div class="sidebar_item">1.18</div>
-        <div class="sidebar_item">1.17</div>
-        <div class="sidebar_item">1.16</div>
-        <div class="sidebar_item">1.14</div>
-        <div class="sidebar_item">1.13</div>
-        <div class="sidebar_item">1.12</div>
-        <div class="sidebar_item">1.11</div>
-        <div class="sidebar_item">1.10</div>
-        <div class="sidebar_item">1.9</div>
-        <div class="sidebar_item">1.8</div>
-        <div class="sidebar_item">1.7</div>
-        <div class="sidebar_item">1.6</div>
-        <div class="sidebar_item">1.5</div>
-        <div class="sidebar_item">1.4</div>
-        <div class="sidebar_item">1.2</div>
-        <div class="sidebar_item">1.1</div>
-        <div class="sidebar_item">1.0</div>
+        <a class="sidebar_item" href="#">中文译名修正</a>
+        <a class="sidebar_item" href="#">1.21</a>
+        <a class="sidebar_item" href="#">1.20</a>
+        <a class="sidebar_item" href="#">1.19</a>
+        <a class="sidebar_item" href="#">1.18</a>
+        <a class="sidebar_item" href="#">1.17</a>
+        <a class="sidebar_item" href="#">1.16</a>
+        <a class="sidebar_item" href="#">1.14</a>
+        <a class="sidebar_item" href="#">1.13</a>
+        <a class="sidebar_item" href="#">1.12</a>
+        <a class="sidebar_item" href="#">1.11</a>
+        <a class="sidebar_item" href="#">1.10</a>
+        <a class="sidebar_item" href="#">1.9</a>
+        <a class="sidebar_item" href="#">1.8</a>
+        <a class="sidebar_item" href="#">1.7</a>
+        <a class="sidebar_item" href="#">1.6</a>
+        <a class="sidebar_item" href="#">1.5</a>
+        <a class="sidebar_item" href="#">1.4</a>
+        <a class="sidebar_item" href="#">1.2</a>
+        <a class="sidebar_item" href="#">1.1</a>
+        <a class="sidebar_item" href="#">1.0</a>
         <div class="sidebar_item">携带版</div>
-        <div class="sidebar_item">0.16</div>
-        <div class="sidebar_item">0.15</div>
-        <div class="sidebar_item">0.14</div>
-        <div class="sidebar_item">0.13</div>
-        <div class="sidebar_item">0.12</div>
-        <div class="sidebar_item">0.11</div>
-        <div class="sidebar_item">0.10</div>
-        <div class="sidebar_item">0.9</div>
-        <div class="sidebar_item">0.8</div>
-        <div class="sidebar_item">0.7</div>
-        <div class="sidebar_item">0.6</div>
-        <div class="sidebar_item">0.5</div>
-        <div class="sidebar_item">0.4</div>
-        <div class="sidebar_item">0.3</div>
-        <div class="sidebar_item">0.2</div>
-        <div class="sidebar_item">0.1</div>
+        <a class="sidebar_item" href="#">0.16</a>
+        <a class="sidebar_item" href="#">0.15</a>
+        <a class="sidebar_item" href="#">0.14</a>
+        <a class="sidebar_item" href="#">0.13</a>
+        <a class="sidebar_item" href="#">0.12</a>
+        <a class="sidebar_item" href="#">0.11</a>
+        <a class="sidebar_item" href="#">0.10</a>
+        <a class="sidebar_item" href="#">0.9</a>
+        <a class="sidebar_item" href="#">0.8</a>
+        <a class="sidebar_item" href="#">0.7</a>
+        <a class="sidebar_item" href="#">0.6</a>
+        <a class="sidebar_item" href="#">0.5</a>
+        <a class="sidebar_item" href="#">0.4</a>
+        <a class="sidebar_item" href="#">0.3</a>
+        <a class="sidebar_item" href="#">0.2</a>
+        <a class="sidebar_item" href="#">0.1</a>
         <div class="sidebar_item">教育版</div>
-        <div class="sidebar_item">1.19</div>
-        <div class="sidebar_item">1.18</div>
-        <div class="sidebar_item">1.17</div>
-        <div class="sidebar_item">1.14.70</div>
-        <div class="sidebar_item">1.14</div>
+        <a class="sidebar_item" href="#">1.19</a>
+        <a class="sidebar_item" href="#">1.18</a>
+        <a class="sidebar_item" href="#">1.17</a>
+        <a class="sidebar_item" href="#">1.14.70</a>
+        <a class="sidebar_item" href="#">1.14</a>
         <div class="sidebar_item">地球</div>
-        <div class="sidebar_item">0.33.0</div>
+        <a class="sidebar_item" href="#">0.33.0</a>
         <div class="sidebar_item">试玩版</div>
-        <div class="sidebar_item">1.20</div>
-        <div class="sidebar_item">1.19</div>
-        <div class="sidebar_item">1.18</div>
-        <div class="sidebar_item">1.17</div>
-        <div class="sidebar_item">1.16</div>
-        <div class="sidebar_item">1.14</div>
-        <div class="sidebar_item">1.13</div>
-        <div class="sidebar_item">1.12</div>
-        <div class="sidebar_item">1.11</div>
-        <div class="sidebar_item">1.10</div>
-        <div class="sidebar_item">1.9</div>
-        <div class="sidebar_item">1.8</div>
-        <div class="sidebar_item">1.7</div>
+        <a class="sidebar_item" href="#">1.20</a>
+        <a class="sidebar_item" href="#">1.19</a>
+        <a class="sidebar_item" href="#">1.18</a>
+        <a class="sidebar_item" href="#">1.17</a>
+        <a class="sidebar_item" href="#">1.16</a>
+        <a class="sidebar_item" href="#">1.14</a>
+        <a class="sidebar_item" href="#">1.13</a>
+        <a class="sidebar_item" href="#">1.12</a>
+        <a class="sidebar_item" href="#">1.11</a>
+        <a class="sidebar_item" href="#">1.10</a>
+        <a class="sidebar_item" href="#">1.9</a>
+        <a class="sidebar_item" href="#">1.8</a>
+        <a class="sidebar_item" href="#">1.7</a>
         <div class="sidebar_item">演示版</div>
-        <div class="sidebar_item">0.2</div>
-        <div class="sidebar_item">0.1</div>
+        <a class="sidebar_item" href="#">0.2</a>
+        <a class="sidebar_item" href="#">0.1</a>
     </div>
     <div class="sidebar_info">
         <div class="sidebar_detail_title">Minecraft Kit</div>
         <div class="sidebar_detail">© 2020 Spectrollay</div>
-        <div class="sidebar_detail"><button class="btn sidebar_btn" onclick="clickedMainBtn()">官方网站</button></div>
+        <div class="sidebar_detail">
+            <button class="btn sidebar_btn" onclick="clickedMainBtn()">官方网站</button>
+        </div>
     </div>
 </div>
 <div id="overlay" class="overlay" onclick="clickedOverlay()"></div>
+<audio id="click_sound" src="./sounds/click.ogg"></audio>
+<audio id="button_sound" src="./sounds/button.ogg"></audio>
 </body>
+<script src="./public_script.js"></script>
+<script src="./home.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->

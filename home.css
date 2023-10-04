@@ -93,7 +93,7 @@ header {
 .sidebar::-webkit-scrollbar-thumb {
     background-color: #E6E8EB;
     border: 2px solid #000000;
-    box-shadow: inset 0 -4px #58585A,inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
+    box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
 }
 
 .overlay {
@@ -140,6 +140,7 @@ main::-webkit-scrollbar-thumb {
     align-items: center;
     border-top: 2px solid #5A5B5C;
     border-bottom: 2px solid #333334;
+    color: #FFFFFF;
 }
 
 .sidebar_list {
@@ -192,7 +193,7 @@ main::-webkit-scrollbar-thumb {
     box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E;
 }
 
-.sidebar_btn:hover ,.sidebar_btn:active {
+.sidebar_btn:hover, .sidebar_btn:active {
     background-color: #67686A;
     border: 2px solid #FFFFFF;
     box-shadow: unset;

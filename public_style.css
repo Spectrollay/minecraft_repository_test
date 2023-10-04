@@ -72,7 +72,7 @@
 }
 
 .description2 {
-    font-size: 14px;
+    font-size: 16px;
     font-family: "NotoSans Bold", sans-serif;
     margin-top: 4px;
     margin-bottom: 8px;
@@ -80,10 +80,10 @@
 
 /*默认按钮*/
 .btn {
+    font-family: "NotoSans Bold", sans-serif;
     height: 40px;
     width: 200px;
     margin: 6px;
-
     justify-self: center;
 }
 
@@ -186,7 +186,7 @@
     left: 0;
     bottom: -0px;
     width: 100%;
-    height: 1px;
+    height: 2px;
     background-color: #FFFFFF;
 }
 
@@ -203,7 +203,31 @@
 }
 
 .important_tip {
+    color: #000000;
     background-color: #FFE866;
     margin: 10px 20px;
     height: 30px;
+}
+
+.important_tip a:after {
+    height: 2px;
+    background-color: #000000;
+}
+
+.preview_title {
+    font-size: 18px;
+    font-family: "NotoSans Bold", sans-serif;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.preview_detail {
+    font-size: 16px;
+    font-family: "NotoSans Bold", sans-serif;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.preview_feedback_btn {
+    width: 160px;
 }
