@@ -1,6 +1,7 @@
 let sidebarOpen = false;
 let overlayShow = false;
 const audioInstances = [];
+const main = document.getElementById("main");
 
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
@@ -33,4 +34,11 @@ function playSound2() {
     const audio = new Audio("./sounds/button.ogg");
     audioInstances.push(audio);
     audio.play().then();
+}
+
+function scrollToTop() {
+    main.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }

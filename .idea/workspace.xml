@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fedb853a-4b5b-4a1b-886f-4573f9ef1d83" name="Changes" comment="测试">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/button.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/click.ogg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public_style.css" afterDir="false" />
-    </list>
+    <list default="true" id="fedb853a-4b5b-4a1b-886f-4573f9ef1d83" name="Changes" comment="测试" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +74,7 @@
       <workItem from="1696391354510" duration="365000" />
       <workItem from="1696391731080" duration="9000" />
       <workItem from="1696391803666" duration="970000" />
-      <workItem from="1696407358403" duration="280000" />
+      <workItem from="1696407358403" duration="348000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <option name="closed" value="true" />
@@ -111,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696392006541</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="测试">
+      <option name="closed" value="true" />
+      <created>1696407651152</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696407651152</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

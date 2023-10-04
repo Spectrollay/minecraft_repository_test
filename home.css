@@ -138,9 +138,15 @@ main::-webkit-scrollbar-thumb {
     display: grid;
     text-align: center;
     align-items: center;
+    padding: 8px 0;
     border-top: 2px solid #5A5B5C;
     border-bottom: 2px solid #333334;
     color: #FFFFFF;
+}
+
+.main-header, .main-footer {
+    border-top: 4px solid #5A5B5C;
+    border-bottom: 4px solid #333334;
 }
 
 .sidebar_list {

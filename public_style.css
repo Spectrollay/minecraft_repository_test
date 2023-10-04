@@ -45,8 +45,7 @@
 }
 
 .title1, .title2, .title3 {
-    margin-top: 8px;
-    margin-bottom: 4px;
+    margin: 4px 0;
 }
 
 .title1 {
@@ -67,8 +66,7 @@
 .description1 {
     font-size: 18px;
     font-family: "NotoSans Bold", sans-serif;
-    margin-top: 4px;
-    margin-bottom: 8px;
+    margin: 4px 0;
 }
 
 .description2 {
@@ -158,6 +156,11 @@
     box-shadow: inset 0 -4px #B1B2B5;
 }
 
+.block {
+    border-top: 2px solid #5A5B5C;
+    border-bottom: 2px solid #333334;
+}
+
 .block_spacing {
     height: 20px;
 }
@@ -217,17 +220,51 @@
 .preview_title {
     font-size: 18px;
     font-family: "NotoSans Bold", sans-serif;
-    margin-top: 4px;
-    margin-bottom: 8px;
+    margin: 4px 0;
 }
 
 .preview_detail {
     font-size: 16px;
     font-family: "NotoSans Bold", sans-serif;
-    margin-top: 4px;
-    margin-bottom: 8px;
+    margin: 4px 0;
 }
 
-.preview_feedback_btn {
-    width: 160px;
+.preview_btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview_btn {
+    width: 140px;
+}
+
+.page_info_title, .page_info {
+    font-family: "NotoSans Bold", sans-serif;
+    font-size: 14px;
+    margin-left: 12px;
+}
+
+.page_info_title {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.page_info {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.page_info a {
+    color: inherit;
+    position: relative;
+    text-decoration: none;
+}
+
+.page_info a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0px;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
 }
