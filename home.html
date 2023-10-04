@@ -1,209 +1,233 @@
-body {
-font-family: "NotoSans Bold", Helvetica Neue, Helvetica, Arial, sans-serif;
-background: #48494A;
-margin: 0;
-overflow-x: hidden;
-user-select: none;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public_style.css">
+    <link rel="stylesheet" href="./home.css">
+    <!--    <style>-->
+    <!--        -->
+    <!--    </style>-->
+    <title>Minecraft版本库</title>
+</head>
+<body>
+<header>
+    <div id="menu" class="header_menu" onclick="clickedMenu()"><img class="menu_icon" alt="Menu" src="./images/Menu.png"
+                                                                    height="32" width="32"></div>
+    <div class="header_logo" onclick="scrollToTop()"><img class="title_icon" alt="Title Icon"
+                                                          src="./images/Marketplace.png" height="32"
+                                                          width="32"><span class="header_title">Repository</span></div>
+    <div id="repo" class="header_repo" onclick="clickedRepo()"><img alt="Github" src="./images/Github.png" height="32"
+                                                                    width="32"></div>
+</header>
+<main id="main">
+    <div id="main_top"></div>
+    <div class="tooltip-area">
+        <div class="tooltip normal_tip">发现问题或有好的建议?欢迎<a>向我们提出</a>!</div>
+    </div>
+    <div class="main main-header">
+        <div style="font-size: 28px">版本库早期预览</div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main">
+            <div class="title1">基岩版 - Bedrock Edition</div>
+            <div class="description1">标准发行版本</div>
+        </div>
+        <div class="tooltip-area">
+            <div class="tooltip information_tip">欢迎关注<a href="https://github.com/Spectrollay/mclang_cn"
+                                                            target="_blank"
+                                                            onclick="playSound1()">中文译名修正项目</a>!
+            </div>
+        </div>
+        <div class="main">
+            <br>
+            <div class="title2">1.21</div>
+            <div class="description2">官方原版下载</div>
+            <button class="btn normal_btn" onclick="playSound1()">Download</button>
+            <button class="btn green_btn" onclick="playSound2()">Download(Recommend)</button>
+            <button class="btn red_btn" onclick="playSound1()">Download(Warning)</button>
+            <button class="btn disabled_btn">Download(Disabled)</button>
+            <br>
+        </div>
+        <div class="main">
+            <br>
+            <div class="title2">1.20 - 足迹与故事</div>
+            <div class="description2">去验证版下载</div>
+            <button class="btn normal_btn" onclick="playSound1()">Download</button>
+            <button class="btn green_btn" onclick="playSound2()">Download(Recommend)</button>
+            <br>
+        </div>
+        <div class="main"></div>
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+        <!--    <div class="main"></div>-->
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main">
+            <div class="title1">携带版 - Pocket Edition</div>
+            <div class="description1">旧的发行版本</div>
+        </div>
+        <div class="main"></div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main">
+            <div class="title1">教育版 - Education Edition</div>
+            <div class="description1">教育版</div>
+        </div>
+        <div class="main"></div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main">
+            <div class="title1">地球 - Minecraft Earth</div>
+            <div class="description1">VR版本</div>
+        </div>
+        <div class="main"></div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main">
+            <div class="title1">试玩版 - Minecraft Trail</div>
+            <div class="description1">description说明</div>
+        </div>
+        <div class="main"></div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main">
+            <div class="title1">演示版 - Minecraft Demo</div>
+            <div class="description1">description说明</div>
+        </div>
+        <div class="main"></div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main"></div>
+        <div class="main"></div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="main main-footer">
+        <div class="preview_title">欢迎观看设计预览!</div>
+        <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
+        <div class="preview_btns">
+            <button class="btn normal_btn preview_btn" onclick="playSound1()">更新历史</button>
+            <button class="btn green_btn preview_btn" onclick="playSound2()">提出反馈</button>
+        </div>
+    </div>
+    <div>
+        <div class="page_info"><br></div>
+        <div class="page_info_title">INFORMATION</div>
+        <div class="page_info">Version: 4.0.0-Preview8 (2023100404)<br>Server Version: 4.0</div>
+        <div class="page_info_title">ABOUT US</div>
+        <div class="page_info">Maintenance: @Spectrollay<br>Chat Group: [<a href="https://t.me/Spectrollay_MCW"
+                                                                            target="_blank">Telegram</a>] [<a
+                href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609"
+                target="_blank">QQ</a>] [<a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802"
+                                            target="_blank">云湖</a>]
+        </div>
+        <div class="page_info"><br></div>
+    </div>
+</main>
 
-header {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-display: flex;
-align-items: center;
-height: 40px;
-background-color: #E6E8EB;
-border-bottom: 4px solid #B1B2B5;
-z-index: 9;
-}
+<!--侧边栏-->
+<div id="sidebar" class="sidebar">
+    <div class="sidebar_list">
+        <div class="sidebar_item">基岩版</div>
+        <a class="sidebar_item" href="#">中文译名修正</a>
+        <a class="sidebar_item" href="#">1.21</a>
+        <a class="sidebar_item" href="#">1.20</a>
+        <a class="sidebar_item" href="#">1.19</a>
+        <a class="sidebar_item" href="#">1.18</a>
+        <a class="sidebar_item" href="#">1.17</a>
+        <a class="sidebar_item" href="#">1.16</a>
+        <a class="sidebar_item" href="#">1.14</a>
+        <a class="sidebar_item" href="#">1.13</a>
+        <a class="sidebar_item" href="#">1.12</a>
+        <a class="sidebar_item" href="#">1.11</a>
+        <a class="sidebar_item" href="#">1.10</a>
+        <a class="sidebar_item" href="#">1.9</a>
+        <a class="sidebar_item" href="#">1.8</a>
+        <a class="sidebar_item" href="#">1.7</a>
+        <a class="sidebar_item" href="#">1.6</a>
+        <a class="sidebar_item" href="#">1.5</a>
+        <a class="sidebar_item" href="#">1.4</a>
+        <a class="sidebar_item" href="#">1.2</a>
+        <a class="sidebar_item" href="#">1.1</a>
+        <a class="sidebar_item" href="#">1.0</a>
+        <div class="sidebar_item">携带版</div>
+        <a class="sidebar_item" href="#">0.16</a>
+        <a class="sidebar_item" href="#">0.15</a>
+        <a class="sidebar_item" href="#">0.14</a>
+        <a class="sidebar_item" href="#">0.13</a>
+        <a class="sidebar_item" href="#">0.12</a>
+        <a class="sidebar_item" href="#">0.11</a>
+        <a class="sidebar_item" href="#">0.10</a>
+        <a class="sidebar_item" href="#">0.9</a>
+        <a class="sidebar_item" href="#">0.8</a>
+        <a class="sidebar_item" href="#">0.7</a>
+        <a class="sidebar_item" href="#">0.6</a>
+        <a class="sidebar_item" href="#">0.5</a>
+        <a class="sidebar_item" href="#">0.4</a>
+        <a class="sidebar_item" href="#">0.3</a>
+        <a class="sidebar_item" href="#">0.2</a>
+        <a class="sidebar_item" href="#">0.1</a>
+        <div class="sidebar_item">教育版</div>
+        <a class="sidebar_item" href="#">1.19</a>
+        <a class="sidebar_item" href="#">1.18</a>
+        <a class="sidebar_item" href="#">1.17</a>
+        <a class="sidebar_item" href="#">1.14.70</a>
+        <a class="sidebar_item" href="#">1.14</a>
+        <div class="sidebar_item">地球</div>
+        <a class="sidebar_item" href="#">0.33.0</a>
+        <div class="sidebar_item">试玩版</div>
+        <a class="sidebar_item" href="#">1.20</a>
+        <a class="sidebar_item" href="#">1.19</a>
+        <a class="sidebar_item" href="#">1.18</a>
+        <a class="sidebar_item" href="#">1.17</a>
+        <a class="sidebar_item" href="#">1.16</a>
+        <a class="sidebar_item" href="#">1.14</a>
+        <a class="sidebar_item" href="#">1.13</a>
+        <a class="sidebar_item" href="#">1.12</a>
+        <a class="sidebar_item" href="#">1.11</a>
+        <a class="sidebar_item" href="#">1.10</a>
+        <a class="sidebar_item" href="#">1.9</a>
+        <a class="sidebar_item" href="#">1.8</a>
+        <a class="sidebar_item" href="#">1.7</a>
+        <div class="sidebar_item">演示版</div>
+        <a class="sidebar_item" href="#">0.2</a>
+        <a class="sidebar_item" href="#">0.1</a>
+    </div>
+    <div class="sidebar_info">
+        <div class="sidebar_detail_title">Minecraft Kit</div>
+        <div class="sidebar_detail">© 2020 Spectrollay</div>
+        <div class="sidebar_detail">
+            <button class="btn sidebar_btn" onclick="clickedMainBtn()">官方网站</button>
+        </div>
+    </div>
+</div>
 
-.header_menu, .header_logo, .header_repo {
-display: flex;
-align-items: center;
-justify-content: center;
-height: 100%;
-}
+<!--遮罩-->
+<!--全遮罩-->
 
-.header_menu:hover, .header_repo:hover {
-background-color: #F4F6F9;
-}
+<!--除了顶栏-->
+<div id="overlay" class="overlay" onclick="clickedOverlay()"></div>
+<audio id="click_sound" src="./sounds/click.ogg"></audio>
+<audio id="button_sound" src="./sounds/button.ogg"></audio>
 
-.header_menu:active, .header_repo:active {
-background-color: #D0D1D4;
-}
-
-.header_menu {
-width: 40px;
-border-right: 2px solid #FFFFFF;
-}
-
-/*.menu_icon {*/
-/*    filter: invert(100%);*/
-/*}*/
-
-.header_logo {
-flex: 1;
-border-left: 2px solid #A1A3A5;
-border-right: 2px solid #A1A3A5;
-}
-
-.title_icon {
-padding-right: 8px;
-}
-
-.header_title {
-height: 38px;
-font-family: "Minecraft Ten", sans-serif;
-font-size: 30px;
-}
-
-.header_repo {
-width: 40px;
-border-left: 2px solid #FFFFFF;
-}
-
-.sidebar {
-height: calc(100% - 44px);
-width: 0;
-position: fixed;
-z-index: 2;
-top: 44px;
-left: 0;
-background-color: #313233;
-overflow-x: hidden;
-transition: 0.5s;
-}
-
-.sidebar a {
-text-decoration: none;
-cursor: default;
-}
-
-.sidebar::-webkit-scrollbar {
-width: 12px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-background-color: #58585A;
-border: 4px solid #313233;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-background-color: #E6E8EB;
-border: 2px solid #000000;
-box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
-}
-
-.overlay {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: rgba(0, 0, 0, 0.7);
-z-index: 1;
-display: none;
-}
-
-main {
-height: calc(100% - 44px);
-top: 44px;
-width: 100%;
-position: fixed;
-overflow-y: auto;
-scroll-behavior: smooth;
-}
-
-main::-webkit-scrollbar {
-top: 44px;
-width: 12px;
-}
-
-main::-webkit-scrollbar-track {
-background-color: #58585A;
-border: 4px solid #48494A;
-}
-
-main::-webkit-scrollbar-thumb {
-background-color: #E6E8EB;
-border: 2px solid #000000;
-box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
-}
-
-.main {
-height: auto;
-min-height: 66px;
-display: grid;
-text-align: center;
-align-items: center;
-padding: 8px 0;
-border-top: 2px solid #5A5B5C;
-border-bottom: 2px solid #333334;
-color: #FFFFFF;
-}
-
-.main-header, .main-footer {
-border-top: 4px solid #5A5B5C;
-border-bottom: 4px solid #333334;
-}
-
-.sidebar_list {
-border-bottom: 2px solid #000000;
-}
-
-.sidebar_item {
-color: #FFFFFF;
-width: 148px;
-display: flex;
-align-items: center;
-padding-left: 10px;
-height: 40px;
-}
-
-.sidebar_detail_title {
-font-family: "Minecraft Ten", sans-serif;
-font-size: 20px;
-margin: 6px 0;
-height: 30px;
-}
-
-.sidebar_detail_title, .sidebar_detail {
-color: #FFFFFF;
-width: 148px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.sidebar_detail {
-height: 24px;
-margin-bottom: 16px;
-font-size: 14px;
-}
-
-.sidebar_info {
-border-top: 2px solid #454647;
-}
-
-.sidebar_item:hover, .sidebar_item:active {
-background-color: #67686A;
-}
-
-.sidebar_btn {
-width: 140px;
-background-color: #48494A;
-color: #FFFFFF;
-border: 2px solid #131313;
-box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E;
-}
-
-.sidebar_btn:hover, .sidebar_btn:active {
-background-color: #67686A;
-border: 2px solid #FFFFFF;
-box-shadow: unset;
-}
-
-
-
+</body>
+<script src="./public_script.js"></script>
+<script src="./home.js"></script>
+<!--<script>-->
+<!--    -->
+<!--</script>-->
+</html>
