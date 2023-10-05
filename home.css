@@ -76,7 +76,7 @@ header {
     font-family: "NotoSans Bold", sans-serif;
     background-color: #313233;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.8s;
 }
 
 .sidebar a {
@@ -135,8 +135,11 @@ main::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #333334;
     color: #FFFFFF;
 }
+.main-header {
+    font-family: "Minecraft Ten", sans-serif;
+}
 
-.preview_block, .main-header {
+.preview_block {
     font-family: "NotoSans Bold", sans-serif;
     border-top: 4px solid #5A5B5C;
     border-bottom: 4px solid #333334;

@@ -40,6 +40,10 @@
     color: inherit;
 }
 
+.header_notice_title {
+    font-size: 28px;
+}
+
 /*遮罩*/
 .overlay {
     position: fixed;
