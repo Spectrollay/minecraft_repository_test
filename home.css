@@ -136,7 +136,7 @@ main::-webkit-scrollbar-thumb {
     color: #FFFFFF;
 }
 
-.main-header, .main-footer {
+.preview_block, .main-header {
     font-family: "NotoSans Bold", sans-serif;
     border-top: 4px solid #5A5B5C;
     border-bottom: 4px solid #333334;

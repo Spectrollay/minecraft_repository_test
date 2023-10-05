@@ -131,6 +131,10 @@
     justify-self: center;
 }
 
+.preview_btn {
+    width: 140px;
+}
+
 .download_btn {
     width: 140px;
 }
@@ -288,10 +292,6 @@
     font-size: 16px;
     font-family: "NotoSans Bold", sans-serif;
     margin: 4px 0;
-}
-
-.preview_btn {
-    width: 140px;
 }
 
 .page_info_title, .page_info {
