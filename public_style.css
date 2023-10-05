@@ -40,6 +40,29 @@
     color: inherit;
 }
 
+/*遮罩*/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    display: none;
+}
+
+.overlay_main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+}
+
 .title1, .title2, .title3, .description1, .description2 {
     color: #FFFFFF;
 }
@@ -76,6 +99,29 @@
     margin-bottom: 8px;
 }
 
+.description3 {
+    font-size: 14px;
+    font-family: "NotoSans Bold", sans-serif;
+    width: 80px;
+    margin-top: 4px;
+}
+
+.description2 a {
+    color: inherit;
+    position: relative;
+    text-decoration: none;
+}
+
+.description2 a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0px;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+}
+
 /*默认按钮*/
 .btn {
     font-family: "NotoSans Bold", sans-serif;
@@ -83,6 +129,14 @@
     width: 200px;
     margin: 6px;
     justify-self: center;
+}
+
+.download_btn {
+    width: 140px;
+}
+
+.download_btn_large {
+    width: 292px;
 }
 
 .normal_btn {
@@ -150,7 +204,7 @@
 
 .disabled_btn {
     background-color: #D0D1D4;
-    color: #000000;
+    color: #48494A;
     padding-bottom: 4px;
     border: 2px solid #8C8D90;
     box-shadow: inset 0 -4px #B1B2B5;
@@ -163,6 +217,12 @@
 
 .block_spacing {
     height: 20px;
+}
+
+.download_line ,.preview_btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*提示框*/
@@ -184,7 +244,7 @@
     text-decoration: none;
 }
 
-.tooltip a::after {
+.tooltip  a::after  {
     content: "";
     position: absolute;
     left: 0;
@@ -228,12 +288,6 @@
     font-size: 16px;
     font-family: "NotoSans Bold", sans-serif;
     margin: 4px 0;
-}
-
-.preview_btns {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .preview_btn {

@@ -14,11 +14,11 @@ function toggleSidebar() {
 }
 
 function toggleOverlay() {
-    const overlay = document.getElementById("overlay");
+    const overlay_main = document.getElementById("overlay_main");
     if (overlayShow) {
-        overlay.style.display = "none";
+        overlay_main.style.display = "none";
     } else {
-        overlay.style.display = "block";
+        overlay_main.style.display = "block";
     }
     overlayShow = !overlayShow;
 }
@@ -36,6 +36,15 @@ function playSound2() {
     audio.play().then();
 }
 
+function playSound(button) {
+    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn")) {
+        playSound1();
+    } else if (button.classList.contains("green_btn")) {
+        playSound2();
+    }
+}
+
+// 回到网页顶部
 function scrollToTop() {
     main.scrollTo({
         top: 0,
