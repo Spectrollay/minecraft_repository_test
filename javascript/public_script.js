@@ -31,7 +31,7 @@ const tipsWithWeights = [
 const texts = {
     jump_text: "点击前往下载页面",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "Version: 4.1-Preview2 (2023100611)<br>Server Version: 4.0",
+    page_info_detail1: "Version: 4.1-Preview3 (2023100612)<br>Server Version: 4.0",
     page_info_title2: "ABOUT US",
     page_info_detail2: "<span>Maintenance: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\">云湖</a>]<span>",
 };
