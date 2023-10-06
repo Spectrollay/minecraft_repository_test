@@ -148,6 +148,8 @@ main::-webkit-scrollbar-thumb {
     font-family: "NotoSans Bold", sans-serif;
     border-top: 4px solid #5A5B5C;
     border-bottom: 4px solid #333334;
+    border-left: 0;
+    border-right: 0;
 }
 
 .edition_block:hover {
