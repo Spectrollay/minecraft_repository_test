@@ -18,3 +18,8 @@ function clickedMainBtn() {
     playSound1();
     window.open("https://github.com/Spectrollay/Minecraft_Kit");
 }
+
+function jumpToPage(link) {
+    playSound1();
+    window.location.href = link;
+}
