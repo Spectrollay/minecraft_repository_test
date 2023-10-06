@@ -31,7 +31,7 @@ const tipsWithWeights = [
 const texts = {
     jump_text: "点击前往下载页面",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "Version: 4.1-Preview3 (2023100612)<br>Server Version: 4.0",
+    page_info_detail1: "Version: 4.1-Preview4 (2023100613)<br>Server Version: 4.0",
     page_info_title2: "ABOUT US",
     page_info_detail2: "<span>Maintenance: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\">云湖</a>]<span>",
 };
@@ -122,14 +122,14 @@ function toggleOverlay() {
 
 // 按键音效
 function playSound1() {
-    const audio = new Audio("./sounds/click.ogg");
+    const audio = new Audio("../sounds/click.ogg");
     audioInstances.push(audio);
     audio.play().then();
     console.log("播放点击音效成功");
 }
 
 function playSound2() {
-    const audio = new Audio("./sounds/button.ogg");
+    const audio = new Audio("../sounds/button.ogg");
     audioInstances.push(audio);
     audio.play().then();
     console.log("播放按钮音效成功");

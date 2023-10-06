@@ -119,13 +119,13 @@
     margin-top: 4px;
 }
 
-.description2 a {
+.description1 a ,.description2 a {
     color: inherit;
     position: relative;
     text-decoration: none;
 }
 
-.description2 a::after {
+.description1 a::after ,.description2 a::after {
     content: "";
     position: absolute;
     left: 0;
