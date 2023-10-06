@@ -1,5 +1,3 @@
-<meta charset="UTF-8">
-
 # 更新历史
 
 ### 4.0-Preview1 (2023-10-03)
