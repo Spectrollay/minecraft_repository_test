@@ -9,22 +9,26 @@ const tipElement = document.getElementById("tip");
 const tipsWithWeights = [
     {
         text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay/Minecraft_Repository/issues/new\" target=\"_blank\" onclick=\"playSound1()\">欢迎提出</a>!</span>",
-        weight: 3
+        weight: 5
     },
     {
-        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\">Telegram</a> / <a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\">QQ</a> / <a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\">云湖</a>群聊!</span>",
-        weight: 3
+        text: "<span>想和大家一起闲聊吹水?<br>快加入 <a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1()\">Telegram</a> / <a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1()\">QQ</a> / <a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1()\">云湖</a> 群聊!</span>",
+        weight: 5
     },
-    {text: "感谢你参加测试!", weight: 3},
-    {text: "我们欢迎你的反馈!", weight: 3},
-    {text: "请记住,这并不是最终成品.你可能会遇到崩溃,故障或其他奇怪的东西.", weight: 3},
-    {text: "点击这里可以切换提示.", weight: 2},
-    {text: "点击标题栏可以快速回到顶部.", weight: 2},
-    {text: "除另有声明,转载时均必须注明出处!", weight: 1},
-    {text: "你知道吗,版本库界面的构建花费了两天的时间.", weight: 1},
-    {text: "向我们捐赠以支持维护和开发!", weight: 1},
-    {text: "95%OreUI!", weight: 1},
-    {text: "真的有人会看这些吗?", weight: 1},
+    {text: "感谢你参加测试!", weight: 4},
+    {text: "我们欢迎你的反馈!", weight: 4},
+    {text: "想和我们聊聊预览版?前往官方群组和开发者面对面交流!", weight: 4},
+    {text: "请注意,这并不是最终成品.你可能会遇到崩溃,故障或其他奇怪的问题.", weight: 4},
+    {text: "不要担心漏洞,因为在预览版中发现漏洞意味着之后的漏洞会少一些！", weight: 4},
+    {text: "← 点击这里可以切换提示 →", weight: 3},
+    {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 3},
+    {text: "除另有声明,转载时均必须注明出处!", weight: 2},
+    {text: "今年的生物投票你会投给谁呢?", weight: 2},
+    {text: "你知道吗,版本库界面的构建花费了两天的时间.", weight: 2},
+    {text: "向我们捐赠以支持维护和开发!", weight: 2},
+    {text: "别杀怪物,你这个海豚!", weight: 2},
+    {text: "95%OreUI!", weight: 2},
+    {text: "真的有人会看这些吗?", weight: 2},
     {text: "这是一条永远不会出现的提示.", weight: 0}
 ];
 
@@ -122,14 +126,14 @@ function toggleOverlay() {
 
 // 按键音效
 function playSound1() {
-    const audio = new Audio("../sounds/click.ogg");
+    const audio = document.getElementById("click_sound");
     audioInstances.push(audio);
     audio.play().then();
     console.log("播放点击音效成功");
 }
 
 function playSound2() {
-    const audio = new Audio("../sounds/button.ogg");
+    const audio = document.getElementById("button_sound");
     audioInstances.push(audio);
     audio.play().then();
     console.log("播放按钮音效成功");
