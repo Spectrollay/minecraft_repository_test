@@ -11,12 +11,12 @@ function clickedOverlay() {
 
 function clickedRepo() {
     playSound1();
-    window.open("https://github.com/Spectrollay/Minecraft_Repository");
+    window.open("https://github.com/Spectrollay/minecraft_repository");
 }
 
 function clickedMainBtn() {
     playSound1();
-    window.open("https://github.com/Spectrollay/Minecraft_Kit");
+    window.open("https://github.com/Spectrollay/minecraft_kit");
 }
 
 function jumpToPage(link) {

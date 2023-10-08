@@ -6,9 +6,29 @@ let currentTipIndex = -1;
 const audioInstances = [];
 const main = document.getElementById("main");
 const tipElement = document.getElementById("tip");
+
+const currentURL = window.location.href;
+
+if (currentURL.startsWith('file:///')) {
+    console.log('本地运行');
+} else {
+    if (currentURL.includes('github.io/')) {
+        console.log("当前运行在Github");
+    } else if (currentURL.includes('gitee.io/')) {
+        console.log("当前运行在Gitee");
+    } else {
+        console.log("当前运行在" + currentURL);
+    }
+    if (currentURL.includes('test')) {
+        console.log("当前是测试环境");
+    } else {
+        console.log("当前是标准环境");
+    }
+}
+
 const tipsWithWeights = [
     {
-        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay/Minecraft_Repository/issues/new\" target=\"_blank\" onclick=\"playSound1()\">欢迎提出</a>!</span>",
+        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay/minecraft_repository/issues/new\" target=\"_blank\" onclick=\"playSound1()\">欢迎提出</a>!</span>",
         weight: 5
     },
     {
@@ -126,14 +146,14 @@ function toggleOverlay() {
 
 // 按键音效
 function playSound1() {
-    const audio = document.getElementById("click_sound");
+    const audio = new Audio("../sounds/click.ogg");
     audioInstances.push(audio);
     audio.play().then();
     console.log("播放点击音效成功");
 }
 
 function playSound2() {
-    const audio = document.getElementById("button_sound");
+    const audio = new Audio("../sounds/button.ogg");
     audioInstances.push(audio);
     audio.play().then();
     console.log("播放按钮音效成功");

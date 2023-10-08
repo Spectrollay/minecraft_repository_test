@@ -35,10 +35,10 @@
         <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
         <div class="preview_detail">请注意: 新设计还未完工,可能会缺失部分功能.</div>
         <div class="preview_btns">
-            <a href="updatelog/updatelog.md" target="_blank">
+            <a href="./updatelog/updatelog.md" target="_blank">
                 <button class="btn normal_btn preview_btn" onclick="playSound1()">更新历史</button>
             </a>
-            <a href="https://github.com/Spectrollay/Minecraft_Repository/issues/new" target="_blank">
+            <a href="https://github.com/Spectrollay/minecraft_repository/issues/new" target="_blank">
                 <button class="btn green_btn preview_btn" onclick="playSound2()">提出反馈</button>
             </a>
         </div>
@@ -57,7 +57,7 @@
         <div class="main">
             <div class="title1">Bedrock Edition</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%88" target="_blank">基岩版</a>
+                <a href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%88" target="_blank" onclick="playSound1()">基岩版</a>
             </div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./home/bedrock_edition.html')"></div>
@@ -67,7 +67,7 @@
         <div class="main">
             <div class="title1">Pocket Edition</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%90%BA%E5%B8%A6%E7%89%88" target="_blank">携带版</a>
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%90%BA%E5%B8%A6%E7%89%88" target="_blank" onclick="playSound1()">携带版</a>
             </div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./home/pocket_edition.html')"></div>
@@ -77,7 +77,7 @@
         <div class="main">
             <div class="title1">Education Edition</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%88" target="_blank">教育版</a>
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%88" target="_blank" onclick="playSound1()">教育版</a>
             </div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./home/education_edition.html')"></div>
@@ -87,7 +87,7 @@
         <div class="main">
             <div class="title1">Minecraft Earth</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/Minecraft_Earth" target="_blank">地球</a>
+                <a href="https://minecraft.fandom.com/zh/wiki/Minecraft_Earth" target="_blank" onclick="playSound1()">地球</a>
             </div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./home/earth.html')"></div>
@@ -97,7 +97,7 @@
         <div class="main">
             <div class="title1">Minecraft Trial</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank">试玩版</a>
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank" onclick="playSound1()">试玩版</a>
             </div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./home/trial.html')"></div>
@@ -107,7 +107,7 @@
         <div class="main">
             <div class="title1">Minecraft Demo</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank">演示版</a>
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank" onclick="playSound1()">演示版</a>
             </div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./home/demo.html')"></div>
@@ -157,13 +157,22 @@
 <!--除了顶栏-->
 <div id="overlay_main" class="overlay_main" onclick="clickedOverlay()"></div>
 
-<audio id="click_sound" src="./sounds/click.ogg"></audio>
-<audio id="button_sound" src="./sounds/button.ogg"></audio>
-
 </body>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/home.js"></script>
-<!--<script>-->
-<!--    -->
-<!--</script>-->
+<script>
+    function playSound1() {
+        const audio = new Audio("./sounds/click.ogg");
+        audioInstances.push(audio);
+        audio.play().then();
+        console.log("播放点击音效成功");
+    }
+
+    function playSound2() {
+        const audio = new Audio("./sounds/button.ogg");
+        audioInstances.push(audio);
+        audio.play().then();
+        console.log("播放按钮音效成功");
+    }
+</script>
 </html>
