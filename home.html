@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylesheet/public_style.css">
     <link rel="stylesheet" href="./stylesheet/home.css">
+    <link rel="stylesheet" href="./stylesheet/public_style.css">
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
@@ -146,7 +146,7 @@
         <div class="sidebar_detail_title">Minecraft Kit</div>
         <div class="sidebar_detail">© 2020 Spectrollay</div>
         <div class="sidebar_detail">
-            <button class="btn sidebar_btn" onclick="clickedMainBtn()">官方网站</button>
+            <button id="sidebar_bottom_btn" class="btn sidebar_btn" onclick="clickedSidebarBottomBtn()"></button>
         </div>
     </div>
 </div>
@@ -158,21 +158,9 @@
 <div id="overlay_main" class="overlay_main" onclick="clickedOverlay()"></div>
 
 </body>
-<script src="./javascript/public_script.js"></script>
 <script src="./javascript/home.js"></script>
-<script>
-    function playSound1() {
-        const audio = new Audio("./sounds/click.ogg");
-        audioInstances.push(audio);
-        audio.play().then();
-        console.log("播放点击音效成功");
-    }
-
-    function playSound2() {
-        const audio = new Audio("./sounds/button.ogg");
-        audioInstances.push(audio);
-        audio.play().then();
-        console.log("播放按钮音效成功");
-    }
-</script>
+<script src="./javascript/public_script.js"></script>
+<!--<script>-->
+<!--    -->
+<!--</script>-->
 </html>

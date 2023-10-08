@@ -54,10 +54,12 @@ const tipsWithWeights = [
 
 const texts = {
     jump_text: "点击前往下载页面",
+    back_to_main: "返回首页",
+    sidebar_bottom_btn: "官方网站",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "Version: 4.1-Preview4 (2023100613)<br>Server Version: 4.0",
+    page_info_detail1: "Version: 4.1-Preview6 (20231000801)<br>Server Version: 4.0",
     page_info_title2: "ABOUT US",
-    page_info_detail2: "<span>Maintenance: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\">云湖</a>]<span>",
+    page_info_detail2: "<span>Maintenance: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1()\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1()\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1()\">云湖</a>]<span>",
 };
 console.log("加载常量和变量完成");
 
@@ -65,10 +67,17 @@ const editionBlocks = document.getElementsByClassName("edition_block");
 for (let i = 0; i < editionBlocks.length; i++) {
     editionBlocks[i].innerHTML = texts.jump_text;
 }
+
+const backToMainTexts = document.getElementsByClassName("back_to_main");
+for (let i = 0; i < backToMainTexts.length; i++) {
+    backToMainTexts[i].innerHTML = texts.back_to_main;
+}
+
 document.getElementById("page_info_title1").innerHTML = texts.page_info_title1;
 document.getElementById("page_info_detail1").innerHTML = texts.page_info_detail1;
 document.getElementById("page_info_title2").innerHTML = texts.page_info_title2;
 document.getElementById("page_info_detail2").innerHTML = texts.page_info_detail2;
+document.getElementById("sidebar_bottom_btn").innerHTML = texts.sidebar_bottom_btn;
 console.log("字符常量已成功应用");
 
 // 加载网页时的Tip
@@ -145,20 +154,6 @@ function toggleOverlay() {
 }
 
 // 按键音效
-function playSound1() {
-    const audio = new Audio("../sounds/click.ogg");
-    audioInstances.push(audio);
-    audio.play().then();
-    console.log("播放点击音效成功");
-}
-
-function playSound2() {
-    const audio = new Audio("../sounds/button.ogg");
-    audioInstances.push(audio);
-    audio.play().then();
-    console.log("播放按钮音效成功");
-}
-
 function playSound(button) {
     if (button.classList.contains("normal_btn") || button.classList.contains("red_btn")) {
         console.log("选择播放点击音效");
@@ -167,6 +162,34 @@ function playSound(button) {
         console.log("选择播放按钮音效");
         playSound2();
     }
+}
+
+function clickedMenu() {
+    playSound1();
+    toggleSidebar();
+    toggleOverlay();
+}
+
+function clickedOverlay() {
+    toggleSidebar();
+    toggleOverlay();
+}
+
+function clickedRepo() {
+    playSound1();
+    window.open("https://github.com/Spectrollay/minecraft_repository");
+}
+
+function clickedSidebarBottomBtn() {
+    playSound1();
+    window.open("https://github.com/Spectrollay/minecraft_kit");
+}
+
+function jumpToPage(link) {
+    playSound1();
+    setTimeout(function() {
+        window.location.href = link;
+    }, 100);
 }
 
 // 回到网页顶部

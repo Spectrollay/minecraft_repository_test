@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheet/editions.css">
     <link rel="stylesheet" href="../stylesheet/public_style.css">
-    <link rel="stylesheet" href="../stylesheet/home.css">
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
     <link rel="icon" href="../images/Marketplace.png">
-    <title>Minecraft 版本库 - 基岩版下载页面</title>
+    <title>基岩版 - Minecraft 版本库</title>
 </head>
 <body>
 <header>
@@ -42,6 +42,10 @@
                 <button class="btn green_btn preview_btn" onclick="playSound2()">提出反馈</button>
             </a>
         </div>
+    </div>
+    <div class="block_spacing"></div>
+    <div class="block">
+        <div class="main back_block back_to_main" onclick="jumpToPage('../home.html')"></div>
     </div>
     <div class="block_spacing"></div>
     <div class="block">
@@ -1045,11 +1049,6 @@
             </div>
         </div>
     </div>
-    <div class="block_spacing"></div>
-    <div class="block">
-        <div class="main"></div>
-        <div class="main"></div>
-    </div>
     <div>
         <div class="page_info"><br></div>
         <div id="page_info_title1" class="page_info_title"></div>
@@ -1062,8 +1061,10 @@
 
 <!--侧边栏-->
 <div id="sidebar" class="sidebar">
+    <div class="sidebar_header">
+        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../home.html')"></button>
+    </div>
     <div class="sidebar_list">
-        <div class="sidebar_item">基岩版</div>
         <a class="sidebar_item" href="#cn_fix">中文译名修正</a>
         <a class="sidebar_item" href="#1.21">1.21</a>
         <a class="sidebar_item" href="#1.20">1.20</a>
@@ -1088,7 +1089,7 @@
         <div class="sidebar_detail_title">Minecraft Kit</div>
         <div class="sidebar_detail">© 2020 Spectrollay</div>
         <div class="sidebar_detail">
-            <button class="btn sidebar_btn" onclick="clickedMainBtn()">官方网站</button>
+            <button id="sidebar_bottom_btn" class="btn sidebar_btn" onclick="clickedSidebarBottomBtn()"></button>
         </div>
     </div>
 </div>
@@ -1100,8 +1101,8 @@
 <div id="overlay_main" class="overlay_main" onclick="clickedOverlay()"></div>
 
 </body>
+<script src="../javascript/editions.js"></script>
 <script src="../javascript/public_script.js"></script>
-<script src="../javascript/home.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->
