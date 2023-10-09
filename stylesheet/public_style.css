@@ -431,6 +431,57 @@ main::-webkit-scrollbar-thumb {
     margin: 4px 0;
 }
 
+.dialog_area {
+    z-index: 11;
+    position: fixed;
+    width: 80%;
+    min-width: 200px;
+    max-width: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #1E1E1F;
+}
+
+.dialog {
+    background-color: #313233;
+    color: #FFFFFF;
+    justify-content: center;
+    text-align: center;
+}
+
+.dialog_title {
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #48494A;
+    box-shadow: inset 2px 2px #6D6D6E, inset -2px -2px #5A5B5C;
+}
+
+.dialog_content {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.dialog_btns {
+    background-color: #48494A;
+    border-top: 2px solid #5A5B5C;
+    border-bottom: 2px solid #333334;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog_btn {
+    width: calc(100% - 40px);
+}
+
 .page_info_title, .page_info {
     font-family: "NotoSans Bold", sans-serif;
     font-size: 12px;
