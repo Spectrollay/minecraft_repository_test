@@ -465,21 +465,21 @@ main::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px;
+    margin: 10px;
 }
 
 .dialog_btns {
     background-color: #48494A;
     border-top: 2px solid #5A5B5C;
     border-bottom: 2px solid #333334;
-    padding: 8px 0;
+    padding: 2px 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .dialog_btn {
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
 }
 
 .page_info_title, .page_info {
