@@ -434,7 +434,7 @@ main::-webkit-scrollbar-thumb {
 .dialog_area {
     z-index: 11;
     position: fixed;
-    width: 80%;
+    width: 90%;
     min-width: 200px;
     max-width: 400px;
     left: 50%;
