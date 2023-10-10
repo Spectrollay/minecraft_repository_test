@@ -176,16 +176,16 @@ function toggleOverlay() {
 }
 
 // 弹窗
-function showDialog() {
-    const overlay = document.getElementById("overlay");
-    const dialog = document.getElementById("dialog");
+function showAlertDialog() {
+    const overlay = document.getElementById("alert_overlay");
+    const dialog = document.getElementById("alert_dialog");
     overlay.style.display = "block";
     dialog.style.display = "block";
 }
 
-function hideDialog(button) {
-    const overlay = document.getElementById("overlay");
-    const dialog = document.getElementById("dialog");
+function hideAlertDialog(button) {
+    const overlay = document.getElementById("alert_overlay");
+    const dialog = document.getElementById("alert_dialog");
     playSound(button);
     overlay.style.display = "none";
     dialog.style.display = "none";

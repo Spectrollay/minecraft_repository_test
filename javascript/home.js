@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch((error) => {
         console.warn("音频预加载失败: ", error);
     });
-    showDialog();
+    showAlertDialog();
 });
 
 function playSound1() {

@@ -152,18 +152,17 @@
 </div>
 
 <!--遮罩-->
-<!--全遮罩-->
-<div id="overlay" class="overlay"></div>
 <!--除了顶栏-->
 <div id="overlay_main" class="overlay_main" onclick="clickedOverlay()"></div>
 
+<div id="alert_overlay" class="overlay"></div>
 <!--弹窗-->
-<div id="dialog" class="dialog_area">
+<div id="alert_dialog" class="dialog_area">
     <div class="dialog">
         <div class="dialog_title">预览提示</div>
         <div class="dialog_content">此网站仅供预览体验,缺失大部分功能<br><br>下载链接和反馈链接都还没写好<br><br>反馈请前往内测群</div>
         <div class="dialog_btns">
-            <button class="btn green_btn dialog_btn" onclick="hideDialog(this)">我知道了</button>
+            <button class="btn green_btn dialog_btn" onclick="hideAlertDialog(this)">我知道了</button>
         </div>
     </div>
 </div>
