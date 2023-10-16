@@ -192,6 +192,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 .loading_icon {
+    padding: 10px;
     height: 32px;
     width: 32px;
 }
@@ -239,13 +240,13 @@ main::-webkit-scrollbar-thumb {
     margin-top: 4px;
 }
 
-.description1 a ,.description2 a {
+.header_notice_body a ,.description1 a ,.description2 a {
     color: inherit;
     position: relative;
     text-decoration: none;
 }
 
-.description1 a::after ,.description2 a::after {
+.header_notice_body a::after ,.description1 a::after ,.description2 a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -563,12 +564,14 @@ main::-webkit-scrollbar-thumb {
 }
 
 .sidebar_list {
+    width: 100%;
     border-bottom: 2px solid #000000;
 }
 
 .sidebar_item {
     color: #FFFFFF;
-    width: 148px;
+    width: 100%;
+    min-width: 148px;
     display: flex;
     align-items: center;
     padding-left: 10px;
@@ -584,7 +587,6 @@ main::-webkit-scrollbar-thumb {
 
 .sidebar_detail_title, .sidebar_detail {
     color: #FFFFFF;
-    width: 148px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -597,6 +599,8 @@ main::-webkit-scrollbar-thumb {
 }
 
 .sidebar_info {
+    width: 100%;
+    min-width: 148px;
     border-top: 2px solid #454647;
 }
 

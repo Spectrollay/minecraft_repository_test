@@ -5,26 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fedb853a-4b5b-4a1b-886f-4573f9ef1d83" name="Changes" comment="测试">
-      <change afterPath="$PROJECT_DIR$/default/coming_soon.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/default/error_default.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/default/error_no-access.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/default/error_not-found.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Back_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Building.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/EmptyStates.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ErrorMessage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Island.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Loading_white.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/NoNews.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Sunset.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/error_no-access.html" beforeDir="false" afterPath="$PROJECT_DIR$/default/error_no-access.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/error_not-found.html" beforeDir="false" afterPath="$PROJECT_DIR$/default/error_not-found.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/bedrock_edition.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/bedrock_edition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/education_edition.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/education_edition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/pocket_edition.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/pocket_edition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Loading-black.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Loading-white.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/javascript/public_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/public_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sounds/none.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylesheet/editions.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet/editions.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stylesheet/public_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet/public_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/updatelog/updatelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/updatelog/updatelog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/updatelog/updatelog.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +117,8 @@
       <workItem from="1696860896549" duration="39000" />
       <workItem from="1696861027171" duration="172000" />
       <workItem from="1696919393031" duration="63000" />
-      <workItem from="1697386495258" duration="158000" />
+      <workItem from="1697386495258" duration="184000" />
+      <workItem from="1697461585242" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <option name="closed" value="true" />
@@ -357,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696919443988</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="测试">
+      <option name="closed" value="true" />
+      <created>1697386666589</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1697386666589</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
