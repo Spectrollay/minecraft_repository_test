@@ -36,3 +36,15 @@ function playSound2() {
         console.error("音效播放失败: ", error);
     });
 }
+
+function toUpdatelog() {
+    setTimeout(function () {
+        window.location.href = "../updatelog/updatelog.html";
+    }, 160);
+}
+
+function toRepo() {
+    setTimeout(function () {
+        window.open("https://github.com/Spectrollay/minecraft_repository/issues/new");
+    }, 160);
+}

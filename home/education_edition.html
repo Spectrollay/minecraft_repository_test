@@ -35,12 +35,8 @@
         <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
         <div class="preview_detail">请注意: 新设计还未完工,可能会缺失部分功能.</div>
         <div class="preview_btns">
-            <a href="../updatelog/updatelog.html">
-                <button class="btn normal_btn preview_btn" onclick="playSound1()">更新历史</button>
-            </a>
-            <a href="https://github.com/Spectrollay/minecraft_repository/issues/new" target="_blank">
-                <button class="btn green_btn preview_btn" onclick="playSound2()">提出反馈</button>
-            </a>
+                <button class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog()">更新历史</button>
+                <button class="btn green_btn preview_btn" onclick="playSound2();toRepo();">提出反馈</button>
         </div>
     </div>
     <div class="block_spacing"></div>
@@ -71,7 +67,7 @@
 <!--侧边栏-->
 <div id="sidebar" class="sidebar">
     <div class="sidebar_header">
-        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../home.html')"></button>
+        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../home.html');"></button>
     </div>
     <div class="sidebar_list">
         <div class="sidebar_item">教育版</div>
@@ -104,14 +100,14 @@
         <div class="sidebar_detail_title">Minecraft Kit</div>
         <div class="sidebar_detail">© 2020 Spectrollay</div>
         <div class="sidebar_detail">
-            <button id="sidebar_bottom_btn" class="btn sidebar_btn" onclick="clickedSidebarBottomBtn()"></button>
+            <button id="sidebar_bottom_btn" class="btn sidebar_btn" onclick="clickedSidebarBottomBtn();"></button>
         </div>
     </div>
 </div>
 
 <!--遮罩-->
 <!--除了顶栏-->
-<div id="overlay_main" class="overlay_main" onclick="clickedOverlay()"></div>
+<div id="overlay_main" class="overlay_main" onclick="clickedOverlay();"></div>
 
 </body>
 <script src="../javascript/editions.js"></script>

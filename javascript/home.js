@@ -38,6 +38,18 @@ function playSound2() {
     });
 }
 
+function toUpdatelog() {
+    setTimeout(function () {
+        window.location.href = "./updatelog/updatelog.html";
+    }, 160);
+}
+
+function toRepo() {
+    setTimeout(function () {
+        window.open("https://github.com/Spectrollay/minecraft_repository/issues/new");
+    }, 160);
+}
+
 // 预览提示弹窗
 function showAlertDialog() {
     const overlay = document.getElementById("overlay");
