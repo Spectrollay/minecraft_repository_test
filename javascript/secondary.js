@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const click = new Audio("./sounds/click.ogg");
-    const button = new Audio("./sounds/button.ogg");
+    const click = new Audio("../sounds/click.ogg");
+    const button = new Audio("../sounds/button.ogg");
     click.volume = 0;
     button.volume = 0;
     audioInstances.push(click);
@@ -15,11 +15,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch((error) => {
         console.warn("音频预加载失败: ", error);
     });
-    showAlertDialog();
 });
 
 function playSound1() {
-    const audio = new Audio("./sounds/click.ogg");
+    const audio = new Audio("../sounds/click.ogg");
     audioInstances.push(audio);
     audio.play().then(() => {
         console.log("音效播放成功!");
@@ -29,29 +28,11 @@ function playSound1() {
 }
 
 function playSound2() {
-    const audio = new Audio("./sounds/button.ogg");
+    const audio = new Audio("../sounds/button.ogg");
     audioInstances.push(audio);
     audio.play().then(() => {
         console.log("音效播放成功!");
     }).catch((error) => {
         console.error("音效播放失败: ", error);
     });
-}
-
-// 预览提示弹窗
-function showAlertDialog() {
-    const overlay = document.getElementById("overlay");
-    const dialog = document.getElementById("alert_dialog");
-    overlay.style.display = "block";
-    dialog.style.display = "block";
-    console.log("显示预览提示弹窗");
-}
-
-function hideAlertDialog(button) {
-    const overlay = document.getElementById("overlay");
-    const dialog = document.getElementById("alert_dialog");
-    playSound(button);
-    overlay.style.display = "none";
-    dialog.style.display = "none";
-    console.log("关闭预览提示弹窗");
 }

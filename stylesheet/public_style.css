@@ -63,27 +63,27 @@ header {
     z-index: 9;
 }
 
-.header_menu, .header_logo, .header_repo {
+.header_menu, .header_back, .header_logo, .header_repo {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
 
-.header_menu:hover, .header_repo:hover {
+.header_menu:hover, .header_back:hover, .header_repo:hover {
     background-color: #F4F6F9;
 }
 
-.header_menu:active, .header_repo:active {
+.header_menu:active, .header_back:active, .header_repo:active {
     background-color: #D0D1D4;
 }
 
-.header_menu {
+.header_menu, .header_back {
     width: 40px;
     border-right: 2px solid #FFFFFF;
 }
 
-.menu_icon ,.title_icon ,.repo_icon {
+.menu_icon, .title_icon, .repo_icon {
     height: 32px;
     width: 32px;
 }
@@ -148,6 +148,7 @@ main::-webkit-scrollbar-thumb {
     border-right: 2px solid #333334;
     color: #FFFFFF;
 }
+
 .main-header {
     font-family: "Minecraft Ten", sans-serif;
 }
@@ -240,13 +241,13 @@ main::-webkit-scrollbar-thumb {
     margin-top: 4px;
 }
 
-.header_notice_body a ,.description1 a ,.description2 a {
+.header_notice_body a, .description1 a, .description2 a {
     color: inherit;
     position: relative;
     text-decoration: none;
 }
 
-.header_notice_body a::after ,.description1 a::after ,.description2 a::after {
+.header_notice_body a::after, .description1 a::after, .description2 a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -360,7 +361,7 @@ main::-webkit-scrollbar-thumb {
     height: 20px;
 }
 
-.download_line ,.preview_btns {
+.download_line, .preview_btns {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -392,7 +393,7 @@ main::-webkit-scrollbar-thumb {
     text-decoration: none;
 }
 
-.tooltip  a::after  {
+.tooltip a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -433,10 +434,11 @@ main::-webkit-scrollbar-thumb {
 }
 
 .dialog_area {
+    display: none;
     z-index: 11;
     position: fixed;
     width: 90%;
-    min-width: 200px;
+    min-width: 300px;
     max-width: 400px;
     left: 50%;
     top: 50%;
@@ -486,7 +488,7 @@ main::-webkit-scrollbar-thumb {
     box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
 }
 
-.dialog_btns {
+.dialog_btn_area {
     background-color: #48494A;
     border-top: 2px solid #5A5B5C;
     border-bottom: 2px solid #333334;
@@ -496,8 +498,17 @@ main::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
-.dialog_btn {
+.dialog_btn_group {
     width: calc(100% - 20px);
+}
+
+.dialog_btns {
+    display: flex;
+    align-items: center;
+}
+
+.dialog_btn {
+    width: 100%;
 }
 
 .page_info_title, .page_info {
