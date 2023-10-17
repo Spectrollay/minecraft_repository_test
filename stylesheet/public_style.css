@@ -149,7 +149,7 @@ main::-webkit-scrollbar-thumb {
     color: #FFFFFF;
 }
 
-.main-header {
+.main-header, .main-footer {
     font-family: "Minecraft Ten", sans-serif;
 }
 
@@ -161,11 +161,11 @@ main::-webkit-scrollbar-thumb {
     border-right: 0;
 }
 
-.header_notice_title {
+.header_notice_title, .footer_notice_title {
     font-size: 28px;
 }
 
-.header_notice_body {
+.header_notice_body, .footer_notice_body {
     justify-items: center;
 }
 
