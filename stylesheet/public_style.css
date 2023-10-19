@@ -230,8 +230,7 @@ main::-webkit-scrollbar-thumb {
 .description2 {
     font-size: 16px;
     font-family: "NotoSans Bold", sans-serif;
-    margin-top: 4px;
-    margin-bottom: 8px;
+    margin: 4px 8px 8px 8px;
 }
 
 .description3 {
@@ -245,16 +244,7 @@ main::-webkit-scrollbar-thumb {
     color: inherit;
     position: relative;
     text-decoration: none;
-}
-
-.header_notice_body a::after, .description1 a::after, .description2 a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0px;
-    width: 100%;
-    height: 2px;
-    background-color: #FFFFFF;
+    box-shadow: inset 0 -2px 0 0 #FFFFFF;
 }
 
 /*默认按钮*/
@@ -391,16 +381,7 @@ main::-webkit-scrollbar-thumb {
     color: inherit;
     position: relative;
     text-decoration: none;
-}
-
-.tooltip a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0px;
-    width: 100%;
-    height: 2px;
-    background-color: #FFFFFF;
+    box-shadow: inset 0 -2px 0 0 #FFFFFF;
 }
 
 .information_tip {
@@ -529,16 +510,7 @@ main::-webkit-scrollbar-thumb {
     color: inherit;
     position: relative;
     text-decoration: none;
-}
-
-.page_info a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0px;
-    width: 100%;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 -2px 0 0 rgba(255, 255, 255, 0.4);
 }
 
 .sidebar {

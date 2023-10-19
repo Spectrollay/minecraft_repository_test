@@ -35,8 +35,8 @@
         <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
         <div class="preview_detail">请注意: 新设计还未完工,可能会缺失部分功能.</div>
         <div class="preview_btns">
-                <button class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();">更新历史</button>
-                <button class="btn green_btn preview_btn" onclick="playSound2();toRepo();">提出反馈</button>
+            <button class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();">更新历史</button>
+            <button class="btn green_btn preview_btn" onclick="playSound2();toRepo();">提出反馈</button>
         </div>
     </div>
     <div class="block_spacing"></div>
@@ -56,13 +56,12 @@
         <div class="main header_notice_body">
             <div class="title3">简介</div>
             <div class="description2">
-                Minecraft 版本库是一个开放共享的资源站,<br>
-                专注于收录<a href="https://www.minecraft.net/" onclick="playSound1();">Minecraft</a>发布过的所有版本.
+                Minecraft 版本库是一个开放共享的资源站,专注于收录<a href="https://www.minecraft.net/" onclick="playSound1();">Minecraft</a>发布过的所有版本.
             </div>
         </div>
         <div class="main header_notice_body">
             <div class="description2">
-                请尽量支持Minecraft正版!<br>
+                请积极支持Minecraft正版!<br>
                 你可以通过以下方式购买正版:<br>
                 <a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe"
                    onclick="playSound1();">Google Play</a> /
@@ -151,7 +150,7 @@
     <div id="more_edition" class="block">
         <div class="main">
             <div class="title1">其他版本</div>
-            <div class="description1">更多</div>
+            <div class="description1">上面那么多版本还满足不了你?</div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./default/coming_soon.html');"></div>
     </div>
@@ -161,7 +160,31 @@
             <div class="footer_notice_title">版本库须知</div>
         </div>
         <div class="main footer_notice_body">
-            <div class="title3">免责声明</div>
+            <div class="title3">使用条款与免责声明</div>
+            <div class="description2">
+                <p>本版本库收集的安装包仅供正版玩家学习研究或欣赏,不得用于其他任何商业或者非商业用途.</p>
+                <p>我们不对你使用本版本库的行为所造成的一切后果负责,请你在获取到安装包后的24小时内将其删除.</p>
+                <p>
+                    本版本库中的部分链接指向第三方运营的外部网站,我们不能保证其稳定性和安全性.在访问这些外部网站时,你也需要遵循相关的使用条款.</p>
+                <p>使用本版本库即代表你同意此使用条款及免责申明.下载本版本库提供的安装包即代表你同意<a
+                        href="https://www.minecraft.net/terms" target="_blank">Minecraft使用准则</a>.</p>
+            </div>
+        </div>
+        <div class="main footer_notice_body">
+            <div class="title3">关于我们</div>
+            <div class="description2">
+                <p>版本库开发: @Spectrollay</p>
+                <p>版本库维护: @Spectrollay</p>
+                <p>默认网盘提供: @huang1111</p>
+                <p>聊天群: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playSound1()">Telegram</a> /
+                    <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609"
+                       target="_blank" onclick="playSound1()">QQ</a> / <a
+                            href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank"
+                            onclick="playSound1()">云湖</a></p>
+            </div>
+        </div>
+        <div class="main footer_notice_body">
+            <div class="title3">赞助我们</div>
             <div class="description2">
                 <div>
                     <img class="coming_soon-img" alt="Coming Soon Image" src="./images/Building.png">
@@ -170,7 +193,7 @@
             </div>
         </div>
         <div class="main footer_notice_body">
-            <div class="title3">关于我们</div>
+            <div class="title3">友情链接</div>
             <div class="description2">
                 <div>
                     <img class="coming_soon-img" alt="Coming Soon Image" src="./images/Building.png">
@@ -222,7 +245,9 @@
     <div class="dialog">
         <div class="dialog_title">预览提示</div>
         <div class="dialog_content">
-            <p>此网站仅供预览体验,可能缺失大部分功能</p><p>里面的很多跳转链接都还没写好</p><p>反馈请前往聊天群组</p>
+            <p>此网站仅供预览体验,可能缺失大部分功能</p>
+            <p>里面的很多跳转链接都还没写好</p>
+            <p>反馈请前往聊天群组</p>
         </div>
         <div class="dialog_btn_area">
             <button class="btn green_btn dialog_btn" onclick="hideAlertDialog(this);">我知道了</button>
