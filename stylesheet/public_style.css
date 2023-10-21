@@ -446,7 +446,7 @@ main::-webkit-scrollbar-thumb {
 
 .dialog_content {
     padding: 10px 10px 10px 10px;
-    min-height: 80px;
+    min-height: 60px;
     max-height: 200px;
     overflow-y: auto;
     align-items: center;

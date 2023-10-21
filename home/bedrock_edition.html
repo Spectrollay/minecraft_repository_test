@@ -21,9 +21,6 @@
         <img class="title_icon" alt="Title Icon" src="../images/Marketplace.png"><span
             class="header_title">Repository</span>
     </div>
-    <div id="repo" class="header_repo" onclick="clickedRepo();">
-        <img class="repo_icon" alt="Repo" src="../images/Github.png">
-    </div>
 </header>
 <main id="main">
     <div id="main_top"></div>
@@ -35,8 +32,8 @@
         <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
         <div class="preview_detail">请注意: 新设计还未完工,可能会缺失部分功能.</div>
         <div class="preview_btns">
-                <button class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();">更新历史</button>
-                <button class="btn green_btn preview_btn" onclick="playSound2();toRepo();">提出反馈</button>
+            <button class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();">更新历史</button>
+            <button class="btn green_btn preview_btn" onclick="playSound2();toRepo();">提出反馈</button>
         </div>
     </div>
     <div class="block_spacing"></div>
@@ -1114,20 +1111,20 @@
 <!--免责申明弹窗-->
 <div id="disclaimer_dialog" class="dialog_area">
     <div class="dialog">
-        <div class="dialog_title">提示</div>
+        <div class="dialog_title">温馨提示</div>
         <div class="dialog_content">
-            <p>去验证版仅供正版玩家学习研究或欣赏,不得用于其他任何商业或者非商业用途.</p>
-            <p>我们不对你使用本安装包的行为所造成的一切后果负责,请你在获取到安装包后的24小时内将其删除.</p>
-            <p>在任何情况下都请尽量支持正版!</p>
+            <p>有能力请支持正版!</p>
         </div>
         <div class="dialog_btn_area">
             <div class="dialog_btn_group">
                 <div class="dialog_btns">
-                    <button class="btn normal_btn dialog_btn" onclick="hideDisclaimerDialog(this,0,null);">我再想想
+                    <button class="btn normal_btn dialog_btn" onclick="hideDisclaimerDialog(this,0,'../default/coming_soon.html');">正版购买指南
                     </button>
                 </div>
                 <div class="dialog_btns">
-                    <button id="dialog_agree_btn" class="btn green_btn dialog_btn" onclick="hideDisclaimerDialog(this,0,openurl);">已阅读并同意</button>
+                    <button id="dialog_agree_btn" class="btn green_btn dialog_btn"
+                            onclick="hideDisclaimerDialog(this,0,openurl);">我知道了
+                    </button>
                     <button class="btn red_btn dialog_btn" onclick="hideDisclaimerDialog(this,-1,null);">我不同意
                     </button>
                 </div>
