@@ -23,14 +23,20 @@ function hideDisclaimerDialog(button, state, url) {
     if (state === -1) {
         console.log("选择了不同意");
     } else if (state === 0) {
-        console.log("选择了再想想");
+        console.log("了解正版购买");
     } else if (state === 1) {
         console.log("选择了同意并继续");
     }
     console.log("关闭免责声明弹窗");
     if (url !== null) {
         console.log("获取到跳转链接:" + url);
-        window.open(url);
+        if (state === 0) {
+            setTimeout(function () {
+                window.location.href = url;
+            }, 160);
+        } else {
+            window.open(url);
+        }
         console.log("跳转成功");
     } else {
         console.log("无跳转链接");
