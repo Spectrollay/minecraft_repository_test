@@ -28,20 +28,13 @@
         <div id="tip" class="tooltip normal_tip"></div>
     </div>
     <div class="main preview_block">
-        <div class="preview_title">欢迎观看设计预览!</div>
-        <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
-        <div class="preview_detail">请注意: 新设计还未完工,可能会缺失部分功能.</div>
+        <div id="preview_title" class="preview_title"></div>
+        <div id="preview_detail1" class="preview_detail"></div>
+        <div id="preview_detail2" class="preview_detail"></div>
         <div class="preview_btns">
-                <button class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();">更新历史</button>
-                <button class="btn green_btn preview_btn" onclick="playSound2();toRepo();">提出反馈</button>
+            <button id="preview_btn1" class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();"></button>
+            <button id="preview_btn2" class="btn green_btn preview_btn" onclick="playSound2();toRepo();"></button>
         </div>
-    </div>
-    <div class="block_spacing"></div>
-    <div class="block">
-        <div class="main">
-            <div class="title1">页面待完成</div>
-        </div>
-        <div class="main">正在建造中</div>
     </div>
     <div class="block_spacing"></div>
     <div class="block">
@@ -49,7 +42,265 @@
             <div class="title1">Education Edition</div>
             <div class="description1">教育版</div>
         </div>
-        <div class="main"></div>
+        <div id="1.20" class="main">
+            <div class="title2">1.20 - 足迹与故事</div>
+            <div class="description2">更新日志:
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%881.20.12" target="_blank"
+                   onclick="playSound1();">中文Minecraft Wiki</a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">下载</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn_large"
+                                onclick="playSound(this);">外部链接</button>
+                    </a>
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn red_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">蓝奏云盘</button>
+                    <!--                    </a>-->
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">123云盘</button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">天翼云盘</button>
+                    <!--                    </a>-->
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">百度云盘</button>
+                    <!--                    </a>-->
+                </div>
+            </div>
+        </div>
+        <div id="1.19" class="main">
+            <div class="title2">1.19 - 荒野更新</div>
+            <div class="description2">更新日志:
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%881.19.52" target="_blank"
+                   onclick="playSound1();">中文Minecraft Wiki</a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">官方原版</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">外部链接</button>
+                    </a>
+                </div>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">网盘下载</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
+                        </button>
+                    </a>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">蓝奏云盘</button>
+                    </a>
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">123云盘</button>
+                    </a>
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">天翼云盘</button>
+                    <!--                    </a>-->
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">百度云盘</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="1.18" class="main">
+            <div class="title2">1.18 - Mobile, Multiplayer & More</div>
+            <div class="description2">更新日志:
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%881.18.32" target="_blank"
+                   onclick="playSound1();">中文Minecraft Wiki</a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">官方原版</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">外部链接</button>
+                    </a>
+                </div>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">网盘下载</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
+                        </button>
+                    </a>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">蓝奏云盘</button>
+                    </a>
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn red_btn download_btn" onclick="playSound(this);">123云盘</button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">天翼云盘</button>
+                    <!--                    </a>-->
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">百度云盘</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="1.17" class="main">
+            <div class="title2">1.17 - 山羊更新</div>
+            <div class="description2">更新日志:
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%881.17.30" target="_blank"
+                   onclick="playSound1();">中文Minecraft Wiki</a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">官方原版</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">外部链接</button>
+                    </a>
+                </div>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">网盘下载</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
+                        </button>
+                    </a>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">蓝奏云盘</button>
+                    </a>
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn red_btn download_btn" onclick="playSound(this);">123云盘</button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">天翼云盘</button>
+                    <!--                    </a>-->
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">百度云盘</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="1.14.70" class="main">
+            <div class="title2">1.14.70 - Camps & Clubs</div>
+            <div class="description2">更新日志:
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%881.14.70" target="_blank"
+                   onclick="playSound1();">中文Minecraft Wiki</a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">官方原版</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">外部链接</button>
+                    </a>
+                </div>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">网盘下载</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
+                        </button>
+                    </a>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">蓝奏云盘</button>
+                    </a>
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn red_btn download_btn" onclick="playSound(this);">123云盘</button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">天翼云盘</button>
+                    <!--                    </a>-->
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">百度云盘</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="1.14" class="main">
+            <div class="title2">1.14 - Chromebook更新</div>
+            <div class="description2">更新日志:
+                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%881.14.31" target="_blank"
+                   onclick="playSound1();">中文Minecraft Wiki</a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">官方原版</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">外部链接</button>
+                    </a>
+                </div>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">网盘下载</div>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
+                        </button>
+                    </a>
+                </div>
+                <div class="download_line">
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">蓝奏云盘</button>
+                    </a>
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn red_btn download_btn" onclick="playSound(this);">123云盘</button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" onclick="playSound(this);">天翼云盘</button>
+                    <!--                    </a>-->
+                    <a href="" target="_blank">
+                        <button class="btn normal_btn download_btn" onclick="playSound(this);">百度云盘</button>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
         <div class="page_info"><br></div>
@@ -68,11 +319,12 @@
     </div>
     <div class="sidebar_list">
         <div class="sidebar_item">教育版</div>
-        <a class="sidebar_item" href="#">1.19</a>
-        <a class="sidebar_item" href="#">1.18</a>
-        <a class="sidebar_item" href="#">1.17</a>
-        <a class="sidebar_item" href="#">1.14.70</a>
-        <a class="sidebar_item" href="#">1.14</a>
+        <a class="sidebar_item" href="#1.20">1.20</a>
+        <a class="sidebar_item" href="#1.19">1.19</a>
+        <a class="sidebar_item" href="#1.18">1.18</a>
+        <a class="sidebar_item" href="#1.17">1.17</a>
+        <a class="sidebar_item" href="#1.14.70">1.14.70</a>
+        <a class="sidebar_item" href="#1.14">1.14</a>
     </div>
     <div class="sidebar_info">
         <div class="sidebar_detail_title">Minecraft Kit</div>

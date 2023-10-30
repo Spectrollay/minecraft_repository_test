@@ -14,6 +14,16 @@ function showDisclaimerDialog(url) {
     }
 }
 
+function howToBuyGame(button, state, url) {
+    playSound(button);
+    if (state === 0) {
+        console.log("选择了了解正版购买");
+    }
+    console.log("获取到跳转链接: " + url);
+    window.open(url);
+    console.log("跳转成功");
+}
+
 function hideDisclaimerDialog(button, state, url) {
     const overlay = document.getElementById("overlay");
     const dialog = document.getElementById("disclaimer_dialog");
@@ -22,15 +32,13 @@ function hideDisclaimerDialog(button, state, url) {
     dialog.style.display = "none";
     if (state === -1) {
         console.log("选择了不同意");
-    } else if (state === 0) {
-        console.log("了解正版购买");
     } else if (state === 1) {
         console.log("选择了同意并继续");
     }
     console.log("关闭免责声明弹窗");
     if (url !== null) {
         console.log("获取到跳转链接:" + url);
-        if (state === 0) {
+        if (state === 1) {
             setTimeout(function () {
                 window.location.href = url;
             }, 160);

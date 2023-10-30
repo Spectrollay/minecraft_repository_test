@@ -28,12 +28,12 @@
         <div id="tip" class="tooltip normal_tip"></div>
     </div>
     <div class="main preview_block">
-        <div class="preview_title">欢迎观看设计预览!</div>
-        <div class="preview_detail">我们想听听你对这个新设计的意见.</div>
-        <div class="preview_detail">请注意: 新设计还未完工,可能会缺失部分功能.</div>
+        <div id="preview_title" class="preview_title"></div>
+        <div id="preview_detail1" class="preview_detail"></div>
+        <div id="preview_detail2" class="preview_detail"></div>
         <div class="preview_btns">
-            <button class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();">更新历史</button>
-            <button class="btn green_btn preview_btn" onclick="playSound2();toRepo();">提出反馈</button>
+            <button id="preview_btn1" class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();"></button>
+            <button id="preview_btn2" class="btn green_btn preview_btn" onclick="playSound2();toRepo();"></button>
         </div>
     </div>
     <div class="block_spacing"></div>
@@ -82,8 +82,7 @@
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                    </button>
+                    <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     <!--                    </a>-->
                 </div>
                 <div class="download_line">
@@ -121,14 +120,12 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn green_btn download_btn_large" onclick="playSound(this);">中文译名修正
-                        </button>
+                        <button class="btn green_btn download_btn_large" onclick="playSound(this);">中文译名修正</button>
                     </a>
                 </div>
                 <div class="download_line">
                     <button class="btn normal_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog('https://www.bing.com');">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog('https://www.bing.com');">去验证版
                     </button>
                 </div>
             </div>
@@ -138,9 +135,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">
-                            默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -183,8 +178,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog('https://www.google.com');">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog('https://www.google.com');">去验证版
                     </button>
                 </div>
             </div>
@@ -194,9 +188,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">
-                            默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -239,8 +231,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -250,9 +241,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">
-                            默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -295,8 +284,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -306,9 +294,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">
-                            默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -351,8 +337,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -362,9 +347,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">
-                            默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -408,8 +391,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -419,8 +401,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -464,8 +445,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -475,8 +455,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -520,8 +499,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -531,8 +509,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -576,8 +553,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -587,8 +563,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -632,8 +607,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -643,8 +617,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -688,8 +661,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -699,8 +671,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -744,8 +715,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -755,8 +725,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -800,8 +769,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -811,8 +779,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -856,8 +823,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -867,8 +833,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -912,8 +877,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -923,8 +887,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -968,8 +931,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -979,8 +941,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -1024,8 +985,7 @@
                 </div>
                 <div class="download_line">
                     <button class="btn green_btn download_btn_large"
-                            onclick="playSound(this);showDisclaimerDialog();">
-                        去验证版
+                            onclick="playSound(this);showDisclaimerDialog();">去验证版
                     </button>
                 </div>
             </div>
@@ -1035,8 +995,7 @@
                 </div>
                 <div class="download_line">
                     <a href="" target="_blank">
-                        <button class="btn normal_btn download_btn download_btn_large" onclick="playSound(this);">默认云盘
-                        </button>
+                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);">默认云盘</button>
                     </a>
                 </div>
                 <div class="download_line">
@@ -1118,12 +1077,13 @@
         <div class="dialog_btn_area">
             <div class="dialog_btn_group">
                 <div class="dialog_btns">
-                    <button class="btn normal_btn dialog_btn" onclick="hideDisclaimerDialog(this,0,'../default/coming_soon.html');">正版购买指南
+                    <button class="btn normal_btn dialog_btn"
+                            onclick="howToBuyGame(this,0,'../default/coming_soon.html');">正版购买指南
                     </button>
                 </div>
                 <div class="dialog_btns">
                     <button id="dialog_agree_btn" class="btn green_btn dialog_btn"
-                            onclick="hideDisclaimerDialog(this,0,openurl);">我知道了
+                            onclick="hideDisclaimerDialog(this,1,openurl);">我知道了
                     </button>
                     <button class="btn red_btn dialog_btn" onclick="hideDisclaimerDialog(this,-1,null);">我不同意
                     </button>

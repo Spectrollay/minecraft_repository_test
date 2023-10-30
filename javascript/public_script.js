@@ -50,6 +50,7 @@ function toggleSidebar() {
     console.log("更新侧边栏状态成功");
 }
 
+// 切换遮罩
 function toggleOverlay() {
     const overlay_main = document.getElementById("overlay_main");
     if (overlayShow) {
@@ -74,12 +75,14 @@ function playSound(button) {
     }
 }
 
+// 点击菜单图标事件
 function clickedMenu() {
     playSound1();
     toggleSidebar();
     toggleOverlay();
 }
 
+// 点击返回按钮事件
 function clickedBack() {
     playSound1();
     if (window.history.length <= 1) {
@@ -95,25 +98,29 @@ function clickedBack() {
     }
 }
 
+// 点击遮罩事件
 function clickedOverlay() {
     toggleSidebar();
     toggleOverlay();
 }
 
+// 点击仓库图标事件
 function clickedRepo() {
     playSound1();
     window.open("https://github.com/Spectrollay/minecraft_repository");
 }
 
+// 点击侧边栏底部按钮事件
 function clickedSidebarBottomBtn() {
     playSound1();
     window.open("https://github.com/Spectrollay/minecraft_kit");
 }
 
+// 跳转链接
 function jumpToPage(link) {
     playSound1();
     setTimeout(function () {
-    window.location.href = link;
+        window.location.href = link;
     }, 160);
 }
 

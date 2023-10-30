@@ -3,13 +3,27 @@ let currentTipIndex = -1;
 const tipElement = document.getElementById("tip");
 
 const texts = {
+    preview_title: "欢迎观看设计预览!",
+    preview_detail1: "我们想听听你对这个新设计的意见.",
+    preview_detail2: "请注意: 新设计还未完工,可能会缺失部分功能.",
+    preview_btn1: "更新历史",
+    preview_btn2: "<img class=\"link_img\" src=\"../images/ExternalLink_white.png\" alt=\"link\"/>提出反馈",
+    page_info_title1: "INFORMATION",
+    page_info_detail1: "Version: 4.2-Preview10<br>Server Version: 4.0<br>Updated: 2023-10-30-02",
+    page_info_title2: "ABOUT US",
+    page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
     jump_text: "点击前往下载页面",
     back_to_main: "返回首页",
     sidebar_bottom_btn: "官方网站",
-    page_info_title1: "INFORMATION",
-    page_info_detail1: "Version: 4.2-Preview8<br>Server Version: 4.0<br>Updated: 2023-10-21-01",
-    page_info_title2: "ABOUT US",
-    page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
+    download_btn1: "官方原版",
+    download_btn2: "中文译名修正",
+    download_btn3: "去验证版",
+    download_btn4: "默认云盘",
+    download_btn5: "蓝奏云盘",
+    download_btn6: "123云盘",
+    download_btn7: "天翼云盘",
+    download_btn8: "百度云盘",
+    download_btn9: "<img class=\"link_img\" src=\"../images/ExternalLink.png\" alt=\"link\"/>外部链接",
 };
 
 const tipsWithWeights = [
@@ -57,11 +71,53 @@ for (let i = 0; i < backToMainTexts.length; i++) {
     backToMainTexts[i].innerHTML = texts.back_to_main;
 }
 
+// const download_btn1 = document.getElementsByClassName("download_btn1");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn1[i].innerHTML = texts.download_btn1;
+// }
+// const download_btn2 = document.getElementsByClassName("download_btn2");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn2[i].innerHTML = texts.download_btn2;
+// }
+// const download_btn3 = document.getElementsByClassName("download_btn3");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn3[i].innerHTML = texts.download_btn3;
+// }
+// const download_btn4 = document.getElementsByClassName("download_btn4");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn4[i].innerHTML = texts.download_btn4;
+// }
+// const download_btn5 = document.getElementsByClassName("download_btn5");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn5[i].innerHTML = texts.download_btn5;
+// }
+// const download_btn6 = document.getElementsByClassName("download_btn6");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn6[i].innerHTML = texts.download_btn6;
+// }
+// const download_btn7 = document.getElementsByClassName("download_btn7");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn7[i].innerHTML = texts.download_btn7;
+// }
+// const download_btn8 = document.getElementsByClassName("download_btn8");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn8[i].innerHTML = texts.download_btn8;
+// }
+// const download_btn9 = document.getElementsByClassName("download_btn9");
+// for (let i = 0; i < backToMainTexts.length; i++) {
+//     download_btn9[i].innerHTML = texts.download_btn9;
+// }
+
 document.getElementById("page_info_title1").innerHTML = texts.page_info_title1;
 document.getElementById("page_info_detail1").innerHTML = texts.page_info_detail1;
 document.getElementById("page_info_title2").innerHTML = texts.page_info_title2;
 document.getElementById("page_info_detail2").innerHTML = texts.page_info_detail2;
 document.getElementById("sidebar_bottom_btn").innerHTML = texts.sidebar_bottom_btn;
+document.getElementById("preview_title").innerHTML = texts.preview_title;
+document.getElementById("preview_detail1").innerHTML = texts.preview_detail1;
+document.getElementById("preview_detail2").innerHTML = texts.preview_detail2;
+document.getElementById("preview_btn1").innerHTML = texts.preview_btn1;
+document.getElementById("preview_btn2").innerHTML = texts.preview_btn2;
 console.log("字符常量已成功应用");
 
 // 加载网页时的提示
