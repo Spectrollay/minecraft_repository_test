@@ -38,10 +38,7 @@
     </div>
     <div class="block_spacing"></div>
     <div class="block">
-        <div class="main">
-            <div class="title1">页面待完成</div>
-        </div>
-        <div class="main">正在建造中</div>
+        <div class="main back_block back_to_main" onclick="jumpToPage('../home.html');"></div>
     </div>
     <div class="block_spacing"></div>
     <div class="block">
@@ -49,7 +46,96 @@
             <div class="title1">Minecraft Demo</div>
             <div class="description1">演示版</div>
         </div>
-        <div class="main"></div>
+        <div id="0.2" class="main">
+            <div class="title2">0.2</div>
+            <div class="description2">更新日志:
+                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E6%90%BA%E5%B8%A6%E7%89%880.2.0"
+                   target="_blank"
+                   onclick="playSound1();"></a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">下载</div>
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn_large" text-generation="download_btn4"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn5"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn6"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn7"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn8"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+            </div>
+        </div>
+        <div id="0.1" class="main">
+            <div class="title2">0.1</div>
+            <div class="description2">更新日志:
+                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E6%90%BA%E5%B8%A6%E7%89%880.1.0"
+                   target="_blank"
+                   onclick="playSound1();"></a>
+            </div>
+            <div class="download_group">
+                <div class="download_line">
+                    <div class="description3">下载</div>
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn_large" text-generation="download_btn4"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn5"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn6"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+                <div class="download_line">
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn7"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                    <!--                    <a href="" target="_blank">-->
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn8"
+                            onclick="playSound(this);"></button>
+                    <!--                    </a>-->
+                </div>
+            </div>
+        </div>
     </div>
     <div>
         <div class="page_info"><br></div>
@@ -72,8 +158,8 @@
         <a class="sidebar_item" href="#">0.1</a>
     </div>
     <div class="sidebar_info">
-        <div class="sidebar_detail_title">Minecraft Kit</div>
-        <div class="sidebar_detail">© 2020 Spectrollay</div>
+        <div id="sidebar_bottom_title" class="sidebar_detail_title"></div>
+        <div id="sidebar_bottom_detail1" class="sidebar_detail"></div>
         <div class="sidebar_detail">
             <button id="sidebar_bottom_btn" class="btn sidebar_btn" onclick="clickedSidebarBottomBtn();"></button>
         </div>
