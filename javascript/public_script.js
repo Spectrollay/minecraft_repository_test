@@ -1,12 +1,25 @@
 let sidebarOpen = false;
 let overlayShow = false;
+let soundClickPath;
+let soundButtonPath;
+let updatelogPath;
 
 const startTime = new Date().getTime();
 const audioInstances = [];
 const main = document.getElementById("main");
 
 const currentURL = window.location.href;
+const currentPagePath = window.location.pathname;
 
+if (currentPagePath.indexOf('/home.html') !== -1) {
+    soundClickPath = './sounds/click.ogg';
+    soundButtonPath = './sounds/button.ogg';
+    updatelogPath = './updatelog/updatelog.html';
+} else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1)) {
+    soundClickPath = '../sounds/click.ogg';
+    soundButtonPath = '../sounds/button.ogg';
+    updatelogPath = '../updatelog/updatelog.html';
+}
 window.addEventListener("error", function (event) {
     console.error("错误: ", event.message);
 });
@@ -36,6 +49,46 @@ window.addEventListener("load", function () {
     let loadTime = endTime - startTime;
     console.log("页面加载耗时: " + loadTime + "ms");
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const click = new Audio(soundClickPath);
+    const button = new Audio(soundButtonPath);
+    click.volume = 0;
+    button.volume = 0;
+    audioInstances.push(click);
+    audioInstances.push(button);
+    click.play().then(() => {
+        console.log("音频预加载成功!");
+    }).catch((error) => {
+        console.warn("音频预加载失败: ", error);
+    });
+    button.play().then(() => {
+        console.log("音频预加载成功!");
+    }).catch((error) => {
+        console.warn("音频预加载失败: ", error);
+    });
+    showAlertDialog();
+});
+
+function playSound1() {
+    const audio = new Audio(soundClickPath);
+    audioInstances.push(audio);
+    audio.play().then(() => {
+        console.log("音效播放成功!");
+    }).catch((error) => {
+        console.error("音效播放失败: ", error);
+    });
+}
+
+function playSound2() {
+    const audio = new Audio(soundButtonPath);
+    audioInstances.push(audio);
+    audio.play().then(() => {
+        console.log("音效播放成功!");
+    }).catch((error) => {
+        console.error("音效播放失败: ", error);
+    });
+}
 
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
@@ -82,6 +135,18 @@ function clickedMenu() {
     toggleOverlay();
 }
 
+function toUpdatelog() {
+    setTimeout(function () {
+        window.location.href = updatelogPath;
+    }, 240);
+}
+
+function toRepo() {
+    setTimeout(function () {
+        window.open("https://github.com/Spectrollay/minecraft_repository/issues/new");
+    }, 240);
+}
+
 // 点击返回按钮事件
 function clickedBack() {
     playSound1();
@@ -89,12 +154,12 @@ function clickedBack() {
         console.log("关闭窗口");
         setTimeout(function () {
             window.close();
-        }, 160);
+        }, 240);
     } else {
         console.log("返回上一级页面");
         setTimeout(function () {
             window.history.back();
-        }, 160);
+        }, 240);
     }
 }
 
@@ -121,7 +186,7 @@ function jumpToPage(link) {
     playSound1();
     setTimeout(function () {
         window.location.href = link;
-    }, 160);
+    }, 240);
 }
 
 // 回到网页顶部

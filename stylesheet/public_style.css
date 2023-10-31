@@ -85,9 +85,14 @@ header {
     border-right: 2px solid #FFFFFF;
 }
 
-.menu_icon, .title_icon, .repo_icon {
+.menu_icon, .repo_icon {
     height: 32px;
     width: 32px;
+}
+
+.title_icon {
+    height: 26px;
+    width: 26px;
 }
 
 .header_logo {
@@ -282,7 +287,7 @@ main::-webkit-scrollbar-thumb {
 .normal_btn:active {
     margin-top: 10px;
     height: 36px;
-    padding-bottom: 0;
+    padding-bottom: 2px;
     background-color: #B1B2B5;
     box-shadow: inset 3px 3px #EFF0F0, inset -3px -3px #E0E0E1;
 }
@@ -303,7 +308,7 @@ main::-webkit-scrollbar-thumb {
 .green_btn:active {
     margin-top: 10px;
     height: 36px;
-    padding-bottom: 0;
+    padding-bottom: 2px;
     background-color: #1D4D13;
     box-shadow: inset 3px 3px #779471, inset -3px -3px #608259;
 }
@@ -324,7 +329,7 @@ main::-webkit-scrollbar-thumb {
 .red_btn:active {
     margin-top: 10px;
     height: 36px;
-    padding-bottom: 0;
+    padding-bottom: 2px;
     background-color: #AD1D1D;
     box-shadow: inset 3px 3px #D68E8E, inset -3px -3px #CE7777;
 }
@@ -339,7 +344,7 @@ main::-webkit-scrollbar-thumb {
 
 /*带有图标的按钮*/
 .link_img {
-    margin-bottom: -2px;
+    margin-bottom: -3px;
     height: 14px;
     width: 14px;
     padding-right: 6px;
