@@ -10,6 +10,7 @@ const main = document.getElementById("main");
 
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
+const linkImg = document.getElementsByClassName('link_img');
 
 if (currentPagePath.indexOf('/home.html') !== -1) {
     soundClickPath = './sounds/click.ogg';
@@ -20,6 +21,17 @@ if (currentPagePath.indexOf('/home.html') !== -1) {
     soundButtonPath = '../sounds/button.ogg';
     updatelogPath = '../updatelog/updatelog.html';
 }
+
+for (let i = 0; i < linkImg.length; i++) {
+    const linkImgList = linkImg[i];
+
+    if (currentPagePath.indexOf('/home.html') !== -1) {
+        linkImgList.src = "./images/ExternalLink_white.png";
+    } else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1)) {
+        linkImgList.src = "../images/ExternalLink_white.png";
+    }
+}
+
 window.addEventListener("error", function (event) {
     console.error("错误: ", event.message);
 });

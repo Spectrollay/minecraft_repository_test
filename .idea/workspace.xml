@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fedb853a-4b5b-4a1b-886f-4573f9ef1d83" name="Changes" comment="测试" />
+    <list default="true" id="fedb853a-4b5b-4a1b-886f-4573f9ef1d83" name="Changes" comment="测试">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/editions.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/editions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/public_define.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/public_define.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/public_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/public_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/secondary.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/secondary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylesheet/public_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet/public_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/updatelog/updatelog.html" beforeDir="false" afterPath="$PROJECT_DIR$/updatelog/updatelog.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,6 +128,7 @@
       <workItem from="1697891008954" duration="14000" />
       <workItem from="1698499260251" duration="971000" />
       <workItem from="1698676364941" duration="94000" />
+      <workItem from="1698729086650" duration="14000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <option name="closed" value="true" />
@@ -463,7 +474,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698676382072</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="测试">
+      <option name="closed" value="true" />
+      <created>1698729095780</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1698729095780</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
