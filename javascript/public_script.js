@@ -160,13 +160,13 @@ function clickedMenu() {
 function toUpdatelog() {
     setTimeout(function () {
         window.location.href = updatelogPath;
-    }, 240);
+    }, 320);
 }
 
 function toRepo() {
     setTimeout(function () {
         window.open("https://github.com/Spectrollay/minecraft_repository/issues/new");
-    }, 240);
+    }, 320);
 }
 
 // 点击返回按钮事件
@@ -176,12 +176,12 @@ function clickedBack() {
         console.log("关闭窗口");
         setTimeout(function () {
             window.close();
-        }, 240);
+        }, 320);
     } else {
         console.log("返回上一级页面");
         setTimeout(function () {
             window.history.back();
-        }, 240);
+        }, 320);
     }
 }
 
@@ -208,7 +208,7 @@ function jumpToPage(link) {
     playSound1();
     setTimeout(function () {
         window.location.href = link;
-    }, 240);
+    }, 320);
 }
 
 // 回到网页顶部

@@ -31,7 +31,7 @@ function hideDisclaimerDialog(button, state, url) {
         if (state === 1) {
             setTimeout(function () {
                 window.location.href = url;
-            }, 240);
+            }, 320);
         } else {
             window.open(url);
         }
