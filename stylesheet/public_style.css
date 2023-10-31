@@ -343,8 +343,8 @@ main::-webkit-scrollbar-thumb {
 }
 
 /*带有图标的按钮*/
-.link_img {
-    margin-bottom: -1px;
+.link_img, .link_img_black {
+    margin-bottom: -1.5px;
     height: 14px;
     width: 14px;
     padding-right: 6px;

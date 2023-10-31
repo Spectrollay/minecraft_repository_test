@@ -11,6 +11,7 @@ const main = document.getElementById("main");
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
 const linkImg = document.getElementsByClassName('link_img');
+const linkImgBlack = document.getElementsByClassName('link_img_black');
 
 if (currentPagePath.indexOf('/home.html') !== -1) {
     soundClickPath = './sounds/click.ogg';
@@ -29,6 +30,16 @@ for (let i = 0; i < linkImg.length; i++) {
         linkImgList.src = "./images/ExternalLink_white.png";
     } else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1)) {
         linkImgList.src = "../images/ExternalLink_white.png";
+    }
+}
+
+for (let i = 0; i < linkImgBlack.length; i++) {
+    const linkImgList = linkImgBlack[i];
+
+    if (currentPagePath.indexOf('/home.html') !== -1) {
+        linkImgList.src = "./images/ExternalLink.png";
+    } else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1)) {
+        linkImgList.src = "../images/ExternalLink.png";
     }
 }
 
@@ -79,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch((error) => {
         console.warn("音频预加载失败: ", error);
     });
-    showAlertDialog();
 });
 
 function playSound1() {

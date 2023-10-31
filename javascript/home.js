@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function() {
+    showAlertDialog();
+});
+
 // 预览提示弹窗
 function showAlertDialog() {
     const overlay = document.getElementById("overlay");

@@ -16,7 +16,7 @@ const texts = {
     back_to_main: "返回首页",
     sidebar_bottom_btn: "官方网站",
     download_btn1: "官方原版",
-    download_btn1_1: "<img class=\"link_img\" src=\"\" alt=\"link\"/>官方原版(外部链接)",
+    download_btn1_1: "<img class=\"link_img_black\" src=\"\" alt=\"link\"/>官方原版(外部链接)",
     download_btn2: "中文译名修正",
     download_btn3: "去验证版",
     download_btn4: "默认云盘",
@@ -24,7 +24,7 @@ const texts = {
     download_btn6: "123云盘",
     download_btn7: "天翼云盘",
     download_btn8: "百度云盘",
-    download_btn9: "<img class=\"link_img\" src=\"../images/ExternalLink.png\" alt=\"link\"/>外部链接",
+    download_btn9: "<img class=\"link_img_black\" src=\"\" alt=\"link\"/>外部链接",
 };
 
 const tipsWithWeights = [
@@ -62,72 +62,65 @@ const tipsWithWeights = [
 
 console.log("加载常量和变量完成");
 
+const buttons = document.querySelectorAll('.btn');
+
+function updateButtonText(button) {
+    const textKey = button.getAttribute('text-generation');
+    button.innerHTML = texts[textKey];
+}
+
+buttons.forEach(button => {
+    updateButtonText(button);
+});
+
 const editionBlocks = document.getElementsByClassName("edition_block");
-for (let i = 0; i < editionBlocks.length; i++) {
-    editionBlocks[i].innerHTML = texts.jump_text;
+if (editionBlocks) {
+    for (let i = 0; i < editionBlocks.length; i++) {
+        editionBlocks[i].innerHTML = texts.jump_text;
+    }
+} else {
 }
 
 const backToMainTexts = document.getElementsByClassName("back_to_main");
-for (let i = 0; i < backToMainTexts.length; i++) {
-    backToMainTexts[i].innerHTML = texts.back_to_main;
+if (backToMainTexts) {
+    for (let i = 0; i < backToMainTexts.length; i++) {
+        backToMainTexts[i].innerHTML = texts.back_to_main;
+    }
+} else {
 }
 
-// const download_btn1 = document.getElementsByClassName("download_btn1");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn1[i].innerHTML = texts.download_btn1;
-// }
-// const download_btn2 = document.getElementsByClassName("download_btn2");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn2[i].innerHTML = texts.download_btn2;
-// }
-// const download_btn3 = document.getElementsByClassName("download_btn3");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn3[i].innerHTML = texts.download_btn3;
-// }
-// const download_btn4 = document.getElementsByClassName("download_btn4");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn4[i].innerHTML = texts.download_btn4;
-// }
-// const download_btn5 = document.getElementsByClassName("download_btn5");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn5[i].innerHTML = texts.download_btn5;
-// }
-// const download_btn6 = document.getElementsByClassName("download_btn6");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn6[i].innerHTML = texts.download_btn6;
-// }
-// const download_btn7 = document.getElementsByClassName("download_btn7");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn7[i].innerHTML = texts.download_btn7;
-// }
-// const download_btn8 = document.getElementsByClassName("download_btn8");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn8[i].innerHTML = texts.download_btn8;
-// }
-// const download_btn9 = document.getElementsByClassName("download_btn9");
-// for (let i = 0; i < backToMainTexts.length; i++) {
-//     download_btn9[i].innerHTML = texts.download_btn9;
-// }
+const setElementText = (elementId, text) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerHTML = text;
+    } else {
+    }
+}
 
-document.getElementById("page_info_title1").innerHTML = texts.page_info_title1;
-document.getElementById("page_info_detail1").innerHTML = texts.page_info_detail1;
-document.getElementById("page_info_title2").innerHTML = texts.page_info_title2;
-document.getElementById("page_info_detail2").innerHTML = texts.page_info_detail2;
-document.getElementById("sidebar_bottom_btn").innerHTML = texts.sidebar_bottom_btn;
-document.getElementById("preview_title").innerHTML = texts.preview_title;
-document.getElementById("preview_detail1").innerHTML = texts.preview_detail1;
-document.getElementById("preview_detail2").innerHTML = texts.preview_detail2;
-document.getElementById("preview_btn1").innerHTML = texts.preview_btn1;
-document.getElementById("preview_btn2").innerHTML = texts.preview_btn2;
+setElementText("page_info_title1", texts.page_info_title1);
+setElementText("page_info_detail1", texts.page_info_detail1);
+setElementText("page_info_title2", texts.page_info_title2);
+setElementText("page_info_detail2", texts.page_info_detail2);
+setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
+setElementText("preview_title", texts.preview_title);
+setElementText("preview_detail1", texts.preview_detail1);
+setElementText("preview_detail2", texts.preview_detail2);
+setElementText("preview_btn1", texts.preview_btn1);
+setElementText("preview_btn2", texts.preview_btn2);
+
 console.log("字符常量已成功应用");
 
 // 加载网页时的提示
-tipElement.innerHTML = getRandomTip();
-console.log("提示已选择成功");
+if (tipElement) {
+    tipElement.innerHTML = getRandomTip();
+    console.log("提示已选择成功");
+} else {
+    console.log("未发现提示框");
+}
 
 function getRandomTip() {
     const totalWeight = tipsWithWeights.reduce((acc, tip) => acc + tip.weight, 0);
-    console.log("总权重:" + totalWeight + ",上次选中值:" + previousTipIndex + ",当前选中值" + currentTipIndex);
+    console.log("总权重:" + totalWeight + ",上次选中值:" + previousTipIndex + ",当前选中值:" + currentTipIndex);
     console.log("开始选择");
     let accumulatedWeight = 0;
     for (const tip of tipsWithWeights) {
