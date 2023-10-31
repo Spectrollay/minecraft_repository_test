@@ -169,6 +169,13 @@ function toRepo() {
     }, 320);
 }
 
+function delayedOpenLink(url) {
+    playSound1();
+    setTimeout(function() {
+        window.location.href = url;
+    }, 320);
+}
+
 // 点击返回按钮事件
 function clickedBack() {
     playSound1();
