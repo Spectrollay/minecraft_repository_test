@@ -9,7 +9,7 @@ const texts = {
     preview_btn1: "更新历史",
     preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"link\"/>提出反馈",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "Version: 4.3-Preview2<br>Server Version: 4.0<br>Updated: 2023-10-31-12",
+    page_info_detail1: "Version: 4.3-Preview3-Final<br>Server Version: 4.0<br>Updated: 2023-11-01-12",
     page_info_title2: "ABOUT US",
     page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
     jump_text: "点击前往下载页面",
@@ -47,19 +47,62 @@ const tipsWithWeights = [
         text: "<span>也来看看我们的<a href=\"https://github.com/Spectrollay/mclang_cn\" target=\"_blank\" onclick=\"playSound1();\">中文译名修正项目</a>!</span>",
         weight: 5
     },
-    {text: "感谢你参加测试!", weight: 4},
-    {text: "我们欢迎你的反馈!", weight: 4},
-    {text: "想和我们聊聊预览版?前往官方群组和开发者面对面交流!", weight: 4},
-    {text: "请注意,这并不是最终成品.你可能会遇到崩溃,故障或其他奇怪的问题.", weight: 4},
-    {text: "不要担心漏洞,因为在预览版中发现漏洞意味着之后的漏洞会少一些！", weight: 4},
+    {
+        text: "感谢你参加测试!",
+        weight: 4
+    }, //测试提示,不会出现在正式环境
+    {
+        text: "我们欢迎你的反馈!",
+        weight: 4
+    }, //测试提示,不会出现在正式环境
+    {
+        text: "想和我们聊聊预览版?前往官方群组和开发者面对面交流!",
+        weight: 4
+    }, //测试提示,不会出现在正式环境
+    {
+        text: "请注意,这并不是最终成品.你可能会遇到崩溃,故障或其他奇怪的问题.",
+        weight: 4
+    }, //测试提示,不会出现在正式环境
+    {
+        text: "不要担心漏洞,因为在预览版中发现漏洞意味着之后的漏洞会少一些！",
+        weight: 4
+    }, //测试提示,不会出现在正式环境
     {text: "← 点击这里可以切换提示 →", weight: 3},
     {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 3},
+    {
+        text: "灰色的项目是目前不被支持的,红色的项目代表未来可能会开放,但这两者在特定情况下会互相转化,这又称画饼.",
+        weight: 3
+    },
     {text: "除另有声明,转载时均必须注明出处!", weight: 3},
-    {text: "你知道吗,版本库界面的构建花费了两天的时间.", weight: 2},
+    {text: "感谢你使用Minecraft 版本库!", weight: 3},
+    {text: "你完成你的事情了吗?", weight: 3},
+    {text: "我们保留了一些bug,这样你才知道你在使用的是Minecraft 版本库.", weight: 2},
+    {text: "你知道吗,版本库界面的构建仅花费了两天的时间.", weight: 2},
+    {text: "你知道吗,这个项目其实从2020年开始就已经有了.", weight: 2},
+    {text: "猜一猜下一条出现的提示是什么?", weight: 2},
+    {text: "猜一猜下一次看到这条提示是什么时候?", weight: 2},
+    {text: "看到这条提示就去启动Minecraft吧!", weight: 2},
+    {text: "也去玩玩Minceraft吧!", weight: 2},
+    {text: "也去玩玩饥荒吧!", weight: 2},
+    {text: "也去玩玩泰拉瑞亚吧!", weight: 2},
     {text: "向我们捐赠以支持维护和开发!", weight: 2},
+    {text: "不要这样看着人家,会害羞的啦!", weight: 2},
+    {text: "今天是一个不错的日子,你说对吗?", weight: 2},
+    {text: "要天天开心哦!", weight: 2},
+    {
+        text: "<span style=\"color: #1C0DFF;\">这</span><span style=\"color: #3CBBFC;\">是</span><span style=\"color: #B02FED;\">条</span><span style=\"color: #FF57AC;\">彩</span><span style=\"color: #FFB515;\">色</span><span style=\"color: #FFEA45;\">的</span><span style=\"color: #99FF55;\">提</span><span style=\"color: #00FFAA;\">示</span><span style=\"color: #FF57AC;\">!</span>",
+        weight: 2
+    },
+    {text: "是谁把我放在这的?", weight: 2},
+    {text: "很高兴看到你!", weight: 2},
+    {text: "95% OreUI!", weight: 2},
+    {text: "90% bug free!", weight: 2},
+    {text: "Technoblade never dies!", weight: 2},
     {text: "别杀怪物,你这个海豚!", weight: 2},
-    {text: "95%OreUI!", weight: 2},
-    {text: "真的有人会看这些吗?", weight: 2},
+    {text: "真的会有人看这些吗?", weight: 2},
+    {text: "!!!1!", weight: 2},
+    {text: "Wow!", weight: 2},
+    {text: "本条提示出现概率小于万分之一<br>看到就赶紧去买彩票吧!", weight: 0.001},
     {text: "这是一条永远不会出现的提示.", weight: 0}
 ];
 
