@@ -78,7 +78,7 @@ const tipsWithWeights = [
         weight: 2
     },
     {
-        text: "<span style=\"transform: scaleY(-1);\">!示提的倒颠条一是这</span>",
+        text: "<span style=\"transform: scaleX(-1) scaleY(-1);\">!示提的倒颠条一是这</span>",
         weight: 2
     },
     {text: "本站指向的站外内容可能不受保障!", weight: 3},
