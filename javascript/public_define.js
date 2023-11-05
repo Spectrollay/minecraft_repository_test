@@ -32,11 +32,11 @@ const texts = {
 
 const tipsWithWeights = [
     {
-        text: "<span>本站有<a href=\"https://spectrollay.github.io/Minecraft_Repository_test/home.html\" target=\"_blank\" onclick=\"playSound1();\">国外源</a>和<a href=\"https://spectrollay.gitee.io/minecraft_repository_test/home.html\" target=\"_blank\" onclick=\"playSound1();\">国内源</a>,如遇加载问题可以切换线路访问.</span>",
+        text: "<span>本站有<a href=\"https://spectrollay.github.io/minecraft_repository/home.html\" target=\"_blank\" onclick=\"playSound1();\">国外源</a>和<a href=\"https://spectrollay.gitee.io/minecraft_repository/home.html\" target=\"_blank\" onclick=\"playSound1();\">国内源</a>,如遇加载问题可以切换线路访问.</span>",
         weight: 5
     },
     {
-        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay/Minecraft_Repository_test/issues/new\" target=\"_blank\" onclick=\"playSound1();\">欢迎提出</a>!</span>",
+        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay/minecraft_repository/issues/new\" target=\"_blank\" onclick=\"playSound1();\">欢迎提出</a>!</span>",
         weight: 5
     },
     {
@@ -70,11 +70,10 @@ const tipsWithWeights = [
     {text: "← 点击这里可以切换提示 →", weight: 3},
     {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 3},
     {
-        text: "灰色的项目是目前不被支持的,红色的项目代表未来可能会开放,但这两者在特定情况下会互相转化.",
+        text: "灰色的项目是目前不被支持的,红色的项目代表未来可能会开放,但这两者在特定情况下会互相转化,这又称画饼.",
         weight: 3
     },
-    {text: "本站指向的站外内容可能不受保障!", weight: 3},
-    {text: "转载本站内容时均必须注明出处!", weight: 3},
+    {text: "除另有声明,转载时均必须注明出处!", weight: 3},
     {text: "感谢你使用Minecraft 版本库!", weight: 3},
     {text: "你完成你的事情了吗?", weight: 3},
     {text: "我们保留了一些bug,这样你才知道你在使用的是Minecraft 版本库.", weight: 2},
@@ -89,7 +88,6 @@ const tipsWithWeights = [
     {text: "向我们捐赠以支持维护和开发!", weight: 2},
     {text: "不要这样看着人家,会害羞的啦!", weight: 2},
     {text: "今天是一个不错的日子,你说对吗?", weight: 2},
-    {text: "多抬头看看天空吧!", weight: 2},
     {text: "要天天开心哦!", weight: 2},
     {
         text: "<span style=\"color: #1C0DFF;\">这</span><span style=\"color: #3CBBFC;\">是</span><span style=\"color: #B02FED;\">条</span><span style=\"color: #FF57AC;\">彩</span><span style=\"color: #FFB515;\">色</span><span style=\"color: #FFEA45;\">的</span><span style=\"color: #99FF55;\">提</span><span style=\"color: #00FFAA;\">示</span><span style=\"color: #FF57AC;\">!</span>",
@@ -97,25 +95,12 @@ const tipsWithWeights = [
     },
     {text: "是谁把我放在这的?", weight: 2},
     {text: "很高兴看到你!", weight: 2},
-    {text: "种一棵树!", weight: 2},
-    {text: "劳逸结合!", weight: 2},
     {text: "95% OreUI!", weight: 2},
     {text: "90% bug free!", weight: 2},
-    {text: "Aww man!", weight: 2},
-    {text: "Hmmmrmm!", weight: 2},
-    {text: "Nooooooooooooo!", weight: 2},
-    {text: "Everybody do the Leif!", weight: 2},
-    {text: "/give @a hugs 64", weight: 2},
-    {text: "P不包含NP!", weight: 2},
     {text: "Technoblade never dies!", weight: 2},
-    {text: "像幽匿尖啸体一样尖啸!", weight: 2},
-    {text: "你做完你的作业了吗?", weight: 2},
-    {text: "末影人把我的作业偷走了!", weight: 2},
-    {text: "苦力怕把我的作业炸了!", weight: 2},
     {text: "别杀怪物,你这个海豚!", weight: 2},
     {text: "真的会有人看这些吗?", weight: 2},
     {text: "!!!1!", weight: 2},
-    {text: "llI1IlI11lllI", weight: 2},
     {text: "Wow!", weight: 2},
     {text: "本条提示出现概率小于万分之一<br>看到就赶紧去买彩票吧!", weight: 0.001},
     {text: "这是一条永远不会出现的提示.", weight: 0}
