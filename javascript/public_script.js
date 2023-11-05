@@ -165,7 +165,7 @@ function toUpdatelog() {
 
 function toRepo() {
     setTimeout(function () {
-        window.open("https://github.com/Spectrollay/minecraft_repository/issues/new");
+        window.open("https://github.com/Spectrollay/Minecraft_Repository_test/issues/new");
     }, 320);
 }
 
@@ -201,7 +201,7 @@ function clickedOverlay() {
 // 点击仓库图标事件
 function clickedRepo() {
     playSound1();
-    window.open("https://github.com/Spectrollay/minecraft_repository");
+    window.open("https://github.com/Spectrollay/Minecraft_Repository_test");
 }
 
 // 点击侧边栏底部按钮事件
