@@ -73,6 +73,14 @@ const tipsWithWeights = [
         text: "灰色的项目是目前不被支持的,红色的项目代表未来可能会开放,但这两者在特定情况下会互相转化.",
         weight: 3
     },
+    {
+        text: "<span style=\"background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;\">这是一条彩色的提示!</span>",
+        weight: 2
+    },
+    {
+        text: "<span style=\"transform: scaleY(-1);\">!示提的倒颠条一是这</span>",
+        weight: 2
+    },
     {text: "本站指向的站外内容可能不受保障!", weight: 3},
     {text: "转载本站内容时均必须注明出处!", weight: 3},
     {text: "感谢你使用Minecraft 版本库!", weight: 3},
@@ -91,10 +99,6 @@ const tipsWithWeights = [
     {text: "今天是一个不错的日子,你说对吗?", weight: 2},
     {text: "多抬头看看天空吧!", weight: 2},
     {text: "要天天开心哦!", weight: 2},
-    {
-        text: "<span style=\"background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;\">这是一条彩色的提示!</span>",
-        weight: 2
-    },
     {text: "是谁把我放在这的?", weight: 2},
     {text: "很高兴看到你!", weight: 2},
     {text: "种一棵树!", weight: 2},
