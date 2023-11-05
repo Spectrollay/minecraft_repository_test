@@ -92,7 +92,7 @@ const tipsWithWeights = [
     {text: "多抬头看看天空吧!", weight: 2},
     {text: "要天天开心哦!", weight: 2},
     {
-        text: "<span style=\"color: #1C0DFF;\">这</span><span style=\"color: #3CBBFC;\">是</span><span style=\"color: #B02FED;\">条</span><span style=\"color: #FF57AC;\">彩</span><span style=\"color: #FFB515;\">色</span><span style=\"color: #FFEA45;\">的</span><span style=\"color: #99FF55;\">提</span><span style=\"color: #00FFAA;\">示</span><span style=\"color: #FF57AC;\">!</span>",
+        text: "<span style=\"background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;\">这是一条彩色的提示!</span>",
         weight: 2
     },
     {text: "是谁把我放在这的?", weight: 2},
