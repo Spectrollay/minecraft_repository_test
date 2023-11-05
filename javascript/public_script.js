@@ -73,7 +73,7 @@ window.addEventListener("load", function () {
     console.log("页面加载耗时: " + loadTime + "ms");
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const click = new Audio(soundClickPath);
     const button = new Audio(soundButtonPath);
     click.volume = 0;
@@ -171,7 +171,7 @@ function toRepo() {
 
 function delayedOpenLink(url) {
     playSound1();
-    setTimeout(function() {
+    setTimeout(function () {
         window.location.href = url;
     }, 320);
 }
