@@ -1,7 +1,3 @@
-let previousTipIndex = -2;
-let currentTipIndex = -1;
-const tipElement = document.getElementById("tip");
-
 const texts = {
     preview_title: "欢迎观看设计预览!",
     preview_detail1: "我们想听听你对这个新设计的意见.",
@@ -9,9 +5,10 @@ const texts = {
     preview_btn1: "更新历史",
     preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"link\"/>提出反馈",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "Version: 4.3-Preview3-Final<br>Server Version: 4.0<br>Updated: 2023-11-01-1",
+    page_info_detail1: "Version: 4.6.0.1.Canary<br>Server Version: 4.0<br>Updated: 2024-02-21-02",
     page_info_title2: "ABOUT US",
     page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
+    page_info_title3: "MADE WITH ❤️ IN CHINA",
     jump_text: "点击前往下载页面",
     back_to_main: "返回首页",
     sidebar_bottom_title: "Minecraft Kit",
@@ -30,49 +27,32 @@ const texts = {
     download_btn9: "<img class=\"link_img_black\" src=\"\" alt=\"link\"/>外部链接",
 };
 
+let previousTipIndex = -2;
+let currentTipIndex = -1;
+const tipElement = document.getElementById("tip");
 const tipsWithWeights = [
     {
-        text: "<span>本站有<a href=\"https://spectrollay.github.io/Minecraft_Repository_test/home.html\" target=\"_blank\" onclick=\"playSound1();\">国外源</a>和<a href=\"https://spectrollay.gitee.io/minecraft_repository_test/home.html\" target=\"_blank\" onclick=\"playSound1();\">国内源</a>,如遇加载问题可以切换线路访问.</span>",
-        weight: 5
+        text: "<span>本站有<a href=\"https://spectrollay.github.io/minecraft_repository/home.html\" target=\"_blank\" onclick=\"playSound1();\">国外源</a>和<a href=\"https://spectrollay.gitee.io/minecraft_repository/home.html\" target=\"_blank\" onclick=\"playSound1();\">国内源</a>,如遇加载问题可以切换线路访问.</span>",
+        weight: 3
     },
     {
-        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay/Minecraft_Repository_test/issues/new\" target=\"_blank\" onclick=\"playSound1();\">欢迎提出</a>!</span>",
-        weight: 5
+        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay/minecraft_repository/issues/new\" target=\"_blank\" onclick=\"playSound1();\">欢迎提出</a>!</span>",
+        weight: 3
     },
     {
         text: "<span>想和大家一起闲聊吹水?<br>快加入<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a> / <a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a> / <a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>群聊!</span>",
-        weight: 5
+        weight: 3
     },
     {
         text: "<span>也来看看我们的<a href=\"https://github.com/Spectrollay/mclang_cn\" target=\"_blank\" onclick=\"playSound1();\">中文译名修正项目</a>!</span>",
-        weight: 5
-    },
-    {
-        text: "感谢你参加测试!",
-        weight: 4
-    }, //测试提示,不会出现在正式环境
-    {
-        text: "我们欢迎你的反馈!",
-        weight: 4
-    }, //测试提示,不会出现在正式环境
-    {
-        text: "想和我们聊聊预览版?前往官方群组和开发者面对面交流!",
-        weight: 4
-    }, //测试提示,不会出现在正式环境
-    {
-        text: "请注意,这并不是最终成品.你可能会遇到崩溃,故障或其他奇怪的问题.",
-        weight: 4
-    }, //测试提示,不会出现在正式环境
-    {
-        text: "不要担心漏洞,因为在预览版中发现漏洞意味着之后的漏洞会少一些！",
-        weight: 4
-    }, //测试提示,不会出现在正式环境
-    {text: "← 点击这里可以切换提示 →", weight: 3},
-    {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 3},
-    {
-        text: "灰色的项目是目前不被支持的,红色的项目代表未来可能会开放,但这两者在特定情况下会互相转化.",
         weight: 3
     },
+    {text: "← 点击这里可以切换提示 →", weight: 3},
+    {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 3},
+    {text: "本站指向的站外内容可能不受保障!", weight: 3},
+    {text: "转载本站内容时均必须注明出处!", weight: 3},
+    {text: "感谢你使用Minecraft 版本库!", weight: 3},
+    {text: "你完成你的事情了吗?", weight: 3},
     {
         text: "<span style=\"background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;\">这是一条彩色的提示!</span>",
         weight: 2
@@ -81,13 +61,9 @@ const tipsWithWeights = [
         text: "<span style=\"transform: scaleX(-1) scaleY(-1);\">这是一条颠倒的提示!</span>",
         weight: 2
     },
-    {text: "本站指向的站外内容可能不受保障!", weight: 3},
-    {text: "转载本站内容时均必须注明出处!", weight: 3},
-    {text: "感谢你使用Minecraft 版本库!", weight: 3},
-    {text: "你完成你的事情了吗?", weight: 3},
     {text: "我们保留了一些bug,这样你才知道你在使用的是Minecraft 版本库.", weight: 2},
-    {text: "你知道吗,版本库界面的构建仅花费了两天的时间.", weight: 2},
-    {text: "你知道吗,这个项目其实从2020年开始就已经有了.", weight: 2},
+    {text: "你知道吗,版本库界面的构建仅花费了两天时间.", weight: 2},
+    {text: "你知道吗,这个项目其实始于2020年.", weight: 2},
     {text: "猜一猜下一条出现的提示是什么?", weight: 2},
     {text: "猜一猜下一次看到这条提示是什么时候?", weight: 2},
     {text: "看到这条提示就去启动Minecraft吧!", weight: 2},
@@ -98,11 +74,12 @@ const tipsWithWeights = [
     {text: "不要这样看着人家,会害羞的啦!", weight: 2},
     {text: "今天是一个不错的日子,你说对吗?", weight: 2},
     {text: "多抬头看看天空吧!", weight: 2},
-    {text: "要天天开心哦!", weight: 2},
+    {text: "记得要天天开心哦!", weight: 2},
     {text: "是谁把我放在这的?", weight: 2},
     {text: "很高兴看到你!", weight: 2},
     {text: "种一棵树!", weight: 2},
     {text: "劳逸结合!", weight: 2},
+    {text: "Hello world!", weight: 2},
     {text: "95% OreUI!", weight: 2},
     {text: "90% bug free!", weight: 2},
     {text: "Aww man!", weight: 2},
@@ -121,9 +98,16 @@ const tipsWithWeights = [
     {text: "!!!1!", weight: 2},
     {text: "llI1IlI11lllI", weight: 2},
     {text: "Wow!", weight: 2},
-    {text: "本条提示出现概率远小于万分之一<br>看到就赶紧去买彩票吧!", weight: 0.001},
+    {text: "这是一条非非非非常稀有的提示<br>看到就赶紧去买彩票吧!", weight: 0.001},
     {text: "这是一条永远不会出现的提示.", weight: 0}
 ];
+
+console.log("LocalStorage数据");
+for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+    console.log(key + ': ' + value);
+}
 
 console.log("加载常量和变量完成");
 
@@ -176,6 +160,7 @@ setElementText("page_info_title1", texts.page_info_title1);
 setElementText("page_info_detail1", texts.page_info_detail1);
 setElementText("page_info_title2", texts.page_info_title2);
 setElementText("page_info_detail2", texts.page_info_detail2);
+setElementText("page_info_title3", texts.page_info_title3);
 setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
 setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
 setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);

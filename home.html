@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,14 +13,15 @@
     <link rel="icon" href="./images/Marketplace.png">
     <title>Minecraft 版本库</title>
 </head>
+
 <body>
 <header>
     <div id="menu" class="header_menu" onclick="clickedMenu();">
         <img class="menu_icon" alt="Menu" src="./images/Menu.png">
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img class="title_icon" alt="Title Icon" src="./images/Marketplace.png"><span
-            class="header_title">Repository</span>
+        <img class="title_icon" alt="Title Icon" src="./images/Marketplace.png">
+        <span class="header_title">Repository</span>
     </div>
     <div id="repo" class="header_repo" onclick="clickedRepo();">
         <img class="repo_icon" alt="Repo" src="./images/Github.png">
@@ -27,16 +29,20 @@
 </header>
 <main id="main">
     <div id="main_top"></div>
-    <div class="tooltip-area">
-        <div id="tip" class="tooltip normal_tip"></div>
+    <div class="banner_area">
+        <div class="banner important_banner" style="margin-bottom: 0">春节快乐!</div>
+    </div>
+    <div class="banner_area">
+        <div id="tip" class="banner normal_banner"></div>
     </div>
     <div class="main preview_block">
         <div id="preview_title" class="preview_title"></div>
         <div id="preview_detail1" class="preview_detail"></div>
         <div id="preview_detail2" class="preview_detail"></div>
         <div class="preview_btns">
-            <button id="preview_btn1" class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();"></button>
-            <button id="preview_btn2" class="btn green_btn preview_btn" onclick="playSound2();toRepo();"></button>
+            <button id="preview_btn1" class="btn normal_btn preview_btn"
+                    onclick="playSound(this);toUpdatelog();"></button>
+            <button id="preview_btn2" class="btn green_btn preview_btn" onclick="playSound(this);toRepo();"></button>
         </div>
     </div>
     <div class="block_spacing"></div>
@@ -50,14 +56,9 @@
                     <img class="no_news" alt="news" src="./images/NoNews.png">
                     <div>没有新通知</div>
                 </div>
-                <div>
-                    <img class="loading_icon" alt="loading" src="./images/Loading_white.gif">
-                    <div>加载中</div>
-                </div>
             </div>
         </div>
         <div class="main header_notice_body">
-            <div class="title3">简介</div>
             <div class="description2">
                 <p>
                     Minecraft 版本库是一个开放共享的资源站,
@@ -76,7 +77,8 @@
                     <a href="https://www.minecraft.net/zh-hans/store/minecraft-deluxe-collection-pc" target="_blank"
                        onclick="playSound1();">PC 捆绑包</a></p>
                 <p>不知道如何购买正版?<br>
-                    <a href="javascript:void(0);" onclick="delayedOpenLink('./default/coming_soon.html');">正版购买指南</a>
+                    <a href="javascript:void(0);"
+                       onclick="delayedOpenLink('./default/how_to_buy.html');">正版购买指南</a>
                 </p>
             </div>
         </div>
@@ -84,38 +86,194 @@
             <div class="title3">使用说明</div>
             <div class="description2">
                 <p>仓库资源说明:</p>
-                <p>本版本库的资源可分为两大部分, 站内资源和站外资源. 站内资源通常由开发者维护, 提供多渠道下载, 可以保证资源品质(
-                    本站使用的默认网盘服务位于大陆境外, 连接可能会有较大波动); 站外资源通常由第三方维护, 不能保证其资源品质,
-                    请自行甄别(站外资源通常带有链接图标或跳转确认弹窗). 在使用过程中如果发现资源存在问题请及时与我们取得联系,
-                    有想要添加的资源也可以向我们提出.</p>
+                <p>本版本库的资源可分为两大部分, 站内资源和站外资源. 站内资源通常由开发者维护, 提供多渠道下载, 可以保证资源品质;
+                    站外资源通常由第三方维护, 不能保证其资源品质, 请自行甄别(站外资源通常带有链接图标或跳转确认弹窗).
+                    在使用过程中如果发现资源存在问题请及时与我们取得联系, 有想要添加的资源也可以向我们提出.</p>
                 <p>文件命名规则: </p>
                 <p>软件名 版本名 种类 架构 类型.apk/.apks<br>其中种类包括去音乐版(lite), 路径修改版(fix),
-                    官方原版和去验证版(以文件后缀名区分); 架构包括armAll(armv7, armv8), armv7(armeabi-v7a, 32位),
-                    armv8(arm64-v8a, 64位), x86(32位), x64(x86_64, 64位); 类型包括release, beta, preview.</p>
+                    官方原版和去验证版; 架构包括universal(armv7, armv8, x86, x86_64), armv7(armeabi-v7a, 32位),
+                    armv8(arm64-v8a, 64位), x86(32位)和x86_64(64位); 类型包括release, beta和preview.</p>
+                <p>关于网盘: </p>
+                <div class="table_area">
+                    <div class="table-big">
+                        <table>
+                            <tr>
+                                <th colspan="7">标准版本分布情况</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>原版<sup>[2]</sup></td>
+                                <td>中文译名修正<sup>[3]</sup></td>
+                                <td>去验证版</td>
+                                <td>去音乐版<sup>[4]</sup></td>
+                                <td>多架构版<sup>[3]</sup></td>
+                                <td>路径修改版<sup>[4]</sup></td>
+                            </tr>
+                            <tr>
+                                <td>默认网盘<sup>[1]</sup></td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有<sup>[6]</sup></td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>蓝奏云盘</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>部分<sup>[5]</sup></td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>123 云盘</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>天翼云盘</td>
+                                <td>无</td>
+                                <td>有</td>
+                                <td>部分<sup>[2]</sup></td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>百度云盘</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有<sup>[6]</sup></td>
+                                <td>无</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <p class="info_text">标准版本目前仅支持Android平台</p>
+                <div class="info_area">
+                    <div>
+                        <p>
+                            [1]本站使用的默认网盘服务位于大陆境外,连接可能会有较大波动<br>
+                            [2]仅支持1.16及以上版本<br>
+                            [3]仅支持1.20及以上正式版,默认去验证<br>
+                            [4]仅支持1.20及以上开发版,默认去验证<br>
+                            [5]仅支持1.14及以下版本<br>
+                            [6]还包括原版安装包
+                        </p>
+                    </div>
+                </div>
+                <div class="table_area">
+                    <div class="table-big">
+                        <table>
+                            <tr>
+                                <th colspan="8">其他版本分布情况</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>教育版<sup>[1]</sup></td>
+                                <td>试玩版<sup>[1]</sup></td>
+                                <td>演示版<sup>[1]</sup></td>
+                                <td>地下城</td>
+                                <td>传奇</td>
+                                <td>故事模式<sup>[2]</sup></td>
+                                <td>地球<sup>[1]</sup></td>
+                            </tr>
+                            <tr>
+                                <td>默认网盘</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>有</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>蓝奏云盘</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>123 云盘</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>有</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>天翼云盘</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>百度云盘</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>有</td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>有</td>
+                                <td>有</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <p class="info_text">其他版本支持平台以标注为准</p>
+                <div class="info_area">
+                    <div>
+                        <p style="margin-bottom: 0">
+                            [1]仅支持Android平台<br>
+                            [2]支持Android/iOS/Windows平台
+                        </p>
+                    </div>
+                </div>
                 <p>关于架构: </p>
-                <div class="table">
-                    <table>
-                        <tr>
-                            <td>架构</td>
-                            <td>适用情况</td>
-                        </tr>
-                        <tr>
-                            <td>armv8</td>
-                            <td>大部分手机,平板设备</td>
-                        </tr>
-                        <tr>
-                            <td>armv7</td>
-                            <td>几乎所有手机,平板设备</td>
-                        </tr>
-                        <tr>
-                            <td>x86</td>
-                            <td>模拟器,极少数平板</td>
-                        </tr>
-                        <tr>
-                            <td>x64</td>
-                            <td>64位模拟器</td>
-                        </tr>
-                    </table>
+                <div class="table_area">
+                    <div class="table">
+                        <table>
+                            <tr>
+                                <td>架构</td>
+                                <td>适用情况<sup>[1]</sup></td>
+                            </tr>
+                            <tr>
+                                <td>armv8</td>
+                                <td>大部分手机,平板设备</td>
+                            </tr>
+                            <tr>
+                                <td>armv7</td>
+                                <td>几乎所有手机,平板设备</td>
+                            </tr>
+                            <tr>
+                                <td>x86</td>
+                                <td>模拟器,极少数平板</td>
+                            </tr>
+                            <tr>
+                                <td>x86_64</td>
+                                <td>64位模拟器</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <p>
                     以上内容根据近年设备架构规律总结, 仅供参考, 可能有部分不符.
@@ -131,7 +289,7 @@
         <div class="main">
             <div class="title1">Bedrock Edition</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%88" target="_blank"
+                <a href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%88" target="_blank"
                    onclick="playSound1();">基岩版</a>
             </div>
         </div>
@@ -142,7 +300,7 @@
         <div class="main">
             <div class="title1">Pocket Edition</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%90%BA%E5%B8%A6%E7%89%88" target="_blank"
+                <a href="https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%88" target="_blank"
                    onclick="playSound1();">携带版</a>
             </div>
         </div>
@@ -153,29 +311,29 @@
         <div class="main">
             <div class="title1">Education Edition</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%88" target="_blank"
+                <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" target="_blank"
                    onclick="playSound1();">教育版</a>
             </div>
         </div>
         <div class="main edition_block" onclick="jumpToPage('./home/education_edition.html');"></div>
     </div>
     <div class="block_spacing"></div>
-    <div id="earth" class="block">
+    <div id="education_edition_preview" class="block">
         <div class="main">
-            <div class="title1">Minecraft Earth</div>
+            <div class="title1">Education Preview</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/Minecraft_Earth" target="_blank"
-                   onclick="playSound1();">地球</a>
+                <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" target="_blank"
+                   onclick="playSound1();">教育版(预览版)</a>
             </div>
         </div>
-        <div class="main edition_block" onclick="jumpToPage('./home/earth.html');"></div>
+        <div class="main edition_block" onclick="jumpToPage('./home/education_edition_preview.html');"></div>
     </div>
     <div class="block_spacing"></div>
     <div id="trial" class="block">
         <div class="main">
             <div class="title1">Minecraft Trial</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank"
+                <a href="https://zh.minecraft.wiki/w/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank"
                    onclick="playSound1();">试玩版</a>
             </div>
         </div>
@@ -186,7 +344,7 @@
         <div class="main">
             <div class="title1">Minecraft Demo</div>
             <div class="description1">
-                <a href="https://minecraft.fandom.com/zh/wiki/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank"
+                <a href="https://zh.minecraft.wiki/w/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" target="_blank"
                    onclick="playSound1();">演示版</a>
             </div>
         </div>
@@ -210,8 +368,7 @@
             <div class="description2">
                 <p>本版本库收集的安装包仅供正版玩家学习研究或欣赏, 不得用于其他任何商业或者非商业用途.</p>
                 <p>我们不对你使用本版本库的行为所造成的一切后果负责, 请你在获取到安装包后的24小时内将其删除.</p>
-                <p>
-                    本版本库中的部分链接指向第三方运营的外部网站, 我们不能保证其稳定性和安全性. 在访问这些外部网站时,
+                <p>本版本库中的部分链接指向第三方运营的外部网站, 我们不能保证其稳定性和安全性. 在访问这些外部网站时,
                     你也需要遵循相关的使用条款.</p>
                 <p>使用本版本库即代表你同意此使用条款及免责申明. 下载本版本库提供的安装包即代表你同意<a
                         href="https://www.minecraft.net/terms" target="_blank"
@@ -235,9 +392,14 @@
         <div class="main footer_notice_body">
             <div class="title3">捐赠我们</div>
             <div class="description2">
-                <p>我们用有限的业余时间设计了这个版本库, 虽然它并不完美, 但正努力前行.</p>
-                <p>如果你喜欢它, 可以通过捐赠来支持我们.</p>
-                <p>所有的捐赠都将用于提升环境配置及开发积极性.</p>
+                <p>这是一个始于2020年的项目, 做它的初衷, 只是为了给我玩的为数不多的游戏一个留档,
+                    当时这还只是一个私有项目.</p>
+                <p>后来, 我发现有许多人, 因为各种各样的原因, 需要某个特定的版本来完成特定的事, 但又奈何官方不提供历史版本.
+                    我想, 既然我有这些资源, 为什么不公开出来供大家一起使用呢? 这便是版本库的今生.</p>
+                <p>我们深知这个版本库还很不尽人意, 界面简陋, 功能稀少, 甚至可能还有一堆的问题. 因此我们一直在不断地完善改进它,
+                    希望能给每一个使用版本库的你, 带来更好的体验.</p>
+                <p>如果你喜欢它, 且已经实现了经济独立, 可以考虑通过捐赠来支持我们.
+                    这可以在很大程度上用于提升环境配置及开发积极性.</p>
                 <div>
                     <img class="loading_icon" alt="loading" src="./images/Loading_white.gif">
                     <div>加载中</div>
@@ -260,6 +422,7 @@
         <div id="page_info_detail1" class="page_info"></div>
         <div id="page_info_title2" class="page_info_title"></div>
         <div id="page_info_detail2" class="page_info"></div>
+        <div id="page_info_title3" class="page_info_title"></div>
         <div class="page_info"><br></div>
     </div>
 </main>
@@ -271,7 +434,7 @@
         <a class="sidebar_item" href="#bedrock_edition">基岩版</a>
         <a class="sidebar_item" href="#pocket_edition">携带版</a>
         <a class="sidebar_item" href="#education_edition">教育版</a>
-        <a class="sidebar_item" href="#earth">地球</a>
+        <a class="sidebar_item" href="#education_edition_preview">教育版(预览版)</a>
         <a class="sidebar_item" href="#trial">试玩版</a>
         <a class="sidebar_item" href="#demo">演示版</a>
         <a class="sidebar_item" href="#more_edition">更多版本</a>
@@ -293,32 +456,34 @@
 <div id="overlay" class="overlay"></div>
 
 <!--提示弹窗-->
-<div id="alert_dialog" class="dialog_area">
-    <div class="dialog">
-        <div class="dialog_title">预览提示</div>
-        <div class="dialog_content">
-            <p>此网站仅供预览体验</p>
-            <p>反馈请前往聊天群组</p>
+<div id="alert_modal" class="modal_area">
+    <div class="modal">
+        <div class="modal_title">提示</div>
+        <div class="modal_content">
+            <p>提示文本</p>
         </div>
-        <div class="dialog_btn_area">
-            <button class="btn green_btn dialog_btn" onclick="hideAlertDialog(this);">我知道了</button>
+        <div class="modal_btn_area">
+            <button class="btn red_btn modal_btn" onclick="hideAlertModal(this);">我不知道</button>
+            <button class="btn green_btn modal_btn" onclick="hideAlertModal(this);">我知道了</button>
         </div>
     </div>
 </div>
 
 <!--音效-->
-<audio id="click" preload="auto">
-    <source src="./sounds/click.ogg" type="audio/ogg">
-</audio>
-<audio id="button" preload="auto">
-    <source src="./sounds/button.ogg" type="audio/ogg">
-</audio>
+<!--<audio id="click" preload="auto">-->
+<!--    <source src="./sounds/click.ogg" type="audio/ogg">-->
+<!--</audio>-->
+<!--<audio id="button" preload="auto">-->
+<!--    <source src="./sounds/button.ogg" type="audio/ogg">-->
+<!--</audio>-->
 
 </body>
+
 <script src="./javascript/home.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/public_script.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->
+
 </html>

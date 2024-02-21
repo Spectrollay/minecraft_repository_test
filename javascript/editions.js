@@ -1,11 +1,11 @@
 let openurl;
 
 // 免责申明弹窗
-function showDisclaimerDialog(url) {
+function showDisclaimerModal(url) {
     const overlay = document.getElementById("overlay");
-    const dialog = document.getElementById("disclaimer_dialog");
+    const modal = document.getElementById("disclaimer_modal");
     overlay.style.display = "block";
-    dialog.style.display = "block";
+    modal.style.display = "block";
     console.log("显示免责声明弹窗");
     if (url === undefined) {
         openurl = null;
@@ -14,12 +14,12 @@ function showDisclaimerDialog(url) {
     }
 }
 
-function hideDisclaimerDialog(button, state, url) {
+function hideDisclaimerModal(button, state, url) {
     const overlay = document.getElementById("overlay");
-    const dialog = document.getElementById("disclaimer_dialog");
+    const modal = document.getElementById("disclaimer_modal");
     playSound(button);
     overlay.style.display = "none";
-    dialog.style.display = "none";
+    modal.style.display = "none";
     if (state === -1) {
         console.log("选择了不同意");
     } else if (state === 1) {
@@ -29,11 +29,11 @@ function hideDisclaimerDialog(button, state, url) {
     if (url !== null) {
         console.log("获取到跳转链接:" + url);
         if (state === 1) {
+            window.open(url);
+        } else {
             setTimeout(function () {
                 window.location.href = url;
-            }, 320);
-        } else {
-            window.open(url);
+            }, 600);
         }
         console.log("跳转成功");
     } else {
@@ -47,6 +47,8 @@ function howToBuyGame(button, state, url) {
         console.log("选择了了解正版购买");
     }
     console.log("获取到跳转链接: " + url);
-    window.open(url);
+    setTimeout(function () {
+        window.location.href = url;
+    }, 600);
     console.log("跳转成功");
 }

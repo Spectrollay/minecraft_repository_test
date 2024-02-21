@@ -40,6 +40,11 @@
     color: inherit;
 }
 
+/*禁用长按菜单*/
+* {
+    touch-action: manipulation;
+}
+
 /*总体样式*/
 body {
     font-family: "NotoSans Bold", sans-serif;
@@ -50,7 +55,7 @@ body {
     -webkit-user-select: none;
 }
 
-/*顶部应用栏*/
+/*顶部标题栏*/
 header {
     position: fixed;
     top: 0;
@@ -65,55 +70,61 @@ header {
     z-index: 9;
 }
 
-.header_menu, .header_back, .header_logo, .header_repo {
+/*顶栏元素*/
+.header_menu, .header_back, .header_logo, .header_repo, .header_debug, .header_settings {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
 
-.header_menu:hover, .header_back:hover, .header_repo:hover {
+/*顶栏按钮悬停*/
+.header_menu:hover, .header_back:hover, .header_repo:hover, .header_debug:hover, .header_settings:hover {
     background-color: #F4F6F9;
 }
 
-.header_menu:active, .header_back:active, .header_repo:active {
+/*顶栏按钮激活*/
+.header_menu:active, .header_back:active, .header_repo:active, .header_debug:active, .header_settings:active {
     background-color: #D0D1D4;
 }
 
+/*顶栏左侧按钮*/
 .header_menu, .header_back {
     width: 40px;
     border-right: 2px solid #FFFFFF;
 }
 
-.menu_icon, .repo_icon {
+/*顶栏右侧按钮*/
+.header_repo, .header_debug, .header_settings {
+    width: 40px;
+    border-left: 2px solid #FFFFFF;
+}
+
+/*顶栏按钮图标*/
+.menu_icon, .repo_icon, .debug_icon, .settings_icon {
     height: 32px;
     width: 32px;
 }
 
+/*标题区域*/
 .title_icon {
     height: 26px;
     width: 26px;
+    padding-right: 8px;
 }
 
+/*标题图标*/
 .header_logo {
     flex: 1;
     border-left: 2px solid #A1A3A5;
     border-right: 2px solid #A1A3A5;
 }
 
-.title_icon {
-    padding-right: 8px;
-}
-
+/*标题文字*/
 .header_title {
     height: 38px;
     font-family: "Minecraft Ten", sans-serif;
     font-size: 30px;
-}
-
-.header_repo {
-    width: 40px;
-    border-left: 2px solid #FFFFFF;
 }
 
 /*主体框架*/
@@ -142,6 +153,93 @@ main::-webkit-scrollbar-thumb {
     background-color: #E6E8EB;
     border: 2px solid #000000;
     box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
+}
+
+/*Tab Bar组件*/
+.tab_bar_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 360px;
+}
+
+.tab_bar {
+    position: relative;
+    width: 90%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab_bar_btn {
+    font-family: "NotoSans Bold", sans-serif;
+    flex: 1;
+    height: 40px;
+    justify-self: center;
+    color: white;
+    background-color: #48494A;
+    transition: background-color 0.3s;
+    padding-bottom: 6px;
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.tab_bar_btn:hover {
+    background-color: #58585A;
+    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
+}
+
+.tab_bar_btn:active {
+    margin-top: 4px;
+    height: 36px;
+    padding-bottom: 2px;
+    background-color: #313233;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1);
+}
+
+.tab_bar_btn::after {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 3px;
+    background-color: white;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s;
+}
+
+.tab_bar_btn.active {
+    margin-top: 4px;
+    height: 36px;
+    padding-bottom: 2px;
+    background-color: #313233;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1);
+}
+
+.tab_bar_btn:hover::after,
+.tab_bar_btn.active::after {
+    transform: translateX(-50%) scaleX(1);
+    width: 20%;
+}
+
+.tab_bar_btn.no_active:hover::after,
+.tab_bar_btn.no_active::after {
+    height: 4px;
+}
+
+.tab_bar_btn.no_active:active::after {
+    height: 3px;
+}
+
+.tab_content {
+    display: none;
+    color: #FFFFFF;
+}
+
+.tab_content.active {
+    display: block;
 }
 
 /*主体块*/
@@ -243,7 +341,7 @@ main::-webkit-scrollbar-thumb {
     margin-top: 4px;
 }
 
-.header_notice_body a, .description1 a, .description2 a {
+.header_notice_body a, .description1 a, .description2 a, .description3 a {
     color: inherit;
     position: relative;
     text-decoration: none;
@@ -276,12 +374,12 @@ main::-webkit-scrollbar-thumb {
     color: #000000;
     padding-bottom: 6px;
     border: 2px solid #1E1E1F;
-    box-shadow: inset 0 -4px #58585A, inset 3px 3px #E3E3E5, inset -3px -7px #ECEDEE;
+    box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.6), inset -3px -7px rgba(255, 255, 255, 0.4);
 }
 
 .normal_btn:hover {
     background-color: #B1B2B5;
-    box-shadow: inset 0 -4px #58585A, inset 3px 3px #EFF0F0, inset -3px -7px #E0E0E1;
+    box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -7px rgba(255, 255, 255, 0.6);
 }
 
 .normal_btn:active {
@@ -289,7 +387,7 @@ main::-webkit-scrollbar-thumb {
     height: 36px;
     padding-bottom: 2px;
     background-color: #B1B2B5;
-    box-shadow: inset 3px 3px #EFF0F0, inset -3px -3px #E0E0E1;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -3px rgba(255, 255, 255, 0.6);
 }
 
 .green_btn {
@@ -297,12 +395,12 @@ main::-webkit-scrollbar-thumb {
     color: #FFFFFF;
     padding-bottom: 6px;
     border: 2px solid #1E1E1F;
-    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px #639D52, inset -3px -7px #4F913C;
+    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
 }
 
 .green_btn:hover {
     background-color: #2A641C;
-    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px #7FA277, inset -3px -7px #699260;
+    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -7px rgba(255, 255, 255, 0.3);
 }
 
 .green_btn:active {
@@ -310,7 +408,7 @@ main::-webkit-scrollbar-thumb {
     height: 36px;
     padding-bottom: 2px;
     background-color: #1D4D13;
-    box-shadow: inset 3px 3px #779471, inset -3px -3px #608259;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -3px rgba(255, 255, 255, 0.3);
 }
 
 .red_btn {
@@ -318,12 +416,12 @@ main::-webkit-scrollbar-thumb {
     color: #FFFFFF;
     padding-bottom: 6px;
     border: 2px solid #1E1E1F;
-    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px #D55E5E, inset -3px -7px #CF4A4A;
+    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
 }
 
 .red_btn:hover {
     background-color: #C02D2D;
-    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px #DF9696, inset -3px -7px #D98181;
+    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -7px rgba(255, 255, 255, 0.4);
 }
 
 .red_btn:active {
@@ -331,7 +429,7 @@ main::-webkit-scrollbar-thumb {
     height: 36px;
     padding-bottom: 2px;
     background-color: #AD1D1D;
-    box-shadow: inset 3px 3px #D68E8E, inset -3px -3px #CE7777;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -3px rgba(255, 255, 255, 0.4);
 }
 
 .disabled_btn {
@@ -350,6 +448,39 @@ main::-webkit-scrollbar-thumb {
     padding-right: 6px;
 }
 
+/*带有Tooltip的按钮*/
+.btn_with_tooltip_cont {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.btn_with_tooltip_cont:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.key_icon {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    z-index: 2;
+    height: 20px;
+}
+
 /*主体块*/
 .block {
     margin: 0 20px;
@@ -364,15 +495,15 @@ main::-webkit-scrollbar-thumb {
     height: 20px;
 }
 
-/*提示框区域*/
-.tooltip-area {
+/*Banner区域*/
+.banner_area {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/*提示框主体*/
-.tooltip {
+/*Banner主体*/
+.banner {
     font-family: "NotoSans Bold", sans-serif;
     margin: 10px 20px;
     padding: 4px;
@@ -382,25 +513,28 @@ main::-webkit-scrollbar-thumb {
     justify-content: center;
     width: calc(100% - 40px);
     min-height: 30px;
+    word-wrap: break-word;
+    hyphens: auto;
     color: #FFFFFF;
 }
 
-.tooltip a {
+.banner a {
     color: inherit;
     position: relative;
     text-decoration: none;
     box-shadow: inset 0 -2px 0 0 #FFFFFF;
 }
 
-.information_tip {
+.information_banner {
     background-color: #2E6BE5;
 }
 
-.normal_tip {
+.normal_banner {
     background-color: #1E1E1F;
 }
 
-.important_tip {
+.important_banner {
+    font-weight: bolder;
     color: #000000;
     background-color: #FFE866;
 }
@@ -413,18 +547,72 @@ main::-webkit-scrollbar-thumb {
 }
 
 /*表格属性*/
-.table {
+.table_area {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table, th, td {
+    border: 1px solid #FFFFFF;
+}
+
+th {
+    height: 40px;
+}
+
+td {
+    height: 60px;
+}
+
+.table {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 600px;
+}
+
+.table-big {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 1000px;
 }
 
 .table td {
     min-width: 100px;
 }
 
-/*dialog弹窗*/
-.dialog_area {
+/*表格底部信息区域*/
+.info_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.info_area div {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.info_text {
+    margin-bottom: 0;
+}
+
+/*Modal弹窗*/
+.modal_area {
     display: none;
     z-index: 11;
     position: fixed;
@@ -437,24 +625,24 @@ main::-webkit-scrollbar-thumb {
     border: 2px solid #1E1E1F;
 }
 
-.dialog {
+.modal {
     background-color: #313233;
     color: #FFFFFF;
     justify-content: center;
     text-align: center;
 }
 
-.dialog_title {
+.modal_title {
     height: 40px;
     font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #48494A;
-    box-shadow: inset 2px 2px #6D6D6E, inset -2px -2px #5A5B5C;
+    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
 }
 
-.dialog_content {
+.modal_content {
     padding: 10px 10px 10px 10px;
     min-height: 60px;
     max-height: 200px;
@@ -463,23 +651,23 @@ main::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
-.dialog_content::-webkit-scrollbar {
+.modal_content::-webkit-scrollbar {
     top: 44px;
     width: 12px;
 }
 
-.dialog_content::-webkit-scrollbar-track {
+.modal_content::-webkit-scrollbar-track {
     background-color: #58585A;
     border: 4px solid #313233;
 }
 
-.dialog_content::-webkit-scrollbar-thumb {
+.modal_content::-webkit-scrollbar-thumb {
     background-color: #E6E8EB;
     border: 2px solid #000000;
     box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
 }
 
-.dialog_btn_area {
+.modal_btn_area {
     background-color: #48494A;
     border-top: 2px solid #5A5B5C;
     border-bottom: 2px solid #333334;
@@ -489,17 +677,22 @@ main::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
-.dialog_btn_group {
+.modal_btn_group {
     width: calc(100% - 20px);
 }
 
-.dialog_btns {
+.modal_btns {
     display: flex;
     align-items: center;
 }
 
-.dialog_btn {
+.modal_btn {
     width: 100%;
+}
+
+/*Pop弹窗*/
+.pop_area {
+    display: none;
 }
 
 /*页面底部信息*/

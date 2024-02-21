@@ -16,11 +16,11 @@ const linkImgBlack = document.getElementsByClassName('link_img_black');
 if (currentPagePath.indexOf('/home.html') !== -1) {
     soundClickPath = './sounds/click.ogg';
     soundButtonPath = './sounds/button.ogg';
-    updatelogPath = './updatelog/updatelog.html';
-} else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1)) {
+    updatelogPath = './updatelog/';
+} else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/default/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1) || (currentPagePath.indexOf('/advanced/') !== -1) || (currentPagePath.indexOf('/experimental/') !== -1)) {
     soundClickPath = '../sounds/click.ogg';
     soundButtonPath = '../sounds/button.ogg';
-    updatelogPath = '../updatelog/updatelog.html';
+    updatelogPath = '../updatelog/';
 }
 
 for (let i = 0; i < linkImg.length; i++) {
@@ -28,7 +28,7 @@ for (let i = 0; i < linkImg.length; i++) {
 
     if (currentPagePath.indexOf('/home.html') !== -1) {
         linkImgList.src = "./images/ExternalLink_white.png";
-    } else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1)) {
+    } else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/default/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1) || (currentPagePath.indexOf('/advanced/') !== -1) || (currentPagePath.indexOf('/experimental/') !== -1)) {
         linkImgList.src = "../images/ExternalLink_white.png";
     }
 }
@@ -43,10 +43,76 @@ for (let i = 0; i < linkImgBlack.length; i++) {
     }
 }
 
+// 禁止拖动元素
+const images = document.querySelectorAll("img");
+const links = document.querySelectorAll("a");
+images.forEach(function (image) {
+    image.draggable = false;
+});
+
+links.forEach(function (link) {
+    link.draggable = false;
+});
+
+// 禁用右键菜单
+document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+});
+
+// 禁用长按菜单
+document.addEventListener('touchstart', function (event) {
+    event.preventDefault();
+});
+
+// 兼容性检测
+const compatibilityModal = `
+        <div id="compatibility_modal" class="modal_area">
+            <div class="modal">
+                <div class="modal_title">兼容性提示</div>
+                <div class="modal_content">
+                    <p>不同浏览器之间存在些许差异,为确保你的使用体验,我们推荐通过以下浏览器或内核的最新发行版访问本站以获得完全的特性支持:
+                        Edge / Chrome / Firefox / Safari / WebView Android</p>
+                </div>
+                <div class="modal_btn_area">
+                    <button class="btn red_btn modal_btn" onclick="neverShowCompatibilityModalAgain(this);">不再显示</button>
+                    <button class="btn green_btn modal_btn" onclick="hideCompatibilityModal(this);">我知道了</button>
+                </div>
+            </div>
+        </div>`;
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("浏览器UA: ", navigator.userAgent)
+    if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') === 'false') {
+        const overlay = document.getElementById("overlay");
+        const modal = document.getElementById("compatibility_modal");
+        overlay.style.display = "block";
+        modal.style.display = "block";
+        console.log("显示兼容性提示弹窗");
+    }
+});
+
+function hideCompatibilityModal(button) {
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("compatibility_modal");
+    playSound(button);
+    overlay.style.display = "none";
+    modal.style.display = "none";
+    console.log("关闭兼容性提示弹窗");
+}
+
+function neverShowCompatibilityModalAgain(button) {
+    hideCompatibilityModal(button);
+    localStorage.setItem('neverShowCompatibilityModalAgain', 'true');
+    console.log("关闭兼容性提示弹窗且不再提示");
+}
+
+document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
+
+// 输出错误日志
 window.addEventListener("error", function (event) {
     console.error("错误: ", event.message);
 });
 
+// 输出运行日志
 document.addEventListener("DOMContentLoaded", function () {
     console.log("页面加载完成!");
     if (currentURL.startsWith('file:///')) {
@@ -112,6 +178,45 @@ function playSound2() {
     });
 }
 
+// 切换Tab Bar
+const defaultTabContent = document.querySelector(".tab_content.active");
+console.log("Tab Bar初始选中: ", defaultTabContent.id);
+
+function selectTab(tabNumber) {
+    const currentTabContent = document.querySelector(".tab_content.active");
+    const selectedTabContent = document.getElementById("content" + tabNumber);
+    console.log("Tab Bar当前选中: ", currentTabContent.id);
+    console.log("Tab Bar交互选中: ", selectedTabContent.id);
+    if (currentTabContent === selectedTabContent) {
+        //选中一致
+        console.log("点击了已选中Tab");
+    } else {
+        // 选中不一致
+        // 在切换选项卡时播放声音
+        playSound1();
+
+        // 切换Tab Bar选项卡
+        document.querySelectorAll('.tab_bar_btn').forEach(button => {
+            button.classList.remove('active');
+            button.classList.add('no_active');
+        });
+        let tab_btn = document.getElementById(`tab${tabNumber}`);
+        tab_btn.classList.add('active');
+        tab_btn.classList.remove('no_active');
+        console.log("切换Tab标签");
+
+        // 切换Tab Bar包含内容
+        const tabContents = document.getElementsByClassName("tab_content");
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+            tabContents[i].classList.add("no_active");
+        }
+        selectedTabContent.classList.add("active");
+        selectedTabContent.classList.remove("no_active");
+        console.log("切换与Tab相关的内容");
+    }
+}
+
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     if (sidebarOpen) {
@@ -160,20 +265,20 @@ function clickedMenu() {
 function toUpdatelog() {
     setTimeout(function () {
         window.location.href = updatelogPath;
-    }, 320);
+    }, 600);
 }
 
 function toRepo() {
     setTimeout(function () {
-        window.open("https://github.com/Spectrollay/Minecraft_Repository_test/issues/new");
-    }, 320);
+        window.open("https://github.com/Spectrollay/minecraft_repository/issues/new");
+    }, 600);
 }
 
 function delayedOpenLink(url) {
     playSound1();
     setTimeout(function () {
         window.location.href = url;
-    }, 320);
+    }, 600);
 }
 
 // 点击返回按钮事件
@@ -183,16 +288,16 @@ function clickedBack() {
         console.log("关闭窗口");
         setTimeout(function () {
             window.close();
-        }, 320);
+        }, 600);
     } else {
         console.log("返回上一级页面");
         setTimeout(function () {
             window.history.back();
-        }, 320);
+        }, 600);
     }
 }
 
-// 点击遮罩事件
+// 点击全屏遮罩事件
 function clickedOverlay() {
     toggleSidebar();
     toggleOverlay();
@@ -201,7 +306,23 @@ function clickedOverlay() {
 // 点击仓库图标事件
 function clickedRepo() {
     playSound1();
-    window.open("https://github.com/Spectrollay/Minecraft_Repository_test");
+    window.open("https://github.com/Spectrollay/minecraft_repository");
+}
+
+// 点击Debug图标事件
+function debugPage() {
+    playSound1();
+    setTimeout(function () {
+        window.location.href = "../advanced/debug.html";
+    }, 600);
+}
+
+// 跳转实验性页面
+function flagsPage() {
+    playSound1();
+    setTimeout(function () {
+        window.location.href = "../experimental/flags.html";
+    }, 600);
 }
 
 // 点击侧边栏底部按钮事件

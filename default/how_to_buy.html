@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheet/public_style.css">
+    <style>
+        .block {
+            margin: 20px;
+        }
+    </style>
+    <link rel="icon" href="../images/Marketplace.png">
+    <title>正版购买指南</title>
+</head>
+
+<body>
+<header>
+    <div id="back" class="header_back" onclick="clickedBack();">
+        <img class="back_icon" alt="Back" src="../images/Back.png">
+    </div>
+    <div class="header_logo">
+        <img class="title_icon" alt="Title Icon" src="../images/Marketplace.png"><span
+            class="header_title">Repository</span>
+    </div>
+</header>
+<main id="main">
+    <div class="block">
+        <div class="main">
+            <div class="title1">正版购买指南</div>
+            <div class="description1">2024-01-01</div>
+        </div>
+        <div class="banner_area">
+            <div class="banner information_banner">
+                <a href="https://zh.minecraft.wiki/w/Tutorial:%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E8%B4%AD%E4%B9%B0">
+                    Minecraft Wiki 教程
+                </a>
+            </div>
+        </div>
+        <div class="main">即将到来</div>
+    </div>
+</main>
+
+<!--遮罩-->
+<!--除了顶栏-->
+<div id="overlay_main" class="overlay_main" onclick="clickedOverlay();"></div>
+<!--全屏-->
+<div id="overlay" class="overlay"></div>
+
+</body>
+
+<script src="../javascript/secondary.js"></script>
+<script src="../javascript/public_script.js"></script>
+
+</html>

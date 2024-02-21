@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,7 @@
     <link rel="icon" href="../images/Marketplace.png">
     <title>试玩版 - Minecraft 版本库</title>
 </head>
+
 <body>
 <header>
     <div id="menu" class="header_menu" onclick="clickedMenu();">
@@ -24,16 +26,17 @@
 </header>
 <main id="main">
     <div id="main_top"></div>
-    <div class="tooltip-area">
-        <div id="tip" class="tooltip normal_tip"></div>
+    <div class="banner_area">
+        <div id="tip" class="banner normal_banner"></div>
     </div>
     <div class="main preview_block">
         <div id="preview_title" class="preview_title"></div>
         <div id="preview_detail1" class="preview_detail"></div>
         <div id="preview_detail2" class="preview_detail"></div>
         <div class="preview_btns">
-            <button id="preview_btn1" class="btn normal_btn preview_btn" onclick="playSound1();toUpdatelog();"></button>
-            <button id="preview_btn2" class="btn green_btn preview_btn" onclick="playSound2();toRepo();"></button>
+            <button id="preview_btn1" class="btn normal_btn preview_btn"
+                    onclick="playSound(this);toUpdatelog();"></button>
+            <button id="preview_btn2" class="btn green_btn preview_btn" onclick="playSound(this);toRepo();"></button>
         </div>
     </div>
     <div class="block_spacing"></div>
@@ -49,7 +52,7 @@
         <div id="1.20" class="main">
             <div class="title2">1.20 - 足迹与故事</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.20.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.20.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -57,16 +60,16 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.20/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn green_btn download_btn_large" text-generation="download_btn4"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.huang1111.cn/s/XKn1tl" target="_blank">
+                        <button class="btn green_btn download_btn_large" text-generation="download_btn4"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -74,7 +77,7 @@
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn6"
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn6"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                 </div>
@@ -83,17 +86,17 @@
                     <button class="btn disabled_btn download_btn" text-generation="download_btn7"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn8"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.baidu.com/s/19wfx_ABPMaBkWfW6J7NXVQ?pwd=br9c" target="_blank">
+                        <button class="btn normal_btn download_btn" text-generation="download_btn8"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
             </div>
         </div>
         <div id="1.19" class="main">
             <div class="title2">1.19 - 荒野更新</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.19.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.19.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -101,16 +104,16 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.19/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn green_btn download_btn_large" text-generation="download_btn4"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.huang1111.cn/s/6wvefN" target="_blank">
+                        <button class="btn green_btn download_btn_large" text-generation="download_btn4"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -118,7 +121,7 @@
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn6"
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn6"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                 </div>
@@ -127,17 +130,17 @@
                     <button class="btn disabled_btn download_btn" text-generation="download_btn7"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn8"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.baidu.com/s/1ub5NxnXxFmj3WaQMBCp8uA?pwd=afyp" target="_blank">
+                        <button class="btn normal_btn download_btn" text-generation="download_btn8"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
             </div>
         </div>
         <div id="1.18" class="main">
             <div class="title2">1.18 - 洞穴与山崖(第二部分)</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.18.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.18.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -145,16 +148,16 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.18/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn green_btn download_btn_large" text-generation="download_btn4"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.huang1111.cn/s/K53ZSY" target="_blank">
+                        <button class="btn green_btn download_btn_large" text-generation="download_btn4"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -162,7 +165,7 @@
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn6"
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn6"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                 </div>
@@ -171,17 +174,17 @@
                     <button class="btn disabled_btn download_btn" text-generation="download_btn7"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn8"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.baidu.com/s/1O4yhr5wbyTnmdjhK6fiieg?pwd=qddq" target="_blank">
+                        <button class="btn normal_btn download_btn" text-generation="download_btn8"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
             </div>
         </div>
         <div id="1.17" class="main">
             <div class="title2">1.17 - 洞穴与山崖(第一部分)</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.17.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.17.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -189,16 +192,16 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.17/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn green_btn download_btn_large" text-generation="download_btn4"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.huang1111.cn/s/L4ozt6" target="_blank">
+                        <button class="btn green_btn download_btn_large" text-generation="download_btn4"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -206,7 +209,7 @@
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn6"
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn6"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                 </div>
@@ -215,17 +218,17 @@
                     <button class="btn disabled_btn download_btn" text-generation="download_btn7"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn8"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.baidu.com/s/1sQ5g225HQ1ii9DV0hlbyCQ?pwd=18fd" target="_blank">
+                        <button class="btn normal_btn download_btn" text-generation="download_btn8"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
             </div>
         </div>
         <div id="1.16" class="main">
             <div class="title2">1.16 - 下界更新</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.16.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.16.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -233,16 +236,16 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.16/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn green_btn download_btn_large" text-generation="download_btn4"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.huang1111.cn/s/GwQxIW" target="_blank">
+                        <button class="btn green_btn download_btn_large" text-generation="download_btn4"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -250,7 +253,7 @@
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn6"
+                    <button class="btn disabled_btn download_btn" text-generation="download_btn6"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
                 </div>
@@ -259,17 +262,17 @@
                     <button class="btn disabled_btn download_btn" text-generation="download_btn7"
                             onclick="playSound(this);"></button>
                     <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn" text-generation="download_btn8"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://pan.baidu.com/s/1aadcUk_o4dip17OGhWUURg?pwd=cd1t" target="_blank">
+                        <button class="btn normal_btn download_btn" text-generation="download_btn8"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
             </div>
         </div>
         <div id="1.14" class="main">
             <div class="title2">1.14 - 嗡嗡蜂群</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.14.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.14.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -277,10 +280,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.14/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -313,7 +316,7 @@
         <div id="1.13" class="main">
             <div class="title2">1.13</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.13.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.13.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -321,10 +324,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.13/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -357,7 +360,7 @@
         <div id="1.12" class="main">
             <div class="title2">1.12</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.12.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.12.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -365,10 +368,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.12/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -401,7 +404,7 @@
         <div id="1.11" class="main">
             <div class="title2">1.11 - 村庄与掠夺</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.11.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.11.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -409,10 +412,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.11/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -445,7 +448,7 @@
         <div id="1.10" class="main">
             <div class="title2">1.10</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.10.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.10.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -453,10 +456,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.10/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -489,7 +492,7 @@
         <div id="1.9" class="main">
             <div class="title2">1.9</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.9.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.9.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -497,10 +500,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.9/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -533,7 +536,7 @@
         <div id="1.8" class="main">
             <div class="title2">1.8</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.8.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.8.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -541,10 +544,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.8/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -577,7 +580,7 @@
         <div id="1.7" class="main">
             <div class="title2">1.7</div>
             <div class="description2">更新日志:
-                <a class="wiki" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%881.7.0"
+                <a class="wiki" href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.7.0"
                    target="_blank" onclick="playSound1();"></a>
             </div>
             <div class="download_group">
@@ -585,10 +588,10 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
-                    <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
-                            onclick="playSound(this);"></button>
-                    <!--                    </a>-->
+                    <a href="https://mcarc.gitee.io/Android-Trial/1.7/" target="_blank">
+                        <button class="btn normal_btn download_btn_large" text-generation="download_btn9"
+                                onclick="playSound(this);"></button>
+                    </a>
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
@@ -625,6 +628,7 @@
         <div id="page_info_detail1" class="page_info"></div>
         <div id="page_info_title2" class="page_info_title"></div>
         <div id="page_info_detail2" class="page_info"></div>
+        <div id="page_info_title3" class="page_info_title"></div>
         <div class="page_info"><br></div>
     </div>
 </main>
@@ -662,8 +666,11 @@
 <!--遮罩-->
 <!--除了顶栏-->
 <div id="overlay_main" class="overlay_main" onclick="clickedOverlay();"></div>
+<!--全屏-->
+<div id="overlay" class="overlay"></div>
 
 </body>
+
 <script src="../javascript/editions.js"></script>
 <script src="../javascript/secondary.js"></script>
 <script src="../javascript/public_define.js"></script>
@@ -671,4 +678,5 @@
 <!--<script>-->
 <!--    -->
 <!--</script>-->
+
 </html>
