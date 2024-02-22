@@ -179,8 +179,11 @@ function playSound2() {
 }
 
 // 切换Tab Bar
-const defaultTabContent = document.querySelector(".tab_content.active");
-console.log("Tab Bar初始选中: ", defaultTabContent.id);
+const tabContent = document.querySelector(".tab_content");
+if (tabContent) {
+    const defaultTabContent = document.querySelector(".tab_content.active");
+    console.log("Tab Bar初始选中: ", defaultTabContent.id);
+}
 
 function selectTab(tabNumber) {
     const currentTabContent = document.querySelector(".tab_content.active");
