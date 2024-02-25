@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        main {
+            color: #FFFFFF;
+            flex: 1;
+        }
+
+        .main-cont {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 240px;
+        }
+
+        .main-detail {
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+    <title>404</title>
+</head>
+
+<body>
+<header>
+    <div id="back" class="header_back" onclick="clickedBack();">
+        <img id="back_icon" class="back_icon" alt="Back" src="">
+    </div>
+    <div class="header_logo"><span class="header_title">Minecraft Kit</span>
+    </div>
+</header>
+<main class="main-cont">
+    <div class="display">
+        <p class="area_404-img"><img id="404_img" alt="404 Image" src="" height="100px"></p>
+        <p class="main-detail">404</p>
+        <p class="main-detail">请检查链接是否正确</p>
+    </div>
+</main>
+
+<!--遮罩-->
+<!--除了顶栏-->
+<div id="overlay_main" class="overlay_main" onclick="clickedOverlay();"></div>
+<!--全屏-->
+<div id="overlay" class="overlay"></div>
+
+</body>
+
+<script>
+    const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+    const script = document.createElement('script');
+    // 设置要加载的 JavaScript 文件的 URL
+    script.src = root_path + 'javascript/public_script.js';
+    // 将 script 元素添加到页面中
+    document.head.appendChild(script);
+
+    // 获取 img 元素
+    const back_icon = document.getElementById('back_icon');
+    const not_found_img = document.getElementById('404_img');
+    // 设置图片路径
+    back_icon.src = root_path + 'images/Back.png';
+    not_found_img.src = root_path + 'images/404.png';
+</script>
+
+</html>

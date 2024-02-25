@@ -1,8 +1,5 @@
 let sidebarOpen = false;
 let overlayShow = false;
-let soundClickPath;
-let soundButtonPath;
-let updatelogPath;
 
 const startTime = new Date().getTime();
 const audioInstances = [];
@@ -10,38 +7,48 @@ const main = document.getElementById("main");
 
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
-const linkImg = document.getElementsByClassName('link_img');
-const linkImgBlack = document.getElementsByClassName('link_img_black');
+const hostPath = window.location.origin;
+const parts = currentPagePath.split('/').filter(Boolean);
+const rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
+const slashCount = (currentPagePath.match(/\//g) || []).length;
 
-if (currentPagePath.indexOf('/home.html') !== -1) {
-    soundClickPath = './sounds/click.ogg';
-    soundButtonPath = './sounds/button.ogg';
-    updatelogPath = './updatelog/';
-} else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/default/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1) || (currentPagePath.indexOf('/advanced/') !== -1) || (currentPagePath.indexOf('/experimental/') !== -1)) {
-    soundClickPath = '../sounds/click.ogg';
-    soundButtonPath = '../sounds/button.ogg';
-    updatelogPath = '../updatelog/';
+// 创建 link 元素
+const linkElement = document.createElement('link');
+linkElement.rel = 'stylesheet';
+linkElement.href = rootPath + 'stylesheet/public_style.css';
+
+// 将 link 元素添加到 head 中
+document.head.appendChild(linkElement);
+
+const soundClickPath = rootPath + 'sounds/click.ogg';
+const soundButtonPath = rootPath + 'sounds/button.ogg';
+const updatelogPath = rootPath + 'updatelog/';
+const pageLevel = (slashCount - 1) + "级页面";
+
+console.log("浏览器UA: ", navigator.userAgent)
+console.log("完整路径: ", currentURL);
+console.log("来源: ", hostPath);
+console.log("根路径: ", rootPath);
+console.log("当前路径: ", currentPagePath);
+
+if (hostPath.includes('file:///')) {
+    console.log('当前运行在本地文件');
+} else if (hostPath.includes('localhost')) {
+    console.log("当前运行在本地服务器");
+} else if (hostPath.includes('github.io/')) {
+    console.log("当前运行在Github");
+} else if (hostPath.includes('gitee.io/')) {
+    console.log("当前运行在Gitee");
+} else {
+    console.log("当前运行在" + hostPath);
+}
+if (rootPath.includes('test')) {
+    console.log("环境为测试环境");
+} else {
+    console.log("环境为标准环境");
 }
 
-for (let i = 0; i < linkImg.length; i++) {
-    const linkImgList = linkImg[i];
-
-    if (currentPagePath.indexOf('/home.html') !== -1) {
-        linkImgList.src = "./images/ExternalLink_white.png";
-    } else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/default/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1) || (currentPagePath.indexOf('/advanced/') !== -1) || (currentPagePath.indexOf('/experimental/') !== -1)) {
-        linkImgList.src = "../images/ExternalLink_white.png";
-    }
-}
-
-for (let i = 0; i < linkImgBlack.length; i++) {
-    const linkImgList = linkImgBlack[i];
-
-    if (currentPagePath.indexOf('/home.html') !== -1) {
-        linkImgList.src = "./images/ExternalLink.png";
-    } else if ((currentPagePath.indexOf('/home/') !== -1) || (currentPagePath.indexOf('/updatelog/') !== -1)) {
-        linkImgList.src = "../images/ExternalLink.png";
-    }
-}
+console.log("当前位于" + pageLevel);
 
 // 禁止拖动元素
 const images = document.querySelectorAll("img");
@@ -80,7 +87,6 @@ const compatibilityModal = `
             </div>
         </div>`;
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("浏览器UA: ", navigator.userAgent)
     if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') === 'false') {
         const overlay = document.getElementById("overlay");
         const modal = document.getElementById("compatibility_modal");
@@ -112,33 +118,6 @@ window.addEventListener("error", function (event) {
     console.error("错误: ", event.message);
 });
 
-// 输出运行日志
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("页面加载完成!");
-    if (currentURL.startsWith('file:///')) {
-        console.log('当前运行在本地');
-    } else {
-        if (currentURL.includes('github.io/')) {
-            console.log("当前运行在Github");
-        } else if (currentURL.includes('gitee.io/')) {
-            console.log("当前运行在Gitee");
-        } else {
-            console.log("当前运行在" + currentURL);
-        }
-        if (currentURL.includes('test')) {
-            console.log("环境为测试环境");
-        } else {
-            console.log("环境为标准环境");
-        }
-    }
-});
-
-window.addEventListener("load", function () {
-    const endTime = new Date().getTime();
-    let loadTime = endTime - startTime;
-    console.log("页面加载耗时: " + loadTime + "ms");
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const click = new Audio(soundClickPath);
     const button = new Audio(soundButtonPath);
@@ -156,6 +135,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }).catch((error) => {
         console.warn("音频预加载失败: ", error);
     });
+
+    console.log("页面加载完成!");
+});
+
+window.addEventListener("load", function () {
+    const endTime = new Date().getTime();
+    let loadTime = endTime - startTime;
+    console.log("页面加载耗时: " + loadTime + "ms");
 });
 
 function playSound1() {
@@ -316,7 +303,7 @@ function clickedRepo() {
 function debugPage() {
     playSound1();
     setTimeout(function () {
-        window.location.href = "../advanced/debug.html";
+        window.location.href = rootPath + "advanced/debug.html";
     }, 600);
 }
 
@@ -324,7 +311,7 @@ function debugPage() {
 function flagsPage() {
     playSound1();
     setTimeout(function () {
-        window.location.href = "../experimental/flags.html";
+        window.location.href = rootPath + "experimental/flags.html";
     }, 600);
 }
 

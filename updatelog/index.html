@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../stylesheet/public_style.css">
     <style>
         .tab_bar_area {
             height: 50px;
@@ -16,7 +15,7 @@
         }
 
         .main-header {
-            height: 50px;
+            height: 70px;
         }
 
         /* TODO 加入具体内容后移除该样式 */
@@ -26,7 +25,6 @@
 
         .coming_soon {
             display: flex;
-            margin-top: 20px;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -85,6 +83,21 @@
                     <div class="title1">更新历史</div>
                     <!-- span>版本类型: Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP</span -->
                 </div>
+                <div class="banner_area">
+                    <div class="banner information_banner">带有 * 标识的版本为不稳定版本,可能会出现各种难以预料的问题</div>
+                </div>
+                <div class="main">
+                    <div class="title2">*4.6.0-Canary6(4.6.0.6)</div>
+                    <div>2024-02-25</div>
+                    <div class="description2">
+                        <p>本版本基于4.5.1-Beta4(4.5.1.6)开发</p>
+                        <li>加入了404页面</li>
+                        <li>更新了部分js和css的加载方式</li>
+                        <li>优化了部分本地内容的加载方式</li>
+                        <li>优化了部分日志的输出</li>
+                        <li>移除了部分被弃用的内容</li>
+                    </div>
+                </div>
                 <div class="main">
                     <div class="title2">4.6.0-Canary4(4.6.0.4)</div>
                     <div>2024-02-25</div>
@@ -96,7 +109,7 @@
                     </div>
                 </div>
                 <div class="main">
-                    <div class="title2">4.5.1-Beta5(4.5.1.7)</div>
+                    <div class="title2">*4.5.1-Beta5(4.5.1.7)</div>
                     <div>2024-02-25</div>
                     <div class="description2">
                         <p>本版本不包含4.6的新特性</p>
@@ -155,7 +168,7 @@
                     </div>
                 </div>
                 <div class="main">
-                    <div class="title2">4.5.1-Beta3(4.5.1.4)</div>
+                    <div class="title2">*4.5.1-Beta3(4.5.1.4)</div>
                     <div>2024-02-15</div>
                     <div class="description2">
                         <li>加入了教育版预览版页面</li>
@@ -333,7 +346,7 @@
                     </div>
                 </div>
                 <div class="main">
-                    <div class="title2">4.3-Preview2</div>
+                    <div class="title2">*4.3-Preview2</div>
                     <div>2023-10-31</div>
                     <div class="description2">
                         <li>更新了底层框架</li>
@@ -376,7 +389,7 @@
                     </div>
                 </div>
                 <div class="main">
-                    <div class="title2">4.2-Preview10</div>
+                    <div class="title2">*4.2-Preview10</div>
                     <div>2023-10-30</div>
                     <div class="description2">
                         <li>完善了所有下载页面</li>
@@ -801,6 +814,5 @@
 </body>
 
 <script src="../javascript/public_script.js"></script>
-<script src="../javascript/secondary.js"></script>
 
 </html>
