@@ -58,7 +58,7 @@ main {
 }
 
 .switch {
-    width: 58px;
+    width: 56px;
     height: 24px;
     position: relative;
     border: 2px solid #1E1E1F;
@@ -118,7 +118,7 @@ main {
 }
 
 .switch.on .toggle_slider {
-    left: 29px;
+    left: 27px;
 }
 
 .toggle_style {
@@ -134,7 +134,7 @@ main {
 }
 
 .toggle_style.right {
-    right: 7px;
+    right: 6px;
 }
 
 .toggle_style.left img, .toggle_style.right img {
