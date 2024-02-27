@@ -3,9 +3,9 @@ const texts = {
     preview_detail1: "我们想听听你对这个新设计的意见.",
     preview_detail2: "请注意: 新设计还未完工,可能会缺失部分功能.",
     preview_btn1: "更新历史",
-    preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"link\"/>提出反馈",
+    preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"\"/>提出反馈",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "Version: 4.6.0.9.Canary<br>Server Version: 4.0<br>Updated: 2024-02-27-04",
+    page_info_detail1: "Version: 4.6.0.16.Canary<br>Server Version: 4.0<br>Updated: 2024-02-27-16",
     page_info_title2: "ABOUT US",
     page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
     page_info_title3: "MADE WITH ❤️ IN CHINA",
@@ -16,7 +16,7 @@ const texts = {
     sidebar_bottom_btn: "官方网站",
     minecraft_wiki: "中文Minecraft Wiki",
     download_btn1: "官方原版",
-    download_btn1_1: "<img class=\"link_img_black\" src=\"\" alt=\"link\"/>官方原版(外部链接)",
+    download_btn1_1: "<img class=\"link_img_black\" src=\"\" alt=\"\"/>官方原版(外部链接)",
     download_btn2: "中文译名修正",
     download_btn3: "去验证版",
     download_btn4: "默认云盘",
@@ -24,7 +24,7 @@ const texts = {
     download_btn6: "123云盘",
     download_btn7: "天翼云盘",
     download_btn8: "百度云盘",
-    download_btn9: "<img class=\"link_img_black\" src=\"\" alt=\"link\"/>外部链接",
+    download_btn9: "<img class=\"link_img_black\" src=\"\" alt=\"\"/>外部链接",
 };
 
 let previousTipIndex = -2;
@@ -170,19 +170,6 @@ setElementText("preview_detail2", texts.preview_detail2);
 setElementText("preview_btn1", texts.preview_btn1);
 setElementText("preview_btn2", texts.preview_btn2);
 
-const linkImg = document.getElementsByClassName('link_img');
-const linkImgBlack = document.getElementsByClassName('link_img_black');
-
-for (let i = 0; i < linkImg.length; i++) {
-    const linkImgList = linkImg[i];
-    linkImgList.src = rootPath + "images/ExternalLink_white.png";
-}
-
-for (let i = 0; i < linkImgBlack.length; i++) {
-    const linkImgList = linkImgBlack[i];
-    linkImgList.src = rootPath + "images/ExternalLink.png";
-}
-
 console.log("字符常量已成功应用");
 
 // 加载网页时的提示
@@ -191,6 +178,16 @@ if (tipElement) {
     console.log("提示已选择成功");
 } else {
     console.log("未发现提示框");
+}
+
+if (tipElement) {
+    tipElement.addEventListener("click", (event) => {
+        if (event.target.tagName === "A") {
+            console.log("检测到点击了链接,不执行切换提示操作");
+        } else {
+            tipElement.innerHTML = getRandomTip();
+        }
+    });
 }
 
 function getRandomTip() {
@@ -227,11 +224,3 @@ function getRandomTip() {
         }
     }
 }
-
-tipElement.addEventListener("click", (event) => {
-    if (event.target.tagName === "A") {
-        console.log("检测到点击了链接,不执行切换提示操作");
-    } else {
-        tipElement.innerHTML = getRandomTip();
-    }
-});

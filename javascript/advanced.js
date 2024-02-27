@@ -77,7 +77,6 @@ observer.observe(targetNode2, observerConfig);
 // });
 
 
-
 // 主代码
 
 // Switch开关函数
@@ -108,24 +107,10 @@ for (let i = 0; i < switchElement.length; i++) {
     // document.addEventListener("mousemove", function (e) {
     //
     // });
-
-    document.addEventListener("touchmove", function (e) {
-        // if (isDragging) {
-        //     let currentX = e.touches[0].clientX;
-        //     if (currentX - startX > 10) {
-        //         if (!isOn) {
-        //             isOn = true;
-        //             updateSwitchState(i, isOn);
-        //         }
-        //     } else if (currentX - startX < -10) {
-        //         if (isOn) {
-        //             isOn = false;
-        //             updateSwitchState(i, isOn);
-        //         }
-        //     }
-        // }
-        // isDragging = false;
-    });
+    //
+    // document.addEventListener("touchmove", function (e) {
+    //
+    // });
 
     document.addEventListener("mouseup", function (e) {
         if (isDragging) {
@@ -182,7 +167,7 @@ function updateSwitchState(index, isOn) {
 
 // Slider滑动条函数
 function setupSlider(sliderData) {
-    sliderData.forEach(function(data) {
+    sliderData.forEach(function (data) {
         const slider = document.getElementById(data.sliderId);
         const handle = slider.querySelector('.' + data.handleClass);
         const tooltip = slider.querySelector('.' + data.tooltipClass);

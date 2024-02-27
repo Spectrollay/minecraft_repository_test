@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<!--        <style>-->
-<!--            -->
-<!--        </style>-->
+    <!--    <style>-->
+    <!--        -->
+    <!--    </style>-->
     <script>
         const loadingMaskStyle = document.createElement('style');
         loadingMaskStyle.textContent = `
@@ -40,8 +40,7 @@
 
         const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     </script>
-    <link href="../images/Marketplace.png" rel="icon">
-    <title>正版购买指南</title>
+    <title>Template</title>
 </head>
 
 <body>
@@ -50,27 +49,13 @@
 </div>
 <header>
     <div class="header_back" id="back" onclick="clickedBack();">
-        <img alt="" class="back_icon" id="back_icon" src="">
+        <img alt="Back" class="back_icon" id="back_icon" src="">
     </div>
-    <div class="header_logo">
-        <img alt="Title Icon" class="title_icon" src="../images/Marketplace.png"><span
-            class="header_title">Repository</span>
+    <div class="header_logo"><span class="header_title">Minecraft Kit</span>
     </div>
 </header>
-<main id="main">
-    <div class="block">
-        <div class="main">
-            <div class="title1">正版购买指南</div>
-            <div class="description1">2024-01-01</div>
-        </div>
-        <div class="banner_area">
-            <div class="banner information_banner">
-                <a href="https://zh.minecraft.wiki/w/Tutorial:%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E8%B4%AD%E4%B9%B0"
-                   onclick="playSound1();" target="_blank">Minecraft Wiki 教程</a>
-            </div>
-        </div>
-        <div class="main">即将到来</div>
-    </div>
+<main class="main-cont">
+
 </main>
 
 <!--遮罩-->
@@ -131,10 +116,8 @@
     });
 </script>
 
-<style>
-    .block {
-        margin: 20px;
-    }
-</style>
+<!--<style>-->
+<!--    -->
+<!--</style>-->
 
 </html>

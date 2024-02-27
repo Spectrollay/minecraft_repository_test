@@ -13,12 +13,12 @@ const rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
 // 创建 link 元素
-const linkElement = document.createElement('link');
-linkElement.rel = 'stylesheet';
-linkElement.href = rootPath + 'stylesheet/public_style.css';
+const public_style = document.createElement('link');
+public_style.rel = 'stylesheet';
+public_style.href = rootPath + 'stylesheet/public_style.css';
 
 // 将 link 元素添加到 head 中
-document.head.appendChild(linkElement);
+document.head.appendChild(public_style);
 
 const soundClickPath = rootPath + 'sounds/click.ogg';
 const soundButtonPath = rootPath + 'sounds/button.ogg';
@@ -37,8 +37,24 @@ if (hostPath.includes('file:///')) {
     console.log("当前运行在本地服务器");
 } else if (hostPath.includes('github.io/')) {
     console.log("当前运行在Github");
+    // 禁用右键菜单
+    document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+    });
+    // 禁用长按菜单
+    document.addEventListener('touchstart', function (event) {
+        event.preventDefault();
+    });
 } else if (hostPath.includes('gitee.io/')) {
     console.log("当前运行在Gitee");
+    // 禁用右键菜单
+    document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+    });
+    // 禁用长按菜单
+    document.addEventListener('touchstart', function (event) {
+        event.preventDefault();
+    });
 } else {
     console.log("当前运行在" + hostPath);
 }
@@ -59,16 +75,6 @@ images.forEach(function (image) {
 
 links.forEach(function (link) {
     link.draggable = false;
-});
-
-// 禁用右键菜单
-document.addEventListener('contextmenu', function (event) {
-    event.preventDefault();
-});
-
-// 禁用长按菜单
-document.addEventListener('touchstart', function (event) {
-    event.preventDefault();
 });
 
 // 兼容性检测

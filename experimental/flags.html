@@ -2,25 +2,60 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../stylesheet/advanced.css">
-    <link rel="icon" href="../images/Tool.png">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../stylesheet/advanced.css" rel="stylesheet">
+    <link href="../images/Tool.png" rel="icon">
     <style>
         .setting_block_content {
             flex: 1;
         }
     </style>
+    <script>
+        const loadingMaskStyle = document.createElement('style');
+        loadingMaskStyle.textContent = `
+        .loading_mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #48494A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 1; /* 初始不透明度 */
+            transition: opacity 0.6s; /* 添加渐隐动画 */
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+        }
+
+        #spinner_img {
+            width: 50px;
+            height: 50px;
+        }
+    `;
+        document.head.appendChild(loadingMaskStyle);
+
+        const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+    </script>
     <title>实验性内容</title>
 </head>
 
 <body>
+<div class="loading_mask" id="loading_mask">
+    <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+</div>
 <header>
-    <div id="back" class="header_back" onclick="clickedBack();">
-        <img class="back_icon" alt="Back" src="../images/Back.png">
+    <div class="header_back" id="back" onclick="clickedBack();">
+        <img alt="" class="back_icon" id="back_icon" src="">
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img class="title_icon" alt="Title Icon" src="../images/Tool.png">
+        <img alt="Title Icon" class="title_icon" src="../images/Tool.png">
         <span class="header_title">Experiments</span>
     </div>
 </header>
@@ -43,7 +78,7 @@
             <div class="btn_with_tooltip_cont">
                 <button class="btn normal_btn btn_with_tooltip" onclick="playSound(this);">Button1</button>
                 <div class="tooltip">Information1</div>
-                <img class="key_icon" alt="Key" src="../images/Key.png"/>
+                <img alt="Key" class="key_icon" src="../images/Key.png"/>
             </div>
             <br>
             <br>
@@ -51,7 +86,7 @@
             <div class="btn_with_tooltip_cont">
                 <button class="btn green_btn btn_with_tooltip" onclick="playSound(this);">Button2</button>
                 <div class="tooltip">Information2</div>
-                <img class="key_icon" alt="Key" src="../images/Key.png"/>
+                <img alt="Key" class="key_icon" src="../images/Key.png"/>
             </div>
             <br>
             <br>
@@ -59,7 +94,7 @@
             <div class="btn_with_tooltip_cont">
                 <button class="btn red_btn btn_with_tooltip" onclick="playSound(this);">Button3</button>
                 <div class="tooltip">Information3</div>
-                <img class="key_icon" alt="Key" src="../images/Key.png"/>
+                <img alt="Key" class="key_icon" src="../images/Key.png"/>
             </div>
         </div>
     </div>
@@ -69,14 +104,14 @@
             <br>
             <div class="tab_bar_area">
                 <div class="tab_bar">
-                    <button id="tab1" class="tab_bar_btn active" onclick="selectTab(1);">Tab 1</button>
-                    <button id="tab2" class="tab_bar_btn no_active" onclick="selectTab(2);">Tab 2</button>
-                    <button id="tab3" class="tab_bar_btn no_active" onclick="selectTab(3);">Tab 3</button>
+                    <button class="tab_bar_btn active" id="tab1" onclick="selectTab(1);">Tab 1</button>
+                    <button class="tab_bar_btn no_active" id="tab2" onclick="selectTab(2);">Tab 2</button>
+                    <button class="tab_bar_btn no_active" id="tab3" onclick="selectTab(3);">Tab 3</button>
                 </div>
             </div>
-            <div id="content1" class="tab_content active">Content for Tab 1</div>
-            <div id="content2" class="tab_content no_active">Content for Tab 2</div>
-            <div id="content3" class="tab_content no_active">Content for Tab 3</div>
+            <div class="tab_content active" id="content1">Content for Tab 1</div>
+            <div class="tab_content no_active" id="content2">Content for Tab 2</div>
+            <div class="tab_content no_active" id="content3">Content for Tab 3</div>
         </div>
     </div>
     <div class="setting_block">
@@ -154,13 +189,65 @@
 
 <!--遮罩-->
 <!--除了顶栏-->
-<div id="overlay_main" class="overlay_main" onclick="clickedOverlay();"></div>
+<div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 <!--全屏-->
-<div id="overlay" class="overlay"></div>
+<div class="overlay" id="overlay"></div>
 
 </body>
 
+<script>
+    const public_script = document.createElement('script');
+    const public_define = document.createElement('script');
+    // 设置要加载的 JavaScript 文件的 URL
+    public_script.src = root_path + 'javascript/public_script.js';
+    public_define.src = root_path + 'javascript/public_define.js';
+    // 将 script 元素添加到页面中
+    document.head.appendChild(public_script);
+    document.head.appendChild(public_define);
+
+    // 获取 img 元素
+    const menu_icon = document.getElementById('menu_icon');
+    const back_icon = document.getElementById('back_icon');
+
+    // 设置图片路径
+    if (back_icon) {
+        back_icon.src = root_path + 'images/Back.png';
+    }
+    if (menu_icon) {
+        menu_icon.src = root_path + 'images/Menu.png';
+    }
+
+    const loading_img = document.getElementById('spinner_img');
+    loading_img.src = root_path + 'images/Loading_white.gif';
+    const loading_mask = document.getElementById('loading_mask');
+
+    // 监听页面加载完成事件
+    window.addEventListener('load', function () {
+        let linkImg = document.getElementsByClassName('link_img');
+        let linkImgBlack = document.getElementsByClassName('link_img_black');
+
+        if (linkImg) {
+            for (let i = 0; i < linkImg.length; i++) {
+                linkImg[i].src = root_path + 'images/ExternalLink_white.png';
+            }
+        }
+        if(linkImgBlack) {
+            for (let i = 0; i < linkImgBlack.length; i++) {
+                linkImgBlack[i].src = root_path + 'images/ExternalLink.png';
+            }
+        }
+
+        // 延时600ms后隐藏蒙版
+        loading_mask.style.opacity = '0';
+        setTimeout(function () {
+            loading_mask.style.display = 'none';
+        }, 600);
+    });
+</script>
 <script src="../javascript/advanced.js"></script>
-<script src="../javascript/public_script.js"></script>
+
+<!--<style>-->
+<!--    -->
+<!--</style>-->
 
 </html>

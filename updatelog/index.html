@@ -3,19 +3,57 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../images/Marketplace.png">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!--    <style>-->
+<!--        -->
+<!--    </style>-->
+    <script>
+        const loadingMaskStyle = document.createElement('style');
+        loadingMaskStyle.textContent = `
+        .loading_mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #48494A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 1; /* 初始不透明度 */
+            transition: opacity 0.6s; /* 添加渐隐动画 */
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+        }
+
+        #spinner_img {
+            width: 50px;
+            height: 50px;
+        }
+    `;
+        document.head.appendChild(loadingMaskStyle);
+
+        const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+    </script>
+    <link href="../images/Marketplace.png" rel="icon">
     <title>更新历史</title>
 </head>
 
 <body>
+<div class="loading_mask" id="loading_mask">
+    <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+</div>
 <header>
-    <div id="back" class="header_back" onclick="clickedBack();">
-        <img class="back_icon" alt="Back" src="../images/Back.png">
+    <div class="header_back" id="back" onclick="clickedBack();">
+        <img alt="" class="back_icon" id="back_icon" src="">
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img class="title_icon" alt="Title Icon" src="../images/Marketplace.png"><span
+        <img alt="Title Icon" class="title_icon" src="../images/Marketplace.png"><span
             class="header_title">Repository</span>
     </div>
 </header>
@@ -24,11 +62,11 @@
     <div class="main-header"></div>
     <div class="tab_bar_area">
         <div class="tab_bar">
-            <button id="tab1" class="tab_bar_btn no_active" onclick="selectTab(1);">更新计划</button>
-            <button id="tab2" class="tab_bar_btn active" onclick="selectTab(2);">更新历史</button>
+            <button class="tab_bar_btn no_active" id="tab1" onclick="selectTab(1);">更新计划</button>
+            <button class="tab_bar_btn active" id="tab2" onclick="selectTab(2);">更新历史</button>
         </div>
     </div>
-    <div id="content1" class="tab_content no_active">
+    <div class="tab_content no_active" id="content1">
         <div class="coming_soon">
             <div class="display">
                 <p class="coming_soon-img"><img alt="Coming Soon Image" src="../images/Building.png"></p>
@@ -36,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div id="content2" class="tab_content active">
+    <div class="tab_content active" id="content2">
         <div class="display">
             <div class="block">
                 <div class="main">
@@ -44,7 +82,33 @@
                     <!-- span>版本类型: Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP</span -->
                 </div>
                 <div class="banner_area">
-                    <div class="banner information_banner">带有 * 标识的版本为不稳定版本, 可能会出现各种难以预料的问题</div>
+                    <div class="banner information_banner">带有 * 标识的版本为不稳定版本, 可能会出现各种难以预料的问题
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="title2">*4.6.0-Canary10(4.6.0.16)</div>
+                    <div>2024-02-27</div>
+                    <div class="description2">
+                        <p>本版本基于4.5.1-Beta4(4.5.1.6)开发</p>
+                        <li>新增模板页面</li>
+                        <li>加入了网页加载遮罩</li>
+                        <li>对部分代码进行了格式化</li>
+                        <li>为开发环境重新启用了菜单</li>
+                        <li>更新了一些css和js的加载方式</li>
+                        <li>对一些代码进行了拆分和重组</li>
+                        <li>移除了春节横幅</li>
+                        <li>移除了一些冗余代码</li>
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="title2">4.5.1-Beta6(4.5.1.9)</div>
+                    <div>2024-02-27</div>
+                    <div class="description2">
+                        <p>本版本不包含4.6的新特性</p>
+                        <li>加入了一些新的提示</li>
+                        <li>优化了部分日志的输出</li>
+                        <li>修复了一些显示问题</li>
+                    </div>
                 </div>
                 <div class="main">
                     <div class="title2">*4.6.0-Canary9(4.6.0.9)</div>
@@ -799,13 +863,61 @@
 
 <!--遮罩-->
 <!--除了顶栏-->
-<div id="overlay_main" class="overlay_main" onclick="clickedOverlay();"></div>
+<div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 <!--全屏-->
-<div id="overlay" class="overlay"></div>
+<div class="overlay" id="overlay"></div>
 
 </body>
 
-<script src="../javascript/public_script.js"></script>
+<script>
+    const public_script = document.createElement('script');
+    const public_define = document.createElement('script');
+    // 设置要加载的 JavaScript 文件的 URL
+    public_script.src = root_path + 'javascript/public_script.js';
+    public_define.src = root_path + 'javascript/public_define.js';
+    // 将 script 元素添加到页面中
+    document.head.appendChild(public_script);
+    document.head.appendChild(public_define);
+
+    // 获取 img 元素
+    const menu_icon = document.getElementById('menu_icon');
+    const back_icon = document.getElementById('back_icon');
+
+    // 设置图片路径
+    if (back_icon) {
+        back_icon.src = root_path + 'images/Back.png';
+    }
+    if (menu_icon) {
+        menu_icon.src = root_path + 'images/Menu.png';
+    }
+
+    const loading_img = document.getElementById('spinner_img');
+    loading_img.src = root_path + 'images/Loading_white.gif';
+    const loading_mask = document.getElementById('loading_mask');
+
+    // 监听页面加载完成事件
+    window.addEventListener('load', function () {
+        let linkImg = document.getElementsByClassName('link_img');
+        let linkImgBlack = document.getElementsByClassName('link_img_black');
+
+        if (linkImg) {
+            for (let i = 0; i < linkImg.length; i++) {
+                linkImg[i].src = root_path + 'images/ExternalLink_white.png';
+            }
+        }
+        if(linkImgBlack) {
+            for (let i = 0; i < linkImgBlack.length; i++) {
+                linkImgBlack[i].src = root_path + 'images/ExternalLink.png';
+            }
+        }
+
+        // 延时600ms后隐藏蒙版
+        loading_mask.style.opacity = '0';
+        setTimeout(function () {
+            loading_mask.style.display = 'none';
+        }, 600);
+    });
+</script>
 
 <style>
     .tab_bar_area {
