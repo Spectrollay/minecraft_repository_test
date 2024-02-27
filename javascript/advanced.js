@@ -103,7 +103,6 @@ for (let i = 0; i < switchElement.length; i++) {
     switchElement[i].addEventListener("touchstart", function (e) {
         isDragging = true;
         startX = e.touches[0].clientX;
-        e.preventDefault();
     });
 
     // document.addEventListener("mousemove", function (e) {
