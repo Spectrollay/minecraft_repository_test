@@ -109,10 +109,24 @@ for (let i = 0; i < switchElement.length; i++) {
     // document.addEventListener("mousemove", function (e) {
     //
     // });
-    //
-    // document.addEventListener("touchmove", function (e) {
-    //
-    // });
+
+    document.addEventListener("touchmove", function (e) {
+        if (isDragging) {
+            let currentX = e.touches[0].clientX;
+            if (currentX - startX > 10) {
+                if (!isOn) {
+                    isOn = true;
+                    updateSwitchState(i, isOn);
+                }
+            } else if (currentX - startX < -10) {
+                if (isOn) {
+                    isOn = false;
+                    updateSwitchState(i, isOn);
+                }
+            }
+        }
+        isDragging = false;
+    });
 
     document.addEventListener("mouseup", function (e) {
         if (isDragging) {
@@ -134,7 +148,7 @@ for (let i = 0; i < switchElement.length; i++) {
 
     document.addEventListener("touchend", function (e) {
         if (isDragging) {
-            let currentX = e.touches[0].clientX;
+            let currentX = e.changedTouches[0].clientX;
             if (currentX - startX > 10) {
                 if (!isOn) {
                     isOn = true;
