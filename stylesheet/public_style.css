@@ -237,6 +237,7 @@ main::-webkit-scrollbar-thumb {
 .tab_content {
     display: none;
     color: #FFFFFF;
+    min-height: 60px;
 }
 
 .tab_content.active {

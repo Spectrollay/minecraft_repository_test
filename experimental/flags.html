@@ -37,20 +37,25 @@
     </div>
     <div class="setting_block">
         <div class="setting_block_content">
-            <span>Button with Tooltip</span>
+            <div>Button with Tooltip</div>
             <br>
+            <div>Button 1</div>
             <div class="btn_with_tooltip_cont">
                 <button class="btn normal_btn btn_with_tooltip" onclick="playSound(this);">Button1</button>
                 <div class="tooltip">Information1</div>
                 <img class="key_icon" alt="Key" src="../images/Key.png"/>
             </div>
             <br>
+            <br>
+            <div>Button 2</div>
             <div class="btn_with_tooltip_cont">
                 <button class="btn green_btn btn_with_tooltip" onclick="playSound(this);">Button2</button>
                 <div class="tooltip">Information2</div>
                 <img class="key_icon" alt="Key" src="../images/Key.png"/>
             </div>
             <br>
+            <br>
+            <div>Button 3</div>
             <div class="btn_with_tooltip_cont">
                 <button class="btn red_btn btn_with_tooltip" onclick="playSound(this);">Button3</button>
                 <div class="tooltip">Information3</div>
@@ -60,7 +65,7 @@
     </div>
     <div class="setting_block">
         <div class="setting_block_content">
-            <span>Tab Bar</span>
+            <div>Tab Bar</div>
             <br>
             <div class="tab_bar_area">
                 <div class="tab_bar">
@@ -76,13 +81,15 @@
     </div>
     <div class="setting_block">
         <div class="setting_block_content">
-            <span>Dropdown List</span>
+            <div>Dropdown List</div>
             <div></div>
         </div>
     </div>
     <div class="setting_block">
         <div class="setting_block_content">
-            <span>Switch</span>
+            <div>Switch</div>
+            <br>
+            <div>Switch 1</div>
             <div class="switch_content">
                 <div class="switch off" id="switch_exp1">
                     <div class="toggle_style left"><img alt="" src="../images/switch_on.png"></div>
@@ -90,7 +97,9 @@
                     <div class="toggle_slider"></div>
                 </div>
             </div>
-            <div id="switch_status_exp1">开关: 关闭</div>
+            <div id="switch_status_exp1">Toggle: Close</div>
+            <br>
+            <div>Switch 2</div>
             <div class="switch_content">
                 <div class="switch on" id="switch_exp2">
                     <div class="toggle_style left"><img alt="" src="../images/switch_on.png"></div>
@@ -98,12 +107,47 @@
                     <div class="toggle_slider"></div>
                 </div>
             </div>
-            <div id="switch_status_exp2">开关: 开启</div>
+            <div id="switch_status_exp2">Toggle: Open</div>
         </div>
     </div>
     <div class="setting_block">Checkbox</div>
     <div class="setting_block">Radio Group</div>
-    <div class="setting_block">Slider</div>
+    <div class="setting_block">
+        <div class="setting_block_content">
+            <div>Slider</div>
+            <br>
+            <div>Smooth Slider1</div>
+            <div class="slider smooth-slider" id="smoothSlider1">
+                <div class="slider-handle smooth-handle" id="smoothHandle"></div>
+                <div class="slider-tooltip smooth-tooltip" id="smoothTooltip">0.00</div>
+            </div>
+            <br>
+            <br>
+            <div>Smooth Slider2</div>
+            <div class="slider smooth-slider" id="smoothSlider2">
+                <div class="slider-handle smooth-handle" id="smoothHandle2"></div>
+                <div class="slider-tooltip smooth-tooltip" id="smoothTooltip2">0.00</div>
+            </div>
+            <br>
+            <br>
+            <div>Segmented Slider1</div>
+            <div class="slider segmented-slider" id="segmentedSlider1">
+                <div class="slider-handle segmented-handle" id="segmentedHandle"></div>
+                <div class="slider-tooltip segmented-tooltip" id="segmentedTooltip">0</div>
+                <div class="slider-segment" style="display: none"></div>
+            </div>
+            <br>
+            <br>
+            <div>Segmented Slider2</div>
+            <div class="slider segmented-slider" id="segmentedSlider2">
+                <div class="slider-handle segmented-handle" id="segmentedHandle2"></div>
+                <div class="slider-tooltip segmented-tooltip" id="segmentedTooltip2">0</div>
+                <div class="slider-segment" style="display: none"></div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
     <div class="setting_block">Text Field</div>
     <div class="setting_block"></div>
 </main>
