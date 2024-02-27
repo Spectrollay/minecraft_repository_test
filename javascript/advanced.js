@@ -110,21 +110,21 @@ for (let i = 0; i < switchElement.length; i++) {
     // });
 
     document.addEventListener("touchmove", function (e) {
-        if (isDragging) {
-            let currentX = e.touches[0].clientX;
-            if (currentX - startX > 10) {
-                if (!isOn) {
-                    isOn = true;
-                    updateSwitchState(i, isOn);
-                }
-            } else if (currentX - startX < -10) {
-                if (isOn) {
-                    isOn = false;
-                    updateSwitchState(i, isOn);
-                }
-            }
-        }
-        isDragging = false;
+        // if (isDragging) {
+        //     let currentX = e.touches[0].clientX;
+        //     if (currentX - startX > 10) {
+        //         if (!isOn) {
+        //             isOn = true;
+        //             updateSwitchState(i, isOn);
+        //         }
+        //     } else if (currentX - startX < -10) {
+        //         if (isOn) {
+        //             isOn = false;
+        //             updateSwitchState(i, isOn);
+        //         }
+        //     }
+        // }
+        // isDragging = false;
     });
 
     document.addEventListener("mouseup", function (e) {
