@@ -15,5 +15,5 @@ Join groups:
 
 Project address:
 
-- (GitHub) https://spectrollay.github.io/minecraft_repository/home.html
-- (Gitee) https://spectrollay.gitee.io/minecraft_repository/home.html
+- (GitHub) https://spectrollay.github.io/minecraft_repository_test/home.html
+- (Gitee) https://spectrollay.gitee.io/minecraft_repository_test/home.html

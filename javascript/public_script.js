@@ -5,6 +5,12 @@ const startTime = new Date().getTime();
 const audioInstances = [];
 const main = document.getElementById("main");
 
+// 检测浏览器是否处于夜间模式
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // 覆盖夜间模式下的样式
+    document.body.classList.add('no-dark-mode');
+}
+
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
 const hostPath = window.location.origin;
@@ -35,7 +41,7 @@ if (hostPath.includes('file:///')) {
     console.log('当前运行在本地文件');
 } else if (hostPath.includes('localhost')) {
     console.log("当前运行在本地服务器");
-} else if (hostPath.includes('github.io/')) {
+} else if (hostPath.includes('github.io')) {
     console.log("当前运行在Github");
     // 禁用右键菜单
     document.addEventListener('contextmenu', function (event) {
@@ -45,7 +51,7 @@ if (hostPath.includes('file:///')) {
     document.addEventListener('touchstart', function (event) {
         event.preventDefault();
     });
-} else if (hostPath.includes('gitee.io/')) {
+} else if (hostPath.includes('gitee.io')) {
     console.log("当前运行在Gitee");
     // 禁用右键菜单
     document.addEventListener('contextmenu', function (event) {
@@ -93,7 +99,7 @@ const compatibilityModal = `
             </div>
         </div>`;
 document.addEventListener("DOMContentLoaded", function () {
-    if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') === 'false') {
+    if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') !== '1') {
         const overlay = document.getElementById("overlay");
         const modal = document.getElementById("compatibility_modal");
         overlay.style.display = "block";
@@ -113,7 +119,7 @@ function hideCompatibilityModal(button) {
 
 function neverShowCompatibilityModalAgain(button) {
     hideCompatibilityModal(button);
-    localStorage.setItem('neverShowCompatibilityModalAgain', 'true');
+    localStorage.setItem('neverShowCompatibilityModalAgain', '1');
     console.log("关闭兼容性提示弹窗且不再提示");
 }
 
@@ -266,7 +272,7 @@ function toUpdatelog() {
 
 function toRepo() {
     setTimeout(function () {
-        window.open("https://github.com/Spectrollay/minecraft_repository/issues/new");
+        window.open("https://github.com/Spectrollay/minecraft_repository_test/issues/new");
     }, 600);
 }
 
@@ -302,7 +308,7 @@ function clickedOverlay() {
 // 点击仓库图标事件
 function clickedRepo() {
     playSound1();
-    window.open("https://github.com/Spectrollay/minecraft_repository");
+    window.open("https://github.com/Spectrollay/minecraft_repository_test");
 }
 
 // 点击Debug图标事件
