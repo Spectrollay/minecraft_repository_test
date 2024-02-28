@@ -324,7 +324,7 @@ function setupSlider(sliderData) {
                 isDragging = false;
                 const segmentIndex = Math.round(handle.offsetLeft / (slider.offsetWidth / segments));
                 const segmentPosition = segmentIndex * (slider.offsetWidth / segments);
-                handle.style.left = (segmentPosition - 2) + 'px';
+                handle.style.left = segmentPosition + 'px';
                 updateValueSegmentSlider(segmentPosition);
             });
 
@@ -345,7 +345,7 @@ function setupSlider(sliderData) {
                 isDragging = false;
                 const segmentIndex = Math.round(handle.offsetLeft / (slider.offsetWidth / segments));
                 const segmentPosition = segmentIndex * (slider.offsetWidth / segments);
-                handle.style.left = (segmentPosition - 2) + 'px';
+                handle.style.left = segmentPosition + 'px';
                 updateValueSegmentSlider(segmentPosition);
             });
 
@@ -364,7 +364,7 @@ function setupSlider(sliderData) {
                 }
                 const segmentIndex = Math.round(posX / (slider.offsetWidth / segments));
                 const segmentPosition = segmentIndex * (slider.offsetWidth / segments);
-                handle.style.left = (segmentPosition - 2) + 'px';
+                handle.style.left = segmentPosition + 'px';
                 updateValueSegmentSlider(segmentPosition);
             });
 
