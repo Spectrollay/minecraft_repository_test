@@ -112,7 +112,7 @@ main {
     transition: left 125ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.toggle_slider:hover, .switch:hover .toggle_slider {
+.toggle_slider:hover, .toggle_slider:active, .switch:hover .toggle_slider {
     background-color: #B1B2B5;
     box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.8), inset -2px -6px rgba(255, 255, 255, 0.6);
 }
@@ -143,13 +143,13 @@ main {
 
 /* Slider滑动条 */
 .slider {
-    width: 80%; /* 进度条宽度 */
+    width: 90%; /* 进度条宽度 */
     height: 8px; /* 进度条高度 */
     border: 2px solid #1E1E1F;
     background: #8C8D90;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
-    margin: 20px auto; /* 上下外边距20px，左右自动居中 */
-    position: relative; /* 相对定位，用于子元素绝对定位的参考 */
+    margin: 30px auto; /* 上下外边距30px,左右自动居中 */
+    position: relative; /* 相对定位,用于子元素绝对定位的参考 */
 }
 
 .slider-process {
@@ -157,15 +157,16 @@ main {
     top: 0;
     left: 0;
     bottom: 0;
+    max-width: 100%;
     background: #3C8527;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
     transition: width 50ms linear;
 }
 
 .slider-handle {
-    position: absolute; /* 绝对定位，相对于包含它的 .slider 元素 */
-    width: 28px; /* 滑块宽度 */
-    height: 28px; /* 滑块高度 */
+    position: absolute; /* 相对于包含它的 .slider 元素绝对定位 */
+    width: 28px;
+    height: 28px;
     top: 50%; /* 滑块垂直居中 */
     z-index: 1;
     transform: translate(-50%, -50%); /* 水平和垂直居中 */
@@ -175,23 +176,23 @@ main {
     transition: left 100ms linear;
 }
 
-.slider-handle:hover {
+.slider-handle:hover, .slider-handle:active {
     background-color: #B1B2B5;
     box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.8), inset -2px -6px rgba(255, 255, 255, 0.6);
 }
 
 .slider-tooltip {
-    position: absolute; /* 绝对定位 */
-    bottom: -50px; /* 距离底部 40px */
+    position: absolute;
+    bottom: -55px;
     left: 50%; /* 水平居中 */
     transform: translateX(-50%); /* 水平居中 */
 }
 
 .slider-segment {
-    position: absolute; /* 绝对定位 */
-    background-color: #333; /* 分段线颜色 */
-    width: 2px; /* 分段线宽度 */
-    height: 8px; /* 分段线高度 */
+    position: absolute;
+    background-color: #1E1E1F;
+    width: 2px;
+    height: 8px;
     top: 50%; /* 分段线垂直居中 */
     transform: translateY(-50%); /* 分段线垂直居中 */
 }

@@ -262,7 +262,7 @@ function setupSlider(sliderData) {
                 } else if (posX > slider.offsetWidth) {
                     posX = slider.offsetWidth;
                 }
-                handle.style.left = posX + 'px';
+                handle.style.left = (posX - 2) + 'px';
                 updateValueSmoothSlider(posX);
             });
 
@@ -270,7 +270,7 @@ function setupSlider(sliderData) {
             const minValueLabel = document.createElement('div');
             minValueLabel.textContent = minValue.toFixed(2);
             minValueLabel.style.position = 'absolute';
-            minValueLabel.style.bottom = '-30px';
+            minValueLabel.style.bottom = '-35px';
             slider.appendChild(minValueLabel);
 
             const minValueLabelWidth = minValueLabel.offsetWidth;
@@ -279,7 +279,7 @@ function setupSlider(sliderData) {
             const maxValueLabel = document.createElement('div');
             maxValueLabel.textContent = maxValue.toFixed(2);
             maxValueLabel.style.position = 'absolute';
-            maxValueLabel.style.bottom = '-30px';
+            maxValueLabel.style.bottom = '-35px';
             slider.appendChild(maxValueLabel);
 
             const maxValueLabelWidth = maxValueLabel.offsetWidth;
@@ -293,7 +293,7 @@ function setupSlider(sliderData) {
             tooltip.textContent = initialValue.toFixed(2).replace(/\.?0+$/, '');
 
             function updateValueSegmentSlider(posX) {
-                updateProcessBar(posX); // 更新进度条背景
+                updateProcessBar(posX);
                 const segmentIndex = Math.round(posX / (slider.offsetWidth / segments));
                 currentValue = segmentIndex * segmentWidth + minValue;
                 tooltip.textContent = currentValue.toFixed(2).replace(/\.?0+$/, '');
@@ -303,13 +303,13 @@ function setupSlider(sliderData) {
             function handleDragSegmentSlider(e) {
                 if (isDragging) {
                     let posX = e.clientX - slider.getBoundingClientRect().left;
-                    updateProcessBar(posX); // 更新进度条背景
+                    updateProcessBar(posX);
                     if (posX < 0) {
                         posX = 0;
                     } else if (posX > slider.offsetWidth) {
                         posX = slider.offsetWidth;
                     }
-                    handle.style.left = posX + 'px';
+                    handle.style.left = (posX - 2) + 'px';
                 }
             }
 
@@ -324,7 +324,7 @@ function setupSlider(sliderData) {
                 isDragging = false;
                 const segmentIndex = Math.round(handle.offsetLeft / (slider.offsetWidth / segments));
                 const segmentPosition = segmentIndex * (slider.offsetWidth / segments);
-                handle.style.left = segmentPosition + 'px';
+                handle.style.left = (segmentPosition - 2) + 'px';
                 updateValueSegmentSlider(segmentPosition);
             });
 
@@ -336,6 +336,7 @@ function setupSlider(sliderData) {
             document.addEventListener('touchmove', function (e) {
                 if (isDragging) {
                     handleDragSegmentSlider(e.touches[0]); // 使用第一个触摸点的位置
+                    updateProcessBar(e.touches[0]);
                     e.preventDefault(); // 防止默认的滚动行为
                 }
             });
@@ -344,12 +345,13 @@ function setupSlider(sliderData) {
                 isDragging = false;
                 const segmentIndex = Math.round(handle.offsetLeft / (slider.offsetWidth / segments));
                 const segmentPosition = segmentIndex * (slider.offsetWidth / segments);
-                handle.style.left = segmentPosition + 'px';
+                handle.style.left = (segmentPosition - 2) + 'px';
                 updateValueSegmentSlider(segmentPosition);
             });
 
             slider.addEventListener('touchstart', function (e) {
                 handleDragSegmentSlider(e.touches[0]); // 使用第一个触摸点的位置
+                updateProcessBar(e.touches[0]);
                 e.preventDefault(); // 防止默认的滚动行为
             });
 
@@ -362,7 +364,7 @@ function setupSlider(sliderData) {
                 }
                 const segmentIndex = Math.round(posX / (slider.offsetWidth / segments));
                 const segmentPosition = segmentIndex * (slider.offsetWidth / segments);
-                handle.style.left = segmentPosition + 'px';
+                handle.style.left = (segmentPosition - 2) + 'px';
                 updateValueSegmentSlider(segmentPosition);
             });
 
@@ -373,7 +375,7 @@ function setupSlider(sliderData) {
                     const segmentValue = minValue + i * (maxValue - minValue) / segments;
                     segmentValueLabel.textContent = segmentValue.toFixed(2).replace(/\.?0+$/, '');
                     segmentValueLabel.style.position = 'absolute';
-                    segmentValueLabel.style.bottom = '-30px';
+                    segmentValueLabel.style.bottom = '-35px';
                     slider.appendChild(segmentValueLabel);
 
                     // 获取标签宽度
