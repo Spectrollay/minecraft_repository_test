@@ -31,50 +31,54 @@ observer.observe(targetNode1, observerConfig);
 observer.observe(targetNode2, observerConfig);
 
 // 在页面加载时初始化Slider
-// window.addEventListener('DOMContentLoaded', function () {
-//     setupSlider([
-//         {
-//             sliderId: 'smoothSlider1',
-//             sliderClass: 'smooth-slider',
-//             handleClass: 'smooth-handle',
-//             tooltipClass: 'smooth-tooltip',
-//             minValue: 0,
-//             maxValue: 100,
-//             segments: null,
-//             initialValue: 66.66
-//         },
-//         {
-//             sliderId: 'smoothSlider2',
-//             sliderClass: 'smooth-slider',
-//             handleClass: 'smooth-handle',
-//             tooltipClass: 'smooth-tooltip',
-//             minValue: 20,
-//             maxValue: 60,
-//             segments: null,
-//             initialValue: null
-//         },
-//         {
-//             sliderId: 'segmentedSlider1',
-//             sliderClass: 'segmented-slider',
-//             handleClass: 'segmented-handle',
-//             tooltipClass: 'segmented-tooltip',
-//             minValue: 0,
-//             maxValue: 100,
-//             segments: 5,
-//             initialValue: null
-//         },
-//         {
-//             sliderId: 'segmentedSlider2',
-//             sliderClass: 'segmented-slider',
-//             handleClass: 'segmented-handle',
-//             tooltipClass: 'segmented-tooltip',
-//             minValue: 0,
-//             maxValue: 100,
-//             segments: 4,
-//             initialValue: 75
-//         }
-//     ]);
-// });
+window.addEventListener('DOMContentLoaded', function () {
+    setupSlider([
+        {
+            sliderId: 'smoothSlider1',
+            sliderClass: 'smooth-slider',
+            processClass: 'slider-process',
+            handleClass: 'smooth-handle',
+            tooltipClass: 'smooth-tooltip',
+            minValue: 0,
+            maxValue: 100,
+            segments: null,
+            initialValue: 66.66
+        },
+        {
+            sliderId: 'smoothSlider2',
+            sliderClass: 'smooth-slider',
+            processClass: 'slider-process',
+            handleClass: 'smooth-handle',
+            tooltipClass: 'smooth-tooltip',
+            minValue: 20,
+            maxValue: 60,
+            segments: null,
+            initialValue: null
+        },
+        {
+            sliderId: 'segmentedSlider1',
+            sliderClass: 'segmented-slider',
+            processClass: 'slider-process',
+            handleClass: 'segmented-handle',
+            tooltipClass: 'segmented-tooltip',
+            minValue: 0,
+            maxValue: 100,
+            segments: 5,
+            initialValue: null
+        },
+        {
+            sliderId: 'segmentedSlider2',
+            sliderClass: 'segmented-slider',
+            processClass: 'slider-process',
+            handleClass: 'segmented-handle',
+            tooltipClass: 'segmented-tooltip',
+            minValue: 0,
+            maxValue: 100,
+            segments: 4,
+            initialValue: 75
+        }
+    ]);
+});
 
 
 // 主代码
@@ -171,6 +175,7 @@ function setupSlider(sliderData) {
 
     sliderData.forEach(function (data) {
         const slider = document.getElementById(data.sliderId);
+        const process = slider.querySelector('.' + data.processClass);
         const handle = slider.querySelector('.' + data.handleClass);
         const tooltip = slider.querySelector('.' + data.tooltipClass);
         const minValue = data.minValue;
@@ -182,6 +187,7 @@ function setupSlider(sliderData) {
         // 设置初始值并展示
         const initialPosition = (initialValue - minValue) / (maxValue - minValue) * slider.offsetWidth;
         handle.style.left = initialPosition + 'px';
+        process.style.width = initialPosition + 'px';
 
         if (slider.classList.contains('smooth-slider')) {
             // 设置平滑的slider
@@ -190,6 +196,7 @@ function setupSlider(sliderData) {
             tooltip.textContent = initialValue.toFixed(2);
 
             function updateValueSmoothSlider(posX) {
+                updateProcessBar(posX); // 更新进度条背景
                 currentValue = ((posX / slider.offsetWidth) * (maxValue - minValue)) + minValue;
                 tooltip.textContent = currentValue.toFixed(2);
                 // document.getElementById('smoothValue').textContent = `Smooth Slider: ${value.toFixed(2)}`;
@@ -210,6 +217,7 @@ function setupSlider(sliderData) {
 
             handle.addEventListener('mousedown', function (e) {
                 isDragging = true;
+                process.style.transition = 'none';
                 handle.style.transition = 'none';
                 handleDragSmoothSlider(e);
             });
@@ -218,11 +226,13 @@ function setupSlider(sliderData) {
 
             document.addEventListener('mouseup', function () {
                 isDragging = false;
+                process.style.transition = 'width 100ms linear';
                 handle.style.transition = 'left 100ms linear';
             });
 
             handle.addEventListener('touchstart', function (e) {
                 isDragging = true;
+                process.style.transition = 'none';
                 handle.style.transition = 'none';
                 handleDragSmoothSlider(e.touches[0]); // 使用第一个触摸点的位置
             });
@@ -236,6 +246,7 @@ function setupSlider(sliderData) {
 
             document.addEventListener('touchend', function () {
                 isDragging = false;
+                process.style.transition = 'width 100ms linear';
                 handle.style.transition = 'left 100ms linear';
             });
 
@@ -259,7 +270,7 @@ function setupSlider(sliderData) {
             const minValueLabel = document.createElement('div');
             minValueLabel.textContent = minValue.toFixed(2);
             minValueLabel.style.position = 'absolute';
-            minValueLabel.style.bottom = '-25px';
+            minValueLabel.style.bottom = '-30px';
             slider.appendChild(minValueLabel);
 
             const minValueLabelWidth = minValueLabel.offsetWidth;
@@ -268,7 +279,7 @@ function setupSlider(sliderData) {
             const maxValueLabel = document.createElement('div');
             maxValueLabel.textContent = maxValue.toFixed(2);
             maxValueLabel.style.position = 'absolute';
-            maxValueLabel.style.bottom = '-25px';
+            maxValueLabel.style.bottom = '-30px';
             slider.appendChild(maxValueLabel);
 
             const maxValueLabelWidth = maxValueLabel.offsetWidth;
@@ -282,6 +293,7 @@ function setupSlider(sliderData) {
             tooltip.textContent = initialValue.toFixed(2).replace(/\.?0+$/, '');
 
             function updateValueSegmentSlider(posX) {
+                updateProcessBar(posX); // 更新进度条背景
                 const segmentIndex = Math.round(posX / (slider.offsetWidth / segments));
                 currentValue = segmentIndex * segmentWidth + minValue;
                 tooltip.textContent = currentValue.toFixed(2).replace(/\.?0+$/, '');
@@ -291,6 +303,7 @@ function setupSlider(sliderData) {
             function handleDragSegmentSlider(e) {
                 if (isDragging) {
                     let posX = e.clientX - slider.getBoundingClientRect().left;
+                    updateProcessBar(posX); // 更新进度条背景
                     if (posX < 0) {
                         posX = 0;
                     } else if (posX > slider.offsetWidth) {
@@ -360,7 +373,7 @@ function setupSlider(sliderData) {
                     const segmentValue = minValue + i * (maxValue - minValue) / segments;
                     segmentValueLabel.textContent = segmentValue.toFixed(2).replace(/\.?0+$/, '');
                     segmentValueLabel.style.position = 'absolute';
-                    segmentValueLabel.style.bottom = '-25px';
+                    segmentValueLabel.style.bottom = '-30px';
                     slider.appendChild(segmentValueLabel);
 
                     // 获取标签宽度
@@ -387,15 +400,23 @@ function setupSlider(sliderData) {
             handle.style.left = newPosition + 'px';
         }
 
+        function updateProcessBar(posX) {
+            const value = posX / slider.offsetWidth;
+            process.style.width = `${value * 100}%`;
+        }
+
         window.addEventListener('resize', function () {
             if (!resizing) {
                 resizing = true;
                 setTimeout(function () {
                     resizing = false;
                 }, 0);
+                process.style.transition = 'none';
                 handle.style.transition = 'none';
                 replaceHandle();
+                updateProcessBar(handle.offsetLeft);
                 setTimeout(function () {
+                    process.style.transition = 'width 100ms linear';
                     handle.style.transition = 'left 100ms linear';
                 }, 0);
             }
