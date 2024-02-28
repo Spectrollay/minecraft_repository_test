@@ -262,7 +262,7 @@ function setupSlider(sliderData) {
                 } else if (posX > slider.offsetWidth) {
                     posX = slider.offsetWidth;
                 }
-                handle.style.left = (posX - 2) + 'px';
+                handle.style.left = posX + 'px';
                 updateValueSmoothSlider(posX);
             });
 
@@ -309,7 +309,7 @@ function setupSlider(sliderData) {
                     } else if (posX > slider.offsetWidth) {
                         posX = slider.offsetWidth;
                     }
-                    handle.style.left = (posX - 2) + 'px';
+                    handle.style.left = posX + 'px';
                 }
             }
 
