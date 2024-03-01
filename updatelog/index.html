@@ -85,6 +85,22 @@
                     <div class="banner information_banner">带有 * 标识的版本为不稳定版本, 可能会出现各种难以预料的问题</div>
                 </div>
                 <div class="main">
+                    <div class="title2">4.6.0-Canary15(4.6.0.24)</div>
+                    <div>2024-03-01</div>
+                    <div class="description2">
+                        <p>本版本基于4.5.1-Beta4(4.5.1.6)开发</p>
+                        <li>实验性 - 再次对Slider滑动条的样式和实现方式进行了改进</li>
+                        <li>实验性 - 增大了Slider滑动条的可点击范围</li>
+                        <li>实验性 - 现在在Slider滑动条的可点击范围内交互都会有hover效果了</li>
+                        <li>实验性 - 更新了Slider滑动条各元素的命名空间</li>
+                        <li>实验性 - 现在Slider滑动条的初始数据存储在html标签里而不是js里以优化性能体验</li>
+                        <li>实验性 - 修复了Slider滑动条在特定条件下交互会抛出异常的问题</li>
+                        <li>实验性 - 修复了Range Slider的数据值在部分情况下会溢出的问题</li>
+                        <li>实验性 - 移除了Slider滑动条的一些冗余函数</li>
+                        <li>对部分代码进行了对齐优化</li>
+                    </div>
+                </div>
+                <div class="main">
                     <div class="title2">*4.6.0-Canary14(4.6.0.23)</div>
                     <div>2024-02-29</div>
                     <div class="description2">
@@ -93,8 +109,13 @@
                         <li>实验性 - 现在拖动Slider滑动条时会有active效果了</li>
                         <li>实验性 - 将Smooth Slider重命名为Range Slider</li>
                         <li>实验性 - 将Segment Slider重命名为Set Slider</li>
-                        <li>实验性 - 修复了Slider的各种计算问题</li>
+                        <li>实验性 - 优化了更新滑块位置和进度条的实现</li>
+                        <li>实验性 - 拆分合并了一些共用函数</li>
+                        <li>实验性 - 修复了Slider滑动条在计算初始值时未考虑到边框宽度导致的位置偏差问题</li>
+                        <li>实验性 - 修复了Slider滑动条在计算resizing时精度不同导致的对齐偏差问题</li>
+                        <li>实验性 - 修复了Slider滑动条计算位移方法不正确的问题</li>
                         <li>实验性 - 因计算量过大可能导致的性能问题移除了Range Slider的拖动滑动动画(这不影响点击滑动动画)</li>
+                        <li>实验性 - 移除了Slider滑动条的一些冗余函数</li>
                     </div>
                 </div>
                 <div class="main">
@@ -925,14 +946,14 @@
 
     // 设置图片路径
     if (back_icon) {
-        back_icon.src = root_path + 'images/Back.png';
+        back_icon.src = root_path + 'images/arrowLeft.png';
     }
     if (menu_icon) {
         menu_icon.src = root_path + 'images/Menu.png';
     }
 
     const loading_img = document.getElementById('spinner_img');
-    loading_img.src = root_path + 'images/Loading_white.gif';
+    loading_img.src = 'https://spectrollay.gitee.io/minecraft_repository/images/Loading_white.gif';
     const loading_mask = document.getElementById('loading_mask');
 
     // 监听页面加载完成事件
