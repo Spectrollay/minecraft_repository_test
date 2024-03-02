@@ -56,7 +56,7 @@
         <img alt="Title Icon" class="title_icon" src="./images/Marketplace.png">
         <span class="header_title">Repository</span>
     </div>
-    <div class="header_settings" id="settings" onclick="settingsPage();">
+    <div class="header_settings" id="settings" onclick="playSound(this);settingsPage();">
         <img alt="" class="settings_icon" src="./images/Settings.png">
     </div>
 </header>
@@ -108,7 +108,7 @@
                        onclick="playSound1();" target="_blank">PC 捆绑包</a></p>
                 <p>不知道如何购买正版?<br>
                     <a href="javascript:void(0);"
-                       onclick="delayedOpenLink('./default/how_to_buy.html');">正版购买指南</a>
+                       onclick="playSound1();delayedOpenLink('./default/how_to_buy.html');">正版购买指南</a>
                 </p>
             </div>
         </div>
@@ -528,7 +528,7 @@
         back_icon.src = root_path + 'images/arrowLeft.png';
     }
     if (menu_icon) {
-        menu_icon.src = root_path + 'images/Menu.png';
+        menu_icon.src = root_path + 'images/menu.png';
     }
 
     const loading_img = document.getElementById('spinner_img');

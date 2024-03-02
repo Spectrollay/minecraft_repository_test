@@ -107,13 +107,13 @@
     <div class="setting_block">
         <div class="setting_content">清除存储数据</div>
         <div class="setting_control_right">
-            <button class="btn red_btn setting_btn">清除</button>
+            <button class="btn red_btn setting_btn" onclick="playSound(this);">清除</button>
         </div>
     </div>
     <div class="setting_block">
         <div class="setting_content">重载容器环境</div>
         <div class="setting_control_right">
-            <button class="btn red_btn setting_btn">重载</button>
+            <button class="btn red_btn setting_btn" onclick="playSound(this);">重载</button>
         </div>
     </div>
     <div class="setting_block">加载调试程序</div>
@@ -122,16 +122,16 @@
         <div class="setting_content">Minecraft Kit 子模块<br>Minecraft 版本库</div>
         <div class="setting_control_right setting_control_right_large">
             <div>
-                <button class="btn normal_btn setting_btn" onclick="toUpdatelog();">开发日志</button>
+                <button class="btn normal_btn setting_btn" onclick="playSound(this);toUpdatelog();">开发日志</button>
                 <br>
-                <button class="btn normal_btn setting_btn" onclick="clickedRepo();">仓库</button>
+                <button class="btn normal_btn setting_btn" onclick="playSound(this);repoPage();">仓库</button>
             </div>
         </div>
     </div>
     <div class="setting_block">
         <div class="setting_content">开发者: Spectrollay</div>
         <div class="setting_control_right">
-            <button class="btn normal_btn setting_btn">瞅一瞅</button>
+            <button class="btn normal_btn setting_btn" onclick="playSound(this);">瞅一瞅</button>
         </div>
     </div>
     <div class="setting_block">
@@ -152,13 +152,13 @@
     <div class="setting_block">
         <div class="setting_content">联系我们</div>
         <div class="setting_control_right">
-            <button class="btn normal_btn setting_btn">群组</button>
+            <button class="btn normal_btn setting_btn" onclick="playSound(this);">群组</button>
         </div>
     </div>
     <div class="setting_block">
         <div class="setting_content">捐赠支持</div>
         <div class="setting_control_right">
-            <button class="btn normal_btn setting_btn">打开</button>
+            <button class="btn normal_btn setting_btn" onclick="playSound(this);">打开</button>
         </div>
     </div>
     <div>
@@ -199,7 +199,7 @@
         back_icon.src = root_path + 'images/arrowLeft.png';
     }
     if (menu_icon) {
-        menu_icon.src = root_path + 'images/Menu.png';
+        menu_icon.src = root_path + 'images/menu.png';
     }
 
     const loading_img = document.getElementById('spinner_img');

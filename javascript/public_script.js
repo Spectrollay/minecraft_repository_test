@@ -277,14 +277,12 @@ function toRepo() {
 }
 
 function delayedOpenLink(url) {
-    playSound1();
     setTimeout(function () {
         window.location.href = url;
     }, 600);
 }
 
 function openLink(url) {
-    playSound1();
     window.open(url);
 }
 
@@ -312,14 +310,12 @@ function clickedOverlay() {
 }
 
 // 点击仓库图标事件
-function clickedRepo() {
-    playSound1();
+function repoPage() {
     window.open("https://github.com/Spectrollay/minecraft_repository_test");
 }
 
 // 点击设置图标事件
 function settingsPage() {
-    playSound1();
     setTimeout(function () {
         window.location.href = rootPath + "advanced/settings.html";
     }, 600);
@@ -327,7 +323,6 @@ function settingsPage() {
 
 // 点击Debug图标事件
 function debugPage() {
-    playSound1();
     setTimeout(function () {
         window.location.href = rootPath + "advanced/debug.html";
     }, 600);
@@ -335,7 +330,6 @@ function debugPage() {
 
 // 跳转实验性页面
 function flagsPage() {
-    playSound1();
     setTimeout(function () {
         window.location.href = rootPath + "experimental/flags.html";
     }, 600);
