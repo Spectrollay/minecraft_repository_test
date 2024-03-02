@@ -316,6 +316,7 @@ function repoPage() {
 
 // 点击设置图标事件
 function settingsPage() {
+    playSound1();
     setTimeout(function () {
         window.location.href = rootPath + "advanced/settings.html";
     }, 600);
