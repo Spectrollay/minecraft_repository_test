@@ -45,7 +45,7 @@ main {
     flex: 1;
 }
 
-.setting_control {
+.setting_control_right {
 }
 
 .setting_btn {
@@ -207,6 +207,13 @@ main {
 }
 
 /* Expandable Card */
+.expandable_card_area {
+    border-top: 1px solid #5A5B5C;
+    border-bottom: 1px solid #333334;
+    border-left: 1px solid #333334;
+    border-right: 1px solid #333334;
+}
+
 .expandable_card {
     text-align: center;
     align-items: center;
@@ -214,15 +221,20 @@ main {
     display: flex;
     position: relative;
     padding: 8px 0;
-    border-top: 2px solid #5A5B5C;
-    border-bottom: 2px solid #333334;
-    border-left: 2px solid #333334;
-    border-right: 2px solid #333334;
+    border-top: 1px solid #5A5B5C;
+    border-bottom: 1px solid #333334;
+    border-left: 1px solid #333334;
+    border-right: 1px solid #333334;
     color: #FFFFFF;
 }
 
 .expandable_card:hover {
     background-color: #58585A;
+}
+
+.expandable_card:active {
+    border: 1px solid #333334;
+    background-color: #3D3E3F;
 }
 
 .expandable_card_text_area {
@@ -250,7 +262,7 @@ main {
 }
 
 .expandable_card_image {
-    width: 26px;
+    width: 32px;
 }
 
 .expandable_card_down_area {
@@ -260,9 +272,14 @@ main {
 }
 
 .expandable_card_down {
-    margin: 10px;
+    padding: 1px;
+}
+
+.expandable_card_down_br {
+    height: 2px;
+    background-color: #48494A;
 }
 
 .expandable_card_down_content {
-    margin: 20px;
+    margin: 10px 20px;
 }

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="../stylesheet/advanced.css" rel="stylesheet">
     <link href="../images/Settings.png" rel="icon">
     <!--    <style>-->
     <!--        -->
@@ -57,9 +56,6 @@
         <img alt="Title Icon" class="title_icon" src="../images/Settings.png">
         <span class="header_title">Settings</span>
     </div>
-    <div class="header_debug" id="debug" onclick="debugPage();">
-        <img alt="Debug" class="debug_icon" src="../images/Debug.png">
-    </div>
 </header>
 <main id="main">
     <div class="main_setting_title">
@@ -67,56 +63,113 @@
     </div>
     <div class="setting_title">外观</div>
     <div class="setting_block">
-        <!--        暗黑模式-->
+        暗黑模式
     </div>
     <div class="setting_block">
-        <!--        新的UI设计-->
+        新的UI设计
     </div>
     <div class="setting_block">
-        <!--        实验性新UI-->
+        实验性新UI
     </div>
     <div class="setting_block">
-        <!--        UI标度-->
+        UI标度
     </div>
     <div class="setting_title">通知</div>
     <div class="setting_block">
-        <!--        Banner通知-->
+        Banner通知
     </div>
     <div class="setting_block">
-        <!--        Modal通知-->
+        Modal通知
     </div>
     <div class="setting_block">
-        <!--        Pop通知-->
+        Pop通知
     </div>
     <div class="setting_title">声音</div>
     <div class="setting_block">
-        <!--        启用音效-->
+        启用音效
     </div>
     <div class="setting_block">
-        <!--        音效音量-->
+        音效音量
     </div>
     <div class="setting_title">其他</div>
     <div class="setting_block">
+        <div class="setting_content">语言</div>
+        <div class="setting_control_right">
+        </div>
+    </div>
+    <div class="setting_block">
         <div class="setting_content">实验性内容</div>
-        <div class="setting_control">
+        <div class="setting_control_right">
             <button class="btn normal_btn setting_btn" onclick="playSound(this);flagsPage();">查看</button>
         </div>
     </div>
     <div class="setting_title">高级</div>
     <div class="setting_block">
-        <!--        清除存储的数据-->
+        <div class="setting_content">清除存储数据</div>
+        <div class="setting_control_right">
+            <button class="btn red_btn setting_btn">清除</button>
+        </div>
     </div>
     <div class="setting_block">
-        <!--        重载容器环境-->
+        <div class="setting_content">重载容器环境</div>
+        <div class="setting_control_right">
+            <button class="btn red_btn setting_btn">重载</button>
+        </div>
     </div>
-    <div class="setting_block"></div>
-    <div class="setting_block"></div>
-    <div class="setting_block"></div>
+    <div class="setting_block">加载调试程序</div>
     <div class="setting_title">关于</div>
-    <div class="setting_block"></div>
-    <div class="setting_block"></div>
-    <div class="setting_block"></div>
-    <div class="setting_title"></div>
+    <div class="setting_block">
+        <div class="setting_content">Minecraft Kit 子模块<br>Minecraft 版本库</div>
+        <div class="setting_control_right setting_control_right_large">
+            <div>
+                <button class="btn normal_btn setting_btn" onclick="toUpdatelog();">开发日志</button>
+                <br>
+                <button class="btn normal_btn setting_btn" onclick="clickedRepo();">仓库</button>
+            </div>
+        </div>
+    </div>
+    <div class="setting_block">
+        <div class="setting_content">开发者: Spectrollay</div>
+        <div class="setting_control_right">
+            <button class="btn normal_btn setting_btn">瞅一瞅</button>
+        </div>
+    </div>
+    <div class="setting_block">
+        <div class="setting_content">其他项目</div>
+        <div class="setting_control_down">
+        </div>
+    </div>
+    <div class="setting_block">
+        <div class="setting_content">用户协议</div>
+        <div class="setting_control_right">
+        </div>
+    </div>
+    <div class="setting_block">
+        <div class="setting_content">开源协议</div>
+        <div class="setting_control_right">
+        </div>
+    </div>
+    <div class="setting_block">
+        <div class="setting_content">联系我们</div>
+        <div class="setting_control_right">
+            <button class="btn normal_btn setting_btn">群组</button>
+        </div>
+    </div>
+    <div class="setting_block">
+        <div class="setting_content">捐赠支持</div>
+        <div class="setting_control_right">
+            <button class="btn normal_btn setting_btn">打开</button>
+        </div>
+    </div>
+    <div>
+        <div class="page_info"><br></div>
+        <div class="page_info_title" id="page_info_title1"></div>
+        <div class="page_info" id="page_info_detail1"></div>
+        <div class="page_info_title" id="page_info_title2"></div>
+        <div class="page_info" id="page_info_detail2"></div>
+        <div class="page_info_title" id="page_info_title3"></div>
+        <div class="page_info"><br></div>
+    </div>
 </main>
 
 <!--遮罩-->
@@ -150,7 +203,7 @@
     }
 
     const loading_img = document.getElementById('spinner_img');
-    loading_img.src = 'https://spectrollay.gitee.io/minecraft_repository/images/Loading_white.gif';
+    loading_img.src = root_path + 'images/Loading_white.gif';
     const loading_mask = document.getElementById('loading_mask');
 
     // 监听页面加载完成事件
@@ -163,7 +216,7 @@
                 linkImg[i].src = root_path + 'images/ExternalLink_white.png';
             }
         }
-        if(linkImgBlack) {
+        if (linkImgBlack) {
             for (let i = 0; i < linkImgBlack.length; i++) {
                 linkImgBlack[i].src = root_path + 'images/ExternalLink.png';
             }
@@ -176,6 +229,8 @@
         }, 600);
     });
 </script>
+<script src="../javascript/advanced.js"></script>
+<link href="../stylesheet/advanced.css" rel="stylesheet">
 
 <!--    <style>-->
 <!--        -->

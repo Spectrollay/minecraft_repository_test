@@ -27,8 +27,12 @@ const targetNode1 = document.getElementById('switch_exp1');
 const targetNode2 = document.getElementById('switch_exp2');
 
 // 开始观察目标节点
-observer.observe(targetNode1, observerConfig);
-observer.observe(targetNode2, observerConfig);
+if (targetNode1) {
+    observer.observe(targetNode1, observerConfig);
+}
+if (targetNode2) {
+    observer.observe(targetNode2, observerConfig);
+}
 
 
 // 主代码
@@ -377,38 +381,66 @@ for (let i = 0; i < sliderContent.length; i++) {
 }
 
 // Expandable Card函数
-// const expandableCardArea = document.getElementsByClassName('expandable_card_area');
-//
-// for (let i = 0; i < expandableCardArea.length; i++) {
-//
-//     const expandableCardId = document.getElementById(expandableCardArea[i].id);
-//     const expandableCard = expandableCardId.querySelector('.expandable_card');
-//     const expandableContent = expandableCardId.querySelector('.expandable_card_down_area');
-//     const cardImage = expandableCard.querySelector('.expandable_card_image');
-//     const cardDown = expandableContent.querySelector('.expandable_card_down');
-//
-//     let isExpanded = expandableCard.classList.contains("expanded");
-//
-//     if (isExpanded) {
-//         cardImage.src = '../images/arrowUp_white.png';
-//         expandableContent.style.height = cardDown.scrollHeight + 'px';
-//     } else {
-//         cardImage.src = '../images/arrowDown_white.png';
-//         expandableContent.style.height = '0';
-//     }
-//
-//     expandableCard.addEventListener('click', () => {
-//         if (isExpanded) {
-//             expandableContent.classList.add('no_expanded');
-//             expandableContent.classList.remove('expanded');
-//             expandableContent.style.height = '0';
-//             cardImage.src = '../images/arrowDown_white.png';
-//         } else {
-//             expandableContent.classList.add('expanded');
-//             expandableContent.classList.remove('no_expanded');
-//             expandableContent.style.height = cardDown.scrollHeight + 'px';
-//             cardImage.src = '../images/arrowUp_white.png';
-//         }
-//         isExpanded = !isExpanded;
-//     });
-// }
+const expandableCardGroup = document.getElementsByClassName('expandable_card_group');
+
+for (let i = 0; i < expandableCardGroup.length; i++) {
+    const expandableCardArea = expandableCardGroup[i].querySelectorAll('.expandable_card_area');
+    for (let j = 0; j < expandableCardArea.length; j++) {
+
+        const expandableCardId = document.getElementById(expandableCardArea[j].id);
+        console.log(expandableCardArea[j].id)
+        const expandableCard = expandableCardId.querySelector('.expandable_card');
+        const expandableContent = expandableCardId.querySelector('.expandable_card_down_area');
+        const cardImage = expandableCard.querySelector('.expandable_card_image');
+        const cardDown = expandableContent.querySelector('.expandable_card_down');
+
+        let isExpanded = expandableCard.classList.contains("expanded");
+
+        if (isExpanded) {
+            cardImage.src = '../images/arrowUp_white.png';
+            expandableContent.classList.add('expanded');
+            expandableContent.style.height = cardDown.scrollHeight + 'px';
+        } else {
+            cardImage.src = '../images/arrowDown_white.png';
+            expandableContent.classList.add('no_expanded');
+            expandableContent.style.height = '0';
+        }
+
+        expandableCard.addEventListener('click', () => {
+            isExpanded = expandableCard.classList.contains("expanded");
+            if (isExpanded) {
+                // 折叠当前卡片
+                expandableCard.classList.add('no_expanded');
+                expandableCard.classList.remove('expanded');
+                expandableContent.classList.add('no_expanded');
+                expandableContent.classList.remove('expanded');
+                expandableContent.style.height = '0';
+                cardImage.src = '../images/arrowDown_white.png';
+            } else {
+                for (let k = 0; k < expandableCardArea.length; k++) {
+                    if (k !== j) {
+                        const otherCard = expandableCardArea[k].querySelector('.expandable_card');
+                        const otherContent = expandableCardArea[k].querySelector('.expandable_card_down_area');
+                        const otherCardImage = otherCard.querySelector('.expandable_card_image');
+
+                        otherCard.classList.add('no_expanded');
+                        otherCard.classList.remove('expanded');
+                        otherContent.classList.add('no_expanded');
+                        otherContent.classList.remove('expanded');
+                        otherContent.style.height = '0';
+                        otherCardImage.src = '../images/arrowDown_white.png';
+                    }
+                }
+                // 展开当前卡片
+                expandableCard.classList.add('expanded');
+                expandableCard.classList.remove('no_expanded');
+                expandableContent.classList.add('expanded');
+                expandableContent.classList.remove('no_expanded');
+                expandableContent.style.height = cardDown.scrollHeight + 'px';
+                cardImage.src = '../images/arrowUp_white.png';
+            }
+            isExpanded = !isExpanded;
+        });
+
+    }
+}

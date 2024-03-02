@@ -101,6 +101,10 @@ header {
 }
 
 /* 顶栏按钮图标 */
+.back_icon {
+    height: 32px;
+}
+
 .menu_icon, .repo_icon, .debug_icon, .settings_icon {
     height: 32px;
     width: 32px;
@@ -773,7 +777,7 @@ td {
 
 .sidebar_detail {
     height: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     font-size: 14px;
 }
 

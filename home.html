@@ -56,8 +56,8 @@
         <img alt="Title Icon" class="title_icon" src="./images/Marketplace.png">
         <span class="header_title">Repository</span>
     </div>
-    <div class="header_repo" id="repo" onclick="clickedRepo();">
-        <img alt="Repo" class="repo_icon" src="./images/Github.png">
+    <div class="header_settings" id="settings" onclick="settingsPage();">
+        <img alt="" class="settings_icon" src="./images/Settings.png">
     </div>
 </header>
 <main id="main">
@@ -420,7 +420,7 @@
             </div>
         </div>
         <div class="main footer_notice_body">
-            <div class="title3">捐赠我们</div>
+            <div class="title3">捐赠支持</div>
             <div class="description2">
                 <p>这是一个始于2020年的项目, 做它的初衷, 只是为了给我玩的为数不多的游戏一个留档,
                     当时这还只是一个私有项目.</p>
@@ -532,7 +532,7 @@
     }
 
     const loading_img = document.getElementById('spinner_img');
-    loading_img.src = 'https://spectrollay.gitee.io/minecraft_repository/images/Loading_white.gif';
+    loading_img.src = root_path + 'images/Loading_white.gif';
     const loading_mask = document.getElementById('loading_mask');
 
     // 监听页面加载完成事件
