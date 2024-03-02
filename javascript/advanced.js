@@ -388,7 +388,6 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
     for (let j = 0; j < expandableCardArea.length; j++) {
 
         const expandableCardId = document.getElementById(expandableCardArea[j].id);
-        console.log(expandableCardArea[j].id)
         const expandableCard = expandableCardId.querySelector('.expandable_card');
         const expandableContent = expandableCardId.querySelector('.expandable_card_down_area');
         const cardImage = expandableCard.querySelector('.expandable_card_image');
@@ -399,7 +398,12 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         if (isExpanded) {
             cardImage.src = '../images/arrowUp_white.png';
             expandableContent.classList.add('expanded');
-            expandableContent.style.height = cardDown.scrollHeight + 'px';
+
+            setTimeout(function () {
+                const initialHeight = cardDown.scrollHeight;
+                expandableContent.style.height = initialHeight + 'px';
+            }, 300);
+
         } else {
             cardImage.src = '../images/arrowDown_white.png';
             expandableContent.classList.add('no_expanded');

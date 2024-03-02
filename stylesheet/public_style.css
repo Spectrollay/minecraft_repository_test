@@ -166,6 +166,7 @@ main::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
     min-width: 360px;
+    z-index: 9;
 }
 
 .tab_bar {

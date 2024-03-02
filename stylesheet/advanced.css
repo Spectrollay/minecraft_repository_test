@@ -207,7 +207,7 @@ main {
 }
 
 /* Expandable Card */
-.expandable_card_area {
+.expandable_card_area.frame {
     border-top: 1px solid #5A5B5C;
     border-bottom: 1px solid #333334;
     border-left: 1px solid #333334;
@@ -245,10 +245,11 @@ main {
 }
 
 .expandable_card_text {
+    font-size: 23px;
+    font-family: "Minecraft Seven", sans-serif;
 }
 
 .expandable_card_text_title {
-    font-size: 20px;
 }
 
 .expandable_card_image_area {
@@ -275,6 +276,7 @@ main {
 }
 
 .expandable_card_down_br {
+    margin: 1px 0;
     height: 2px;
     background-color: #48494A;
 }
