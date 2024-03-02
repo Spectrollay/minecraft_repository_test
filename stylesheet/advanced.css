@@ -220,7 +220,6 @@ main {
     overflow: hidden;
     display: flex;
     position: relative;
-    padding: 8px 0;
     border-top: 1px solid #5A5B5C;
     border-bottom: 1px solid #333334;
     border-left: 1px solid #333334;
@@ -238,7 +237,7 @@ main {
 }
 
 .expandable_card_text_area {
-    min-height: 40px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -253,12 +252,12 @@ main {
 }
 
 .expandable_card_image_area {
-    min-height: 40px;
+    height: 56px;
+    width: 56px;
     right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
 }
 
 .expandable_card_image {
