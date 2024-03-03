@@ -332,7 +332,7 @@ function flagsPage() {
 
 function toOldDesignUpdatelog() {
     setTimeout(function () {
-        window.location.href = hostPath + rootPath + "updatelog/updatelog.html";
+        window.location.href = hostPath + "/minecraft_repository/updatelog/updatelog.html";
     }, 600);
 }
 
