@@ -68,6 +68,7 @@
         </div>
     </div>
     <div class="tab_content no_active" id="content1">
+        <!--  TODO: 加入内容时移除预设样式  -->
         <div class="coming_soon">
             <div class="display">
                 <div class="coming_soon-img"><img alt="Coming Soon Image" src="../images/Building.png"></div>
@@ -77,6 +78,7 @@
     </div>
     <div class="tab_content active" id="content2">
         <div class="display">
+            <!--  TODO: 移除时一并移除相应样式  -->
             <div class="main preview_block">
                 <div class="preview_title">开发日志页面的全新设计!</div>
                 <div class="preview_detail">我们正在对开发日志页面的体验进行更新.</div>
@@ -1536,7 +1538,7 @@
         height: 50px;
     }
 
-    /* TODO 加入具体内容后移除该样式 */
+    /* TODO: 加入具体内容后移除该样式 */
     #content1 {
         height: calc(100% - 72px);
     }
@@ -1550,15 +1552,14 @@
         min-height: 220px;
     }
 
+    /* TODO: 在移除预览提示块时移除下面两个样式 */
+
     .preview_block {
         margin-top: 18px;
     }
 
     .preview_btn {
         width: 240px;
-    }
-
-    .expandable_card_group .main {
     }
 
     .block {
