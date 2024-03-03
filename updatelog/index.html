@@ -84,6 +84,8 @@
                 <div class="preview_detail">我们正在对开发日志页面的体验进行更新.</div>
                 <div class="preview_detail">你可以告诉我们你对新设计的想法吗?</div>
                 <div class="preview_btns">
+                    <button class="btn normal_btn preview_btn" onclick="playSound(this);
+                    toOldDesignUpdatelog();">查看旧设计</button>
                     <button class="btn green_btn preview_btn" id="preview_btn2"
                             onclick="playSound(this);toRepo();"></button>
                 </div>
@@ -139,6 +141,7 @@
                                             <div class="release_log_item">加入了通知页面</div>
                                             <div class="release_log_item">更新了设置页面的内容</div>
                                             <div class="release_log_item">为开发日志页面加入了更多默认样式</div>
+                                            <div class="release_log_item">为开发日志页面的预览提示加入了查看旧设计按钮</div>
                                             <div class="release_log_item">对可展开的卡片样式进行了一些调整</div>
                                             <div class="release_log_item">优化了路径的检测与加载机制</div>
                                             <div class="release_log_item">现在可展开的卡片会在元素变化时自动调整高度了</div>
@@ -1552,14 +1555,10 @@
         min-height: 220px;
     }
 
-    /* TODO: 在移除预览提示块时移除下面两个样式 */
+    /* TODO: 在移除预览提示块时移除该样式 */
 
     .preview_block {
         margin-top: 18px;
-    }
-
-    .preview_btn {
-        width: 240px;
     }
 
     .block {

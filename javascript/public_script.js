@@ -303,12 +303,6 @@ function clickedBack() {
     }
 }
 
-// 点击全屏遮罩事件
-function clickedOverlay() {
-    toggleSidebar();
-    toggleOverlay();
-}
-
 // 点击仓库图标事件
 function repoPage() {
     window.open("https://github.com/Spectrollay/minecraft_repository_test");
@@ -336,10 +330,10 @@ function flagsPage() {
     }, 600);
 }
 
-// 点击侧边栏底部按钮事件
-function clickedSidebarBottomBtn() {
-    playSound1();
-    window.open("https://github.com/Spectrollay/minecraft_kit");
+function toOldDesignUpdatelog() {
+    setTimeout(function () {
+        window.location.href = hostPath + rootPath + "updatelog/updatelog.html";
+    }, 600);
 }
 
 // 跳转链接
@@ -348,6 +342,18 @@ function jumpToPage(link) {
     setTimeout(function () {
         window.location.href = link;
     }, 320);
+}
+
+// 点击全屏遮罩事件
+function clickedOverlay() {
+    toggleSidebar();
+    toggleOverlay();
+}
+
+// 点击侧边栏底部按钮事件
+function clickedSidebarBottomBtn() {
+    playSound1();
+    window.open("https://github.com/Spectrollay/minecraft_kit");
 }
 
 // 回到网页顶部
