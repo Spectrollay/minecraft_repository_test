@@ -402,7 +402,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
             setTimeout(function () {
                 const initialHeight = cardDown.scrollHeight;
                 expandableContent.style.height = initialHeight + 'px';
-            }, 300);
+            }, 400);
 
         } else {
             cardImage.src = '../images/arrowDown_white.png';
@@ -446,5 +446,14 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
             isExpanded = !isExpanded;
         });
 
+        window.addEventListener('resize', function () {
+            if (isExpanded) {
+                expandableContent.style.transition = 'height 0ms';
+                expandableContent.style.height = cardDown.scrollHeight + 'px';
+                setTimeout(function () {
+                    expandableContent.style.transition = 'height 600ms';
+                }, 0);
+            }
+        });
     }
 }

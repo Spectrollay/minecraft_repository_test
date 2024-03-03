@@ -61,7 +61,20 @@
     <div class="main_setting_title">
         <div class="main_setting_title_span">设置</div>
     </div>
+    <div class="main preview_block">
+        <div class="preview_title">抢先体验设置页面!</div>
+        <div class="preview_detail">我们正在开发版本库的设置页面.</div>
+        <div class="preview_detail">你认为我们有什么可以改进的地方吗?</div>
+        <div class="preview_btns">
+            <button class="btn normal_btn preview_btn" id="preview_btn1"
+                    onclick="playSound(this);toUpdatelog();"></button>
+            <button class="btn green_btn preview_btn" id="preview_btn2" onclick="playSound(this);toRepo();"></button>
+        </div>
+    </div>
     <div class="setting_title">外观</div>
+    <div class="setting_block">
+        主题
+    </div>
     <div class="setting_block">
         暗黑模式
     </div>
@@ -232,8 +245,11 @@
 <link href="../stylesheet/advanced.css" rel="stylesheet">
 <script src="../javascript/advanced.js"></script>
 
-<!--    <style>-->
-<!--        -->
-<!--    </style>-->
+<style>
+    .preview_block {
+        border-top: 2px solid #5A5B5C;
+        border-bottom: 2px solid #333334;
+    }
+</style>
 
 </html>

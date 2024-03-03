@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="expandable_card_group">
-                    <div class="expandable_card_area frame" id="4.6.1">
+                    <div class="expandable_card_area" id="4.6.1">
                         <div class="expandable_card expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -108,6 +108,43 @@
                         </div>
                         <div class="expandable_card_down_area">
                             <div class="expandable_card_down">
+
+                                <!-- @formatter:off 区间内不格式化 -->
+
+<!--                                <div class="expandable_card_down_content">-->
+<!--                                    <div class="log_block">-->
+<!--                                        <div class="title2">版本名</div>-->
+<!--                                        <div class="release_date">发表日期</div>-->
+<!--                                        <div class="description2">-->
+<!--                                            <div class="release_log_note">提示(若有)</div>-->
+<!--                                            <div class="release_log_item">一级项目</div>-->
+<!--                                            <div class="release_log_item child">二级项目</div>-->
+<!--                                            <div class="release_log_item grandchild">三级项目</div>-->
+<!--                                            <div class="release_log_item">一级项目</div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="expandable_card_down_br"></div>-->
+
+                                <!-- @formatter:on 区间内不格式化 -->
+
+                                <div class="expandable_card_down_content">
+                                    <div class="log_block">
+                                        <div class="title2">4.6.1-Canary3(4.6.1.3)</div>
+                                        <div class="release_date">2024-03-03</div>
+                                        <div class="description2">
+                                            <div class="release_log_note">本版本基于4.5.1-Beta5(4.5.1.7)开发</div>
+                                            <div class="release_log_item">加入了通知页面</div>
+                                            <div class="release_log_item">更新了设置页面的内容</div>
+                                            <div class="release_log_item">为开发日志页面加入了更多默认样式</div>
+                                            <div class="release_log_item">对可展开的卡片样式进行了一些调整</div>
+                                            <div class="release_log_item">优化了路径的检测与加载机制</div>
+                                            <div class="release_log_item">现在可展开的卡片会在元素变化时自动调整高度了</div>
+                                            <div class="release_log_item">修复了一系列新设计的问题</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expandable_card_down_br"></div>
                                 <div class="expandable_card_down_content">
                                     <div class="log_block">
                                         <div class="title2">4.6.1-Canary2(4.6.1.2)</div>
@@ -133,7 +170,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expandable_card_area frame" id="4.6.0">
+                    <div class="expandable_card_area" id="4.6.0">
                         <div class="expandable_card no_expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -424,7 +461,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expandable_card_area frame" id="4.5.1">
+                    <div class="expandable_card_area" id="4.5.1">
                         <div class="expandable_card no_expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -523,7 +560,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expandable_card_area frame" id="4.5.0">
+                    <div class="expandable_card_area" id="4.5.0">
                         <div class="expandable_card no_expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -723,7 +760,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expandable_card_area frame" id="4.3.0">
+                    <div class="expandable_card_area" id="4.3.0">
                         <div class="expandable_card no_expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -809,7 +846,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expandable_card_area frame" id="4.2.0">
+                    <div class="expandable_card_area" id="4.2.0">
                         <div class="expandable_card no_expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -986,7 +1023,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expandable_card_area frame" id="4.1.0">
+                    <div class="expandable_card_area" id="4.1.0">
                         <div class="expandable_card no_expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -1099,7 +1136,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expandable_card_area frame" id="4.0.0">
+                    <div class="expandable_card_area" id="4.0.0">
                         <div class="expandable_card no_expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
@@ -1544,7 +1581,7 @@
 
     .description2 {
         width: 90%;
-        min-width: 288px;
+        min-width: 260px;
         margin: 0 6px;
         text-align: left;
     }
@@ -1565,6 +1602,42 @@
         content: "";
         position: absolute;
         left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+    }
+
+    .release_log_item.child {
+        position: relative;
+        padding-left: 32px;
+        margin: 10px 0;
+    }
+
+    .release_log_item.child:before {
+        content: "";
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+    }
+
+    .release_log_item.grandchild {
+        position: relative;
+        padding-left: 48px;
+        margin: 10px 0;
+    }
+
+    .release_log_item.grandchild:before {
+        content: "";
+        position: absolute;
+        left: 32px;
         top: 50%;
         transform: translateY(-50%);
         width: 6px;
