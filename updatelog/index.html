@@ -84,8 +84,8 @@
                 <div class="preview_detail">我们正在对开发日志页面的体验进行更新.</div>
                 <div class="preview_detail">你可以告诉我们你对新设计的想法吗?</div>
                 <div class="preview_btns">
-                    <button class="btn normal_btn preview_btn" onclick="playSound(this);
-                    toOldDesignUpdatelog();">查看旧设计</button>
+                    <button class="btn normal_btn preview_btn" onclick="playSound(this);toOldDesignUpdatelog();">查看旧设计
+                    </button>
                     <button class="btn green_btn preview_btn" id="preview_btn2"
                             onclick="playSound(this);toRepo();"></button>
                 </div>
@@ -134,17 +134,36 @@
 
                                 <div class="expandable_card_down_content">
                                     <div class="log_block">
+                                        <div class="title2">4.6.1-Canary4(4.6.1.4)</div>
+                                        <div class="release_date">2024-03-05</div>
+                                        <div class="description2">
+                                            <div class="release_log_note">本版本基于4.5.1-Beta6(4.5.1.9)开发</div>
+                                            <div class="release_log_item">现在实验性功能页面的项目按照首字母排序了</div>
+                                            <div class="release_log_item">将可展开的卡片及卡片组移出了实验性功能</div>
+                                            <div class="release_log_item">加入了新的提示</div>
+                                            <div class="release_log_item">重新加入了多级项目</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expandable_card_down_br"></div>
+                                <div class="expandable_card_down_content">
+                                    <div class="log_block">
                                         <div class="title2">4.6.1-Canary3(4.6.1.3)</div>
                                         <div class="release_date">2024-03-03</div>
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta5(4.5.1.7)开发</div>
                                             <div class="release_log_item">加入了通知页面</div>
+                                            <div class="release_log_item child">
+                                                目前没有任何内容,也无法通过常规手段访问
+                                            </div>
                                             <div class="release_log_item">更新了设置页面的内容</div>
                                             <div class="release_log_item">为开发日志页面加入了更多默认样式</div>
-                                            <div class="release_log_item">为开发日志页面的预览提示加入了查看旧设计按钮</div>
+                                            <div class="release_log_item">为开发日志页面的预览提示加入了查看旧设计按钮
+                                            </div>
                                             <div class="release_log_item">对可展开的卡片样式进行了一些调整</div>
                                             <div class="release_log_item">优化了路径的检测与加载机制</div>
-                                            <div class="release_log_item">现在可展开的卡片会在元素变化时自动调整高度了</div>
+                                            <div class="release_log_item">现在可展开的卡片会在元素变化时自动调整高度了
+                                            </div>
                                             <div class="release_log_item">修复了一系列新设计的问题</div>
                                         </div>
                                     </div>
@@ -157,6 +176,9 @@
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
                                             <div class="release_log_item">修复了一些显示问题</div>
+                                            <div class="release_log_item">已知问题:
+                                                可展开的卡片在部分情况下高度显示不正确
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -227,24 +249,24 @@
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
                                             <div class="release_log_item">实验性 -
-                                                再次对Slider滑动条的样式和实现方式进行了改进
+                                                再次对Slider滑块的样式和实现方式进行了改进
                                             </div>
-                                            <div class="release_log_item">实验性 - 增大了Slider滑动条的可点击范围</div>
+                                            <div class="release_log_item">实验性 - 增大了Slider滑块的可点击范围</div>
                                             <div class="release_log_item">实验性 -
-                                                现在在Slider滑动条的可点击范围内交互都会有hover效果了
+                                                现在在Slider滑块的可点击范围内交互都会有hover效果了
                                             </div>
-                                            <div class="release_log_item">实验性 - 更新了Slider滑动条各元素的命名空间
-                                            </div>
-                                            <div class="release_log_item">实验性 -
-                                                现在Slider滑动条的初始数据存储在html标签里而不是js里以优化性能体验
+                                            <div class="release_log_item">实验性 - 更新了Slider滑块各元素的命名空间
                                             </div>
                                             <div class="release_log_item">实验性 -
-                                                修复了Slider滑动条在特定条件下交互会抛出异常的问题
+                                                现在Slider滑块的初始数据存储在html标签里而不是js里以优化性能体验
+                                            </div>
+                                            <div class="release_log_item">实验性 -
+                                                修复了Slider滑块在特定条件下交互会抛出异常的问题
                                             </div>
                                             <div class="release_log_item">实验性 - 修复了Range
                                                 Slider的数据值在部分情况下会溢出的问题
                                             </div>
-                                            <div class="release_log_item">实验性 - 移除了Slider滑动条的一些冗余函数
+                                            <div class="release_log_item">实验性 - 移除了Slider滑块的一些冗余函数
                                             </div>
                                             <div class="release_log_item">对部分代码进行了对齐优化</div>
                                         </div>
@@ -261,7 +283,7 @@
                                                 现在拖动Switch开关时会有active效果了
                                             </div>
                                             <div class="release_log_item">实验性 -
-                                                现在拖动Slider滑动条时会有active效果了
+                                                现在拖动Slider滑块时会有active效果了
                                             </div>
                                             <div class="release_log_item">实验性 - 将Smooth Slider重命名为Range Slider
                                             </div>
@@ -270,18 +292,19 @@
                                             <div class="release_log_item">实验性 - 优化了更新滑块位置和进度条的实现
                                             </div>
                                             <div class="release_log_item">实验性 - 拆分合并了一些共用函数</div>
-                                            <div class="release_log_item">实验性 -
-                                                修复了Slider滑动条在计算初始值时未考虑到边框宽度导致的位置偏差问题
+                                            <div class="release_log_item">
+                                                实验性 - 修复了Slider滑块在计算初始值时未考虑到边框宽度导致的位置偏差问题
                                             </div>
-                                            <div class="release_log_item">实验性 - 修复了Slider滑动条在计算resizing时精度不同导致的对齐偏差问题
+                                            <div class="release_log_item">实验性 - 修复了Slider滑块在计算resizing时精度不同导致的对齐偏差问题
                                             </div>
-                                            <div class="release_log_item">实验性 -
-                                                修复了Slider滑动条计算位移方法不正确的问题
+                                            <div class="release_log_item">
+                                                实验性 - 修复了Slider滑块计算位移方法不正确的问题
                                             </div>
-                                            <div class="release_log_item">实验性 - 因计算量过大可能导致的性能问题移除了Range
+                                            <div class="release_log_item">
+                                                实验性 - 因计算量过大可能导致的性能问题移除了Range
                                                 Slider的拖动滑动动画(这不影响点击滑动动画)
                                             </div>
-                                            <div class="release_log_item">实验性 - 移除了Slider滑动条的一些冗余函数
+                                            <div class="release_log_item">实验性 - 移除了Slider滑块的一些冗余函数
                                             </div>
                                         </div>
                                     </div>
@@ -294,6 +317,8 @@
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
                                             <div class="release_log_item">试图修复一些问题</div>
+                                            <div class="release_log_item">已知问题: Slider滑块的计算方式存在极大的偏差
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -304,8 +329,8 @@
                                         <div class="release_date">2024-02-28</div>
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
-                                            <div class="release_log_item">更新了Slider滑动条的样式和实现函数</div>
-                                            <div class="release_log_item">实验性 - 加入了Slider滑动条</div>
+                                            <div class="release_log_item">更新了Slider滑块的样式和实现函数</div>
+                                            <div class="release_log_item">实验性 - 加入了Slider滑块</div>
                                         </div>
                                     </div>
                                 </div>
@@ -316,7 +341,7 @@
                                         <div class="release_date">2024-02-28</div>
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
-                                            <div class="release_log_item">为Slider滑动条加入了动画</div>
+                                            <div class="release_log_item">为Slider滑块加入了动画</div>
                                             <div class="release_log_item">修复了环境检测异常的问题</div>
                                             <div class="release_log_item">修复了测试环境指向链接不正确的问题</div>
                                             <div class="release_log_item">
@@ -364,10 +389,13 @@
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
                                             <div class="release_log_item">更新了实验性功能页面的样式设计</div>
-                                            <div class="release_log_item">实验性 - 加入了Slider滑动条的部分代码</div>
+                                            <div class="release_log_item">实验性 - 加入了Slider滑块的部分代码</div>
+                                            <div class="release_log_item child">
+                                                目前仅在实验性功能页面以占位符形式出现,无具体功能和样式
+                                            </div>
                                             <div class="release_log_item">实验性 - 更新了Switch开关的实现方式</div>
-                                            <div class="release_log_item">实验性 -
-                                                Switch开关现在可以通过拖动控制状态了
+                                            <div class="release_log_item">
+                                                实验性 - Switch开关现在可以通过拖动控制状态了
                                             </div>
                                             <div class="release_log_item">实验性 - 加入了MutationObserver API</div>
                                             <div class="release_log_item">优化了一些样式的显示</div>
@@ -386,6 +414,7 @@
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
                                             <div class="release_log_item">加入了环境指南页面</div>
+                                            <div class="release_log_item child">目前没有任何内容,也无法通过常规手段访问</div>
                                             <div class="release_log_item">修复了一些显示问题</div>
                                         </div>
                                     </div>
@@ -397,7 +426,7 @@
                                         <div class="release_date">2024-02-25</div>
                                         <div class="description2">
                                             <div class="release_log_note">本版本基于4.5.1-Beta4(4.5.1.6)开发</div>
-                                            <div class="release_log_item">加入了404页面</div>
+                                            <div class="release_log_item">重新加入了404页面</div>
                                             <div class="release_log_item">更新了部分js和css的加载方式</div>
                                             <div class="release_log_item">优化了部分本地内容的加载方式</div>
                                             <div class="release_log_item">优化了部分日志的输出</div>
@@ -551,13 +580,17 @@
                                         <div class="release_date">2024-02-14</div>
                                         <div class="description2">
                                             <div class="release_log_item">实验性 - 加入了Switch开关</div>
+                                            <div class="release_log_item child">该特性仍在开发中,缺失部分预期特性</div>
                                             <div class="release_log_item">实验性 - 为Tab Bar加入了包含元素</div>
-                                            <div class="release_log_item">实验性 - 现在只有在切换Tab
-                                                Bar时才会播放音效了
+                                            <div class="release_log_item">
+                                                实验性 - 现在只有在切换Tab Bar时才会播放音效了
                                             </div>
                                             <div class="release_log_item">实验性 - 为实验性内容加入了更多的日志输出
                                             </div>
                                             <div class="release_log_item">实验性 - 现在部分边框和阴影的颜色使用RGBA了
+                                            </div>
+                                            <div class="release_log_item child">
+                                                这项更改也计划在即将到来的版本中同步到具有类似设计的所有非实验性内容中
                                             </div>
                                         </div>
                                     </div>

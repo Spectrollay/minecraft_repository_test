@@ -141,7 +141,7 @@ main {
     height: 16px;
 }
 
-/* Slider滑动条 */
+/* Slider滑块 */
 .slider_content {
     display: flex;
     width: calc(100% - 32px);

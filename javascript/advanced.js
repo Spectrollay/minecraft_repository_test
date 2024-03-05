@@ -120,7 +120,7 @@ function updateSwitchState(index, isOn) {
 }
 
 
-// Slider滑动条函数
+// Slider滑块函数
 const sliderContent = document.getElementsByClassName("slider_content");
 
 for (let i = 0; i < sliderContent.length; i++) {
