@@ -845,3 +845,145 @@ td {
     z-index: 1;
     display: none;
 }
+
+/* Expandable Card */
+.expandable_card {
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    border-top: 2px solid #5A5B5C;
+    border-bottom: 2px solid #333334;
+    border-left: 2px solid #333334;
+    border-right: 2px solid #333334;
+    color: #FFFFFF;
+}
+
+.expandable_card:hover {
+    background-color: #58585A;
+}
+
+.expandable_card:active {
+    border: 2px solid #333334;
+    background-color: #3D3E3F;
+}
+
+.expandable_card_text_area {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.expandable_card_text {
+    font-size: 23px;
+    font-family: "Minecraft Seven", sans-serif;
+}
+
+.expandable_card_text_title {
+}
+
+.expandable_card_image_area {
+    height: 56px;
+    width: 56px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.expandable_card_image {
+    width: 32px;
+}
+
+.expandable_card_down_area {
+    background-color: #313233;
+    overflow: hidden;
+    transition: height 600ms;
+}
+
+.expandable_card_down {
+    padding: 1px;
+}
+
+.expandable_card_down_br {
+    margin: 1px 0;
+    height: 2px;
+    background-color: #48494A;
+}
+
+.expandable_card_down_content {
+    margin: 10px 20px;
+}
+
+/* 开发日志 */
+.log_block {
+    text-align: center;
+}
+
+.release_date {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.release_log_note {
+    border-left: 6px solid #2E6BE5;
+    padding-left: 10px;
+    margin: 6px 0;
+}
+
+.release_log_item {
+    position: relative;
+    padding-left: 16px;
+    margin: 10px 0;
+}
+
+.release_log_item:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+.release_log_item.child {
+    position: relative;
+    padding-left: 32px;
+    margin: 10px 0;
+}
+
+.release_log_item.child:before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+.release_log_item.grandchild {
+    position: relative;
+    padding-left: 48px;
+    margin: 10px 0;
+}
+
+.release_log_item.grandchild:before {
+    content: "";
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
