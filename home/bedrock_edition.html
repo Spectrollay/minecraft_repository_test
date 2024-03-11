@@ -23,8 +23,8 @@
             justify-content: center;
             align-items: center;
             z-index: 999;
-            opacity: 1; /* 初始不透明度 */
-            transition: opacity 0.6s; /* 添加渐隐动画 */
+            opacity: 1;
+            transition: opacity 0.6s;
         }
 
         .spinner {
@@ -1291,18 +1291,16 @@
 <script>
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
-    // 设置要加载的 JavaScript 文件的 URL
+
     public_script.src = root_path + 'javascript/public_script.js';
     public_define.src = root_path + 'javascript/public_define.js';
-    // 将 script 元素添加到页面中
+
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
-    // 获取 img 元素
     const menu_icon = document.getElementById('menu_icon');
     const back_icon = document.getElementById('back_icon');
 
-    // 设置图片路径
     if (back_icon) {
         back_icon.src = root_path + 'images/arrowLeft.png';
     }

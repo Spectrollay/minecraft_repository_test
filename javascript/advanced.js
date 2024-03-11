@@ -39,68 +39,77 @@ if (targetNode2) {
 
 // Switch开关函数
 const switchElement = document.getElementsByClassName("switch");
-const toggleSlider = document.getElementsByClassName("toggle_slider");
+const switchSlider = document.getElementsByClassName("switch_slider");
 
 // 添加点击事件监听器
 for (let i = 0; i < switchElement.length; i++) {
     let isOn = switchElement[i].classList.contains("on");
+    let isDisabled = switchElement[i].classList.contains("disabled_switch");
     let startX = 0;
     let isDragging = false;
 
-    switchElement[i].addEventListener("click", function () {
-        isOn = !isOn;
-        updateSwitchState(i, isOn);
-    });
+    if(!isDisabled) {
+        switchElement[i].addEventListener("click", function () {
+            if (!switchSlider[i].classList.contains('active')) {
+                isOn = !isOn;
+                updateSwitchState(i, isOn);
+            }
+        });
 
-    switchElement[i].addEventListener("mousedown", function (e) {
-        isDragging = true;
-        toggleSlider[i].classList.add('active');
-        startX = e.clientX;
-    });
+        switchElement[i].addEventListener("mousedown", function (e) {
+            isDragging = true;
+            switchSlider[i].classList.add('active');
+            startX = e.clientX;
+        });
 
-    switchElement[i].addEventListener("touchstart", function (e) {
-        isDragging = true;
-        toggleSlider[i].classList.add('active');
-        startX = e.touches[0].clientX;
-    });
+        switchElement[i].addEventListener("touchstart", function (e) {
+            isDragging = true;
+            switchSlider[i].classList.add('active');
+            startX = e.touches[0].clientX;
+        });
 
-    document.addEventListener("mouseup", function (e) {
-        if (isDragging) {
-            let currentX = e.clientX;
-            if (currentX - startX > 10) {
-                if (!isOn) {
-                    isOn = true;
-                    updateSwitchState(i, isOn);
-                }
-            } else if (currentX - startX < -10) {
-                if (isOn) {
-                    isOn = false;
-                    updateSwitchState(i, isOn);
+        document.addEventListener("mouseup", function (e) {
+            if (isDragging) {
+                let currentX = e.clientX;
+                if (currentX - startX > 10) {
+                    if (!isOn) {
+                        isOn = true;
+                        updateSwitchState(i, isOn);
+                    }
+                } else if (currentX - startX < -10) {
+                    if (isOn) {
+                        isOn = false;
+                        updateSwitchState(i, isOn);
+                    }
                 }
             }
-        }
-        isDragging = false;
-        toggleSlider[i].classList.remove('active');
-    });
+            isDragging = false;
+            setTimeout(function () {
+                switchSlider[i].classList.remove('active');
+            }, 0);
+        });
 
-    document.addEventListener("touchend", function (e) {
-        if (isDragging) {
-            let currentX = e.changedTouches[0].clientX;
-            if (currentX - startX > 10) {
-                if (!isOn) {
-                    isOn = true;
-                    updateSwitchState(i, isOn);
-                }
-            } else if (currentX - startX < -10) {
-                if (isOn) {
-                    isOn = false;
-                    updateSwitchState(i, isOn);
+        document.addEventListener("touchend", function (e) {
+            if (isDragging) {
+                let currentX = e.changedTouches[0].clientX;
+                if (currentX - startX > 10) {
+                    if (!isOn) {
+                        isOn = true;
+                        updateSwitchState(i, isOn);
+                    }
+                } else if (currentX - startX < -10) {
+                    if (isOn) {
+                        isOn = false;
+                        updateSwitchState(i, isOn);
+                    }
                 }
             }
-        }
-        isDragging = false;
-        toggleSlider[i].classList.remove('active');
-    });
+            isDragging = false;
+            setTimeout(function () {
+                switchSlider[i].classList.remove('active');
+            }, 0);
+        });
+    }
 }
 
 // 更新Switch开关状态函数
@@ -109,12 +118,12 @@ function updateSwitchState(index, isOn) {
     switchElement[index].classList.toggle("on", isOn);
     switchElement[index].classList.toggle("off", !isOn);
     if (isOn) {
-        toggleSlider[index].classList.add('toggle_bounce_left');
-        toggleSlider[index].classList.remove('toggle_bounce_right');
+        switchSlider[index].classList.add('switch_bounce_left');
+        switchSlider[index].classList.remove('switch_bounce_right');
         console.log("打开开关", switchElement[index].id);
     } else {
-        toggleSlider[index].classList.add('toggle_bounce_right');
-        toggleSlider[index].classList.remove('toggle_bounce_left');
+        switchSlider[index].classList.add('switch_bounce_right');
+        switchSlider[index].classList.remove('switch_bounce_left');
         console.log("关闭开关", switchElement[index].id);
     }
 }

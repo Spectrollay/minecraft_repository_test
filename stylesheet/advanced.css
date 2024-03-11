@@ -61,10 +61,46 @@ main {
     width: 56px;
     height: 24px;
     position: relative;
-    border: 2px solid #1E1E1F;
     overflow: visible;
+}
+
+.normal_switch {
+    border: 2px solid #1E1E1F;
     background: linear-gradient(to right, #3C8527 50%, #8C8D90 50%); /* 左半部分绿色，右半部分灰色 */
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
+}
+
+.disabled_switch {
+    border: 2px solid #8C8D90;
+    background: #D0D1D4;
+}
+
+.switch_style {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    top: 3px;
+}
+
+.switch_style.left {
+    left: 5px;
+}
+
+.switch_style.right {
+    right: 6px;
+}
+
+.switch_style.left img, .switch_style.right img {
+    height: 16px;
+}
+
+.disabled_switch .switch_style.left img {
+    filter: grayscale(100%) brightness(50%);
+}
+
+.disabled_switch .switch_style.right img {
+    filter: invert(100%) grayscale(100%) brightness(50%);
 }
 
 @keyframes bounce_left {
@@ -91,54 +127,42 @@ main {
     }
 }
 
-.toggle_bounce_left {
+.switch_bounce_left {
     animation: bounce_right 175ms ease-in-out 2;
 }
 
-.toggle_bounce_right {
+.switch_bounce_right {
     animation: bounce_left 175ms ease-in-out 2;
 }
 
-.toggle_slider {
+.switch_slider {
     position: absolute;
     top: -6px;
     left: -2px;
     width: 28px;
     height: 28px;
-    background-color: #D0D1D4;
-    border: 2px solid #1E1E1F;
     z-index: 1;
-    box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
+    background-color: #D0D1D4;
     transition: left 125ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.toggle_slider:hover, .toggle_slider:active, .switch:hover .toggle_slider, .toggle_slider.active {
+.normal_switch .switch_slider {
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
+}
+
+.disabled_switch .switch_slider {
+    border: 2px solid #8C8D90;
+    box-shadow: inset 0 -4px #B1B2B5;
+}
+
+.normal_switch .switch_slider:hover, .normal_switch .switch_slider:active, .normal_switch .switch:hover .switch_slider, .normal_switch .switch_slider.active {
     background-color: #B1B2B5;
     box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.8), inset -2px -6px rgba(255, 255, 255, 0.6);
 }
 
-.switch.on .toggle_slider {
+.switch.on .switch_slider {
     left: 27px;
-}
-
-.toggle_style {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: transparent;
-    top: 3px;
-}
-
-.toggle_style.left {
-    left: 5px;
-}
-
-.toggle_style.right {
-    right: 6px;
-}
-
-.toggle_style.left img, .toggle_style.right img {
-    height: 16px;
 }
 
 /* Slider滑块 */
@@ -204,4 +228,31 @@ main {
     height: 8px;
     top: 50%; /* 分段线垂直居中 */
     transform: translateY(-50%); /* 分段线垂直居中 */
+}
+
+/* Tag */
+.tag_area {
+    display: flex;
+    color: #000000;
+}
+
+.tag {
+    padding: 4px;
+    font-size: 12px;
+}
+
+.green_tag {
+    background-color: #6CC349;
+}
+
+.blue_tag {
+    background-color: #8CB3FF;
+}
+
+.yellow_tag {
+    background-color: #FFE866;
+}
+
+.red_tag {
+    background-color: #F46D6D;
 }

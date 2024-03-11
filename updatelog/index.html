@@ -22,8 +22,8 @@
             justify-content: center;
             align-items: center;
             z-index: 999;
-            opacity: 1; /* 初始不透明度 */
-            transition: opacity 0.6s; /* 添加渐隐动画 */
+            opacity: 1;
+            transition: opacity 0.6s;
         }
 
         .spinner {
@@ -131,6 +131,20 @@
 
                                 <!-- @formatter:on 区间内不格式化 -->
 
+                                <div class="expandable_card_down_content">
+                                    <div class="log_block">
+                                        <div class="title2">4.6.1-Canary6(4.6.1.6)</div>
+                                        <div class="release_date">2024-03-11</div>
+                                        <div class="description2">
+                                            <div class="release_log_note">本版本基于4.5.1-Beta6(4.5.1.9)开发</div>
+                                            <div class="release_log_item">实验性 - 现在Slider开关拥有不同的类型了,默认为normal_switch</div>
+                                            <div class="release_log_item">实验性 - 加入了禁用的Slider开关样式</div>
+                                            <div class="release_log_item">实验性 - 修复了通过拖动控制Slider开关时可能会同时触发点击事件的问题</div>
+                                            <div class="release_log_item">实验性 - 加入了Tag标签</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expandable_card_down_br"></div>
                                 <div class="expandable_card_down_content">
                                     <div class="log_block">
                                         <div class="title2">4.6.1-Canary5(4.6.1.5)</div>
@@ -1592,18 +1606,16 @@
 <script>
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
-    // 设置要加载的 JavaScript 文件的 URL
+
     public_script.src = root_path + 'javascript/public_script.js';
     public_define.src = root_path + 'javascript/public_define.js';
-    // 将 script 元素添加到页面中
+
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
-    // 获取 img 元素
     const menu_icon = document.getElementById('menu_icon');
     const back_icon = document.getElementById('back_icon');
 
-    // 设置图片路径
     if (back_icon) {
         back_icon.src = root_path + 'images/arrowLeft.png';
     }
