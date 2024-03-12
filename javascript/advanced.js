@@ -67,17 +67,20 @@ for (let i = 0; i < switchElement.length; i++) {
         });
 
         document.addEventListener("mouseup", function (e) {
-            if (isDragging && !switchElement[i].contains(e.target)) {
-                let currentX = e.clientX;
-                if (currentX - startX > 10) {
-                    if (!isOn) {
-                        isOn = true;
-                        updateSwitchState(i, isOn);
-                    }
-                } else if (currentX - startX < -10) {
-                    if (isOn) {
-                        isOn = false;
-                        updateSwitchState(i, isOn);
+            if (isDragging) {
+                let elementAtPoint = document.elementFromPoint(e.clientX, e.clientY);
+                if (!switchElement[i].contains(elementAtPoint)) {
+                    let currentX = e.clientX;
+                    if (currentX - startX > 10) {
+                        if (!isOn) {
+                            isOn = true;
+                            updateSwitchState(i, isOn);
+                        }
+                    } else if (currentX - startX < -10) {
+                        if (isOn) {
+                            isOn = false;
+                            updateSwitchState(i, isOn);
+                        }
                     }
                 }
             }
@@ -88,7 +91,7 @@ for (let i = 0; i < switchElement.length; i++) {
         });
 
         document.addEventListener("touchend", function (e) {
-            if (isDragging && !switchElement[i].contains(e.target)) {
+            if (isDragging) {
                 let currentX = e.changedTouches[0].clientX;
                 if (currentX - startX > 10) {
                     if (!isOn) {
