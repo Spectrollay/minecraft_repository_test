@@ -48,12 +48,10 @@ for (let i = 0; i < switchElement.length; i++) {
     let startX = 0;
     let isDragging = false;
 
-    if(!isDisabled) {
+    if (!isDisabled) {
         switchElement[i].addEventListener("click", function () {
-            if (!switchSlider[i].classList.contains('active')) {
-                isOn = !isOn;
-                updateSwitchState(i, isOn);
-            }
+            isOn = !isOn;
+            updateSwitchState(i, isOn);
         });
 
         switchElement[i].addEventListener("mousedown", function (e) {
@@ -69,7 +67,7 @@ for (let i = 0; i < switchElement.length; i++) {
         });
 
         document.addEventListener("mouseup", function (e) {
-            if (isDragging) {
+            if (isDragging && !switchElement[i].contains(e.target)) {
                 let currentX = e.clientX;
                 if (currentX - startX > 10) {
                     if (!isOn) {
@@ -90,7 +88,7 @@ for (let i = 0; i < switchElement.length; i++) {
         });
 
         document.addEventListener("touchend", function (e) {
-            if (isDragging) {
+            if (isDragging && !switchElement[i].contains(e.target)) {
                 let currentX = e.changedTouches[0].clientX;
                 if (currentX - startX > 10) {
                     if (!isOn) {
