@@ -536,6 +536,11 @@ main::-webkit-scrollbar-thumb {
     margin-bottom: 0;
 }
 
+.neutral_banner {
+    color: #FFFFFF;
+    background-color: #1E1E1F;
+}
+
 .information_banner {
     background-color: #2E6BE5;
 }
