@@ -596,11 +596,6 @@ main::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-.tag_description {
-    display: flex;
-    flex: 1;
-}
-
 .tag {
     align-self: center;
     color: #000000;
