@@ -261,14 +261,19 @@ main {
 /* Tag */
 .tag_area {
     display: flex;
+    align-items: center;
+}
+
+.tag_description {
+    display: flex;
+    flex: 1;
 }
 
 .tag {
     align-self: center;
-    justify-self: center;
     color: #000000;
     height: 16px;
-    margin: 4px;
+    margin: 2px 4px;
     padding: 0 2px;
     font-size: 12px;
 }
@@ -292,8 +297,4 @@ main {
 
 .red_tag {
     background-color: #F46D6D;
-}
-
-.tag_description {
-    flex: 1;
 }
