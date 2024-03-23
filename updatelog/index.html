@@ -41,7 +41,7 @@
 
         const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     </script>
-    <link href="../images/Marketplace.png" rel="icon">
+    <link href="../images/Logo.jpg" rel="icon">
     <title>开发日志</title>
 </head>
 
@@ -54,7 +54,7 @@
         <img alt="" class="back_icon" id="back_icon" src="">
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="../images/Marketplace.png"><span
+        <img alt="Title Icon" class="title_icon" src="../images/Logo.jpg"><span
             class="header_title">Repository</span>
     </div>
 </header>
@@ -132,6 +132,25 @@
 
                                 <!-- @formatter:on 区间内不格式化 -->
 
+                                <div class="expandable_card_down_content">
+                                    <div class="log_block">
+                                        <div class="title2">4.6.1-Canary10(4.6.1.12)</div>
+                                        <div class="release_date">2024-03-23</div>
+                                        <div class="description2">
+                                            <div class="release_log_note">本版本基于4.5.1-Beta6(4.5.1.9)开发</div>
+                                            <div class="release_log_item">加入了重定向功能和重定向提示</div>
+                                            <div class="release_log_item">更新了版本库的名称和Logo</div>
+                                            <div class="release_log_item">迁移版本库首页至新的地址</div>
+                                            <div class="release_log_item child">现在访问旧的地址会被重定向至新的地址
+                                            </div>
+                                            <div class="release_log_item">将Badge角标,Tag标签和Neutral
+                                                Banner样式移出了实验性内容
+                                            </div>
+                                            <div class="release_log_item">拆分了版本库的加载判定</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expandable_card_down_br"></div>
                                 <div class="expandable_card_down_content">
                                     <div class="log_block">
                                         <div class="title2">4.6.1-Canary9(4.6.1.9)</div>

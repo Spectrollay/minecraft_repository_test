@@ -4,9 +4,9 @@
 
 </div>
 
-# Minecraft 版本库
+# 星月Minecraft版本库
 
-### Minecraft 版本库 网页文件仓库
+### 星月Minecraft版本库 网页文件仓库
 
 本项目运用了[OreUI](https://github.com/Spectrollay/OreUI)技术
 
@@ -15,5 +15,5 @@
 
 项目地址:
 
-- (GitHub) https://spectrollay.github.io/minecraft_repository_test/home.html
-- (Gitee) https://spectrollay.gitee.io/minecraft_repository_test/home.html
+- (GitHub) https://spectrollay.github.io/minecraft_repository_test/
+- (Gitee) https://spectrollay.gitee.io/minecraft_repository_test/

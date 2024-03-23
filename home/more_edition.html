@@ -41,8 +41,8 @@
 
         const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     </script>
-    <link href="../images/Marketplace.png" rel="icon">
-    <title>更多版本 - Minecraft 版本库</title>
+    <link href="../images/Logo.jpg" rel="icon">
+    <title>更多版本 - 星月Minecraft版本库</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
         <img alt="" class="back_icon" id="back_icon" src="">
     </div>
     <div class="header_logo" onclick="scrollToTop()">
-        <img alt="Title Icon" class="title_icon" src="../images/Marketplace.png"><span
+        <img alt="Title Icon" class="title_icon" src="../images/Logo.jpg"><span
             class="header_title">Repository</span>
     </div>
 </header>
@@ -65,7 +65,7 @@
     </div>
     <div class="block_spacing"></div>
     <div class="block">
-        <div class="main back_block back_to_main" onclick="jumpToPage('../home.html');"></div>
+        <div class="main back_block back_to_main" onclick="jumpToPage('../');"></div>
     </div>
     <div class="block_spacing"></div>
     <div class="block">
@@ -314,7 +314,7 @@
         <div class="main">
             <div class="description2">啊哦,已经到底了!<br>这里没有其他东西啦!</div>
             <div class="description2">
-                <a href="https://github.com/Spectrollay/minecraft_repository_test/issues/new" target="_blank">
+                <a id="add_more" href="" target="_blank">
                     <img alt="link" class="link_img" src=""/>我有想要的内容/我想添加新内容
                 </a>
             </div>
@@ -334,7 +334,7 @@
 <!--侧边栏-->
 <div class="sidebar" id="sidebar">
     <div class="sidebar_header">
-        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../home.html');"></button>
+        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../');"></button>
     </div>
     <div class="sidebar_list">
         <div class="sidebar_item">其他版本</div>
@@ -368,12 +368,16 @@
 
     const menu_icon = document.getElementById('menu_icon');
     const back_icon = document.getElementById('back_icon');
+    const add_more = document.getElementById('add_more');
 
     if (back_icon) {
         back_icon.src = root_path + 'images/arrowLeft.png';
     }
     if (menu_icon) {
         menu_icon.src = root_path + 'images/menu.png';
+    }
+    if (add_more) {
+        add_more.href = 'https://github.com/Spectrollay' + root_path + 'issues/new';
     }
 
     const loading_img = document.getElementById('spinner_img');

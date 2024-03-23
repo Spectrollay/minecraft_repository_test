@@ -272,7 +272,7 @@ function toUpdatelog() {
 
 function toRepo() {
     setTimeout(function () {
-        window.open("https://github.com/Spectrollay/minecraft_repository_test/issues/new");
+        window.open("https://github.com/Spectrollay" + rootPath + "issues/new");
     }, 600);
 }
 
@@ -305,7 +305,7 @@ function clickedBack() {
 
 // 点击仓库图标事件
 function repoPage() {
-    window.open("https://github.com/Spectrollay/minecraft_repository_test");
+    window.open("https://github.com/Spectrollay" + rootPath);
 }
 
 // 点击设置图标事件

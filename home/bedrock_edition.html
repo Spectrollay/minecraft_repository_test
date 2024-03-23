@@ -41,8 +41,8 @@
 
         const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     </script>
-    <link href="../images/Marketplace.png" rel="icon">
-    <title>基岩版 - Minecraft 版本库</title>
+    <link href="../images/Logo.jpg" rel="icon">
+    <title>基岩版 - 星月Minecraft版本库</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
         <img alt="" class="menu_icon" id="menu_icon" src="">
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="../images/Marketplace.png"><span
+        <img alt="Title Icon" class="title_icon" src="../images/Logo.jpg"><span
             class="header_title">Repository</span>
     </div>
 </header>
@@ -65,7 +65,7 @@
     </div>
     <div class="block_spacing"></div>
     <div class="block">
-        <div class="main back_block back_to_main" onclick="jumpToPage('../home.html');"></div>
+        <div class="main back_block back_to_main" onclick="jumpToPage('../');"></div>
     </div>
     <div class="block_spacing"></div>
     <div class="block">
@@ -216,7 +216,7 @@
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn red_btn download_btn_large" onclick="playSound(this);"
+                    <button class="btn disabled_btn download_btn_large" onclick="playSound(this);"
                             text-generation="download_btn2"></button>
                     <!--                    </a>-->
                 </div>
@@ -276,7 +276,7 @@
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn red_btn download_btn_large" onclick="playSound(this);"
+                    <button class="btn disabled_btn download_btn_large" onclick="playSound(this);"
                             text-generation="download_btn2"></button>
                     <!--                    </a>-->
                 </div>
@@ -336,7 +336,7 @@
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn red_btn download_btn_large" onclick="playSound(this);"
+                    <button class="btn disabled_btn download_btn_large" onclick="playSound(this);"
                             text-generation="download_btn2"></button>
                     <!--                    </a>-->
                 </div>
@@ -396,7 +396,7 @@
                 </div>
                 <div class="download_line">
                     <!--                    <a href="" target="_blank">-->
-                    <button class="btn red_btn download_btn_large" onclick="playSound(this);"
+                    <button class="btn disabled_btn download_btn_large" onclick="playSound(this);"
                             text-generation="download_btn2"></button>
                     <!--                    </a>-->
                 </div>
@@ -1221,7 +1221,7 @@
 <!--侧边栏-->
 <div class="sidebar" id="sidebar">
     <div class="sidebar_header">
-        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../home.html');"></button>
+        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../');"></button>
     </div>
     <div class="sidebar_list">
         <div class="sidebar_item">基岩版</div>

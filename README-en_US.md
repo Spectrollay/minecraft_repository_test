@@ -4,9 +4,9 @@
 
 </div>
 
-# Minecraft Repository
+# Starmoon Minecraft Repository
 
-### Minecraft Repository website files repository
+### Starmoon Minecraft Repository website files repository
 
 This project uses [OreUI](https://github.com/Spectrollay/OreUI) technology
 
@@ -15,5 +15,5 @@ Join groups:
 
 Project address:
 
-- (GitHub) https://spectrollay.github.io/minecraft_repository_test/home.html
-- (Gitee) https://spectrollay.gitee.io/minecraft_repository_test/home.html
+- (GitHub) https://spectrollay.github.io/minecraft_repository_test/
+- (Gitee) https://spectrollay.gitee.io/minecraft_repository_test/

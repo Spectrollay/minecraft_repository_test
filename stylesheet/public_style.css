@@ -562,6 +562,75 @@ main::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
+/* Badge */
+.badge_area {
+    display: flex;
+    align-items: center;
+}
+
+.badge {
+    width: 6px;
+    height: 6px;
+    margin-right: 6px;
+}
+
+.green_badge {
+    background-color: #6CC349;
+}
+
+.blue_badge {
+    background-color: #8CB3FF;
+}
+
+.yellow_badge {
+    background-color: #FFE866;
+}
+
+.red_badge {
+    background-color: #F46D6D;
+}
+
+/* Tag */
+.tag_area {
+    display: flex;
+    align-items: center;
+}
+
+.tag_description {
+    display: flex;
+    flex: 1;
+}
+
+.tag {
+    align-self: center;
+    color: #000000;
+    height: 16px;
+    margin: 2px 4px;
+    padding: 0 2px;
+    font-size: 12px;
+}
+
+.black_tag {
+    color: #FFFFFF;
+    background-color: #1E1E1F;
+}
+
+.green_tag {
+    background-color: #6CC349;
+}
+
+.blue_tag {
+    background-color: #8CB3FF;
+}
+
+.yellow_tag {
+    background-color: #FFE866;
+}
+
+.red_tag {
+    background-color: #F46D6D;
+}
+
 /* 表格属性 */
 .table_area {
     width: 100%;
