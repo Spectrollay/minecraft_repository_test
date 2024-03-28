@@ -187,6 +187,7 @@ if (tabContent) {
 function selectTab(tabNumber) {
     const currentTabContent = document.querySelector(".tab_content.active");
     const selectedTabContent = document.getElementById("content" + tabNumber);
+    const selectedSidebarContent = document.getElementById("sidebar_content" + tabNumber);
     console.log("Tab Bar当前选中: ", currentTabContent.id);
     console.log("Tab Bar交互选中: ", selectedTabContent.id);
     if (currentTabContent === selectedTabContent) {
@@ -215,6 +216,18 @@ function selectTab(tabNumber) {
         }
         selectedTabContent.classList.add("active");
         selectedTabContent.classList.remove("no_active");
+
+        // 切换侧边栏包含内容
+        const sidebarContents = document.getElementsByClassName("tab_sidebar");
+        if (sidebarContents) {
+            for (let i = 0; i < sidebarContents.length; i++) {
+                sidebarContents[i].classList.remove("active");
+                sidebarContents[i].classList.add("no_active");
+            }
+            selectedSidebarContent.classList.add("active");
+            selectedSidebarContent.classList.remove("no_active");
+        }
+
         console.log("切换与Tab相关的内容");
     }
 }
@@ -363,6 +376,12 @@ function scrollToTop() {
         behavior: "smooth"
     });
     console.log("成功执行回到顶部操作");
+}
+function toTop() {
+    main.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
 }
 
 // Expandable Card函数
