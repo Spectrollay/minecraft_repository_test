@@ -564,10 +564,6 @@ main::-webkit-scrollbar-thumb {
     background-color: #2E6BE5;
 }
 
-.normal_banner {
-    background-color: #1E1E1F;
-}
-
 .important_banner {
     font-weight: bolder;
     color: #000000;
