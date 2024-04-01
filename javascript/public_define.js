@@ -192,7 +192,7 @@ if (holiday_tip2) {
     if (M === 4 && (D === 1 || (D === 2 && h < 12))) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span><a href=\"https://www.minecraft.net/article/poisonous-potato-update\" target=\"_blank\" onclick=\"playSound1();\">毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href=\"https://www.bilibili.com/video/BV1GJ411x7h7/\" target=\"_blank\" onclick=\"playSound1();\">点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
+            holiday_tip_display2.innerHTML = "<span><a href=\"https://www.minecraft.net/article/poisonous-potato-update\" target=\"_blank\" onclick=\"playSound1();\">毒马铃薯更新现已正式发布!</a><br><br>版本库4.0满月感恩大回馈! <a href=\"https://www.bilibili.com/video/BV1GJ411x7h7/\" target=\"_blank\" onclick=\"playSound1();\">点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
