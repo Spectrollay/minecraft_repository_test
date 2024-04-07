@@ -84,36 +84,25 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <a href="https://mcarc.gitee.io/Android-Demo/0.2/" target="_blank">
-                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);"
-                                text-generation="download_btn9"></button>
-                    </a>
+                    <button class="btn normal_btn download_btn_large"
+                            onclick="playSound(this);openLink('https://mcarc.gitee.io/Android-Demo/0.2/');"
+                            text-generation="download_btn9"></button>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn_large" onclick="playSound(this);"
                             text-generation="download_btn4"></button>
-                    <!--                    </a>-->
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn5"></button>
-                    <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn6"></button>
-                    <!--                    </a>-->
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn7"></button>
-                    <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn8"></button>
-                    <!--                    </a>-->
                 </div>
             </div>
         </div>
@@ -128,36 +117,25 @@
                     <div class="description3">下载</div>
                 </div>
                 <div class="download_line">
-                    <a href="https://mcarc.gitee.io/Android-Demo/0.1/" target="_blank">
-                        <button class="btn normal_btn download_btn_large" onclick="playSound(this);"
-                                text-generation="download_btn9"></button>
-                    </a>
+                    <button class="btn normal_btn download_btn_large"
+                            onclick="playSound(this);openLink('https://mcarc.gitee.io/Android-Demo/0.1/');"
+                            text-generation="download_btn9"></button>
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn_large" onclick="playSound(this);"
                             text-generation="download_btn4"></button>
-                    <!--                    </a>-->
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn5"></button>
-                    <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn6"></button>
-                    <!--                    </a>-->
                 </div>
                 <div class="download_line">
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn7"></button>
-                    <!--                    </a>-->
-                    <!--                    <a href="" target="_blank">-->
                     <button class="btn disabled_btn download_btn" onclick="playSound(this);"
                             text-generation="download_btn8"></button>
-                    <!--                    </a>-->
                 </div>
             </div>
         </div>
@@ -234,7 +212,7 @@
                 linkImg[i].src = root_path + 'images/ExternalLink_white.png';
             }
         }
-        if(linkImgBlack) {
+        if (linkImgBlack) {
             for (let i = 0; i < linkImgBlack.length; i++) {
                 linkImgBlack[i].src = root_path + 'images/ExternalLink.png';
             }

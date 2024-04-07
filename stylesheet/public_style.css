@@ -481,7 +481,7 @@ main::-webkit-scrollbar-thumb {
     display: inline-block;
 }
 
-.tooltip {
+.btn_tooltip {
     visibility: hidden;
     background-color: #1F1F1F;
     color: #FFFFFF;
@@ -495,7 +495,7 @@ main::-webkit-scrollbar-thumb {
     transition: opacity 0.6s;
 }
 
-.btn_with_tooltip_cont:hover .tooltip {
+.btn_with_tooltip_cont:hover .btn_tooltip {
     visibility: visible;
     opacity: 1;
 }

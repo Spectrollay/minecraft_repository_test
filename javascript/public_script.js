@@ -289,16 +289,6 @@ function toRepo() {
     }, 600);
 }
 
-function delayedOpenLink(url) {
-    setTimeout(function () {
-        window.location.href = url;
-    }, 600);
-}
-
-function openLink(url) {
-    window.open(url);
-}
-
 // 点击返回按钮事件
 function clickedBack() {
     console.log("点击返回");
@@ -357,6 +347,17 @@ function jumpToPage(link) {
     }, 320);
 }
 
+// 打开网页
+function openLink(url) {
+    window.open(url);
+}
+
+function delayedOpenLink(url) {
+    setTimeout(function () {
+        window.open(url);
+    }, 1500);
+}
+
 // 点击全屏遮罩事件
 function clickedOverlay() {
     toggleSidebar();
@@ -377,6 +378,7 @@ function scrollToTop() {
     });
     console.log("成功执行回到顶部操作");
 }
+
 function toTop() {
     main.scrollTo({
         top: 0,
