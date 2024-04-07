@@ -87,7 +87,9 @@ links.forEach(function (link) {
 const compatibilityModal = `
         <div id="compatibility_modal" class="modal_area">
             <div class="modal">
-                <div class="modal_title">兼容性提示</div>
+                <div class="modal_title_area">
+                    <div class="modal_title">兼容性提示</div>
+                </div>
                 <div class="modal_content">
                     <p>不同浏览器之间存在些许差异,为确保你的使用体验,我们推荐通过以下浏览器或内核的最新发行版访问本站以获得完全的特性支持:
                         Edge / Chrome / Firefox / Safari / WebView Android</p>
