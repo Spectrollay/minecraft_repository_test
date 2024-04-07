@@ -464,3 +464,29 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         });
     }
 }
+
+function showModal(modal) {
+    const overlay = document.getElementById("overlay");
+    const frame = document.getElementById(modal);
+    overlay.style.display = "block";
+    frame.style.display = "block";
+}
+
+function hideModal(button) {
+    const overlay = document.getElementById("overlay");
+    let frameId;
+    let currentElement = button.parentElement;
+
+    while (currentElement) {
+        if (currentElement.classList.contains('modal_area')) {
+            frameId = currentElement.id;
+            break;
+        }
+        currentElement = currentElement.parentElement;
+    }
+
+    const frame = document.getElementById(frameId);
+    playSound(button);
+    overlay.style.display = "none";
+    frame.style.display = "none";
+}

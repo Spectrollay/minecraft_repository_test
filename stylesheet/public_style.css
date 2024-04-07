@@ -730,7 +730,7 @@ td {
     text-align: center;
 }
 
-.modal_title {
+.modal_title_area {
     height: 40px;
     font-size: 18px;
     display: flex;
@@ -738,6 +738,32 @@ td {
     justify-content: center;
     background-color: #48494A;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
+}
+
+.modal_title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.modal_close_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 4px);
+    width: 36px;
+    margin: 2px;
+}
+
+.modal_close_btn:hover, .modal_close_btn:active {
+    background-color: #3D3E3F;
+}
+
+.modal_close_btn_img {
+    height: 20px;
+    width: 20px;
 }
 
 .modal_content {
