@@ -115,7 +115,7 @@
     <div class="setting_block">
         <div class="setting_block_content">
             <div>Divider</div>
-            <div></div>
+            <div class="divider"></div>
         </div>
     </div>
     <div class="setting_block">
@@ -153,7 +153,7 @@
             <div>Range Slider with Initial Value</div>
             <div class="slider_content" id="range_slider_1">
                 <div class="slider range_slider"
-                     data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":66.66}'>
+                     data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":55.55}'>
                     <div class="slider_process"></div>
                     <div class="slider_handle smooth_handle" id="smoothHandle"></div>
                     <div class="slider_tooltip smooth_tooltip" id="smoothTooltip">0.00</div>
@@ -173,6 +173,14 @@
             <br>
             <br>
             <div>Disabled Range Slider</div>
+            <div class="slider_content" id="disabled_range_slider_1">
+                <div class="slider range_slider disabled_slider"
+                     data-slider='{"minValue": 0, "maxValue": 100, "segments": null, "initialValue": 60.00}'>
+                    <div class="slider_process"></div>
+                    <div class="slider_handle smooth_handle" id="smoothHandle3"></div>
+                    <div class="slider_tooltip smooth_tooltip" id="smoothTooltip3">60.00</div>
+                </div>
+            </div>
             <br>
             <br>
             <div>Set Slider with Initial Value</div>
@@ -200,6 +208,15 @@
             <br>
             <br>
             <div>Disabled Set Slider</div>
+            <div class="slider_content" id="disabled_set_slider_1">
+                <div class="slider set_slider disabled_slider"
+                     data-slider='{"minValue": 0, "maxValue": 100, "segments": 5, "initialValue": 60}'>
+                    <div class="slider_process"></div>
+                    <div class="slider_handle segmented_handle" id="segmentedHandle3"></div>
+                    <div class="slider_tooltip segmented_tooltip" id="segmentedTooltip3">60</div>
+                    <div class="slider_segment" style="display: none"></div>
+                </div>
+            </div>
             <br>
             <br>
         </div>
@@ -277,7 +294,7 @@
     <div class="modal">
         <div class="modal_title_area">
             <div class="modal_title">Modal with Close Btn</div>
-            <div class="modal_close_btn"><img alt="" class="modal_close_btn_img" onclick="hideModal(this);" src="">
+            <div class="modal_close_btn" onclick="hideModal(this);"><img alt="" class="modal_close_btn_img" src="">
             </div>
         </div>
         <div class="modal_content">

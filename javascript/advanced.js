@@ -138,6 +138,7 @@ for (let i = 0; i < sliderContent.length; i++) {
     const contentId = sliderContent[i].id;
     const content = document.getElementById(contentId);
     const slider = content.querySelector('.slider');
+    let isDisabled = slider.classList.contains("disabled_slider");
     const process = content.querySelector('.slider_process');
     const handle = content.querySelector('.slider_handle');
     const tooltip = content.querySelector('.slider_tooltip');
@@ -156,77 +157,6 @@ for (let i = 0; i < sliderContent.length; i++) {
     process.style.width = initialPosition + '%';
 
     if (slider.classList.contains('range_slider')) {
-        // 设置平滑的slider
-
-        let isDragging = false;
-        tooltip.textContent = initialValue.toFixed(2);
-
-        function updateValueSmoothSlider(posX) {
-            const smoothIndex = ((posX) / (slider.offsetWidth - 4));
-            currentValue = smoothIndex * (maxValue - minValue) + minValue;
-            tooltip.textContent = currentValue.toFixed(2);
-        }
-
-        function updateSmoothSlider(e) {
-            updateProcessBar(updateSlider(e));
-            updateValueSmoothSlider(updateSlider(e));
-        }
-
-        function handleDragSmoothSlider(e) {
-            if (isDragging) {
-                updateSmoothSlider(e);
-            }
-        }
-
-        handle.addEventListener('mousedown', function () {
-            process.style.transition = 'none';
-            handle.style.transition = 'none';
-            isDragging = true;
-        });
-
-        document.addEventListener('mousemove', handleDragSmoothSlider);
-
-        document.addEventListener('mouseup', function () {
-            isDragging = false;
-            process.style.transition = 'width 100ms linear';
-            handle.style.transition = 'left 100ms linear';
-            handle.classList.remove('active');
-        });
-
-        handle.addEventListener('touchstart', function () {
-            process.style.transition = 'none';
-            handle.style.transition = 'none';
-            isDragging = true;
-        });
-
-        document.addEventListener('touchmove', function (e) {
-            if (isDragging) {
-                handleDragSmoothSlider(e.touches[0]); // 使用第一个触摸点的位置
-                e.preventDefault();
-            }
-        }, {passive: false});
-
-        document.addEventListener('touchend', function () {
-            isDragging = false;
-            process.style.transition = 'width 100ms linear';
-            handle.style.transition = 'left 100ms linear';
-            handle.classList.remove('active');
-        });
-
-        slider.addEventListener('touchstart', function () {
-        });
-
-        content.addEventListener('click', function (e) {
-            let posX = e.clientX - slider.getBoundingClientRect().left;
-            if (posX < 0) {
-                posX = 0;
-            } else if (posX > (slider.offsetWidth - 4)) {
-                posX = (slider.offsetWidth - 4);
-            }
-            handle.style.left = posX + 'px';
-            updateProcessBar(posX);
-            updateValueSmoothSlider(posX);
-        });
 
         // 添加最小值和最大值提示
         const minValueLabel = document.createElement('div');
@@ -248,80 +178,16 @@ for (let i = 0; i < sliderContent.length; i++) {
         maxValueLabel.style.left = `calc(100% - ${maxValueLabelWidth / 2}px)`;
 
     } else if (slider.classList.contains('set_slider')) {
-        // 设置分段的slider
 
-        const segmentWidth = (maxValue - minValue) / segments;
-        let isDragging = false;
-        tooltip.textContent = initialValue.toFixed(2).replace(/\.?0+$/, '');
-
-        function updateValueSegmentSlider(posX) {
-            const segmentIndex = Math.round(posX / ((slider.offsetWidth - 4) / segments));
-            currentValue = segmentIndex * segmentWidth + minValue;
-            tooltip.textContent = currentValue.toFixed(2).replace(/\.?0+$/, '');
-            updateProcessBar(posX);
-        }
-
-        function updateSegmentSlider(e) {
-            let posX = e.clientX - slider.getBoundingClientRect().left;
-            updateSlider(e);
-            updateProcessBar(posX);
-        }
-
-        function handleDragSegmentSlider(e) {
-            if (isDragging) {
-                updateSegmentSlider(e);
+        // 创建分段线
+        if (segments) {
+            for (let i = 1; i < segments; i++) {
+                const segment = document.createElement('div');
+                segment.classList.add('slider_segment');
+                segment.style.left = `calc(${100 / segments * i}% - 1px)`;
+                slider.appendChild(segment);
             }
         }
-
-        function moveEnd() {
-            isDragging = false;
-            const segmentIndex = Math.round(handle.offsetLeft / ((slider.offsetWidth - 4) / segments));
-            const segmentPosition = segmentIndex * ((slider.offsetWidth - 4) / segments);
-            handle.style.left = segmentPosition + 'px';
-            handle.classList.remove('active');
-            updateValueSegmentSlider(segmentPosition);
-        }
-
-        handle.addEventListener('mousedown', function () {
-            isDragging = true;
-        });
-
-        document.addEventListener('mousemove', handleDragSegmentSlider);
-
-        document.addEventListener('mouseup', function () {
-            moveEnd();
-        });
-
-        handle.addEventListener('touchstart', function () {
-            isDragging = true;
-        });
-
-        document.addEventListener('touchmove', function (e) {
-            if (isDragging) {
-                handleDragSegmentSlider(e.touches[0]); // 使用第一个触摸点的位置
-                e.preventDefault();
-            }
-        }, {passive: false});
-
-        document.addEventListener('touchend', function () {
-            moveEnd();
-        });
-
-        slider.addEventListener('touchstart', function () {
-        });
-
-        content.addEventListener('click', function (e) {
-            let posX = e.clientX - slider.getBoundingClientRect().left;
-            if (posX < 0) {
-                posX = 0;
-            } else if (posX > (slider.offsetWidth - 4)) {
-                posX = (slider.offsetWidth - 4);
-            }
-            const segmentIndex = Math.round(posX / ((slider.offsetWidth - 4) / segments));
-            const segmentPosition = segmentIndex * ((slider.offsetWidth - 4) / segments);
-            handle.style.left = segmentPosition + 'px';
-            updateValueSegmentSlider(segmentPosition);
-        });
 
         // 添加分段处提示数值
         if (segments) {
@@ -339,14 +205,157 @@ for (let i = 0; i < sliderContent.length; i++) {
             }
         }
 
-        // 创建分段线
-        if (segments) {
-            for (let i = 1; i < segments; i++) {
-                const segment = document.createElement('div');
-                segment.classList.add('slider_segment');
-                segment.style.left = `calc(${100 / segments * i}% - 1px)`;
-                slider.appendChild(segment);
+    }
+
+    if (!isDisabled) {
+        if (slider.classList.contains('range_slider')) {
+            // 设置平滑的slider
+
+            let isDragging = false;
+            tooltip.textContent = initialValue.toFixed(2);
+
+            function updateValueSmoothSlider(posX) {
+                const smoothIndex = ((posX) / (slider.offsetWidth - 4));
+                currentValue = smoothIndex * (maxValue - minValue) + minValue;
+                tooltip.textContent = currentValue.toFixed(2);
             }
+
+            function updateSmoothSlider(e) {
+                updateProcessBar(updateSlider(e));
+                updateValueSmoothSlider(updateSlider(e));
+            }
+
+            function handleDragSmoothSlider(e) {
+                if (isDragging) {
+                    updateSmoothSlider(e);
+                }
+            }
+
+            handle.addEventListener('mousedown', function () {
+                process.style.transition = 'none';
+                handle.style.transition = 'none';
+                isDragging = true;
+            });
+
+            document.addEventListener('mousemove', handleDragSmoothSlider);
+
+            document.addEventListener('mouseup', function () {
+                isDragging = false;
+                process.style.transition = 'width 100ms linear';
+                handle.style.transition = 'left 100ms linear';
+                handle.classList.remove('active');
+            });
+
+            handle.addEventListener('touchstart', function () {
+                process.style.transition = 'none';
+                handle.style.transition = 'none';
+                isDragging = true;
+            });
+
+            document.addEventListener('touchmove', function (e) {
+                if (isDragging) {
+                    handleDragSmoothSlider(e.touches[0]); // 使用第一个触摸点的位置
+                    e.preventDefault();
+                }
+            }, {passive: false});
+
+            document.addEventListener('touchend', function () {
+                isDragging = false;
+                process.style.transition = 'width 100ms linear';
+                handle.style.transition = 'left 100ms linear';
+                handle.classList.remove('active');
+            });
+
+            slider.addEventListener('touchstart', function () {
+            });
+
+            content.addEventListener('click', function (e) {
+                let posX = e.clientX - slider.getBoundingClientRect().left;
+                if (posX < 0) {
+                    posX = 0;
+                } else if (posX > (slider.offsetWidth - 4)) {
+                    posX = (slider.offsetWidth - 4);
+                }
+                handle.style.left = posX + 'px';
+                updateProcessBar(posX);
+                updateValueSmoothSlider(posX);
+            });
+
+        } else if (slider.classList.contains('set_slider')) {
+            // 设置分段的slider
+
+            const segmentWidth = (maxValue - minValue) / segments;
+            let isDragging = false;
+            tooltip.textContent = initialValue.toFixed(2).replace(/\.?0+$/, '');
+
+            function updateValueSegmentSlider(posX) {
+                const segmentIndex = Math.round(posX / ((slider.offsetWidth - 4) / segments));
+                currentValue = segmentIndex * segmentWidth + minValue;
+                tooltip.textContent = currentValue.toFixed(2).replace(/\.?0+$/, '');
+                updateProcessBar(posX);
+            }
+
+            function updateSegmentSlider(e) {
+                let posX = e.clientX - slider.getBoundingClientRect().left;
+                updateSlider(e);
+                updateProcessBar(posX);
+            }
+
+            function handleDragSegmentSlider(e) {
+                if (isDragging) {
+                    updateSegmentSlider(e);
+                }
+            }
+
+            function moveEnd() {
+                isDragging = false;
+                const segmentIndex = Math.round(handle.offsetLeft / ((slider.offsetWidth - 4) / segments));
+                const segmentPosition = segmentIndex * ((slider.offsetWidth - 4) / segments);
+                handle.style.left = segmentPosition + 'px';
+                handle.classList.remove('active');
+                updateValueSegmentSlider(segmentPosition);
+            }
+
+            handle.addEventListener('mousedown', function () {
+                isDragging = true;
+            });
+
+            document.addEventListener('mousemove', handleDragSegmentSlider);
+
+            document.addEventListener('mouseup', function () {
+                moveEnd();
+            });
+
+            handle.addEventListener('touchstart', function () {
+                isDragging = true;
+            });
+
+            document.addEventListener('touchmove', function (e) {
+                if (isDragging) {
+                    handleDragSegmentSlider(e.touches[0]); // 使用第一个触摸点的位置
+                    e.preventDefault();
+                }
+            }, {passive: false});
+
+            document.addEventListener('touchend', function () {
+                moveEnd();
+            });
+
+            slider.addEventListener('touchstart', function () {
+            });
+
+            content.addEventListener('click', function (e) {
+                let posX = e.clientX - slider.getBoundingClientRect().left;
+                if (posX < 0) {
+                    posX = 0;
+                } else if (posX > (slider.offsetWidth - 4)) {
+                    posX = (slider.offsetWidth - 4);
+                }
+                const segmentIndex = Math.round(posX / ((slider.offsetWidth - 4) / segments));
+                const segmentPosition = segmentIndex * ((slider.offsetWidth - 4) / segments);
+                handle.style.left = segmentPosition + 'px';
+                updateValueSegmentSlider(segmentPosition);
+            });
         }
     }
 

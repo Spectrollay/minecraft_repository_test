@@ -752,13 +752,13 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100% - 4px);
-    width: 36px;
-    margin: 2px;
+    height: calc(100% - 8px);
+    width: 32px;
+    margin: 4px;
 }
 
 .modal_close_btn:hover, .modal_close_btn:active {
-    background-color: #3D3E3F;
+    background-color: #58585A;
 }
 
 .modal_close_btn_img {
