@@ -42,6 +42,7 @@ main {
 }
 
 .setting_content {
+    align-self: center;
     flex: 1;
 }
 
@@ -258,7 +259,8 @@ main {
 }
 
 /* Divider分割线 */
-.divider {
+divider {
+    display: block;
     margin: 6px 0;
     height: 4px;
     width: 100%;

@@ -45,6 +45,10 @@
     touch-action: manipulation;
 }
 
+.flex {
+    display: flex;
+}
+
 /* 总体样式 */
 body {
     font-family: "NotoSans Bold", sans-serif;
