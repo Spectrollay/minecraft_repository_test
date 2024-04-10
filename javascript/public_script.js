@@ -18,13 +18,20 @@ const parts = currentPagePath.split('/').filter(Boolean);
 const rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
-// 创建 link 元素
+// 创建内联元素
 const public_style = document.createElement('link');
 public_style.rel = 'stylesheet';
 public_style.href = rootPath + 'stylesheet/public_style.css';
+const custom_elements_css = document.createElement('link');
+custom_elements_css.rel = 'stylesheet';
+custom_elements_css.href = rootPath + 'stylesheet/custom_elements.css';
+const custom_elements_js = document.createElement('script');
+custom_elements_js.src = root_path + 'javascript/custom_elements.js';
 
-// 将 link 元素添加到 head 中
+// 将内联元素添加到头部
 document.head.appendChild(public_style);
+document.head.appendChild(custom_elements_css);
+document.head.appendChild(custom_elements_js);
 
 const soundClickPath = rootPath + 'sounds/click.ogg';
 const soundButtonPath = rootPath + 'sounds/button.ogg';

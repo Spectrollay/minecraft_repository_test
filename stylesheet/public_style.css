@@ -614,11 +614,6 @@ main::-webkit-scrollbar-thumb {
 }
 
 /* Tag */
-.tag_area {
-    display: flex;
-    align-items: center;
-}
-
 .tag {
     align-self: center;
     color: #000000;
@@ -737,15 +732,16 @@ td {
 .modal_title_area {
     height: 40px;
     font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
     background-color: #48494A;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
 }
 
 .modal_title {
-    flex: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -753,12 +749,15 @@ td {
 }
 
 .modal_close_btn {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     height: calc(100% - 8px);
     width: 32px;
-    margin: 4px;
 }
 
 .modal_close_btn:hover, .modal_close_btn:active {
@@ -970,6 +969,7 @@ td {
     overflow: hidden;
     display: flex;
     position: relative;
+    height: 56px;
     border-top: 2px solid #5A5B5C;
     border-bottom: 2px solid #333334;
     border-left: 2px solid #333334;
@@ -987,11 +987,14 @@ td {
 }
 
 .expandable_card_text_area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
 }
 
 .expandable_card_text {
@@ -1003,9 +1006,12 @@ td {
 }
 
 .expandable_card_image_area {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
     height: 56px;
     width: 56px;
-    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
