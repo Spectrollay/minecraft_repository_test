@@ -93,7 +93,6 @@ header {
 /* 顶栏左侧按钮 */
 .header_menu, .header_back {
     width: 42px;
-    padding-right: 2px;
     box-shadow: inset -2px 0 #FFFFFF;
     border-right: 2px solid #A1A3A5;
 }
@@ -101,7 +100,6 @@ header {
 /* 顶栏右侧按钮 */
 .header_repo, .header_debug, .header_settings {
     width: 42px;
-    padding-left: 2px;
     box-shadow: inset 2px 0 #A1A3A5;
     border-left: 2px solid #FFFFFF;
 }
@@ -118,6 +116,14 @@ header {
 .menu_icon, .repo_icon, .debug_icon, .settings_icon {
     height: 32px;
     width: 32px;
+}
+
+.menu_icon, .back_icon {
+    padding: 4px 6px 4px 4px;
+}
+
+.repo_icon, .debug_icon, .settings_icon {
+    padding: 4px 4px 4px 6px;
 }
 
 /* 标题区域 */
