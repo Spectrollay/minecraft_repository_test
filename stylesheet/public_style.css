@@ -746,6 +746,7 @@ td {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
 }
 
 .modal_close_btn {
@@ -992,6 +993,7 @@ td {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 56px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
