@@ -75,33 +75,37 @@ header {
 }
 
 /* 顶栏元素 */
-.header_menu, .header_back, .header_logo, .header_repo, .header_debug, .header_settings {
+.header_menu, .header_back, .header_logo, .header_repo, .header_debug, .header_settings, .header_right_blank {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
 
-/* 顶栏按钮悬停 */
 .header_menu:hover, .header_back:hover, .header_repo:hover, .header_debug:hover, .header_settings:hover {
     background-color: #F4F6F9;
 }
 
-/* 顶栏按钮激活 */
 .header_menu:active, .header_back:active, .header_repo:active, .header_debug:active, .header_settings:active {
     background-color: #D0D1D4;
 }
 
 /* 顶栏左侧按钮 */
 .header_menu, .header_back {
-    width: 40px;
-    border-right: 2px solid #FFFFFF;
+    width: 42px;
+    box-shadow: inset -2px 0 #FFFFFF;
+    border-right: 2px solid #A1A3A5;
 }
 
 /* 顶栏右侧按钮 */
 .header_repo, .header_debug, .header_settings {
-    width: 40px;
-    border-left: 2px solid #A1A3A5;
+    width: 42px;
+    box-shadow: inset 2px 0 #A1A3A5;
+    border-left: 2px solid #FFFFFF;
+}
+
+.header_right_blank {
+    width: 44px;
 }
 
 /* 顶栏按钮图标 */
@@ -124,8 +128,6 @@ header {
 /* 标题图标 */
 .header_logo {
     flex: 1;
-    border-left: 2px solid #A1A3A5;
-    border-right: 2px solid #FFFFFF;
 }
 
 /* 标题文字 */
