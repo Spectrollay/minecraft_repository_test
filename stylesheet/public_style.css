@@ -1,3 +1,10 @@
+/* 防止反色以杜绝出现奇怪的显示问题 */
+@media (prefers-color-scheme: dark) {
+    body {
+        color-scheme: light;
+    }
+}
+
 /* 自定义字体 */
 @font-face {
     font-family: 'Minecraft Ten';

@@ -10,18 +10,15 @@ class CustomSwitch extends HTMLElement {
     }
 
     render() {
-        // 获取自定义属性值
-        const status = this.getAttribute('status');
         const active = this.getAttribute('active');
+        const status = this.getAttribute('status');
 
-        // 设置初始状态和禁用状态
+        const isDisabled = status !== 'enabled';
         const isOn = active === 'on';
-        const isDisabled = status !== 'enable';
 
-        // 创建开关元素的 HTML 结构
         this.innerHTML = `
             <div class="switch_content">
-                <div class="switch ${isDisabled ? 'disabled_switch' : 'normal_switch'} ${isOn ? 'on' : 'off'}">
+                <div class="switch ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled_switch' : 'normal_switch'}">
                     <div class="switch_style left"><img alt="" src="../images/switch_on.png"></div>
                     <div class="switch_style right"><img alt="" src="../images/switch_off.png"></div>
                     <div class="switch_slider can_click"></div>
@@ -124,8 +121,56 @@ class CustomSwitch extends HTMLElement {
 
 }
 
-// 定义 <custom-switch> 自定义元素
 customElements.define('custom-switch', CustomSwitch);
+
+
+
+// 自定义Checkbox复选框
+class CustomCheckbox extends HTMLElement {
+    constructor() {
+        super();
+        this.render();
+        this.addEventListener('click', this.toggleCheckbox.bind(this));
+    }
+
+    connectedCallback() {
+        this.render();
+    }
+
+    render() {
+        const active = this.getAttribute('active');
+        const status = this.getAttribute('status');
+
+        const isDisabled = status !== 'enabled';
+        const isOn = active === 'on';
+
+        this.innerHTML = `
+            <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
+                <img src="../images/check_white.png" alt="" class="checkmark">
+            </div>
+        `;
+    }
+
+    toggleCheckbox() {
+        if (this.getAttribute('status') !== 'enabled') {
+            return;
+        }
+
+        const isChecked = this.getAttribute('active') === 'on';
+        playSound1();
+        if (isChecked) {
+            this.setAttribute('active', 'off');
+            console.log("关闭复选框", this.id);
+        } else {
+            this.setAttribute('active', 'on');
+            console.log("打开复选框", this.id);
+        }
+
+        this.render();
+    }
+}
+
+customElements.define('custom-checkbox', CustomCheckbox);
 
 
 
