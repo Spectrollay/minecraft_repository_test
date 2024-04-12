@@ -6,7 +6,6 @@ class CustomSwitch extends HTMLElement {
     }
 
     connectedCallback() {
-        this.render();
     }
 
     render() {
@@ -35,11 +34,25 @@ class CustomSwitch extends HTMLElement {
         let isDragging = false;
 
         if (!isSwitchDisabled) {
+
+            // 点击父元素执行点击事件
+            const parentElement = this.parentElement;
+            if (parentElement) {
+                parentElement.addEventListener("click", () => {
+                    if (!isDragging) {
+                        isSwitchOn = !isSwitchOn;
+                        this.updateSwitchState(isSwitchOn);
+                    }
+                });
+            }
+
+            // 点击元素本身执行点击事件
             switchElement.addEventListener("click", () => {
                 isSwitchOn = !isSwitchOn;
                 this.updateSwitchState(isSwitchOn);
             });
 
+            // 拖动事件
             switchElement.addEventListener("mousedown", (e) => {
                 isDragging = true;
                 switchSlider.classList.add('active');
@@ -70,8 +83,8 @@ class CustomSwitch extends HTMLElement {
                         }
                     }
                 }
-                isDragging = false;
                 setTimeout(() => {
+                    isDragging = false;
                     switchSlider.classList.remove('active');
                 }, 0);
             });
@@ -91,8 +104,8 @@ class CustomSwitch extends HTMLElement {
                         }
                     }
                 }
-                isDragging = false;
                 setTimeout(() => {
+                    isDragging = false;
                     switchSlider.classList.remove('active');
                 }, 0);
             });
@@ -114,27 +127,30 @@ class CustomSwitch extends HTMLElement {
             switchSlider.classList.remove('switch_bounce_left');
         }
         const switchStatus = this.querySelector(".switch_status");
-        if(switchStatus) {
+        if (switchStatus) {
             switchStatus.textContent = `Toggle: ${isOn ? 'Open' : 'Close'}`;
         }
     }
 
 }
 
-customElements.define('custom-switch', CustomSwitch);
-
-
-
 // 自定义Checkbox复选框
 class CustomCheckbox extends HTMLElement {
     constructor() {
         super();
         this.render();
-        this.addEventListener('click', this.toggleCheckbox.bind(this));
+        // 点击元素本身执行点击事件
+        // this.addEventListener('click', this.toggleCheckbox.bind(this));
     }
 
     connectedCallback() {
         this.render();
+
+        // 点击父元素执行点击事件
+        const parentElement = this.parentElement;
+        if (parentElement) {
+            parentElement.addEventListener('click', this.toggleCheckbox.bind(this));
+        }
     }
 
     render() {
@@ -170,7 +186,6 @@ class CustomCheckbox extends HTMLElement {
     }
 }
 
+
+customElements.define('custom-switch', CustomSwitch);
 customElements.define('custom-checkbox', CustomCheckbox);
-
-
-

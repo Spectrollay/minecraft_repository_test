@@ -140,22 +140,22 @@ window.addEventListener("error", function (event) {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // const click = new Audio(soundClickPath);
-    // const button = new Audio(soundButtonPath);
-    // click.volume = 0;
-    // button.volume = 0;
-    // audioInstances.push(click);
-    // audioInstances.push(button);
-    // click.play().then(() => {
-    //     console.log("音频预加载成功!");
-    // }).catch((error) => {
-    //     console.warn("音频预加载失败: ", error);
-    // });
-    // button.play().then(() => {
-    //     console.log("音频预加载成功!");
-    // }).catch((error) => {
-    //     console.warn("音频预加载失败: ", error);
-    // });
+    const click = new Audio(soundClickPath);
+    const button = new Audio(soundButtonPath);
+    click.volume = 0;
+    button.volume = 0;
+    audioInstances.push(click);
+    audioInstances.push(button);
+    click.play().then(() => {
+        console.log("音频预加载成功!");
+    }).catch((error) => {
+        console.warn("音频预加载失败: ", error);
+    });
+    button.play().then(() => {
+        console.log("音频预加载成功!");
+    }).catch((error) => {
+        console.warn("音频预加载失败: ", error);
+    });
 
     console.log("页面加载完成!");
 });
