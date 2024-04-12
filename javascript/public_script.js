@@ -270,7 +270,7 @@ function toggleOverlay() {
 
 // 按键音效
 function playSound(button) {
-    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn")) {
+    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || button.classList.contains("close_btn")) {
         console.log("选择播放点击音效");
         playSound1();
     } else if (button.classList.contains("green_btn")) {
