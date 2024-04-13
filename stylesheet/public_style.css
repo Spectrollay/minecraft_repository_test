@@ -41,7 +41,7 @@
     src: url("../fonts/NotoSans-Italic.ttf") format('truetype');
 }
 
-/* 界面选择事件 */
+/* 页面选择事件 */
 ::selection {
     background-color: transparent;
     color: inherit;
