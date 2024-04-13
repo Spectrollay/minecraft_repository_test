@@ -57,7 +57,34 @@
     <div class="header_right_blank"></div>
 </header>
 <main id="main">
-
+    <div class="main_setting_title">
+        <div class="main_setting_title_span">环境指南</div>
+    </div>
+    <!--  TODO: 移除时一并移除相应样式  -->
+    <div class="main preview_block">
+        <div class="preview_title" id="preview_title"></div>
+        <div class="preview_detail" id="preview_detail1"></div>
+        <div class="preview_detail" id="preview_detail2"></div>
+        <div class="btn_group">
+            <button class="btn normal_btn small_btn" id="preview_btn1"
+                    onclick="playSound(this);toUpdatelog();"></button>
+            <button class="btn green_btn small_btn" id="preview_btn2" onclick="playSound(this);toRepo();"></button>
+        </div>
+    </div>
+    <div class="setting_block">
+        <p>欢迎来到环境指南页面!</p>
+        <p>页面内容待完成...</p>
+        <p>敬请期待.</p>
+    </div>
+    <div>
+        <div class="page_info"><br></div>
+        <div class="page_info_title" id="page_info_title1"></div>
+        <div class="page_info" id="page_info_detail1"></div>
+        <div class="page_info_title" id="page_info_title2"></div>
+        <div class="page_info" id="page_info_detail2"></div>
+        <div class="page_info_title" id="page_info_title3"></div>
+        <div class="page_info"><br></div>
+    </div>
 </main>
 
 <!--遮罩-->
@@ -115,9 +142,21 @@
         }, 600);
     });
 </script>
+<link href="../stylesheet/advanced.css" rel="stylesheet">
+<script src="../javascript/advanced.js"></script>
 
-<!--    <style>-->
-<!--        -->
-<!--    </style>-->
+    <style>
+        /* TODO: 在移除预览提示块时移除该样式 */
+        .preview_block {
+            border-top: 2px solid #5A5B5C;
+            border-bottom: 2px solid #333334;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            text-indent: 2em;
+        }
+    </style>
 
 </html>
