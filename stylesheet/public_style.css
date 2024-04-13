@@ -158,6 +158,7 @@ main {
     top: 44px;
     width: 100%;
     min-width: 360px;
+    color: #FFFFFF;
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
@@ -298,7 +299,6 @@ main::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #333334;
     border-left: 2px solid #333334;
     border-right: 2px solid #333334;
-    color: #FFFFFF;
 }
 
 #holiday_tip1, #holiday_tip2 {
@@ -374,6 +374,7 @@ main::-webkit-scrollbar-thumb {
     font-size: 18px;
     font-family: "NotoSans Bold", sans-serif;
     margin: 4px 0;
+    text-align: center;
 }
 
 .description2 {
@@ -394,6 +395,35 @@ main::-webkit-scrollbar-thumb {
     position: relative;
     text-decoration: none;
     box-shadow: inset 0 -2px 0 0 #FFFFFF;
+}
+
+.main_title {
+    font-family: "NotoSans Bold", sans-serif;
+    border-bottom: 2px solid #333334;
+    border-left: 0;
+    border-right: 0;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_title_area {
+    margin: 10px 0;
+}
+
+.main_title_span {
+    font-size: 24px;
+}
+
+.main_block {
+    font-family: "NotoSans Bold", sans-serif;
+    border-top: 2px solid #5A5B5C;
+    border-bottom: 2px solid #333334;
+    border-left: 0;
+    border-right: 0;
+    padding: 0 16px;
+    min-height: 80px;
 }
 
 /* 默认按钮样式 */

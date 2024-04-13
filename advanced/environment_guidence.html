@@ -40,7 +40,7 @@
 
         const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     </script>
-    <title>环境指南</title>
+    <title>项目环境指南</title>
 </head>
 
 <body>
@@ -57,8 +57,11 @@
     <div class="header_right_blank"></div>
 </header>
 <main id="main">
-    <div class="main_setting_title">
-        <div class="main_setting_title_span">环境指南</div>
+    <div class="main_title">
+        <div class="main_title_area">
+            <div class="main_title_span">项目环境指南</div>
+            <div class="description1">2024-01-01</div>
+        </div>
     </div>
     <!--  TODO: 移除时一并移除相应样式  -->
     <div class="main preview_block">
@@ -71,8 +74,8 @@
             <button class="btn green_btn small_btn" id="preview_btn2" onclick="playSound(this);toRepo();"></button>
         </div>
     </div>
-    <div class="setting_block">
-        <p>欢迎来到环境指南页面!</p>
+    <div class="main_block">
+        <p>欢迎来到项目环境指南页面!</p>
         <p>页面内容待完成...</p>
         <p>敬请期待.</p>
     </div>
@@ -142,21 +145,17 @@
         }, 600);
     });
 </script>
-<link href="../stylesheet/advanced.css" rel="stylesheet">
-<script src="../javascript/advanced.js"></script>
 
-    <style>
-        /* TODO: 在移除预览提示块时移除该样式 */
-        .preview_block {
-            border-top: 2px solid #5A5B5C;
-            border-bottom: 2px solid #333334;
-        }
+<style>
+    /* TODO: 在移除预览提示块时移除该样式 */
+    .preview_block {
+        border-top: 2px solid #5A5B5C;
+        border-bottom: 2px solid #333334;
+    }
 
-        p {
-            margin: 0;
-            padding: 0;
-            text-indent: 2em;
-        }
-    </style>
+    p {
+        text-indent: 2em;
+    }
+</style>
 
 </html>
