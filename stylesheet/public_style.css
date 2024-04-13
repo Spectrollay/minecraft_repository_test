@@ -405,15 +405,11 @@ main::-webkit-scrollbar-thumb {
     justify-self: center;
 }
 
-.preview_btn {
+.small_btn {
     width: 140px;
 }
 
-.download_btn {
-    width: 140px;
-}
-
-.download_btn_large {
+.large_btn {
     width: 292px;
 }
 
@@ -596,7 +592,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 /* 按钮块 */
-.download_line, .preview_btns {
+.btn_group {
     display: flex;
     align-items: center;
     justify-content: center;
