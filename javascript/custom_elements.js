@@ -1,3 +1,58 @@
+// 自定义Checkbox复选框
+class CustomCheckbox extends HTMLElement {
+    constructor() {
+        super();
+        this.render();
+        // 点击元素本身执行点击事件
+        // this.addEventListener('click', this.toggleCheckbox.bind(this));
+    }
+
+    connectedCallback() {
+        this.render();
+
+        // 点击父元素执行点击事件
+        const parentElement = this.parentElement;
+        if (parentElement) {
+            parentElement.addEventListener('click', this.toggleCheckbox.bind(this));
+        }
+    }
+
+    render() {
+        const active = this.getAttribute('active');
+        const status = this.getAttribute('status');
+
+        const isDisabled = status !== 'enabled';
+        const isOn = active === 'on';
+
+        this.innerHTML = `
+            <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
+                <img src="../images/check_white.png" alt="" class="checkmark">
+            </div>
+        `;
+    }
+
+    toggleCheckbox() {
+        if (this.getAttribute('status') !== 'enabled') {
+            return;
+        }
+
+        const isChecked = this.getAttribute('active') === 'on';
+        playSound1();
+        if (isChecked) {
+            this.setAttribute('active', 'off');
+            console.log("关闭复选框", this.id);
+        } else {
+            this.setAttribute('active', 'on');
+            console.log("打开复选框", this.id);
+        }
+
+        this.render();
+    }
+}
+
+customElements.define('custom-checkbox', CustomCheckbox);
+
+
 // 自定义Switch开关
 class CustomSwitch extends HTMLElement {
     constructor() {
@@ -134,58 +189,6 @@ class CustomSwitch extends HTMLElement {
 
 }
 
-// 自定义Checkbox复选框
-class CustomCheckbox extends HTMLElement {
-    constructor() {
-        super();
-        this.render();
-        // 点击元素本身执行点击事件
-        // this.addEventListener('click', this.toggleCheckbox.bind(this));
-    }
-
-    connectedCallback() {
-        this.render();
-
-        // 点击父元素执行点击事件
-        const parentElement = this.parentElement;
-        if (parentElement) {
-            parentElement.addEventListener('click', this.toggleCheckbox.bind(this));
-        }
-    }
-
-    render() {
-        const active = this.getAttribute('active');
-        const status = this.getAttribute('status');
-
-        const isDisabled = status !== 'enabled';
-        const isOn = active === 'on';
-
-        this.innerHTML = `
-            <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
-                <img src="../images/check_white.png" alt="" class="checkmark">
-            </div>
-        `;
-    }
-
-    toggleCheckbox() {
-        if (this.getAttribute('status') !== 'enabled') {
-            return;
-        }
-
-        const isChecked = this.getAttribute('active') === 'on';
-        playSound1();
-        if (isChecked) {
-            this.setAttribute('active', 'off');
-            console.log("关闭复选框", this.id);
-        } else {
-            this.setAttribute('active', 'on');
-            console.log("打开复选框", this.id);
-        }
-
-        this.render();
-    }
-}
-
-
 customElements.define('custom-switch', CustomSwitch);
-customElements.define('custom-checkbox', CustomCheckbox);
+
+
