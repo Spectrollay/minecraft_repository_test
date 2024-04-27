@@ -448,11 +448,11 @@ main::-webkit-scrollbar-thumb {
 }
 
 .small_btn {
-    width: 140px;
+    width: 130px;
 }
 
 .large_btn {
-    width: 292px;
+    width: 272px;
 }
 
 .normal_btn {
@@ -574,6 +574,12 @@ main::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #333334;
     border-left: 2px solid #333334;
     border-right: 2px solid #333334;
+}
+
+.version_logo, .version_artwork {
+    align-self: center;
+    justify-self: center;
+    width: 272px;
 }
 
 /* 块间隙 */
