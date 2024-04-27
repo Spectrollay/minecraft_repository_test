@@ -52,10 +52,6 @@
     touch-action: manipulation;
 }
 
-p {
-    text-indent: 2em;
-}
-
 .flex {
     display: flex;
 }
@@ -376,6 +372,10 @@ main::-webkit-scrollbar-thumb {
 
 .description {
     text-align: left;
+}
+
+.description p {
+    text-indent: 2em;
 }
 
 .description img {
