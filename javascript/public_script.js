@@ -58,16 +58,17 @@ if (hostPath.includes('file:///')) {
     document.addEventListener('touchstart', function (event) {
         event.preventDefault();
     });
-} else if (hostPath.includes('gitee.io')) {
-    console.log("当前运行在Gitee");
-    // 禁用右键菜单
-    document.addEventListener('contextmenu', function (event) {
-        event.preventDefault();
-    });
-    // 禁用长按菜单
-    document.addEventListener('touchstart', function (event) {
-        event.preventDefault();
-    });
+    // Gitee Pages 已下线
+// } else if (hostPath.includes('gitee.io')) {
+//     console.log("当前运行在Gitee");
+//     // 禁用右键菜单
+//     document.addEventListener('contextmenu', function (event) {
+//         event.preventDefault();
+//     });
+//     // 禁用长按菜单
+//     document.addEventListener('touchstart', function (event) {
+//         event.preventDefault();
+//     });
 } else {
     console.log("当前运行在" + hostPath);
 }

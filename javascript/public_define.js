@@ -33,10 +33,11 @@ let previousTipIndex = -2;
 let currentTipIndex = -1;
 const tipElement = document.getElementById("tip");
 const tipsWithWeights = [
-    {
-        text: "<span>本站有<a href=\"https://spectrollay.github.io" + rootPath_d + "\" target=\"_blank\" onclick=\"playSound1();\">国外源</a>和<a href=\"https://spectrollay.gitee.io" + rootPath_d + "\" target=\"_blank\" onclick=\"playSound1();\">国内源</a>,如遇加载问题可以切换线路访问.</span>",
-        weight: 3
-    },
+    // Gitee Pages 已下线
+    // {
+    //     text: "<span>本站有<a href=\"https://spectrollay.github.io" + rootPath_d + "\" target=\"_blank\" onclick=\"playSound1();\">国外源</a>和<a href=\"https://spectrollay.gitee.io" + rootPath_d + "\" target=\"_blank\" onclick=\"playSound1();\">国内源</a>,如遇加载问题可以切换线路访问.</span>",
+    //     weight: 3
+    // },
     {
         text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay" + rootPath_d + "issues/new\" target=\"_blank\" onclick=\"playSound1();\">欢迎提出</a>!</span>",
         weight: 3

@@ -60,6 +60,12 @@
 }
 
 
+/* 删除线 */
+del-line {
+    text-decoration: line-through;
+}
+
+
 /* Switch开关 */
 .switch_content {
     margin: 6px;
