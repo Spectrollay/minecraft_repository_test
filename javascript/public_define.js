@@ -10,7 +10,7 @@ const texts = {
     page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
     page_info_title3: "MADE WITH ❤️ IN CHINA",
     jump_text: "点击前往下载页面",
-    // back_to_main: "返回首页",
+    back_to_main: "返回首页",
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
     sidebar_bottom_btn: "官方网站",
@@ -241,13 +241,13 @@ if (wikiTexts) {
 } else {
 }
 
-// const backToMainTexts = document.getElementsByClassName("back_to_main");
-// if (backToMainTexts) {
-//     for (let i = 0; i < backToMainTexts.length; i++) {
-//         backToMainTexts[i].innerHTML = texts.back_to_main;
-//     }
-// } else {
-// }
+const backToMainTexts = document.getElementsByClassName("back_to_main");
+if (backToMainTexts) {
+    for (let i = 0; i < backToMainTexts.length; i++) {
+        backToMainTexts[i].innerHTML = texts.back_to_main;
+    }
+} else {
+}
 
 const setElementText = (elementId, text) => {
     const element = document.getElementById(elementId);
