@@ -194,7 +194,7 @@ main::-webkit-scrollbar-thumb {
 .tab_bar_area.main_tab_bar {
     height: 52px;
     position: fixed;
-    top: 54px;
+    top: 56px;
     left: 0;
     right: 0;
 }
