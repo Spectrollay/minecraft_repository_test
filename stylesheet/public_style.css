@@ -199,6 +199,10 @@ main::-webkit-scrollbar-thumb {
     right: 0;
 }
 
+.tab_bar_with_banner.main_tab_bar {
+    top: 96px;
+}
+
 .tab_bar {
     position: relative;
     width: calc(100% - 40px);
@@ -619,6 +623,12 @@ main::-webkit-scrollbar-thumb {
 
 .top_banner {
     margin-bottom: 0;
+}
+
+.banner_with_tab_bar {
+    position: fixed;
+    width: 100%;
+    top: 44px;
 }
 
 .neutral_banner {
