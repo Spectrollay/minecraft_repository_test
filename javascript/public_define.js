@@ -216,6 +216,50 @@ if (holiday_tip2) {
 }
 
 // 为按钮赋值
+const editionBlocks = document.getElementsByClassName("edition_block");
+if (editionBlocks) {
+    for (let i = 0; i < editionBlocks.length; i++) {
+        editionBlocks[i].innerHTML = texts.jump_text;
+    }
+} else {
+}
+
+const wikiTexts = document.getElementsByClassName("wiki");
+if (wikiTexts) {
+    for (let i = 0; i < wikiTexts.length; i++) {
+        wikiTexts[i].innerHTML = texts.minecraft_wiki;
+    }
+} else {
+}
+
+const backToMainTexts = document.getElementsByClassName("back_to_main");
+if (backToMainTexts) {
+    for (let i = 0; i < backToMainTexts.length; i++) {
+        backToMainTexts[i].innerHTML = texts.back_to_main;
+    }
+} else {
+}
+
+const setElementText = (elementId, text) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerHTML = text;
+    } else {
+    }
+}
+
+setElementText("page_info_title1", texts.page_info_title1);
+setElementText("page_info_detail1", texts.page_info_detail1);
+setElementText("page_info_title2", texts.page_info_title2);
+setElementText("page_info_detail2", texts.page_info_detail2);
+setElementText("page_info_title3", texts.page_info_title3);
+setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
+setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
+setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
+setElementText("preview_title", texts.preview_title);
+setElementText("preview_detail1", texts.preview_detail1);
+setElementText("preview_detail2", texts.preview_detail2);
+
 setTimeout(function () {
 
     const buttons = document.querySelectorAll('.btn');
@@ -231,52 +275,6 @@ setTimeout(function () {
         updateButtonText(button);
     });
 
-    const editionBlocks = document.getElementsByClassName("edition_block");
-    if (editionBlocks) {
-        for (let i = 0; i < editionBlocks.length; i++) {
-            editionBlocks[i].innerHTML = texts.jump_text;
-        }
-    } else {
-    }
-
-    const wikiTexts = document.getElementsByClassName("wiki");
-    if (wikiTexts) {
-        for (let i = 0; i < wikiTexts.length; i++) {
-            wikiTexts[i].innerHTML = texts.minecraft_wiki;
-        }
-    } else {
-    }
-
-    const backToMainTexts = document.getElementsByClassName("back_to_main");
-    if (backToMainTexts) {
-        for (let i = 0; i < backToMainTexts.length; i++) {
-            backToMainTexts[i].innerHTML = texts.back_to_main;
-        }
-    } else {
-    }
-    const setElementText = (elementId, text) => {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.innerHTML = text;
-        } else {
-        }
-    }
-
-    setElementText("page_info_title1", texts.page_info_title1);
-    setElementText("page_info_detail1", texts.page_info_detail1);
-    setElementText("page_info_title2", texts.page_info_title2);
-    setElementText("page_info_detail2", texts.page_info_detail2);
-    setElementText("page_info_title3", texts.page_info_title3);
-    setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
-    setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
-    setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
-    setElementText("preview_title", texts.preview_title);
-    setElementText("preview_detail1", texts.preview_detail1);
-    setElementText("preview_detail2", texts.preview_detail2);
-    setElementText("preview_btn1", texts.preview_btn1);
-    setElementText("preview_btn2", texts.preview_btn2);
-
-// 为图片赋值
     let linkImg = document.getElementsByClassName('link_img');
     let linkImgBlack = document.getElementsByClassName('link_img_black');
 
@@ -290,10 +288,12 @@ setTimeout(function () {
             linkImgBlack[i].src = rootPath_d + 'images/ExternalLink.png';
         }
     }
-
-    console.log("字符常量已成功应用");
+    setElementText("preview_btn1", texts.preview_btn1);
+    setElementText("preview_btn2", texts.preview_btn2);
 
 }, 100);
+
+console.log("字符常量已成功应用");
 
 // 加载网页时的提示
 if (tipElement) {
