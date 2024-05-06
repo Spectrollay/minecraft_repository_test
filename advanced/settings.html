@@ -69,9 +69,8 @@
         <div class="preview_detail">你认为我们有什么可以改进的地方吗?</div>
         <div class="preview_detail">请注意: 开发仍在进行中,可能会缺失部分功能.</div>
         <div class="btn_group">
-            <button class="btn normal_btn small_btn" id="preview_btn1"
-                    onclick="playSound(this);toUpdatelog();"></button>
-            <button class="btn green_btn small_btn" id="preview_btn2" onclick="playSound(this);toRepo();"></button>
+            <custom-button data="default|normal|small|preview_btn1|false||" js="playSound(this);toUpdatelog();" text=""></custom-button>
+            <custom-button data="default|green|small|preview_btn2|false||" js="playSound(this);toRepo();" text=""></custom-button>
         </div>
     </div>
     <div class="setting_title">外观</div>
@@ -116,26 +115,26 @@
     <div class="main_block setting_block">
         <div class="setting_content">实验性内容</div>
         <div class="setting_control_right">
-            <button class="btn normal_btn setting_btn" onclick="playSound(this);flagsPage();">查看</button>
+            <custom-button data="setting|normal|||false||" js="playSound(this);flagsPage();" text="查看"></custom-button>
         </div>
     </div>
     <div class="setting_title">高级</div>
     <div class="main_block setting_block">
         <div class="setting_content">清除存储数据</div>
         <div class="setting_control_right">
-            <button class="btn red_btn setting_btn" onclick="playSound(this);">清除</button>
+            <custom-button data="setting|red|||false||" js="playSound(this);" text="清除"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
         <div class="setting_content">重载容器环境</div>
         <div class="setting_control_right">
-            <button class="btn red_btn setting_btn" onclick="playSound(this);">重载</button>
+            <custom-button data="setting|red|||false||" js="playSound(this);" text="重载"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
         <div class="setting_content">加载调试程序</div>
         <div class="setting_control_right">
-            <button class="btn red_btn setting_btn" onclick="playSound(this);">调试</button>
+            <custom-button data="setting|red|||false||" js="playSound(this);" text="调试"></custom-button>
         </div>
     </div>
     <div class="setting_title">关于</div>
@@ -143,14 +142,14 @@
         <div class="setting_content">星月Minecraft版本库</div>
         <div class="setting_control_right setting_control_right_large">
             <div>
-                <button class="btn normal_btn setting_btn" onclick="playSound(this);repoPage();">仓库</button>
+                <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
             </div>
         </div>
     </div>
     <div class="main_block setting_block">
         <div class="setting_content">开发者: Spectrollay</div>
         <div class="setting_control_right">
-            <button class="btn normal_btn setting_btn" onclick="playSound(this);">瞅一瞅</button>
+            <custom-button data="setting|normal|||false||" js="" text="瞅一瞅"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
@@ -171,13 +170,13 @@
     <div class="main_block setting_block">
         <div class="setting_content">联系我们</div>
         <div class="setting_control_right">
-            <button class="btn normal_btn setting_btn" onclick="playSound(this);">群组</button>
+            <custom-button data="setting|normal|||false||" js="" text="群组"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
         <div class="setting_content">捐赠支持</div>
         <div class="setting_control_right">
-            <button class="btn normal_btn setting_btn" onclick="playSound(this);">打开</button>
+            <custom-button data="setting|normal|||false||" js="" text="打开"></custom-button>
         </div>
     </div>
     <div>
@@ -200,12 +199,15 @@
 </body>
 
 <script>
+    const custom_elements_js = document.createElement('script');
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
+    custom_elements_js.src = root_path + 'javascript/custom_elements.js';
     public_script.src = root_path + 'javascript/public_script.js';
     public_define.src = root_path + 'javascript/public_define.js';
 
+    document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 

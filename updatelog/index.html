@@ -63,32 +63,32 @@
     <div id="main_top"></div>
     <div class="tab_bar_area main_tab_bar">
         <div class="tab_bar">
-            <button class="tab_bar_btn no_active" id="tab1" onclick="selectTab(1);toTop();">更新计划</button>
-            <button class="tab_bar_btn active" id="tab2" onclick="selectTab(2);toTop();">更新历史</button>
+            <button class="tab_bar_btn no_active" id="tab1" onclick="playSound(this);selectTab(1);toTop();">更新计划
+            </button>
+            <button class="tab_bar_btn active" id="tab2" onclick="playSound(this);selectTab(2);toTop();">更新历史
+            </button>
         </div>
     </div>
     <div class="tab_content no_active" id="content1">
-        <!--  TODO: 加入内容时移除预设样式  -->
-        <div class="coming_soon">
-            <div class="display">
-                <div class="coming_soon-img"><img alt="Coming Soon Image" src="../images/Building.png"></div>
-                <div class="main-detail">即将到来</div>
+        <div class="block">
+            <div class="main">
+                <div class="title1">更新计划</div>
+            </div>
+            <div class="banner_area">
+                <div class="banner information_banner">更新计划展示的是我们的未来更新规划,
+                    这些规划可能随着开发的进展而发生变化, 仅作参考.
+                </div>
+            </div>
+            <div class="main">
+                <div class="plan_block">
+                    <div class="description2">
+                        <div class="release_log_item">重新设计下载块,优化下载块的样式与下载体验</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="tab_content active" id="content2">
-        <!--  TODO: 移除时一并移除相应样式  -->
-        <div class="main preview_block">
-            <div class="preview_title">开发日志页面的全新设计!</div>
-            <div class="preview_detail">我们正在对开发日志页面的体验进行更新.</div>
-            <div class="preview_detail">你可以告诉我们你对新设计的想法吗?</div>
-            <div class="btn_group">
-                <button class="btn normal_btn small_btn" onclick="playSound(this);toOldDesignUpdatelog();">查看旧设计
-                </button>
-                <button class="btn green_btn small_btn" id="preview_btn2"
-                        onclick="playSound(this);toRepo();"></button>
-            </div>
-        </div>
         <div class="block">
             <div class="main">
                 <div class="title1">更新历史</div>
@@ -128,6 +128,41 @@
                             <!--</div>-->
                             <!--<div class="expandable_card_down_br"></div>-->
 
+                            <div class="expandable_card_down_content">
+                                <div class="log_block">
+                                    <div class="title2">*4.6.2-Canary11(4.6.2.36)</div>
+                                    <div class="release_date">2024-05-06</div>
+                                    <div class="description2">
+                                        <div class="release_log_note">
+                                            这是一次大更新! 快来体验一下吧!
+                                        </div>
+                                        <div class="release_log_note">本版本基于4.5.1(4.5.1.16)开发</div>
+                                        <div class="release_log_item">
+                                            <div class="tag_area">
+                                                <span class="tag yellow_tag exp_tag">实验性</span><span>现在按钮属于自定义标签了</span>
+                                            </div>
+                                        </div>
+                                        <div class="release_log_item child">现有的旧样式按钮将逐渐向新样式按钮过渡</div>
+                                        <div class="release_log_item">
+                                            <div class="tag_area">
+                                                <span class="tag yellow_tag exp_tag">实验性</span><span>修正了自定义标签的一些问题</span>
+                                            </div>
+                                        </div>
+                                        <div class="release_log_item">提高了自定义元素的加载优先级</div>
+                                        <div class="release_log_item">重新设计了主页的部分样式</div>
+                                        <div class="release_log_item">更新了基岩版下载页面的部分样式</div>
+                                        <div class="release_log_item">更新了开发日志页面的部分样式</div>
+                                        <div class="release_log_item">现在disclaimer_modal弹窗有关闭按钮了</div>
+                                        <div class="release_log_item">统一了按钮的代码,现在按钮样式现在具有普适性了
+                                        </div>
+                                        <div class="release_log_item">Tab Bar的按钮现在解耦合了</div>
+                                        <div class="release_log_item">开发日志页面不再属于实验性内容了</div>
+                                        <div class="release_log_item">带有关闭按钮的Modal弹窗不再属于实验性内容了</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expandable_card_down_br"></div>
                             <div class="expandable_card_down_content">
                                 <div class="log_block">
                                     <div class="title2">4.6.2-Canary10(4.6.2.35)</div>
@@ -304,9 +339,7 @@
                                             </div>
                                         </div>
                                         <div class="release_log_item">
-                                            <div class="tag_area">
-                                                <span class="tag yellow_tag exp_tag">实验性</span><span>带有关闭按钮的Modal弹窗在点击关闭按钮时会播放音效了</span>
-                                            </div>
+
                                         </div>
                                         <div class="release_log_item">修正了一些代码中的语法错误</div>
                                         <div class="release_log_item">试图修复暗黑模式下的显示问题</div>
@@ -2317,12 +2350,15 @@
 </body>
 
 <script>
+    const custom_elements_js = document.createElement('script');
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
+    custom_elements_js.src = root_path + 'javascript/custom_elements.js';
     public_script.src = root_path + 'javascript/public_script.js';
     public_define.src = root_path + 'javascript/public_define.js';
 
+    document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
@@ -2368,25 +2404,6 @@
     main {
         top: 100px;
         height: calc(100% - 100px);
-    }
-
-    /* TODO: 加入具体内容后移除该样式 */
-    #content1 {
-        height: 100%;
-    }
-
-    .coming_soon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 100%;
-        min-height: 220px;
-    }
-
-    /* TODO: 在移除预览提示块时移除该样式 */
-    .preview_block {
-        margin-top: 20px;
     }
 
     .block {

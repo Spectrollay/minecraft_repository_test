@@ -76,11 +76,6 @@
             <div>功能</div>
             <br>
             <div class="flex">
-                <div class="setting_content">新的开发日志页面</div>
-                <custom-switch active="on" status="disabled"></custom-switch>
-            </div>
-            <divider></divider>
-            <div class="flex">
                 <div class="setting_content">新的教育版下载页面</div>
                 <custom-switch active="on" status="disabled"></custom-switch>
             </div>
@@ -149,16 +144,6 @@
         <div class="setting_block_content">
             <div>Expandable List</div>
             <div></div>
-        </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_block_content">
-            <div>Modal with Close Btn</div>
-            <div>
-                <button class="btn green_btn" onclick="playSound(this);showModal('modal_with_close_btn_exp')">Click to
-                    Show
-                </button>
-            </div>
         </div>
     </div>
     <div class="main_block setting_block">
@@ -287,38 +272,18 @@
 <!--全屏-->
 <div class="overlay" id="overlay"></div>
 
-<!--Modal-->
-<div class="modal_area" id="modal_with_close_btn_exp">
-    <div class="modal">
-        <div class="modal_title_area">
-            <div class="modal_title">Modal with Close Btn</div>
-            <div class="modal_close_btn close_btn" onclick="hideModal(this);">
-                <img alt="" class="modal_close_btn_img" src="">
-            </div>
-        </div>
-        <div class="modal_content">
-            <p>This is the description.</p>
-        </div>
-        <div class="modal_btn_area">
-            <div class="modal_btn_group">
-                <div class="modal_btns">
-                    <button class="btn green_btn modal_btn" onclick="hideModal(this);">Yes</button>
-                    <button class="btn red_btn modal_btn" onclick="hideModal(this);">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 </body>
 
 <script>
+    const custom_elements_js = document.createElement('script');
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
+    custom_elements_js.src = root_path + 'javascript/custom_elements.js';
     public_script.src = root_path + 'javascript/public_script.js';
     public_define.src = root_path + 'javascript/public_define.js';
 
+    document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
@@ -335,13 +300,6 @@
     const loading_img = document.getElementById('spinner_img');
     loading_img.src = root_path + 'images/Loading_white.gif';
     const loading_mask = document.getElementById('loading_mask');
-
-    let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
-    if (modal_close_btn_img) {
-        for (let i = 0; i < modal_close_btn_img.length; i++) {
-            modal_close_btn_img[i].src = root_path + 'images/cross_white.png';
-        }
-    }
 
     // 监听页面加载完成事件
     window.addEventListener('load', function () {

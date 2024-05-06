@@ -5,7 +5,7 @@ const texts = {
     preview_btn1: "开发日志",
     preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"\"/>提出反馈",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "<span>Version: 4.6.2.35.Canary<br>Server Version: 4.0<br>Updated: 2024-05-05-02</span>",
+    page_info_detail1: "<span>Version: 4.6.2.36.Canary<br>Server Version: 4.0<br>Updated: 2024-05-06-01</span>",
     page_info_title2: "ABOUT US",
     page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
     page_info_title3: "MADE WITH ❤️ IN CHINA",
@@ -253,27 +253,29 @@ if (backToMainTexts) {
 } else {
 }
 
-const setElementText = (elementId, text) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.innerHTML = text;
-    } else {
+setTimeout(function () {
+    const setElementText = (elementId, text) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.innerHTML = text;
+        } else {
+        }
     }
-}
 
-setElementText("page_info_title1", texts.page_info_title1);
-setElementText("page_info_detail1", texts.page_info_detail1);
-setElementText("page_info_title2", texts.page_info_title2);
-setElementText("page_info_detail2", texts.page_info_detail2);
-setElementText("page_info_title3", texts.page_info_title3);
-setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
-setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
-setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
-setElementText("preview_title", texts.preview_title);
-setElementText("preview_detail1", texts.preview_detail1);
-setElementText("preview_detail2", texts.preview_detail2);
-setElementText("preview_btn1", texts.preview_btn1);
-setElementText("preview_btn2", texts.preview_btn2);
+    setElementText("page_info_title1", texts.page_info_title1);
+    setElementText("page_info_detail1", texts.page_info_detail1);
+    setElementText("page_info_title2", texts.page_info_title2);
+    setElementText("page_info_detail2", texts.page_info_detail2);
+    setElementText("page_info_title3", texts.page_info_title3);
+    setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
+    setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
+    setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
+    setElementText("preview_title", texts.preview_title);
+    setElementText("preview_detail1", texts.preview_detail1);
+    setElementText("preview_detail2", texts.preview_detail2);
+    setElementText("preview_btn1", texts.preview_btn1);
+    setElementText("preview_btn2", texts.preview_btn2);
+}, 10);
 
 console.log("字符常量已成功应用");
 

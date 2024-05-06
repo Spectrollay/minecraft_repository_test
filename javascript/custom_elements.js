@@ -5,10 +5,6 @@ class CustomCheckbox extends HTMLElement {
         this.render();
         // 点击元素本身执行点击事件
         // this.addEventListener('click', this.toggleCheckbox.bind(this));
-    }
-
-    connectedCallback() {
-        this.render();
 
         // 点击父元素执行点击事件
         const parentElement = this.parentElement;
@@ -18,8 +14,8 @@ class CustomCheckbox extends HTMLElement {
     }
 
     render() {
-        const active = this.getAttribute('active');
-        const status = this.getAttribute('status');
+        const active = this.getAttribute('active') || 'off';
+        const status = this.getAttribute('status') || 'disabled';
 
         const isDisabled = status !== 'enabled';
         const isOn = active === 'on';
@@ -60,12 +56,9 @@ class CustomSwitch extends HTMLElement {
         this.render();
     }
 
-    connectedCallback() {
-    }
-
     render() {
-        const active = this.getAttribute('active');
-        const status = this.getAttribute('status');
+        const active = this.getAttribute('active') || 'off';
+        const status = this.getAttribute('status') || 'disabled_switch';
 
         const isDisabled = status !== 'enabled';
         const isOn = active === 'on';
@@ -192,3 +185,65 @@ class CustomSwitch extends HTMLElement {
 customElements.define('custom-switch', CustomSwitch);
 
 
+// 自定义按钮
+class CustomButton extends HTMLElement {
+    constructor() {
+        super();
+        this.render();
+    }
+
+    connectedCallback() {
+        this.render();
+    }
+
+    render() {
+        const data = this.getAttribute('data') || '';
+        const [type, status, size, id, isTip, tip, icon] = data.split('|').map(item => item.trim());
+        this.type = type || 'default';
+        this.status = status || 'normal';
+        this.isTip = isTip === 'true';
+        this.tip = tip || '';
+        this.icon = icon || '';
+        const csize = size || 'middle';
+        const cid = id || '';
+        const js = this.getAttribute('js') || 'false';
+        const text = this.getAttribute('text') || '';
+
+        if (type === "default") {
+            if (isTip === "true") {
+                this.innerHTML = `
+                        <div class="btn_with_tooltip_cont">
+                            <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
+                            <div class="btn_tooltip">${tip}</div>
+                            <img alt="" class="tip_icon" src="../images/${icon}.png"/>
+                        </div>
+                    `;
+            } else {
+                this.innerHTML = `
+                        <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
+                    `;
+            }
+        } else {
+            this.classList.add(type+"_custom_btn");
+            this.innerHTML = `
+                    <button class="btn ${status}_btn ${type}_btn" id="${cid}">${text}</button>
+                `;
+        }
+
+        const button = this.querySelector('button');
+        if (button) {
+            button.addEventListener('click', () => {
+                playSound(button);
+            });
+            if(this.status !== 'disabled'){
+                if (js !== "false") {
+                    button.addEventListener('click', () => {
+                        eval(js);
+                    });
+                }
+            }
+        }
+    }
+}
+
+customElements.define('custom-button', CustomButton);

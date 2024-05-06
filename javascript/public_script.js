@@ -19,19 +19,16 @@ const rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
 // 创建内联元素
-const public_style = document.createElement('link');
-public_style.rel = 'stylesheet';
-public_style.href = rootPath + 'stylesheet/public_style.css';
 const custom_elements_css = document.createElement('link');
 custom_elements_css.rel = 'stylesheet';
 custom_elements_css.href = rootPath + 'stylesheet/custom_elements.css';
-const custom_elements_js = document.createElement('script');
-custom_elements_js.src = root_path + 'javascript/custom_elements.js';
+const public_style = document.createElement('link');
+public_style.rel = 'stylesheet';
+public_style.href = rootPath + 'stylesheet/public_style.css';
 
 // 将内联元素添加到头部
-document.head.appendChild(public_style);
 document.head.appendChild(custom_elements_css);
-document.head.appendChild(custom_elements_js);
+document.head.appendChild(public_style);
 
 const soundClickPath = rootPath + 'sounds/click.ogg';
 const soundButtonPath = rootPath + 'sounds/button.ogg';
@@ -103,8 +100,8 @@ const compatibilityModal = `
                         Edge / Chrome / Firefox / Safari / WebView Android</p>
                 </div>
                 <div class="modal_btn_area">
-                    <button class="btn red_btn modal_btn" onclick="neverShowCompatibilityModalAgain(this);">不再显示</button>
-                    <button class="btn green_btn modal_btn" onclick="hideCompatibilityModal(this);">我知道了</button>
+                    <custom-button data="modal|red|||false||" js="neverShowCompatibilityModalAgain(this);" text="不再显示"></custom-button>
+                    <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
                 </div>
             </div>
         </div>`;
@@ -206,7 +203,7 @@ function selectTab(tabNumber) {
     } else {
         // 选中不一致
         // 在切换选项卡时播放声音
-        playSound1();
+        // playSound1();
 
         // 切换Tab Bar选项卡
         document.querySelectorAll('.tab_bar_btn').forEach(button => {
@@ -229,7 +226,7 @@ function selectTab(tabNumber) {
 
         // 切换侧边栏包含内容
         const sidebarContents = document.getElementsByClassName("tab_sidebar");
-        if (sidebarContents) {
+        if (sidebarContents.length > 0) {
             for (let i = 0; i < sidebarContents.length; i++) {
                 sidebarContents[i].classList.remove("active");
                 sidebarContents[i].classList.add("no_active");
@@ -271,7 +268,7 @@ function toggleOverlay() {
 
 // 按键音效
 function playSound(button) {
-    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || button.classList.contains("close_btn")) {
+    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || (button.classList.contains("tab_bar_btn") && button.classList.contains("no_active")) || button.classList.contains("close_btn")) {
         console.log("选择播放点击音效");
         playSound1();
     } else if (button.classList.contains("green_btn")) {
@@ -472,6 +469,13 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
                 }, 0);
             }
         });
+    }
+}
+
+let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
+if (modal_close_btn_img) {
+    for (let i = 0; i < modal_close_btn_img.length; i++) {
+        modal_close_btn_img[i].src = root_path + 'images/cross_white.png';
     }
 }
 

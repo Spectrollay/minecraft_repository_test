@@ -80,12 +80,15 @@
 </body>
 
 <script>
+    const custom_elements_js = document.createElement('script');
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
+    custom_elements_js.src = root_path + 'javascript/custom_elements.js';
     public_script.src = root_path + 'javascript/public_script.js';
     public_define.src = root_path + 'javascript/public_define.js';
 
+    document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
