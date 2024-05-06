@@ -275,7 +275,7 @@ setTimeout(function () {
     setElementText("preview_detail2", texts.preview_detail2);
     setElementText("preview_btn1", texts.preview_btn1);
     setElementText("preview_btn2", texts.preview_btn2);
-}, 10);
+}, 100);
 
 console.log("字符常量已成功应用");
 
