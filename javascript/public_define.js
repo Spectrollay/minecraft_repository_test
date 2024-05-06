@@ -216,44 +216,44 @@ if (holiday_tip2) {
 }
 
 // 为按钮赋值
-const buttons = document.querySelectorAll('.btn');
+// setTimeout(function () {
 
-function updateButtonText(button) {
-    const textKey = button.getAttribute('text-generation');
-    if (textKey !== null) {
-        button.innerHTML = texts[textKey];
+    const buttons = document.querySelectorAll('.btn');
+
+    function updateButtonText(button) {
+        const textKey = button.getAttribute('text-generation');
+        if (textKey !== null) {
+            button.innerHTML = texts[textKey];
+        }
     }
-}
 
-buttons.forEach(button => {
-    updateButtonText(button);
-});
+    buttons.forEach(button => {
+        updateButtonText(button);
+    });
 
-const editionBlocks = document.getElementsByClassName("edition_block");
-if (editionBlocks) {
-    for (let i = 0; i < editionBlocks.length; i++) {
-        editionBlocks[i].innerHTML = texts.jump_text;
+    const editionBlocks = document.getElementsByClassName("edition_block");
+    if (editionBlocks) {
+        for (let i = 0; i < editionBlocks.length; i++) {
+            editionBlocks[i].innerHTML = texts.jump_text;
+        }
+    } else {
     }
-} else {
-}
 
-const wikiTexts = document.getElementsByClassName("wiki");
-if (wikiTexts) {
-    for (let i = 0; i < wikiTexts.length; i++) {
-        wikiTexts[i].innerHTML = texts.minecraft_wiki;
+    const wikiTexts = document.getElementsByClassName("wiki");
+    if (wikiTexts) {
+        for (let i = 0; i < wikiTexts.length; i++) {
+            wikiTexts[i].innerHTML = texts.minecraft_wiki;
+        }
+    } else {
     }
-} else {
-}
 
-const backToMainTexts = document.getElementsByClassName("back_to_main");
-if (backToMainTexts) {
-    for (let i = 0; i < backToMainTexts.length; i++) {
-        backToMainTexts[i].innerHTML = texts.back_to_main;
+    const backToMainTexts = document.getElementsByClassName("back_to_main");
+    if (backToMainTexts) {
+        for (let i = 0; i < backToMainTexts.length; i++) {
+            backToMainTexts[i].innerHTML = texts.back_to_main;
+        }
+    } else {
     }
-} else {
-}
-
-setTimeout(function () {
     const setElementText = (elementId, text) => {
         const element = document.getElementById(elementId);
         if (element) {
@@ -275,7 +275,8 @@ setTimeout(function () {
     setElementText("preview_detail2", texts.preview_detail2);
     setElementText("preview_btn1", texts.preview_btn1);
     setElementText("preview_btn2", texts.preview_btn2);
-}, 100);
+
+// }, 10);
 
 console.log("字符常量已成功应用");
 
