@@ -76,7 +76,7 @@
         <div class="preview_detail" id="preview_detail1"></div>
         <div class="preview_detail" id="preview_detail2"></div>
         <div class="btn_group">
-            <custom-button data="default|green|large|preview_btn2|false||" js="playSound(this);toRepo();" text=""></custom-button>
+            <custom-button data="default|green|large|preview_btn2|false||" js="toRepo();" text=""></custom-button>
         </div>
     </div>
     <div class="block_spacing"></div>
@@ -99,8 +99,8 @@
                     <div>没有新通知</div>
                 </div>
                 <div class="btn_group">
-                    <custom-button data="default|normal|small||false||" js="playSound(this);" text="通知中心"></custom-button>
-                    <custom-button data="default|normal|small||false||" js="playSound(this);toUpdatelog();" text="开发日志"></custom-button>
+                    <custom-button data="default|normal|small||false||" js="false" text="通知中心"></custom-button>
+                    <custom-button data="default|normal|small||false||" js="toUpdatelog();" text="开发日志"></custom-button>
                 </div>
             </div>
         </div>

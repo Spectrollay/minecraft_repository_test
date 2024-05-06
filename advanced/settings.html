@@ -69,8 +69,8 @@
         <div class="preview_detail">你认为我们有什么可以改进的地方吗?</div>
         <div class="preview_detail">请注意: 开发仍在进行中,可能会缺失部分功能.</div>
         <div class="btn_group">
-            <custom-button data="default|normal|small|preview_btn1|false||" js="playSound(this);toUpdatelog();" text=""></custom-button>
-            <custom-button data="default|green|small|preview_btn2|false||" js="playSound(this);toRepo();" text=""></custom-button>
+            <custom-button data="default|normal|small|preview_btn1|false||" js="toUpdatelog();" text=""></custom-button>
+            <custom-button data="default|green|small|preview_btn2|false||" js="toRepo();" text=""></custom-button>
         </div>
     </div>
     <div class="setting_title">外观</div>
@@ -115,26 +115,26 @@
     <div class="main_block setting_block">
         <div class="setting_content">实验性内容</div>
         <div class="setting_control_right">
-            <custom-button data="setting|normal|||false||" js="playSound(this);flagsPage();" text="查看"></custom-button>
+            <custom-button data="setting|normal|||false||" js="flagsPage();" text="查看"></custom-button>
         </div>
     </div>
     <div class="setting_title">高级</div>
     <div class="main_block setting_block">
         <div class="setting_content">清除存储数据</div>
         <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="playSound(this);" text="清除"></custom-button>
+            <custom-button data="setting|red|||false||" js="false" text="清除"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
         <div class="setting_content">重载容器环境</div>
         <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="playSound(this);" text="重载"></custom-button>
+            <custom-button data="setting|red|||false||" js="false" text="重载"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
         <div class="setting_content">加载调试程序</div>
         <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="playSound(this);" text="调试"></custom-button>
+            <custom-button data="setting|red|||false||" js="false" text="调试"></custom-button>
         </div>
     </div>
     <div class="setting_title">关于</div>
@@ -149,7 +149,7 @@
     <div class="main_block setting_block">
         <div class="setting_content">开发者: Spectrollay</div>
         <div class="setting_control_right">
-            <custom-button data="setting|normal|||false||" js="" text="瞅一瞅"></custom-button>
+            <custom-button data="setting|normal|||false||" js="false" text="瞅一瞅"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
@@ -170,7 +170,7 @@
     <div class="main_block setting_block">
         <div class="setting_content">联系我们</div>
         <div class="setting_control_right">
-            <custom-button data="setting|normal|||false||" js="" text="群组"></custom-button>
+            <custom-button data="setting|normal|||false||" js="false" text="群组"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
