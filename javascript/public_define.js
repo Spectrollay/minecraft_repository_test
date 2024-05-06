@@ -262,6 +262,9 @@ setElementText("preview_detail2", texts.preview_detail2);
 
 setTimeout(function () {
 
+    setElementText("preview_btn1", texts.preview_btn1);
+    setElementText("preview_btn2", texts.preview_btn2);
+
     const buttons = document.querySelectorAll('.btn');
 
     function updateButtonText(button) {
@@ -288,8 +291,6 @@ setTimeout(function () {
             linkImgBlack[i].src = rootPath_d + 'images/ExternalLink.png';
         }
     }
-    setElementText("preview_btn1", texts.preview_btn1);
-    setElementText("preview_btn2", texts.preview_btn2);
 
 }, 100);
 
