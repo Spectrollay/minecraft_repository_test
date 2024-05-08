@@ -63,8 +63,10 @@
     <div id="main_top"></div>
     <div class="tab_bar_area main_tab_bar">
         <div class="tab_bar">
-            <button class="tab_bar_btn active" id="tab1" onclick="playSound(this);selectTab(1);toTop();">Release</button>
-            <button class="tab_bar_btn no_active" id="tab2" onclick="playSound(this);selectTab(2);toTop();">Preview</button>
+            <button class="tab_bar_btn active" id="tab1" onclick="playSound(this);selectTab(1);toTop();">Release
+            </button>
+            <button class="tab_bar_btn no_active" id="tab2" onclick="playSound(this);selectTab(2);toTop();">Preview
+            </button>
         </div>
     </div>
     <div class="tab_content active" id="content1">
@@ -1088,7 +1090,7 @@
                 <div class="coming_soon">
                     <div class="display">
                         <div class="coming_soon-img"><img alt="Coming Soon Image" src="../images/Sunset.png"></div>
-                        <div class="main-detail">暂未发布</div>
+                        <div class="main_detail_center">暂未发布</div>
                     </div>
                 </div>
             </div>
@@ -1108,7 +1110,7 @@
 <!--侧边栏-->
 <div class="sidebar" id="sidebar">
     <div class="sidebar_header">
-        <button class="btn sidebar_btn back_to_main" onclick="jumpToPage('../');"></button>
+        <button class="btn sidebar_btn back_to_main" onclick="mainPage();"></button>
     </div>
     <div class="sidebar_list tab_sidebar active" id="sidebar_content1">
         <div class="sidebar_item">基岩版 Release</div>
@@ -1155,27 +1157,25 @@
 <div class="modal_area" id="disclaimer_modal">
     <div class="modal">
         <div class="modal_title_area">
-        <div class="modal_title">温馨提示</div>
-        <div class="modal_close_btn close_btn" onclick="hideModal(this);">
-            <img alt="" class="modal_close_btn_img" src="">
+            <div class="modal_title">温馨提示</div>
+            <div class="modal_close_btn close_btn" onclick="hideModal(this);">
+                <img alt="" class="modal_close_btn_img" src="">
+            </div>
         </div>
-    </div>
         <div class="modal_content">
             <p>有能力请支持正版!</p>
         </div>
         <div class="modal_btn_area">
             <div class="modal_btn_group">
                 <div class="modal_btns">
-                    <button class="btn normal_btn modal_btn"
-                            onclick="howToBuyGame(this,0,'../default/how_to_buy.html');">正版购买指南
-                    </button>
+                    <custom-button data="modal|normal|||false||" js="howToBuyGame(this,0,'../default/how_to_buy.html');"
+                                   text="正版购买指南"></custom-button>
                 </div>
                 <div class="modal_btns">
-                    <button class="btn green_btn modal_btn" id="modal_agree_btn"
-                            onclick="hideDisclaimerModal(this,1,openurl);">我知道了
-                    </button>
-                    <button class="btn red_btn modal_btn" onclick="hideDisclaimerModal(this,-1,null);">我不同意
-                    </button>
+                    <custom-button data="modal|green||modal_agree_btn|false||" js="hideDisclaimerModal(this,1,openurl);"
+                                   text="我知道了"></custom-button>
+                    <custom-button data="modal|red|||false||" js="hideDisclaimerModal(this,-1,null);"
+                                   text="我不同意"></custom-button>
                 </div>
             </div>
         </div>

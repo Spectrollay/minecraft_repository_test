@@ -451,10 +451,26 @@ main::-webkit-scrollbar-thumb {
     border-right: 2px solid #333334;
 }
 
+.main_content_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+}
+
+.main_detail_center {
+    font-size: 20px;
+    text-align: center;
+}
+
 .version_logo, .version_artwork {
     align-self: center;
     justify-self: center;
     width: 272px;
+}
+
+.notice_img {
+    width: 280px;
 }
 
 /* 块间隙 */

@@ -1,3 +1,17 @@
+// 版本变量
+// TODO 需在每次提交前检查
+const main_version_name = "4.6.2";
+const version_name_short = main_version_name + ".40"; // 例 4.0.0.1
+const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
+const version_type_count = version_type + "14"; // 例 Build1
+const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
+const version_nickname = main_version_name + "-" + version_type_count; // 例 4.0.0-Build1
+const server_version = "4.0";
+const update_count = "2024-05-08-02";
+const commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
+const version_info = "<span>主版本号: " + main_version_name + "<br>内部版本号: " + version_name_short + "<br>版本类型: " + version_type + "<br>版本名: " + version_name + "<br>版本别称: " + version_nickname + "<br>发布编号: " + update_count + "<br>提交: " + commit + "</span>";
+
+//字符常量
 const texts = {
     preview_title: "欢迎观看设计预览!",
     preview_detail1: "我们想听听你对这个新设计的意见.",
@@ -5,7 +19,7 @@ const texts = {
     preview_btn1: "开发日志",
     preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"\"/>提出反馈",
     page_info_title1: "INFORMATION",
-    page_info_detail1: "<span>Version: 4.6.2.37.Canary<br>Server Version: 4.0<br>Updated: 2024-05-06-06</span>",
+    page_info_detail1: "<span>Version: " + version_name + "<br>Server Version: " + server_version + "<br>Updated: " + update_count + "</span>",
     page_info_title2: "ABOUT US",
     page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
     page_info_title3: "MADE WITH ❤️ IN CHINA",
@@ -259,6 +273,8 @@ setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
 setElementText("preview_title", texts.preview_title);
 setElementText("preview_detail1", texts.preview_detail1);
 setElementText("preview_detail2", texts.preview_detail2);
+setElementText("setting_version", version_name_short);
+setElementText("setting_version_detail", version_info);
 
 setTimeout(function () {
 

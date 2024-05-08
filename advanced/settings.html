@@ -118,6 +118,11 @@
             <custom-button data="setting|normal|||false||" js="flagsPage();" text="查看"></custom-button>
         </div>
     </div>
+    <div class="main_block setting_block">
+        <div class="setting_content">环境指南</div>
+        <div class="setting_control_right">
+        </div>
+    </div>
     <div class="setting_title">高级</div>
     <div class="main_block setting_block">
         <div class="setting_content">清除存储数据</div>
@@ -143,6 +148,15 @@
         <div class="setting_control_right setting_control_right_large">
             <div>
                 <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
+            </div>
+        </div>
+    </div>
+    <div class="main_block setting_block">
+        <div class="setting_content">版本: <span id="setting_version"></span></div>
+        <div class="setting_control_right setting_control_right_large">
+            <div>
+                <custom-button data="setting|normal|||false||" js="showModal('version_info_modal');"
+                               text="详情"></custom-button>
             </div>
         </div>
     </div>
@@ -179,15 +193,6 @@
             <custom-button data="setting|normal|||false||" js="" text="打开"></custom-button>
         </div>
     </div>
-    <div>
-        <div class="page_info"><br></div>
-        <div class="page_info_title" id="page_info_title1"></div>
-        <div class="page_info" id="page_info_detail1"></div>
-        <div class="page_info_title" id="page_info_title2"></div>
-        <div class="page_info" id="page_info_detail2"></div>
-        <div class="page_info_title" id="page_info_title3"></div>
-        <div class="page_info"><br></div>
-    </div>
 </main>
 
 <!--遮罩-->
@@ -195,6 +200,28 @@
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 <!--全屏-->
 <div class="overlay" id="overlay"></div>
+
+<!--版本信息弹窗-->
+<div class="modal_area" id="version_info_modal">
+    <div class="modal">
+        <div class="modal_title_area">
+            <div class="modal_title">版本信息</div>
+            <div class="modal_close_btn close_btn" onclick="hideModal(this);">
+                <img alt="" class="modal_close_btn_img" src="">
+            </div>
+        </div>
+        <div class="modal_content">
+            <div id="setting_version_detail"></div>
+        </div>
+        <div class="modal_btn_area">
+            <div class="modal_btn_group">
+                <div class="modal_btns">
+                    <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 

@@ -33,6 +33,7 @@ document.head.appendChild(public_style);
 const soundClickPath = rootPath + 'sounds/click.ogg';
 const soundButtonPath = rootPath + 'sounds/button.ogg';
 const updatelogPath = rootPath + 'updatelog/';
+const messagePath = rootPath + 'notifications/';
 const pageLevel = (slashCount - 1) + "级页面";
 
 console.log("浏览器UA: ", navigator.userAgent)
@@ -290,6 +291,13 @@ function toUpdatelog() {
     }, 600);
 }
 
+function toMessage() {
+    setTimeout(function () {
+        window.location.href = messagePath;
+    }, 600);
+}
+
+
 function toRepo() {
     setTimeout(function () {
         window.open("https://github.com/Spectrollay" + rootPath + "issues/new");
@@ -340,9 +348,10 @@ function flagsPage() {
     }, 600);
 }
 
-function toOldDesignUpdatelog() {
+// 跳转主页
+function mainPage() {
     setTimeout(function () {
-        window.location.href = hostPath + "/minecraft_repository/updatelog/updatelog.html";
+        window.location.href = rootPath;
     }, 600);
 }
 
