@@ -773,7 +773,7 @@ divider {
 }
 
 .modal_custom_btn {
-    width: calc(100% - 20px);
+    width: 100%;
 }
 
 .modal_btn_group {
