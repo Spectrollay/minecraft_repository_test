@@ -9,7 +9,7 @@ const version_nickname = main_version_name + "-" + version_type_count; // 例 4.
 const server_version = "4.0";
 const update_count = "2024-05-08-02";
 const commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
-const version_info = "<span>主版本号: " + main_version_name + "<br>内部版本号: " + version_name_short + "<br>版本类型: " + version_type + "<br>版本名: " + version_name + "<br>版本别称: " + version_nickname + "<br>发布编号: " + update_count + "<br>提交: " + commit + "</span>";
+const version_info = "<div style='text-align: left'>主版本号: " + main_version_name + "<br>内部版本号: " + version_name_short + "<br>版本类型: " + version_type + "<br>版本名: " + version_name + "<br>版本别称: " + version_nickname + "<br>发布编号: " + update_count + "<br>提交: " + commit + "</div>";
 
 //字符常量
 const texts = {
