@@ -7,7 +7,7 @@ const version_type_count = version_type + "14"; // 例 Build1
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = main_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-09-01";
+const update_count = "2024-05-09-02";
 const commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
 const version_info = "<div style='text-align: left'>主版本号: " + main_version_name + "<br>内部版本号: " + version_name_short + "<br>版本类型: " + version_type + "<br>版本名: " + version_name + "<br>版本别称: " + version_nickname + "<br>发布编号: " + update_count + "<br>提交: " + commit + "</div>";
 
@@ -264,11 +264,13 @@ const setElementText = (elementId, text) => {
 
 // 彩蛋标题
 const repositoryLogo = document.getElementById("repository_logo");
-const randomValue = Math.floor(Math.random() * 10000); // 0.01%
-if (randomValue < 1) {
-    repositoryLogo.innerHTML = "<span>星月Minceraft版本库</span>";
-} else {
-    repositoryLogo.innerHTML = "<span>星月Minecraft版本库</span>";
+if (repositoryLogo) {
+    const randomValue = Math.floor(Math.random() * 10000); // 0.01%
+    if (randomValue < 1) {
+        repositoryLogo.innerHTML = "<span>星月Minceraft版本库</span>";
+    } else {
+        repositoryLogo.innerHTML = "<span>星月Minecraft版本库</span>";
+    }
 }
 
 setElementText("page_info_title1", texts.page_info_title1);
