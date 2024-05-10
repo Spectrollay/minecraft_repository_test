@@ -1,15 +1,15 @@
 // 版本变量
 // TODO 需在每次提交前检查
 const main_version_name = "4.6.2";
-const version_name_short = main_version_name + ".40"; // 例 4.0.0.1
+const version_name_short = main_version_name + ".41"; // 例 4.0.0.1
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
-const version_type_count = version_type + "14"; // 例 Build1
+const version_type_count = version_type + "15"; // 例 Build1
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = main_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-09-02";
+const update_count = "2024-05-10-01";
 const commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
-const version_info = "<div style='text-align: left'>主版本号: " + main_version_name + "<br>内部版本号: " + version_name_short + "<br>版本类型: " + version_type + "<br>版本名: " + version_name + "<br>版本别称: " + version_nickname + "<br>发布编号: " + update_count + "<br>提交: " + commit + "</div>";
+const version_info = "<table><tr><td>主版本号: </td><td>" + main_version_name + "</td></tr><tr><td>内部版本号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr></table>";
 
 //字符常量
 const texts = {
@@ -267,9 +267,11 @@ const repositoryLogo = document.getElementById("repository_logo");
 if (repositoryLogo) {
     const randomValue = Math.floor(Math.random() * 10000); // 0.01%
     if (randomValue < 1) {
-        repositoryLogo.innerHTML = "<span>星月Minceraft版本库</span>";
+        repositoryLogo.innerHTML = "<div class='repository_logo_area'>星月Minceraft版本库</div>";
+        // repositoryLogo.innerHTML = "<div class='repository_logo_area'>星月<img alt=\"\" class=\"repository_logo_img\" src=\"../images/Minceraft.png\">版本库</div>";
     } else {
-        repositoryLogo.innerHTML = "<span>星月Minecraft版本库</span>";
+        repositoryLogo.innerHTML = "<div class='repository_logo_area'>星月Minecraft版本库</div>";
+        // repositoryLogo.innerHTML = "<div class='repository_logo_area'>星月<img alt=\"\" class=\"repository_logo_img\" src=\"../images/Minecraft.png\">版本库</div>";
     }
 }
 
@@ -316,6 +318,13 @@ setTimeout(function () {
     if (linkImgBlack) {
         for (let i = 0; i < linkImgBlack.length; i++) {
             linkImgBlack[i].src = rootPath_d + 'images/ExternalLink.png';
+        }
+    }
+
+    let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
+    if (modal_close_btn_img) {
+        for (let i = 0; i < modal_close_btn_img.length; i++) {
+            modal_close_btn_img[i].src = root_path + 'images/cross_white.png';
         }
     }
 

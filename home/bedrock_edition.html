@@ -1090,7 +1090,7 @@
                 <div class="coming_soon">
                     <div class="display">
                         <div class="coming_soon-img"><img alt="Coming Soon Image" src="../images/Sunset.png"></div>
-                        <div class="main_detail_center">暂未发布</div>
+                        <div class="main_detail_center" style="font-size: unset">暂未发布</div>
                     </div>
                 </div>
             </div>
@@ -1154,33 +1154,33 @@
 <div class="overlay" id="overlay"></div>
 
 <!--免责申明弹窗-->
-<div class="modal_area" id="disclaimer_modal">
-    <div class="modal">
-        <div class="modal_title_area">
-            <div class="modal_title">温馨提示</div>
-            <div class="modal_close_btn close_btn" onclick="hideModal(this);">
+<modal_area id="disclaimer_modal">
+    <modal>
+        <modal_title_area>
+            <modal_title>温馨提示</modal_title>
+            <modal_close_btn class="close_btn" onclick="hideModal(this);">
                 <img alt="" class="modal_close_btn_img" src="">
-            </div>
-        </div>
-        <div class="modal_content">
+            </modal_close_btn>
+        </modal_title_area>
+        <modal_content>
             <p>有能力请支持正版!</p>
-        </div>
-        <div class="modal_btn_area">
-            <div class="modal_btn_group">
-                <div class="modal_btns">
+        </modal_content>
+        <modal_btn_area>
+            <modal_btn_group>
+                <modal_btn_list>
                     <custom-button data="modal|normal|||false||" js="howToBuyGame(this,0,'../default/how_to_buy.html');"
                                    text="正版购买指南"></custom-button>
-                </div>
-                <div class="modal_btns">
+                </modal_btn_list>
+                <modal_btn_list>
                     <custom-button data="modal|green||modal_agree_btn|false||" js="hideDisclaimerModal(this,1,openurl);"
                                    text="我知道了"></custom-button>
                     <custom-button data="modal|red|||false||" js="hideDisclaimerModal(this,-1,null);"
                                    text="我不同意"></custom-button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </modal_btn_list>
+            </modal_btn_group>
+        </modal_btn_area>
+    </modal>
+</modal_area>
 
 </body>
 

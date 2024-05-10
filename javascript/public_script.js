@@ -91,21 +91,21 @@ links.forEach(function (link) {
 
 // 兼容性检测
 const compatibilityModal = `
-        <div id="compatibility_modal" class="modal_area">
-            <div class="modal">
-                <div class="modal_title_area">
-                    <div class="modal_title">兼容性提示</div>
-                </div>
-                <div class="modal_content">
+        <modal_area id="compatibility_modal">
+            <modal>
+                <modal_title_area>
+                    <modal_title>兼容性提示</modal_title>
+                </modal_title_area>
+                <modal_content>
                     <p>不同浏览器之间存在些许差异,为确保你的使用体验,我们推荐通过以下浏览器或内核的最新发行版访问本站以获得完全的特性支持:
                         Edge / Chrome / Firefox / Safari / WebView Android</p>
-                </div>
-                <div class="modal_btn_area">
+                </modal_content>
+                <modal_btn_area>
                     <custom-button data="modal|red|||false||" js="neverShowCompatibilityModalAgain(this);" text="不再显示"></custom-button>
                     <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
-                </div>
-            </div>
-        </div>`;
+                </modal_btn_area>
+            </modal>
+        </modal_area>`;
 document.addEventListener("DOMContentLoaded", function () {
     if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') !== '1') {
         const overlay = document.getElementById("overlay");
@@ -479,37 +479,4 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
             }
         });
     }
-}
-
-let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
-if (modal_close_btn_img) {
-    for (let i = 0; i < modal_close_btn_img.length; i++) {
-        modal_close_btn_img[i].src = root_path + 'images/cross_white.png';
-    }
-}
-
-function showModal(modal) {
-    const overlay = document.getElementById("overlay");
-    const frame = document.getElementById(modal);
-    overlay.style.display = "block";
-    frame.style.display = "block";
-}
-
-function hideModal(button) {
-    const overlay = document.getElementById("overlay");
-    let frameId;
-    let currentElement = button.parentElement;
-
-    while (currentElement) {
-        if (currentElement.classList.contains('modal_area')) {
-            frameId = currentElement.id;
-            break;
-        }
-        currentElement = currentElement.parentElement;
-    }
-
-    const frame = document.getElementById(frameId);
-    playSound(button);
-    overlay.style.display = "none";
-    frame.style.display = "none";
 }

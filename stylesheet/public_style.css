@@ -152,6 +152,16 @@ header {
     font-size: 30px;
 }
 
+.repository_logo_area {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.repository_logo_img {
+    height: 30px;
+}
+
 /* 主体框架 */
 main {
     height: calc(100% - 44px);
@@ -673,120 +683,6 @@ divider {
     height: 4px;
     width: 100%;
     box-shadow: inset 0 2px #333334, inset 0 -2px #5A5B5C;
-}
-
-/* Modal弹窗 */
-.modal_area {
-    display: none;
-    z-index: 11;
-    position: fixed;
-    width: 90%;
-    min-width: 300px;
-    max-width: 400px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid #1E1E1F;
-}
-
-.modal {
-    background-color: #313233;
-    color: #FFFFFF;
-    justify-content: center;
-    text-align: center;
-}
-
-.modal_title_area {
-    height: 40px;
-    font-size: 18px;
-    position: relative;
-    background-color: #48494A;
-    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
-}
-
-.modal_title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
-
-.modal_close_btn {
-    position: absolute;
-    top: 50%;
-    right: 4px;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100% - 8px);
-    width: 32px;
-}
-
-.modal_close_btn:hover, .modal_close_btn:active {
-    background-color: #58585A;
-}
-
-.modal_close_btn_img {
-    height: 20px;
-    width: 20px;
-}
-
-.modal_content {
-    padding: 10px 10px 10px 10px;
-    min-height: 60px;
-    max-height: 200px;
-    overflow-y: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal_content::-webkit-scrollbar {
-    top: 44px;
-    width: 12px;
-}
-
-.modal_content::-webkit-scrollbar-track {
-    background-color: #58585A;
-    border: 4px solid #313233;
-}
-
-.modal_content::-webkit-scrollbar-thumb {
-    background-color: #E6E8EB;
-    border: 2px solid #000000;
-    box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
-}
-
-.modal_btn_area {
-    background-color: #48494A;
-    border-top: 2px solid #5A5B5C;
-    border-bottom: 2px solid #333334;
-    padding: 2px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal_custom_btn {
-    width: 100%;
-}
-
-.modal_btn_group {
-    width: calc(100% - 20px);
-}
-
-.modal_btns {
-    display: flex;
-    align-items: center;
-}
-
-.modal_btn {
-    width: calc(100% - 10px);
 }
 
 /* Pop弹窗 */
