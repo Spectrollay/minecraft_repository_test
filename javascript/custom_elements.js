@@ -1,3 +1,63 @@
+// 自定义按钮
+class CustomButton extends HTMLElement {
+    constructor() {
+        super();
+        this.render();
+    }
+
+    render() {
+        const data = this.getAttribute('data') || '';
+        const [type, status, size, id, isTip, tip, icon] = data.split('|').map(item => item.trim());
+        this.status = status || 'normal';
+        this.icon = icon || '';
+        const ctype = type || 'default';
+        const csize = size || 'middle';
+        const cid = id || '';
+        const cisTip = isTip === true;
+        const ctip = tip || '';
+        const js = this.getAttribute('js') || 'false';
+        const text = this.getAttribute('text') || '';
+
+        if (ctype === "default") {
+            if (cisTip === true) {
+                this.innerHTML = `
+                        <div class="btn_with_tooltip_cont">
+                            <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
+                            <div class="btn_tooltip">${ctip}</div>
+                            <img alt="" class="tip_icon" src="../images/${icon}.png"/>
+                        </div>
+                    `;
+            } else {
+                this.innerHTML = `
+                        <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
+                    `;
+            }
+        } else {
+            this.classList.add(ctype+"_custom_btn");
+            this.innerHTML = `
+                    <button class="btn ${status}_btn ${ctype}_btn" id="${cid}">${text}</button>
+                `;
+        }
+
+        const button = this.querySelector('button');
+        if (button) {
+            button.addEventListener('click', () => {
+                playSound(button);
+            });
+            if(this.status !== 'disabled'){
+                if (js !== "false") {
+                    button.addEventListener('click', () => {
+                        eval(js);
+                    });
+                }
+            }
+        }
+    }
+}
+
+customElements.define('custom-button', CustomButton);
+
+
 // 自定义Checkbox复选框
 class CustomCheckbox extends HTMLElement {
     constructor() {
@@ -47,6 +107,34 @@ class CustomCheckbox extends HTMLElement {
 }
 
 customElements.define('custom-checkbox', CustomCheckbox);
+
+
+// Modal弹窗
+function showModal(modal) {
+    const overlay = document.getElementById("overlay");
+    const frame = document.getElementById(modal);
+    overlay.style.display = "block";
+    frame.style.display = "block";
+}
+
+function hideModal(button) {
+    const overlay = document.getElementById("overlay");
+    let frameId;
+    let currentElement = button.parentElement;
+
+    while (currentElement) {
+        if (currentElement.tagName.toLowerCase() === 'modal_area') {
+            frameId = currentElement.id;
+            break;
+        }
+        currentElement = currentElement.parentElement;
+    }
+
+    const frame = document.getElementById(frameId);
+    playSound(button);
+    overlay.style.display = "none";
+    frame.style.display = "none";
+}
 
 
 // 自定义Switch开关
@@ -185,93 +273,3 @@ class CustomSwitch extends HTMLElement {
 customElements.define('custom-switch', CustomSwitch);
 
 
-// 自定义按钮
-class CustomButton extends HTMLElement {
-    constructor() {
-        super();
-        this.render();
-    }
-
-    connectedCallback() {
-        this.render();
-    }
-
-    render() {
-        const data = this.getAttribute('data') || '';
-        const [type, status, size, id, isTip, tip, icon] = data.split('|').map(item => item.trim());
-        this.type = type || 'default';
-        this.status = status || 'normal';
-        this.isTip = isTip === 'true';
-        this.tip = tip || '';
-        this.icon = icon || '';
-        const csize = size || 'middle';
-        const cid = id || '';
-        const js = this.getAttribute('js') || 'false';
-        const text = this.getAttribute('text') || '';
-
-        if (type === "default") {
-            if (isTip === "true") {
-                this.innerHTML = `
-                        <div class="btn_with_tooltip_cont">
-                            <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
-                            <div class="btn_tooltip">${tip}</div>
-                            <img alt="" class="tip_icon" src="../images/${icon}.png"/>
-                        </div>
-                    `;
-            } else {
-                this.innerHTML = `
-                        <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
-                    `;
-            }
-        } else {
-            this.classList.add(type+"_custom_btn");
-            this.innerHTML = `
-                    <button class="btn ${status}_btn ${type}_btn" id="${cid}">${text}</button>
-                `;
-        }
-
-        const button = this.querySelector('button');
-        if (button) {
-            button.addEventListener('click', () => {
-                playSound(button);
-            });
-            if(this.status !== 'disabled'){
-                if (js !== "false") {
-                    button.addEventListener('click', () => {
-                        eval(js);
-                    });
-                }
-            }
-        }
-    }
-}
-
-customElements.define('custom-button', CustomButton);
-
-
-// Modal弹窗
-function showModal(modal) {
-    const overlay = document.getElementById("overlay");
-    const frame = document.getElementById(modal);
-    overlay.style.display = "block";
-    frame.style.display = "block";
-}
-
-function hideModal(button) {
-    const overlay = document.getElementById("overlay");
-    let frameId;
-    let currentElement = button.parentElement;
-
-    while (currentElement) {
-        if (currentElement.tagName.toLowerCase() === 'modal_area') {
-            frameId = currentElement.id;
-            break;
-        }
-        currentElement = currentElement.parentElement;
-    }
-
-    const frame = document.getElementById(frameId);
-    playSound(button);
-    overlay.style.display = "none";
-    frame.style.display = "none";
-}

@@ -1,13 +1,13 @@
 // 版本变量
 // TODO 需在每次提交前检查
-const main_version_name = "4.6.2";
-const version_name_short = main_version_name + ".41"; // 例 4.0.0.1
+const main_version_name = "4.6.3";
+const version_name_short = main_version_name + ".46"; // 例 4.0.0.1
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
-const version_type_count = version_type + "15"; // 例 Build1
+const version_type_count = version_type + "1"; // 例 Build1
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = main_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-10-01";
+const update_count = "2024-05-12-01";
 const commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
 const version_info = "<table><tr><td>主版本号: </td><td>" + main_version_name + "</td></tr><tr><td>内部版本号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr></table>";
 
@@ -81,7 +81,7 @@ const tipsWithWeights = [
     },
     {text: "我们保留了一些bug,这样你才知道你在使用的是星月Minecraft版本库.", weight: 2},
     {text: "你知道吗,版本库界面的构建仅花费了两天时间.", weight: 2},
-    {text: "你知道吗,这个项目其实始于2020年.", weight: 2},
+    {text: "你知道吗,这个项目始于2020年.", weight: 2},
     {text: "现在你看到了一条提示.", weight: 2},
     {text: "猜一猜下一条出现的提示是什么?", weight: 2},
     {text: "猜一猜下一次看到这条提示是什么时候?", weight: 2},
@@ -187,7 +187,7 @@ if (holiday_tip2) {
     if (M === 1 && D === 1) {
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "Happy New Year!";
-    } else if (M === 2 && D > 2 && D < 6) { // 02.03
+    } else if (M === 3 && D > 11 && D < 15) { // 03.12
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "版本库" + repository_birthday + "周年纪";
     } else if (M === 5 && D > 16 && D < 20) { //05.17
