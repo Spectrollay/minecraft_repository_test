@@ -8,7 +8,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = main_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-05-13-01";
-let commit = "#2024051302"; //
+let commit = "#2024051303"; //
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
 }

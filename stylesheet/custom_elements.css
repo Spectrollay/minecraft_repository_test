@@ -326,7 +326,7 @@ modal_title_area {
 
 modal_title {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 1px);
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
