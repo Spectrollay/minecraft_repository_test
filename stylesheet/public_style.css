@@ -329,7 +329,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 .header_notice_body, .footer_notice_body {
-    justify-items: center;
+    justify-content: center;
 }
 
 /* 预览提示 */

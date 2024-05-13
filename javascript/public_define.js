@@ -1,14 +1,14 @@
 // 版本变量
 // TODO 需在每次提交前检查
 const main_version_name = "4.6.3";
-const version_name_short = main_version_name + ".47"; // 例 4.0.0.1
+const version_name_short = main_version_name + ".48"; // 例 4.0.0.1
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
-const version_type_count = version_type + "2"; // 例 Build1
+const version_type_count = version_type + "3"; // 例 Build1
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = main_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-13-01";
-let commit = "#2024051303"; //
+const update_count = "2024-05-13-04";
+let commit = "#"; // 2024051303
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
 }

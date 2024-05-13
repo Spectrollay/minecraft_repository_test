@@ -270,7 +270,7 @@ for (let i = 0; i < sliderContent.length; i++) {
 }
 
 // 自适应折叠组件
-window.addEventListener('DOMContentLoaded', function () {
+setTimeout(function () {
     const mainDiv = document.getElementById('main');
     const allMessages = mainDiv.querySelectorAll('.message');
     const threshold = 5; // 初始阈值
@@ -329,4 +329,4 @@ window.addEventListener('DOMContentLoaded', function () {
             updateButtonsVisibility();
         });
     }
-});
+}, 600);
