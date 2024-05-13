@@ -127,14 +127,14 @@
     <div class="main_block setting_block">
         <div class="setting_content">清除存储数据</div>
         <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="jumpToPage('../default/error_default.html');"
+            <custom-button data="setting|red|||false||" js="showModal('clear_storage_warning');"
                            text="清除"></custom-button>
         </div>
     </div>
     <div class="main_block setting_block">
         <div class="setting_content">重载容器环境</div>
         <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="jumpToPage('../default/error_default.html');"
+            <custom-button data="setting|red|||false||" js="showModal('reload_page_warning');"
                            text="重载"></custom-button>
         </div>
     </div>
@@ -221,8 +221,47 @@
         </modal_content>
         <modal_btn_area>
             <modal_btn_group>
-                    <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
+                <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
             </modal_btn_group>
+        </modal_btn_area>
+    </modal>
+</modal_area>
+
+<!--清除数据警告弹窗-->
+<modal_area id="clear_storage_warning">
+    <modal>
+        <modal_title_area>
+            <modal_title style="color: #C02D2D">清除存储数据</modal_title>
+            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                <img alt="" class="modal_close_btn_img" src="">
+            </modal_close_btn>
+        </modal_title_area>
+        <modal_content>
+            <div>清除存储数据为危险功能!<br>这会导致你在本地存储的本站数据全部丢失!<br>非必要请不要运行此功能!</div>
+        </modal_content>
+        <modal_btn_area>
+            <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
+            <custom-button data="modal|red|||false||" js="hideModal(this);clearStorage();mainPage();"
+                           text="我知道我在做什么!"></custom-button>
+        </modal_btn_area>
+    </modal>
+</modal_area>
+
+<!--重载页面警告弹窗-->
+<modal_area id="reload_page_warning">
+    <modal>
+        <modal_title_area>
+            <modal_title>重载容器环境</modal_title>
+            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                <img alt="" class="modal_close_btn_img" src="">
+            </modal_close_btn>
+        </modal_title_area>
+        <modal_content>
+            <div>建议在每次更新版本后运行此功能.<br>这可能可以解决网站的加载异常问题.</div>
+        </modal_content>
+        <modal_btn_area>
+            <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
+            <custom-button data="modal|normal|||false||" js="hideModal(this);reloadPage();" text="继续"></custom-button>
         </modal_btn_area>
     </modal>
 </modal_area>

@@ -106,7 +106,8 @@ const compatibilityModal = `
                 </modal_btn_area>
             </modal>
         </modal_area>`;
-document.addEventListener("DOMContentLoaded", function () {
+
+setTimeout(function () {
     if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') !== '1') {
         const overlay = document.getElementById("overlay");
         const modal = document.getElementById("compatibility_modal");
@@ -114,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "block";
         console.log("显示兼容性提示弹窗");
     }
-});
+}, 100);
 
 function hideCompatibilityModal(button) {
     const overlay = document.getElementById("overlay");
@@ -479,4 +480,18 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
             }
         });
     }
+}
+
+// 清除存储
+function clearStorage() {
+    localStorage.clear();
+    sessionStorage.clear();
+    console.log('清除存储数据成功');
+}
+
+// 重载页面
+function reloadPage() {
+    sessionStorage.clear();
+    location.reload();
+    console.log('重载容器环境成功');
 }

@@ -1,14 +1,17 @@
 // 版本变量
 // TODO 需在每次提交前检查
 const main_version_name = "4.6.3";
-const version_name_short = main_version_name + ".46"; // 例 4.0.0.1
+const version_name_short = main_version_name + ".47"; // 例 4.0.0.1
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
-const version_type_count = version_type + "1"; // 例 Build1
+const version_type_count = version_type + "2"; // 例 Build1
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = main_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-12-01";
-const commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
+const update_count = "2024-05-13-01";
+let commit = "#";
+if (commit === "#") {
+    commit = "#" + update_count.replace(/-/g, ""); // 例 #2024010101
+}
 const version_info = "<table><tr><td>主版本号: </td><td>" + main_version_name + "</td></tr><tr><td>内部版本号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr></table>";
 
 //字符常量
@@ -130,6 +133,9 @@ for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     const value = localStorage.getItem(key);
     console.log("[" + [i + 1] + "]" + " " + key + ': ' + value);
+}
+if (localStorage.length === 0) {
+    console.log("没有数据");
 }
 
 console.log("加载常量和变量完成");
