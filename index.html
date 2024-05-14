@@ -95,11 +95,11 @@
         <div class="main header_notice_body">
             <div class="description2">
                 <div>
-                    <img alt="news" class="no_news" src="./images/NoNews.png">
-                    <div>没有新通知</div>
+                    <div class="title3">消息</div>
+                    <div class="description2">[2024-02-09] 版本库V4正式发布!</div>
                 </div>
                 <div class="btn_group">
-                    <custom-button data="default|normal|small||false||" js="jumpToPage('./default/coming_soon.html');"
+                    <custom-button data="default|normal|small||false||" js="toMessage();"
                                    text="通知中心"></custom-button>
                     <custom-button data="default|normal|small||false||" js="toUpdatelog();"
                                    text="开发日志"></custom-button>
@@ -316,11 +316,19 @@
                     </div>
                 </div>
                 <p>
-                    [1]以上内容根据近年设备架构规律总结, 仅供参考, 可能有部分不符.
-                    你可以使用DevCheck查询你的设备架构以选择合适的版本.</p>
+                    [1]以上内容根据近年设备架构规律总结, 仅供参考, 可能有部分不符. 你可以使用 <a
+                        href="https://play.google.com/store/apps/details?id=flar2.devcheck" onclick="playSound1();"
+                        target="_blank"><img alt="link" class="link_img" src=""/>DevCheck</a> 查询你的设备架构以选择合适的版本.
+                </p>
                 <p>关于Apks: </p>
-                <p>本版本库部分安装包使用了Android App Bundle技术. 使用此技术的安装包后缀名为apks而不是apk.你可以使用MT管理器或Split
-                    APKs Installer(SAI)来安装.</p>
+                <p>本版本库部分安装包使用了
+                    <a href="https://developer.android.com/guide/app-bundle/" onclick="playSound1();" target="_blank">
+                        <img alt="link" class="link_img" src=""/>Android App Bundle技术</a>.
+                    使用此技术的安装包后缀名为apks而不是apk.你可以使用
+                    <a href="https://mt2.cn/" onclick="playSound1();" target="_blank">
+                        <img alt="link" class="link_img" src=""/>MT管理器</a> 或
+                    <a href="https://github.com/Aefyr/SAI" onclick="playSound1();" target="_blank">
+                        <img alt="link" class="link_img" src=""/>Split APKs Installer(SAI)</a>来安装.</p>
             </div>
         </div>
     </div>
