@@ -59,6 +59,16 @@
     <div class="header_right_blank"></div>
 </header>
 <main id="main">
+    <!--  TODO: 移除时一并移除相应样式  -->
+    <div class="main preview_block">
+        <div class="preview_title" id="preview_title"></div>
+        <div class="preview_detail" id="preview_detail1"></div>
+        <div class="preview_detail" id="preview_detail2"></div>
+        <div class="btn_group">
+            <custom-button data="default|normal|small|preview_btn1|false||" js="toUpdatelog();" text=""></custom-button>
+            <custom-button data="default|green|small|preview_btn2|false||" js="toRepo();" text=""></custom-button>
+        </div>
+    </div>
     <div>
         <div class="block">
             <div class="main">
@@ -144,6 +154,11 @@
 </script>
 
 <style>
+    /* TODO: 在移除预览提示块时移除该样式 */
+    .preview_block {
+        border-top: 0;
+    }
+
     .block {
         margin: 20px;
     }
