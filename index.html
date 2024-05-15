@@ -27,13 +27,21 @@
         }
 
         .spinner {
-            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             height: 50px;
         }
 
         #spinner_img {
             width: 50px;
             height: 50px;
+        }
+
+        .spinner_text {
+            color: #FFFFFF;
+            font-size: 20px;
         }
     `;
         document.head.appendChild(loadingMaskStyle);
@@ -46,7 +54,12 @@
 
 <body>
 <div class="loading_mask" id="loading_mask">
-    <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+    <div>
+        <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
+    </div>
 </div>
 <header>
     <div class="header_menu" id="menu" onclick="clickedMenu();">
@@ -491,8 +504,6 @@
 <!--遮罩-->
 <!--除了顶栏-->
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
-<!--全屏-->
-<div class="overlay" id="overlay"></div>
 
 <!--提示弹窗-->
 <modal_area id="alert_modal">
@@ -509,6 +520,7 @@
         </modal_btn_area>
     </modal>
 </modal_area>
+<div class="overlay" id="overlay_alert_modal"></div>
 
 <!--音效-->
 <!--<audio id="click" preload="auto">-->
@@ -557,20 +569,19 @@
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-        // showAlertModal();
+       // showAlertModal();
     });
 
-    // 预览提示弹窗
-    // function showAlertModal() {
-    //     const overlay = document.getElementById("overlay");
-    //     const modal = document.getElementById("alert_modal");
-    //     overlay.style.display = "block";
-    //     modal.style.display = "block";
-    //     console.log("显示提示弹窗");
-    // }
+    function showAlertModal() {
+        const overlay = document.getElementById("overlay_alert_modal");
+        const modal = document.getElementById("alert_modal");
+        overlay.style.display = "block";
+        modal.style.display = "block";
+        console.log("显示提示弹窗");
+    }
 
     function hideAlertModal(button) {
-        const overlay = document.getElementById("overlay");
+        const overlay = document.getElementById("overlay_alert_modal");
         const modal = document.getElementById("alert_modal");
         playSound(button);
         overlay.style.display = "none";

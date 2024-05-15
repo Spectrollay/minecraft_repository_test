@@ -111,14 +111,13 @@ customElements.define('custom-checkbox', CustomCheckbox);
 
 // Modal弹窗
 function showModal(modal) {
-    const overlay = document.getElementById("overlay");
+    const overlay = document.getElementById("overlay_" + modal);
     const frame = document.getElementById(modal);
     overlay.style.display = "block";
     frame.style.display = "block";
 }
 
 function hideModal(button) {
-    const overlay = document.getElementById("overlay");
     let frameId;
     let currentElement = button.parentElement;
 
@@ -130,6 +129,7 @@ function hideModal(button) {
         currentElement = currentElement.parentElement;
     }
 
+    const overlay = document.getElementById("overlay_" + frameId);
     const frame = document.getElementById(frameId);
     playSound(button);
     overlay.style.display = "none";

@@ -8,8 +8,8 @@ const version_type_count = version_type + "4"; // 例 Build1
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-14-02";
-let commit = "#2024051406"; // 例 #2024010101 , 仅留 # 则从 update_count 提取
+const update_count = "2024-05-15-01";
+let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -194,12 +194,12 @@ if (holiday_tip2) {
     if (M === 1 && D === 1) {
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "Happy New Year!";
-    } else if (M === 3 && D > 10 && D < 15) { // 03.12
+    } else if (M === 3 && D > 9 && D < 17) { // 03.12
         holiday_tip2.style.display = 'flex';
-        holiday_tip_display2.innerHTML = "版本库" + repository_birthday + "周年纪";
-    } else if (M === 5 && D > 15 && D < 20) { //05.17
+        holiday_tip_display2.innerHTML = "版本库" + repository_birthday + "周年纪!";
+    } else if (M === 5 && D > 14 && D < 22) { //05.17
         holiday_tip2.style.display = 'flex';
-        holiday_tip_display2.innerHTML = minecraft_birthday + " Years of Minecraft";
+        holiday_tip_display2.innerHTML = minecraft_birthday + " Years of Minecraft!";
     } else if (M === 6 && D === 1) {
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "无论你现在几岁,都要儿童节快乐!";

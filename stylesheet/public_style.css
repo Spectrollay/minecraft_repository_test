@@ -830,6 +830,18 @@ divider {
     display: none;
 }
 
+#clear_storage_warning, #reload_page_warning, #version_info_modal {
+    z-index: 13;
+}
+
+#alert_modal {
+    z-index: 15;
+}
+
+#disclaimer_modal {
+    z-index: 21;
+}
+
 /* Expandable Card */
 .expandable_card {
     text-align: center;

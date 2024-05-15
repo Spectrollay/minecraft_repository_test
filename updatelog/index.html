@@ -28,13 +28,21 @@
         }
 
         .spinner {
-            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             height: 50px;
         }
 
         #spinner_img {
             width: 50px;
             height: 50px;
+        }
+
+        .spinner_text {
+            color: #FFFFFF;
+            font-size: 20px;
         }
     `;
         document.head.appendChild(loadingMaskStyle);
@@ -47,7 +55,12 @@
 
 <body>
 <div class="loading_mask" id="loading_mask">
-    <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+    <div>
+        <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
+    </div>
 </div>
 <header>
     <div class="header_back" id="back" onclick="clickedBack();">
@@ -145,6 +158,29 @@
                     </div>
                     <div class="expandable_card_down_area">
                         <div class="expandable_card_down">
+<!--                            <div class="expandable_card_down_content">-->
+<!--                                <article_block>-->
+<!--                                    <article_title>4.6.3-Canary5(4.6.3.50)</article_title>-->
+<!--                                    <article_date>2024-05-16</article_date>-->
+<!--                                    <article_detail>-->
+<!--                                        <article_note>-->
+<!--                                            Minecraft 15 周年庆典来啦! 本次更新加入了庆典相关内容并完善了一些内容和机制.-->
+<!--                                            玩的开心!-->
+<!--                                        </article_note>-->
+<!--                                        <article_list>加入了 Minecraft 15 周年庆典相关内容</article_list>-->
+<!--                                        <article_list>更新了加载遮罩</article_list>-->
+<!--                                        <article_list>更新了弹窗的显示</article_list>-->
+<!--                                        <article_list_level2>现在可以在一个界面上同时显示多个弹窗了-->
+<!--                                        </article_list_level2>-->
+<!--                                        <article_list_level2>现在弹窗的大小是自适应的了</article_list_level2>-->
+<!--                                        <article_list_level2>不同的弹窗拥有了不同的展示优先级</article_list_level2>-->
+<!--                                        <article_list>优化了弹窗的遮罩</article_list>-->
+<!--                                        <article_list_level2>以匹配上述对弹窗的更改</article_list_level2>-->
+<!--                                        <article_list>对部分代码进行了优化</article_list>-->
+<!--                                    </article_detail>-->
+<!--                                </article_block>-->
+<!--                            </div>-->
+<!--                            <div class="expandable_card_down_br"></div>-->
                             <div class="expandable_card_down_content">
                                 <article_block>
                                     <article_title>4.6.3-Canary4(4.6.3.49)</article_title>
@@ -2473,8 +2509,6 @@
 <!--遮罩-->
 <!--除了顶栏-->
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
-<!--全屏-->
-<div class="overlay" id="overlay"></div>
 
 </body>
 

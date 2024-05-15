@@ -105,11 +105,12 @@ const compatibilityModal = `
                     <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
                 </modal_btn_area>
             </modal>
-        </modal_area>`;
+        </modal_area>
+        <div class="overlay" id="overlay_compatibility_modal"></div>`;
 
 setTimeout(function () {
     if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') !== '1') {
-        const overlay = document.getElementById("overlay");
+        const overlay = document.getElementById("overlay_compatibility_modal");
         const modal = document.getElementById("compatibility_modal");
         overlay.style.display = "block";
         modal.style.display = "block";
@@ -118,7 +119,7 @@ setTimeout(function () {
 }, 100);
 
 function hideCompatibilityModal(button) {
-    const overlay = document.getElementById("overlay");
+    const overlay = document.getElementById("overlay_compatibility_modal");
     const modal = document.getElementById("compatibility_modal");
     playSound(button);
     overlay.style.display = "none";

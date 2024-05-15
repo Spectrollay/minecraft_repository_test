@@ -298,13 +298,26 @@ modal_area {
     display: none;
     z-index: 11;
     position: fixed;
-    width: 90%;
+    width: 60%;
     min-width: 300px;
-    max-width: 400px;
+    max-width: 600px;
+    max-height: 450px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     border: 2px solid #1E1E1F;
+}
+
+#overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_version_info_modal {
+    z-index: 12;
+}
+
+#overlay_alert_modal {
+    z-index: 14;
+}
+
+#overlay_disclaimer_modal {
+    z-index: 20;
 }
 
 modal {
@@ -359,8 +372,7 @@ modal_close_btn:hover, modal_close_btn:active {
 
 modal_content {
     padding: 10px 10px 10px 10px;
-    min-height: 60px;
-    max-height: 200px;
+    flex: 1;
     overflow-y: auto;
     display: flex;
     align-items: center;

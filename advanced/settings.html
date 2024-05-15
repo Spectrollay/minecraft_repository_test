@@ -28,13 +28,21 @@
         }
 
         .spinner {
-            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             height: 50px;
         }
 
         #spinner_img {
             width: 50px;
             height: 50px;
+        }
+
+        .spinner_text {
+            color: #FFFFFF;
+            font-size: 20px;
         }
     `;
         document.head.appendChild(loadingMaskStyle);
@@ -46,7 +54,10 @@
 
 <body>
 <div class="loading_mask" id="loading_mask">
-    <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+    <div>
+        <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+        <div class="spinner"><div class="spinner"><span class="spinner_text">载入中</span></div></div>
+    </div>
 </div>
 <header>
     <div class="header_back" id="back" onclick="clickedBack();">
@@ -204,8 +215,6 @@
 <!--遮罩-->
 <!--除了顶栏-->
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
-<!--全屏-->
-<div class="overlay" id="overlay"></div>
 
 <!--版本信息弹窗-->
 <modal_area id="version_info_modal">
@@ -226,6 +235,7 @@
         </modal_btn_area>
     </modal>
 </modal_area>
+<div class="overlay" id="overlay_version_info_modal"></div>
 
 <!--清除数据警告弹窗-->
 <modal_area id="clear_storage_warning">
@@ -246,6 +256,7 @@
         </modal_btn_area>
     </modal>
 </modal_area>
+<div class="overlay" id="overlay_clear_storage_warning"></div>
 
 <!--重载页面警告弹窗-->
 <modal_area id="reload_page_warning">
@@ -265,6 +276,7 @@
         </modal_btn_area>
     </modal>
 </modal_area>
+<div class="overlay" id="overlay_reload_page_warning"></div>
 
 </body>
 
