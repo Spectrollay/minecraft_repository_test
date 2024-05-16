@@ -506,17 +506,43 @@
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 
 <!--提示弹窗-->
+<!--<modal_area id="alert_modal">-->
+<!--    <modal>-->
+<!--        <modal_title_area>-->
+<!--            <modal_title>提示</modal_title>-->
+<!--        </modal_title_area>-->
+<!--        <modal_content>-->
+<!--            <p>提示文本</p>-->
+<!--        </modal_content>-->
+<!--        <modal_btn_area>-->
+<!--            <custom-button data="modal|red|||false||" js="hideAlertModal(this);" text="我不知道"></custom-button>-->
+<!--            <custom-button data="modal|green|||false||" js="hideAlertModal(this);" text="我知道了"></custom-button>-->
+<!--        </modal_btn_area>-->
+<!--    </modal>-->
+<!--</modal_area>-->
+<!--<div class="overlay" id="overlay_alert_modal"></div>-->
+
+<!--提示弹窗-->
 <modal_area id="alert_modal">
     <modal>
         <modal_title_area>
-            <modal_title>提示</modal_title>
+            <modal_title>Minecraft 15 周年庆典</modal_title>
         </modal_title_area>
         <modal_content>
-            <p>提示文本</p>
+            <div>
+                <img alt="" class="Anniversary15Event" src="./images/Anniversary15Event.png">
+                <p>塑造你的世界
+                <p>
+                <p>从默默无闻到风靡全球，Minecraft 15 周年纪念带给我们喜悦和惊奇的际遇。祝愿我们有更多方块遍布的岁月！</p>
+            </div>
         </modal_content>
         <modal_btn_area>
-            <custom-button data="modal|red|||false||" js="hideAlertModal(this);" text="我不知道"></custom-button>
-            <custom-button data="modal|green|||false||" js="hideAlertModal(this);" text="我知道了"></custom-button>
+            <custom-button data="modal|normal|||false||"
+                           js="hideAlertModal(this);openLink('https://www.minecraft.net/zh-hans/15th-anniversary');"
+                           text='<img alt="link" class="link_img_black" src=""/>查看详情'></custom-button>
+            <custom-button data="modal|normal|||false||"
+                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15EventModalAgain', '1');"
+                           text="继续"></custom-button>
         </modal_btn_area>
     </modal>
 </modal_area>
@@ -568,9 +594,11 @@
         }, 600);
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-       // showAlertModal();
-    });
+    setTimeout(function () {
+        if (!localStorage.getItem('neverShowAnniversary15EventModalAgain') || localStorage.getItem('neverShowAnniversary15EventModalAgain') !== '1') {
+            showAlertModal();
+        }
+    }, 100);
 
     function showAlertModal() {
         const overlay = document.getElementById("overlay_alert_modal");
@@ -598,6 +626,10 @@
     .edition_block:active {
         border: 2px solid #3D3E3F;
         background-color: #3D3E3F;
+    }
+
+    .Anniversary15Event {
+        width: calc(90%);
     }
 </style>
 
