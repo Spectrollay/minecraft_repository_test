@@ -301,7 +301,6 @@ modal_area {
     width: 80%;
     min-width: 300px;
     max-width: 600px;
-    max-height: 450px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -324,7 +323,6 @@ modal {
     display: block;
     background-color: #313233;
     color: #FFFFFF;
-    justify-content: center;
     text-align: center;
 }
 
@@ -372,11 +370,10 @@ modal_close_btn:hover, modal_close_btn:active {
 
 modal_content {
     padding: 10px 10px 10px 10px;
-    flex: 1;
+    display: block;
+    min-height: 60px;
+    max-height: 360px;
     overflow-y: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 modal_content::-webkit-scrollbar {

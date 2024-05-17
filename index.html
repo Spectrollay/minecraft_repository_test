@@ -531,14 +531,13 @@
         <modal_content>
             <div>
                 <img alt="" class="Anniversary15Event" src="./images/Anniversary15Event.png">
-                <p>塑造你的世界
-                <p>
+                <p>塑造你的世界</p>
                 <p>从默默无闻到风靡全球，Minecraft 15 周年纪念带给我们喜悦和惊奇的际遇。祝愿我们有更多方块遍布的岁月！</p>
             </div>
         </modal_content>
         <modal_btn_area>
             <custom-button data="modal|normal|||false||"
-                           js="hideAlertModal(this);openLink('https://www.minecraft.net/zh-hans/15th-anniversary');"
+                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15EventModalAgain', '1');openLink('https://www.minecraft.net/zh-hans/15th-anniversary');"
                            text='<img alt="link" class="link_img_black" src=""/>查看详情'></custom-button>
             <custom-button data="modal|normal|||false||"
                            js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15EventModalAgain', '1');"
@@ -594,11 +593,17 @@
         }, 600);
     });
 
-    setTimeout(function () {
-        if (!localStorage.getItem('neverShowAnniversary15EventModalAgain') || localStorage.getItem('neverShowAnniversary15EventModalAgain') !== '1') {
-            showAlertModal();
-        }
-    }, 100);
+    const date = new Date();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    if (month === 5 && day > 15 && day < 31) {
+        setTimeout(function () {
+            if (!localStorage.getItem('neverShowAnniversary15EventModalAgain') || localStorage.getItem('neverShowAnniversary15EventModalAgain') !== '1') {
+                showAlertModal();
+            }
+        }, 100);
+    }
 
     function showAlertModal() {
         const overlay = document.getElementById("overlay_alert_modal");
@@ -629,7 +634,7 @@
     }
 
     .Anniversary15Event {
-        width: calc(90%);
+        width: calc(85%);
     }
 </style>
 
