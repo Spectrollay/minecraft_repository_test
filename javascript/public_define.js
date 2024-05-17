@@ -9,7 +9,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-05-17-03"; // TODO 小版本
-let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取
+let commit = "#2024051704"; // 例 #2024010101 , 仅留 # 则从 update_count 提取
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
