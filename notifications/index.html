@@ -55,16 +55,18 @@
 <body>
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src=""></div>
-        <div class="spinner"><div class="spinner"><span class="spinner_text">载入中</span></div></div>
+        <div class="spinner"><img alt="" id="spinner_img" src=""/></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
     </div>
 </div>
 <header>
     <div class="header_back" id="back" onclick="clickedBack();">
-        <img alt="Back" class="back_icon" id="back_icon" src="">
+        <img alt="Back" class="back_icon" id="back_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="../images/Messages.png">
+        <img alt="Title Icon" class="title_icon" src="../images/Messages.png"/>
         <span class="header_title">Messages</span>
     </div>
     <div class="header_right_blank"></div>
@@ -85,17 +87,43 @@
             <div class="main">
                 <div class="title1">消息中心</div>
             </div>
-<!--            <div class="main message">-->
-<!--                <article_block>-->
-<!--                    <article_title>Minecraft 15 周年庆典!</article_title>-->
-<!--                    <article_date>2024-05-17</article_date>-->
-<!--                    <article_detail>-->
-<!--                        <p></p>-->
-<!--                    </article_detail>-->
-<!--                </article_block>-->
-<!--            </div>-->
             <div class="main message">
-                <article_block>
+                <article_block id="message_2">
+                    <article_title>Minecraft 15 周年庆典!</article_title>
+                    <article_date>2024-05-17</article_date>
+                    <article_detail>
+                        <p>1. 周年庆大促</p>
+                        <div class="article_image"><img alt="" src="../images/event/Anniversary15/Sale.png"/></div>
+                        <p>在5月15日至6月22日期间, 快来获取 Minecraft / Minecraft Dungeons / Minecraft Legends 等内容,
+                            折扣高达50%. 你想要建造一件艺术品, 与朋友并肩作战, 拯救主世界, 还是三者兼而有之?</p>
+                        <p><a href="https://www.minecraft.net/" onclick="playSound1();"
+                              target="_blank">前往官方网站购买</a></p>
+                        <p>2. Minecraft 15天</p>
+                        <div class="article_image">
+                            <img alt="" src="../images/event/Anniversary15/DressingRoom.png"/>
+                        </div>
+                        <p>获取持续发放15天的免费角色道具, 庆祝 Minecraft 15周年纪念! 在5月15日至29日期间, 每日均可在
+                            Minecraft 基岩版更衣室领取礼物.</p>
+                        <p>3. TikTok 15天</p>
+                        <div class="article_image">
+                            <img alt="" src="../images/event/Anniversary15/TikTok.jpg" style="height: 220px; width: unset"/>
+                        </div>
+                        <p><a href="https://www.minecraft.net/en-us/redeem" onclick="playSound1();"
+                              target="_blank">在这里</a>收集你的独家 TikTok 15天 Minecraft 角色创建器物品!</p>
+                        <p>请在6月1日前完成任务并兑换</p>
+                        <p>4. Twitch 15天</p>
+                        <div class="article_image">
+                            <img alt="" src="../images/event/Anniversary15/Twitch.jpg" style="height: 220px; width: unset"/>
+                        </div>
+                        <p><a href="https://www.minecraft.net/en-us/redeem" onclick="playSound1();"
+                              target="_blank">在这里</a>收集你的独家 Twitch 15天 Minecraft 观看时长任务的紫心披风和支持主播的故障面具!</p>
+                        <p>请在6月1日前完成任务并兑换</p>
+                        <p>5. 持续更新中..</p>
+                    </article_detail>
+                </article_block>
+            </div>
+            <div class="main message">
+                <article_block id="message_1">
                     <article_title>版本库V4正式发布!</article_title>
                     <article_date>2024-02-09</article_date>
                     <article_detail>
@@ -111,7 +139,7 @@
                         <p>诚然, 如版本库首页所言, 我们深知这个版本库还很不尽人意, 界面简陋, 功能稀少, 甚至可能还有一堆的问题.
                             相较于版本库V3缺少了些许内容. 因此我们仍在不断地完善改进它, 希望能给每一个使用版本库的你,
                             带来更好的体验. 版本库V4的发布, 不代表开发的告一段落, 而是一个新的开始.</p>
-                        <p>那么, 新的一年, 让我们一起好好加油吧.</p>
+                        <p>那么, 新的一年, 让我们一起好好加油吧. 在这里也祝大家龙年大吉!</p>
                     </article_detail>
                 </article_block>
             </div>
@@ -185,6 +213,15 @@
         margin: 0;
         padding: 10px 20px;
         min-height: 60px;
+    }
+
+    .article_image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .article_image img {
+        width: calc(min(80%, 450px));
     }
 </style>
 

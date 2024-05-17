@@ -55,7 +55,7 @@
 <body>
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src=""></div>
+        <div class="spinner"><img alt="" id="spinner_img" src=""/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -63,14 +63,14 @@
 </div>
 <header>
     <div class="header_menu" id="menu" onclick="clickedMenu();">
-        <img alt="" class="menu_icon" id="menu_icon" src="">
+        <img alt="" class="menu_icon" id="menu_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="./images/Logo.jpg">
+        <img alt="Title Icon" class="title_icon" src="./images/Logo.jpg"/>
         <span class="header_title">Repository</span>
     </div>
     <div class="header_settings" id="settings" onclick="playSound(this);settingsPage();">
-        <img alt="" class="settings_icon" src="./images/Settings.png">
+        <img alt="" class="settings_icon" src="./images/Settings.png"/>
     </div>
 </header>
 <main id="main">
@@ -107,10 +107,35 @@
         </div>
         <div class="main header_notice_body">
             <div class="description2">
-                <div>
-                    <div class="title3">消息</div>
-                    <div class="description2">[2024-02-09] 版本库V4正式发布!</div>
-                </div>
+                <table class="notice_table">
+                    <tr>
+                        <th colspan="2">
+                            <div class="title3">消息</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="left_table">
+                            <div class="description2">[2024-05-17]</div>
+                        </td>
+                        <td class="right_table">
+                            <div class="description2">
+                                <a href="javascript:void(0);"
+                                onclick="jumpToPage('./notifications/#message_2');">Minecraft 15 周年庆典!</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left_table">
+                            <div class="description2">[2024-02-09]</div>
+                        </td>
+                        <td class="right_table">
+                            <div class="description2">
+                                <a href="javascript:void(0);"
+                                   onclick="jumpToPage('./notifications/#message_1');">版本库V4正式发布!</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
                 <div class="btn_group">
                     <custom-button data="default|normal|small||false||" js="toMessage();"
                                    text="消息中心"></custom-button>
@@ -462,7 +487,7 @@
             <div class="title3">友情链接</div>
             <div class="description2">
                 <div>
-                    <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png">
+                    <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png"/>
                     <div>即将到来</div>
                 </div>
             </div>
@@ -511,7 +536,7 @@
 <!--        <modal_title_area>-->
 <!--            <modal_title>提示</modal_title>-->
 <!--<modal_close_btn class="close_btn" onclick="hideModal(this);">-->
-<!--    <img alt="" class="modal_close_btn_img" src="">-->
+<!--    <img alt="" class="modal_close_btn_img" src=""/>-->
 <!--</modal_close_btn>-->
 <!--        </modal_title_area>-->
 <!--        <modal_content>-->
@@ -531,12 +556,12 @@
         <modal_title_area>
             <modal_title>Minecraft 15 周年庆典</modal_title>
             <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                <img alt="" class="modal_close_btn_img" src="">
+                <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
         <modal_content>
             <div>
-                <img alt="" class="Anniversary15Event" src="./images/Anniversary15Event.png">
+                <img alt="" class="Anniversary15Event" src="images/event/Anniversary15/Event.png"/>
                 <p>塑造你的世界</p>
                 <p>从默默无闻到风靡全球，Minecraft 15 周年纪念带给我们喜悦和惊奇的际遇。祝愿我们有更多方块遍布的岁月！</p>
             </div>
@@ -639,8 +664,28 @@
         background-color: #3D3E3F;
     }
 
+    .notice_table {
+        width: auto;
+    }
+
+    .notice_table, .notice_table th, .notice_table td {
+        border: 0;
+    }
+
+    .notice_table td {
+        height: 25px;
+    }
+
+    .notice_table .left_table {
+        text-align: right;
+    }
+
+    .notice_table .right_table {
+        text-align: left;
+    }
+
     .Anniversary15Event {
-        width: calc(80%);
+        width: calc(min(80%, 350px));
     }
 </style>
 

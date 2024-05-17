@@ -82,7 +82,7 @@ class CustomCheckbox extends HTMLElement {
 
         this.innerHTML = `
             <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
-                <img src="../images/check_white.png" alt="" class="checkmark">
+                <img src="../images/check_white.png" alt="" class="checkmark"/>
             </div>
         `;
     }
@@ -154,8 +154,8 @@ class CustomSwitch extends HTMLElement {
         this.innerHTML = `
             <div class="switch_content">
                 <div class="switch ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled_switch' : 'normal_switch'}">
-                    <div class="switch_style left"><img alt="" src="../images/switch_on.png"></div>
-                    <div class="switch_style right"><img alt="" src="../images/switch_off.png"></div>
+                    <div class="switch_style left"><img alt="" src="../images/switch_on.png"/></div>
+                    <div class="switch_style right"><img alt="" src="../images/switch_off.png"/></div>
                     <div class="switch_slider can_click"></div>
                 </div>
             </div>
