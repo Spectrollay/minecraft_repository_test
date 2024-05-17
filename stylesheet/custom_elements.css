@@ -300,7 +300,7 @@ modal_area {
     position: fixed;
     width: 80%;
     min-width: 300px;
-    max-width: calc(min(600px, 80vw));
+    max-width: calc(min(600px, 90vw));
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
