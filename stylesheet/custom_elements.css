@@ -298,7 +298,7 @@ modal_area {
     display: none;
     z-index: 11;
     position: fixed;
-    min-width: 300px;
+    min-width: 320px;
     max-width: calc(min(600px, 90vw));
     left: 50%;
     top: 50%;
