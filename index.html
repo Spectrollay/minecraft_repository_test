@@ -559,25 +559,24 @@
 <modal_area id="alert_modal">
     <modal>
         <modal_title_area>
-            <modal_title>Minecraft 15 周年庆典</modal_title>
+            <modal_title>你的 15 周年纪念披风</modal_title>
             <modal_close_btn class="close_btn" onclick="hideModal(this);">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
         <modal_content>
             <div>
-                <img alt="" class="Anniversary15Event" src="images/event/Anniversary15/Event.png"/>
-                <p>塑造你的世界</p>
-                <p>从默默无闻到风靡全球，Minecraft 15 周年纪念带给我们喜悦和惊奇的际遇。祝愿我们有更多方块遍布的岁月！</p>
+                <img alt="" class="Anniversary15Event" src="images/event/Anniversary15/CapeModal.png"/>
+                <p>领取你的专属周年纪念披风，在下一次冒险或最喜欢的服务器上穿戴起来。这是你的了，所以随心所欲地炫耀吧！只是不要发出任何嘶嘶声，否则可能会吓到某个人。快快前往兑换页面来获取自己的披风。</p>
             </div>
         </modal_content>
         <modal_btn_area>
             <custom-button data="modal|normal|||false||"
-                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15EventModalAgain', '1');openLink('https://www.minecraft.net/zh-hans/15th-anniversary');"
-                           text='<img alt="link" class="link_img_black" src=""/>查看详情'></custom-button>
-            <custom-button data="modal|normal|||false||"
-                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15EventModalAgain', '1');"
+                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15CapeModalAgain', '1');"
                            text="继续"></custom-button>
+            <custom-button data="modal|green|||false||"
+                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15CapeModalAgain', '1');openLink('https://www.minecraft.net/zh-hans/15th-anniversary');"
+                           text='<img alt="link" class="link_img" src=""/>获取披风'></custom-button>
         </modal_btn_area>
     </modal>
 </modal_area>
