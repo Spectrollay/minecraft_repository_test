@@ -634,7 +634,7 @@
 
     if (month === 5 && day > 15 && day < 31) {
         setTimeout(function () {
-            if (!localStorage.getItem('neverShowAnniversary15EventModalAgain') || localStorage.getItem('neverShowAnniversary15EventModalAgain') !== '1') {
+            if (!localStorage.getItem('neverShowAnniversary15CapeModalAgain') || localStorage.getItem('neverShowAnniversary15CapeModalAgain') !== '1') {
                 showAlertModal();
             }
         }, 100);
