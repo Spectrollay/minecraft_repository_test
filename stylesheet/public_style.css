@@ -781,17 +781,23 @@ divider {
 }
 
 .sidebar_btn {
+    height: 40px;
     width: 140px;
+    margin: 6px;
     background-color: #48494A;
     color: #FFFFFF;
     border: 2px solid #131313;
     box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E;
+    padding-bottom: 2px;
 }
 
 .sidebar_btn:hover, .sidebar_btn:active {
+    height: 40px;
+    margin: 6px;
     background-color: #67686A;
     border: 2px solid #FFFFFF;
     box-shadow: unset;
+    padding-bottom: 2px;
 }
 
 /* 侧边栏滚动条 */
