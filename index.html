@@ -489,6 +489,11 @@
             </div>
         </div>
         <div class="main footer_notice_body">
+            <div class="title3">特别鸣谢</div>
+            <div class="description2">
+            </div>
+        </div>
+        <div class="main footer_notice_body">
             <div class="title3">友情链接</div>
             <div class="description2">
                 <div>
@@ -536,13 +541,14 @@
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 
 <!--提示弹窗-->
-<!--<modal_area id="alert_modal">-->
+<!--<div class="overlay" id="overlay_alert_modal" tabindex="-1"></div>-->
+<!--<modal_area id="alert_modal" tabindex="-1">-->
 <!--    <modal>-->
 <!--        <modal_title_area>-->
 <!--            <modal_title>提示</modal_title>-->
-<!--<modal_close_btn class="close_btn" onclick="hideModal(this);">-->
-<!--    <img alt="" class="modal_close_btn_img" src=""/>-->
-<!--</modal_close_btn>-->
+<!--            <modal_close_btn class="close_btn" onclick="hideModal(this);" tabindex="0">-->
+<!--                <img alt="" class="modal_close_btn_img" src=""/>-->
+<!--            </modal_close_btn>-->
 <!--        </modal_title_area>-->
 <!--        <modal_content>-->
 <!--            <p>提示文本</p>-->
@@ -553,14 +559,14 @@
 <!--        </modal_btn_area>-->
 <!--    </modal>-->
 <!--</modal_area>-->
-<!--<div class="overlay" id="overlay_alert_modal"></div>-->
 
 <!--提示弹窗-->
-<modal_area id="alert_modal">
+<div class="overlay" id="overlay_alert_modal" tabindex="-1"></div>
+<modal_area id="alert_modal" tabindex="-1">
     <modal>
         <modal_title_area>
             <modal_title>你的 15 周年纪念披风</modal_title>
-            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+            <modal_close_btn class="close_btn" onclick="hideModal(this);" tabindex="0">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
@@ -580,7 +586,6 @@
         </modal_btn_area>
     </modal>
 </modal_area>
-<div class="overlay" id="overlay_alert_modal"></div>
 
 <!--音效-->
 <!--<audio id="click" preload="auto">-->

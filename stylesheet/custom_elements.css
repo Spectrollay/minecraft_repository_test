@@ -304,6 +304,7 @@ modal_area {
     top: 50%;
     transform: translate(-50%, -50%);
     border: 2px solid #1E1E1F;
+    outline: none;
 }
 
 #overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_version_info_modal {

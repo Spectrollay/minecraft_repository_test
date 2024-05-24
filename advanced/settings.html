@@ -210,6 +210,10 @@
                            text="打开"></custom-button>
         </div>
     </div>
+    <div class="main_block setting_block">
+        <div class="setting_content">特别鸣谢</div>
+        <div class="setting_control_right"></div>
+    </div>
 </main>
 
 <!--遮罩-->
@@ -217,11 +221,12 @@
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 
 <!--版本信息弹窗-->
-<modal_area id="version_info_modal">
+<div class="overlay" id="overlay_version_info_modal" tabindex="-1"></div>
+<modal_area id="version_info_modal" tabindex="-1">
     <modal>
         <modal_title_area>
             <modal_title>版本信息</modal_title>
-            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+            <modal_close_btn class="close_btn" onclick="hideModal(this);" tabindex="0">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
@@ -235,14 +240,14 @@
         </modal_btn_area>
     </modal>
 </modal_area>
-<div class="overlay" id="overlay_version_info_modal"></div>
 
 <!--清除数据警告弹窗-->
-<modal_area id="clear_storage_warning">
+<div class="overlay" id="overlay_clear_storage_warning" tabindex="-1"></div>
+<modal_area id="clear_storage_warning" tabindex="-1">
     <modal>
         <modal_title_area>
             <modal_title style="color: #C02D2D">清除存储数据</modal_title>
-            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+            <modal_close_btn class="close_btn" onclick="hideModal(this);" tabindex="0">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
@@ -256,14 +261,14 @@
         </modal_btn_area>
     </modal>
 </modal_area>
-<div class="overlay" id="overlay_clear_storage_warning"></div>
 
 <!--重载页面警告弹窗-->
-<modal_area id="reload_page_warning">
+<div class="overlay" id="overlay_reload_page_warning" tabindex="-1"></div>
+<modal_area id="reload_page_warning" tabindex="-1">
     <modal>
         <modal_title_area>
             <modal_title>重载容器环境</modal_title>
-            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+            <modal_close_btn class="close_btn" onclick="hideModal(this);" tabindex="0">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
@@ -276,7 +281,6 @@
         </modal_btn_area>
     </modal>
 </modal_area>
-<div class="overlay" id="overlay_reload_page_warning"></div>
 
 </body>
 

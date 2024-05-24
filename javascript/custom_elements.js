@@ -33,7 +33,7 @@ class CustomButton extends HTMLElement {
                     `;
             }
         } else {
-            this.classList.add(ctype+"_custom_btn");
+            this.classList.add(ctype + "_custom_btn");
             this.innerHTML = `
                     <button class="btn ${status}_btn ${ctype}_btn" id="${cid}">${text}</button>
                 `;
@@ -44,7 +44,7 @@ class CustomButton extends HTMLElement {
             button.addEventListener('click', () => {
                 playSound(button);
             });
-            if(this.status !== 'disabled'){
+            if (this.status !== 'disabled') {
                 if (js !== "false") {
                     button.addEventListener('click', () => {
                         eval(js);
@@ -110,6 +110,42 @@ customElements.define('custom-checkbox', CustomCheckbox);
 
 
 // Modal弹窗
+setTimeout(function () {
+const modals = document.querySelectorAll('modal');
+if (modals) {
+    modals.forEach((modal) => {
+        const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+        let focusableElements = modal.querySelectorAll(focusableElementsString);
+        focusableElements = Array.prototype.slice.call(focusableElements);
+
+        const firstTabStop = focusableElements[0];
+        const lastTabStop = focusableElements[focusableElements.length - 1];
+
+        modal.addEventListener('keydown', function (e) {
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    // Shift + Tab
+                    if (document.activeElement === firstTabStop) {
+                        e.preventDefault();
+                        lastTabStop.focus();
+                    }
+                } else {
+                    // Tab
+                    if (document.activeElement === lastTabStop) {
+                        e.preventDefault();
+                        firstTabStop.focus();
+                    }
+                }
+            }
+        });
+        // 聚焦模态框内的第一个可聚焦元素
+        modal.addEventListener('shown.modal', function () {
+            firstTabStop.focus();
+        });
+    });
+}
+}, 100);
+
 function showModal(modal) {
     const overlay = document.getElementById("overlay_" + modal);
     const frame = document.getElementById(modal);

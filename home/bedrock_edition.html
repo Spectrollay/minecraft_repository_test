@@ -1163,11 +1163,12 @@
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 
 <!--免责申明弹窗-->
-<modal_area id="disclaimer_modal">
+<div class="overlay" id="overlay_disclaimer_modal" tabindex="-1"></div>
+<modal_area id="disclaimer_modal" tabindex="-1">
     <modal>
         <modal_title_area>
             <modal_title>温馨提示</modal_title>
-            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+            <modal_close_btn class="close_btn" onclick="hideModal(this);" tabindex="0">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
@@ -1190,7 +1191,6 @@
         </modal_btn_area>
     </modal>
 </modal_area>
-<div class="overlay" id="overlay_disclaimer_modal"></div>
 
 </body>
 

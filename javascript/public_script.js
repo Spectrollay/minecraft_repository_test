@@ -91,7 +91,8 @@ links.forEach(function (link) {
 
 // 兼容性检测
 const compatibilityModal = `
-        <modal_area id="compatibility_modal">
+        <div class="overlay" id="overlay_compatibility_modal" tabindex="-1"></div>
+        <modal_area id="compatibility_modal" tabindex="-1">
             <modal>
                 <modal_title_area>
                     <modal_title>兼容性提示</modal_title>
@@ -105,8 +106,7 @@ const compatibilityModal = `
                     <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
                 </modal_btn_area>
             </modal>
-        </modal_area>
-        <div class="overlay" id="overlay_compatibility_modal"></div>`;
+        </modal_area>`;
 
 setTimeout(function () {
     if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') !== '1') {
