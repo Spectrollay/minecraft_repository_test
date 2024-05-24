@@ -49,7 +49,7 @@ article_list:before {
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
-    background-color: #FFFFFF !important;
+    background-color: #FFFFFF;
     border-radius: 50%;
 }
 
@@ -68,7 +68,7 @@ article_list_level2:before {
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
-    background-color: #FFFFFF !important;
+    background-color: #FFFFFF;
     border-radius: 50%;
 }
 
@@ -87,7 +87,7 @@ article_list_level3:before {
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
-    background-color: #FFFFFF !important;
+    background-color: #FFFFFF;
     border-radius: 50%;
 }
 
@@ -113,74 +113,74 @@ article_list_level3:before {
 }
 
 .normal_btn {
-    background-color: #D0D1D4 !important;
-    color: #000000 !important;
+    background-color: #D0D1D4;
+    color: #000000;
     padding-bottom: 6px;
-    border: 2px solid #1E1E1F !important;
-    box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.6), inset -3px -7px rgba(255, 255, 255, 0.4) !important;
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.6), inset -3px -7px rgba(255, 255, 255, 0.4);
 }
 
 .normal_btn:hover {
-    background-color: #B1B2B5 !important;
-    box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -7px rgba(255, 255, 255, 0.6) !important;
+    background-color: #B1B2B5;
+    box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -7px rgba(255, 255, 255, 0.6);
 }
 
 .normal_btn:active {
     margin-top: 10px;
     height: 36px;
     padding-bottom: 2px;
-    background-color: #B1B2B5 !important;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -3px rgba(255, 255, 255, 0.6) !important;
+    background-color: #B1B2B5;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -3px rgba(255, 255, 255, 0.6);
 }
 
 .green_btn {
-    background-color: #3C8527; !important
-    color: #FFFFFF !important;
+    background-color: #3C8527;
+    color: #FFFFFF;
     padding-bottom: 6px;
-    border: 2px solid #1E1E1F !important;
-    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
 }
 
 .green_btn:hover {
-    background-color: #2A641C !important;
-    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -7px rgba(255, 255, 255, 0.3) !important;
+    background-color: #2A641C;
+    box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -7px rgba(255, 255, 255, 0.3);
 }
 
 .green_btn:active {
     margin-top: 10px;
     height: 36px;
     padding-bottom: 2px;
-    background-color: #1D4D13 !important;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -3px rgba(255, 255, 255, 0.3) !important;
+    background-color: #1D4D13;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -3px rgba(255, 255, 255, 0.3);
 }
 
 .red_btn {
-    background-color: #C33636 !important;
-    color: #FFFFFF !important;
+    background-color: #C33636;
+    color: #FFFFFF;
     padding-bottom: 6px;
-    border: 2px solid #1E1E1F !important;
-    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
 }
 
 .red_btn:hover {
-    background-color: #C02D2D !important;
-    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -7px rgba(255, 255, 255, 0.4) !important;
+    background-color: #C02D2D;
+    box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -7px rgba(255, 255, 255, 0.4);
 }
 
 .red_btn:active {
     margin-top: 10px;
     height: 36px;
     padding-bottom: 2px;
-    background-color: #AD1D1D !important;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -3px rgba(255, 255, 255, 0.4) !important;
+    background-color: #AD1D1D;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -3px rgba(255, 255, 255, 0.4);
 }
 
 .disabled_btn {
-    background-color: #D0D1D4 !important;
-    color: #48494A !important;
+    background-color: #D0D1D4;
+    color: #48494A;
     padding-bottom: 6px;
-    border: 2px solid #8C8D90 !important;
-    box-shadow: inset 0 -4px #B1B2B5 !important;
+    border: 2px solid #8C8D90;
+    box-shadow: inset 0 -4px #B1B2B5;
 }
 
 /* 带有图标的按钮 */
@@ -230,41 +230,41 @@ article_list_level3:before {
     display: inline-block;
     width: 20px;
     height: 20px;
-    background-color: #8C8D90 !important;
-    border: 2px solid #1E1E1F !important;
-    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1) !important;
+    background-color: #8C8D90;
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
     position: relative;
 }
 
 .custom-checkbox:hover {
-    background-color: #B1B2B5 !important;
+    background-color: #B1B2B5;
 }
 
 .custom-checkbox:active {
-    background-color: #58585A !important;
+    background-color: #58585A;
 }
 
 .custom-checkbox.on {
-    background-color: #3C8527 !important;
+    background-color: #3C8527;
 }
 
 .custom-checkbox.on:hover {
-    background-color: #2A641C !important;
+    background-color: #2A641C;
 }
 
 .custom-checkbox.on:active {
-    background-color: #1D4D13 !important;
+    background-color: #1D4D13;
 }
 
 .custom-checkbox.disabled {
-    background-color: #D0D1D4 !important;
-    border: 2px solid #8C8D90 !important;
+    background-color: #D0D1D4;
+    border: 2px solid #8C8D90;
     box-shadow: none;
 }
 
 .custom-checkbox.disabled:hover, .custom-checkbox.disabled:active {
-    background-color: #D0D1D4 !important;
-    border: 2px solid #8C8D90 !important;
+    background-color: #D0D1D4;
+    border: 2px solid #8C8D90;
     box-shadow: none;
 }
 
@@ -303,7 +303,7 @@ modal_area {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid #1E1E1F !important;
+    border: 2px solid #1E1E1F;
     outline: none;
 }
 
@@ -321,8 +321,8 @@ modal_area {
 
 modal {
     display: block;
-    background-color: #313233 !important;
-    color: #FFFFFF !important;
+    background-color: #313233;
+    color: #FFFFFF;
     text-align: center;
 }
 
@@ -331,8 +331,8 @@ modal_title_area {
     height: 40px;
     font-size: 18px;
     position: relative;
-    background-color: #48494A !important;
-    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1) !important;
+    background-color: #48494A;
+    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
 }
 
 modal_title {
@@ -360,7 +360,7 @@ modal_close_btn {
 }
 
 modal_close_btn:hover, modal_close_btn:active {
-    background-color: #58585A !important;
+    background-color: #58585A;
 }
 
 .modal_close_btn_img {
@@ -382,20 +382,20 @@ modal_content::-webkit-scrollbar {
 }
 
 modal_content::-webkit-scrollbar-track {
-    background-color: #58585A !important;
-    border: 4px solid #313233 !important;
+    background-color: #58585A;
+    border: 4px solid #313233;
 }
 
 modal_content::-webkit-scrollbar-thumb {
-    background-color: #E6E8EB !important;
-    border: 2px solid #000000 !important;
-    box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA !important;
+    background-color: #E6E8EB;
+    border: 2px solid #000000;
+    box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
 }
 
 modal_btn_area {
-    background-color: #48494A !important;
-    border-top: 2px solid #5A5B5C !important;
-    border-bottom: 2px solid #333334 !important;
+    background-color: #48494A;
+    border-top: 2px solid #5A5B5C;
+    border-bottom: 2px solid #333334;
     padding: 2px 0;
     display: flex;
     align-items: center;
@@ -433,14 +433,14 @@ modal_btn_list {
 }
 
 .normal_switch {
-    border: 2px solid #1E1E1F !important;
-    background: linear-gradient(to right, #3C8527 50%, #8C8D90 50%) !important; /* 左半部分绿色，右半部分灰色 */
-    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid #1E1E1F;
+    background: linear-gradient(to right, #3C8527 50%, #8C8D90 50%); /* 左半部分绿色，右半部分灰色 */
+    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
 }
 
 .disabled_switch {
-    border: 2px solid #8C8D90 !important;
-    background: #D0D1D4 !important;
+    border: 2px solid #8C8D90;
+    background: #D0D1D4;
 }
 
 .switch_style {
@@ -510,23 +510,23 @@ modal_btn_list {
     width: 28px;
     height: 28px;
     z-index: 1;
-    background-color: #D0D1D4 !important;
+    background-color: #D0D1D4;
     transition: left 125ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .normal_switch .switch_slider {
-    border: 2px solid #1E1E1F !important;
-    box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4) !important;
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
 }
 
 .disabled_switch .switch_slider {
-    border: 2px solid #8C8D90 !important;
-    box-shadow: inset 0 -4px #B1B2B5 !important;
+    border: 2px solid #8C8D90;
+    box-shadow: inset 0 -4px #B1B2B5;
 }
 
 .normal_switch .switch_slider:hover, .normal_switch .switch_slider:active, .normal_switch .switch:hover .switch_slider, .normal_switch .switch_slider.active {
-    background-color: #B1B2B5 !important;
-    box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.8), inset -2px -6px rgba(255, 255, 255, 0.6) !important;
+    background-color: #B1B2B5;
+    box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.8), inset -2px -6px rgba(255, 255, 255, 0.6);
 }
 
 .switch.on .switch_slider {

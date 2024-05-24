@@ -9,12 +9,6 @@
     }
 }
 
-img {
-    filter: invert(0) !important;
-    background: none !important;
-    mix-blend-mode: normal !important;
-}
-
 /* 自定义字体 */
 @font-face {
     font-family: 'Minecraft Ten';
@@ -86,8 +80,8 @@ header {
     align-items: center;
     min-width: 360px;
     height: 40px;
-    background-color: #E6E8EB !important;
-    border-bottom: 4px solid #B1B2B5 !important;
+    background-color: #E6E8EB;
+    border-bottom: 4px solid #B1B2B5;
     z-index: 9;
 }
 
@@ -100,25 +94,25 @@ header {
 }
 
 .header_menu:hover, .header_back:hover, .header_repo:hover, .header_debug:hover, .header_settings:hover {
-    background-color: #F4F6F9 !important;
+    background-color: #F4F6F9;
 }
 
 .header_menu:active, .header_back:active, .header_repo:active, .header_debug:active, .header_settings:active {
-    background-color: #D0D1D4 !important;
+    background-color: #D0D1D4;
 }
 
 /* 顶栏左侧按钮 */
 .header_menu, .header_back {
     width: 42px;
-    box-shadow: inset -2px 0 #FFFFFF !important;
-    border-right: 2px solid #A1A3A5 !important;
+    box-shadow: inset -2px 0 #FFFFFF;
+    border-right: 2px solid #A1A3A5;
 }
 
 /* 顶栏右侧按钮 */
 .header_repo, .header_debug, .header_settings {
     width: 42px;
-    box-shadow: inset 2px 0 #A1A3A5 !important;
-    border-left: 2px solid #FFFFFF !important;
+    box-shadow: inset 2px 0 #A1A3A5;
+    border-left: 2px solid #FFFFFF;
 }
 
 .header_right_blank {
@@ -178,7 +172,7 @@ main {
     top: 44px;
     width: 100%;
     min-width: 360px;
-    color: #FFFFFF !important;
+    color: #FFFFFF;
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
@@ -192,14 +186,14 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-    background-color: #58585A !important;
-    border: 5px solid #48494A !important;
+    background-color: #58585A;
+    border: 5px solid #48494A;
 }
 
 main::-webkit-scrollbar-thumb {
-    background-color: #E6E8EB !important;
-    border: 2px solid #000000 !important;
-    box-shadow: inset 0 -4px #58585A, inset 0 -7px #F9FAFA, inset 3px 3px #F9FAFA, inset -3px 0 #F9FAFA !important;
+    background-color: #E6E8EB;
+    border: 2px solid #000000;
+    box-shadow: inset 0 -4px #58585A, inset 0 -7px #F9FAFA, inset 3px 3px #F9FAFA, inset -3px 0 #F9FAFA;
 }
 
 /* Tab Bar组件 */
@@ -236,26 +230,26 @@ main::-webkit-scrollbar-thumb {
     flex: 1;
     height: 40px;
     justify-self: center;
-    color: white !important;
-    background-color: #48494A !important;
+    color: white;
+    background-color: #48494A;
     transition: background-color 0.3s;
     padding-bottom: 6px;
-    border: 2px solid #1E1E1F !important;
-    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid #1E1E1F;
+    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
     position: relative;
 }
 
 .tab_bar_btn:hover {
-    background-color: #58585A !important;
-    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1) !important;
+    background-color: #58585A;
+    box-shadow: inset 0 -4px #313233, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
 }
 
 .tab_bar_btn:active {
     margin-top: 4px;
     height: 36px;
     padding-bottom: 2px;
-    background-color: #313233 !important;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1) !important;
+    background-color: #313233;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1);
 }
 
 .tab_bar_btn::after {
@@ -263,7 +257,7 @@ main::-webkit-scrollbar-thumb {
     position: absolute;
     width: 20%;
     height: 3px;
-    background-color: #FFFFFF !important;
+    background-color: white;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) scaleX(0);
@@ -274,8 +268,8 @@ main::-webkit-scrollbar-thumb {
     margin-top: 4px;
     height: 36px;
     padding-bottom: 2px;
-    background-color: #313233 !important;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1) !important;
+    background-color: #313233;
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -3px rgba(255, 255, 255, 0.1);
 }
 
 .tab_bar_btn:hover::after,
@@ -430,7 +424,7 @@ main::-webkit-scrollbar-thumb {
     color: inherit;
     position: relative;
     text-decoration: none;
-    box-shadow: inset 0 -2px 0 0 #FFFFFF !important;
+    box-shadow: inset 0 -2px 0 0 #FFFFFF;
 }
 
 .main_title {
@@ -525,7 +519,7 @@ main::-webkit-scrollbar-thumb {
     color: inherit;
     position: relative;
     text-decoration: none;
-    box-shadow: inset 0 -2px 0 0 #FFFFFF !important;
+    box-shadow: inset 0 -2px 0 0 #FFFFFF;
 }
 
 .top_banner {
@@ -743,7 +737,7 @@ divider {
 
 .sidebar_list {
     width: 100%;
-    border-bottom: 2px solid #000000 !important;
+    border-bottom: 2px solid #000000;
 }
 
 .sidebar_item {
@@ -779,7 +773,7 @@ divider {
 .sidebar_info {
     width: 100%;
     min-width: 148px;
-    border-top: 2px solid #454647 !important;
+    border-top: 2px solid #454647;
 }
 
 .sidebar_item:hover, .sidebar_item:active {
@@ -788,15 +782,15 @@ divider {
 
 .sidebar_btn {
     width: 140px;
-    background-color: #48494A !important;
-    color: #FFFFFF !important;
-    border: 2px solid #131313 !important;
-    box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E !important;
+    background-color: #48494A;
+    color: #FFFFFF;
+    border: 2px solid #131313;
+    box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E;
 }
 
 .sidebar_btn:hover, .sidebar_btn:active {
-    background-color: #67686A !important;
-    border: 2px solid #FFFFFF !important;
+    background-color: #67686A;
+    border: 2px solid #FFFFFF;
     box-shadow: unset;
 }
 
@@ -806,14 +800,14 @@ divider {
 }
 
 .sidebar::-webkit-scrollbar-track {
-    background-color: #58585A !important;
-    border: 4px solid #313233 !important;
+    background-color: #58585A;
+    border: 4px solid #313233;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: #E6E8EB !important;
-    border: 2px solid #000000 !important;
-    box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA !important;
+    background-color: #E6E8EB;
+    border: 2px solid #000000;
+    box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
 }
 
 /* 全屏遮罩 */
