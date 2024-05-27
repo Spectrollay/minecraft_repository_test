@@ -331,7 +331,14 @@ setTimeout(function () {
     let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
     if (modal_close_btn_img) {
         for (let i = 0; i < modal_close_btn_img.length; i++) {
-            modal_close_btn_img[i].src = root_path + 'images/cross_white.png';
+            modal_close_btn_img[i].src = rootPath_d + 'images/cross_white.png';
+        }
+    }
+
+    let checkImg = document.getElementsByClassName('checkmark');
+    if (checkImg) {
+        for (let i = 0; i < checkImg.length; i++) {
+            checkImg[i].src = rootPath_d + 'images/check_white.png';
         }
     }
 
