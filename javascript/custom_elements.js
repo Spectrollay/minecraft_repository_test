@@ -82,7 +82,7 @@ class CustomCheckbox extends HTMLElement {
 
         this.innerHTML = `
             <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
-                <img src="../images/check_white.png" alt="" class="checkmark"/>
+                <img alt="" class="checkmark" src=""/>
             </div>
         `;
     }
