@@ -335,13 +335,6 @@ setTimeout(function () {
         }
     }
 
-    let checkImg = document.getElementsByClassName('checkmark');
-    if (checkImg) {
-        for (let i = 0; i < checkImg.length; i++) {
-            checkImg[i].src = root_path + 'images/check_white.png';
-        }
-    }
-
 }, 100);
 
 console.log("字符常量已成功应用");
