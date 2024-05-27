@@ -61,14 +61,14 @@
     </div>
 </div>
 <header>
-    <div class="header_menu" id="menu" onclick="clickedMenu();">
+    <div class="header_item header_item_left" id="menu" onclick="clickedMenu();">
         <img alt="" class="menu_icon" id="menu_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
         <img alt="Title Icon" class="title_icon" src="../images/Logo.jpg"/><span
             class="header_title">Repository</span>
     </div>
-    <div class="header_right_blank"></div>
+    <div class="header_item header_item_right header_right_blank"></div>
 </header>
 <main id="main">
     <div id="main_top"></div>
@@ -1174,21 +1174,22 @@
         </modal_title_area>
         <modal_content>
             <p>有能力请支持正版!</p>
+            <p>正版是指通过正规渠道获取的版本. 购买正版是对开发商的尊重与支持, 在尽可能的情况下你应该购买正版.</p>
         </modal_content>
-        <modal_btn_area>
-            <modal_btn_group>
-                <modal_btn_list>
+        <modal_button_area>
+            <modal_button_group>
+                <modal_button_list>
                     <custom-button data="modal|normal|||false||" js="howToBuyGame(this,0,'../guidance/how_to_buy.html');"
                                    text="正版购买指南"></custom-button>
-                </modal_btn_list>
-                <modal_btn_list>
+                </modal_button_list>
+                <modal_button_list>
                     <custom-button data="modal|green||modal_agree_btn|false||" js="hideDisclaimerModal(this,1,openurl);"
                                    text="我知道了"></custom-button>
                     <custom-button data="modal|red|||false||" js="hideDisclaimerModal(this,-1,null);"
                                    text="我不同意"></custom-button>
-                </modal_btn_list>
-            </modal_btn_group>
-        </modal_btn_area>
+                </modal_button_list>
+            </modal_button_group>
+        </modal_button_area>
     </modal>
 </modal_area>
 

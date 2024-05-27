@@ -60,14 +60,14 @@
     </div>
 </div>
 <header>
-    <div class="header_back" id="back" onclick="clickedBack();">
+    <div class="header_item header_item_left" id="back" onclick="clickedBack();">
         <img alt="" class="back_icon" id="back_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
         <img alt="Title Icon" class="title_icon" src="../images/Settings.png"/>
         <span class="header_title">Settings</span>
     </div>
-    <div class="header_right_blank"></div>
+    <div class="header_item header_item_right header_right_blank"></div>
 </header>
 <main id="main">
     <div class="main_title">
@@ -233,11 +233,11 @@
         <modal_content>
             <div id="setting_version_detail"></div>
         </modal_content>
-        <modal_btn_area>
-            <modal_btn_group>
+        <modal_button_area>
+            <modal_button_group>
                 <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
-            </modal_btn_group>
-        </modal_btn_area>
+            </modal_button_group>
+        </modal_button_area>
     </modal>
 </modal_area>
 
@@ -254,11 +254,11 @@
         <modal_content>
             <p>清除存储数据为危险功能!<br>这会导致你本地存储的本站数据全部丢失!<br>非必要请不要运行此功能!</p>
         </modal_content>
-        <modal_btn_area>
+        <modal_button_area>
             <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
             <custom-button data="modal|red|||false||" js="hideModal(this);clearStorage();mainPage();"
                            text="我知道我在做什么!"></custom-button>
-        </modal_btn_area>
+        </modal_button_area>
     </modal>
 </modal_area>
 
@@ -275,10 +275,10 @@
         <modal_content>
             <p>建议在每次更新版本后运行此功能.<br>这可能可以解决网站的加载异常问题.<br>此功能不会影响你的本地数据.</p>
         </modal_content>
-        <modal_btn_area>
+        <modal_button_area>
             <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
             <custom-button data="modal|normal|||false||" js="hideModal(this);reloadPage();" text="继续"></custom-button>
-        </modal_btn_area>
+        </modal_button_area>
     </modal>
 </modal_area>
 

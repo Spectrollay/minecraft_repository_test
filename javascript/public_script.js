@@ -101,10 +101,10 @@ const compatibilityModal = `
                     <p>不同浏览器之间存在些许差异,为确保你的使用体验,我们推荐通过以下浏览器或内核的最新发行版访问本站以获得完全的特性支持:
                         Edge / Chrome / Firefox / Safari / WebView Android</p>
                 </modal_content>
-                <modal_btn_area>
+                <modal_button_area>
                     <custom-button data="modal|red|||false||" js="neverShowCompatibilityModalAgain(this);" text="不再显示"></custom-button>
                     <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
-                </modal_btn_area>
+                </modal_button_area>
             </modal>
         </modal_area>`;
 

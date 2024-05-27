@@ -86,30 +86,30 @@ header {
 }
 
 /* 顶栏元素 */
-.header_menu, .header_back, .header_logo, .header_repo, .header_debug, .header_settings, .header_right_blank {
+.header_item, .header_logo {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
 
-.header_menu:hover, .header_back:hover, .header_repo:hover, .header_debug:hover, .header_settings:hover {
+.header_item:hover {
     background-color: #F4F6F9;
 }
 
-.header_menu:active, .header_back:active, .header_repo:active, .header_debug:active, .header_settings:active {
+.header_item:active {
     background-color: #D0D1D4;
 }
 
 /* 顶栏左侧按钮 */
-.header_menu, .header_back {
+.header_item_left {
     width: 42px;
     box-shadow: inset -2px 0 #FFFFFF;
     border-right: 2px solid #A1A3A5;
 }
 
 /* 顶栏右侧按钮 */
-.header_repo, .header_debug, .header_settings {
+.header_item_right {
     width: 42px;
     box-shadow: inset 2px 0 #A1A3A5;
     border-left: 2px solid #FFFFFF;
@@ -117,23 +117,25 @@ header {
 
 .header_right_blank {
     width: 44px;
+    box-shadow: unset;
+    border: 0;
+}
+
+.header_right_blank:hover, .header_right_blank:active {
+    background-color: #E6E8EB;
 }
 
 /* 顶栏按钮图标 */
-.back_icon {
-    height: 32px;
-}
 
-.menu_icon, .repo_icon, .debug_icon, .settings_icon {
+.back_icon, .menu_icon, .repo_icon, .debug_icon, .settings_icon, .feedback_icon {
     height: 32px;
-    width: 32px;
 }
 
 .menu_icon, .back_icon {
     padding: 4px 6px 4px 4px;
 }
 
-.repo_icon, .debug_icon, .settings_icon {
+.repo_icon, .debug_icon, .settings_icon, .feedback_icon {
     padding: 4px 4px 4px 6px;
 }
 

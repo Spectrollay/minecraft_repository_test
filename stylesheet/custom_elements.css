@@ -226,14 +226,18 @@ article_list_level3:before {
 
 
 /* Checkbox复选框 */
-.custom-checkbox {
+custom-checkbox {
     display: inline-block;
+    margin: 5px;
+}
+
+.custom-checkbox {
     width: 20px;
     height: 20px;
+    position: relative;
     background-color: #8C8D90;
     border: 2px solid #1E1E1F;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
-    position: relative;
 }
 
 .custom-checkbox:hover {
@@ -299,7 +303,7 @@ modal_area {
     z-index: 11;
     position: fixed;
     min-width: 320px;
-    max-width: calc(min(600px, 90vw));
+    max-width: calc(min(600px, 100vw));
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -392,7 +396,17 @@ modal_content::-webkit-scrollbar-thumb {
     box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
 }
 
-modal_btn_area {
+modal_checkbox_area {
+    background-color: #48494A;
+    border-top: 2px solid #5A5B5C;
+    border-bottom: 2px solid #333334;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+modal_button_area {
     background-color: #48494A;
     border-top: 2px solid #5A5B5C;
     border-bottom: 2px solid #333334;
@@ -406,11 +420,11 @@ modal_btn_area {
     width: 100%;
 }
 
-modal_btn_group {
+modal_button_group {
     width: calc(100% - 20px);
 }
 
-modal_btn_list {
+modal_button_list {
     display: flex;
     align-items: center;
 }

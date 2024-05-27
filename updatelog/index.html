@@ -63,14 +63,16 @@
     </div>
 </div>
 <header>
-    <div class="header_back" id="back" onclick="clickedBack();">
+    <div class="header_item header_item_left" id="back" onclick="clickedBack();">
         <img alt="" class="back_icon" id="back_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
         <img alt="Title Icon" class="title_icon" src="../images/Logo.jpg"/><span
             class="header_title">Repository</span>
     </div>
-    <div class="header_right_blank"></div>
+    <div class="header_item header_item_right" id="feedback" onclick="playSound(this);toRepo();">
+        <img alt="" class="feedback_icon" src="../images/Feedback.png"/>
+    </div>
 </header>
 <main id="main">
     <div id="main_top"></div>
@@ -160,6 +162,26 @@
                         <div class="expandable_card_down">
                             <div class="expandable_card_down_content">
                                 <article_block>
+                                    <article_title>4.6.3-Canary8(4.6.3.53)</article_title>
+                                    <article_date>2024-05-27</article_date>
+                                    <article_detail>
+                                        <article_note>
+                                            一些旧的内容和新的内容现已加入新版本豪华套餐! 快来看看本次更新有什么变化吧!
+                                            我们期待你的反馈!
+                                        </article_note>
+                                        <article_list>加入了开发版本提示Modal弹窗</article_list>
+                                        <article_list>向开发日志页面顶栏加入了反馈按钮</article_list>
+                                        <article_list>加入了带有Checkbox复选框的Modal弹窗样式</article_list>
+                                        <article_list>重新加入了部分版本库V3中的特性</article_list>
+                                        <article_list>对顶栏元素进行了重命名</article_list>
+                                        <article_list>更新了设置按钮的大小</article_list>
+                                        <article_list>优化了一些自定义标签</article_list>
+                                    </article_detail>
+                                </article_block>
+                            </div>
+                            <div class="expandable_card_down_br"></div>
+                            <div class="expandable_card_down_content">
+                                <article_block>
                                     <article_title>4.6.3-Canary7(4.6.3.52)</article_title>
                                     <article_date>2024-05-24</article_date>
                                     <article_detail>
@@ -168,9 +190,14 @@
                                         </article_note>
                                         <article_list>优化了弹窗的Focus事件</article_list>
                                         <article_list_level2>现在只会在弹窗范围内选择了</article_list_level2>
-                                        <article_list_level2>现在标题栏的关闭按钮也是可以被选择的了</article_list_level2>
-                                        <article_list_level2>现在鼠标焦点在遮罩内时使用Tab键不会错误地导航到遮罩下方的元素了</article_list_level2>
-                                        <article_list>修复了弹窗标题栏的关闭按钮在被选择时无法通过Enter键执行点击事件的问题</article_list>
+                                        <article_list_level2>现在标题栏的关闭按钮也是可以被选择的了
+                                        </article_list_level2>
+                                        <article_list_level2>
+                                            现在鼠标焦点在遮罩内时使用Tab键不会错误地导航到遮罩下方的元素了
+                                        </article_list_level2>
+                                        <article_list>
+                                            修复了弹窗标题栏的关闭按钮在被选择时无法通过Enter键执行点击事件的问题
+                                        </article_list>
                                         <article_list>修复了侧边栏按钮在点击时会有错误的偏移的问题</article_list>
                                         <article_list>修复了侧边栏按钮文字不局中问题</article_list>
                                         <article_list>修复了部分图片可能会溢出边框的问题</article_list>

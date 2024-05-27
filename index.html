@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords"
+          content="Minecraft, MC, 我的世界, 版本库, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球"/>
+    <meta name="description" content="Minecraft(我的世界)版本合集"/>
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
@@ -62,14 +65,14 @@
     </div>
 </div>
 <header>
-    <div class="header_menu" id="menu" onclick="clickedMenu();">
+    <div class="header_item header_item_left" id="menu" onclick="clickedMenu();">
         <img alt="" class="menu_icon" id="menu_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
         <img alt="Title Icon" class="title_icon" src="./images/Logo.jpg"/>
         <span class="header_title">Repository</span>
     </div>
-    <div class="header_settings" id="settings" onclick="playSound(this);settingsPage();">
+    <div class="header_item header_item_right" id="settings" onclick="playSound(this);settingsPage();">
         <img alt="" class="settings_icon" src="./images/Settings.png"/>
     </div>
 </header>
@@ -125,7 +128,7 @@
                         <td class="right_table">
                             <div class="description2">
                                 <a href="javascript:void(0);"
-                                onclick="jumpToPage('./notifications/#message_2');">Minecraft 15 周年庆典!</a>
+                                   onclick="jumpToPage('./notifications/#message_2');">Minecraft 15 周年庆典!</a>
                             </div>
                         </td>
                     </tr>
@@ -553,10 +556,10 @@
 <!--        <modal_content>-->
 <!--            <p>提示文本</p>-->
 <!--        </modal_content>-->
-<!--        <modal_btn_area>-->
+<!--        <modal_button_area>-->
 <!--            <custom-button data="modal|red|||false||" js="hideAlertModal(this);" text="我不知道"></custom-button>-->
 <!--            <custom-button data="modal|green|||false||" js="hideAlertModal(this);" text="我知道了"></custom-button>-->
-<!--        </modal_btn_area>-->
+<!--        </modal_button_area>-->
 <!--    </modal>-->
 <!--</modal_area>-->
 
@@ -565,25 +568,29 @@
 <modal_area id="alert_modal" tabindex="-1">
     <modal>
         <modal_title_area>
-            <modal_title>你的 15 周年纪念披风</modal_title>
+            <modal_title>开发版本提示</modal_title>
             <modal_close_btn class="close_btn" onclick="hideModal(this);">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
         </modal_title_area>
-        <modal_content>
+        <modal_content class="build_version_warning">
             <div>
-                <img alt="" class="Anniversary15Event" src="images/event/Anniversary15/CapeModal.png"/>
-                <p>领取你的专属周年纪念披风，在下一次冒险或最喜欢的服务器上穿戴起来。这是你的了，所以随心所欲地炫耀吧！只是不要发出任何嘶嘶声，否则可能会吓到某个人。快快前往兑换页面来获取自己的披风。</p>
+                <p>你正在使用的是开发版本, 在继续之前, 你需要了解以下内容: </p>
+                <article_list>开发版本可能包含部分未完成的功能和各种已知或未知的错误, 我们鼓励你在发现问题时及时提供反馈, 帮助我们进行改进.</article_list>
+                <article_list>开发版本可能包含部分未启用的或处于实验阶段的功能, 这些功能可能会在后续的版本发生变动, 请不要过度依赖于这些功能.</article_list>
+                <article_list>开发版本为快速迭代版本, 更新频率较高, 请及时关注版本更新以了解改进和修复. 在提交建议或反馈之前请先检查你的版本.</article_list>
             </div>
         </modal_content>
-        <modal_btn_area>
+        <modal_checkbox_area>
+            <custom-checkbox active="off" class="neverShowIn7Days" status="enabled"></custom-checkbox>
+            7天之内不再提示
+        </modal_checkbox_area>
+        <modal_button_area>
             <custom-button data="modal|normal|||false||"
-                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15CapeModalAgain', '1');"
-                           text="继续"></custom-button>
-            <custom-button data="modal|green|||false||"
-                           js="hideAlertModal(this);localStorage.setItem('neverShowAnniversary15CapeModalAgain', '1');openLink('https://www.minecraft.net/zh-hans/15th-anniversary');"
-                           text='<img alt="link" class="link_img" src=""/>获取披风'></custom-button>
-        </modal_btn_area>
+                           js="toUpdatelog();hideAlertModal(this);" text="开发日志"></custom-button>
+            <custom-button data="modal|normal|||false||"
+                           js="hideAlertModal(this);" text="继续"></custom-button>
+        </modal_button_area>
     </modal>
 </modal_area>
 
@@ -637,12 +644,17 @@
     const month = date.getMonth() + 1;
     const day = date.getDate();
 
-    if (month === 5 && day > 15 && day < 31) {
-        setTimeout(function () {
-            if (!localStorage.getItem('neverShowAnniversary15CapeModalAgain') || localStorage.getItem('neverShowAnniversary15CapeModalAgain') !== '1') {
-                showAlertModal();
-            }
-        }, 100);
+    const neverShowIn7Days = localStorage.getItem('neverShowIn7Days');
+    if (neverShowIn7Days) {
+        const lastHideTime = new Date(parseInt(neverShowIn7Days, 10));
+        const now = new Date();
+        const diff = now - lastHideTime;
+        const sevenDays = 7 * 24 * 60 * 60 * 1000;
+        if (diff > sevenDays) {
+            localStorage.removeItem('neverShowIn7Days');
+        }
+    } else {
+        showAlertModal();
     }
 
     function showAlertModal() {
@@ -673,6 +685,11 @@
         background-color: #3D3E3F;
     }
 
+    .build_version_warning {
+        text-align: left;
+        max-height: calc(min(450px, calc(90vh - 150px)));
+    }
+
     .notice_table {
         width: auto;
     }
@@ -691,10 +708,6 @@
 
     .notice_table .right_table {
         text-align: left;
-    }
-
-    .Anniversary15Event {
-        width: calc(min(80%, 350px));
     }
 </style>
 

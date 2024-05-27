@@ -97,9 +97,15 @@ class CustomCheckbox extends HTMLElement {
         if (isChecked) {
             this.setAttribute('active', 'off');
             console.log("关闭复选框", this.id);
+            if (this.classList.contains('neverShowIn7Days')) {
+                localStorage.removeItem('neverShowIn7Days');
+            }
         } else {
             this.setAttribute('active', 'on');
             console.log("打开复选框", this.id);
+            if (this.classList.contains('neverShowIn7Days')) {
+                localStorage.setItem('neverShowIn7Days', Date.now().toString());
+            }
         }
 
         this.render();
