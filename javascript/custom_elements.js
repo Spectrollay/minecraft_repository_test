@@ -1,3 +1,5 @@
+const rootPath_c= '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+
 // 自定义按钮
 class CustomButton extends HTMLElement {
     constructor() {
@@ -82,7 +84,7 @@ class CustomCheckbox extends HTMLElement {
 
         this.innerHTML = `
             <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
-                <img alt="" class="checkmark" src=""/>
+                <img alt="" class="checkmark" src="${rootPath_c}images/check_white.png"/>
             </div>
         `;
     }
