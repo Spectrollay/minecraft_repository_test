@@ -63,9 +63,9 @@ class CustomCheckbox extends HTMLElement {
     constructor() {
         super();
         this.render();
+
         // 点击元素本身执行点击事件
         // this.addEventListener('click', this.toggleCheckbox.bind(this));
-
         // 点击父元素执行点击事件
         const parentElement = this.parentElement;
         if (parentElement) {
