@@ -420,7 +420,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         let isExpanded = expandableCard.classList.contains("expanded");
 
         if (isExpanded) {
-            cardImage.src = '../images/arrowUp_white.png';
+            cardImage.src = `${rootPath}images/arrowUp_white.png`;
             expandableContent.classList.add('expanded');
 
             setTimeout(function () {
@@ -429,7 +429,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
             }, 400);
 
         } else {
-            cardImage.src = '../images/arrowDown_white.png';
+            cardImage.src = `${rootPath}images/arrowDown_white.png`;
             expandableContent.classList.add('no_expanded');
             expandableContent.style.height = '0';
         }
@@ -443,7 +443,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
                 expandableContent.classList.add('no_expanded');
                 expandableContent.classList.remove('expanded');
                 expandableContent.style.height = '0';
-                cardImage.src = '../images/arrowDown_white.png';
+                cardImage.src = `${rootPath}images/arrowDown_white.png`;
             } else {
                 for (let k = 0; k < expandableCardArea.length; k++) {
                     if (k !== j) {
@@ -456,7 +456,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
                         otherContent.classList.add('no_expanded');
                         otherContent.classList.remove('expanded');
                         otherContent.style.height = '0';
-                        otherCardImage.src = '../images/arrowDown_white.png';
+                        otherCardImage.src = `${rootPath}images/arrowDown_white.png`;
                     }
                 }
                 // 展开当前卡片
@@ -465,7 +465,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
                 expandableContent.classList.add('expanded');
                 expandableContent.classList.remove('no_expanded');
                 expandableContent.style.height = cardDown.scrollHeight + 'px';
-                cardImage.src = '../images/arrowUp_white.png';
+                cardImage.src = `${rootPath}images/arrowUp_white.png`;
             }
             isExpanded = !isExpanded;
         });

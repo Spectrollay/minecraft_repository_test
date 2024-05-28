@@ -26,7 +26,7 @@ class CustomButton extends HTMLElement {
                         <div class="btn_with_tooltip_cont">
                             <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
                             <div class="btn_tooltip">${ctip}</div>
-                            <img alt="" class="tip_icon" src="../images/${icon}.png"/>
+                            <img alt="" class="tip_icon" src="${rootPath_c}images/${icon}.png"/>
                         </div>
                     `;
             } else {
@@ -210,8 +210,8 @@ class CustomSwitch extends HTMLElement {
         this.innerHTML = `
             <div class="switch_content">
                 <div class="switch ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled_switch' : 'normal_switch'}">
-                    <div class="switch_style left"><img alt="" src="../images/switch_on.png"/></div>
-                    <div class="switch_style right"><img alt="" src="../images/switch_off.png"/></div>
+                    <div class="switch_style left"><img alt="" src="${rootPath_c}images/switch_on.png"/></div>
+                    <div class="switch_style right"><img alt="" src="${rootPath_c}images/switch_off.png"/></div>
                     <div class="switch_slider can_click"></div>
                 </div>
             </div>
