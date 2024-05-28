@@ -352,6 +352,7 @@ function flagsPage() {
 
 // 跳转主页
 function mainPage() {
+    playSound1();
     setTimeout(function () {
         window.location.href = rootPath;
     }, 600);
