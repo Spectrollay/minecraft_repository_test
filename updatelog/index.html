@@ -94,11 +94,18 @@
                     这些规划可能随着开发的进展而发生变化, 本处列出的条目仅作参考.
                 </div>
             </div>
-            <div class="main">
-                <div class="plan_block">
-                    <article_detail>
-                        <article_list>重新设计下载块,优化下载块的样式与下载体验</article_list>
-                    </article_detail>
+            <div class="main plan_block_main">
+                <div class="plan_block">未知版本</div>
+                <div class="plan_block_area">
+                    <div class="plan_block_content">
+                        <article_block>
+                            <article_detail>
+                                <article_list>重新设计下载块,优化下载块的样式与下载体验</article_list>
+                                <article_list>全面适配与支持无障碍</article_list>
+                                <article_list>根据页面自适应的布局</article_list>
+                            </article_detail>
+                        </article_block>
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,6 +181,7 @@
                                         <article_list>加入了带有Checkbox复选框的Modal弹窗样式</article_list>
                                         <article_list>重新加入了部分版本库V3中的特性</article_list>
                                         <article_list>对顶栏元素进行了重命名</article_list>
+                                        <article_list>更新了更新计划的样式设计</article_list>
                                         <article_list>更新了部分js中的寻址判定</article_list>
                                         <article_list>更新了设置按钮的大小</article_list>
                                         <article_list>优化了一些自定义标签</article_list>
@@ -2649,8 +2657,17 @@
         margin: 20px;
     }
 
+    .plan_block_main {
+        padding: 0;
+    }
+
     .plan_block {
-        margin: 20px;
+        height: 56px;
+        font-size: 23px;
+        font-family: "Minecraft Seven", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 

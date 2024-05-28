@@ -914,7 +914,7 @@ divider {
     width: 32px;
 }
 
-.expandable_card_down_area {
+.expandable_card_down_area, .plan_block_area {
     background-color: #313233;
     overflow: hidden;
     transition: height 600ms;
@@ -930,6 +930,6 @@ divider {
     background-color: #48494A;
 }
 
-.expandable_card_down_content {
+.expandable_card_down_content, .plan_block_content {
     margin: 10px 20px;
 }
