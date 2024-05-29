@@ -271,7 +271,7 @@ function toggleOverlay() {
 
 // 按键音效
 function playSound(button) {
-    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || (button.classList.contains("tab_bar_btn") && button.classList.contains("no_active")) || button.classList.contains("close_btn")) {
+    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || button.classList.contains("sidebar_btn") || (button.classList.contains("tab_bar_btn") && button.classList.contains("no_active")) || button.classList.contains("close_btn")) {
         console.log("选择播放点击音效");
         playSound1();
     } else if (button.classList.contains("green_btn")) {
@@ -352,7 +352,6 @@ function flagsPage() {
 
 // 跳转主页
 function mainPage() {
-    playSound1();
     setTimeout(function () {
         window.location.href = rootPath;
     }, 600);
@@ -385,7 +384,6 @@ function clickedOverlay() {
 
 // 点击侧边栏底部按钮事件
 function clickedSidebarBottomBtn() {
-    playSound1();
     window.open("https://github.com/Spectrollay/minecraft_kit");
 }
 
