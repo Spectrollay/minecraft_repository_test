@@ -9,7 +9,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-05-27-01"; // NOTE 小版本
-let commit = "#2024052901"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+let commit = "#2024052902"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -22,11 +22,6 @@ const texts = {
     preview_detail2: "请注意: 新设计仍未完工,可能会缺失部分功能.",
     preview_btn1: "开发日志",
     preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"\"/>提出反馈",
-    page_info_title1: "INFORMATION",
-    page_info_detail1: "<span>Version: " + version_name + "<br>Server Version: " + server_version + "<br>Updated: " + update_count + "</span>",
-    page_info_title2: "ABOUT US",
-    page_info_detail2: "<span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: [<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a>] [<a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a>] [<a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>]<span>",
-    page_info_title3: "MADE WITH ❤️ IN CHINA",
     jump_text: "点击前往下载页面",
     back_to_main: "返回首页",
     sidebar_bottom_title: "Minecraft Kit",
@@ -282,11 +277,6 @@ if (repositoryLogo) {
     }
 }
 
-setElementText("page_info_title1", texts.page_info_title1);
-setElementText("page_info_detail1", texts.page_info_detail1);
-setElementText("page_info_title2", texts.page_info_title2);
-setElementText("page_info_detail2", texts.page_info_detail2);
-setElementText("page_info_title3", texts.page_info_title3);
 setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
 setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
 setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
@@ -295,6 +285,21 @@ setElementText("preview_detail1", texts.preview_detail1);
 setElementText("preview_detail2", texts.preview_detail2);
 setElementText("setting_version", version_name_short);
 setElementText("setting_version_detail", version_info);
+
+const pageInfo = document.getElementById('page_info');
+if (pageInfo) {
+    pageInfo.innerHTML = `<div>
+        <div class="page_info"><br></div>
+        <div class="page_info_title">INFORMATION</div>
+        <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}</span></div>
+        <div class="page_info_title">BASED ON</div>
+        <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank" onclick="playSound1();">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" onclick="playSound1();">Web API</a> / <a href="https://webkit.org/" target="_blank" onclick="playSound1();">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" target="_blank" onclick="playSound1();">OreUI</a></span></div>
+        <div class="page_info_title">ABOUT US</div>
+        <div class="page_info"><span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playSound1();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playSound1();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playSound1();">云湖</a><span></div>
+        <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
+        <div class="page_info"><br></div>
+    </div>`;
+}
 
 setTimeout(function () {
 
