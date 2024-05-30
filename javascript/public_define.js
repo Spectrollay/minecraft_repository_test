@@ -2,14 +2,14 @@
 // TODO 需在每次提交前检查
 const primary_version_name = "4.6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".3"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".53"; // 例 4.0.0.1 // NOTE 小版本
+const version_name_short = secondary_version_name + ".55"; // 例 4.0.0.1 // NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
-const version_type_count = version_type + "8"; // 例 Build1 // NOTE 小版本
+const version_type_count = version_type + "9"; // 例 Build1 // NOTE 小版本
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-27-01"; // NOTE 小版本
-let commit = "#2024052902"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+const update_count = "2024-05-30-01"; // NOTE 小版本
+let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -22,7 +22,6 @@ const texts = {
     preview_detail2: "请注意: 新设计仍未完工,可能会缺失部分功能.",
     preview_btn1: "开发日志",
     preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"\"/>提出反馈",
-    jump_text: "点击前往下载页面",
     back_to_main: "返回首页",
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
@@ -232,14 +231,6 @@ if (holiday_tip2) {
 }
 
 // 为按钮赋值
-const editionBlocks = document.getElementsByClassName("edition_block");
-if (editionBlocks) {
-    for (let i = 0; i < editionBlocks.length; i++) {
-        editionBlocks[i].innerHTML = texts.jump_text;
-    }
-} else {
-}
-
 const wikiTexts = document.getElementsByClassName("wiki");
 if (wikiTexts) {
     for (let i = 0; i < wikiTexts.length; i++) {

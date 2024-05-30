@@ -102,8 +102,12 @@ const compatibilityModal = `
                         Edge / Chrome / Firefox / Safari / WebView Android</p>
                 </modal_content>
                 <modal_button_area>
-                    <custom-button data="modal|red|||false||" js="neverShowCompatibilityModalAgain(this);" text="不再显示"></custom-button>
-                    <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
+                    <modal_button_group>
+                        <modal_button_list>
+                            <custom-button data="modal|red|||false||" js="neverShowCompatibilityModalAgain(this);" text="不再显示"></custom-button>
+                            <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
+                        </modal_button_list>
+                    </modal_button_group>
                 </modal_button_area>
             </modal>
         </modal_area>`;

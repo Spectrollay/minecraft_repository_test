@@ -255,9 +255,13 @@
             <p>清除存储数据为危险功能!<br>这会导致你本地存储的本站数据全部丢失!<br>非必要请不要运行此功能!</p>
         </modal_content>
         <modal_button_area>
-            <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
-            <custom-button data="modal|red|||false||" js="hideModal(this);clearStorage();mainPage();"
-                           text="我知道我在做什么!"></custom-button>
+            <modal_button_group>
+                <modal_button_list>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
+                    <custom-button data="modal|red|||false||" js="hideModal(this);clearStorage();mainPage();"
+                                   text="我知道我在做什么!"></custom-button>
+                </modal_button_list>
+            </modal_button_group>
         </modal_button_area>
     </modal>
 </modal_area>
@@ -276,8 +280,13 @@
             <p>建议在每次更新版本后运行此功能.<br>这可能可以解决网站的加载异常问题.<br>此功能不会影响你的本地数据.</p>
         </modal_content>
         <modal_button_area>
-            <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
-            <custom-button data="modal|normal|||false||" js="hideModal(this);reloadPage();" text="继续"></custom-button>
+            <modal_button_group>
+                <modal_button_list>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);reloadPage();"
+                                   text="继续"></custom-button>
+                </modal_button_list>
+            </modal_button_group>
         </modal_button_area>
     </modal>
 </modal_area>
