@@ -169,7 +169,7 @@ function checkFirstVisit() {
 
     if (firstVisit !== today) {
 
-        if (window.location.pathname !== `${rootPath}` || window.location.pathname !== `${rootPath}index.html` || window.location.pathname !== `${rootPath}404.html`) {
+        if (window.location.pathname !== `${rootPath}` || window.location.pathname !== `${rootPath}index.html` || window.location.pathname !== `${rootPath}home.html` || window.location.pathname !== `${rootPath}404.html`) {
             const overlay = document.getElementById("overlay_first_visit_today_modal");
             const modal = document.getElementById("first_visit_today_modal");
             overlay.style.display = "block";
