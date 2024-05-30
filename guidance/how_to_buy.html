@@ -240,6 +240,12 @@
     loading_img.src = root_path + 'images/Loading_white.gif';
     const loading_mask = document.getElementById('loading_mask');
 
+    // 惰性加载
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+    });
+
     // 监听页面加载完成事件
     window.addEventListener('load', function () {
         // 延时600ms后隐藏蒙版
