@@ -241,8 +241,8 @@
     const loading_mask = document.getElementById('loading_mask');
 
     // 惰性加载
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
+    const lazyImages = document.querySelectorAll('img');
+    lazyImages.forEach(img => {
         img.setAttribute('loading', 'lazy');
     });
 
