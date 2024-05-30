@@ -112,6 +112,8 @@ const compatibilityModal = `
             </modal>
         </modal_area>`;
 
+document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
+
 setTimeout(function () {
     if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') !== '1') {
         const overlay = document.getElementById("overlay_compatibility_modal");
@@ -137,7 +139,60 @@ function neverShowCompatibilityModalAgain(button) {
     console.log("关闭兼容性提示弹窗且不再提示");
 }
 
-document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
+// 访问提示
+const today = new Date().toISOString().split('T')[0];
+
+const firstVisitTodayModal = `
+        <div class="overlay" id="overlay_first_visit_today_modal" tabindex="-1"></div>
+        <modal_area id="first_visit_today_modal" tabindex="-1">
+            <modal>
+                <modal_title_area>
+                    <modal_title>提示</modal_title>
+                </modal_title_area>
+                <modal_content>
+                    <p>请从版本库首页开始访问哦~</p>
+                </modal_content>
+                <modal_button_area>
+                    <modal_button_group>
+                        <modal_button_list>
+                            <custom-button data="modal|green|||false||" js="hideFirstVisitTodayModal(this);mainPage();" text="前往首页"></custom-button>
+                        </modal_button_list>
+                    </modal_button_group>
+                </modal_button_area>
+            </modal>
+        </modal_area>`;
+
+document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
+
+function checkFirstVisit() {
+    const firstVisit = localStorage.getItem('firstVisit');
+
+    if (firstVisit !== today) {
+
+        if (window.location.pathname !== `${rootPath}` || window.location.pathname !== `${rootPath}index.html` || window.location.pathname !== `${rootPath}404.html`) {
+            const overlay = document.getElementById("overlay_first_visit_today_modal");
+            const modal = document.getElementById("first_visit_today_modal");
+            overlay.style.display = "block";
+            modal.style.display = "block";
+        }
+    }
+}
+
+if (window.location.pathname === `${rootPath}` || window.location.pathname === `${rootPath}index.html`) {
+    localStorage.setItem('firstVisit', today);
+}
+
+function hideFirstVisitTodayModal(button) {
+    const overlay = document.getElementById("overlay_first_visit_today_modal");
+    const modal = document.getElementById("first_visit_today_modal");
+    playSound(button);
+    overlay.style.display = "none";
+    modal.style.display = "none";
+}
+
+setTimeout(function () {
+    checkFirstVisit();
+}, 150);
 
 // 输出错误日志
 window.addEventListener("error", function (event) {
