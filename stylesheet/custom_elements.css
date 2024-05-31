@@ -300,6 +300,22 @@ del-line {
 
 
 /* Modal弹窗 */
+#overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_version_info_modal {
+    z-index: 12;
+}
+
+#overlay_alert_modal {
+    z-index: 14;
+}
+
+#overlay_first_visit_today_modal {
+    z-index: 18;
+}
+
+#overlay_disclaimer_modal {
+    z-index: 20;
+}
+
 modal_area {
     display: none;
     z-index: 11;
@@ -313,16 +329,20 @@ modal_area {
     outline: none;
 }
 
-#overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_version_info_modal {
-    z-index: 12;
+#clear_storage_warning, #reload_page_warning, #version_info_modal {
+    z-index: 13;
 }
 
-#overlay_alert_modal {
-    z-index: 14;
+#alert_modal {
+    z-index: 15;
 }
 
-#overlay_disclaimer_modal {
-    z-index: 20;
+#first_visit_today_modal {
+    z-index: 19;
+}
+
+#disclaimer_modal {
+    z-index: 21;
 }
 
 modal {

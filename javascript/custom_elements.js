@@ -1,4 +1,4 @@
-const rootPath_c= '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+const rootPath_c = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 
 // 自定义按钮
 class CustomButton extends HTMLElement {
@@ -100,13 +100,13 @@ class CustomCheckbox extends HTMLElement {
             this.setAttribute('active', 'off');
             console.log("关闭复选框", this.id);
             if (this.classList.contains('neverShowIn7Days')) {
-                localStorage.removeItem('neverShowIn7Days');
+                localStorage.removeItem(`(${rootPath_c})neverShowIn7Days`);
             }
         } else {
             this.setAttribute('active', 'on');
             console.log("打开复选框", this.id);
             if (this.classList.contains('neverShowIn7Days')) {
-                localStorage.setItem('neverShowIn7Days', Date.now().toString());
+                localStorage.setItem(`(${rootPath_c})neverShowIn7Days`, Date.now().toString());
             }
         }
 
@@ -158,7 +158,7 @@ const modalCloseBtns = document.querySelectorAll('modal_close_btn');
 if (modalCloseBtns) {
     modalCloseBtns.forEach((modalCloseBtn) => {
         modalCloseBtn.setAttribute('tabindex', '0');
-        modalCloseBtn.addEventListener('keyup', function(event) {
+        modalCloseBtn.addEventListener('keyup', function (event) {
             if (event.key === 'Enter') {
                 modalCloseBtn.click();
             }

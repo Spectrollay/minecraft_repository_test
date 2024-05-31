@@ -58,7 +58,9 @@
 <div class="loading_mask" id="loading_mask">
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src=""/></div>
-        <div class="spinner"><div class="spinner"><span class="spinner_text">载入中</span></div></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
     </div>
 </div>
 <header>
@@ -68,16 +70,18 @@
     <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<main class="main_content_center" id="main">
-    <div class="display">
-        <p class="area_404-img"><img alt="404 Image" class="notice_img" id="404_img" src=""/></p>
-        <p class="main_detail_center">404 - 页面未找到</p>
-        <p class="main_detail_center">请检查链接是否正确</p>
-        <p class="main_detail_center">
-            <custom-button data="default|green|large||false||" js="mainPage();" text="返回首页"></custom-button>
-        </p>
-    </div>
-</main>
+<scroll_container>
+    <main class="main_content_center" id="main">
+        <div class="display">
+            <p class="area_404-img"><img alt="404 Image" class="notice_img" id="404_img" src=""/></p>
+            <p class="main_detail_center">404 - 页面未找到</p>
+            <p class="main_detail_center">请检查链接是否正确</p>
+            <p class="main_detail_center">
+                <custom-button data="default|green|large||false||" js="mainPage();" text="返回首页"></custom-button>
+            </p>
+        </div>
+    </main>
+</scroll_container>
 
 <!--遮罩-->
 <!--除了顶栏-->

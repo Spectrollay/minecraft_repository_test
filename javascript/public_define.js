@@ -2,14 +2,14 @@
 // TODO 需在每次提交前检查
 const primary_version_name = "4.6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".3"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".55"; // 例 4.0.0.1 // NOTE 小版本
+const version_name_short = secondary_version_name + ".56"; // 例 4.0.0.1 // NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
-const version_type_count = version_type + "9"; // 例 Build1 // NOTE 小版本
+const version_type_count = version_type + "10"; // 例 Build1 // NOTE 小版本
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-05-30-01"; // NOTE 小版本
-let commit = "#2024053003"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+const update_count = "2024-05-31-01"; // NOTE 小版本
+let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -40,6 +40,7 @@ const texts = {
 };
 
 const rootPath_d = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+const hostPath_d = window.location.origin;
 
 let previousTipIndex = -2;
 let currentTipIndex = -1;
@@ -56,6 +57,10 @@ const tipsWithWeights = [
     },
     {
         text: "<span>想和大家一起闲聊吹水?<br>快加入<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a> / <a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a> / <a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>群聊!</span>",
+        weight: 3
+    },
+    {
+        text: "<span>欢迎加入我们的官方频道: <a href=\"https://t.me/spectrollay_minecraft_repository\" onclick=\"playSound1();\" target=\"_blank\">Telegram</a> / <a href=\"https://pd.qq.com/s/h8a7gt2u4\" onclick=\"playSound1();\" target=\"_blank\">QQ</a></span>",
         weight: 3
     },
     {
@@ -123,14 +128,16 @@ const tipsWithWeights = [
     {text: "这是一条永远不会出现的提示.", weight: 0}
 ];
 
-console.log("LocalStorage数据");
-for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    const value = localStorage.getItem(key);
-    console.log("[" + [i + 1] + "]" + " " + key + ': ' + value);
-}
-if (localStorage.length === 0) {
-    console.log("没有数据");
+if (hostPath_d.includes('file:///') || hostPath_d.includes('localhost')) {
+    console.log("LocalStorage数据");
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        console.log("[" + [i + 1] + "]" + " " + key + ': ' + value);
+    }
+    if (localStorage.length === 0) {
+        console.log("没有数据");
+    }
 }
 
 console.log("加载常量和变量完成");
@@ -282,11 +289,11 @@ if (pageInfo) {
     pageInfo.innerHTML = `<div>
         <div class="page_info"><br></div>
         <div class="page_info_title">INFORMATION</div>
-        <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}</span></div>
+        <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}<br>Commited: ${commit}</span></div>
         <div class="page_info_title">BASED ON</div>
         <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank" onclick="playSound1();">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" onclick="playSound1();">Web API</a> / <a href="https://webkit.org/" target="_blank" onclick="playSound1();">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" target="_blank" onclick="playSound1();">OreUI</a></span></div>
         <div class="page_info_title">ABOUT US</div>
-        <div class="page_info"><span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Chat Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playSound1();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playSound1();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playSound1();">云湖</a><span></div>
+        <div class="page_info"><span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playSound1();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playSound1();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playSound1();">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playSound1();" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound1();" target="_blank">QQ</a><span></div>
         <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
         <div class="page_info"><br></div>
     </div>`;

@@ -55,7 +55,9 @@
 <div class="loading_mask" id="loading_mask">
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src=""/></div>
-        <div class="spinner"><div class="spinner"><span class="spinner_text">载入中</span></div></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
     </div>
 </div>
 <header>
@@ -67,30 +69,33 @@
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<main id="main">
-    <div class="main_title">
-        <div class="main_title_area">
-            <div class="main_title_span">项目环境指南</div>
-            <div class="description1">2024-01-01</div>
+<scroll_container>
+    <main id="main">
+        <div class="main_title">
+            <div class="main_title_area">
+                <div class="main_title_span">项目环境指南</div>
+                <div class="description1">2024-01-01</div>
+            </div>
         </div>
-    </div>
-    <!--  TODO: 移除时一并移除相应样式  -->
-    <div class="main preview_block">
-        <div class="preview_title" id="preview_title"></div>
-        <div class="preview_detail" id="preview_detail1"></div>
-        <div class="preview_detail" id="preview_detail2"></div>
-        <div class="btn_group">
-            <custom-button data="default|normal|small|preview_btn1|false||" js="toUpdatelog();" text=""></custom-button>
-            <custom-button data="default|green|small|preview_btn2|false||" js="toRepo();" text=""></custom-button>
+        <!--  TODO: 移除时一并移除相应样式  -->
+        <div class="main preview_block">
+            <div class="preview_title" id="preview_title"></div>
+            <div class="preview_detail" id="preview_detail1"></div>
+            <div class="preview_detail" id="preview_detail2"></div>
+            <div class="btn_group">
+                <custom-button data="default|normal|small|preview_btn1|false||" js="toUpdatelog();"
+                               text=""></custom-button>
+                <custom-button data="default|green|small|preview_btn2|false||" js="toRepo();" text=""></custom-button>
+            </div>
         </div>
-    </div>
-    <div class="main_block description">
-        <p>欢迎来到项目环境指南页面!</p>
-        <p>页面内容待完成...</p>
-        <p>敬请期待.</p>
-    </div>
-    <div id="page_info"></div>
-</main>
+        <div class="main_block description">
+            <p>欢迎来到项目环境指南页面!</p>
+            <p>页面内容待完成...</p>
+            <p>敬请期待.</p>
+        </div>
+        <div id="page_info"></div>
+    </main>
+</scroll_container>
 
 <!--遮罩-->
 <!--除了顶栏-->

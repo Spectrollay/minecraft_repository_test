@@ -11,6 +11,30 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     document.body.classList.add('no-dark-mode');
 }
 
+// 滚动条
+const scrollContainer = document.querySelector('scroll_container');
+let scrollTimeout;
+
+function showScroll() {
+    scrollContainer.classList.add('show_scrollbar');
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+        scrollContainer.classList.remove('show_scrollbar');
+    }, 3000);
+}
+
+if (scrollContainer) {
+    showScroll();
+    scrollContainer.addEventListener('scroll', () => {
+        showScroll();
+    });
+
+    window.addEventListener('resize', function () {
+        showScroll();
+    });
+}
+
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
 const hostPath = window.location.origin;
@@ -91,31 +115,31 @@ links.forEach(function (link) {
 
 // 兼容性检测
 const compatibilityModal = `
-        <div class="overlay" id="overlay_compatibility_modal" tabindex="-1"></div>
-        <modal_area id="compatibility_modal" tabindex="-1">
-            <modal>
-                <modal_title_area>
-                    <modal_title>兼容性提示</modal_title>
-                </modal_title_area>
-                <modal_content>
-                    <p>不同浏览器之间存在些许差异,为确保你的使用体验,我们推荐通过以下浏览器或内核的最新发行版访问本站以获得完全的特性支持:
-                        Edge / Chrome / Firefox / Safari / WebView Android</p>
-                </modal_content>
-                <modal_button_area>
-                    <modal_button_group>
-                        <modal_button_list>
-                            <custom-button data="modal|red|||false||" js="neverShowCompatibilityModalAgain(this);" text="不再显示"></custom-button>
-                            <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
-                        </modal_button_list>
-                    </modal_button_group>
-                </modal_button_area>
-            </modal>
-        </modal_area>`;
+    <div class="overlay" id="overlay_compatibility_modal" tabindex="-1"></div>
+    <modal_area id="compatibility_modal" tabindex="-1">
+        <modal>
+            <modal_title_area>
+                <modal_title>兼容性提示</modal_title>
+            </modal_title_area>
+            <modal_content>
+                <p>不同浏览器之间存在些许差异,为确保你的使用体验,我们推荐通过以下浏览器或内核的最新发行版访问本站以获得完全的特性支持:
+                    Edge / Chrome / Firefox / Safari / WebView Android</p>
+            </modal_content>
+            <modal_button_area>
+                <modal_button_group>
+                    <modal_button_list>
+                        <custom-button data="modal|red|||false||" js="neverShowCompatibilityModalAgain(this);" text="不再显示"></custom-button>
+                        <custom-button data="modal|green|||false||" js="hideCompatibilityModal(this);" text="我知道了"></custom-button>
+                    </modal_button_list>
+                </modal_button_group>
+            </modal_button_area>
+        </modal>
+    </modal_area>`;
 
 document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
 setTimeout(function () {
-    if (!localStorage.getItem('neverShowCompatibilityModalAgain') || localStorage.getItem('neverShowCompatibilityModalAgain') !== '1') {
+    if (!localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) || localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) !== '1') {
         const overlay = document.getElementById("overlay_compatibility_modal");
         const modal = document.getElementById("compatibility_modal");
         overlay.style.display = "block";
@@ -135,7 +159,7 @@ function hideCompatibilityModal(button) {
 
 function neverShowCompatibilityModalAgain(button) {
     hideCompatibilityModal(button);
-    localStorage.setItem('neverShowCompatibilityModalAgain', '1');
+    localStorage.setItem(`(${rootPath})neverShowCompatibilityModalAgain`, '1');
     console.log("关闭兼容性提示弹窗且不再提示");
 }
 
@@ -143,29 +167,29 @@ function neverShowCompatibilityModalAgain(button) {
 const today = new Date().toISOString().split('T')[0];
 
 const firstVisitTodayModal = `
-        <div class="overlay" id="overlay_first_visit_today_modal" tabindex="-1"></div>
-        <modal_area id="first_visit_today_modal" tabindex="-1">
-            <modal>
-                <modal_title_area>
-                    <modal_title>提示</modal_title>
-                </modal_title_area>
-                <modal_content>
-                    <p>请从版本库首页开始访问哦~</p>
-                </modal_content>
-                <modal_button_area>
-                    <modal_button_group>
-                        <modal_button_list>
-                            <custom-button data="modal|green|||false||" js="hideFirstVisitTodayModal(this);mainPage();" text="前往首页"></custom-button>
-                        </modal_button_list>
-                    </modal_button_group>
-                </modal_button_area>
-            </modal>
-        </modal_area>`;
+    <div class="overlay" id="overlay_first_visit_today_modal" tabindex="-1"></div>
+    <modal_area id="first_visit_today_modal" tabindex="-1">
+        <modal>
+            <modal_title_area>
+                <modal_title>访问受限</modal_title>
+            </modal_title_area>
+            <modal_content>
+                <p>新的一天请从版本库首页开始哦~</p>
+            </modal_content>
+            <modal_button_area>
+                <modal_button_group>
+                    <modal_button_list>
+                        <custom-button data="modal|green|||false||" js="hideFirstVisitTodayModal(this);mainPage();" text="前往首页"></custom-button>
+                    </modal_button_list>
+                </modal_button_group>
+            </modal_button_area>
+        </modal>
+    </modal_area>`;
 
 document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 
 function checkFirstVisit() {
-    const firstVisit = localStorage.getItem('firstVisit');
+    const firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
 
     if (firstVisit !== today) {
 
@@ -179,7 +203,7 @@ function checkFirstVisit() {
 }
 
 if (window.location.pathname === `${rootPath}` || window.location.pathname === `${rootPath}index.html`) {
-    localStorage.setItem('firstVisit', today);
+    localStorage.setItem(`(${rootPath})firstVisit`, today);
 }
 
 function hideFirstVisitTodayModal(button) {
@@ -540,6 +564,78 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         });
     }
 }
+
+// 自适应折叠组件
+setTimeout(function () {
+    const mainDiv = document.getElementById('main');
+    const allMessages = mainDiv.querySelectorAll('.message');
+    const threshold = 5; // 初始阈值
+    let currentThreshold = threshold; // 当前展开的阈值
+
+    // 隐藏超过阈值的消息
+    for (let i = threshold; i < allMessages.length; i++) {
+        allMessages[i].style.display = 'none';
+    }
+
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const showLessBtn = document.getElementById('showLessBtn');
+
+    function updateButtonsVisibility() {
+        const showMore = showMoreBtn.parentElement;
+        const showLess = showLessBtn.parentElement;
+        if (showMoreBtn) {
+            if (allMessages.length > currentThreshold) {
+                showMore.setAttribute('data', 'folding|green|small|showMoreBtn|false||');
+                showMoreBtn.classList.remove('disabled_btn');
+                showMoreBtn.classList.add('green_btn');
+            } else {
+                showMore.setAttribute('data', 'folding|disabled|small|showMoreBtn|false||');
+                showMoreBtn.classList.remove('green_btn');
+                showMoreBtn.classList.add('disabled_btn');
+            }
+        }
+        if (showLessBtn) {
+            if (currentThreshold > threshold) {
+                showLess.setAttribute('data', 'folding|normal|small|showMoreBtn|false||');
+                showLessBtn.classList.remove('disabled_btn');
+                showLessBtn.classList.add('normal_btn');
+            } else {
+                showLess.setAttribute('data', 'folding|disabled|small|showMoreBtn|false||');
+                showLessBtn.classList.remove('normal_btn');
+                showLessBtn.classList.add('disabled_btn');
+            }
+        }
+    }
+
+    // 初始化
+    if (showMoreBtn || showLessBtn) {
+        updateButtonsVisibility();
+    }
+
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', function () {
+            const numToDisplay = Math.min(threshold, allMessages.length - currentThreshold);
+            for (let i = currentThreshold; i < currentThreshold + numToDisplay; i++) {
+                allMessages[i].style.display = 'block';
+            }
+            currentThreshold += numToDisplay;
+            updateButtonsVisibility();
+            console.log("展开消息");
+        });
+    }
+
+    if (showLessBtn) {
+        showLessBtn.addEventListener('click', function () {
+            const numToHide = Math.min(threshold, currentThreshold - threshold);
+            for (let i = currentThreshold - 1; i >= currentThreshold - numToHide; i--) {
+                allMessages[i].style.display = 'none';
+            }
+            currentThreshold -= numToHide;
+            updateButtonsVisibility();
+            console.log("收起消息");
+        });
+    }
+}, 600);
 
 // 清除存储
 function clearStorage() {

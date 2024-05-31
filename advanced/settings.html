@@ -56,7 +56,9 @@
 <div class="loading_mask" id="loading_mask">
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src=""/></div>
-        <div class="spinner"><div class="spinner"><span class="spinner_text">载入中</span></div></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
     </div>
 </div>
 <header>
@@ -69,152 +71,159 @@
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<main id="main">
-    <div class="main_title">
-        <div class="main_title_span">设置</div>
-    </div>
-    <!--  TODO: 移除时一并移除相应样式  -->
-    <div class="main preview_block">
-        <div class="preview_title">抢先体验设置页面!</div>
-        <div class="preview_detail">我们正在开发版本库的设置页面.</div>
-        <div class="preview_detail">你认为我们有什么可以改进的地方吗?</div>
-        <div class="preview_detail">请注意: 开发仍在进行中,可能会缺失部分功能.</div>
-        <div class="btn_group">
-            <custom-button data="default|normal|small|preview_btn1|false||" js="toUpdatelog();" text=""></custom-button>
-            <custom-button data="default|green|small|preview_btn2|false||" js="toRepo();" text=""></custom-button>
+<scroll_container>
+    <main id="main">
+        <div class="main_title">
+            <div class="main_title_span">设置</div>
         </div>
-    </div>
-    <div class="setting_title">外观</div>
-    <div class="main_block setting_block">
-        主题
-    </div>
-    <div class="main_block setting_block">
-        暗黑模式
-    </div>
-    <div class="main_block setting_block">
-        新的UI设计
-    </div>
-    <div class="main_block setting_block">
-        实验性新UI
-    </div>
-    <div class="main_block setting_block">
-        UI标度
-    </div>
-    <div class="setting_title">通知</div>
-    <div class="main_block setting_block">
-        Banner通知
-    </div>
-    <div class="main_block setting_block">
-        Modal通知
-    </div>
-    <div class="main_block setting_block">
-        Pop通知
-    </div>
-    <div class="setting_title">声音</div>
-    <div class="main_block setting_block">
-        启用音效
-    </div>
-    <div class="main_block setting_block">
-        音效音量
-    </div>
-    <div class="setting_title">其他</div>
-    <div class="main_block setting_block">
-        <div class="setting_content">语言</div>
-        <div class="setting_control_right">
-        </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">实验性内容</div>
-        <div class="setting_control_right">
-            <custom-button data="setting|normal|||false||" js="flagsPage();" text="查看"></custom-button>
-        </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">环境指南</div>
-        <div class="setting_control_right">
-        </div>
-    </div>
-    <div class="setting_title">高级</div>
-    <div class="main_block setting_block">
-        <div class="setting_content">清除存储数据</div>
-        <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="showModal('clear_storage_warning');"
-                           text="清除"></custom-button>
-        </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">重载容器环境</div>
-        <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="showModal('reload_page_warning');"
-                           text="重载"></custom-button>
-        </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">加载调试程序</div>
-        <div class="setting_control_right">
-            <custom-button data="setting|red|||false||" js="jumpToPage('../default/error_no-access.html');"
-                           text="调试"></custom-button>
-        </div>
-    </div>
-    <div class="setting_title">关于</div>
-    <div class="main_block setting_block">
-        <div class="setting_content">星月Minecraft版本库</div>
-        <div class="setting_control_right setting_control_right_large">
-            <div>
-                <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
+        <!--  TODO: 移除时一并移除相应样式  -->
+        <div class="main preview_block">
+            <div class="preview_title">抢先体验设置页面!</div>
+            <div class="preview_detail">我们正在开发版本库的设置页面.</div>
+            <div class="preview_detail">你认为我们有什么可以改进的地方吗?</div>
+            <div class="preview_detail">请注意: 开发仍在进行中,可能会缺失部分功能.</div>
+            <div class="btn_group">
+                <custom-button data="default|normal|small|preview_btn1|false||" js="toUpdatelog();"
+                               text=""></custom-button>
+                <custom-button data="default|green|small|preview_btn2|false||" js="toRepo();" text=""></custom-button>
             </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">版本: <span id="setting_version"></span></div>
-        <div class="setting_control_right setting_control_right_large">
-            <div>
-                <custom-button data="setting|normal|||false||" js="showModal('version_info_modal');"
-                               text="详情"></custom-button>
+        <div class="setting_title">外观</div>
+        <div class="main_block setting_block">
+            主题
+        </div>
+        <div class="main_block setting_block">
+            暗黑模式
+        </div>
+        <div class="main_block setting_block">
+            新的UI设计
+        </div>
+        <div class="main_block setting_block">
+            实验性新UI
+        </div>
+        <div class="main_block setting_block">
+            UI标度
+        </div>
+        <div class="setting_title">行为</div>
+        <div class="main_block setting_block">
+            滚动条
+        </div>
+        <div class="setting_title">通知</div>
+        <div class="main_block setting_block">
+            Banner通知
+        </div>
+        <div class="main_block setting_block">
+            Modal通知
+        </div>
+        <div class="main_block setting_block">
+            Pop通知
+        </div>
+        <div class="setting_title">声音</div>
+        <div class="main_block setting_block">
+            启用音效
+        </div>
+        <div class="main_block setting_block">
+            音效音量
+        </div>
+        <div class="setting_title">其他</div>
+        <div class="main_block setting_block">
+            <div class="setting_content">语言</div>
+            <div class="setting_control_right">
             </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">开发者: Spectrollay</div>
-        <div class="setting_control_right">
-            <custom-button data="setting|normal|||false||" js="jumpToPage('../default/error_not-found.html');"
-                           text="瞅一瞅"></custom-button>
+        <div class="main_block setting_block">
+            <div class="setting_content">实验性内容</div>
+            <div class="setting_control_right">
+                <custom-button data="setting|normal|||false||" js="flagsPage();" text="查看"></custom-button>
+            </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">其他项目</div>
-        <div class="setting_control_down">
+        <div class="main_block setting_block">
+            <div class="setting_content">环境指南</div>
+            <div class="setting_control_right">
+            </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">用户协议</div>
-        <div class="setting_control_right">
+        <div class="setting_title">高级</div>
+        <div class="main_block setting_block">
+            <div class="setting_content">清除存储数据</div>
+            <div class="setting_control_right">
+                <custom-button data="setting|red|||false||" js="showModal('clear_storage_warning');"
+                               text="清除"></custom-button>
+            </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">开源协议</div>
-        <div class="setting_control_right">
+        <div class="main_block setting_block">
+            <div class="setting_content">重载容器环境</div>
+            <div class="setting_control_right">
+                <custom-button data="setting|red|||false||" js="showModal('reload_page_warning');"
+                               text="重载"></custom-button>
+            </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">联系我们</div>
-        <div class="setting_control_right">
-            <custom-button data="setting|normal|||false||" js="jumpToPage('../default/error_not-found.html');"
-                           text="群组"></custom-button>
+        <div class="main_block setting_block">
+            <div class="setting_content">加载调试程序</div>
+            <div class="setting_control_right">
+                <custom-button data="setting|red|||false||" js="jumpToPage('../default/error_no-access.html');"
+                               text="调试"></custom-button>
+            </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">捐赠支持</div>
-        <div class="setting_control_right">
-            <custom-button data="setting|normal|||false||" js="jumpToPage('../default/error_not-found.html');"
-                           text="打开"></custom-button>
+        <div class="setting_title">关于</div>
+        <div class="main_block setting_block">
+            <div class="setting_content">星月Minecraft版本库</div>
+            <div class="setting_control_right setting_control_right_large">
+                <div>
+                    <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="main_block setting_block">
-        <div class="setting_content">特别鸣谢</div>
-        <div class="setting_control_right"></div>
-    </div>
-</main>
+        <div class="main_block setting_block">
+            <div class="setting_content">版本: <span id="setting_version"></span></div>
+            <div class="setting_control_right setting_control_right_large">
+                <div>
+                    <custom-button data="setting|normal|||false||" js="showModal('version_info_modal');"
+                                   text="详情"></custom-button>
+                </div>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_content">开发者: Spectrollay</div>
+            <div class="setting_control_right">
+                <custom-button data="setting|normal|||false||" js="jumpToPage('../default/error_not-found.html');"
+                               text="瞅一瞅"></custom-button>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_content">其他项目</div>
+            <div class="setting_control_down">
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_content">用户协议</div>
+            <div class="setting_control_right">
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_content">开源协议</div>
+            <div class="setting_control_right">
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_content">联系我们</div>
+            <div class="setting_control_right">
+                <custom-button data="setting|normal|||false||" js="jumpToPage('../default/error_not-found.html');"
+                               text="打开"></custom-button>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_content">捐赠支持</div>
+            <div class="setting_control_right">
+                <custom-button data="setting|normal|||false||" js="jumpToPage('../default/error_not-found.html');"
+                               text="打开"></custom-button>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_content">特别鸣谢</div>
+            <div class="setting_control_right"></div>
+        </div>
+    </main>
+</scroll_container>
 
 <!--遮罩-->
 <!--除了顶栏-->
