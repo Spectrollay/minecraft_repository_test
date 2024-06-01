@@ -124,7 +124,7 @@ const tipsWithWeights = [
     {text: "!!!1!", weight: 2},
     {text: "llI1IlI11lllI", weight: 2},
     {text: "Wow!", weight: 2},
-    {text: "这是一条非非非非常稀有的提示<br>看到就赶紧去买彩票吧!", weight: 0.001},
+    {text: "<span style='color: yellow'>解锁隐藏成就: 仓库尽头的提示</span>", weight: 0.001},
     {text: "这是一条永远不会出现的提示.", weight: 0}
 ];
 
@@ -146,17 +146,17 @@ console.log("加载常量和变量完成");
 const holiday_tip1 = document.getElementById('holiday_tip1');
 const holiday_tip2 = document.getElementById('holiday_tip2');
 const currentDate = new Date();
-const Y = currentDate.getFullYear();
-const M = currentDate.getMonth() + 1;
-const D = currentDate.getDate();
-const h = currentDate.getHours();
-const m = currentDate.getMinutes();
-const s = currentDate.getSeconds();
+let Y = currentDate.getFullYear();
+let M = currentDate.getMonth() + 1;
+let D = currentDate.getDate();
+let h = currentDate.getHours();
+let m = currentDate.getMinutes();
+let s = currentDate.getSeconds();
 // DEBUG
-// const Y = 2024; // 年份全称
-// const M = 1; // 一位数不要补零
-// const D = 1; // 一位数不要补零
-// const h = 1; // 一位数不要补零
+// Y = 2024; // 年份全称
+// M = 1; // 一位数不要补零
+// D = 1; // 一位数不要补零
+// h = 1; // 一位数不要补零
 const minecraft_birthday = Y - 2009;
 const repository_birthday = Y - 2020;
 
