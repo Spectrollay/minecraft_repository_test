@@ -74,14 +74,7 @@ const tipsWithWeights = [
     {text: "转载本站内容时均必须注明出处!", weight: 3},
     {text: "感谢你使用星月Minecraft版本库!", weight: 3},
     {text: "你完成你的事情了吗?", weight: 3},
-    {
-        text: "<span style=\"background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;\">这是一条彩色的提示!</span>",
-        weight: 2
-    },
-    {
-        text: "<span style=\"transform: scaleX(-1) scaleY(-1);\">这是一条颠倒的提示!</span>",
-        weight: 2
-    },
+    {text: "向我们捐赠以支持维护和开发!", weight: 2},
     {text: "我们保留了一些bug,这样你才知道你在使用的是星月Minecraft版本库.", weight: 2},
     {text: "你知道吗,版本库界面的构建仅花费了两天时间.", weight: 2},
     {text: "你知道吗,这个项目始于2020年.", weight: 2},
@@ -93,7 +86,6 @@ const tipsWithWeights = [
     {text: "也去玩玩Minceraft吧!", weight: 2},
     {text: "也去玩玩饥荒吧!", weight: 2},
     {text: "也去玩玩泰拉瑞亚吧!", weight: 2},
-    {text: "向我们捐赠以支持维护和开发!", weight: 2},
     {text: "不要这样看着人家,会害羞的啦!", weight: 2},
     {text: "不要一直戳人家啦!", weight: 2},
     {text: "今天是一个不错的日子,你说对吗?", weight: 2},
@@ -105,6 +97,7 @@ const tipsWithWeights = [
     {text: "种一棵树!", weight: 2},
     {text: "劳逸结合!", weight: 2},
     {text: "持续支持中!", weight: 2},
+    {text: "Technoblade never dies!", weight: 2},
     {text: "Hello world!", weight: 2},
     {text: "95% OreUI!", weight: 2},
     {text: "90% bug free!", weight: 2},
@@ -117,16 +110,23 @@ const tipsWithWeights = [
     {text: "What DOES the fox say?", weight: 2},
     {text: "/give @a hugs 64", weight: 2},
     {text: "P不包含NP!", weight: 2},
-    {text: "Technoblade never dies!", weight: 2},
+    {text: "!!!1!", weight: 2},
+    {text: "llI1IlI11lllI", weight: 2},
+    {text: "Wow!", weight: 2},
     {text: "像幽匿尖啸体一样尖啸!", weight: 2},
     {text: "你做完你的作业了吗?", weight: 2},
     {text: "末影人把我的作业偷走了!", weight: 2},
     {text: "苦力怕把我的作业炸了!", weight: 2},
     {text: "别杀怪物,你这个海豚!", weight: 2},
     {text: "真的会有人看这些吗?", weight: 2},
-    {text: "!!!1!", weight: 2},
-    {text: "llI1IlI11lllI", weight: 2},
-    {text: "Wow!", weight: 2},
+    {
+        text: "<span style=\"background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;\">这是一条彩色的提示!</span>",
+        weight: 2
+    },
+    {
+        text: "<span style=\"transform: scaleX(-1) scaleY(-1);\">这是一条颠倒的提示!</span>",
+        weight: 2
+    },
     {text: "点我抽盲盒!", weight: 2},
     {text: "<span style='color: dodgerblue'>获得物品: 雷石东直放站!</span>", weight: 1},
     {text: "<span style='color: dodgerblue'>获得物品: 雷霆之杖!</span>", weight: 1},
