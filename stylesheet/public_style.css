@@ -175,7 +175,7 @@ header {
 
 /* 主体框架 */
 scroll_container {
-    display: block;
+    display: grid;
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
