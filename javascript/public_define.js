@@ -95,6 +95,7 @@ const tipsWithWeights = [
     {text: "也去玩玩泰拉瑞亚吧!", weight: 2},
     {text: "向我们捐赠以支持维护和开发!", weight: 2},
     {text: "不要这样看着人家,会害羞的啦!", weight: 2},
+    {text: "不要一直戳人家啦!", weight: 2},
     {text: "今天是一个不错的日子,你说对吗?", weight: 2},
     {text: "多抬头看看天空吧!", weight: 2},
     {text: "天空即为极限!", weight: 2},
@@ -126,6 +127,13 @@ const tipsWithWeights = [
     {text: "!!!1!", weight: 2},
     {text: "llI1IlI11lllI", weight: 2},
     {text: "Wow!", weight: 2},
+    {text: "点我抽盲盒!", weight: 2},
+    {text: "<span style='color: dodgerblue'>获得物品: 雷石东直放站!</span>", weight: 1},
+    {text: "<span style='color: dodgerblue'>获得物品: 雷霆之杖!</span>", weight: 1},
+    {text: "<span style='color: dodgerblue'>获得物品: 试用密钥!</span>", weight: 1},
+    {text: "<span style='color: dodgerblue'>获得物品: 羊驼唾沫!</span>", weight: 1},
+    {text: "<span style='color: dodgerblue'>驯服宠物: 六角恐龙!</span>", weight: 1},
+    {text: "<span style='color: gold'>获得稀有物品: 附魔金苹果!</span>", weight: 0.1},
     {text: "<span style='color: yellow'>解锁隐藏成就: 仓库尽头的提示</span>", weight: 0.001},
     {text: "这是一条永远不会出现的提示.", weight: 0}
 ];
