@@ -139,7 +139,7 @@ const compatibilityModal = `
 document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
 setTimeout(function () {
-    if (!localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) || localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) !== '1') {
+    if (localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) !== '1') {
         const overlay = document.getElementById("overlay_compatibility_modal");
         const modal = document.getElementById("compatibility_modal");
         overlay.style.display = "block";
@@ -163,7 +163,7 @@ function neverShowCompatibilityModalAgain(button) {
     console.log("关闭兼容性提示弹窗且不再提示");
 }
 
-// 访问提示
+// 访问受限提示
 const today = new Date().toISOString().split('T')[0];
 
 const firstVisitTodayModal = `
@@ -190,15 +190,19 @@ document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 
 function checkFirstVisit() {
     const firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
+    const is404Page = document.title.includes("404 NOT FOUND");
+    const firstVisitAllowedPaths = [
+        `${rootPath}`,
+        `${rootPath}index.html`,
+        `${rootPath}home.html`
+    ];
 
-    if (firstVisit !== today) {
-
-        if (window.location.pathname !== `${rootPath}` || window.location.pathname !== `${rootPath}index.html` || window.location.pathname !== `${rootPath}home.html` || window.location.pathname !== `${rootPath}404.html`) {
-            const overlay = document.getElementById("overlay_first_visit_today_modal");
-            const modal = document.getElementById("first_visit_today_modal");
-            overlay.style.display = "block";
-            modal.style.display = "block";
-        }
+    // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
+    if (firstVisit !== today && !firstVisitAllowedPaths.includes(window.location.pathname) && !is404Page) {
+        const overlay = document.getElementById("overlay_first_visit_today_modal");
+        const modal = document.getElementById("first_visit_today_modal");
+        overlay.style.display = "block";
+        modal.style.display = "block";
     }
 }
 
