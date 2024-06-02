@@ -72,8 +72,8 @@
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<scroll_container>
-    <main id="main">
+<scroll-container>
+    <main class="main_scroll_container main_with_tab_bar" id="main">
         <div id="main_top"></div>
         <div class="tab_bar_area main_tab_bar">
             <div class="tab_bar">
@@ -353,34 +353,48 @@
         </div>
         <div id="page_info"></div>
     </main>
-</scroll_container>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--侧边栏-->
 <div class="sidebar" id="sidebar">
-    <div class="sidebar_header">
-        <button class="btn sidebar_btn back_to_main" onclick="mainPage();"></button>
-    </div>
-    <div class="sidebar_list tab_sidebar active" id="sidebar_content1">
-        <div class="sidebar_item">教育版 Release</div>
-        <a class="sidebar_item" href="#release_1.20">1.20</a>
-        <a class="sidebar_item" href="#release_1.19">1.19</a>
-        <a class="sidebar_item" href="#release_1.18">1.18</a>
-        <a class="sidebar_item" href="#release_1.17">1.17</a>
-        <a class="sidebar_item" href="#release_1.14.70">1.14.70</a>
-        <a class="sidebar_item" href="#release_1.14">1.14</a>
-    </div>
-    <div class="sidebar_list tab_sidebar no_active" id="sidebar_content2">
-        <div class="sidebar_item">教育版 Preview</div>
-        <a class="sidebar_item" href="#release_1.20">1.20</a>
-    </div>
-    <div class="sidebar_info">
-        <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
-        <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
-        <div class="sidebar_detail">
-            <custom-button data="sidebar|normal||sidebar_bottom_btn|false||" js="clickedSidebarBottomBtn();"
-                           text=""></custom-button>
+    <scroll-container id="sidebar_scroll_container">
+        <div class="sidebar_area main_scroll_container">
+            <div class="sidebar_content">
+                <div class="sidebar_header">
+                    <button class="btn sidebar_btn back_to_main" onclick="mainPage();"></button>
+                </div>
+                <div class="sidebar_list tab_sidebar active" id="sidebar_content1">
+                    <div class="sidebar_item">教育版 Release</div>
+                    <a class="sidebar_item" href="#release_1.20">1.20</a>
+                    <a class="sidebar_item" href="#release_1.19">1.19</a>
+                    <a class="sidebar_item" href="#release_1.18">1.18</a>
+                    <a class="sidebar_item" href="#release_1.17">1.17</a>
+                    <a class="sidebar_item" href="#release_1.14.70">1.14.70</a>
+                    <a class="sidebar_item" href="#release_1.14">1.14</a>
+                </div>
+                <div class="sidebar_list tab_sidebar no_active" id="sidebar_content2">
+                    <div class="sidebar_item">教育版 Preview</div>
+                    <a class="sidebar_item" href="#release_1.20">1.20</a>
+                </div>
+                <div class="sidebar_info">
+                    <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
+                    <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
+                    <div class="sidebar_detail">
+                        <custom-button data="sidebar|normal||sidebar_bottom_btn|false||" js="clickedSidebarBottomBtn();"
+                                       text=""></custom-button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </scroll-container>
+    <custom-scrollbar>
+        <custom-scrollbar-track></custom-scrollbar-track>
+        <custom-scrollbar-thumb></custom-scrollbar-thumb>
+    </custom-scrollbar>
 </div>
 
 <!--遮罩-->
@@ -427,7 +441,7 @@
 <script src="../javascript/editions.js"></script>
 
 <style>
-    scroll_container {
+    scroll-container {
         top: 100px;
         height: calc(100% - 100px);
     }

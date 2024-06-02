@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="keywords"
-          content="Minecraft, MC, 我的世界, 版本库, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球"/>
-    <meta name="description" content="Minecraft(我的世界)版本合集"/>
+    <meta content="Minecraft, MC, 我的世界, 版本库, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球"
+          name="keywords"/>
+    <meta content="Minecraft(我的世界)版本合集" name="description"/>
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
@@ -76,8 +76,8 @@
         <img alt="" class="settings_icon" src="./images/Settings.png"/>
     </div>
 </header>
-<scroll_container>
-    <main id="main">
+<scroll-container>
+    <main class="main_scroll_container" id="main">
         <div id="main_top"></div>
         <div class="banner_area" id="holiday_tip1">
             <div class="banner important_banner" style="margin-bottom: 0"></div>
@@ -496,28 +496,42 @@
         </div>
         <div id="page_info"></div>
     </main>
-</scroll_container>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--侧边栏-->
 <div class="sidebar" id="sidebar">
-    <div class="sidebar_list">
-        <a class="sidebar_item" href="#header_notice">版本库信息</a>
-        <a class="sidebar_item" href="#bedrock_edition">基岩版</a>
-        <a class="sidebar_item" href="#pocket_edition">携带版</a>
-        <a class="sidebar_item" href="#education_edition">教育版</a>
-        <a class="sidebar_item" href="#trial">试玩版</a>
-        <a class="sidebar_item" href="#demo">演示版</a>
-        <a class="sidebar_item" href="#more_edition">更多版本</a>
-        <a class="sidebar_item" href="#footer_notice">版本库须知</a>
-    </div>
-    <div class="sidebar_info">
-        <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
-        <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
-        <div class="sidebar_detail">
-            <custom-button data="sidebar|normal||sidebar_bottom_btn|false||" js="clickedSidebarBottomBtn();"
-                           text=""></custom-button>
+    <scroll-container id="sidebar_scroll_container">
+        <div class="sidebar_area main_scroll_container">
+            <div class="sidebar_content">
+                <div class="sidebar_list">
+                    <a class="sidebar_item" href="#header_notice">版本库信息</a>
+                    <a class="sidebar_item" href="#bedrock_edition">基岩版</a>
+                    <a class="sidebar_item" href="#pocket_edition">携带版</a>
+                    <a class="sidebar_item" href="#education_edition">教育版</a>
+                    <a class="sidebar_item" href="#trial">试玩版</a>
+                    <a class="sidebar_item" href="#demo">演示版</a>
+                    <a class="sidebar_item" href="#more_edition">更多版本</a>
+                    <a class="sidebar_item" href="#footer_notice">版本库须知</a>
+                </div>
+                <div class="sidebar_info">
+                    <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
+                    <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
+                    <div class="sidebar_detail">
+                        <custom-button data="sidebar|normal||sidebar_bottom_btn|false||" js="clickedSidebarBottomBtn();"
+                                       text=""></custom-button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </scroll-container>
+    <custom-scrollbar>
+        <custom-scrollbar-track></custom-scrollbar-track>
+        <custom-scrollbar-thumb></custom-scrollbar-thumb>
+    </custom-scrollbar>
 </div>
 
 <!--遮罩-->
@@ -720,7 +734,6 @@
 
     .main_page_alert {
         text-align: left;
-        max-height: calc(min(450px, calc(90vh - 150px)));
     }
 
     .notice_table {

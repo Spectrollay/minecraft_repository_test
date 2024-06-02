@@ -72,8 +72,8 @@
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<scroll_container>
-    <main id="main">
+<scroll-container>
+    <main class="main_scroll_container" id="main">
         <div id="main_top"></div>
         <div class="block_spacing"></div>
         <div class="block">
@@ -526,37 +526,51 @@
         </div>
         <div id="page_info"></div>
     </main>
-</scroll_container>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--侧边栏-->
 <div class="sidebar" id="sidebar">
-    <div class="sidebar_header">
-        <button class="btn sidebar_btn back_to_main" onclick="mainPage();"></button>
-    </div>
-    <div class="sidebar_list">
-        <div class="sidebar_item">试玩版</div>
-        <a class="sidebar_item" href="#1.20">1.20</a>
-        <a class="sidebar_item" href="#1.19">1.19</a>
-        <a class="sidebar_item" href="#1.18">1.18</a>
-        <a class="sidebar_item" href="#1.17">1.17</a>
-        <a class="sidebar_item" href="#1.16">1.16</a>
-        <a class="sidebar_item" href="#1.14">1.14</a>
-        <a class="sidebar_item" href="#1.13">1.13</a>
-        <a class="sidebar_item" href="#1.12">1.12</a>
-        <a class="sidebar_item" href="#1.11">1.11</a>
-        <a class="sidebar_item" href="#1.10">1.10</a>
-        <a class="sidebar_item" href="#1.9">1.9</a>
-        <a class="sidebar_item" href="#1.8">1.8</a>
-        <a class="sidebar_item" href="#1.7">1.7</a>
-    </div>
-    <div class="sidebar_info">
-        <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
-        <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
-        <div class="sidebar_detail">
-            <custom-button data="sidebar|normal||sidebar_bottom_btn|false||" js="clickedSidebarBottomBtn();"
-                           text=""></custom-button>
+    <scroll-container id="sidebar_scroll_container">
+        <div class="sidebar_area main_scroll_container">
+            <div class="sidebar_content">
+                <div class="sidebar_header">
+                    <button class="btn sidebar_btn back_to_main" onclick="mainPage();"></button>
+                </div>
+                <div class="sidebar_list">
+                    <div class="sidebar_item">试玩版</div>
+                    <a class="sidebar_item" href="#1.20">1.20</a>
+                    <a class="sidebar_item" href="#1.19">1.19</a>
+                    <a class="sidebar_item" href="#1.18">1.18</a>
+                    <a class="sidebar_item" href="#1.17">1.17</a>
+                    <a class="sidebar_item" href="#1.16">1.16</a>
+                    <a class="sidebar_item" href="#1.14">1.14</a>
+                    <a class="sidebar_item" href="#1.13">1.13</a>
+                    <a class="sidebar_item" href="#1.12">1.12</a>
+                    <a class="sidebar_item" href="#1.11">1.11</a>
+                    <a class="sidebar_item" href="#1.10">1.10</a>
+                    <a class="sidebar_item" href="#1.9">1.9</a>
+                    <a class="sidebar_item" href="#1.8">1.8</a>
+                    <a class="sidebar_item" href="#1.7">1.7</a>
+                </div>
+                <div class="sidebar_info">
+                    <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
+                    <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
+                    <div class="sidebar_detail">
+                        <custom-button data="sidebar|normal||sidebar_bottom_btn|false||" js="clickedSidebarBottomBtn();"
+                                       text=""></custom-button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </scroll-container>
+    <custom-scrollbar>
+        <custom-scrollbar-track></custom-scrollbar-track>
+        <custom-scrollbar-thumb></custom-scrollbar-thumb>
+    </custom-scrollbar>
 </div>
 
 <!--遮罩-->

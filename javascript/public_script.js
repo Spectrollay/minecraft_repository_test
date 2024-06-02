@@ -11,30 +11,164 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     document.body.classList.add('no-dark-mode');
 }
 
-// 滚动条
-const scrollContainer = document.querySelector('scroll_container');
+// 页面滚动条
+const scrollContainer = document.querySelector('scroll-container');
+const mainContent = document.querySelector('.main_scroll_container');
+const customScrollbar = document.querySelector('custom-scrollbar');
+const customThumb = document.querySelector('custom-scrollbar-thumb');
+const sidebar = document.querySelector('#sidebar');
+let sidebarContainer;
+let sidebarContent;
+let sidebarCustomScrollbar;
+let sidebarThumb;
+if (sidebar) {
+    sidebarContainer = document.querySelector('#sidebar_scroll_container');
+    sidebarContent = sidebarContainer.querySelector('.sidebar_content');
+    sidebarCustomScrollbar = sidebar.querySelector('custom-scrollbar');
+    sidebarThumb = sidebar.querySelector('custom-scrollbar-thumb');
+}
+
 let scrollTimeout;
+let isDragging;
+
+function updateThumb() {
+    const scrollHeight = mainContent.scrollHeight;
+    const containerHeight = scrollContainer.clientHeight - 4;
+    if (mainContent.classList.contains('main_with_tab_bar')) {
+        customScrollbar.style.height = containerHeight + 'px';
+        customScrollbar.style.top = '100px';
+    }
+    let thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight, 20);
+    if (mainContent.classList.contains('main_content_center')) {
+        thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight + 8, 20);
+    }
+    customThumb.style.height = `${thumbHeight}px`;
+    let maxScrollTop = scrollHeight - containerHeight;
+    if (mainContent.classList.contains('main_content_center')) {
+        maxScrollTop = scrollHeight - containerHeight - 4;
+    }
+    const thumbPosition = (scrollContainer.scrollTop / maxScrollTop) * (containerHeight - thumbHeight);
+    customThumb.style.top = `${thumbPosition}px`;
+    if (thumbHeight >= containerHeight) {
+        customScrollbar.style.display = 'none';
+    } else {
+        customScrollbar.style.display = 'block';
+    }
+}
+
+function updateSidebarThumb() {
+    const scrollHeight = sidebarContent.scrollHeight;
+    const containerHeight = sidebarContainer.clientHeight - 4;
+    const thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight, 20);
+    const maxScrollTop = scrollHeight - containerHeight;
+    const thumbPosition = (sidebarContainer.scrollTop / maxScrollTop) * (containerHeight - thumbHeight);
+
+    if (thumbHeight >= containerHeight) {
+        sidebarCustomScrollbar.style.display = 'none';
+    } else {
+        sidebarCustomScrollbar.style.display = 'block';
+    }
+
+    sidebarThumb.style.height = `${thumbHeight}px`;
+    sidebarThumb.style.top = `${thumbPosition}px`;
+}
 
 function showScroll() {
-    scrollContainer.classList.add('show_scrollbar');
     clearTimeout(scrollTimeout);
-
+    customScrollbar.style.opacity = "1";
     scrollTimeout = setTimeout(() => {
-        scrollContainer.classList.remove('show_scrollbar');
+        customScrollbar.style.opacity = "0";
     }, 3000);
 }
 
-if (scrollContainer) {
-    showScroll();
-    scrollContainer.addEventListener('scroll', () => {
-        showScroll();
-    });
-
-    window.addEventListener('resize', function () {
-        showScroll();
-    });
+function showSidebarScroll() {
+    clearTimeout(scrollTimeout);
+    sidebarCustomScrollbar.style.opacity = "1";
+    scrollTimeout = setTimeout(() => {
+        sidebarCustomScrollbar.style.opacity = "0";
+    }, 3000);
 }
 
+function handleScroll() {
+    showScroll();
+    updateThumb();
+}
+
+function startDrag() {
+    isDragging = true;
+    document.addEventListener('mousemove', onDrag);
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchmove', onDrag);
+    document.addEventListener('touchend', stopDrag);
+}
+
+function onDrag(e) {
+    if (!isDragging) return;
+
+    const mouseY = e.clientY || e.touches[0].clientY;
+    const {top, height: containerHeight} = scrollContainer.getBoundingClientRect();
+    const thumbHeight = customThumb.offsetHeight;
+    const maxThumbTop = containerHeight - thumbHeight;
+    const newTop = Math.min(Math.max(mouseY - top - thumbHeight / 2, 0), maxThumbTop);
+    const maxScrollTop = mainContent.scrollHeight - containerHeight;
+    scrollContainer.scrollTop = (newTop / maxThumbTop) * maxScrollTop;
+    updateThumb();
+}
+
+function stopDrag() {
+    isDragging = false;
+    document.removeEventListener('mousemove', onDrag);
+    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('touchmove', onDrag);
+    document.removeEventListener('touchend', stopDrag);
+}
+
+function handleScrollbarClick(e) {
+    const {top, height: scrollbarHeight} = customScrollbar.getBoundingClientRect();
+    const clickPosition = e.clientY - top;
+    const thumbHeight = customThumb.offsetHeight;
+    const containerHeight = scrollContainer.clientHeight;
+    const maxScrollTop = mainContent.scrollHeight - containerHeight;
+    scrollContainer.scrollTop = (clickPosition / (scrollbarHeight - thumbHeight)) * maxScrollTop;
+    updateThumb();
+}
+
+if (scrollContainer) {
+    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    scrollContainer.addEventListener('touchmove', handleScroll);
+    scrollContainer.addEventListener('mousemove', handleScroll);
+
+    setTimeout(handleScroll, 60);
+
+    // 添加鼠标和触摸事件
+    customThumb.addEventListener('mousedown', startDrag);
+    customThumb.addEventListener('touchstart', startDrag);
+
+    // 添加点击滚动条事件
+    customScrollbar.addEventListener('click', handleScrollbarClick);
+}
+
+if (sidebarContainer) {
+    sidebarContainer.addEventListener('scroll', () => {
+        showSidebarScroll();
+        updateSidebarThumb();
+    });
+
+    setTimeout(function () {
+        showSidebarScroll();
+        updateSidebarThumb();
+    }, 100);
+
+    window.addEventListener('resize', function () {
+        showSidebarScroll();
+        updateSidebarThumb();
+    });
+    sidebarContainer.addEventListener('touchmove', showSidebarScroll);
+    sidebarContainer.addEventListener('mousemove', showSidebarScroll);
+}
+
+// 路径检测
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
 const hostPath = window.location.origin;
@@ -122,8 +256,9 @@ const compatibilityModal = `
                 <modal_title>兼容性提示</modal_title>
             </modal_title_area>
             <modal_content>
-                <p>不同浏览器之间存在些许差异,为确保你的使用体验,我们推荐通过以下浏览器或内核的最新发行版访问本站以获得完全的特性支持:
-                    Edge / Chrome / Firefox / Safari / WebView Android</p>
+                    <p>由于不同平台的代码支持存在些许差异, 为确保你的使用体验, 我们推荐通过以下浏览器及内核的最新发行版访问本站以获得完全的特性支持</p>
+                    <p>浏览器: Edge / Chrome / Safari / Firefox<br>内核: Chromium / Android WebView / Apple WebKit</p>
+                    <p>在不支持或过旧的浏览器及内核上访问本站可能会出现错乱甚至崩溃问题</p>
             </modal_content>
             <modal_button_area>
                 <modal_button_group>
@@ -294,6 +429,7 @@ function selectTab(tabNumber) {
         // 选中不一致
         // 在切换选项卡时播放声音
         // playSound1();
+        setTimeout(handleScroll, 100);
 
         // 切换Tab Bar选项卡
         document.querySelectorAll('.tab_bar_btn').forEach(button => {
@@ -331,11 +467,14 @@ function selectTab(tabNumber) {
 
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
+    const sidebarContent = document.getElementById("sidebar_scroll_container");
     if (sidebarOpen) {
         sidebar.style.width = "0";
+        sidebarContent.style.width = "0";
         console.log("侧边栏执行收起操作");
     } else {
         sidebar.style.width = "160px";
+        sidebarContent.style.width = "160px";
         console.log("侧边栏执行展开操作");
     }
     sidebarOpen = !sidebarOpen;
@@ -476,7 +615,7 @@ function clickedSidebarBottomBtn() {
 
 // 回到网页顶部
 function scrollToTop() {
-    main.scrollTo({
+    scrollContainer.scrollTo({
         top: 0,
         behavior: "smooth"
     });
@@ -484,7 +623,7 @@ function scrollToTop() {
 }
 
 function toTop() {
-    main.scrollTo({
+    scrollContainer.scrollTo({
         top: 0,
         behavior: "instant"
     });
@@ -521,6 +660,18 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         }
 
         expandableCard.addEventListener('click', () => {
+
+            let lastScrollHeight = mainContent.scrollHeight;
+
+            function checkScrollHeightChange() {
+                const currentScrollHeight = mainContent.scrollHeight;
+                if (lastScrollHeight !== currentScrollHeight) {
+                    handleScroll();
+                    lastScrollHeight = currentScrollHeight;
+                }
+            }
+            setInterval(checkScrollHeightChange, 1);
+
             isExpanded = expandableCard.classList.contains("expanded");
             if (isExpanded) {
                 // 折叠当前卡片
@@ -618,6 +769,7 @@ setTimeout(function () {
 
     if (showMoreBtn) {
         showMoreBtn.addEventListener('click', function () {
+            handleScroll();
             const numToDisplay = Math.min(threshold, allMessages.length - currentThreshold);
             for (let i = currentThreshold; i < currentThreshold + numToDisplay; i++) {
                 allMessages[i].style.display = 'block';
@@ -630,6 +782,7 @@ setTimeout(function () {
 
     if (showLessBtn) {
         showLessBtn.addEventListener('click', function () {
+            handleScroll();
             const numToHide = Math.min(threshold, currentThreshold - threshold);
             for (let i = currentThreshold - 1; i >= currentThreshold - numToHide; i--) {
                 allMessages[i].style.display = 'none';

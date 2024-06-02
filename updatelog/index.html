@@ -74,8 +74,8 @@
         <img alt="" class="feedback_icon" src="../images/Feedback.png"/>
     </div>
 </header>
-<scroll_container>
-    <main id="main">
+<scroll-container>
+    <main class="main_scroll_container main_with_tab_bar" id="main">
         <div id="main_top"></div>
         <div class="tab_bar_area main_tab_bar">
             <div class="tab_bar">
@@ -173,6 +173,31 @@
                             <div class="expandable_card_down">
                                 <div class="expandable_card_down_content">
                                     <article_block>
+                                        <article_title>4.6.3-Canary20(4.6.3.60)</article_title>
+                                        <article_date>2024-06-02</article_date>
+                                        <article_detail>
+                                            <article_note>
+                                                我们迎来了一次大更新! 在这个版本中我们对滚动条进行了彻底的重做! 现在滚动条的显示不受平台的限制了!
+                                                你可以告诉我们你在这个版本发现的问题或新的想法吗? 我们很乐意听一听.
+                                            </article_note>
+                                            <article_list>彻底重做了滚动条</article_list>
+                                            <article_list_level2>更新了主要滚动条</article_list_level2>
+                                            <article_list_level3>现在主要滚动条的鼠标指针是pointer了</article_list_level3>
+                                            <article_list_level3>现在主要滚动条可以被拖动和点击了</article_list_level3>
+                                            <article_list_level3>现在主要滚动条有右间距了,不再紧靠右侧了</article_list_level3>
+                                            <article_list_level3>现在主要滚动条可以显示没被遮挡的下方元素了</article_list_level3>
+                                            <article_list_level3>现在主要滚动条会在没有触发事件时自动消失了</article_list_level3>
+                                            <article_list_level2>更新了侧边栏滚动条</article_list_level2>
+                                            <article_list_level3>现在侧边栏滚动条拥有了新的样式</article_list_level3>
+                                            <article_list_level3>现在侧边栏滚动条不会占用元素宽度了</article_list_level3>
+                                            <article_list_level3>现在侧边栏滚动条会在没有触发事件时自动消失了</article_list_level3>
+                                            <article_list_level2>移除了Modal弹窗的滚动条</article_list_level2>
+                                        </article_detail>
+                                    </article_block>
+                                </div>
+                                <div class="expandable_card_down_br"></div>
+                                <div class="expandable_card_down_content">
+                                    <article_block>
                                         <article_title>4.6.3-Canary10(4.6.3.56)</article_title>
                                         <article_date>2024-05-31</article_date>
                                         <article_detail>
@@ -189,7 +214,8 @@
                                                 </div>
                                             </article_list>
                                             <article_list_level2>滚动条现在不占用页面宽度了</article_list_level2>
-                                            <article_list_level2>滚动条现在会在页面静止时自动消失了</article_list_level2>
+                                            <article_list_level2>滚动条现在会在页面静止时自动消失了
+                                            </article_list_level2>
                                             <article_list_level2>上述改动仅适用于页面主体滚动条</article_list_level2>
                                             <article_list>
                                                 <div class="tag_area">
@@ -2714,7 +2740,11 @@
             </div>
         </div>
     </main>
-</scroll_container>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -2760,7 +2790,7 @@
 </script>
 
 <style>
-    scroll_container {
+    scroll-container {
         top: 100px;
         height: calc(100% - 100px);
     }

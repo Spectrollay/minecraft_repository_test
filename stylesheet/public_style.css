@@ -174,12 +174,13 @@ header {
 }
 
 /* 主体框架 */
-scroll_container {
+scroll-container {
     display: grid;
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
+    scrollbar-width: none;
     height: calc(100% - 44px);
     top: 44px;
     width: 100%;
@@ -192,24 +193,37 @@ main {
 }
 
 /* 主体框架滚动条 */
-scroll_container::-webkit-scrollbar {
+custom-scrollbar {
+    display: block;
+    position: absolute;
     top: 44px;
-    width: 0;
+    right: 0;
+    height: calc(100% - 44px);
+    width: 22px;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
-scroll_container.show_scrollbar::-webkit-scrollbar {
-    width: 16px;
-}
-
-scroll_container::-webkit-scrollbar-track {
+custom-scrollbar-track {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 6px;
+    height: calc(100% - 16px);
     background-color: #58585A;
-    border: 5px solid #48494A;
 }
 
-scroll_container::-webkit-scrollbar-thumb {
+custom-scrollbar-thumb {
+    display: block;
+    position: absolute;
+    right: 3px;
+    width: 12px;
+    min-height: 20px;
     background-color: #E6E8EB;
     border: 2px solid #000000;
     box-shadow: inset 0 -4px #58585A, inset 0 -7px #F9FAFA, inset 3px 3px #F9FAFA, inset -3px 0 #F9FAFA;
+    cursor: pointer;
 }
 
 /* Tab Bar组件 */
@@ -735,12 +749,47 @@ divider {
     font-family: "NotoSans Bold", sans-serif;
     background-color: #313233;
     overflow-x: hidden;
+    overflow-y: hidden;
     transition: 0.6s;
+}
+
+#sidebar_scroll_container {
+    top: 44px;
+    height: calc(100% - 44px);
+    width: 0;
+    transition: width 0.6s;
+}
+
+.sidebar custom-scrollbar {
+    top: 0;
+    height: 100%;
+    width: 18px;
+}
+
+.sidebar custom-scrollbar-track {
+    top: 0;
+    right: 6px;
+    width: 6px;
+    height: 100%;
+    background-color: transparent;
+}
+
+.sidebar custom-scrollbar-thumb {
+    right: 4px;
+    width: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0;
+    box-shadow: unset;
+    cursor: default;
 }
 
 .sidebar a {
     text-decoration: none;
     box-shadow: unset;
+}
+
+.sidebar_content {
+    width: auto;
 }
 
 .sidebar_list {
@@ -750,8 +799,7 @@ divider {
 
 .sidebar_item {
     color: #FFFFFF;
-    width: 100%;
-    min-width: 148px;
+    width: 150px;
     display: flex;
     align-items: center;
     padding-left: 10px;
@@ -779,8 +827,7 @@ divider {
 }
 
 .sidebar_info {
-    width: 100%;
-    min-width: 148px;
+    width: 160px;
     border-top: 2px solid #454647;
 }
 
@@ -806,22 +853,6 @@ divider {
     border: 2px solid #FFFFFF;
     box-shadow: unset;
     padding-bottom: 2px;
-}
-
-/* 侧边栏滚动条 */
-.sidebar::-webkit-scrollbar {
-    width: 12px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-    background-color: #58585A;
-    border: 4px solid #313233;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background-color: #E6E8EB;
-    border: 2px solid #000000;
-    box-shadow: inset 0 -4px #58585A, inset 0 -6px #F9FAFA, inset 2px 2px #F9FAFA, inset -2px 0 #F9FAFA;
 }
 
 /* 全屏遮罩 */

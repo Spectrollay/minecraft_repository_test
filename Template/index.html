@@ -55,7 +55,9 @@
 <div class="loading_mask" id="loading_mask">
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src=""/></div>
-        <div class="spinner"><div class="spinner"><span class="spinner_text">载入中</span></div></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
     </div>
 </div>
 <header>
@@ -65,9 +67,14 @@
     <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<main class="main_content_center" id="main">
-
-</main>
+<scroll-container>
+    <main class="main_content_center main_scroll_container" id="main">
+    </main>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--遮罩-->
 <!--除了顶栏-->

@@ -73,8 +73,8 @@
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<scroll_container>
-    <main id="main">
+<scroll-container>
+    <main class="main_scroll_container" id="main">
         <div id="main_top"></div>
         <div class="main_title">
             <div class="main_title_span">实验性内容</div>
@@ -126,7 +126,7 @@
                 </div>
                 <divider></divider>
                 <div class="flex">
-                    <div class="setting_content">滚动条的新行为</div>
+                    <div class="setting_content">全新的滚动条</div>
                     <custom-switch active="on" status="disabled"></custom-switch>
                 </div>
                 <br>
@@ -310,7 +310,11 @@
         </div>
         <div id="page_info"></div>
     </main>
-</scroll_container>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--遮罩-->
 <!--除了顶栏-->
