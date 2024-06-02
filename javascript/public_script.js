@@ -33,7 +33,7 @@ let isDragging;
 
 function updateThumb() {
     const scrollHeight = mainContent.scrollHeight;
-    const containerHeight = Math.floor(scrollContainer.getBoundingClientRect().height);
+    const containerHeight = scrollContainer.getBoundingClientRect().height;
     customScrollbar.style.height = containerHeight + 'px';
     if (mainContent.classList.contains('main_with_tab_bar')) {
         customScrollbar.style.top = '100px';
@@ -44,7 +44,9 @@ function updateThumb() {
     const currentScrollTop = Math.round(scrollContainer.scrollTop);
     const thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - (thumbHeight + 4));
     customThumb.style.top = `${thumbPosition}px`;
-    if (thumbHeight >= containerHeight) {
+    console.log(thumbHeight)
+    console.log(containerHeight)
+    if (thumbHeight + 0.5 >= containerHeight) {
         customScrollbar.style.display = 'none';
     } else {
         customScrollbar.style.display = 'block';
@@ -154,7 +156,7 @@ if (sidebarContainer) {
     setTimeout(function () {
         showSidebarScroll();
         updateSidebarThumb();
-    }, 100);
+    }, 300);
 
     window.addEventListener('resize', function () {
         showSidebarScroll();
