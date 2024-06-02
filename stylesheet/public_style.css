@@ -198,10 +198,10 @@ custom-scrollbar {
     position: absolute;
     top: 44px;
     right: 0;
-    height: calc(100% - 44px);
     width: 22px;
     opacity: 1;
     transition: opacity 1s;
+    overflow-y: hidden;
 }
 
 custom-scrollbar-track {
@@ -212,6 +212,7 @@ custom-scrollbar-track {
     width: 6px;
     height: calc(100% - 16px);
     background-color: #58585A;
+    overflow-y: hidden;
 }
 
 custom-scrollbar-thumb {
@@ -224,6 +225,7 @@ custom-scrollbar-thumb {
     border: 2px solid #000000;
     box-shadow: inset 0 -4px #58585A, inset 0 -7px #F9FAFA, inset 3px 3px #F9FAFA, inset -3px 0 #F9FAFA;
     cursor: pointer;
+    overflow-y: hidden;
 }
 
 /* Tab Bar组件 */

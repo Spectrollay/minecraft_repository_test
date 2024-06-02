@@ -33,21 +33,16 @@ let isDragging;
 
 function updateThumb() {
     const scrollHeight = mainContent.scrollHeight;
-    const containerHeight = scrollContainer.clientHeight - 4;
+    const containerHeight = Math.floor(scrollContainer.getBoundingClientRect().height);
+    customScrollbar.style.height = containerHeight + 'px';
     if (mainContent.classList.contains('main_with_tab_bar')) {
-        customScrollbar.style.height = containerHeight + 'px';
         customScrollbar.style.top = '100px';
     }
     let thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight, 20);
-    if (mainContent.classList.contains('main_content_center')) {
-        thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight + 8, 20);
-    }
     customThumb.style.height = `${thumbHeight}px`;
     let maxScrollTop = scrollHeight - containerHeight;
-    if (mainContent.classList.contains('main_content_center')) {
-        maxScrollTop = scrollHeight - containerHeight - 4;
-    }
-    const thumbPosition = (scrollContainer.scrollTop / maxScrollTop) * (containerHeight - thumbHeight);
+    const currentScrollTop = Math.round(scrollContainer.scrollTop);
+    const thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - (thumbHeight + 4));
     customThumb.style.top = `${thumbPosition}px`;
     if (thumbHeight >= containerHeight) {
         customScrollbar.style.display = 'none';
@@ -58,10 +53,11 @@ function updateThumb() {
 
 function updateSidebarThumb() {
     const scrollHeight = sidebarContent.scrollHeight;
-    const containerHeight = sidebarContainer.clientHeight - 4;
+    const containerHeight = Math.floor(sidebarContainer.getBoundingClientRect().height);
     const thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight, 20);
     const maxScrollTop = scrollHeight - containerHeight;
-    const thumbPosition = (sidebarContainer.scrollTop / maxScrollTop) * (containerHeight - thumbHeight);
+    const currentScrollTop = Math.round(sidebarContainer.scrollTop);
+    const thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - (thumbHeight + 4));
 
     if (thumbHeight >= containerHeight) {
         sidebarCustomScrollbar.style.display = 'none';
