@@ -774,26 +774,26 @@ setTimeout(function () {
 
     if (showMoreBtn) {
         showMoreBtn.addEventListener('click', function () {
-            handleScroll();
             const numToDisplay = Math.min(threshold, allMessages.length - currentThreshold);
             for (let i = currentThreshold; i < currentThreshold + numToDisplay; i++) {
                 allMessages[i].style.display = 'block';
             }
             currentThreshold += numToDisplay;
             updateButtonsVisibility();
+            handleScroll();
             console.log("展开消息");
         });
     }
 
     if (showLessBtn) {
         showLessBtn.addEventListener('click', function () {
-            handleScroll();
             const numToHide = Math.min(threshold, currentThreshold - threshold);
             for (let i = currentThreshold - 1; i >= currentThreshold - numToHide; i--) {
                 allMessages[i].style.display = 'none';
             }
             currentThreshold -= numToHide;
             updateButtonsVisibility();
+            handleScroll();
             console.log("收起消息");
         });
     }
