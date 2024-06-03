@@ -137,7 +137,11 @@ if (scrollContainer) {
     scrollContainer.addEventListener('touchmove', handleScroll);
     scrollContainer.addEventListener('mousemove', handleScroll);
 
-    setTimeout(handleScroll, 100);
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            handleScroll();
+        }, 10);
+    });
 
     // 添加鼠标和触摸事件
     customThumb.addEventListener('mousedown', startDrag);
@@ -153,10 +157,12 @@ if (sidebarContainer) {
         updateSidebarThumb();
     });
 
-    setTimeout(function () {
-        showSidebarScroll();
-        updateSidebarThumb();
-    }, 300);
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            showSidebarScroll();
+            updateSidebarThumb();
+        }, 10);
+    });
 
     window.addEventListener('resize', function () {
         showSidebarScroll();
@@ -668,6 +674,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
                     lastScrollHeight = currentScrollHeight;
                 }
             }
+
             setInterval(checkScrollHeightChange, 1);
 
             isExpanded = expandableCard.classList.contains("expanded");
