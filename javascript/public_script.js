@@ -137,7 +137,7 @@ if (scrollContainer) {
     scrollContainer.addEventListener('touchmove', handleScroll);
     scrollContainer.addEventListener('mousemove', handleScroll);
 
-    setTimeout(handleScroll, 60);
+    setTimeout(handleScroll, 100);
 
     // 添加鼠标和触摸事件
     customThumb.addEventListener('mousedown', startDrag);
