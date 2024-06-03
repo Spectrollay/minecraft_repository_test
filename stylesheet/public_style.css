@@ -515,6 +515,13 @@ a {
     align-self: center;
     justify-self: center;
     width: 272px;
+    margin: 5px 0;
+}
+
+.btn_group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .notice_img {
@@ -575,13 +582,6 @@ a {
 
 .important_banner a {
     box-shadow: inset 0 -2px 0 0 #000000;
-}
-
-/* 按钮块 */
-.btn_group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Badge */

@@ -314,12 +314,17 @@ setTimeout(function () {
     setElementText("preview_btn1", texts.preview_btn1);
     setElementText("preview_btn2", texts.preview_btn2);
 
-    const buttons = document.querySelectorAll('.btn');
+    const buttons = document.querySelectorAll('.btn, custom-button');
 
     function updateButtonText(button) {
         const textKey = button.getAttribute('text-generation');
         if (textKey !== null) {
-            button.innerHTML = texts[textKey];
+            if (!button.classList.contains('btn')) {
+                button.setAttribute("text", texts[textKey]);
+                button.querySelector('.btn').innerHTML = texts[textKey];
+            } else {
+                button.innerHTML = texts[textKey];
+            }
         }
     }
 
