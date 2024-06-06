@@ -214,6 +214,9 @@ if (holiday_tip2) {
     } else if (M === 6 && D === 1) {
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "无论你现在几岁,都祝你儿童节快乐!";
+    }else if (M === 6 && D > 5 && D < 11) {
+        holiday_tip2.style.display = 'flex';
+        holiday_tip_display2.innerHTML = "高考加油!";
     } else if (M === 10 && D > 0 && D < 8) {
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "国庆快乐!";
