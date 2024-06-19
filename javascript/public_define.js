@@ -297,6 +297,16 @@ setElementText("preview_detail2", texts.preview_detail2);
 setElementText("setting_version", version_name_short);
 setElementText("setting_version_detail", version_info);
 
+const donate_message = document.getElementById('donate_message');
+if (donate_message) {
+    donate_message.innerHTML = `<div>
+        <p>这是一个始于2020年的项目, 做它的初衷, 只是为了给我玩的为数不多的游戏一个版本留档, 当时这还只是一个私有项目, 并不对外开放.</p>
+        <p>后来, 渐渐的我发现有许多人, 因为各种各样的原因, 有心购买游戏却无力, 亦或是需要某个特定的版本来完成特定的事, 在网上苦苦寻找却不得. 我想, 既然我有这些资源, 为什么不公开出来供大家一起使用呢? 这便是版本库对外开放的契因.</p>
+        <p>我们深知这个版本库还很不尽人意, 界面简陋, 功能稀少, 甚至可能还有一堆的问题. 因此我们从V1开始, 就一直在不断地完善改进它, 希望能给每一个使用版本库的你, 带来更好的体验.</p>
+        <p>如果你喜欢它, 且已经实现了经济独立, 可以考虑通过捐赠来支持我们. 这可以在很大程度上用于提升环境配置及开发积极性. 否则请你不要打赏, 分享与宣传也是对我们的强有力的支持.</p>
+    </div>`;
+}
+
 const pageInfo = document.getElementById('page_info');
 if (pageInfo) {
     pageInfo.innerHTML = `<div>

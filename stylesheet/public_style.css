@@ -60,6 +60,11 @@
     display: flex;
 }
 
+.warp_flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 /* 总体样式 */
 body {
     font-family: "NotoSans Bold", sans-serif;

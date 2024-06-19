@@ -217,7 +217,7 @@
         <div class="main_block setting_block">
             <div class="setting_content">捐赠支持</div>
             <div class="setting_control_right">
-                <custom-button data="setting|normal|||false||" js="jumpToPage('../default/error_not-found.html');"
+                <custom-button data="setting|normal|||false||" js="showModal('donate_modal');"
                                text="打开"></custom-button>
             </div>
         </div>
@@ -302,6 +302,28 @@
                     <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
                     <custom-button data="modal|normal|||false||" js="hideModal(this);reloadPage();"
                                    text="继续"></custom-button>
+                </modal_button_list>
+            </modal_button_group>
+        </modal_button_area>
+    </modal>
+</modal_area>
+
+<!--重载页面警告弹窗-->
+<div class="overlay" id="overlay_donate_modal" tabindex="-1"></div>
+<modal_area id="donate_modal" tabindex="-1">
+    <modal>
+        <modal_title_area>
+            <modal_title>捐赠支持</modal_title>
+            <modal_close_btn class="close_btn" onclick="hideModal(this);" tabindex="0">
+                <img alt="" class="modal_close_btn_img" src=""/>
+            </modal_close_btn>
+        </modal_title_area>
+        <modal_content id="donate_message">
+        </modal_content>
+        <modal_button_area>
+            <modal_button_group>
+                <modal_button_list>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);jumpToPage(`${root_path}donate.html`);" text="支持我们"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
