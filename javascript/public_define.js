@@ -2,13 +2,13 @@
 // TODO 需在每次提交前检查
 const primary_version_name = "4.6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".5"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".5"; // 例 4.0.0.1 // NOTE 小版本
+const version_name_short = secondary_version_name + ".8"; // 例 4.0.0.1 // NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP
-const version_type_count = version_type + "3"; // 例 Build1 // NOTE 小版本
+const version_type_count = version_type + "4"; // 例 Build1 // NOTE 小版本
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
-const update_count = "2024-06-19-01"; // NOTE 小版本
+const update_count = "2024-06-22-01"; // NOTE 小版本
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
@@ -21,22 +21,24 @@ const texts = {
     preview_detail1: "我们想听听你对这个新设计的意见.",
     preview_detail2: "请注意: 新设计仍未完工,可能会缺失部分功能.",
     preview_btn1: "开发日志",
-    preview_btn2: "<img class=\"link_img\" src=\"\" alt=\"\"/>提出反馈",
+    preview_btn2: "<img class='link_img' src='' alt=''/>提出反馈",
     back_to_main: "返回首页",
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
     sidebar_bottom_btn: "官方网站",
     minecraft_wiki: "中文Minecraft Wiki",
-    download_btn1: "官方原版",
-    download_btn1_1: "<img class=\"link_img_black\" src=\"\" alt=\"\"/>官方原版(外部链接)",
-    download_btn2: "中文译名修正",
-    download_btn3: "去验证版",
-    download_btn4: "默认云盘",
-    download_btn5: "蓝奏云盘",
-    download_btn6: "123云盘",
-    download_btn7: "天翼云盘",
-    download_btn8: "百度云盘",
-    download_btn9: "<img class=\"link_img_black\" src=\"\" alt=\"\"/>外部链接",
+    download_channel1: "默认云盘",
+    download_channel2: "蓝奏云盘",
+    download_channel3: "123云盘",
+    download_channel4: "天翼云盘",
+    download_channel5: "百度云盘",
+    download_channel6: "<img class='link_img_black' src='' alt=''/>外部链接",
+    download_type1: "官方原版",
+    download_type1_out: "<img class='link_img_black' src='' alt=''/>官方原版(外部链接)",
+    download_type2: "中文译名修正",
+    download_type3: "去验证版",
+    download_type4: "多架构版",
+    download_type5: "精简版",
 };
 
 const rootPath_d = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
@@ -214,7 +216,7 @@ if (holiday_tip2) {
     } else if (M === 6 && D === 1) {
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "无论你现在几岁,都祝你儿童节快乐!";
-    }else if (M === 6 && D > 5 && D < 11) {
+    } else if (M === 6 && D > 5 && D < 11) {
         holiday_tip2.style.display = 'flex';
         holiday_tip_display2.innerHTML = "高考加油!";
     } else if (M === 10 && D > 0 && D < 8) {
