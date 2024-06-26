@@ -70,7 +70,7 @@ body {
     font-family: "NotoSans Bold", sans-serif;
     background: #48494A;
     margin: 0;
-    min-width: 360px;
+    min-width: 330px;
     overflow-x: hidden;
     -webkit-user-select: none;
 }
@@ -83,7 +83,7 @@ header {
     right: 0;
     display: flex;
     align-items: center;
-    min-width: 360px;
+    min-width: 330px;
     height: 40px;
     background-color: #E6E8EB;
     border-bottom: 4px solid #B1B2B5;
@@ -193,7 +193,7 @@ scroll-container {
 
 main {
     width: 100vw;
-    min-width: 360px;
+    min-width: 330px;
     color: #FFFFFF;
 }
 
@@ -238,7 +238,7 @@ custom-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 360px;
+    min-width: 330px;
     z-index: 9;
 }
 
