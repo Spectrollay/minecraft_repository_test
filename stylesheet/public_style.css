@@ -409,6 +409,7 @@ custom-scrollbar-thumb {
 }
 
 .title1, .title2, .title3 {
+    font-weight: unset;
     margin: 4px 0;
 }
 

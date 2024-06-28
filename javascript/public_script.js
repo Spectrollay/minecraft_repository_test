@@ -338,7 +338,9 @@ function checkFirstVisit() {
     const firstVisitAllowedPaths = [
         `${rootPath}`,
         `${rootPath}index.html`,
-        `${rootPath}home.html`
+        `${rootPath}home.html`,
+        `${rootPath}donate.html`,
+        `${rootPath}updatelog/`
     ];
 
     // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
