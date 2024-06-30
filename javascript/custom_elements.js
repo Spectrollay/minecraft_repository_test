@@ -357,7 +357,18 @@ class CustomSlider extends HTMLElement {
 
         const currentPosition = (event) => {
             const rect = slider.getBoundingClientRect();
-            let position = ((event.clientX || event.touches[0].clientX) - rect.left) / rect.width * 100;
+            let position;
+
+            if (event.touches && event.touches.length > 0) {
+                position = (event.touches[0].clientX - rect.left) / rect.width * 100;
+            } else if (event.changedTouches && event.changedTouches.length > 0) {
+                position = (event.changedTouches[0].clientX - rect.left) / rect.width * 100;
+            } else if (event.clientX !== undefined) {
+                position = (event.clientX - rect.left) / rect.width * 100;
+            } else {
+                position = 0;  // Fallback position
+            }
+
             return Math.max(0, Math.min(position, 100));
         };
 
@@ -376,6 +387,10 @@ class CustomSlider extends HTMLElement {
             } else {
                 setSliderValue(position);
             }
+        });
+
+        content.addEventListener('touchmove', (event) => {
+            event.preventDefault();
         });
     }
 }
