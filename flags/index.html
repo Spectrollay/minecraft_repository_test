@@ -80,11 +80,6 @@
             <div class="main_title_span">实验性内容</div>
         </div>
         <div class="banner_area">
-            <div class="banner important_banner" style="margin-bottom: 0">
-                本页面的Ore UI设计将在未来的版本中被拆分到Ore UI仓库中进行测试
-            </div>
-        </div>
-        <div class="banner_area">
             <div class="banner information_banner">
                 实验性内容页面展示的是一部分正在开发中的特性, 这些特性可能在后续的版本中正式加入或发生变动甚至被移除.<br>
                 在体验实验性内容时可能会出现一些预料之外的问题, 请及时向我们提出你的发现和想法.
@@ -92,109 +87,47 @@
         </div>
         <div class="main_block setting_block">
             <div class="setting_block_content">
-                <div>功能</div>
-                <br>
                 <div class="flex">
                     <div class="setting_content">设置页面</div>
                     <custom-switch active="on" status="disabled"></custom-switch>
                 </div>
-                <divider></divider>
+                <div>启用版本库的设置页面</div>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
                 <div class="flex">
                     <div class="setting_content">环境指南页面</div>
                     <custom-switch active="off" status="disabled"></custom-switch>
                 </div>
-                <divider></divider>
+                <div>启用环境指南页面</div>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
                 <div class="flex">
                     <div class="setting_content">自定义元素</div>
                     <custom-switch active="on" status="disabled"></custom-switch>
                 </div>
-                <divider></divider>
+                <div>抢先体验自定义元素及功能封装,开启后无法关闭</div>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
                 <div class="flex">
                     <div class="setting_content">惰性加载机制</div>
                     <custom-switch active="on" status="disabled"></custom-switch>
                 </div>
-                <divider></divider>
+                <div>通过推迟加载部分大型资源提升网页加载速度</div>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
                 <div class="flex">
-                    <div class="setting_content">响应式设计</div>
+                    <div class="setting_content">响应式布局</div>
                     <custom-switch active="on" status="disabled"></custom-switch>
                 </div>
-                <br>
-            </div>
-        </div>
-        <div class="main_block setting_block">
-            <div class="setting_block_content">
-                <div>Dropdown List</div>
-                <div></div>
-            </div>
-        </div>
-        <div class="main_block setting_block">
-            <div class="setting_block_content">
-                <div>Expandable List</div>
-                <div></div>
-            </div>
-        </div>
-        <div class="main_block setting_block">
-            <div class="setting_block_content">
-                <div>Pop Dialog</div>
-                <div></div>
-            </div>
-        </div>
-        <div class="main_block setting_block">
-            <div class="setting_block_content">
-                <div>Radio Group</div>
-                <div></div>
-            </div>
-        </div>
-        <div class="main_block setting_block">
-            <div class="setting_block_content">
-                <div>Slider</div>
-                <br>
-                <div>Range Slider with Initial Value</div>
-                <custom-slider type="range" id="range_slider_1" data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":55.55}' data-show-segments="false"></custom-slider>
-                <br>
-                <div>Range Slider with Customized Interval</div>
-                <custom-slider type="range" id="range_slider_2" data-slider='{"minValue":20,"maxValue":60,"segments":null,"initialValue":null}'></custom-slider>
-                <br>
-                <div>Disabled Range Slider</div>
-                <custom-slider type="range" id="disabled_range_slider_1" data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":60.00}'></custom-slider>
-                <br>
-                <div>Set Slider with Initial Value</div>
-                <custom-slider type="set" id="set_slider_1" data-slider='{"minValue":40,"maxValue":60,"segments":5,"initialValue":40}'></custom-slider>
-                <br>
-                <div>Set Slider with Customized Interval</div>
-                <custom-slider type="set" id="set_slider_2" data-slider='{"minValue":0,"maxValue":100,"segments":4,"initialValue":25}' data-show-segments="true" data-custom-segments="true" data-segment-values='["A", "B", "C", "D", "E"]'></custom-slider>
-                <br>
-                <div>Disabled Set Slider</div>
-                <custom-slider type="set" id="disabled_set_slider_1" data-slider='{"minValue":0,"maxValue":100,"segments":5,"initialValue":60}' data-show-segments="true"></custom-slider>
-                <br>
-            </div>
-        </div>
-        <div class="main_block setting_block">
-            <div class="setting_block_content">
-                <div>Switch</div>
-                <br>
-                <div>
-                    <div>Normal Switch 1</div>
-                    <custom-switch active="off" id="exp_switch_1" status="enabled"></custom-switch>
-                </div>
-                <div>
-                    <div>Normal Switch 2</div>
-                    <custom-switch active="on" id="exp_switch_2" status="enabled"></custom-switch>
-                </div>
-                <div>
-                    <div>Disabled Switch 1</div>
-                    <custom-switch active="off" id="exp_switch_3" status="disabled"></custom-switch>
-                </div>
-                <div>
-                    <div>Disabled Switch 2</div>
-                    <custom-switch active="on" id="exp_switch_4" status="disabled"></custom-switch>
-                </div>
-            </div>
-        </div>
-        <div class="main_block setting_block">
-            <div class="setting_block_content">
-                <div>Text Field</div>
-                <div></div>
+                <div>使用更加灵活的页面布局以适应不同的设备</div>
             </div>
         </div>
         <div id="page_info"></div>

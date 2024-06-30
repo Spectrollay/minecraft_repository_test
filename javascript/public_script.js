@@ -44,8 +44,6 @@ function updateThumb() {
     const currentScrollTop = Math.round(scrollContainer.scrollTop);
     const thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - (thumbHeight + 4));
     customThumb.style.top = `${thumbPosition}px`;
-    console.log(thumbHeight)
-    console.log(containerHeight)
     if (thumbHeight + 0.5 >= containerHeight) {
         customScrollbar.style.display = 'none';
     } else {
@@ -340,7 +338,8 @@ function checkFirstVisit() {
         `${rootPath}index.html`,
         `${rootPath}home.html`,
         `${rootPath}donate.html`,
-        `${rootPath}updatelog/`
+        `${rootPath}updatelog/`,
+        `${rootPath}updatelog/index.html`
     ];
 
     // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
