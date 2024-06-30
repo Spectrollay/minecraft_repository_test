@@ -388,10 +388,6 @@ class CustomSlider extends HTMLElement {
                 setSliderValue(position);
             }
         });
-
-        content.addEventListener('touchmove', (event) => {
-            event.preventDefault();
-        });
     }
 }
 
