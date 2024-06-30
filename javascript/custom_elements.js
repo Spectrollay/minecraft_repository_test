@@ -351,6 +351,7 @@ class CustomSlider extends HTMLElement {
 
         const updatePosition = (event) => {
             if (!isDragging) return;
+            event.preventDefault();
             const position = currentPosition(event);
             setSliderValue(position);
         };
