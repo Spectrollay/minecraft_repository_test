@@ -115,7 +115,9 @@ function onDrag(e) {
 }
 
 function stopDrag() {
-    setTimeout(() => { isDragging = false; }, 0);
+    setTimeout(() => {
+        isDragging = false;
+    }, 0);
     document.removeEventListener('mousemove', onDrag);
     document.removeEventListener('mouseup', stopDrag);
     document.removeEventListener('touchmove', onDrag);

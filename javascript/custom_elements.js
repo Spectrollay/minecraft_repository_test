@@ -203,7 +203,7 @@ class CustomSlider extends HTMLElement {
                 <div class="slider_content">
                     <div class="slider">
                         <div class="slider_process"></div>
-                        <div class="slider_handle"></div>
+                        <div class="slider_slider"></div>
                         <div class="slider_segment" style="display: none"></div>
                     </div>
                 </div>
@@ -217,7 +217,7 @@ class CustomSlider extends HTMLElement {
         const tooltip = this.querySelector('.slider_tooltip');
         const slider = this.querySelector('.slider');
         const process = this.querySelector('.slider_process');
-        const handle = this.querySelector('.slider_handle');
+        const handle = this.querySelector('.slider_slider');
         const sliderData = JSON.parse(this.getAttribute('data-slider'));
         const minValue = sliderData.minValue;
         const maxValue = sliderData.maxValue;

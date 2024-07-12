@@ -474,7 +474,7 @@ modal_button_list {
     transition: width 100ms linear;
 }
 
-.slider_handle {
+.slider_slider {
     position: absolute; /* 相对于包含它的 .slider 元素绝对定位 */
     width: 28px;
     height: 28px;
@@ -487,7 +487,7 @@ modal_button_list {
     transition: left 100ms linear;
 }
 
-.slider_handle:hover, .slider_handle:active, .slider_content:hover .slider_handle, .slider_handle.active {
+.slider_slider:hover, .slider_slider:active, .slider_content:hover .slider_slider, .slider_slider.active {
     background-color: #B1B2B5;
     box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.8), inset -2px -6px rgba(255, 255, 255, 0.6);
 }
@@ -516,13 +516,13 @@ modal_button_list {
 }
 
 
-.disabled_slider .slider_handle {
+.disabled_slider .slider_slider {
     background-color: #CFD0D4;
     border: 2px solid #8B8C90;
     box-shadow: inset 0 -4px #B0B1B5, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
 }
 
-.disabled_slider .slider_handle:hover, .disabled_slider .slider_handle:active, .slider_content:hover .disabled_slider .slider_handle, .disabled_slider .slider_handle.active {
+.disabled_slider .slider_slider:hover, .disabled_slider .slider_slider:active, .slider_content:hover .disabled_slider .slider_slider, .disabled_slider .slider_slider.active {
     background-color: #CFD0D4;
     border: 2px solid #8B8C90;
     box-shadow: inset 0 -4px #B0B1B5, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
