@@ -13,7 +13,7 @@ let commit = "#2024071201"; // 例 #2024010101 , 仅留 # 则从 update_count �
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
-const version_info = "<table><tr><td>主要更新: </td><td>" + primary_version_name + "</td></tr><tr><td>次要更新: </td><td>" + secondary_version_name + "</td></tr><tr><td>内部版本: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr></table>";
+const version_info = "<table><tr><td>主要更新: </td><td>" + primary_version_name + "</td></tr><tr><td>次要更新: </td><td>" + secondary_version_name + "</td></tr><tr><td>版本编号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名称: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr></table>";
 
 //字符常量
 const texts = {
