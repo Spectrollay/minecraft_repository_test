@@ -223,17 +223,6 @@ if (hostPath.includes('file:///')) {
     document.addEventListener('touchstart', function (event) {
         event.preventDefault();
     });
-    // Gitee Pages 已下线
-// } else if (hostPath.includes('gitee.io')) {
-//     console.log("当前运行在Gitee");
-//     // 禁用右键菜单
-//     document.addEventListener('contextmenu', function (event) {
-//         event.preventDefault();
-//     });
-//     // 禁用长按菜单
-//     document.addEventListener('touchstart', function (event) {
-//         event.preventDefault();
-//     });
 } else {
     console.log("当前运行在" + hostPath);
 }
@@ -639,6 +628,26 @@ function toTop() {
         top: 0,
         behavior: "instant"
     });
+}
+
+// 复制文本
+function copyText(text) {
+    let textToCopy = text;
+    let tempTextarea = document.createElement("textarea");
+
+    tempTextarea.value = textToCopy;
+    document.body.appendChild(tempTextarea);
+
+    tempTextarea.select();
+    tempTextarea.setSelectionRange(0, 999999); // 兼容移动设备
+
+    navigator.clipboard.writeText(tempTextarea.value)
+        .then(() => {
+            console.log('复制成功: ', tempTextarea.value);
+        })
+        .catch(err => {
+            console.log('复制失败');
+        });
 }
 
 // Expandable Card函数

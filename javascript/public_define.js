@@ -1,3 +1,9 @@
+/*
+不要替换以下内容
+https://t.me/spectrollay_minecraft_repository
+<custom-button data="modal|green|||false||" js="hideAlertModal(this);openLink('https://spectrollay.github.io/minecraft_repository_test/');" text="加入测试"></custom-button>
+ */
+
 // 版本变量
 // TODO 需在每次提交前检查
 const primary_version_name = "4.6"; // 例 4.0
@@ -9,7 +15,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-06-30-01"; // NOTE 小版本
-let commit = "#2024071201"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+let commit = "#2024071401"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -48,25 +54,20 @@ let previousTipIndex = -2;
 let currentTipIndex = -1;
 const tipElement = document.getElementById("tip");
 const tipsWithWeights = [
-    // Gitee Pages 已下线
-    // {
-    //     text: "<span>本站有<a href=\"https://spectrollay.github.io" + rootPath_d + "\" target=\"_blank\" onclick=\"playSound1();\">国外源</a>和<a href=\"https://spectrollay.gitee.io" + rootPath_d + "\" target=\"_blank\" onclick=\"playSound1();\">国内源</a>,如遇加载问题可以切换线路访问.</span>",
-    //     weight: 3
-    // },
     {
-        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay" + rootPath_d + "issues/new\" target=\"_blank\" onclick=\"playSound1();\">欢迎提出</a>!</span>",
+        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay" + rootPath_d + "issues/new\" target='_blank' onclick='playSound1();'>欢迎提出</a>!</span>",
         weight: 3
     },
     {
-        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href=\"https://t.me/Spectrollay_MCW\" target=\"_blank\" onclick=\"playSound1();\">Telegram</a> / <a href=\"https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609\" target=\"_blank\" onclick=\"playSound1();\">QQ</a> / <a href=\"https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802\" target=\"_blank\" onclick=\"playSound1();\">云湖</a>群聊!</span>",
+        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' target='_blank' onclick='playSound1();'>Telegram</a> / <a href='https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609' target='_blank' onclick='playSound1();'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' target='_blank' onclick='playSound1();'>云湖</a>群聊!</span>",
         weight: 3
     },
     {
-        text: "<span>欢迎加入我们的官方频道: <a href=\"https://t.me/spectrollay_minecraft_repository\" onclick=\"playSound1();\" target=\"_blank\">Telegram</a> / <a href=\"https://pd.qq.com/s/h8a7gt2u4\" onclick=\"playSound1();\" target=\"_blank\">QQ</a></span>",
+        text: "<span>欢迎加入我们的官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick='playSound1();' target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick='playSound1();' target='_blank'>QQ</a></span>",
         weight: 3
     },
     {
-        text: "<span>也来看看我们的<a href=\"https://github.com/Spectrollay/mclang_cn\" target=\"_blank\" onclick=\"playSound1();\">中文译名修正项目</a>!</span>",
+        text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' target='_blank' onclick='playSound1();'>中文译名修正项目</a>!</span>",
         weight: 3
     },
     {text: "Made by Spectrollay!", weight: 3},
@@ -122,11 +123,11 @@ const tipsWithWeights = [
     {text: "别杀怪物,你这个海豚!", weight: 2},
     {text: "真的会有人看这些吗?", weight: 2},
     {
-        text: "<span style=\"background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;\">这是一条彩色的提示!</span>",
+        text: "<span style='background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;'>这是一条彩色的提示!</span>",
         weight: 2
     },
     {
-        text: "<span style=\"transform: scaleX(-1) scaleY(-1);\">这是一条颠倒的提示!</span>",
+        text: "<span style='transform: scaleX(-1) scaleY(-1);'>这是一条颠倒的提示!</span>",
         weight: 2
     },
     {text: "点我抽盲盒!", weight: 2},
@@ -231,7 +232,7 @@ if (holiday_tip2) {
     if (M === 4 && (D === 1 || (D === 2 && h < 12))) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span><a href=\"https://www.minecraft.net/article/poisonous-potato-update\" target=\"_blank\" onclick=\"playSound1();\">毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href=\"https://www.bilibili.com/video/BV1GJ411x7h7/\" target=\"_blank\" onclick=\"playSound1();\">点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
+            holiday_tip_display2.innerHTML = "<span><a href='https://www.minecraft.net/article/poisonous-potato-update' target='_blank' onclick='playSound1();'>毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href='https://www.bilibili.com/video/BV1GJ411x7h7/' target='_blank' onclick='playSound1();'>点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -243,7 +244,7 @@ if (holiday_tip2) {
     if (M === 4 && D > 19 && D < 26) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href=\"https://www.earthday.org/earth-day-2024/\" target=\"_blank\" onclick=\"playSound1();\">Planet vs. Plastics</a></span>";
+            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href='https://www.earthday.org/earth-day-2024/' target='_blank' onclick='playSound1();'>Planet vs. Plastics</a></span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -283,10 +284,10 @@ if (repositoryLogo) {
     const randomValue = Math.floor(Math.random() * 10000); // 0.01%
     if (randomValue < 1) {
         repositoryLogo.innerHTML = `<div class="repository_logo_area">星月Minceraft版本库</div>`;
-        // repositoryLogo.innerHTML = `<div class="repository_logo_area">星月<img alt="" class="repository_logo_img" src="${rootPath_d}images/Minceraft.png"/>版本库</div>`;
+        // repositoryLogo.innerHTML = `<div class="repository_logo_area">星月<img alt="" class="repository_logo_img" src="/minecraft_repository_test/images/Minceraft.png"/>版本库</div>`;
     } else {
         repositoryLogo.innerHTML = `<div class="repository_logo_area">星月Minecraft版本库</div>`;
-        // repositoryLogo.innerHTML = `<div class="repository_logo_area">星月<img alt="" class="repository_logo_img" src="${rootPath_d}images/Minecraft.png"/>版本库</div>`;
+        // repositoryLogo.innerHTML = `<div class="repository_logo_area">星月<img alt="" class="repository_logo_img" src="/minecraft_repository_test/images/Minecraft.png"/>版本库</div>`;
     }
 }
 
@@ -352,19 +353,19 @@ setTimeout(function () {
 
     if (linkImg) {
         for (let i = 0; i < linkImg.length; i++) {
-            linkImg[i].src = rootPath_d + 'images/ExternalLink_white.png';
+            linkImg[i].src = '/minecraft_repository_test/images/ExternalLink_white.png';
         }
     }
     if (linkImgBlack) {
         for (let i = 0; i < linkImgBlack.length; i++) {
-            linkImgBlack[i].src = rootPath_d + 'images/ExternalLink.png';
+            linkImgBlack[i].src = '/minecraft_repository_test/images/ExternalLink.png';
         }
     }
 
     let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
     if (modal_close_btn_img) {
         for (let i = 0; i < modal_close_btn_img.length; i++) {
-            modal_close_btn_img[i].src = rootPath_d + 'images/cross_white.png';
+            modal_close_btn_img[i].src = '/minecraft_repository_test/images/cross_white.png';
         }
     }
 

@@ -1,5 +1,3 @@
-const rootPath_c = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-
 // 自定义按钮
 class CustomButton extends HTMLElement {
     constructor() {
@@ -26,7 +24,7 @@ class CustomButton extends HTMLElement {
                         <div class="btn_with_tooltip_cont">
                             <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
                             <div class="btn_tooltip">${ctip}</div>
-                            <img alt="" class="tip_icon" src="${rootPath_c}images/${icon}.png"/>
+                            <img alt="" class="tip_icon" src="/minecraft_repository_test/images/${icon}.png"/>
                         </div>
                     `;
             } else {
@@ -84,7 +82,7 @@ class CustomCheckbox extends HTMLElement {
 
         this.innerHTML = `
             <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
-                <img alt="" class="checkmark" src="${rootPath_c}images/check_white.png"/>
+                <img alt="" class="checkmark" src="/minecraft_repository_test/images/check_white.png"/>
             </div>
         `;
     }
@@ -100,13 +98,13 @@ class CustomCheckbox extends HTMLElement {
             this.setAttribute('active', 'off');
             console.log("关闭复选框", this.id);
             if (this.classList.contains('neverShowIn7Days')) {
-                localStorage.removeItem(`(${rootPath_c})neverShowIn7Days`);
+                localStorage.removeItem(`(minecraft_repository_test)neverShowIn7Days`);
             }
         } else {
             this.setAttribute('active', 'on');
             console.log("打开复选框", this.id);
             if (this.classList.contains('neverShowIn7Days')) {
-                localStorage.setItem(`(${rootPath_c})neverShowIn7Days`, Date.now().toString());
+                localStorage.setItem(`(minecraft_repository_test)neverShowIn7Days`, Date.now().toString());
             }
         }
 
@@ -412,8 +410,8 @@ class CustomSwitch extends HTMLElement {
         this.innerHTML = `
             <div class="switch_content">
                 <div class="switch ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled_switch' : 'normal_switch'}">
-                    <div class="switch_style left"><img alt="" src="${rootPath_c}images/switch_on.png"/></div>
-                    <div class="switch_style right"><img alt="" src="${rootPath_c}images/switch_off.png"/></div>
+                    <div class="switch_style left"><img alt="" src="/minecraft_repository_test/images/switch_on.png"/></div>
+                    <div class="switch_style right"><img alt="" src="/minecraft_repository_test/images/switch_off.png"/></div>
                     <div class="switch_slider can_click"></div>
                 </div>
             </div>

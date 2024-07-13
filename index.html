@@ -7,25 +7,22 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Minecraft, MC, 我的世界, 版本库, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球" name="keywords"/>
     <meta content="星月Minecraft版本库是一个开放共享的资源站,专注于收录Minecraft发布过的所有版本." name="description"/>
-    <link href="stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
-    <script>
-        const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-    </script>
-    <link href="Feed/main.xml" rel="alternate" title="星月Minecraft版本库主要订阅" type="application/rss+xml">
-    <link href="Feed/messages.xml" rel="alternate" title="星月Minecraft版本库通知订阅" type="application/rss+xml">
-    <link href="Feed/update.xml" rel="alternate" title="星月Minecraft版本库更新订阅" type="application/rss+xml">
-    <link href="Feed/database.xml" rel="alternate" title="星月Minecraft版本库数据库订阅" type="application/rss+xml">
-    <link href="./images/Logo.jpg" rel="icon">
+    <link href="/minecraft_repository_test/Feed/main.xml" rel="alternate" title="星月Minecraft版本库主要订阅" type="application/rss+xml">
+    <link href="/minecraft_repository_test/Feed/messages.xml" rel="alternate" title="星月Minecraft版本库通知订阅" type="application/rss+xml">
+    <link href="/minecraft_repository_test/Feed/update.xml" rel="alternate" title="星月Minecraft版本库更新订阅" type="application/rss+xml">
+    <link href="/minecraft_repository_test/Feed/database.xml" rel="alternate" title="星月Minecraft版本库数据库订阅" type="application/rss+xml">
+    <link href="/minecraft_repository_test/images/Logo.jpg" rel="icon">
     <title>星月Minecraft版本库</title>
 </head>
 
 <body>
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -36,11 +33,11 @@
         <img alt="" class="menu_icon" id="menu_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="./images/Logo.jpg"/>
+        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Logo.jpg"/>
         <span class="header_title">Repository</span>
     </div>
     <div class="header_item header_item_right" id="settings" onclick="playSound(this);settingsPage();">
-        <img alt="" class="settings_icon" src="./images/Settings.png"/>
+        <img alt="" class="settings_icon" src="/minecraft_repository_test/images/Settings.png"/>
     </div>
 </header>
 <scroll-container>
@@ -89,7 +86,7 @@
                             </td>
                             <td class="right_table">
                                 <div class="description2">
-                                    <a href="javascript:void(0);" onclick="jumpToPage('./notifications/#feedback_rewards');">版本库反馈有奖活动上线!</a>
+                                    <a href="javascript:void(0);" onclick="jumpToPage('/minecraft_repository_test/notifications/#feedback_rewards');">版本库反馈有奖活动上线!</a>
                                 </div>
                             </td>
                         </tr>
@@ -99,7 +96,7 @@
                             </td>
                             <td class="right_table">
                                 <div class="description2">
-                                    <a href="javascript:void(0);" onclick="jumpToPage('./notifications/#mc_15_y');">Minecraft 15 周年庆典!</a>
+                                    <a href="javascript:void(0);" onclick="jumpToPage('/minecraft_repository_test/notifications/#mc_15_y');">Minecraft 15 周年庆典!</a>
                                 </div>
                             </td>
                         </tr>
@@ -109,7 +106,7 @@
                             </td>
                             <td class="right_table">
                                 <div class="description2">
-                                    <a href="javascript:void(0);" onclick="jumpToPage('./notifications/#repo_v4_r');">版本库V4正式发布!</a>
+                                    <a href="javascript:void(0);" onclick="jumpToPage('/minecraft_repository_test/notifications/#repo_v4_r');">版本库V4正式发布!</a>
                                 </div>
                             </td>
                         </tr>
@@ -128,7 +125,7 @@
                         <a href="https://apps.apple.com/app/minecraft/id479516143" onclick="playSound1();" target="_blank">App Store</a> /
                         <a href="https://www.minecraft.net/zh-hans/store/minecraft-deluxe-collection-pc" onclick="playSound1();" target="_blank">PC 捆绑包</a></p>
                     <p>不知道如何购买正版?<br>
-                        <a href="javascript:void(0);" onclick="jumpToPage(`${root_path}guidance/how_to_buy.html`);">正版购买指南</a>
+                        <a href="javascript:void(0);" onclick="jumpToPage('/minecraft_repository_test/guidance/how_to_buy.html');">正版购买指南</a>
                     </p>
                 </div>
             </div>
@@ -346,37 +343,37 @@
         <div class="block_spacing"></div>
         <div class="block">
             <div class="main choose_edition_title">选择版本</div>
-            <div class="main edition_block" id="bedrock_edition" onclick="jumpToPage(`${root_path}home/bedrock_edition.html`);">
+            <div class="main edition_block" id="bedrock_edition" onclick="jumpToPage('/minecraft_repository_test/home/bedrock_edition.html');">
                 <div>
                     <div class="title1">Bedrock Edition</div>
                     <div class="description1">基岩版</div>
                 </div>
             </div>
-            <div class="main edition_block" id="pocket_edition" onclick="jumpToPage(`${root_path}home/pocket_edition.html`);">
+            <div class="main edition_block" id="pocket_edition" onclick="jumpToPage('/minecraft_repository_test/home/pocket_edition.html');">
                 <div>
                     <div class="title1">Pocket Edition</div>
                     <div class="description1">携带版</div>
                 </div>
             </div>
-            <div class="main edition_block" id="education_edition" onclick="jumpToPage(`${root_path}home/education_edition.html`);">
+            <div class="main edition_block" id="education_edition" onclick="jumpToPage('/minecraft_repository_test/home/education_edition.html');">
                 <div>
                     <div class="title1">Education Edition</div>
                     <div class="description1">教育版</div>
                 </div>
             </div>
-            <div class="main edition_block" id="trial" onclick="jumpToPage(`${root_path}home/trial.html`);">
+            <div class="main edition_block" id="trial" onclick="jumpToPage('/minecraft_repository_test/home/trial.html');">
                 <div>
                     <div class="title1">Minecraft Trial</div>
                     <div class="description1">试玩版</div>
                 </div>
             </div>
-            <div class="main edition_block" id="demo" onclick="jumpToPage(`${root_path}home/demo.html`);">
+            <div class="main edition_block" id="demo" onclick="jumpToPage('/minecraft_repository_test/home/demo.html');">
                 <div>
                     <div class="title1">Minecraft Demo</div>
                     <div class="description1">演示版</div>
                 </div>
             </div>
-            <div class="main edition_block" id="more_edition" onclick="jumpToPage(`${root_path}home/more_edition.html`);">
+            <div class="main edition_block" id="more_edition" onclick="jumpToPage('/minecraft_repository_test/home/more_edition.html');">
                 <div>
                     <div class="title1">更多版本</div>
                     <div class="description1">这里可能会有你想要的</div>
@@ -418,7 +415,7 @@
                 <div class="description2">
                     <div id="donate_message"></div>
                     <div class="btn_group">
-                        <custom-button data="default|normal|large||false||" js="jumpToPage(`${root_path}donate.html`);" text="打赏"></custom-button>
+                        <custom-button data="default|normal|large||false||" js="jumpToPage('/minecraft_repository_test/donate.html');" text="打赏"></custom-button>
                     </div>
                 </div>
             </div>
@@ -426,7 +423,7 @@
                 <div class="title3">特别鸣谢</div>
                 <div class="description2">
                     <div>
-                        <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png"/>
+                        <img alt="Coming Soon Image" class="coming_soon-img" src="/minecraft_repository_test/images/Building.png"/>
                         <div>即将到来</div>
                     </div>
                 </div>
@@ -435,7 +432,7 @@
                 <div class="title3">友情链接</div>
                 <div class="description2">
                     <div>
-                        <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png"/>
+                        <img alt="Coming Soon Image" class="coming_soon-img" src="/minecraft_repository_test/images/Building.png"/>
                         <div>即将到来</div>
                     </div>
                 </div>
@@ -512,14 +509,6 @@
 <div class="overlay" id="overlay_alert_modal" tabindex="-1"></div>
 <modal_area id="alert_modal" tabindex="-1"></modal_area>
 
-<!--音效-->
-<!--<audio id="click" preload="auto">-->
-<!--    <source src="./sounds/click.ogg" type="audio/ogg">-->
-<!--</audio>-->
-<!--<audio id="button" preload="auto">-->
-<!--    <source src="./sounds/button.ogg" type="audio/ogg">-->
-<!--</audio>-->
-
 </body>
 
 <script>
@@ -527,9 +516,9 @@
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
-    custom_elements_js.src = root_path + 'javascript/custom_elements.js';
-    public_script.src = root_path + 'javascript/public_script.js';
-    public_define.src = root_path + 'javascript/public_define.js';
+    custom_elements_js.src = '/minecraft_repository_test/javascript/custom_elements.js';
+    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
+    public_define.src = '/minecraft_repository_test/javascript/public_define.js';
 
     document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
@@ -539,26 +528,41 @@
     const back_icon = document.getElementById('back_icon');
 
     if (back_icon) {
-        back_icon.src = root_path + 'images/arrowLeft.png';
+        back_icon.src = '/minecraft_repository_test/images/arrowLeft.png';
     }
     if (menu_icon) {
-        menu_icon.src = root_path + 'images/menu.png';
+        menu_icon.src = '/minecraft_repository_test/images/menu.png';
     }
 
     const loading_mask = document.getElementById('loading_mask');
 
-    // 监听页面加载完成事件
-    window.addEventListener('load', function () {
+    function hide_mask(){
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';
         setTimeout(function () {
             loading_mask.style.display = 'none';
         }, 600);
+    }
+
+    // 加载超过8秒时
+    let count = 8;
+    const secondInterval = setInterval(function () {
+        count--;
+        if (count <= 0) {
+            clearInterval(secondInterval);
+            hide_mask();
+        }
+    }, 1000);
+
+    // 页面加载完成时
+    window.addEventListener('load', function () {
+        hide_mask();
     });
 
     const date = new Date();
     const month = date.getMonth() + 1;
     const day = date.getDate();
+    const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 
     if (root_path.includes('_test')) {
         const neverShowIn7Days = localStorage.getItem(`(${root_path})neverShowIn7Days`);
