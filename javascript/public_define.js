@@ -67,6 +67,10 @@ const tipsWithWeights = [
         weight: 3
     },
     {
+        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test' target='_blank' onclick='playSound1();'>官方网站</a>!</span>",
+        weight: 3
+    },
+    {
         text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' target='_blank' onclick='playSound1();'>中文译名修正项目</a>!</span>",
         weight: 3
     },
