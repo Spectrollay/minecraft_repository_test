@@ -98,13 +98,13 @@ class CustomCheckbox extends HTMLElement {
             this.setAttribute('active', 'off');
             console.log("关闭复选框", this.id);
             if (this.classList.contains('neverShowIn7Days')) {
-                localStorage.removeItem(`(minecraft_repository_test)neverShowIn7Days`);
+                localStorage.removeItem(`(/minecraft_repository_test/)neverShowIn7Days`);
             }
         } else {
             this.setAttribute('active', 'on');
             console.log("打开复选框", this.id);
             if (this.classList.contains('neverShowIn7Days')) {
-                localStorage.setItem(`(minecraft_repository_test)neverShowIn7Days`, Date.now().toString());
+                localStorage.setItem(`(/minecraft_repository_test/)neverShowIn7Days`, Date.now().toString());
             }
         }
 
