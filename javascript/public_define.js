@@ -15,7 +15,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-06-30-01"; // NOTE 小版本
-let commit = "#2024071401"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+let commit = "#2024072001"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -319,7 +319,7 @@ if (pageInfo) {
         <div class="page_info_title">BASED ON</div>
         <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank" onclick="playSound1();">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" onclick="playSound1();">Web API</a> / <a href="https://webkit.org/" target="_blank" onclick="playSound1();">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" target="_blank" onclick="playSound1();">OreUI</a></span></div>
         <div class="page_info_title">ABOUT US</div>
-        <div class="page_info"><span>Developer: @Spectrollay<br>Maintainer: @Spectrollay<br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playSound1();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playSound1();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playSound1();">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playSound1();" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound1();" target="_blank">QQ</a><span></div>
+        <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playSound1();">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playSound1();">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playSound1();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playSound1();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playSound1();">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playSound1();" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound1();" target="_blank">QQ</a><span></div>
         <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
         <div class="page_info"><br></div>
     </div>`;
