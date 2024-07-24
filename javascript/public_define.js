@@ -1,5 +1,3 @@
-// 替换规则 /minecraft_repository_test/ -> /minecraft_repository/
-
 // 版本变量
 // TODO 需在每次提交前检查
 const primary_version_name = "4.6"; // 例 4.0
