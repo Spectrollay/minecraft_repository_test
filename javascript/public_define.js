@@ -15,7 +15,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-06-30-01"; // NOTE 小版本
-let commit = "#2024072001"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+let commit = "#2024072401"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -50,10 +50,26 @@ const texts = {
 const rootPath_d = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 const hostPath_d = window.location.origin;
 
+let isRelease = version_type === "Release" || version_type === "SP";
+
+const currentDate = new Date();
+let Y = currentDate.getFullYear();
+let M = currentDate.getMonth() + 1;
+let D = currentDate.getDate();
+let h = currentDate.getHours();
+let m = currentDate.getMinutes();
+let s = currentDate.getSeconds();
+// DEBUG
+// Y = 2024; // 年份全称
+// M = 1; // 一位数不要补零
+// D = 1; // 一位数不要补零
+// h = 1; // 一位数不要补零
+
 let previousTipIndex = -2;
 let currentTipIndex = -1;
 const tipElement = document.getElementById("tip");
-const tipsWithWeights = [
+let tipsWithWeights;
+const fixedTips = [
     {
         text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay" + rootPath_d + "issues/new\" target='_blank' onclick='playSound1();'>欢迎提出</a>!</span>",
         weight: 3
@@ -75,39 +91,48 @@ const tipsWithWeights = [
         weight: 3
     },
     {text: "Made by Spectrollay!", weight: 3},
-    {text: "← 点击这里可以切换提示 →", weight: 3},
+    {text: "← 点击框框内部可以切换提示 →", weight: 3},
     {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 3},
     {text: "本站指向的站外内容可能不受保障!", weight: 3},
-    {text: "转载本站内容时均必须注明出处!", weight: 3},
+    {text: "请直接分享本站而不是转载其中的内容!", weight: 3},
     {text: "感谢你使用星月Minecraft版本库!", weight: 3},
     {text: "你完成你的事情了吗?", weight: 3},
-    {text: "向我们捐赠以支持维护和开发!", weight: 2},
     {text: "我们保留了一些bug,这样你才知道你在使用的是星月Minecraft版本库.", weight: 2},
-    {text: "你知道吗,版本库界面的构建仅花费了两天时间.", weight: 2},
+    {text: "你知道吗,版本库的第一个版本仅用了两天时间构建.", weight: 2},
     {text: "你知道吗,这个项目始于2020年.", weight: 2},
+    {text: "你知道吗,你可以参与这个项目的开发与维护.", weight: 2},
+    {text: "我想你应该会喜欢彩蛋的!", weight: 2},
+    {text: "现在实现彩蛋自由了!", weight: 2},
     {text: "现在你看到了一条提示.", weight: 2},
     {text: "猜一猜下一条出现的提示是什么?", weight: 2},
     {text: "猜一猜下一次看到这条提示是什么时候?", weight: 2},
+    {text: "是谁把我放在这的?", weight: 2},
+    {text: "不妨试着点点我?你可能会发现什么.", weight: 2},
     {text: "Minecraft, 启动!", weight: 2},
     {text: "看到这条提示就去启动Minecraft吧!", weight: 2},
     {text: "也去玩玩Minceraft吧!", weight: 2},
     {text: "也去玩玩饥荒吧!", weight: 2},
     {text: "也去玩玩泰拉瑞亚吧!", weight: 2},
+    {text: "触摸设备友好型!", weight: 2},
     {text: "不要这样看着人家,会害羞的啦!", weight: 2},
     {text: "不要一直戳人家啦!", weight: 2},
     {text: "今天是一个不错的日子,你说对吗?", weight: 2},
+    {text: "你有些事情需要在今天结束的时候考虑一下...", weight: 2},
+    {text: "完全随机的提示!", weight: 2},
     {text: "多抬头看看天空吧!", weight: 2},
     {text: "天空即为极限!", weight: 2},
     {text: "记得要天天开心哦!", weight: 2},
-    {text: "是谁把我放在这的?", weight: 2},
     {text: "很高兴看到你!", weight: 2},
-    {text: "种一棵树!", weight: 2},
     {text: "劳逸结合!", weight: 2},
     {text: "持续支持中!", weight: 2},
+    {text: "独一无二的设计!", weight: 2},
     {text: "Technoblade never dies!", weight: 2},
     {text: "Hello world!", weight: 2},
     {text: "95% OreUI!", weight: 2},
     {text: "90% bug free!", weight: 2},
+    {text: "/give @a hugs 64", weight: 2},
+    {text: "sqrt(-1) love you!", weight: 2},
+    {text: "P不包含NP!", weight: 2},
     {text: "Creeper?", weight: 2},
     {text: "Aww man!", weight: 2},
     {text: "Hmmmrmm!", weight: 2},
@@ -115,8 +140,6 @@ const tipsWithWeights = [
     {text: "Nooooooooooooo!", weight: 2},
     {text: "Everybody do the Leif!", weight: 2},
     {text: "What DOES the fox say?", weight: 2},
-    {text: "/give @a hugs 64", weight: 2},
-    {text: "P不包含NP!", weight: 2},
     {text: "!!!1!", weight: 2},
     {text: "llI1IlI11lllI", weight: 2},
     {text: "Wow!", weight: 2},
@@ -125,6 +148,7 @@ const tipsWithWeights = [
     {text: "末影人把我的作业偷走了!", weight: 2},
     {text: "苦力怕把我的作业炸了!", weight: 2},
     {text: "别杀怪物,你这个海豚!", weight: 2},
+    {text: "你要去码头整点薯条吗?", weight: 2},
     {text: "真的会有人看这些吗?", weight: 2},
     {
         text: "<span style='background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;'>这是一条彩色的提示!</span>",
@@ -145,6 +169,31 @@ const tipsWithWeights = [
     {text: "这是一条永远不会出现的提示.", weight: 0}
 ];
 
+tipsWithWeights = [...fixedTips];
+
+const addTips = (newTips) => {
+    tipsWithWeights = [...newTips, ...tipsWithWeights];
+};
+
+const replaceTips = (newTips) => {
+    tipsWithWeights = [...newTips];
+};
+
+if (!isRelease) {
+    addTips([
+        {text: "很高兴你能够加入测试!", weight: 5},
+        {text: "你当前使用的是开发版本!", weight: 5},
+        {text: "开发版本并不代表最终品质!", weight: 5},
+        {text: "发现了漏洞?快来向我们反馈吧!", weight: 5},
+        {text: "你觉得我们有什么需要改进的地方吗?", weight: 5},
+        {text: "我们想听听你对新功能的想法!快来告诉我们吧!", weight: 5},
+        {text: "想和我们聊聊?加入官方频道或群组与开发者交流!", weight: 5},
+        {text: "想要贡献自己的代码?你可以在Github上协助我们一起开发!", weight: 5},
+        {text: "我们欢迎你的反馈!前往项目仓库提交或直接向开发者汇报你的发现!", weight: 5},
+        {text: "不要担心漏洞!开发版中发现的问题往往会在正式版发布前得以解决.", weight: 5}
+    ]);
+}
+
 if (hostPath_d.includes('file:///') || hostPath_d.includes('localhost')) {
     console.log("LocalStorage数据");
     for (let i = 0; i < localStorage.length; i++) {
@@ -162,18 +211,6 @@ console.log("加载常量和变量完成");
 // 节日标语
 const holiday_tip1 = document.getElementById('holiday_tip1');
 const holiday_tip2 = document.getElementById('holiday_tip2');
-const currentDate = new Date();
-let Y = currentDate.getFullYear();
-let M = currentDate.getMonth() + 1;
-let D = currentDate.getDate();
-let h = currentDate.getHours();
-let m = currentDate.getMinutes();
-let s = currentDate.getSeconds();
-// DEBUG
-// Y = 2024; // 年份全称
-// M = 1; // 一位数不要补零
-// D = 1; // 一位数不要补零
-// h = 1; // 一位数不要补零
 const minecraft_birthday = Y - 2009;
 const repository_birthday = Y - 2020;
 
@@ -266,14 +303,6 @@ if (wikiTexts) {
 } else {
 }
 
-const backToMainTexts = document.getElementsByClassName("back_to_main");
-if (backToMainTexts) {
-    for (let i = 0; i < backToMainTexts.length; i++) {
-        backToMainTexts[i].innerHTML = texts.back_to_main;
-    }
-} else {
-}
-
 const setElementText = (elementId, text) => {
     const element = document.getElementById(elementId);
     if (element) {
@@ -297,7 +326,6 @@ if (repositoryLogo) {
 
 setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
 setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
-setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
 setElementText("preview_title", texts.preview_title);
 setElementText("preview_detail1", texts.preview_detail1);
 setElementText("preview_detail2", texts.preview_detail2);
@@ -331,6 +359,8 @@ if (pageInfo) {
 
 setTimeout(function () {
 
+    setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
+    setElementText("back_to_main", texts.back_to_main);
     setElementText("preview_btn1", texts.preview_btn1);
     setElementText("preview_btn2", texts.preview_btn2);
 
@@ -397,7 +427,7 @@ if (tipElement) {
 
 function getRandomTip() {
     const totalWeight = tipsWithWeights.reduce((acc, tip) => acc + tip.weight, 0);
-    console.log("总权重:" + totalWeight + ",上次选中值:" + previousTipIndex + ",当前选中值:" + currentTipIndex);
+    console.log("总权重: " + totalWeight + ", 上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
     console.log("开始选择");
     let accumulatedWeight = 0;
     for (const tip of tipsWithWeights) {
@@ -416,14 +446,14 @@ function getRandomTip() {
                         if (randomWeight <= accumulatedWeight) {
                             previousTipIndex = currentTipIndex;
                             currentTipIndex = tipsWithWeights.indexOf(tip_new);
-                            console.log("更新后的上次选中值:" + previousTipIndex + ",当前选中值:" + currentTipIndex);
+                            console.log("更新后的上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
                             return tip_new.text;
                         }
                     }
                 }
             } else {
                 console.log("当前选中值与上次选中值不同.");
-                console.log("上次选中值:" + previousTipIndex + ",当前选中值:" + currentTipIndex);
+                console.log("上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
                 return tip.text;
             }
         }
