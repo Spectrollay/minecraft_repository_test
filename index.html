@@ -524,6 +524,22 @@
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
+    const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+    const repositoryAttribute = localStorage.getItem('repository_attribute');
+
+    if (repositoryAttribute) {
+        if (repositoryAttribute.includes('test=true')) {
+            if (!root_path.includes('_test')) {
+                window.location.href = window.location.origin + "/minecraft_repository_test";
+            }
+        } else if (repositoryAttribute.includes('test=false')) {
+            if (root_path.includes('_test')) {
+                localStorage.setItem('repository_attribute', 'test=true');
+            }
+        }
+    } else {
+    }
+
     const menu_icon = document.getElementById('menu_icon');
     const back_icon = document.getElementById('back_icon');
 
@@ -536,7 +552,7 @@
 
     const loading_mask = document.getElementById('loading_mask');
 
-    function hide_mask(){
+    function hide_mask() {
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';
         setTimeout(function () {
@@ -562,7 +578,6 @@
     const date = new Date();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-    const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 
     if (root_path.includes('_test')) {
         const neverShowIn7Days = localStorage.getItem(`(${root_path})neverShowIn7Days`);
@@ -599,7 +614,7 @@
                     <modal_button_area>
                         <modal_button_group>
                             <modal_button_list>
-                                <custom-button data="modal|normal|||false||" js="toUpdatelog();hideAlertModal(this);" text="开发日志"></custom-button>
+                                <custom-button data="modal|normal|||false||" js="leaveTest();hideAlertModal(this);" text="返回正式版本"></custom-button>
                                 <custom-button data="modal|normal|||false||" js="hideAlertModal(this);" text="继续"></custom-button>
                             </modal_button_list>
                         </modal_button_group>
@@ -635,7 +650,7 @@
                         <modal_button_group>
                             <modal_button_list>
                                 <custom-button data="modal|normal|||false||" js="hideAlertModal(this);" text="取消"></custom-button>
-                                <custom-button data="modal|green|||false||" js="hideAlertModal(this);openLink('https://spectrollay.github.io/minecraft_repository_test/');" text="加入测试"></custom-button>
+                                <custom-button data="modal|green|||false||" js="hideAlertModal(this);joinTest();" text="加入测试"></custom-button>
                             </modal_button_list>
                         </modal_button_group>
                     </modal_button_area>

@@ -1,8 +1,4 @@
-/*
-不要替换以下内容
-https://t.me/spectrollay_minecraft_repository
-<custom-button data="modal|green|||false||" js="hideAlertModal(this);openLink('https://spectrollay.github.io/minecraft_repository_test/');" text="加入测试"></custom-button>
- */
+// 替换规则 /minecraft_repository_test/ -> /minecraft_repository/
 
 // 版本变量
 // TODO 需在每次提交前检查
@@ -188,6 +184,7 @@ if (!isRelease) {
         {text: "你觉得我们有什么需要改进的地方吗?", weight: 5},
         {text: "我们想听听你对新功能的想法!快来告诉我们吧!", weight: 5},
         {text: "想和我们聊聊?加入官方频道或群组与开发者交流!", weight: 5},
+        {text: "想要退出测试?前往设置页面选择退出.期待你的下次加入!", weight: 5},
         {text: "想要贡献自己的代码?你可以在Github上协助我们一起开发!", weight: 5},
         {text: "我们欢迎你的反馈!前往项目仓库提交或直接向开发者汇报你的发现!", weight: 5},
         {text: "不要担心漏洞!开发版中发现的问题往往会在正式版发布前得以解决.", weight: 5}

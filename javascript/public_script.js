@@ -226,13 +226,33 @@ if (hostPath.includes('file:///')) {
 } else {
     console.log("当前运行在" + hostPath);
 }
-if (rootPath.includes('test')) {
+if (rootPath.includes('_test')) {
     console.log("环境为测试环境");
 } else {
     console.log("环境为标准环境");
 }
 
 console.log("当前位于" + pageLevel);
+
+if (rootPath.includes('_test') && !localStorage.getItem('repository_attribute')) {
+    localStorage.setItem('repository_attribute', 'test=true');
+} else if (!rootPath.includes('_test') && !localStorage.getItem('repository_attribute')) {
+    localStorage.setItem('repository_attribute', 'test=false');
+}
+
+function joinTest() {
+    localStorage.setItem('repository_attribute', 'test=true');
+    setTimeout(function () {
+        window.location.href = hostPath + "/minecraft_repository_test";
+    }, 600);
+}
+
+function leaveTest() {
+    localStorage.setItem('repository_attribute', 'test=false');
+    setTimeout(function () {
+        window.location.href = hostPath + "/minecraft_repository";
+    }, 600);
+}
 
 // 禁止拖动元素
 const images = document.querySelectorAll("img");
