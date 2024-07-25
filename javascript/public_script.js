@@ -249,6 +249,7 @@ function joinTest() {
 
 function leaveTest() {
     localStorage.setItem('repository_attribute', 'test=false');
+    localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
     setTimeout(function () {
         window.location.href = hostPath + "/minecraft_repository";
     }, 600);
