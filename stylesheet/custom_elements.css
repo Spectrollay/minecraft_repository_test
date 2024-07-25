@@ -240,6 +240,7 @@ custom-checkbox {
     background-color: #8C8D90;
     border: 2px solid #1E1E1F;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
 .custom-checkbox:hover {
@@ -266,6 +267,7 @@ custom-checkbox {
     background-color: #D0D1D4;
     border: 2px solid #8C8D90;
     box-shadow: none;
+    cursor: not-allowed;
 }
 
 .custom-checkbox.disabled:hover, .custom-checkbox.disabled:active {
@@ -461,6 +463,7 @@ modal_button_list {
     background: #8C8D90;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
     position: relative; /* 相对定位,用于子元素绝对定位的参考 */
+    cursor: pointer;
 }
 
 .slider_process {
@@ -501,6 +504,14 @@ modal_button_list {
     transform: translateY(-50%); /* 分段线垂直居中 */
 }
 
+.slider_value_info {
+    cursor: default;
+}
+
+.disabled_slider {
+    cursor: not-allowed;
+}
+
 .disabled_slider.slider {
     background: #CFD0D4;
     border: 2px solid #8C8D90;
@@ -538,6 +549,7 @@ modal_button_list {
     height: 24px;
     position: relative;
     overflow: visible;
+    cursor: pointer;
 }
 
 .normal_switch {
@@ -549,6 +561,7 @@ modal_button_list {
 .disabled_switch {
     border: 2px solid #8C8D90;
     background: #D0D1D4;
+    cursor: not-allowed;
 }
 
 .switch_style {

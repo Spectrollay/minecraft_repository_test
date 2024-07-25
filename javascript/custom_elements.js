@@ -279,6 +279,7 @@ class CustomSlider extends HTMLElement {
             // 添加最小值和最大值提示
             if (showSegments === null || showSegments === "true") {
                 const minValueLabel = document.createElement('div');
+                minValueLabel.classList.add('slider_value_info');
                 minValueLabel.textContent = formatValue(minValue);
                 minValueLabel.style.position = 'absolute';
                 minValueLabel.style.bottom = '-35px';
@@ -288,6 +289,7 @@ class CustomSlider extends HTMLElement {
                 minValueLabel.style.left = `calc(0% - ${minValueLabelWidth / 2}px)`;
 
                 const maxValueLabel = document.createElement('div');
+                maxValueLabel.classList.add('slider_value_info');
                 maxValueLabel.textContent = formatValue(maxValue);
                 maxValueLabel.style.position = 'absolute';
                 maxValueLabel.style.bottom = '-35px';
@@ -309,6 +311,7 @@ class CustomSlider extends HTMLElement {
                 if (showSegments === "true") {
                     const segmentValueLabel = document.createElement('div');
                     const segmentValue = customSegments ? segmentValues[i] : minValue + i * (maxValue - minValue) / segments;
+                    segmentValueLabel.classList.add('slider_value_info');
                     segmentValueLabel.textContent = customSegments ? segmentValue : formatValue(segmentValue);
                     segmentValueLabel.style.position = 'absolute';
                     segmentValueLabel.style.bottom = '-35px';
