@@ -112,6 +112,7 @@ const fixedTips = [
     {text: "不要一直戳人家啦!", weight: 2},
     {text: "今天是一个不错的日子,你说对吗?", weight: 2},
     {text: "你有些事情需要在今天结束的时候考虑一下...", weight: 2},
+    {text: "你看到了这条提示,这使你充满了决心.", weight: 2},
     {text: "完全随机的提示!", weight: 2},
     {text: "多抬头看看天空吧!", weight: 2},
     {text: "天空即为极限!", weight: 2},
