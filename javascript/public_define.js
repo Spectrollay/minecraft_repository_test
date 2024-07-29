@@ -9,7 +9,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-06-30-01"; // NOTE 小版本
-let commit = "#2024072401"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+let commit = "#2024072701"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
@@ -177,7 +177,7 @@ const replaceTips = (newTips) => {
 if (!isRelease) {
     addTips([
         {text: "很高兴你能够加入测试!", weight: 5},
-        {text: "你当前使用的是开发版本!", weight: 5},
+        {text: "你当前使用的是测试仓库!", weight: 5},
         {text: "开发版本并不代表最终品质!", weight: 5},
         {text: "发现了漏洞?快来向我们反馈吧!", weight: 5},
         {text: "你觉得我们有什么需要改进的地方吗?", weight: 5},
