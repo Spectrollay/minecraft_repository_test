@@ -77,7 +77,7 @@ const fixedTips = [
         weight: 3
     },
     {
-        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test' target='_blank' onclick='playSound1();'>官方网站</a>!</span>",
+        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' target='_blank' onclick='playSound1();'>官方网站</a>!</span>",
         weight: 3
     },
     {
