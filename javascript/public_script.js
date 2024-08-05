@@ -301,6 +301,7 @@ setTimeout(function () {
         const modal = document.getElementById("compatibility_modal");
         overlay.style.display = "block";
         modal.style.display = "block";
+        modal.focus();
         console.log("显示兼容性提示弹窗");
     }
 }, 100);

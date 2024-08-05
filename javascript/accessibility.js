@@ -4,19 +4,22 @@
 
 // 移除焦点列表
 const exclusionSelectors = [
-    'button'
+    'button',
+    '.overlay',
+    'modal_area',
+    'modal_checkbox_area .custom-checkbox'
 ];
 // 新增焦点列表
 const inclusionSelectors = [
     '.header_item:not(.header_right_blank)',
     '#banner_tip',
     'modal_close_btn',
-    'modal_checkbox_area',
     '.edition_block',
     '.btn:not(.disabled_btn)',
     '.tab_bar_btn',
     '.expandable_card',
     '.plan_block',
+    '.custom-checkbox:not(.disabled)',
     '.switch:not(.disabled_switch) .switch_slider',
     '.slider_slider:not(.disabled_slider)'
 ];
@@ -101,3 +104,44 @@ function handleTabNavigation(e, modal) {
 }
 
 updateFocusableElements();
+
+// TTS文本转语音
+let enable_tts;
+enable_tts = false;
+if (enable_tts) {
+    if ('speechSynthesis' in window) {
+        // 支持TTS
+        let currentUtterance = null;
+        let lastText = '';
+
+        function speakText(text) {
+            if (text === lastText) return; // If the text hasn't changed, do nothing
+            lastText = text;
+
+            if (currentUtterance) {
+                window.speechSynthesis.cancel();
+            }
+
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(currentUtterance);
+        }
+
+        function handleEvent(event) {
+            const text = event.target.innerText.trim();
+            if (!text) return;
+            speakText(text);
+        }
+
+        document.addEventListener('mouseover', handleEvent);
+        document.addEventListener('touchstart', handleEvent, {passive: true});
+    } else {
+        // 不支持TTS
+    }
+}
+
+// Screen Reader屏幕阅读器
+let element;
+if (element) {
+    element.setAttribute('role', 'main');
+    element.setAttribute('aria-hidden', true);
+}
