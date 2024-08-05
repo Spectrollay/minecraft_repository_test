@@ -187,13 +187,13 @@ const slashCount = (currentPagePath.match(/\//g) || []).length;
 
 // 创建内联元素
 const accessibility_js = document.createElement('script');
-accessibility_js.src = rootPath + 'javascript/accessibility.js';
+accessibility_js.src = '/minecraft_repository_test/javascript/accessibility.js';
 const custom_elements_css = document.createElement('link');
 custom_elements_css.rel = 'stylesheet';
-custom_elements_css.href = rootPath + 'stylesheet/custom_elements.css';
+custom_elements_css.href = '/minecraft_repository_test/stylesheet/custom_elements.css';
 const public_style = document.createElement('link');
 public_style.rel = 'stylesheet';
-public_style.href = rootPath + 'stylesheet/public_style.css';
+public_style.href = '/minecraft_repository_test/stylesheet/public_style.css';
 
 // 将内联元素添加到头部
 document.head.appendChild(accessibility_js);
