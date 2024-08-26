@@ -1,3 +1,25 @@
+<!--
+  ~ Copyright © 2020-2024. Spectrollay
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -404,12 +426,10 @@
                     <p>项目群组:
                         <a href="https://t.me/Spectrollay_MCW" onclick="playSound1();" target="_blank">Telegram</a> /
                         <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" onclick="playSound1();" target="_blank">QQ</a> /
-                        <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" onclick="playSound1();" target="_blank">云湖</a>
-                    </p>
+                        <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" onclick="playSound1();" target="_blank">云湖</a></p>
                     <p>官方频道:
                         <a href="https://t.me/spectrollay_minecraft_repository" onclick="playSound1();" target="_blank">Telegram</a> /
-                        <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound1();" target="_blank">QQ</a>
-                    </p>
+                        <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound1();" target="_blank">QQ</a></p>
                 </div>
             </div>
             <div class="main footer_notice_body">
@@ -526,16 +546,16 @@
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
-    const root_path = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+    rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     const repositoryAttribute = localStorage.getItem('repository_attribute');
 
     if (repositoryAttribute) {
         if (repositoryAttribute.includes('test=true')) {
-            if (!root_path.includes('_test')) {
+            if (!rootPath.includes('_test')) {
                 window.location.href = window.location.origin + "/minecraft_repository_test";
             }
         } else if (repositoryAttribute.includes('test=false')) {
-            if (root_path.includes('_test')) {
+            if (rootPath.includes('_test')) {
                 localStorage.setItem('repository_attribute', 'test=true');
             }
         }
@@ -581,15 +601,15 @@
     const month = date.getMonth() + 1;
     const day = date.getDate();
 
-    if (root_path.includes('_test')) {
-        const neverShowIn15Days = localStorage.getItem(`(${root_path})neverShowIn15Days`);
+    if (rootPath.includes('_test')) {
+        const neverShowIn15Days = localStorage.getItem(`(${rootPath})neverShowIn15Days`);
         if (neverShowIn15Days) {
             const lastHideTime = new Date(parseInt(neverShowIn15Days, 10));
             const now = new Date();
             const diff = now - lastHideTime;
             const fifteenDays = 15 * 24 * 60 * 60 * 1000;
             if (diff > fifteenDays) {
-                localStorage.removeItem(`(${root_path})neverShowIn15Days`);
+                localStorage.removeItem(`(${rootPath})neverShowIn15Days`);
             } else {
                 console.log("时间未到,不显示测试仓库提示");
             }
