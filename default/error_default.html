@@ -59,14 +59,6 @@
 </head>
 
 <body>
-<div class="loading_mask" id="loading_mask">
-    <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
-        <div class="spinner">
-            <div class="spinner"><span class="spinner_text">载入中</span></div>
-        </div>
-    </div>
-</div>
 <div class="title_content">
     <h3><span class="error">ERROR</span><br></h3>
     <p class="error-detail">It seems the website ran into a problem..</p>
@@ -113,31 +105,6 @@
     if (menu_icon) {
         menu_icon.src = '/minecraft_repository_test/images/menu.png';
     }
-
-    const loading_mask = document.getElementById('loading_mask');
-
-    function hide_mask() {
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
-    });
 </script>
 
 <style>
