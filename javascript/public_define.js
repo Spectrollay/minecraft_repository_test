@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020-2024. Spectrollay
+ * Copyright © 2020. Spectrollay
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@ const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Bui
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const server_version = "4.0";
 const update_count = "2024-08-26-01"; // NOTE 小版本
-let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
+let commit = "#2024082701"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/-/g, "");
 }
