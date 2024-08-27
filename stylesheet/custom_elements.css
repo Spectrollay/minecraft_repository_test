@@ -53,9 +53,21 @@ article_detail {
 
 article_note {
     display: block;
+    font-size: 17px;
+    font-weight: bold;
     border-left: 6px solid #2E6BE5;
-    padding-left: 10px;
+    background-color: rgba(46, 107, 229, 0.1);
+    padding: 10px;
     margin: 6px 0;
+}
+
+article_list_title {
+    display: block;
+    font-size: 17px;
+    border-left: 6px solid #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 4px 0 4px 10px;
+    margin: 10px 0;
 }
 
 article_list {
