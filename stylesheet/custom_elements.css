@@ -24,6 +24,8 @@
 article_block {
     display: block;
     text-align: center;
+    width: 90%;
+    min-width: 260px;
 }
 
 article_title {

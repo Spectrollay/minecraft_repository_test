@@ -972,7 +972,9 @@ td {
 }
 
 .expandable_card_down_content, .plan_block_content {
-    margin: 10px 20px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
 }
 
 /*自适应折叠组件*/
