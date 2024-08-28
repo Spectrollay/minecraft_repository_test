@@ -695,17 +695,15 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         const expandableContent = expandableCardId.querySelector('.expandable_card_down_area');
         const cardImage = expandableCard.querySelector('.expandable_card_image');
         const cardDown = expandableContent.querySelector('.expandable_card_down');
-
         let isExpanded = expandableCard.classList.contains("expanded");
 
         if (isExpanded) {
             cardImage.src = `${rootPath}images/arrowUp_white.png`;
             expandableContent.classList.add('expanded');
             expandableContent.style.height = 'auto';
-            setTimeout(function () {
-                const initialHeight = cardDown.scrollHeight;
-                expandableContent.style.height = initialHeight + 'px';
-            }, 1000);
+            // setTimeout(function () {
+            //     expandableContent.style.height = cardDown.scrollHeight + 'px';
+            // }, 1000);
         } else {
             cardImage.src = `${rootPath}images/arrowDown_white.png`;
             expandableContent.classList.add('no_expanded');
