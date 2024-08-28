@@ -38,6 +38,8 @@ article_title {
 
 article_date {
     display: block;
+    font-size: 20px;
+    font-family: "Minecraft Seven", sans-serif;
     margin: 10px 0;
     height: auto;
     width: 100%;
