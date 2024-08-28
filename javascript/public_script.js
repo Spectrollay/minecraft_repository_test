@@ -705,7 +705,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
             setTimeout(function () {
                 const initialHeight = cardDown.scrollHeight;
                 expandableContent.style.height = initialHeight + 'px';
-            }, 500);
+            }, 600);
 
         } else {
             cardImage.src = `${rootPath}images/arrowDown_white.png`;
