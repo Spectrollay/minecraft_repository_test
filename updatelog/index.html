@@ -152,7 +152,6 @@
             <div class="block">
                 <div class="main">
                     <div class="title1">更新历史</div>
-                    <!-- span>版本类型: Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Release/SP</span -->
                 </div>
                 <div class="banner_area">
                     <div class="banner information_banner">带有 * 标识的版本为不稳定版本, 可能会出现各种难以预料的问题, 请及时向我们提出你的发现和想法.</div>
@@ -216,7 +215,7 @@
                         <div class="expandable_card expanded" onclick="playSound1();">
                             <div class="expandable_card_text_area">
                                 <div class="expandable_card_text">
-                                    <div class="expandable_card_text_title">4.6.5 Canary</div>
+                                    <div class="expandable_card_text_title">4.6.5 Stable</div>
                                 </div>
                             </div>
                             <div class="expandable_card_image_area"><img alt="" class="expandable_card_image" src=""/>
@@ -232,6 +231,10 @@
                                             <article_note>
                                                 我们推送了一个新的版本, 以下为更新详情, 请查阅.
                                             </article_note>
+                                            <article_list_content>
+                                                <article_list_title>更改</article_list_title>
+                                                <article_list>优化了开发日志页面在宽屏设备上的体验</article_list>
+                                            </article_list_content>
                                             <article_list_content>
                                                 <article_list_title>修复</article_list_title>
                                                 <article_list>修复了在窄屏设备上的一些显示问题</article_list>
@@ -2861,6 +2864,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="main previous_version">
+                    <div class="title2">更早版本</div>
+                </div>
             </div>
         </div>
     </main>
@@ -2946,6 +2952,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .previous_version {
+
     }
 </style>
 
