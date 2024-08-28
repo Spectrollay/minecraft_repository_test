@@ -702,7 +702,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
             expandableContent.classList.add('expanded');
             setTimeout(function () {
                 expandableContent.style.height = cardDown.scrollHeight + 'px';
-            }, 10);
+            }, 1000);
         } else {
             cardImage.src = `${rootPath}images/arrowDown_white.png`;
             expandableContent.classList.add('no_expanded');
