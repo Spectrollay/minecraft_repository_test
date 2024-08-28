@@ -701,12 +701,11 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         if (isExpanded) {
             cardImage.src = `${rootPath}images/arrowUp_white.png`;
             expandableContent.classList.add('expanded');
-
+            expandableContent.style.height = 'auto';
             setTimeout(function () {
                 const initialHeight = cardDown.scrollHeight;
                 expandableContent.style.height = initialHeight + 'px';
-            }, 600);
-
+            }, 1000);
         } else {
             cardImage.src = `${rootPath}images/arrowDown_white.png`;
             expandableContent.classList.add('no_expanded');
@@ -715,6 +714,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
 
         expandableCard.addEventListener('click', () => {
 
+            // 联动自定义网页滚动条
             let lastScrollHeight = mainContent.scrollHeight;
 
             function checkScrollHeightChange() {
@@ -727,6 +727,7 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
 
             setInterval(checkScrollHeightChange, 1);
 
+            // 点击卡片时
             isExpanded = expandableCard.classList.contains("expanded");
             if (isExpanded) {
                 // 折叠当前卡片
