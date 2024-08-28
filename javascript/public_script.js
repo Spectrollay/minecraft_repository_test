@@ -700,10 +700,9 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
         if (isExpanded) {
             cardImage.src = `${rootPath}images/arrowUp_white.png`;
             expandableContent.classList.add('expanded');
-            expandableContent.style.height = 'auto';
-            // setTimeout(function () {
-            //     expandableContent.style.height = cardDown.scrollHeight + 'px';
-            // }, 1000);
+            setTimeout(function () {
+                expandableContent.style.height = cardDown.scrollHeight + 'px';
+            }, 10);
         } else {
             cardImage.src = `${rootPath}images/arrowDown_white.png`;
             expandableContent.classList.add('no_expanded');
