@@ -1,7 +1,4 @@
 /.idea
-/node_modules
-/package.json
-/package-lock.json
 /deprecated_features
 /experiments_internal
 /generate-hashes.js
