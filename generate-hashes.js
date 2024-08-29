@@ -17,6 +17,7 @@ const excluded = [
     'generate-hashes.js',
 ];
 
+// 计算文件的 MD5 哈希值
 function calculateHash(filePath) {
     const hash = crypto.createHash('md5');
     const fileContent = fs.readFileSync(filePath);
@@ -24,20 +25,24 @@ function calculateHash(filePath) {
     return hash.digest('hex');
 }
 
+// 判断文件路径是否在排除列表中
 function isExcluded(filePath) {
     const relativePath = path.relative(projectDir, filePath);
-    return excluded.some(exclude => relativePath.startsWith(exclude));
+    return excluded.some(exclude => relativePath.includes(exclude));
 }
 
+// 获取目录下所有文件
 function getAllFiles(dirPath, filesList = []) {
     const files = fs.readdirSync(dirPath);
     files.forEach(file => {
         const fullPath = path.join(dirPath, file);
         if (fs.statSync(fullPath).isDirectory()) {
+            // 递归获取目录中的文件，跳过排除列表中的目录
             if (!isExcluded(fullPath)) {
                 getAllFiles(fullPath, filesList);
             }
         } else {
+            // 将文件添加到文件列表中，跳过排除列表中的文件
             if (!isExcluded(fullPath)) {
                 filesList.push(fullPath);
             }
@@ -46,6 +51,7 @@ function getAllFiles(dirPath, filesList = []) {
     return filesList;
 }
 
+// 生成文件哈希值并保存到 JSON 文件中
 function generateFileHashes() {
     const allFiles = getAllFiles(projectDir);
     const hashList = {};
@@ -55,7 +61,8 @@ function generateFileHashes() {
     });
 
     fs.writeFileSync(outputPath, JSON.stringify(hashList, null, 2), 'utf-8');
-    console.log(`哈希值已保存至${outputPath}`);
+    console.log(`哈希值已保存至 ${outputPath}`);
 }
 
+// 执行生成哈希值的函数
 generateFileHashes();
