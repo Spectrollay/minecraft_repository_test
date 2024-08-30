@@ -25,20 +25,38 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".5"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".50"; // 例 4.0.0.1 // NOTE 小版本
+const version_name_short = secondary_version_name + ".50"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
-const version_type_count = version_type + ""; // 例 Build1 // NOTE 小版本,可为空
+const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20240829" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20240830" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
-console.log("发布版本: " + publish_version_name);
 const server_version = "4.0";
-let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取 // NOTE 有不更改版本的提交就变
+let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/\./g, "");
 }
-const version_info = "<table><tr><td>主要更新: </td><td>" + primary_version_name + "</td></tr><tr><td>次要更新: </td><td>" + secondary_version_name + "</td></tr><tr><td>版本编号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名称: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr></table>";
+
+function getProjectHash() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', '../Verification/project-hash.json', false); // 第三个参数为 false 表示同步请求
+    xhr.send(null);
+
+    if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        return response.projectHash;
+    } else {
+        console.error('获取项目哈希值时出错: ', xhr.status);
+        return null;
+    }
+}
+
+const projectHash = getProjectHash();
+const version_info = "<table><tr><td colspan='2' style='text-align: center'>版本信息</td></tr><tr><td>主要更新: </td><td>" + primary_version_name + "</td></tr><tr><td>次要更新: </td><td>" + secondary_version_name + "</td></tr><tr><td>版本编号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名称: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr><tr></tr>" +
+    "<tr><td colspan='2' style='text-align: center'>校验码</td></tr><tr><td colspan='2' style='text-align: center'>" + projectHash + "</td></tr></table>";
+
+console.log("发布版本: " + publish_version_name);
 
 //字符常量
 const texts = {

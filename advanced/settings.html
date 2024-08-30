@@ -234,7 +234,7 @@
 <modal_area id="version_info_modal">
     <modal>
         <modal_title_area>
-            <modal_title>版本信息</modal_title>
+            <modal_title>详情</modal_title>
             <modal_close_btn class="close_btn" onclick="hideModal(this);">
                 <img alt="" class="modal_close_btn_img" src=""/>
             </modal_close_btn>
@@ -244,7 +244,10 @@
         </modal_content>
         <modal_button_area>
             <modal_button_group>
-                <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
+                <modal_button_list>
+                    <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
+                    <custom-button data="modal|normal|||false||" js="copyText(projectHash);hideModal(this);" text="复制校验码"></custom-button>
+                </modal_button_list>
             </modal_button_group>
         </modal_button_area>
     </modal>
