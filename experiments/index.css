@@ -19,3 +19,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+.exp_envi_guide {
+    display: none !important;
+}
+
+.debug_mode {
+    display: none !important;
+}

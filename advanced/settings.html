@@ -87,6 +87,19 @@
                 <custom-button data="setting|red|||false||" js="leaveTest();" text="离开"></custom-button>
             </div>
         </div>
+        <div class="setting_title exp_accessibility">无障碍</div>
+        <div class="main_block setting_block exp_accessibility">
+            使用文本转语音
+        </div>
+        <div class="main_block setting_block exp_accessibility">
+            文本转语音音量
+        </div>
+        <div class="main_block setting_block exp_accessibility">
+            高对比度UI
+        </div>
+        <div class="main_block setting_block exp_accessibility">
+            通知持续时间
+        </div>
         <div class="setting_title">外观</div>
         <div class="main_block setting_block">
             主题
@@ -139,7 +152,11 @@
                 <custom-button data="setting|normal|||false||" js="flagsPage();" text="查看"></custom-button>
             </div>
         </div>
-        <div class="main_block setting_block">
+        <div class="main_block setting_block new_flags_page">
+            <div class="setting_content">新的实验性内容页面</div>
+            <custom-switch active="off" id="new_flags_page" status="enabled"></custom-switch>
+        </div>
+        <div class="main_block setting_block exp_envi_guide">
             <div class="setting_content">环境指南</div>
             <div class="setting_control_right">
             </div>
@@ -157,7 +174,7 @@
                 <custom-button data="setting|red|||false||" js="showModal('reload_page_warning');" text="重载"></custom-button>
             </div>
         </div>
-        <div class="main_block setting_block">
+        <div class="main_block setting_block debug_mode">
             <div class="setting_content">加载调试程序</div>
             <div class="setting_control_right">
                 <custom-button data="setting|red|||false||" js="jumpToPage('/minecraft_repository_test/default/error_no-access.html');" text="调试"></custom-button>
@@ -270,7 +287,7 @@
             <modal_button_group>
                 <modal_button_list>
                     <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
-                    <custom-button data="modal|red|||false||" js="hideModal(this);clearStorage();mainPage();" text="我知道我在做什么!"></custom-button>
+                    <custom-button data="modal|red|||false||" js="hideModal(this);clearStorage();" text="我知道我在做什么!"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -378,6 +395,26 @@
     window.addEventListener('load', function () {
         hide_mask();
     });
+
+    // 新的实验性内容页面  TODO: 在旧的实验性内容页面被移除时时删除
+    const newFlagsPageElement = document.getElementsByClassName('new_flags_page');
+    if (!rootPath.includes('_test')) {
+        newFlagsPageElement[0].style.display = 'none';
+    }
+
+    // 实验性无障碍  TODO: 在移除实验性无障碍时移除相关代码
+    expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility');
+    accessibility_elements = document.querySelectorAll('.exp_accessibility');
+
+    if (expAccessibilityState === 'on') {
+        accessibility_elements.forEach(accessibility_element => {
+            accessibility_element.style.display = 'flex';
+        })
+    } else {
+        accessibility_elements.forEach(accessibility_element => {
+            accessibility_element.style.display = 'none';
+        })
+    }
 </script>
 <link href="/minecraft_repository_test/stylesheet/advanced.css" rel="stylesheet">
 <script src="/minecraft_repository_test/javascript/advanced.js"></script>
@@ -411,6 +448,16 @@
     #setting_version_detail {
         display: flex;
         align-items: center;
+        justify-items: center;
+    }
+
+    /* 使开关区域与按钮区域等宽 */
+    custom-switch {
+        width: 132px;
+    }
+
+    .switch_content {
+        display: flex;
         justify-content: center;
     }
 </style>

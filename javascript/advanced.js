@@ -20,18 +20,6 @@
  * SOFTWARE.
  */
 
-// 跳转实验性页面
-function flagsPage() {
-    rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-    setTimeout(function () {
-        if (rootPath.includes('_test')) {
-            window.location.href = "/minecraft_repository_test/experiments/flags.html";
-        } else {
-            window.location.href = "/minecraft_repository_test/flags/";
-        }
-    }, 600);
-}
-
 // 点击Debug图标事件
 function debugPage() {
     setTimeout(function () {
@@ -41,9 +29,17 @@ function debugPage() {
 
 // 清除存储
 function clearStorage() {
-    localStorage.clear();
+    const keyPatterns = ["(/minecraft_repository_test/)", "minecraft_repository_attribute"];
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (keyPatterns.some(pattern => key.includes(pattern))) {
+            localStorage.removeItem(key);
+            i--;
+        }
+    }
     sessionStorage.clear();
     console.log('清除存储数据成功');
+    mainPage();
 }
 
 // 重载页面

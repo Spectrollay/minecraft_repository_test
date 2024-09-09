@@ -383,6 +383,11 @@ customElements.define('custom-slider', CustomSlider);
 class CustomSwitch extends HTMLElement {
     constructor() {
         super();
+        this.isSwitchOn = false; // 用于存储当前开关的状态
+        this.isSwitchDisabled = false; // 用于存储当前开关的禁用状态
+        this.eventsBound = false; // 标志位，避免重复绑定事件
+        this.startX = 0; // 用于拖动时记录起始位置
+        this.isDragging = false; // 用于标识是否正在拖动
         this.render();
     }
 
@@ -391,19 +396,19 @@ class CustomSwitch extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        this.render();
+        this.updateRender();
     }
 
     render() {
         const active = this.getAttribute('active') || 'off';
         const status = this.getAttribute('status') || 'disabled_switch';
 
-        const isDisabled = status !== 'enabled';
-        const isOn = active === 'on';
+        this.isSwitchDisabled = status !== 'enabled';
+        this.isSwitchOn = localStorage.getItem('(/minecraft_repository_test/)' + this.id) === 'on' || active === 'on';
 
         this.innerHTML = `
             <div class="switch_content">
-                <div class="switch ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled_switch' : 'normal_switch'}">
+                <div class="switch ${this.isSwitchOn ? 'on' : 'off'} ${this.isSwitchDisabled ? 'disabled_switch' : 'normal_switch'}">
                     <div class="switch_style left"><img alt="" src="/minecraft_repository_test/images/switch_on.png"/></div>
                     <div class="switch_style right"><img alt="" src="/minecraft_repository_test/images/switch_off.png"/></div>
                     <div class="switch_slider can_click"></div>
@@ -411,98 +416,74 @@ class CustomSwitch extends HTMLElement {
             </div>
         `;
 
-        // 添加点击事件监听器
+        if (!this.eventsBound) {
+            this.bindEvents();
+            this.eventsBound = true;
+        }
+    }
+
+    updateRender() {
+        const active = this.getAttribute('active') || 'off';
+        this.isSwitchOn = localStorage.getItem('(/minecraft_repository_test/)' + this.id) === 'on' || active === 'on';
+        const switchElement = this.querySelector(".switch");
+        if (switchElement) {
+            switchElement.classList.toggle("on", this.isSwitchOn);
+            switchElement.classList.toggle("off", !this.isSwitchOn);
+        }
+    }
+
+    bindEvents() {
         const switchElement = this.querySelector(".switch");
         const switchSlider = this.querySelector(".switch_slider");
-        let isSwitchOn = switchElement.classList.contains("on");
-        let isSwitchDisabled = switchElement.classList.contains("disabled_switch");
-        let startX = 0;
-        let isDragging = false;
 
-        if (!isSwitchDisabled) {
+        if (!this.isSwitchDisabled) {
+            // 点击和拖动事件
+            const handlePointerDown = (e) => {
+                this.isDragging = true;
+                switchSlider.classList.add('active');
+                this.startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+            };
+
+            const handlePointerUp = (e) => {
+                if (this.isDragging) {
+                    const currentX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
+                    const distanceMoved = currentX - this.startX;
+                    if (distanceMoved > 10 && !this.isSwitchOn) {
+                        this.isSwitchOn = true;
+                        this.updateSwitchState(this.isSwitchOn);
+                    } else if (distanceMoved < -10 && this.isSwitchOn) {
+                        this.isSwitchOn = false;
+                        this.updateSwitchState(this.isSwitchOn);
+                    }
+                }
+                setTimeout(() => {
+                    this.isDragging = false;
+                    switchSlider.classList.remove('active');
+                }, 0);
+            };
+
+            const handleClick = () => {
+                    this.isSwitchOn = !this.isSwitchOn;
+                    this.updateSwitchState(this.isSwitchOn);
+            };
 
             // 点击父元素执行点击事件
             const parentElement = this.parentElement;
             if (parentElement) {
-                parentElement.addEventListener("click", () => {
-                    if (!isDragging) {
-                        isSwitchOn = !isSwitchOn;
-                        this.updateSwitchState(isSwitchOn);
+                parentElement.addEventListener("click", (e) => {
+                    if (!this.isDragging && e.target !== switchElement) {
+                        this.isSwitchOn = !this.isSwitchOn;
+                        this.updateSwitchState(this.isSwitchOn);
                     }
-                });
+                }, true); // 使用事件捕获阶段
             }
 
-            // 点击元素本身执行点击事件
-            switchElement.addEventListener("click", () => {
-                isSwitchOn = !isSwitchOn;
-                this.updateSwitchState(isSwitchOn);
-            });
-
-            // 键盘事件监听器
-            switchElement.addEventListener("keydown", (e) => {
-                if (e.key === "Enter") {
-                    isSwitchOn = !isSwitchOn;
-                    this.updateSwitchState(isSwitchOn);
-                }
-            });
-
-            // 拖动事件
-            switchElement.addEventListener("mousedown", (e) => {
-                isDragging = true;
-                switchSlider.classList.add('active');
-                startX = e.clientX;
-            });
-
-            switchElement.addEventListener("touchstart", (e) => {
-                isDragging = true;
-                switchSlider.classList.add('active');
-                startX = e.touches[0].clientX;
-            });
-
-            document.addEventListener("mouseup", (e) => {
-                if (isDragging) {
-                    let elementAtPoint = document.elementFromPoint(e.clientX, e.clientY);
-                    if (!switchElement.contains(elementAtPoint)) {
-                        let currentX = e.clientX;
-                        if (currentX - startX > 10) {
-                            if (!isSwitchOn) {
-                                isSwitchOn = true;
-                                this.updateSwitchState(isSwitchOn);
-                            }
-                        } else if (currentX - startX < -10) {
-                            if (isSwitchOn) {
-                                isSwitchOn = false;
-                                this.updateSwitchState(isSwitchOn);
-                            }
-                        }
-                    }
-                }
-                setTimeout(() => {
-                    isDragging = false;
-                    switchSlider.classList.remove('active');
-                }, 0);
-            });
-
-            document.addEventListener("touchend", (e) => {
-                if (isDragging) {
-                    let currentX = e.changedTouches[0].clientX;
-                    if (currentX - startX > 10) {
-                        if (!isSwitchOn) {
-                            isSwitchOn = true;
-                            this.updateSwitchState(isSwitchOn);
-                        }
-                    } else if (currentX - startX < -10) {
-                        if (isSwitchOn) {
-                            isSwitchOn = false;
-                            this.updateSwitchState(isSwitchOn);
-                        }
-                    }
-                }
-                setTimeout(() => {
-                    isDragging = false;
-                    switchSlider.classList.remove('active');
-                }, 0);
-            });
+            // 绑定点击和拖动事件
+            switchElement.addEventListener("click", handleClick);
+            switchElement.addEventListener("mousedown", handlePointerDown);
+            switchElement.addEventListener("touchstart", handlePointerDown);
+            document.addEventListener("mouseup", handlePointerUp);
+            document.addEventListener("touchend", handlePointerUp);
         }
     }
 
@@ -516,9 +497,11 @@ class CustomSwitch extends HTMLElement {
         if (isOn) {
             switchSlider.classList.add('switch_bounce_left');
             switchSlider.classList.remove('switch_bounce_right');
+            localStorage.setItem('(/minecraft_repository_test/)' + this.id, 'on');
         } else {
             switchSlider.classList.add('switch_bounce_right');
             switchSlider.classList.remove('switch_bounce_left');
+            localStorage.setItem('(/minecraft_repository_test/)' + this.id, 'off');
         }
         const switchStatus = this.querySelector(".switch_status");
         if (switchStatus) {

@@ -210,6 +210,8 @@ const slashCount = (currentPagePath.match(/\//g) || []).length;
 // 创建内联元素
 const accessibility_js = document.createElement('script');
 accessibility_js.src = '/minecraft_repository_test/javascript/accessibility.js';
+const exp_js = document.createElement('script');
+exp_js.src = '/minecraft_repository_test/experiments/index.js';
 const custom_elements_css = document.createElement('link');
 custom_elements_css.rel = 'stylesheet';
 custom_elements_css.href = '/minecraft_repository_test/stylesheet/custom_elements.css';
@@ -219,6 +221,7 @@ public_style.href = '/minecraft_repository_test/stylesheet/public_style.css';
 
 // 将内联元素添加到头部
 document.head.appendChild(accessibility_js);
+document.head.appendChild(exp_js);
 document.head.appendChild(custom_elements_css);
 document.head.appendChild(public_style);
 
@@ -259,21 +262,21 @@ if (rootPath.includes('_test')) {
 
 console.log("当前位于" + pageLevel);
 
-if (rootPath.includes('_test') && !localStorage.getItem('repository_attribute')) {
-    localStorage.setItem('repository_attribute', 'test=true');
-} else if (!rootPath.includes('_test') && !localStorage.getItem('repository_attribute')) {
-    localStorage.setItem('repository_attribute', 'test=false');
+if (rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_attribute')) {
+    localStorage.setItem('minecraft_repository_attribute', 'test=true');
+} else if (!rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_attribute')) {
+    localStorage.setItem('minecraft_repository_attribute', 'test=false');
 }
 
 function joinTest() {
-    localStorage.setItem('repository_attribute', 'test=true');
+    localStorage.setItem('minecraft_repository_attribute', 'test=true');
     setTimeout(function () {
         window.location.href = hostPath + "/minecraft_repository_test";
     }, 600);
 }
 
 function leaveTest() {
-    localStorage.setItem('repository_attribute', 'test=false');
+    localStorage.setItem('minecraft_repository_attribute', 'test=false');
     localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
     setTimeout(function () {
         window.location.href = hostPath + "/minecraft_repository";
@@ -318,7 +321,7 @@ const compatibilityModal = `
 document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
 setTimeout(function () {
-    if (localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) !== '1') {
+    if (localStorage.getItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain') !== '1') {
         const overlay = document.getElementById("overlay_compatibility_modal");
         const modal = document.getElementById("compatibility_modal");
         overlay.style.display = "block";
@@ -339,7 +342,7 @@ function hideCompatibilityModal(button) {
 
 function neverShowCompatibilityModalAgain(button) {
     hideCompatibilityModal(button);
-    localStorage.setItem(`(${rootPath})neverShowCompatibilityModalAgain`, '1');
+    localStorage.setItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain', '1');
     console.log("关闭兼容性提示弹窗且不再提示");
 }
 
@@ -369,7 +372,7 @@ const firstVisitTodayModal = `
 document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 
 function checkFirstVisit() {
-    const firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
+    const firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
     const is404Page = document.title.includes("404 NOT FOUND");
     const firstVisitAllowedPaths = [
         `${rootPath}`,
@@ -390,7 +393,7 @@ function checkFirstVisit() {
 }
 
 if (window.location.pathname === `${rootPath}` || window.location.pathname === `${rootPath}index.html`) {
-    localStorage.setItem(`(${rootPath})firstVisit`, today);
+    localStorage.setItem('(/minecraft_repository_test/)firstVisit', today);
 }
 
 function hideFirstVisitTodayModal(button) {

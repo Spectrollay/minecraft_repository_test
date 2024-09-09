@@ -558,7 +558,7 @@
     document.head.appendChild(public_define);
 
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-    const repositoryAttribute = localStorage.getItem('repository_attribute');
+    const repositoryAttribute = localStorage.getItem('minecraft_repository_attribute');
 
     if (repositoryAttribute) {
         if (repositoryAttribute.includes('test=true')) {
@@ -567,7 +567,7 @@
             }
         } else if (repositoryAttribute.includes('test=false')) {
             if (rootPath.includes('_test')) {
-                localStorage.setItem('repository_attribute', 'test=true');
+                localStorage.setItem('minecraft_repository_attribute', 'test=true');
             }
         }
     } else {
@@ -613,14 +613,14 @@
     const day = date.getDate();
 
     if (rootPath.includes('_test')) {
-        const neverShowIn15Days = localStorage.getItem(`(${rootPath})neverShowIn15Days`);
+        const neverShowIn15Days = localStorage.getItem('(/minecraft_repository_test/)neverShowIn15Days');
         if (neverShowIn15Days) {
             const lastHideTime = new Date(parseInt(neverShowIn15Days, 10));
             const now = new Date();
             const diff = now - lastHideTime;
             const fifteenDays = 15 * 24 * 60 * 60 * 1000;
             if (diff > fifteenDays) {
-                localStorage.removeItem(`(${rootPath})neverShowIn15Days`);
+                localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
             } else {
                 console.log("时间未到,不显示测试仓库提示");
             }
