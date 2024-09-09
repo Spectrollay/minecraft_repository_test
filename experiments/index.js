@@ -60,7 +60,7 @@ function flagsPage() {
 
 // 实验性无障碍
 let expAccessibilitySwitch = document.getElementById('experimental_accessibility');
-let expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility');
+let expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || 'on';
 
 if (expAccessibilitySwitch) {
     if (expAccessibilityState === 'on') {
