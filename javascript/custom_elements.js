@@ -478,7 +478,7 @@ class CustomSwitch extends HTMLElement {
             const parentElement = this.parentElement;
             if (parentElement) {
                 parentElement.addEventListener("click", (e) => {
-                    if (!this.isDragging && e.target !== switchElement) {
+                    if (!this.isDragging) {
                         handleClick();
                     }
                 }, true); // 使用事件捕获阶段
