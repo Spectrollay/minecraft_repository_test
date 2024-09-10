@@ -385,7 +385,6 @@ class CustomSwitch extends HTMLElement {
         super();
         this.isSwitchOn = false; // 用于存储当前开关的状态
         this.isSwitchDisabled = false; // 用于存储当前开关的禁用状态
-        this.eventsBound = false; // 标志位，避免重复绑定事件
         this.startX = 0; // 用于拖动时记录起始位置
         this.isDragging = false; // 用于标识是否正在拖动
         this.render();
@@ -416,10 +415,7 @@ class CustomSwitch extends HTMLElement {
             </div>
         `;
 
-        if (!this.eventsBound) {
-            this.bindEvents();
-            this.eventsBound = true;
-        }
+        this.bindEvents();
     }
 
     updateRender() {
@@ -441,15 +437,19 @@ class CustomSwitch extends HTMLElement {
         const switchElement = this.querySelector(".switch");
         const switchSlider = this.querySelector(".switch_slider");
 
-        if (!this.isSwitchDisabled && !this.eventsBound) {
-            this.eventsBound = true;
-
+        if (!this.isSwitchDisabled) {
             // 点击和拖动事件
             const handlePointerDown = (e) => {
-                e.preventDefault();
-                this.isDragging = true;
+                this.isDragging = false;
                 switchSlider.classList.add('active');
                 this.startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+            };
+
+            const handlePointerMove = (e) => {
+                e.preventDefault();
+                const currentX = e.type === 'mousemove' ? e.clientX : e.changedTouches[0].clientX;
+                const distanceMoved = currentX - this.startX;
+                this.isDragging = distanceMoved > 10 || distanceMoved < -10;
             };
 
             const handlePointerUp = (e) => {
@@ -458,10 +458,11 @@ class CustomSwitch extends HTMLElement {
                     const distanceMoved = currentX - this.startX;
                     if (distanceMoved > 10 && !this.isSwitchOn) {
                         this.isSwitchOn = true;
+                        this.updateSwitchState(this.isSwitchOn);
                     } else if (distanceMoved < -10 && this.isSwitchOn) {
                         this.isSwitchOn = false;
+                        this.updateSwitchState(this.isSwitchOn);
                     }
-                    this.updateSwitchState(this.isSwitchOn);
                 }
                 setTimeout(() => {
                     this.isDragging = false;
@@ -470,24 +471,19 @@ class CustomSwitch extends HTMLElement {
             };
 
             const handleClick = () => {
-                this.isSwitchOn = !this.isSwitchOn;
-                this.updateSwitchState(this.isSwitchOn);
+                if (!this.isDragging) {
+                    this.isSwitchOn = !this.isSwitchOn;
+                    this.updateSwitchState(this.isSwitchOn);
+                }
             };
 
-            // 点击父元素执行点击事件
-            const parentElement = this.parentElement;
-            if (parentElement) {
-                parentElement.addEventListener("click", (e) => {
-                    if (!this.isDragging) {
-                        handleClick();
-                    }
-                }, true); // 使用事件捕获阶段
-            }
-
             // 绑定点击和拖动事件
-            switchElement.addEventListener("click", handleClick);
+            const parentElement = this.parentElement;
+            parentElement.addEventListener("click", handleClick); // 使用事件捕获阶段
             switchElement.addEventListener("mousedown", handlePointerDown);
             switchElement.addEventListener("touchstart", handlePointerDown);
+            switchElement.addEventListener("mousemove", handlePointerMove);
+            switchElement.addEventListener("touchmove", handlePointerMove);
             document.addEventListener("mouseup", handlePointerUp);
             document.addEventListener("touchend", handlePointerUp);
         }
