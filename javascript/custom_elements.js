@@ -401,7 +401,7 @@ class CustomSwitch extends HTMLElement {
 
     render() {
         const active = this.getAttribute('active') || 'off';
-        const status = this.getAttribute('status') || 'disabled_switch';
+        const status = this.getAttribute('status') || 'disabled';
 
         this.isSwitchDisabled = status !== 'enabled';
         this.isSwitchOn = localStorage.getItem('(/minecraft_repository_test/)' + this.id) === 'on' || active === 'on';
@@ -423,12 +423,17 @@ class CustomSwitch extends HTMLElement {
     }
 
     updateRender() {
-        const active = this.getAttribute('active') || 'off';
-        this.isSwitchOn = localStorage.getItem('(/minecraft_repository_test/)' + this.id) === 'on' || active === 'on';
+        // 获取状态
+        this.isSwitchOn = this.getAttribute('active') === 'on';
+        this.isSwitchDisabled = this.getAttribute('status') !== 'enabled';
+
+        // 更新元素的类名
         const switchElement = this.querySelector(".switch");
         if (switchElement) {
             switchElement.classList.toggle("on", this.isSwitchOn);
             switchElement.classList.toggle("off", !this.isSwitchOn);
+            switchElement.classList.toggle("disabled_switch", this.isSwitchDisabled);
+            switchElement.classList.toggle("normal_switch", !this.isSwitchDisabled);
         }
     }
 
@@ -436,7 +441,9 @@ class CustomSwitch extends HTMLElement {
         const switchElement = this.querySelector(".switch");
         const switchSlider = this.querySelector(".switch_slider");
 
-        if (!this.isSwitchDisabled) {
+        if (!this.isSwitchDisabled && !this.eventsBound) {
+            this.eventsBound = true;
+
             // 点击和拖动事件
             const handlePointerDown = (e) => {
                 this.isDragging = true;
@@ -450,11 +457,10 @@ class CustomSwitch extends HTMLElement {
                     const distanceMoved = currentX - this.startX;
                     if (distanceMoved > 10 && !this.isSwitchOn) {
                         this.isSwitchOn = true;
-                        this.updateSwitchState(this.isSwitchOn);
                     } else if (distanceMoved < -10 && this.isSwitchOn) {
                         this.isSwitchOn = false;
-                        this.updateSwitchState(this.isSwitchOn);
                     }
+                    this.updateSwitchState(this.isSwitchOn);
                 }
                 setTimeout(() => {
                     this.isDragging = false;
@@ -463,8 +469,8 @@ class CustomSwitch extends HTMLElement {
             };
 
             const handleClick = () => {
-                    this.isSwitchOn = !this.isSwitchOn;
-                    this.updateSwitchState(this.isSwitchOn);
+                this.isSwitchOn = !this.isSwitchOn;
+                this.updateSwitchState(this.isSwitchOn);
             };
 
             // 点击父元素执行点击事件
@@ -472,8 +478,7 @@ class CustomSwitch extends HTMLElement {
             if (parentElement) {
                 parentElement.addEventListener("click", (e) => {
                     if (!this.isDragging && e.target !== switchElement) {
-                        this.isSwitchOn = !this.isSwitchOn;
-                        this.updateSwitchState(this.isSwitchOn);
+                        handleClick();
                     }
                 }, true); // 使用事件捕获阶段
             }
@@ -488,12 +493,15 @@ class CustomSwitch extends HTMLElement {
     }
 
     updateSwitchState(isOn) {
-        playSound1();
+        this.setAttribute('active', isOn ? 'on' : 'off');
         const switchElement = this.querySelector(".switch");
         const switchSlider = this.querySelector(".switch_slider");
-        console.log(isOn ? "打开开关" : "关闭开关", this.id);
+
         switchElement.classList.toggle("on", isOn);
         switchElement.classList.toggle("off", !isOn);
+        console.log(isOn ? "打开开关" : "关闭开关", this.id);
+        playSound1();
+
         if (isOn) {
             switchSlider.classList.add('switch_bounce_left');
             switchSlider.classList.remove('switch_bounce_right');
@@ -503,6 +511,7 @@ class CustomSwitch extends HTMLElement {
             switchSlider.classList.remove('switch_bounce_left');
             localStorage.setItem('(/minecraft_repository_test/)' + this.id, 'off');
         }
+
         const switchStatus = this.querySelector(".switch_status");
         if (switchStatus) {
             switchStatus.textContent = `Toggle: ${isOn ? 'Open' : 'Close'}`;
