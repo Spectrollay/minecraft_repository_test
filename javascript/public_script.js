@@ -50,8 +50,10 @@ if (sidebar) {
     sidebarThumb = sidebar.querySelector('custom-scrollbar-thumb');
 }
 
-let scrollTimeout;
-let isDragging;
+let scrollTimeout;  // 记录滚动结束后滚动条的消失事件
+let isDragging; // 用于标识是否正在拖动
+let startY; // 记录初始的点击位置
+let initialThumbTop; // 记录滑块初始的位置
 
 function updateThumb() {
     const scrollHeight = mainContent.scrollHeight;
@@ -112,8 +114,11 @@ function handleScroll() {
     updateThumb();
 }
 
-function startDrag() {
+function startDrag(e) {
     isDragging = true;
+    startY = e.clientY || e.touches[0].clientY; // 记录初始点击位置
+    initialThumbTop = customThumb.getBoundingClientRect().top - scrollContainer.getBoundingClientRect().top; // 记录滑块的当前位置
+
     document.addEventListener('mousemove', onDrag);
     document.addEventListener('mouseup', stopDrag);
     document.addEventListener('touchmove', onDrag);
@@ -123,16 +128,19 @@ function startDrag() {
 function onDrag(e) {
     if (!isDragging) return;
 
-    const mouseY = e.clientY || e.touches[0].clientY;
-    const {top, height: containerHeight} = scrollContainer.getBoundingClientRect();
+    const currentY = e.clientY || e.touches[0].clientY; // 获取当前鼠标的位置
+    const deltaY = currentY - startY; // 计算鼠标的移动距离
+    const {height: containerHeight} = scrollContainer.getBoundingClientRect(); // 根据初始位置和移动距离计算新的滑块位置
     const thumbHeight = customThumb.offsetHeight;
     const maxThumbTop = containerHeight - thumbHeight;
-    const newTop = Math.min(Math.max(mouseY - top - thumbHeight / 2, 0), maxThumbTop);
-    const maxScrollTop = mainContent.scrollHeight - containerHeight;
+    const newTop = Math.min(Math.max(initialThumbTop + deltaY, 0), maxThumbTop); // 计算滑块的新位置，确保在可滑动范围内
+    const maxScrollTop = mainContent.scrollHeight - containerHeight; // 计算页面内容的滚动位置
+
     scrollContainer.scrollTo({
         top: (newTop / maxThumbTop) * maxScrollTop,
-        behavior: "instant"
+        behavior: "instant" // 确保滚动时不产生动画
     });
+
     updateThumb();
 }
 
