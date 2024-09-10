@@ -60,9 +60,9 @@ function flagsPage() {
 
 // 实验性无障碍
 let expAccessibilitySwitch = document.getElementById('experimental_accessibility');
-let expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || expAccessibilitySwitch.getAttribute('active'); // 默认启用
-
 if (expAccessibilitySwitch) {
+    let expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || expAccessibilitySwitch.getAttribute('active'); // 默认启用
+
     if (expAccessibilityState === 'on') {
         expAccessibilitySwitch.setAttribute('active', 'on');
     } else {
