@@ -517,7 +517,6 @@ class CustomSwitch extends HTMLElement {
             switchStatus.textContent = `Toggle: ${isOn ? 'Open' : 'Close'}`;
         }
     }
-
 }
 
 customElements.define('custom-switch', CustomSwitch);
