@@ -453,6 +453,7 @@ class CustomSwitch extends HTMLElement {
 
             const handlePointerUp = (e) => {
                 if (this.isDragging) {
+                    e.preventDefault();
                     const currentX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
                     const distanceMoved = currentX - this.startX;
                     if (distanceMoved > 10 && !this.isSwitchOn) {
