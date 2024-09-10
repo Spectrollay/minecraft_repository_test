@@ -403,7 +403,7 @@
     }
 
     // 实验性无障碍  TODO: 在移除实验性无障碍时移除相关代码
-    expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility');
+    expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || 'on';
     accessibility_elements = document.querySelectorAll('.exp_accessibility');
 
     if (expAccessibilityState === 'on') {

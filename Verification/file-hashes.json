@@ -1,7 +1,7 @@
 {
   "404.html": "b724c56bbefba662700eadea51a4b5b9",
   "advanced\\debug.html": "f3f599c403fbe59bb6cf99fc2ac1dd21",
-  "advanced\\settings.html": "54b3711fe9143fd8d7186255b4b73309",
+  "advanced\\settings.html": "34f271b87f61bd5b7ddd0e59394becea",
   "advanced\\status.html": "ac6adf46440b16e99c3151b8c8c9ba94",
   "default\\coming_soon.html": "541c00b3ff6cdea5f7bf7129b131c5dd",
   "default\\error_default.html": "13ebe0116389f9e10d0ec6dc2a8af39a",
@@ -151,5 +151,5 @@
   "stylesheet\\loading_mask.css": "2701a0ba77a2b46b52280505bb0194af",
   "stylesheet\\public_style.css": "a221d9cf3686e0757b093661e857312f",
   "Template\\index.html": "d90907446df4ac3d061035c95d0d22b7",
-  "updatelog\\index.html": "b6a812ae54f4c1135efceadeef420de3"
+  "updatelog\\index.html": "da98c547f359b0bdc84f8c9b09f30a72"
 }
