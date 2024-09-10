@@ -27,6 +27,13 @@ function debugPage() {
     }, 600);
 }
 
+// 点击环境指南按钮
+function enviPage() {
+    setTimeout(function () {
+        window.location.href = "/minecraft_repository_test/guidance/environment_guidance.html";
+    }, 600);
+}
+
 // 清除存储
 function clearStorage() {
     const keyPatterns = ["(/minecraft_repository_test/)", "minecraft_repository_attribute"];

@@ -36,11 +36,11 @@ let newFlagsPageState;
 
 if (newFlagsPageSwitch) {
     newFlagsPageState = localStorage.getItem('(/minecraft_repository_test/)new_flags_page') || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
-        if (newFlagsPageState === 'on') {
-            newFlagsPageSwitch.setAttribute('active', 'on');
-        } else {
-            newFlagsPageSwitch.setAttribute('active', 'off');
-        }
+    if (newFlagsPageState === 'on') {
+        newFlagsPageSwitch.setAttribute('active', 'on');
+    } else {
+        newFlagsPageSwitch.setAttribute('active', 'off');
+    }
 }
 
 function flagsPage() {
@@ -54,6 +54,19 @@ function flagsPage() {
         setTimeout(function () {
             window.location.href = "/minecraft_repository_test/experiments/";
         }, 600);
+    }
+}
+
+
+// 环境指南页面
+let expEnviGuideSwitch = document.getElementById('experimental_envi_guide');
+if (expEnviGuideSwitch) {
+    let expEnviGuideState = localStorage.getItem('(/minecraft_repository_test/)experimental_envi_guide') || expEnviGuideSwitch.getAttribute('active');
+
+    if (expEnviGuideState === 'on') {
+        expEnviGuideSwitch.setAttribute('active', 'on');
+    } else {
+        expEnviGuideSwitch.setAttribute('active', 'off');
     }
 }
 

@@ -87,7 +87,7 @@
                 <custom-button data="setting|red|||false||" js="leaveTest();" text="离开"></custom-button>
             </div>
         </div>
-        <div class="setting_title exp_accessibility">无障碍</div>
+        <div class="setting_title exp_accessibility">无障碍 (实验性)</div>
         <div class="main_block setting_block exp_accessibility">
             <div class="setting_content">使用文本转语音</div>
             <custom-switch active="off" status="disabled"></custom-switch>
@@ -162,9 +162,9 @@
             <custom-switch active="off" id="new_flags_page" status="enabled"></custom-switch>
         </div>
         <div class="main_block setting_block exp_envi_guide">
-            <div class="setting_content">环境指南</div>
+            <div class="setting_content">环境指南 (实验性)</div>
             <div class="setting_control_right">
-                <custom-button data="setting|normal|||false||" js="" text="阅读"></custom-button>
+                <custom-button data="setting|normal|||false||" js="enviPage();" text="阅读"></custom-button>
             </div>
         </div>
         <div class="setting_title">高级</div>
@@ -408,9 +408,23 @@
         newFlagsPageElement[0].style.display = 'none';
     }
 
+    // 环境指南页面  TODO: 在移除环境指南页面实验性内容时移除相关代码
+    expEnviGuideState = localStorage.getItem('(/minecraft_repository_test/)experimental_envi_guide') || 'off';
+    let envi_guide_elements = document.querySelectorAll('.exp_envi_guide');
+
+    if (expEnviGuideState === 'on') {
+            envi_guide_elements.forEach(envi_guide_element => {
+                envi_guide_element.style.display = 'flex';
+            })
+    } else {
+            envi_guide_elements.forEach(envi_guide_element => {
+                envi_guide_element.style.display = 'none';
+            })
+    }
+
     // 实验性无障碍  TODO: 在移除实验性无障碍时移除相关代码
     expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || 'on';
-    accessibility_elements = document.querySelectorAll('.exp_accessibility');
+    let accessibility_elements = document.querySelectorAll('.exp_accessibility');
 
     if (expAccessibilityState === 'on') {
         accessibility_elements.forEach(accessibility_element => {
@@ -430,6 +444,11 @@
     .preview_block {
         border-top: 2px solid #5A5B5C;
         border-bottom: 2px solid #333334;
+    }
+
+    /* TODO: 在移除环境指南页面实验性内容时移除该样式 */
+    .exp_envi_guide {
+        display: none;
     }
 
     #quit_test {
