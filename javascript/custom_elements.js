@@ -446,6 +446,7 @@ class CustomSwitch extends HTMLElement {
 
             // 点击和拖动事件
             const handlePointerDown = (e) => {
+                e.preventDefault();
                 this.isDragging = true;
                 switchSlider.classList.add('active');
                 this.startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
@@ -453,7 +454,6 @@ class CustomSwitch extends HTMLElement {
 
             const handlePointerUp = (e) => {
                 if (this.isDragging) {
-                    e.preventDefault();
                     const currentX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
                     const distanceMoved = currentX - this.startX;
                     if (distanceMoved > 10 && !this.isSwitchOn) {
