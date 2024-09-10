@@ -35,7 +35,7 @@ let newFlagsPageSwitch = document.getElementById('new_flags_page');
 let newFlagsPageState;
 
 if (newFlagsPageSwitch) {
-    newFlagsPageState = localStorage.getItem('(/minecraft_repository_test/)new_flags_page');
+    newFlagsPageState = localStorage.getItem('(/minecraft_repository_test/)new_flags_page') || 'off'; // 默认禁用
         if (newFlagsPageState === 'on') {
             newFlagsPageSwitch.setAttribute('active', 'on');
         } else {
@@ -60,7 +60,7 @@ function flagsPage() {
 
 // 实验性无障碍
 let expAccessibilitySwitch = document.getElementById('experimental_accessibility');
-let expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || 'on';
+let expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || 'on'; // 默认启用
 
 if (expAccessibilitySwitch) {
     if (expAccessibilityState === 'on') {
