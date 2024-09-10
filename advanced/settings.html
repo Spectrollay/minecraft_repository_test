@@ -90,14 +90,18 @@
         <div class="setting_title exp_accessibility">无障碍 (实验性)</div>
         <div class="main_block setting_block exp_accessibility">
             <div class="setting_content">使用文本转语音</div>
-            <custom-switch active="off" status="disabled"></custom-switch>
+            <div class="setting_control_right">
+                <custom-switch active="off" status="disabled"></custom-switch>
+            </div>
         </div>
         <div class="main_block setting_block exp_accessibility">
             <div class="setting_content">文本转语音音量</div>
         </div>
         <div class="main_block setting_block exp_accessibility">
             <div class="setting_content">高对比度UI</div>
-            <custom-switch active="off" status="disabled"></custom-switch>
+            <div class="setting_control_right">
+                <custom-switch active="off" status="disabled"></custom-switch>
+            </div>
         </div>
         <div class="main_block setting_block exp_accessibility">
             <div class="setting_content">通知持续时间</div>
@@ -108,15 +112,21 @@
         </div>
         <div class="main_block setting_block">
             <div class="setting_content">暗黑模式</div>
-            <custom-switch active="off" status="disabled"></custom-switch>
+            <div class="setting_control_right">
+                <custom-switch active="off" status="disabled"></custom-switch>
+            </div>
         </div>
         <div class="main_block setting_block">
             <div class="setting_content">新的UI设计</div>
-            <custom-switch active="on" status="disabled"></custom-switch>
+            <div class="setting_control_right">
+                <custom-switch active="on" status="disabled"></custom-switch>
+            </div>
         </div>
         <div class="main_block setting_block">
             <div class="setting_content">实验性新UI</div>
-            <custom-switch active="off" status="disabled"></custom-switch>
+            <div class="setting_control_right">
+                <custom-switch active="off" status="disabled"></custom-switch>
+            </div>
         </div>
         <div class="main_block setting_block">
             <div class="setting_content">UI标度</div>
@@ -159,7 +169,9 @@
         </div>
         <div class="main_block setting_block new_flags_page">
             <div class="setting_content">新的实验性内容页面</div>
-            <custom-switch active="off" id="new_flags_page" status="enabled"></custom-switch>
+            <div class="setting_control_right">
+                <custom-switch active="off" id="new_flags_page" status="enabled"></custom-switch>
+            </div>
         </div>
         <div class="main_block setting_block exp_envi_guide">
             <div class="setting_content">环境指南 (实验性)</div>
@@ -190,17 +202,13 @@
         <div class="main_block setting_block">
             <div class="setting_content">星月Minecraft版本库</div>
             <div class="setting_control_right setting_control_right_large">
-                <div>
-                    <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
-                </div>
+                <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
             <div class="setting_content">版本: <span id="setting_version"></span></div>
             <div class="setting_control_right setting_control_right_large">
-                <div>
-                    <custom-button data="setting|normal|||false||" js="showModal('version_info_modal');" text="详情"></custom-button>
-                </div>
+                <custom-button data="setting|normal|||false||" js="showModal('version_info_modal');" text="详情"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
@@ -413,13 +421,13 @@
     let envi_guide_elements = document.querySelectorAll('.exp_envi_guide');
 
     if (expEnviGuideState === 'on') {
-            envi_guide_elements.forEach(envi_guide_element => {
-                envi_guide_element.style.display = 'flex';
-            })
+        envi_guide_elements.forEach(envi_guide_element => {
+            envi_guide_element.style.display = 'flex';
+        })
     } else {
-            envi_guide_elements.forEach(envi_guide_element => {
-                envi_guide_element.style.display = 'none';
-            })
+        envi_guide_elements.forEach(envi_guide_element => {
+            envi_guide_element.style.display = 'none';
+        })
     }
 
     // 实验性无障碍  TODO: 在移除实验性无障碍时移除相关代码
@@ -477,7 +485,7 @@
     }
 
     /* 使开关区域与按钮区域等宽 */
-    custom-switch {
+    .setting_control_right {
         width: 132px;
     }
 

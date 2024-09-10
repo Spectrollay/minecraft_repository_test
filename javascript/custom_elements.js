@@ -478,8 +478,8 @@ class CustomSwitch extends HTMLElement {
             };
 
             // 绑定点击和拖动事件
-            const parentElement = this.parentElement;
-            parentElement.addEventListener("click", handleClick); // 使用事件捕获阶段
+            const parentElement = this.parentElement.parentElement;
+            parentElement.addEventListener("click", handleClick);
             switchElement.addEventListener("mousedown", handlePointerDown);
             switchElement.addEventListener("touchstart", handlePointerDown);
             switchElement.addEventListener("mousemove", handlePointerMove);
