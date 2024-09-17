@@ -318,6 +318,12 @@ if (holiday_tip1) {
         holiday_tip1.style.display = 'flex';
         holiday_tip_display1.innerHTML = "端午安康~";
     } // TODO 2027年及以后
+
+    // 中秋节
+    if ((Y === 2024 && M === 9 && D === 17) || (Y === 2025 && M === 10 && D === 6) || (Y === 2026 && M === 9 && D === 25)) {
+        holiday_tip1.style.display = 'flex';
+        holiday_tip_display1.innerHTML = "中秋快乐~";
+    } // TODO 2027年及以后
 }
 
 if (holiday_tip2) {
