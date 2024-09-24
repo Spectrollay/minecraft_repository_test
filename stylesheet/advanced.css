@@ -25,16 +25,16 @@ main {
 }
 
 .setting_title {
-    display: flex;
     align-items: center;
-    padding: 0 16px;
-    min-height: 60px;
+    display: flex;
     font-size: 18px;
+    min-height: 60px;
+    padding: 0 16px;
 }
 
 .setting_block {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 .setting_block_content {

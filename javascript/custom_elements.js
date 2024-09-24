@@ -519,3 +519,177 @@ class CustomSwitch extends HTMLElement {
 customElements.define('custom-switch', CustomSwitch);
 
 
+// 自定义Text Field文本框
+class TextField extends HTMLElement {
+    constructor() {
+        super();
+        const containerId = this.parentNode.id;
+        this.classList.add(containerId);
+
+        this.initialValue = '41';
+
+        this.inputField = document.createElement('textarea');
+        this.inputField.classList.add('input');
+        this.appendChild(this.inputField);
+
+        this.hint = document.createElement('div');
+        this.hint.classList.add('hint');
+        this.hint.textContent = this.getAttribute('hint') || '';
+        this.appendChild(this.hint);
+
+        this.status = this.getAttribute('status') === 'disabled' ? 'disabled' : 'enabled';
+        if (this.status === 'disabled') {
+            this.classList.add('disabled_text_field');
+        } else {
+            this.classList.remove('disabled_text_field');
+        }
+
+        const isSingleLine = this.getAttribute('single-line') || 'true';
+        const type = this.getAttribute('type') || 'text';
+        if (isSingleLine === 'true') {
+            this.inputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // 阻止换行
+                }
+            });
+        }
+
+        this.inputField.addEventListener('focus', () => {
+            this.hint.style.opacity = '0';
+        });
+
+        this.inputField.addEventListener('blur', () => {
+            this.updateHint();
+        });
+
+        this.isComposing = false;
+        this.inputField.addEventListener('compositionstart', () => {
+            this.isComposing = true;
+        });
+
+        this.inputField.addEventListener('compositionend', (e) => {
+            this.isComposing = false;
+            const inputValue = this.inputField.value;
+            const {isValid, filtered} = this.isValidAndFilterInput(inputValue, type);
+            if (!isValid) {
+                this.inputField.value = filtered; // 过滤掉非法字符
+                // 不保存到localStorage
+                return; // 直接返回
+            }
+            this.saveValueToLocalStorage(); // 有效输入才保存
+        });
+
+        this.inputField.addEventListener('beforeinput', (e) => {
+            if (!this.isComposing) { // 如果没有使用输入法
+                const {isValid} = this.isValidAndFilterInput(e.data, type);
+                if (!isValid) {
+                    e.preventDefault(); // 阻止非法输入
+                }
+            }
+        });
+
+        this.inputField.addEventListener('input', () => {
+            this.updateTextField();
+            // 仅在输入有效时保存
+            if (this.isValidAndFilterInput(this.inputField.value, type).isValid) {
+                this.saveValueToLocalStorage();
+            }
+        });
+
+        this.inputField.style.height = this.initialValue + 'px'; // 默认值
+        this.style.height = this.initialValue + 'px'; // 默认值
+        setTimeout(() => {
+            this.updateTextField();
+            this.loadValueFromLocalStorage();
+        }, 100);
+    }
+
+    updateTextField() {
+        this.updateHint();
+        this.autoResize();
+        this.updateContainerHeight();
+    }
+
+    updateHint() {
+        const content = this.inputField.value;
+        if (!document.activeElement.isSameNode(this.inputField) && content.length === 0) {
+            this.hint.style.opacity = '1'; // 显示提示
+        } else {
+            this.hint.style.opacity = '0'; // 隐藏提示
+        }
+    }
+
+    autoResize() {
+        this.inputField.style.height = this.initialValue + 'px'; // 默认值
+        this.style.height = this.initialValue + 'px'; // 默认值
+        this.inputField.style.height = this.inputField.scrollHeight + 'px';
+        this.style.height = this.inputField.scrollHeight + 'px';
+    }
+
+    updateContainerHeight() {
+        const container = this.parentNode;
+        container.style.height = this.inputField.scrollHeight + 20 + 'px';
+    }
+
+    isValidAndFilterInput(input, type) {
+        if (!input) return {isValid: true, filtered: input}; // 如果没有输入，直接返回有效
+
+        let regex;
+        let filteredInput;
+
+        switch (type) {
+            case 'number':
+                regex = /^[0-9]*$/;
+                filteredInput = input.replace(/[^0-9]/g, ''); // 过滤非数字字符
+                break;
+            case 'letter':
+                regex = /^[a-zA-Z]*$/;
+                filteredInput = input.replace(/[^a-zA-Z]/g, ''); // 过滤非字母字符
+                break;
+            case 'operator':
+                regex = /^[`!@#$%^&*()\-_=+[\]{};':"\\|,.<>\/?~]*$/;
+                filteredInput = input.replace(/[^`!@#$%^&*()\-_=+[\]{};':"\\|,.<>\/?~]/g, ''); // 过滤非符号字符
+                break;
+            case 'base':
+                regex = /^[0-9a-zA-Z `!@#$%^&*()\-_=+[\]{};':"\\|,.<>\/?~]*$/;
+                filteredInput = input.replace(/[^0-9a-zA-Z `!@#$%^&*()\-_=+[\]{};':"\\|,.<>\/?~]/g, ''); // 过滤非基本字符
+                break;
+            case 'none':
+                return {isValid: false, filtered: ''}; // 不允许任何字符
+            default:
+                return {isValid: true, filtered: input}; // 默认允许所有字符
+        }
+
+        // 返回有效性和过滤后的输入
+        return {isValid: regex.test(input), filtered: filteredInput};
+    }
+
+
+    getValue() {
+        return this.inputField.value;
+    }
+
+    resetValue() {
+        this.inputField.value = '';
+        this.updateTextField();
+        this.saveValueToLocalStorage();
+    }
+
+    saveValueToLocalStorage() {
+        const storageKey = '(/minecraft_repository_test/)text_field_value';
+        const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
+        storedData[this.classList[0]] = this.inputField.value; // 保存当前输入框的值
+        localStorage.setItem(storageKey, JSON.stringify(storedData)); // 更新localStorage
+    }
+
+    loadValueFromLocalStorage() {
+        const storageKey = '(/minecraft_repository_test/)text_field_value';
+        const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
+        if (storedData[this.classList[0]]) {
+            this.inputField.value = storedData[this.classList[0]]; // 设置已保存的值
+            this.updateTextField(); // 更新输入框显示
+        }
+    }
+}
+
+customElements.define('text-field', TextField);
