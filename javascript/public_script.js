@@ -354,9 +354,14 @@ function neverShowCompatibilityModalAgain(button) {
     console.log("关闭兼容性提示弹窗且不再提示");
 }
 
+// 自动清除存储
+let firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
+if (firstVisit < '2024-05-25') { // NOTE 只在涉及到不兼容改变时更新
+    clearStorage();
+}
+
 // 访问受限提示
 const today = new Date().toISOString().split('T')[0];
-
 const firstVisitTodayModal = `
     <div class="overlay" id="overlay_first_visit_today_modal" tabindex="-1"></div>
     <modal_area id="first_visit_today_modal" tabindex="-1">
@@ -380,7 +385,7 @@ const firstVisitTodayModal = `
 document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 
 function checkFirstVisit() {
-    const firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
+    firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
     const is404Page = document.title.includes("404 NOT FOUND");
     const firstVisitAllowedPaths = [
         `${rootPath}`,
