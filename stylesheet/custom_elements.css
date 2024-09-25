@@ -859,6 +859,7 @@ text-field {
 
 .hint {
     color: #B1B2B5;
+    font-size: 14px;
     height: 23px;
     left: 10px;
     pointer-events: none; /* 允许点击穿透 */
