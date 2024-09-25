@@ -148,8 +148,24 @@
         </div>
         <div class="main_block setting_block">
             <div class="setting_block_content">
-                <div>Dropdown List</div>
-                <div></div>
+                <div>Dropdown</div>
+                <br>
+                <div>Normal Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["选项1", "选项2", "选项3"]' data-selected="1" id="exp_dropdown_1" status="enabled" unselected-text=""></custom-dropdown>
+                </div>
+                <div>Customized Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["和平", "简单", "普通", "困难"]' data-selected="1" id="exp_dropdown_2" status="enabled" unselected-text=""></custom-dropdown>
+                </div>
+                <div>Unselected Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["选项1", "选项2", "选项3", "选项4", "选项5"]' data-selected="0" id="exp_dropdown_3" status="enabled" unselected-text=""></custom-dropdown>
+                </div>
+                <div>Disabled Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["选项1", "选项2", "选项3"]' data-selected="0" id="exp_dropdown_4" status="disabled" unselected-text="无法选择"></custom-dropdown>
+                </div>
             </div>
         </div>
         <div class="main_block setting_block">
@@ -229,8 +245,12 @@
                 <div>Text Field</div>
                 <br>
                 <div>Normal Text Field</div>
+                <div class="text_field_container" id="exp_text_field_0">
+                    <text-field hint="input anything here.." single-line="false" status="enabled" type="all"></text-field>
+                </div>
+                <div>Normal Text Field Single Line</div>
                 <div class="text_field_container" id="exp_text_field_1">
-                    <text-field hint="input anything here.." single-line="false" type="all"></text-field>
+                    <text-field hint="input anything here.." single-line="true" status="enabled" type="all"></text-field>
                 </div>
                 <div>Disabled Text Field</div>
                 <div class="text_field_container" id="exp_text_field_2">
@@ -238,22 +258,22 @@
                 </div>
                 <div>Text Field with Button</div>
                 <div class="text_field_container" id="exp_text_field_3">
-                    <text-field hint="input anything here.." single-line="false" type="all"></text-field>
+                    <text-field hint="input anything here.." single-line="false" status="enabled" type="all"></text-field>
                     <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_3').querySelector('text-field').resetValue();" text="reset"></custom-button>
                 </div>
                 <div>Number Text Field</div>
                 <div class="text_field_container" id="exp_text_field_4">
-                    <text-field hint="input numbers here.." single-line="false" type="number"></text-field>
+                    <text-field hint="input numbers here.." single-line="false" status="enabled" type="number"></text-field>
                     <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_4').querySelector('text-field').resetValue();" text="reset"></custom-button>
                 </div>
                 <div>Letter Text Field</div>
                 <div class="text_field_container" id="exp_text_field_5">
-                    <text-field hint="input letters here.." single-line="false" type="letter"></text-field>
+                    <text-field hint="input letters here.." single-line="false" status="enabled" type="letter"></text-field>
                     <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_5').querySelector('text-field').resetValue();" text="reset"></custom-button>
                 </div>
                 <div>Operator Text Field</div>
                 <div class="text_field_container" id="exp_text_field_6">
-                    <text-field hint="input operators here.." single-line="false" type="operator"></text-field>
+                    <text-field hint="input operators here.." single-line="false" status="enabled" type="operator"></text-field>
                     <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_6').querySelector('text-field').resetValue();" text="reset"></custom-button>
                 </div>
             </div>

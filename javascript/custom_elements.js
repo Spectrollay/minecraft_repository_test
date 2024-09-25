@@ -145,6 +145,118 @@ class CustomCheckbox extends HTMLElement {
 customElements.define('custom-checkbox', CustomCheckbox);
 
 
+// 自定义Dropdown下拉菜单
+class CustomDropdown extends HTMLElement {
+    constructor() {
+        super();
+        this.dropdownId = this.getAttribute('id') || 'default-dropdown';
+        this.optionsData = JSON.parse(this.getAttribute('data-option')) || [];
+        this.selectedValue = this.getAttribute('data-selected') || null;
+
+        // 创建下拉菜单卡片
+        this.label = document.createElement('div');
+        this.label.classList.add('dropdown_label');
+        this.appendChild(this.label);
+
+        // 创建下拉菜单箭头
+        const arrow = document.createElement('img');
+        arrow.classList.add('dropdown_arrow');
+        arrow.src = '/minecraft_repository_test/images/arrowDown.png';
+        this.appendChild(arrow);
+
+        // 创建下拉选项容器
+        this.dropdownOptions = document.createElement('div');
+        this.dropdownOptions.classList.add('dropdown_options');
+        this.appendChild(this.dropdownOptions);
+
+        this.optionsData.forEach((label, index) => {
+            const option = document.createElement('div');
+            option.classList.add('dropdown_option');
+            option.setAttribute('data-value', (index + 1).toString());
+            option.innerHTML = `${label} <img alt="" class="dropdown_checkmark" src="/minecraft_repository_test/images/check_white.png">`;
+            option.addEventListener('click', (e) => this.selectOption(e));
+            this.dropdownOptions.appendChild(option);
+        });
+
+        this.storageKey = '(/minecraft_repository_test/)dropdown_value';
+        const storedData = this.getStoredDropdownData();
+        this.selectedValue = storedData[this.dropdownId] || this.selectedValue;
+
+        this.addEventListener('click', (e) => this.toggleOptions(e));
+        this.updateLabel();
+        this.renderOptions();
+    }
+
+    static get observedAttributes() {
+        return ['status'];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'status') {
+            this.updateStatus(newValue);
+        }
+    }
+
+    updateStatus(status) {
+        this.label.classList.toggle('disabled_dropdown', status === 'disabled');
+    }
+
+    getStoredDropdownData() {
+        const storedData = localStorage.getItem(this.storageKey);
+        return storedData ? JSON.parse(storedData) : {};
+    }
+
+    saveDropdownData(data) {
+        localStorage.setItem(this.storageKey, JSON.stringify(data));
+    }
+
+    toggleOptions(e) {
+        if (this.getAttribute('status') === 'disabled') return;
+
+        const isVisible = this.dropdownOptions.style.display === 'block';
+        this.dropdownOptions.style.display = isVisible ? 'none' : 'block';
+        this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight}px` : `${this.dropdownOptions.scrollHeight}px`;
+    }
+
+    selectOption(e) {
+        if (this.getAttribute('status') === 'disabled') return; // 禁止点击时无法选择
+
+        const option = e.target.closest('.dropdown_option');
+        if (!option) return;
+
+        const value = option.getAttribute('data-value');
+        if (this.selectedValue !== value) {
+            this.selectedValue = value;
+            this.updateLabel();
+            this.renderOptions();
+
+            const storedData = this.getStoredDropdownData();
+            storedData[this.dropdownId] = this.selectedValue;
+            this.saveDropdownData(storedData);
+        }
+
+        setTimeout(() => {
+            this.dropdownOptions.style.display = 'none';
+            this.closest('.dropdown_container').style.height = `${this.label.offsetHeight}px`;
+        }, 0);
+    }
+
+    updateLabel() {
+        this.label.textContent = this.optionsData[this.selectedValue - 1] || this.getAttribute('unselected-text') || '选择一个选项';
+    }
+
+    renderOptions() {
+        this.dropdownOptions.querySelectorAll('.dropdown_option').forEach(option => {
+            const isSelected = option.getAttribute('data-value') === this.selectedValue;
+            option.classList.toggle('selected', isSelected);
+            option.querySelector('.dropdown_checkmark').style.display = isSelected ? 'block' : 'none';
+        });
+    }
+}
+
+customElements.define('custom-dropdown', CustomDropdown);
+
+
 // Modal弹窗
 function showModal(modal) {
     const overlay = document.getElementById("overlay_" + modal);
@@ -209,9 +321,20 @@ class CustomSlider extends HTMLElement {
         const segmentValues = customSegments ? JSON.parse(this.getAttribute('data-segment-values')) : [];
         const isDisabled = this.id.includes('disabled');
         const type = this.getAttribute('type');
+        const sliderId = this.id;
 
         let currentValue = initialValue;
         let isDragging = false;
+
+        // 读取存储中的已保存值
+        const storedIndex = getSliderValue(sliderId);
+        if (storedIndex !== null) {
+            if (type === 'set' && customSegments) {
+                currentValue = minValue + storedIndex * (maxValue - minValue) / segments;// 根据存储的索引恢复自定义标签
+            } else {
+                currentValue = storedIndex; // 其他滑块直接使用存储的值
+            }
+        }
 
         function formatValue(value) {
             return Number.isInteger(value) ? value : value.toFixed(2);
@@ -244,6 +367,7 @@ class CustomSlider extends HTMLElement {
             currentValue = position * (maxValue - minValue) / 100 + minValue;
             updateHandle(position);
             updateTooltip(position);
+            saveSliderValue();
         }
 
         function snapToSegment(position) {
@@ -252,11 +376,33 @@ class CustomSlider extends HTMLElement {
             currentValue = customSegments ? segmentValues[segmentIndex] : minValue + segmentIndex * (maxValue - minValue) / segments;
             updateHandle(segmentPosition);
             updateTooltip(segmentPosition);
+            saveSliderValue();
+        }
+
+        // 从存储中获取存储的滑块值
+        function getSliderValue(sliderId) {
+            const sliderStorage = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)slider_value')) || {};
+            return sliderStorage[sliderId] !== undefined ? sliderStorage[sliderId] : null; // 返回存储的索引值
+        }
+
+        // 保存滑块值到存储
+        function saveSliderValue(segmentIndex = null) {
+            const sliderStorage = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)slider_value')) || {};
+
+            if (type === 'set' && customSegments) {
+                // 分段滑块,保存对应的索引
+                sliderStorage[sliderId] = segmentIndex !== null ? segmentIndex : segmentValues.indexOf(currentValue);
+            } else {
+                // 普通滑块,保存数值
+                sliderStorage[sliderId] = currentValue;
+            }
+
+            localStorage.setItem('(/minecraft_repository_test/)slider_value', JSON.stringify(sliderStorage));
         }
 
         // 设置初始值并展示
-        updateHandle(calculatePosition(initialValue));
-        updateTooltip(calculatePosition(initialValue));
+        updateHandle(calculatePosition(currentValue));
+        updateTooltip(calculatePosition(currentValue));
 
         if (type === 'range') {
             // 添加最小值和最大值提示
@@ -351,7 +497,7 @@ class CustomSlider extends HTMLElement {
             } else if (event.clientX !== undefined) {
                 position = (event.clientX - rect.left) / rect.width * 100;
             } else {
-                position = 0;  // Fallback position
+                position = 0;
             }
 
             return Math.max(0, Math.min(position, 100));
@@ -399,11 +545,9 @@ class CustomSwitch extends HTMLElement {
     }
 
     render() {
-        const active = this.getAttribute('active') || 'off';
         const status = this.getAttribute('status') || 'disabled';
-
         this.isSwitchDisabled = status !== 'enabled';
-        this.isSwitchOn = localStorage.getItem('(/minecraft_repository_test/)' + this.id) === 'on' || active === 'on';
+        this.isSwitchOn = this.getSwitchValue() === 'on';
 
         this.innerHTML = `
             <div class="switch_content">
@@ -419,8 +563,8 @@ class CustomSwitch extends HTMLElement {
     }
 
     updateRender() {
-        // 获取状态
-        this.isSwitchOn = this.getAttribute('active') === 'on';
+        // 直接获取当前开关的状态
+        this.isSwitchOn = this.getSwitchValue() === 'on';
         this.isSwitchDisabled = this.getAttribute('status') !== 'enabled';
 
         // 更新元素的类名
@@ -499,20 +643,34 @@ class CustomSwitch extends HTMLElement {
         console.log(isOn ? "打开开关" : "关闭开关", this.id);
         playSound1();
 
+        // 更新存储
+        const switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+        switchValues[this.id] = isOn ? 'on' : 'off';
+        localStorage.setItem('(/minecraft_repository_test/)switch_value', JSON.stringify(switchValues));
+
+        // 更新开关类名
         if (isOn) {
             switchSlider.classList.add('switch_bounce_left');
             switchSlider.classList.remove('switch_bounce_right');
-            localStorage.setItem('(/minecraft_repository_test/)' + this.id, 'on');
         } else {
             switchSlider.classList.add('switch_bounce_right');
             switchSlider.classList.remove('switch_bounce_left');
-            localStorage.setItem('(/minecraft_repository_test/)' + this.id, 'off');
         }
 
         const switchStatus = this.querySelector(".switch_status");
         if (switchStatus) {
             switchStatus.textContent = `Toggle: ${isOn ? 'Open' : 'Close'}`;
         }
+
+        this.updateRender(); // 重新渲染以更新状态
+    }
+
+    getSwitchValue() {
+        const switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+        if (this.id in switchValues) {
+            return switchValues[this.id];
+        }
+        return this.getAttribute('active') || 'off';
     }
 }
 
@@ -567,7 +725,7 @@ class TextField extends HTMLElement {
             this.isComposing = true;
         });
 
-        this.inputField.addEventListener('compositionend', (e) => {
+        this.inputField.addEventListener('compositionend', () => {
             this.isComposing = false;
             const inputValue = this.inputField.value;
             const {isValid, filtered} = this.isValidAndFilterInput(inputValue, type);
@@ -576,7 +734,7 @@ class TextField extends HTMLElement {
                 // 不保存到localStorage
                 return; // 直接返回
             }
-            this.saveValueToLocalStorage(); // 有效输入才保存
+            this.saveTextFieldValue(); // 有效输入才保存
         });
 
         this.inputField.addEventListener('beforeinput', (e) => {
@@ -592,7 +750,7 @@ class TextField extends HTMLElement {
             this.updateTextField();
             // 仅在输入有效时保存
             if (this.isValidAndFilterInput(this.inputField.value, type).isValid) {
-                this.saveValueToLocalStorage();
+                this.saveTextFieldValue();
             }
         });
 
@@ -600,7 +758,7 @@ class TextField extends HTMLElement {
         this.style.height = this.initialValue + 'px'; // 默认值
         setTimeout(() => {
             this.updateTextField();
-            this.loadValueFromLocalStorage();
+            this.getTextFieldValue();
         }, 100);
     }
 
@@ -672,17 +830,22 @@ class TextField extends HTMLElement {
     resetValue() {
         this.inputField.value = '';
         this.updateTextField();
-        this.saveValueToLocalStorage();
+        this.saveTextFieldValue();
     }
 
-    saveValueToLocalStorage() {
+    saveTextFieldValue() {
         const storageKey = '(/minecraft_repository_test/)text_field_value';
         const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
-        storedData[this.classList[0]] = this.inputField.value; // 保存当前输入框的值
-        localStorage.setItem(storageKey, JSON.stringify(storedData)); // 更新localStorage
+        const currentValue = this.inputField.value;
+        if (currentValue.length === 0) {
+            delete storedData[this.classList[0]];
+        } else {
+            storedData[this.classList[0]] = currentValue;
+        }
+        localStorage.setItem(storageKey, JSON.stringify(storedData)); // 更新存储
     }
 
-    loadValueFromLocalStorage() {
+    getTextFieldValue() {
         const storageKey = '(/minecraft_repository_test/)text_field_value';
         const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
         if (storedData[this.classList[0]]) {

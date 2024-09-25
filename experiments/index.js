@@ -33,19 +33,11 @@ document.head.appendChild(exp_css);
 // 新的实验性页面
 let newFlagsPageSwitch = document.getElementById('new_flags_page');
 let newFlagsPageState;
-
-if (newFlagsPageSwitch) {
-    newFlagsPageState = localStorage.getItem('(/minecraft_repository_test/)new_flags_page') || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
-    if (newFlagsPageState === 'on') {
-        newFlagsPageSwitch.setAttribute('active', 'on');
-    } else {
-        newFlagsPageSwitch.setAttribute('active', 'off');
-    }
-}
+let switchValues;
 
 function flagsPage() {
-    rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-    newFlagsPageState = localStorage.getItem('(/minecraft_repository_test/)new_flags_page');
+    switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+    newFlagsPageState = switchValues['new_flags_page'] || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
     if (newFlagsPageState === 'on') {
         setTimeout(function () {
             window.location.href = "/minecraft_repository_test/flags/";
@@ -58,27 +50,3 @@ function flagsPage() {
 }
 
 
-// 环境指南页面
-let expEnviGuideSwitch = document.getElementById('experimental_envi_guide');
-if (expEnviGuideSwitch) {
-    let expEnviGuideState = localStorage.getItem('(/minecraft_repository_test/)experimental_envi_guide') || expEnviGuideSwitch.getAttribute('active');
-
-    if (expEnviGuideState === 'on') {
-        expEnviGuideSwitch.setAttribute('active', 'on');
-    } else {
-        expEnviGuideSwitch.setAttribute('active', 'off');
-    }
-}
-
-
-// 实验性无障碍
-let expAccessibilitySwitch = document.getElementById('experimental_accessibility');
-if (expAccessibilitySwitch) {
-    let expAccessibilityState = localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') || expAccessibilitySwitch.getAttribute('active'); // 默认启用
-
-    if (expAccessibilityState === 'on') {
-        expAccessibilitySwitch.setAttribute('active', 'on');
-    } else {
-        expAccessibilitySwitch.setAttribute('active', 'off');
-    }
-}
