@@ -211,12 +211,13 @@ class CustomDropdown extends HTMLElement {
         localStorage.setItem(this.storageKey, JSON.stringify(data));
     }
 
-    toggleOptions(e) {
+    toggleOptions() {
         if (this.getAttribute('status') === 'disabled') return;
 
         const isVisible = this.dropdownOptions.style.display === 'block';
         this.dropdownOptions.style.display = isVisible ? 'none' : 'block';
         this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight + this.margin}px` : `${this.dropdownOptions.scrollHeight + this.margin}px`;
+        this.style.cursor = isVisible ? 'unset' : 'pointer';
         handleScroll(); // 联动自定义网页滚动条
     }
 
@@ -236,12 +237,6 @@ class CustomDropdown extends HTMLElement {
             storedData[this.dropdownId] = this.selectedValue;
             this.saveDropdownData(storedData);
         }
-
-        setTimeout(() => {
-            this.dropdownOptions.style.display = 'none';
-            this.closest('.dropdown_container').style.height = `${this.label.offsetHeight + this.margin}px`;
-            handleScroll(); // 联动自定义网页滚动条
-        }, 0);
     }
 
     updateLabel() {
