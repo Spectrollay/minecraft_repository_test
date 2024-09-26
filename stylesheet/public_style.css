@@ -73,9 +73,9 @@
     color: inherit;
 }
 
-/* 禁用长按菜单 */
 * {
-    touch-action: manipulation;
+    touch-action: manipulation; /* 禁用长按菜单 */
+    -webkit-tap-highlight-color: transparent; /* 禁用高亮 */
 }
 
 .flex {
