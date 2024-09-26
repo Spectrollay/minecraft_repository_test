@@ -754,8 +754,8 @@ class TextField extends HTMLElement {
             }
         });
 
-        this.inputField.style.height = this.initialValue + 'px'; // 默认值
-        this.style.height = this.initialValue + 'px'; // 默认值
+        this.inputField.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
+        this.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
         setTimeout(() => {
             this.updateTextField();
             this.getTextFieldValue();
@@ -778,15 +778,15 @@ class TextField extends HTMLElement {
     }
 
     autoResize() {
-        this.inputField.style.height = this.initialValue + 'px'; // 默认值
-        this.style.height = this.initialValue + 'px'; // 默认值
-        this.inputField.style.height = this.inputField.scrollHeight + 'px';
-        this.style.height = this.inputField.scrollHeight + 'px';
+        this.inputField.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
+        this.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
+        this.inputField.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
+        this.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
     }
 
     updateContainerHeight() {
         const container = this.parentNode;
-        container.style.height = this.inputField.scrollHeight + 20 + 'px';
+        container.style.height = Math.max(this.inputField.scrollHeight, 40) + 20 + 'px';
     }
 
     isValidAndFilterInput(input, type) {

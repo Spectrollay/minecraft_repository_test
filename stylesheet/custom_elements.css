@@ -837,10 +837,10 @@ text-field {
     color: #FFFFFF;
     cursor: text;
     font-family: "NotoSans Bold", sans-serif;
-    height: 100%;
+    height: max(100%, 40px);
     outline: none;
     overflow-y: hidden;
-    padding: 10px 10px 9px 10px;
+    padding: 10px 10px 11px 10px;
     resize: none;
     width: 100%;
 }
