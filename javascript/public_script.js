@@ -109,7 +109,7 @@ function showSidebarScroll() {
     }, 3000);
 }
 
-function handleScroll() {
+function handleScroll() { // NOTE 在有涉及到自定义高度变化的地方要调用这个代码
     showScroll();
     updateThumb();
 }
@@ -727,13 +727,12 @@ for (let i = 0; i < expandableCardGroup.length; i++) {
 
         expandableCard.addEventListener('click', () => {
 
-            // 联动自定义网页滚动条
             let lastScrollHeight = mainContent.scrollHeight;
 
             function checkScrollHeightChange() {
                 const currentScrollHeight = mainContent.scrollHeight;
                 if (lastScrollHeight !== currentScrollHeight) {
-                    handleScroll();
+                    handleScroll(); // 联动自定义网页滚动条
                     lastScrollHeight = currentScrollHeight;
                 }
             }

@@ -371,9 +371,9 @@ custom-dropdown {
     cursor: pointer;
     display: block;
     font-size: 14px;
-    margin: 6px;
+    margin: 6px; /* 外边距,js里有用到 */
     position: relative;
-    width: calc(100% - 12px);
+    width: calc(100% - 12px); /* 减去外边距的2倍 */
 }
 
 custom-dropdown .disabled_dropdown {
@@ -424,7 +424,7 @@ custom-dropdown .disabled_dropdown {
     left: 0;
     position: absolute;
     top: 0;
-    width: calc(100% - 4px);
+    width: calc(100% - 4px);  /* 减去边框的2倍 */
     z-index: 5;
 }
 
@@ -828,7 +828,7 @@ text-field {
     background-color: #313233;
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 4px #242425;
-    box-sizing: border-box;
+    box-sizing: border-box; /* 包括内边距和边框 */
     caret-color: #6CC349;
     color: #FFFFFF;
     cursor: text;

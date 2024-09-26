@@ -150,6 +150,7 @@ class CustomDropdown extends HTMLElement {
     constructor() {
         super();
         this.dropdownId = this.getAttribute('id') || 'default-dropdown';
+        this.margin = 6; // 外边距,与css内相同
         this.optionsData = JSON.parse(this.getAttribute('data-option')) || [];
         this.selectedValue = this.getAttribute('data-selected') || null;
 
@@ -215,7 +216,8 @@ class CustomDropdown extends HTMLElement {
 
         const isVisible = this.dropdownOptions.style.display === 'block';
         this.dropdownOptions.style.display = isVisible ? 'none' : 'block';
-        this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight}px` : `${this.dropdownOptions.scrollHeight}px`;
+        this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight + this.margin}px` : `${this.dropdownOptions.scrollHeight + this.margin}px`;
+        handleScroll(); // 联动自定义网页滚动条
     }
 
     selectOption(e) {
@@ -237,7 +239,8 @@ class CustomDropdown extends HTMLElement {
 
         setTimeout(() => {
             this.dropdownOptions.style.display = 'none';
-            this.closest('.dropdown_container').style.height = `${this.label.offsetHeight}px`;
+            this.closest('.dropdown_container').style.height = `${this.label.offsetHeight + this.margin}px`;
+            handleScroll(); // 联动自定义网页滚动条
         }, 0);
     }
 
@@ -787,6 +790,7 @@ class TextField extends HTMLElement {
     updateContainerHeight() {
         const container = this.parentNode;
         container.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
+        handleScroll(); // 联动自定义网页滚动条
     }
 
     isValidAndFilterInput(input, type) {
