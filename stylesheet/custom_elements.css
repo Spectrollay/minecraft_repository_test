@@ -367,16 +367,13 @@ vertical-line {
 
 
 /* 自定义Dropdown下拉菜单 */
-.dropdown_container {
-    margin: 20px;
-}
-
 custom-dropdown {
     cursor: pointer;
     display: block;
     font-size: 14px;
+    margin: 6px;
     position: relative;
-    width: 100%;
+    width: calc(100% - 12px);
 }
 
 custom-dropdown .disabled_dropdown {
@@ -457,7 +454,7 @@ custom-dropdown .disabled_dropdown {
 
 
 /* Modal弹窗 */
-#overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_version_info_modal, #overlay_disclaimer_modal, #overlay_donate_modal {
+#overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_version_info_modal, #overlay_disclaimer_modal, #overlay_donate_modal, #overlay_acknowledgments_modal {
     z-index: 12;
 }
 
@@ -486,7 +483,7 @@ modal_area {
     z-index: 11;
 }
 
-#clear_storage_warning, #reload_page_warning, #version_info_modal, #disclaimer_modal, #donate_modal {
+#clear_storage_warning, #reload_page_warning, #version_info_modal, #disclaimer_modal, #donate_modal, #acknowledgments_modal {
     z-index: 13;
 }
 
@@ -814,13 +811,12 @@ modal_button_list {
 /* Text Field 文本框 */
 .text_field_container {
     display: flex;
-    margin: 10px;
+    margin: 6px;
 }
 
 text-field {
     display: block;
     flex: 1;
-    margin: 10px;
     position: relative;
 }
 

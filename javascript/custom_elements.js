@@ -786,7 +786,7 @@ class TextField extends HTMLElement {
 
     updateContainerHeight() {
         const container = this.parentNode;
-        container.style.height = Math.max(this.inputField.scrollHeight, 40) + 20 + 'px';
+        container.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
     }
 
     isValidAndFilterInput(input, type) {

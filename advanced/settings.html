@@ -168,6 +168,7 @@
         <div class="main_block setting_block">
             <div class="setting_content">语言</div>
             <div class="setting_control_right">
+                <custom-dropdown data-option='["简体中文", "English"]' data-selected="1" id="language_selection" status="disabled" unselected-text=""></custom-dropdown>
             </div>
         </div>
         <div class="main_block setting_block">
@@ -255,7 +256,9 @@
         </div>
         <div class="main_block setting_block">
             <div class="setting_content">特别鸣谢</div>
-            <div class="setting_control_right"></div>
+            <div class="setting_control_right">
+                <custom-button data="setting|normal|||false||" js="showModal('acknowledgments_modal');" text="查看"></custom-button>
+            </div>
         </div>
     </main>
 </scroll-container>
@@ -357,6 +360,28 @@
             <modal_button_group>
                 <modal_button_list>
                     <custom-button data="modal|normal|||false||" js="hideModal(this);jumpToPage('/minecraft_repository_test/donate.html');" text="打赏"></custom-button>
+                </modal_button_list>
+            </modal_button_group>
+        </modal_button_area>
+    </modal>
+</modal_area>
+
+<!--捐赠支持弹窗-->
+<div class="overlay" id="overlay_acknowledgments_modal"></div>
+<modal_area id="acknowledgments_modal">
+    <modal>
+        <modal_title_area>
+            <modal_title>特别鸣谢</modal_title>
+            <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                <img alt="" class="modal_close_btn_img" src=""/>
+            </modal_close_btn>
+        </modal_title_area>
+        <modal_content id="acknowledgments">
+        </modal_content>
+        <modal_button_area>
+            <modal_button_group>
+                <modal_button_list>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);" text="关闭"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>

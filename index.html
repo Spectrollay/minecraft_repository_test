@@ -85,15 +85,34 @@
         <div class="banner_area">
             <div class="banner neutral_banner" id="banner_tip"></div>
         </div>
-        <div class="main preview_block">
-            <div class="preview_title" id="preview_title"></div>
-            <div class="preview_detail" id="preview_detail1"></div>
-            <div class="preview_detail" id="preview_detail2"></div>
-            <div class="btn_group">
-                <custom-button data="default|green|large|preview_btn2|false||" js="toRepo();" text=""></custom-button>
+
+        <!-- TODO 在主页开发完成后移除此提示 -->
+        <div style="display: none;">
+            <div class="main preview_block preview_block_old">
+                <div class="preview_title" id="preview_title"></div>
+                <div class="preview_detail" id="preview_detail1"></div>
+                <div class="preview_detail" id="preview_detail2"></div>
+                <div class="btn_group">
+                    <custom-button data="default|green|large|preview_btn2|false||" js="toRepo();" text=""></custom-button>
+                </div>
             </div>
+            <div class="block_spacing"></div>
         </div>
-        <div class="block_spacing"></div>
+
+        <!-- TODO 在新主页开放测试时显示此提示 -->
+        <div style="display: none;">
+            <div class="main preview_block preview_block_new">
+                <div class="preview_title">体验响应式设计</div>
+                <div class="preview_detail">主页响应式布局现已开启测试,欢迎体验!</div>
+                <div class="preview_detail">不用担心,在测试期间你可以随时返回旧设计.</div>
+                <div class="btn_group">
+                    <custom-button data="default|normal|small||false||" js="jumpToPage('/minecraft_repository_test/experiments_internal/new_home_page.html');" text="前往新设计"></custom-button>
+                    <custom-button data="default|green|small||false||" js="toRepo();" text="<img class='link_img' src='' alt=''/>提出反馈"></custom-button>
+                </div>
+            </div>
+            <div class="block_spacing"></div>
+        </div>
+
         <div class="block" id="header_notice">
             <div class="main main-header">
                 <div class="header_notice_title" id="repository_logo"></div>
@@ -455,18 +474,15 @@
             <div class="main footer_notice_body">
                 <div class="title3">特别鸣谢</div>
                 <div class="description2">
-                    <div>
-                        <img alt="Coming Soon Image" class="coming_soon-img" src="/minecraft_repository_test/images/Building.png"/>
-                        <div>即将到来</div>
-                    </div>
+                    <div id="acknowledgments"></div>
                 </div>
             </div>
             <div class="main footer_notice_body">
                 <div class="title3">友情链接</div>
                 <div class="description2">
                     <div>
-                        <img alt="Coming Soon Image" class="coming_soon-img" src="/minecraft_repository_test/images/Building.png"/>
-                        <div>即将到来</div>
+                        <p>数据库准备中</p>
+                        <p><a href="https://wj.qq.com/s2/15430190/90c5/" onclick="playSound1();" target="_blank"><img alt="link" class="link_img" src=""/>交换友链 (验证码: spec6)</a></p>
                     </div>
                 </div>
             </div>
