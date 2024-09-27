@@ -491,8 +491,6 @@ function selectTab(tabNumber) {
         console.log("点击了已选中Tab");
     } else {
         // 选中不一致
-        // 在切换选项卡时播放声音
-        // playSound1();
         setTimeout(handleScroll, 100);
 
         // 切换Tab Bar选项卡

@@ -217,6 +217,7 @@ class CustomDropdown extends HTMLElement {
         const isVisible = this.dropdownOptions.style.display === 'block';
         this.dropdownOptions.style.display = isVisible ? 'none' : 'block';
         this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight + this.margin}px` : `${this.dropdownOptions.scrollHeight + this.margin}px`;
+        playSound1();
         handleScroll(); // 联动自定义网页滚动条
     }
 
