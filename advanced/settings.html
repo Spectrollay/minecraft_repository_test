@@ -115,6 +115,11 @@
         <div class="setting_title">外观</div>
         <div class="main_block setting_block">
             <div class="setting_content">主题</div>
+            <div class="setting_control_right">
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["Vanilla", "Lite", "OreUI"]' data-selected="3" id="theme_selection" status="disabled" unselected-text=""></custom-dropdown>
+                </div>
+            </div>
         </div>
         <div class="main_block setting_block">
             <div class="setting_content">暗黑模式</div>
@@ -520,11 +525,6 @@
         align-items: center;
         display: flex;
         justify-items: center;
-    }
-
-    /* 使开关区域与按钮区域等宽 */
-    .setting_control_right {
-        width: 132px;
     }
 
     .switch_content {

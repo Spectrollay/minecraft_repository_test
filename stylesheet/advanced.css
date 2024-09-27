@@ -47,8 +47,9 @@ main {
 }
 
 .setting_control_right {
+    width: 140px;
 }
 
 .setting_btn {
-    width: 120px;
+    width: calc(100% - 12px);
 }
