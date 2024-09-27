@@ -160,10 +160,10 @@ class CustomDropdown extends HTMLElement {
         this.appendChild(this.label);
 
         // 创建下拉菜单箭头
-        const arrow = document.createElement('img');
-        arrow.classList.add('dropdown_arrow');
-        arrow.src = '/minecraft_repository_test/images/arrowDown.png';
-        this.appendChild(arrow);
+        this.arrow = document.createElement('img');
+        this.arrow.classList.add('dropdown_arrow');
+        this.arrow.src = '/minecraft_repository_test/images/arrowDown.png';
+        this.appendChild(this.arrow);
 
         // 创建下拉选项容器
         this.dropdownOptions = document.createElement('div');
@@ -200,6 +200,7 @@ class CustomDropdown extends HTMLElement {
 
     updateStatus(status) {
         this.label.classList.toggle('disabled_dropdown', status === 'disabled');
+        this.arrow.classList.toggle('disabled_dropdown_arrow', status === 'disabled');
     }
 
     getStoredDropdownData() {

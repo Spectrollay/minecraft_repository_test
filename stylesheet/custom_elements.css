@@ -415,6 +415,10 @@ custom-dropdown .disabled_dropdown {
     width: 24px;
 }
 
+.disabled_dropdown_arrow {
+    filter: invert(100%) grayscale(100%) brightness(50%);
+}
+
 .dropdown_options {
     background-color: #58585A;
     border: 2px solid #1E1E1F;
