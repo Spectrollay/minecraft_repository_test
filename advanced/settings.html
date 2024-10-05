@@ -82,39 +82,39 @@
             </div>
         </div>
         <div class="main_block setting_block" id="quit_test">
-            <div class="setting_content">退出测试</div>
+            <div class="setting_title_content">退出测试</div>
             <div class="setting_control_right">
                 <custom-button data="setting|red|||false||" js="leaveTest();" text="离开"></custom-button>
             </div>
         </div>
-        <div class="setting_title exp_accessibility">无障碍 (实验性)</div>
+        <div class="setting_title exp_accessibility">无障碍<span class="tag yellow_tag exp_tag">实验性</span></div>
         <div class="main_block setting_block exp_accessibility">
-            <div class="setting_content">使用文本转语音</div>
+            <div class="setting_title_content">使用文本转语音</div>
             <div class="setting_control_right">
                 <custom-switch active="off" status="disabled"></custom-switch>
             </div>
         </div>
         <div class="main_block setting_block exp_accessibility">
-            <div class="setting_content">文本转语音音量</div>
+            <div class="setting_title_content">文本转语音音量</div>
         </div>
         <div class="main_block setting_block exp_accessibility">
-            <div class="setting_content">高对比度UI</div>
+            <div class="setting_title_content">高对比度UI</div>
             <div class="setting_control_right">
                 <custom-switch active="off" status="disabled"></custom-switch>
             </div>
         </div>
         <div class="main_block setting_block exp_accessibility">
-            <div class="setting_content">访问受限弹窗</div>
+            <div class="setting_title_content">访问受限弹窗</div>
             <div class="setting_control_right">
                 <custom-switch active="on" status="disabled"></custom-switch>
             </div>
         </div>
         <div class="main_block setting_block exp_accessibility">
-            <div class="setting_content">通知持续时间</div>
+            <div class="setting_title_content">通知持续时间</div>
         </div>
         <div class="setting_title">外观</div>
         <div class="main_block setting_block">
-            <div class="setting_content">主题</div>
+            <div class="setting_title_content">主题</div>
             <div class="setting_control_right">
                 <div class="dropdown_container">
                     <custom-dropdown data-option='["Vanilla", "Lite", "OreUI"]' data-selected="3" id="theme_selection" status="disabled" unselected-text=""></custom-dropdown>
@@ -122,35 +122,40 @@
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">暗黑模式</div>
-            <div class="setting_control_right">
-                <custom-switch active="off" id="dark_mode" status="disabled"></custom-switch>
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">暗黑模式</div>
+                    <div class="setting_control_right">
+                        <custom-switch active="off" id="dark_mode" status="disabled"></custom-switch>
+                    </div>
+                </div>
+                <div class="setting_block setting_block_description">OreUI主题下无法启用</div>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">新的UI设计</div>
+            <div class="setting_title_content">新的UI设计</div>
             <div class="setting_control_right">
                 <custom-switch active="on" id="new_ui" status="disabled"></custom-switch>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">实验性新UI</div>
+            <div class="setting_title_content">实验性新UI</div>
             <div class="setting_control_right">
                 <custom-switch active="off" id="exp_new_ui" status="enabled"></custom-switch>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">UI标度</div>
+            <div class="setting_title_content">UI标度</div>
         </div>
         <div class="setting_title">行为</div>
         <div class="main_block setting_block">
-            <div class="setting_content">加载指示器</div>
+            <div class="setting_title_content">加载指示器</div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">滚动条</div>
+            <div class="setting_title_content">滚动条</div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">页面过渡动画</div>
+            <div class="setting_title_content">页面过渡动画</div>
         </div>
         <div class="setting_title">通知</div>
         <div class="main_block setting_block">
@@ -171,7 +176,7 @@
         </div>
         <div class="setting_title">其他</div>
         <div class="main_block setting_block">
-            <div class="setting_content">语言</div>
+            <div class="setting_title_content">语言</div>
             <div class="setting_control_right">
                 <div class="dropdown_container">
                     <custom-dropdown data-option='["简体中文", "English"]' data-selected="1" id="language_selection" status="disabled" unselected-text=""></custom-dropdown>
@@ -179,90 +184,90 @@
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">实验性内容</div>
+            <div class="setting_title_content">实验性内容</div>
             <div class="setting_control_right">
                 <custom-button data="setting|normal|||false||" js="flagsPage();" text="查看"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block new_flags_page">
-            <div class="setting_content">新的实验性内容页面</div>
+            <div class="setting_title_content">新的实验性内容页面</div>
             <div class="setting_control_right">
                 <custom-switch active="off" id="new_flags_page" status="enabled"></custom-switch>
             </div>
         </div>
         <div class="main_block setting_block exp_envi_guide">
-            <div class="setting_content">环境指南 (实验性)</div>
+            <div class="setting_title_content">环境指南<span class="tag yellow_tag exp_tag">实验性</span></div>
             <div class="setting_control_right">
                 <custom-button data="setting|normal|||false||" js="enviPage();" text="阅读"></custom-button>
             </div>
         </div>
         <div class="setting_title">高级</div>
         <div class="main_block setting_block">
-            <div class="setting_content">清除存储数据</div>
+            <div class="setting_title_content">清除存储数据</div>
             <div class="setting_control_right">
                 <custom-button data="setting|red|||false||" js="showModal('clear_storage_warning');" text="清除"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">重载容器环境</div>
+            <div class="setting_title_content">重载容器环境</div>
             <div class="setting_control_right">
                 <custom-button data="setting|red|||false||" js="showModal('reload_page_warning');" text="重载"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block debug_mode">
-            <div class="setting_content">加载调试程序</div>
+            <div class="setting_title_content">加载调试程序</div>
             <div class="setting_control_right">
                 <custom-button data="setting|red|||false||" js="jumpToPage('/minecraft_repository_test/default/error_no-access.html');" text="调试"></custom-button>
             </div>
         </div>
         <div class="setting_title">关于</div>
         <div class="main_block setting_block">
-            <div class="setting_content">星月Minecraft版本库</div>
+            <div class="setting_title_content">星月Minecraft版本库</div>
             <div class="setting_control_right setting_control_right_large">
                 <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">版本: <span id="setting_version"></span></div>
+            <div class="setting_title_content">版本: <span id="setting_version"></span></div>
             <div class="setting_control_right setting_control_right_large">
                 <custom-button data="setting|normal|||false||" js="showModal('version_info_modal');" text="详情"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">开发者: Spectrollay</div>
+            <div class="setting_title_content">开发者: Spectrollay</div>
             <div class="setting_control_right">
                 <custom-button data="setting|normal|||false||" js="openLink('https://github.com/Spectrollay');" text="瞅一瞅"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">其他项目</div>
+            <div class="setting_title_content">其他项目</div>
             <div class="setting_control_down">
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">用户协议</div>
+            <div class="setting_title_content">用户协议</div>
             <div class="setting_control_right">
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">开源协议</div>
+            <div class="setting_title_content">开源协议</div>
             <div class="setting_control_right">
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">联系我们</div>
+            <div class="setting_title_content">联系我们</div>
             <div class="setting_control_right">
                 <custom-button data="setting|normal|||false||" js="jumpToPage('/minecraft_repository_test/default/error_not-found.html');" text="打开"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">捐赠支持</div>
+            <div class="setting_title_content">捐赠支持</div>
             <div class="setting_control_right">
                 <custom-button data="setting|normal|||false||" js="showModal('donate_modal');" text="支持"></custom-button>
             </div>
         </div>
         <div class="main_block setting_block">
-            <div class="setting_content">特别鸣谢</div>
+            <div class="setting_title_content">特别鸣谢</div>
             <div class="setting_control_right">
                 <custom-button data="setting|normal|||false||" js="showModal('acknowledgments_modal');" text="查看"></custom-button>
             </div>

@@ -37,11 +37,20 @@ main {
     display: flex;
 }
 
-.setting_block_content {
-    margin: 6px 0;
+.setting_block_title {
+    font-size: 16px;
 }
 
-.setting_content {
+.setting_block_description {
+    font-size: 14px;
+}
+
+.setting_block_content {
+    margin: 6px 0;
+    width: 100%;
+}
+
+.setting_title_content {
     align-self: center;
     flex: 1;
 }
