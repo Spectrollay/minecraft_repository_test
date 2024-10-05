@@ -328,15 +328,15 @@ class CustomSlider extends HTMLElement {
         // 读取存储中的已保存值
         const storedIndex = getSliderValue(sliderId);
         if (storedIndex !== null) {
-            if (type === 'set' && customSegments) {
-                currentValue = minValue + storedIndex * (maxValue - minValue) / segments;// 根据存储的索引恢复自定义标签
-            } else {
-                currentValue = storedIndex; // 其他滑块直接使用存储的值
-            }
+            currentValue = storedIndex;
         }
 
-        function formatValue(value) {
-            return Number.isInteger(value) ? value : value.toFixed(2);
+        function formatIntegerValue(value) {
+            return value.toFixed(2).replace(/\.?0+$/, '');
+        }
+
+        function formatDecimalValue(value) {
+            return value.toFixed(2);
         }
 
         function updateHandle(position) {
@@ -348,9 +348,13 @@ class CustomSlider extends HTMLElement {
             if (type === 'set') {
                 const segmentIndex = Math.round(position / (100 / segments));
                 const segmentValue = customSegments ? segmentValues[segmentIndex] : minValue + segmentIndex * (maxValue - minValue) / segments;
-                tooltip.textContent = customSegments ? segmentValue : formatValue(segmentValue);
+                tooltip.textContent = customSegments ? segmentValue : formatIntegerValue(segmentValue);
             } else {
-                tooltip.textContent = formatValue(calculateValue(position));
+                if (position === 0 || position === 100) {
+                    tooltip.textContent = formatIntegerValue(calculateValue(position));
+                } else {
+                    tooltip.textContent = formatDecimalValue(calculateValue(position));
+                }
             }
         }
 
@@ -372,7 +376,7 @@ class CustomSlider extends HTMLElement {
         function snapToSegment(position) {
             const segmentIndex = Math.round(position / (100 / segments));
             const segmentPosition = segmentIndex * (100 / segments);
-            currentValue = customSegments ? segmentValues[segmentIndex] : minValue + segmentIndex * (maxValue - minValue) / segments;
+            currentValue = minValue + segmentIndex * (maxValue - minValue) / segments;
             updateHandle(segmentPosition);
             updateTooltip(segmentPosition);
             saveSliderValue();
@@ -387,15 +391,7 @@ class CustomSlider extends HTMLElement {
         // 保存滑块值到存储
         function saveSliderValue(segmentIndex = null) {
             const sliderStorage = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)slider_value')) || {};
-
-            if (type === 'set' && customSegments) {
-                // 分段滑块,保存对应的索引
-                sliderStorage[sliderId] = segmentIndex !== null ? segmentIndex : segmentValues.indexOf(currentValue);
-            } else {
-                // 普通滑块,保存数值
-                sliderStorage[sliderId] = currentValue;
-            }
-
+            sliderStorage[sliderId] = currentValue;
             localStorage.setItem('(/minecraft_repository_test/)slider_value', JSON.stringify(sliderStorage));
         }
 
@@ -408,7 +404,7 @@ class CustomSlider extends HTMLElement {
             if (showSegments === null || showSegments === "true") {
                 const minValueLabel = document.createElement('div');
                 minValueLabel.classList.add('slider_value_info');
-                minValueLabel.textContent = formatValue(minValue);
+                minValueLabel.textContent = formatIntegerValue(minValue);
                 minValueLabel.style.position = 'absolute';
                 minValueLabel.style.bottom = '-35px';
                 slider.appendChild(minValueLabel);
@@ -418,7 +414,7 @@ class CustomSlider extends HTMLElement {
 
                 const maxValueLabel = document.createElement('div');
                 maxValueLabel.classList.add('slider_value_info');
-                maxValueLabel.textContent = formatValue(maxValue);
+                maxValueLabel.textContent = formatIntegerValue(maxValue);
                 maxValueLabel.style.position = 'absolute';
                 maxValueLabel.style.bottom = '-35px';
                 slider.appendChild(maxValueLabel);
@@ -440,7 +436,7 @@ class CustomSlider extends HTMLElement {
                     const segmentValueLabel = document.createElement('div');
                     const segmentValue = customSegments ? segmentValues[i] : minValue + i * (maxValue - minValue) / segments;
                     segmentValueLabel.classList.add('slider_value_info');
-                    segmentValueLabel.textContent = customSegments ? segmentValue : formatValue(segmentValue);
+                    segmentValueLabel.textContent = customSegments ? segmentValue : formatIntegerValue(segmentValue);
                     segmentValueLabel.style.position = 'absolute';
                     segmentValueLabel.style.bottom = '-35px';
                     slider.appendChild(segmentValueLabel);
@@ -509,13 +505,48 @@ class CustomSlider extends HTMLElement {
         window.addEventListener('mouseup', stopDrag);
         window.addEventListener('touchend', stopDrag);
 
-        // 点击slider区域移动
+        // 点击可点击区域移动
         content.addEventListener('click', (event) => {
             const position = currentPosition(event);
             if (type === 'set') {
                 snapToSegment(position);
             } else {
                 setSliderValue(position);
+            }
+        });
+
+        // 通过方向键控制滑块
+        handle.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                event.preventDefault();
+                let step = sliderData.step || 1;  // 获取步长
+                if (type === 'set') { // 分段滑块
+                    let segmentIndex = Math.round(((currentValue - minValue) / (maxValue - minValue)) * segments);
+                    if (event.key === 'ArrowLeft') {
+                        segmentIndex = Math.max(0, segmentIndex - 1);
+                    } else if (event.key === 'ArrowUp') {
+                        segmentIndex = segments;
+                    } else if (event.key === 'ArrowRight') {
+                        segmentIndex = Math.min(segments, segmentIndex + 1);
+                    } else if (event.key === 'ArrowDown') {
+                        segmentIndex = 0;
+                    }
+                    currentValue = minValue + segmentIndex * (maxValue - minValue) / segments;
+                    const newPosition = (segmentIndex / segments) * 100;
+                    snapToSegment(newPosition);
+                } else { // 普通滑块
+                    if (event.key === 'ArrowLeft') {
+                        currentValue = Math.max(minValue, currentValue - step);
+                    } else if (event.key === 'ArrowUp') {
+                        currentValue = maxValue;
+                    } else if (event.key === 'ArrowRight') {
+                        currentValue = Math.min(maxValue, currentValue + step);
+                    } else if (event.key === 'ArrowDown') {
+                        currentValue = minValue;
+                    }
+                    const newPosition = calculatePosition(currentValue);
+                    setSliderValue(newPosition);
+                }
             }
         });
     }

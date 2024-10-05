@@ -20,7 +20,9 @@
  * SOFTWARE.
  */
 
-if (localStorage.getItem('(/minecraft_repository_test/)experimental_accessibility') === 'on') {
+switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+let expAccessibilityState = switchValues['experimental_accessibility'] || 'on';
+if (expAccessibilityState === 'on') {
     // 焦点事件
     // 选择多个类名、ID 和自定义元素
     // 移除焦点列表
@@ -28,7 +30,8 @@ if (localStorage.getItem('(/minecraft_repository_test/)experimental_accessibilit
         'button',
         '.overlay',
         'modal_area',
-        'modal_checkbox_area .custom-checkbox'
+        'modal_checkbox_area .custom-checkbox',
+        'textarea'
     ];
     // 新增焦点列表
     const inclusionSelectors = [
@@ -42,7 +45,10 @@ if (localStorage.getItem('(/minecraft_repository_test/)experimental_accessibilit
         '.plan_block',
         '.custom-checkbox:not(.disabled)',
         '.switch:not(.disabled_switch) .switch_slider',
-        '.slider_slider:not(.disabled_slider)'
+        '.slider_slider:not(.disabled_slider)',
+        '.dropdown_label:not(.disabled_dropdown)',
+        '.dropdown_option',
+        'text-field:not(.disabled_text_field) textarea'
     ];
 
     // 生成选择器字符串
