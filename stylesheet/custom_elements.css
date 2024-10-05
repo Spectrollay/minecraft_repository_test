@@ -706,7 +706,7 @@ modal_button_list {
     height: 24px;
     overflow: visible;
     position: relative;
-    width: 56px;
+    width: 58px;
 }
 
 .normal_switch {
@@ -808,7 +808,7 @@ modal_button_list {
 }
 
 .switch.on .switch_slider {
-    left: 27px;
+    left: 28px;
 }
 
 
