@@ -218,8 +218,6 @@ const fullVersionTips = [
     {text: "这是一条永远不会出现的提示.", weight: 0},
 ];
 
-tipsWithWeights = [...commonTips, ...fullVersionTips];
-
 const addTips = (newTips, oldTips) => {
     tipsWithWeights = [...newTips, ...oldTips];
 };
@@ -228,7 +226,9 @@ const replaceTips = (newTips) => {
     tipsWithWeights = [...newTips];
 };
 
-if (!isRelease) {
+if (isRelease) {
+    tipsWithWeights = [...commonTips, ...fullVersionTips];
+} else {
     addTips([
         {text: "很高兴你能够加入测试!", weight: 5},
         {text: "你当前使用的是测试仓库!", weight: 5},
@@ -241,7 +241,7 @@ if (!isRelease) {
         {text: "想要贡献自己的代码?你可以在Github上协助我们一起开发!", weight: 5},
         {text: "我们欢迎你的反馈!前往项目仓库提交或直接向开发者汇报你的发现!", weight: 5},
         {text: "不要担心漏洞!测试仓库中发现的问题往往会在发布仓库更新前得以解决.", weight: 5},
-    ], fullVersionTips);
+    ], commonTips);
 }
 
 if (!isFullVersion) {
