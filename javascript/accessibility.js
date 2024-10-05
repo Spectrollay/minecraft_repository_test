@@ -21,7 +21,7 @@
  */
 
 switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
-let expAccessibilityState = switchValues['experimental_accessibility'] || 'on';
+expAccessibilityState = switchValues['experimental_accessibility'] || 'on';
 if (expAccessibilityState === 'on') {
     // 焦点事件
     // 选择多个类名、ID 和自定义元素
