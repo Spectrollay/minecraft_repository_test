@@ -730,11 +730,11 @@ modal_button_list {
 }
 
 .switch_style.left {
-    left: 5px;
+    left: 6px;
 }
 
 .switch_style.right {
-    right: 6px;
+    right: 7px;
 }
 
 .switch_style.left img, .switch_style.right img {
