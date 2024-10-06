@@ -33,6 +33,7 @@ class CustomButton extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         this.render();
+        setTimeout(updateFocusableElements, 0); // 更新元素焦点
     }
 
     render() {
@@ -94,13 +95,20 @@ class CustomCheckbox extends HTMLElement {
         super();
         this.render();
 
-        // 点击元素本身执行点击事件
-        // this.addEventListener('click', this.toggleCheckbox.bind(this));
         // 点击父元素执行点击事件
         const parentElement = this.parentElement;
         if (parentElement) {
             parentElement.addEventListener('click', this.toggleCheckbox.bind(this));
         }
+    }
+
+    static get observedAttributes() {
+        return ['status'];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        this.render();
+        setTimeout(updateFocusableElements, 0); // 更新元素焦点
     }
 
     render() {
@@ -194,13 +202,10 @@ class CustomDropdown extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (name === 'status') {
-            this.updateStatus(newValue);
+            this.label.classList.toggle('disabled_dropdown', newValue === 'disabled');
+            this.arrow.classList.toggle('disabled_dropdown_arrow', newValue === 'disabled');
         }
-    }
-
-    updateStatus(status) {
-        this.label.classList.toggle('disabled_dropdown', status === 'disabled');
-        this.arrow.classList.toggle('disabled_dropdown_arrow', status === 'disabled');
+        setTimeout(updateFocusableElements, 0); // 更新元素焦点
     }
 
     getStoredDropdownData() {
@@ -219,7 +224,7 @@ class CustomDropdown extends HTMLElement {
         this.dropdownOptions.style.display = isVisible ? 'none' : 'block';
         this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight + this.margin}px` : `${this.dropdownOptions.scrollHeight + this.margin}px`;
         playSound1();
-        handleScroll(); // 联动自定义网页滚动条
+        mainHandleScroll(); // 联动自定义网页滚动条
     }
 
     selectOption(e) {
@@ -289,6 +294,19 @@ function hideModal(button) {
 class CustomSlider extends HTMLElement {
     constructor() {
         super();
+        this.render();
+    }
+
+    static get observedAttributes() {
+        return ['status'];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        this.render();
+        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+    }
+
+    render() {
         this.innerHTML = `
             <div class="slider_area">
                 <div>Selected: <span class="slider_tooltip">0.00</span></div>
@@ -301,10 +319,7 @@ class CustomSlider extends HTMLElement {
                 </div>
             </div>
         `;
-        this.render();
-    }
 
-    render() {
         const content = this.querySelector('.slider_content');
         const tooltip = this.querySelector('.slider_tooltip');
         const slider = this.querySelector('.slider');
@@ -318,7 +333,7 @@ class CustomSlider extends HTMLElement {
         const showSegments = this.getAttribute('data-show-segments');
         const customSegments = this.getAttribute('data-custom-segments') === "true";
         const segmentValues = customSegments ? JSON.parse(this.getAttribute('data-segment-values')) : [];
-        const isDisabled = this.id.includes('disabled');
+        const isDisabled = this.getAttribute('status') === "disabled";
         const type = this.getAttribute('type');
         const sliderId = this.id;
 
@@ -572,6 +587,7 @@ class CustomSwitch extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         this.updateRender();
+        setTimeout(updateFocusableElements, 0); // 更新元素焦点
     }
 
     render() {
@@ -725,13 +741,6 @@ class TextField extends HTMLElement {
         this.hint.textContent = this.getAttribute('hint') || '';
         this.appendChild(this.hint);
 
-        this.status = this.getAttribute('status') === 'disabled' ? 'disabled' : 'enabled';
-        if (this.status === 'disabled') {
-            this.classList.add('disabled_text_field');
-        } else {
-            this.classList.remove('disabled_text_field');
-        }
-
         const isSingleLine = this.getAttribute('single-line') || 'true';
         const type = this.getAttribute('type') || 'text';
         if (isSingleLine === 'true') {
@@ -792,6 +801,17 @@ class TextField extends HTMLElement {
         }, 100);
     }
 
+    static get observedAttributes() {
+        return ['status'];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'status') {
+            this.classList.toggle('disabled_text_field', newValue === 'disabled');
+        }
+        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+    }
+
     updateTextField() {
         this.updateHint();
         this.autoResize();
@@ -817,7 +837,7 @@ class TextField extends HTMLElement {
     updateContainerHeight() {
         const container = this.parentNode;
         container.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
-        handleScroll(); // 联动自定义网页滚动条
+        mainHandleScroll(); // 联动自定义网页滚动条
     }
 
     isValidAndFilterInput(input, type) {
