@@ -156,8 +156,7 @@ function bindScrollEvents(container, content, customScrollbar, customThumb) {
     customThumb.addEventListener('mousedown', (e) => handleDragStart(e, customThumb, container, content, isDragging, startY, initialThumbTop));
     customThumb.addEventListener('touchstart', (e) => handleDragStart(e, customThumb, container, content, isDragging, startY, initialThumbTop));
     customScrollbar.addEventListener('click', (e) => handleScrollbarClick(e, isDragging, customScrollbar, customThumb, container, content));
-
-    onScroll(); // 初始化滚动条位置
+    window.addEventListener('load', () => setTimeout(onScroll, 10)); // 初始化滚动条位置
 }
 
 // 获取并处理所有滚动容器
