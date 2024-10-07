@@ -30,7 +30,7 @@ const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Al
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20241005" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20241007" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -40,7 +40,7 @@ if (commit === "#") {
 
 function getProjectHash() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', '../Verification/project-hash.json', false); // 第三个参数为 false 表示同步请求
+    xhr.open('GET', '/minecraft_repository_test/Verification/project-hash.json', false); // 第三个参数为false表示同步请求
     xhr.send(null);
 
     if (xhr.status === 200) {
@@ -65,10 +65,8 @@ const texts = {
     preview_detail2: "请注意: 新设计仍未完工,可能会缺失部分功能.",
     preview_btn1: "开发日志",
     preview_btn2: "<img class='link_img' src='' alt=''/>提出反馈",
-    back_to_main: "返回首页",
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
-    sidebar_bottom_btn: "官方网站",
     minecraft_wiki: "中文Minecraft Wiki",
     download_channel1: "默认云盘",
     download_channel2: "蓝奏云盘",
@@ -449,9 +447,6 @@ if (pageInfo) {
 }
 
 setTimeout(function () {
-
-    setElementText("sidebar_bottom_btn", texts.sidebar_bottom_btn);
-    setElementText("back_to_main", texts.back_to_main);
     setElementText("preview_btn1", texts.preview_btn1);
     setElementText("preview_btn2", texts.preview_btn2);
 
