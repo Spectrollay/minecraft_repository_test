@@ -46,11 +46,6 @@ function throttle(func, delay) {
 
 // 处理滚动条显示的逻辑
 function showScroll(customScrollbar, scrollTimeout) {
-    if (!customScrollbar) return scrollTimeout; // 如果滚动条为空则直接返回
-
-    const isVisible = window.getComputedStyle(customScrollbar).display !== 'none';
-    if (!isVisible) return scrollTimeout; // 如果不可见则直接返回
-
     clearTimeout(scrollTimeout); // 清除之前的隐藏定时器
     customScrollbar.style.opacity = "1"; // 显示滚动条
     return setTimeout(() => {
@@ -93,8 +88,8 @@ function handleScrollbarClick(e, isDragging, customScrollbar, thumb, container, 
 }
 
 // 处理滚动事件
-function handleScroll(customScrollbar, customThumb, container, content, scrollTimeout, isDragging) {
-    if (!customScrollbar || !customThumb || isDragging) return scrollTimeout;
+function handleScroll(customScrollbar, customThumb, container, content, scrollTimeout) {
+    if (!customScrollbar || !customThumb) return scrollTimeout;
 
     scrollTimeout = showScroll(customScrollbar, scrollTimeout);
     requestAnimationFrame(() => { // 动画优化
@@ -105,15 +100,15 @@ function handleScroll(customScrollbar, customThumb, container, content, scrollTi
 }
 
 // 处理拖动滚动条的逻辑
-function handlePointerMove(e, isDragging, startY, initialThumbTop, thumb, container, content) {
-    if (!isDragging) return;
+function handlePointerMove(e, dragState, thumb, container, content) {
+    if (!dragState.isDragging) return;
 
     const currentY = e.clientY || e.touches[0].clientY;
-    const deltaY = currentY - startY;
+    const deltaY = currentY - dragState.startY;
     const containerHeight = container.getBoundingClientRect().height; // 根据初始位置和移动距离计算新的滑块位置
     const thumbHeight = thumb.offsetHeight;
     const maxThumbTop = containerHeight - thumbHeight;
-    const newTop = Math.min(Math.max(initialThumbTop + deltaY, 0), maxThumbTop); // 计算滑块的新位置,确保在可滑动范围内
+    const newTop = Math.min(Math.max(dragState.initialThumbTop + deltaY, 0), maxThumbTop); // 计算滑块的新位置,确保在可滑动范围内
     const maxScrollTop = content.scrollHeight - containerHeight; // 计算页面内容的滚动位置
 
     container.scrollTo({
@@ -124,39 +119,40 @@ function handlePointerMove(e, isDragging, startY, initialThumbTop, thumb, contai
     updateThumb(thumb, container, content, container.closest('scroll-view').querySelector('custom-scrollbar'));
 }
 
-// 拖动开始的处理逻辑
-function handlePointerDown(e, customThumb, container, content, isDragging, startY, initialThumbTop) {
-    isDragging = true;
-    startY = e.clientY || e.touches[0].clientY;
-    initialThumbTop = customThumb.getBoundingClientRect().top - container.getBoundingClientRect().top;
-
-    const handlePointerMoveBound = (e) => handlePointerMove(e, isDragging, startY, initialThumbTop, customThumb, container, content);
+function handlePointerDown(e, customThumb, container, content, dragState) {
+    dragState.isDragging = true;
+    dragState.startY = e.clientY || e.touches[0].clientY;
+    dragState.initialThumbTop = customThumb.getBoundingClientRect().top - container.getBoundingClientRect().top;
+    const handlePointerMoveBound = (e) => handlePointerMove(e, dragState, customThumb, container, content);
 
     document.addEventListener('pointermove', handlePointerMoveBound);
-    document.addEventListener('pointerup', () => {
-        isDragging = false;
+    document.addEventListener('touchmove', handlePointerMoveBound);
+    const handlePointerUp = () => {
+        dragState.isDragging = false;
         document.removeEventListener('pointermove', handlePointerMoveBound);
-    }, {once: true}); // 一次性执行
+        document.removeEventListener('touchmove', handlePointerMoveBound);
+    };
+    document.addEventListener('pointerup', handlePointerUp, {once: true});
+    document.addEventListener('touchend', handlePointerUp, {once: true});
 }
 
 // 绑定滚动事件的通用函数,使用节流处理滚动事件
 function bindScrollEvents(container, content, customScrollbar, customThumb) {
     let scrollTimeout;
-    let isDragging = false;
-    let startY;
-    let initialThumbTop;
+    const dragState = {isDragging: false, startY: 0, initialThumbTop: 0}; // 使用对象管理拖动状态
 
     const throttledScroll = throttle(() => {
-        scrollTimeout = handleScroll(customScrollbar, customThumb, container, content, scrollTimeout, isDragging);
+        scrollTimeout = handleScroll(customScrollbar, customThumb, container, content, scrollTimeout);
     }, 1);
 
     container.addEventListener('scroll', throttledScroll);
     window.addEventListener('resize', throttledScroll);
-    container.addEventListener('mousemove', throttledScroll);
-    container.addEventListener('touchmove', throttledScroll);
+    document.addEventListener('mousemove', throttledScroll);
+    document.addEventListener('touchmove', throttledScroll);
 
-    customThumb.addEventListener('pointerdown', (e) => handlePointerDown(e, customThumb, container, content, isDragging, startY, initialThumbTop));
-    customScrollbar.addEventListener('click', (e) => handleScrollbarClick(e, isDragging, customScrollbar, customThumb, container, content));
+    customThumb.addEventListener('pointerdown', (e) => handlePointerDown(e, customThumb, container, content, dragState));
+    customThumb.addEventListener('touchstart', (e) => handlePointerDown(e, customThumb, container, content, dragState));
+    customScrollbar.addEventListener('click', (e) => handleScrollbarClick(e, dragState.isDragging, customScrollbar, customThumb, container, content));
     window.addEventListener('load', () => setTimeout(throttledScroll, 10));
 }
 
