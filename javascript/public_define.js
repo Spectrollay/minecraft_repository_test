@@ -68,6 +68,7 @@ const texts = {
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
     minecraft_wiki: "中文Minecraft Wiki",
+    experiment_banner: "实验性内容页面展示的是一部分未完成开发或正在开发的特性, 这些特性最终可能会在未来版本中正式加入或发生变动甚至被移除.<br>请注意: 本页面的特性尚未完成开发, 使用过程中随时可能出现故障/崩溃或一些预料之外的问题. 向我们发送你的任何意见或反馈发现的任何问题!",
     download_channel1: "默认云盘",
     download_channel2: "蓝奏云盘",
     download_channel3: "123云盘",
@@ -412,6 +413,7 @@ setElementText("preview_detail1", texts.preview_detail1);
 setElementText("preview_detail2", texts.preview_detail2);
 setElementText("setting_version", version_name_short);
 setElementText("setting_version_detail", version_info);
+setElementText("experiment_banner", texts.experiment_banner);
 
 const donate_message = document.getElementById('donate_message');
 if (donate_message) {
