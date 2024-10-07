@@ -30,7 +30,6 @@ if (expAccessibilityState === 'on') {
         'button',
         '.overlay',
         'modal_area',
-        'modal_content',
         'modal_checkbox_area .custom-checkbox',
         'textarea'
     ];
@@ -55,75 +54,83 @@ if (expAccessibilityState === 'on') {
     // 生成选择器字符串
     const exclusionSelectorString = exclusionSelectors.join(', ');
     const inclusionSelectorString = inclusionSelectors.join(', ');
-    let exclusionElements, inclusionElements;
 
-    function chooseModalElementsTabindex(modal) {
-        exclusionElements = modal.querySelectorAll(exclusionSelectorString);
-        inclusionElements = modal.querySelectorAll(inclusionSelectorString);
-        setElementsTabindex();
+    // 选择所有匹配的元素
+    const exclusionElements = document.querySelectorAll(exclusionSelectorString);
+    const inclusionElements = document.querySelectorAll(inclusionSelectorString);
 
-        const modalFocusableElements = Array.from(inclusionElements);
-        const firstTabStop = modalFocusableElements[0];
-        const lastTabStop = modalFocusableElements[modalFocusableElements.length - 1];
+    // 为每个选中的元素设置 tabindex 属性
+    exclusionElements.forEach(exclusionElement => {
+        exclusionElement.setAttribute('tabindex', '-1');
+    });
 
-        return {firstTabStop, lastTabStop};
-    }
-
-    function setElementsTabindex() { // 为每个选中的元素设置tabindex属性
-        exclusionElements.forEach(exclusionElement => {
-            exclusionElement.setAttribute('tabindex', '-1');
-        });
-
-        inclusionElements.forEach(inclusionElement => {
-            inclusionElement.setAttribute('tabindex', '0');
-            inclusionElement.removeEventListener('keyup', handleEnterPress);
-            inclusionElement.addEventListener('keyup', handleEnterPress);
-        });
-    }
-
-    function handleEnterPress(e) {
-        if (e.key === 'Enter') {
-            e.target.click();
-        }
-    }
-
-    function updateFocusableElements() { // NOTE 在有涉及到元素状态变化的地方要调用这个函数
-        exclusionElements = document.querySelectorAll(exclusionSelectorString);
-        inclusionElements = document.querySelectorAll(inclusionSelectorString);
-        setElementsTabindex();
-    }
-
-    // 弹窗焦点陷阱
-    const modals = document.querySelectorAll('modal');
-    modals.forEach((modal) => {
-        modal.removeEventListener('keydown', handleTabNavigation); // 移除旧的事件监听器
-        const {firstTabStop} = chooseModalElementsTabindex(modal); // 弹窗元素选择器
-
-        modal.addEventListener('keydown', (e) => handleTabNavigation(e, modal));
-        modal.addEventListener('shown.modal', () => {
-            if (firstTabStop) {
-                firstTabStop.focus(); // 聚焦弹窗内的第一个可聚焦元素
+    inclusionElements.forEach(inclusionElement => {
+        inclusionElement.setAttribute('tabindex', '0');
+        inclusionElement.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                inclusionElement.click();
             }
         });
     });
 
-    function handleTabNavigation(e, modal) {
-        const {firstTabStop, lastTabStop} = chooseModalElementsTabindex(modal);
 
-        if (e.shiftKey) { // Shift + Tab
-            if (document.activeElement === firstTabStop) {
-                e.preventDefault();
-                lastTabStop.focus();
-            }
-        } else { // Tab
-            if (document.activeElement === lastTabStop) {
-                e.preventDefault();
-                firstTabStop.focus();
+    // 弹窗焦点陷阱
+    function updateFocusableElements() {
+        const modals = document.querySelectorAll('modal');
+        modals.forEach((modal) => {
+            // 移除旧的事件监听器
+            const oldHandler = (e) => {
+                if (e.key === 'Tab') {
+                    handleTabNavigation(e, modal);
+                }
+            };
+            modal.removeEventListener('keydown', oldHandler);
+
+            // 更新焦点元素
+            const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]):not(.disabled_btn), iframe, object, embed, [tabindex="0"], [contenteditable]';
+            let focusableElements = modal.querySelectorAll(focusableElementsString);
+            focusableElements = Array.from(focusableElements);
+
+            const firstTabStop = focusableElements[0];
+            const lastTabStop = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', (e) => handleTabNavigation(e, modal));
+
+            // 聚焦模态框内的第一个可聚焦元素
+            modal.addEventListener('shown.modal', () => {
+                if (firstTabStop) {
+                    firstTabStop.focus();
+                }
+            });
+        });
+    }
+
+    function handleTabNavigation(e, modal) {
+        const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]):not(.disabled_btn), custom-checkbox:not(.disabled), iframe, object, embed, [tabindex="0"], [contenteditable]';
+        let focusableElements = modal.querySelectorAll(focusableElementsString);
+        focusableElements = Array.from(focusableElements);
+
+        const firstTabStop = focusableElements[0];
+        const lastTabStop = focusableElements[focusableElements.length - 1];
+
+        if (e.key === 'Tab') {
+            if (e.shiftKey) {
+                // Shift + Tab
+                if (document.activeElement === firstTabStop) {
+                    e.preventDefault();
+                    lastTabStop.focus();
+                }
+            } else {
+                // Tab
+                if (document.activeElement === lastTabStop) {
+                    e.preventDefault();
+                    firstTabStop.focus();
+                }
             }
         }
     }
 
-    updateFocusableElements(); // 初始化元素焦点
+    updateFocusableElements();
 
     // TTS文本转语音
     let enable_tts;

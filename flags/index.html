@@ -65,90 +65,88 @@
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<scroll-view>
-    <scroll-container class="main_scroll_container">
-        <main class="scroll_container" id="main">
-            <div id="main_top"></div>
-            <div class="main_title">
-                <div class="main_title_span">实验性内容</div>
+<scroll-container>
+    <main class="main_scroll_container" id="main">
+        <div id="main_top"></div>
+        <div class="main_title">
+            <div class="main_title_span">实验性内容</div>
+        </div>
+        <div class="banner_area">
+            <div class="banner information_banner">
+                实验性内容页面展示的是一部分正在开发中的特性, 这些特性可能在后续的版本中正式加入或发生变动甚至被移除.<br>
+                在体验实验性内容时可能会出现一些预料之外的问题, 请及时向我们提出你的发现和想法.
             </div>
-            <div class="banner_area">
-                <div class="banner information_banner">
-                    实验性内容页面展示的是一部分正在开发中的特性, 这些特性可能在后续的版本中正式加入或发生变动甚至被移除.<br>
-                    在体验实验性内容时可能会出现一些预料之外的问题, 请及时向我们提出你的发现和想法.
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">设置页面</div>
+                    <custom-switch active="on" id="experimental_settings" status="disabled"></custom-switch>
                 </div>
+                <div class="setting_block_description">启用版本库的设置页面</div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">设置页面</div>
-                        <custom-switch active="on" id="experimental_settings" status="disabled"></custom-switch>
-                    </div>
-                    <div class="setting_block_description">启用版本库的设置页面</div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">环境指南页面</div>
+                    <custom-switch active="off" id="experimental_envi_guide" status="enabled"></custom-switch>
                 </div>
+                <div class="setting_block_description">启用环境指南页面</div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">环境指南页面</div>
-                        <custom-switch active="off" id="experimental_envi_guide" status="enabled"></custom-switch>
-                    </div>
-                    <div class="setting_block_description">启用环境指南页面</div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">惰性加载机制</div>
+                    <custom-switch active="on" id="experimental_lazy_load" status="disabled"></custom-switch>
                 </div>
+                <div class="setting_block_description">通过推迟加载部分大型资源提升网页加载速度</div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">惰性加载机制</div>
-                        <custom-switch active="on" id="experimental_lazy_load" status="disabled"></custom-switch>
-                    </div>
-                    <div class="setting_block_description">通过推迟加载部分大型资源提升网页加载速度</div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">响应式布局</div>
+                    <custom-switch active="on" id="experimental_responsive_design" status="disabled"></custom-switch>
                 </div>
+                <div class="setting_block_description">使用更加灵活的页面布局以适应不同的设备</div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">响应式布局</div>
-                        <custom-switch active="on" id="experimental_responsive_design" status="disabled"></custom-switch>
-                    </div>
-                    <div class="setting_block_description">使用更加灵活的页面布局以适应不同的设备</div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">无障碍体验优化</div>
+                    <custom-switch active="on" id="experimental_accessibility" status="enabled"></custom-switch>
                 </div>
+                <div class="setting_block_description">适配无障碍设计,优化在各种环境下的使用体验</div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">无障碍体验优化</div>
-                        <custom-switch active="on" id="experimental_accessibility" status="enabled"></custom-switch>
-                    </div>
-                    <div class="setting_block_description">适配无障碍设计,优化在各种环境下的使用体验</div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">服务响应优化</div>
+                    <custom-switch active="off" id="experimental_service_response_optimization" status="disabled"></custom-switch>
                 </div>
+                <div class="setting_block_description">通过优化网站缓存与加载机制提升响应速度</div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">服务响应优化</div>
-                        <custom-switch active="off" id="experimental_service_response_optimization" status="disabled"></custom-switch>
-                    </div>
-                    <div class="setting_block_description">通过优化网站缓存与加载机制提升响应速度</div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div class="setting_block_title flex">
+                    <div class="setting_title_content">返回重载优化</div>
+                    <custom-switch active="off" id="experimental_back_reload_optimization" status="disabled"></custom-switch>
                 </div>
+                <div class="setting_block_description">优化在执行返回操作时的页面重加载流程</div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">返回重载优化</div>
-                        <custom-switch active="off" id="experimental_back_reload_optimization" status="disabled"></custom-switch>
-                    </div>
-                    <div class="setting_block_description">优化在执行返回操作时的页面重加载流程</div>
-                </div>
-            </div>
-            <div id="page_info"></div>
-        </main>
-    </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
-        <custom-scrollbar-track></custom-scrollbar-track>
-        <custom-scrollbar-thumb></custom-scrollbar-thumb>
-    </custom-scrollbar>
-</scroll-view>
+        </div>
+        <div id="page_info"></div>
+    </main>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -157,12 +155,15 @@
 </body>
 
 <script>
+    const custom_elements_js = document.createElement('script');
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
+    custom_elements_js.src = '/minecraft_repository_test/javascript/custom_elements.js';
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
     public_define.src = '/minecraft_repository_test/javascript/public_define.js';
 
+    document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 

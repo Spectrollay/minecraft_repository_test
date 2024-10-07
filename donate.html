@@ -69,44 +69,42 @@
     <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<scroll-view>
-    <scroll-container class="main_scroll_container">
-        <main class="scroll_container" id="main">
-            <div class="main_title">
-                <div class="main_title_area">
-                    <div class="main_title_span">捐赠支持</div>
-                </div>
+<scroll-container>
+    <main class="main_scroll_container" id="main">
+        <div class="main_title">
+            <div class="main_title_area">
+                <div class="main_title_span">捐赠支持</div>
             </div>
-            <div class="banner_area">
-                <div class="banner information_banner">
-                    如果你还未实现经济独立, 请不要向我们打赏, 你的心意我们领了. 父母赚钱不易, 请把钱花在更重要的地方吧. 如果你非要表示一下支持, 那就让更多需要的人知道我们, 这也是对我们的强有力的支持.
-                </div>
+        </div>
+        <div class="banner_area">
+            <div class="banner information_banner">
+                如果你还未实现经济独立, 请不要向我们打赏, 你的心意我们领了. 父母赚钱不易, 请把钱花在更重要的地方吧. 如果你非要表示一下支持, 那就让更多需要的人知道我们, 这也是对我们的强有力的支持.
             </div>
-            <div class="main main_block">
-                <div class="main_block_cont">
-                    <div>感谢你的支持!</div>
-                    <div class="wrap_flex">
-                        <div class="donate_block">
-                            <div>微信</div>
-                            <img alt="" class="donate_qrcode" src="/minecraft_repository_test/images/donate/Wechat%20Pay.jpg"/>
-                            <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
-                        </div>
-                        <div class="donate_block">
-                            <div>支付宝</div>
-                            <img alt="" class="donate_qrcode" src="/minecraft_repository_test/images/donate/Alipay.jpg"/>
-                            <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
-                        </div>
+        </div>
+        <div class="main main_block">
+            <div class="main_block_cont">
+                <div>感谢你的支持!</div>
+                <div class="wrap_flex">
+                    <div class="donate_block">
+                        <div>微信</div>
+                        <img alt="" class="donate_qrcode" src="/minecraft_repository_test/images/donate/Wechat%20Pay.jpg"/>
+                        <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
+                    </div>
+                    <div class="donate_block">
+                        <div>支付宝</div>
+                        <img alt="" class="donate_qrcode" src="/minecraft_repository_test/images/donate/Alipay.jpg"/>
+                        <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
                     </div>
                 </div>
             </div>
-            <div id="page_info"></div>
-        </main>
-    </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
-        <custom-scrollbar-track></custom-scrollbar-track>
-        <custom-scrollbar-thumb></custom-scrollbar-thumb>
-    </custom-scrollbar>
-</scroll-view>
+        </div>
+        <div id="page_info"></div>
+    </main>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -115,12 +113,15 @@
 </body>
 
 <script>
+    const custom_elements_js = document.createElement('script');
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
+    custom_elements_js.src = '/minecraft_repository_test/javascript/custom_elements.js';
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
     public_define.src = '/minecraft_repository_test/javascript/public_define.js';
 
+    document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 

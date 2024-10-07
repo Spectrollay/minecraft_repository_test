@@ -74,8 +74,8 @@
 }
 
 * {
-    -webkit-tap-highlight-color: transparent; /* 禁用高亮 */
     touch-action: manipulation; /* 禁用长按菜单 */
+    -webkit-tap-highlight-color: transparent; /* 禁用高亮 */
 }
 
 .flex {
@@ -774,7 +774,7 @@ td {
     z-index: 2;
 }
 
-.sidebar_scroll_container {
+#sidebar_scroll_container {
     height: calc(100% - 44px);
     top: 44px;
     transition: width 0.6s;

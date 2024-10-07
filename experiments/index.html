@@ -65,217 +65,217 @@
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
-<scroll-view>
-    <scroll-container class="main_scroll_container">
-        <main class="scroll_container" id="main">
-            <div id="main_top"></div>
-            <div class="main_title">
-                <div class="main_title_span">实验性内容</div>
+<scroll-container>
+    <main class="main_scroll_container" id="main">
+        <div id="main_top"></div>
+        <div class="main_title">
+            <div class="main_title_span">实验性内容</div>
+        </div>
+        <div class="banner_area">
+            <div class="banner important_banner" style="margin-bottom: 0">
+                本页面的Ore UI设计将在未来的版本中被拆分到Ore UI仓库中进行测试
             </div>
-            <div class="banner_area">
-                <div class="banner important_banner" style="margin-bottom: 0">本页面的OreUI设计将在未来的版本中被拆分到OreUI仓库中进行测试</div>
+        </div>
+        <div class="banner_area">
+            <div class="banner information_banner">
+                实验性内容页面展示的是一部分正在开发中的特性, 这些特性可能在后续的版本中正式加入或发生变动甚至被移除.<br>
+                在体验实验性内容时可能会出现一些预料之外的问题, 请及时向我们提出你的发现和想法.
             </div>
-            <div class="banner_area">
-                <div class="banner information_banner">
-                    实验性内容页面展示的是一部分正在开发中的特性, 这些特性可能在后续的版本中正式加入或发生变动甚至被移除.<br>
-                    在体验实验性内容时可能会出现一些预料之外的问题, 请及时向我们提出你的发现和想法.
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>功能</div>
-                    <br>
-                    <div>
-                        <div class="setting_block_title flex">
-                            <div class="setting_title_content">设置页面</div>
-                            <custom-switch active="on" id="experimental_settings" status="disabled"></custom-switch>
-                        </div>
-                    </div>
-                    <divider></divider>
-                    <div>
-                        <div class="setting_block_title flex">
-                            <div class="setting_title_content">环境指南页面</div>
-                            <custom-switch active="off" id="experimental_envi_guide" status="enabled"></custom-switch>
-                        </div>
-                    </div>
-                    <divider></divider>
-                    <div>
-                        <div class="setting_block_title flex">
-                            <div class="setting_title_content">惰性加载机制</div>
-                            <custom-switch active="on" id="experimental_lazy_load" status="disabled"></custom-switch>
-                        </div>
-                    </div>
-                    <divider></divider>
-                    <div>
-                        <div class="setting_block_title flex">
-                            <div class="setting_title_content">响应式设计</div>
-                            <custom-switch active="on" id="experimental_responsive_design" status="disabled"></custom-switch>
-                        </div>
-                    </div>
-                    <divider></divider>
-                    <div>
-                        <div class="setting_block_title flex">
-                            <div class="setting_title_content">无障碍体验优化</div>
-                            <custom-switch active="on" id="experimental_accessibility" status="enabled"></custom-switch>
-                        </div>
-                    </div>
-                    <divider></divider>
-                    <div>
-                        <div class="setting_block_title flex">
-                            <div class="setting_title_content">服务响应优化</div>
-                            <custom-switch active="off" id="experimental_service_response_optimization" status="disabled"></custom-switch>
-                        </div>
-                    </div>
-                    <divider></divider>
-                    <div>
-                        <div class="setting_block_title flex">
-                            <div class="setting_title_content">返回重载优化</div>
-                            <custom-switch active="off" id="experimental_back_reload_optimization" status="disabled"></custom-switch>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>Dropdown</div>
-                    <br>
-                    <div>Normal Dropdown</div>
-                    <div class="dropdown_container">
-                        <custom-dropdown data-option='["Option 1", "Option 2", "Option 3"]' data-selected="2" id="exp_dropdown_1" status="enabled" unselected-text=""></custom-dropdown>
-                    </div>
-                    <div>Customized Dropdown</div>
-                    <div class="dropdown_container">
-                        <custom-dropdown data-option='["Peaceful", "Easy", "Normal", "Hard"]' data-selected="1" id="exp_dropdown_2" status="enabled" unselected-text=""></custom-dropdown>
-                    </div>
-                    <div>Unselected Dropdown</div>
-                    <div class="dropdown_container">
-                        <custom-dropdown data-option='["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"]' data-selected="0" id="exp_dropdown_3" status="enabled" unselected-text=""></custom-dropdown>
-                    </div>
-                    <div>Disabled Dropdown</div>
-                    <div class="dropdown_container">
-                        <custom-dropdown data-option='["Option 1", "Option 2", "Option 3"]' data-selected="0" id="exp_dropdown_4" status="disabled" unselected-text="Not Selectable"></custom-dropdown>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>功能</div>
+                <br>
+                <div>
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">设置页面</div>
+                        <custom-switch active="on" id="experimental_settings" status="disabled"></custom-switch>
                     </div>
                 </div>
+                <divider></divider>
+                <div>
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">环境指南页面</div>
+                        <custom-switch active="off" id="experimental_envi_guide" status="enabled"></custom-switch>
+                    </div>
+                </div>
+                <divider></divider>
+                <div>
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">惰性加载机制</div>
+                        <custom-switch active="on" id="experimental_lazy_load" status="disabled"></custom-switch>
+                    </div>
+                </div>
+                <divider></divider>
+                <div>
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">响应式设计</div>
+                        <custom-switch active="on" id="experimental_responsive_design" status="disabled"></custom-switch>
+                    </div>
+                </div>
+                <divider></divider>
+                <div>
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">无障碍体验优化</div>
+                        <custom-switch active="on" id="experimental_accessibility" status="enabled"></custom-switch>
+                    </div>
+                </div>
+                <divider></divider>
+                <div>
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">服务响应优化</div>
+                        <custom-switch active="off" id="experimental_service_response_optimization" status="disabled"></custom-switch>
+                    </div>
+                </div>
+                <divider></divider>
+                <div>
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">返回重载优化</div>
+                        <custom-switch active="off" id="experimental_back_reload_optimization" status="disabled"></custom-switch>
+                    </div>
+                </div>
+                <br>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>Expandable List</div>
-                    <div></div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>Dropdown</div>
+                <br>
+                <div>Normal Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["Option 1", "Option 2", "Option 3"]' data-selected="2" id="exp_dropdown_1" status="enabled" unselected-text=""></custom-dropdown>
+                </div>
+                <div>Customized Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["Peaceful", "Easy", "Normal", "Hard"]' data-selected="1" id="exp_dropdown_2" status="enabled" unselected-text=""></custom-dropdown>
+                </div>
+                <div>Unselected Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"]' data-selected="0" id="exp_dropdown_3" status="enabled" unselected-text=""></custom-dropdown>
+                </div>
+                <div>Disabled Dropdown</div>
+                <div class="dropdown_container">
+                    <custom-dropdown data-option='["Option 1", "Option 2", "Option 3"]' data-selected="0" id="exp_dropdown_4" status="disabled" unselected-text="Not Selectable"></custom-dropdown>
                 </div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>Pop Dialog</div>
-                    <div></div>
-                </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>Expandable List</div>
+                <div></div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>Radio Group</div>
-                    <div></div>
-                </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>Pop Dialog</div>
+                <div></div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>Slider</div>
-                    <br>
-                    <div>Range Slider with Initial Value</div>
-                    <custom-slider data-show-segments="false" data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":55.55}' id="range_slider_1" status="enabled" type="range"></custom-slider>
-                    <br>
-                    <div>Range Slider with Customized Interval</div>
-                    <custom-slider data-slider='{"minValue":20,"maxValue":60,"segments":null,"initialValue":null}' id="range_slider_2" status="enabled" type="range"></custom-slider>
-                    <br>
-                    <div>Disabled Range Slider</div>
-                    <custom-slider data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":80.00}' id="disabled_range_slider_1" status="disabled" type="range"></custom-slider>
-                    <br>
-                    <div>Set Slider with Initial Value</div>
-                    <custom-slider data-slider='{"minValue":40,"maxValue":60,"segments":5,"initialValue":48}' id="set_slider_1" status="enabled" type="set"></custom-slider>
-                    <br>
-                    <div>Set Slider with Customized Interval</div>
-                    <custom-slider data-custom-segments="true" data-segment-values='["A", "B", "C", "D", "E"]' data-show-segments="true" data-slider='{"minValue":0,"maxValue":100,"segments":4,"initialValue":25}' id="set_slider_2" status="enabled" type="set"></custom-slider>
-                    <br>
-                    <div>Disabled Set Slider</div>
-                    <custom-slider data-show-segments="true" data-slider='{"minValue":0,"maxValue":100,"segments":5,"initialValue":60}' id="disabled_set_slider_1" status="disabled" type="set"></custom-slider>
-                    <br>
-                </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>Radio Group</div>
+                <div></div>
             </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>Switch</div>
-                    <br>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>Slider</div>
+                <br>
+                <div>Range Slider with Initial Value</div>
+                <custom-slider type="range" id="range_slider_1" data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":55.55}' data-show-segments="false"></custom-slider>
+                <br>
+                <div>Range Slider with Customized Interval</div>
+                <custom-slider type="range" id="range_slider_2" data-slider='{"minValue":20,"maxValue":60,"segments":null,"initialValue":null}'></custom-slider>
+                <br>
+                <div>Disabled Range Slider</div>
+                <custom-slider type="range" id="disabled_range_slider_1" data-slider='{"minValue":0,"maxValue":100,"segments":null,"initialValue":80.00}'></custom-slider>
+                <br>
+                <div>Set Slider with Initial Value</div>
+                <custom-slider type="set" id="set_slider_1" data-slider='{"minValue":40,"maxValue":60,"segments":5,"initialValue":48}'></custom-slider>
+                <br>
+                <div>Set Slider with Customized Interval</div>
+                <custom-slider type="set" id="set_slider_2" data-slider='{"minValue":0,"maxValue":100,"segments":4,"initialValue":25}' data-show-segments="true" data-custom-segments="true" data-segment-values='["A", "B", "C", "D", "E"]'></custom-slider>
+                <br>
+                <div>Disabled Set Slider</div>
+                <custom-slider type="set" id="disabled_set_slider_1" data-slider='{"minValue":0,"maxValue":100,"segments":5,"initialValue":60}' data-show-segments="true"></custom-slider>
+                <br>
+            </div>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>Switch</div>
+                <br>
+                <div>
                     <div>
-                        <div>
-                            <div>Normal Switch 1</div>
-                            <custom-switch active="off" id="exp_switch_1" status="enabled"></custom-switch>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>Normal Switch 2</div>
-                            <custom-switch active="on" id="exp_switch_2" status="enabled"></custom-switch>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>Disabled Switch 1</div>
-                            <custom-switch active="off" id="exp_switch_3" status="disabled"></custom-switch>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>Disabled Switch 2</div>
-                            <custom-switch active="on" id="exp_switch_4" status="disabled"></custom-switch>
-                        </div>
+                        <div>Normal Switch 1</div>
+                        <custom-switch active="off" id="exp_switch_1" status="enabled"></custom-switch>
                     </div>
                 </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div>Text Field</div>
-                    <br>
-                    <div>Normal Text Field</div>
-                    <div class="text_field_container" id="exp_text_field_0">
-                        <text-field hint="input anything here.." single-line="false" status="enabled" type="all"></text-field>
+                <div>
+                    <div>
+                        <div>Normal Switch 2</div>
+                        <custom-switch active="on" id="exp_switch_2" status="enabled"></custom-switch>
                     </div>
-                    <div>Normal Text Field Single Line</div>
-                    <div class="text_field_container" id="exp_text_field_1">
-                        <text-field hint="input anything here.." single-line="true" status="enabled" type="all"></text-field>
+                </div>
+                <div>
+                    <div>
+                        <div>Disabled Switch 1</div>
+                        <custom-switch active="off" id="exp_switch_3" status="disabled"></custom-switch>
                     </div>
-                    <div>Disabled Text Field</div>
-                    <div class="text_field_container" id="exp_text_field_2">
-                        <text-field hint="can't input here" single-line="false" status="disabled" type="all"></text-field>
-                    </div>
-                    <div>Text Field with Button</div>
-                    <div class="text_field_container" id="exp_text_field_3">
-                        <text-field hint="input anything here.." single-line="false" status="enabled" type="all"></text-field>
-                        <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_3').querySelector('text-field').resetValue();" text="reset"></custom-button>
-                    </div>
-                    <div>Number Text Field</div>
-                    <div class="text_field_container" id="exp_text_field_4">
-                        <text-field hint="input numbers here.." single-line="false" status="enabled" type="number"></text-field>
-                        <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_4').querySelector('text-field').resetValue();" text="reset"></custom-button>
-                    </div>
-                    <div>Letter Text Field</div>
-                    <div class="text_field_container" id="exp_text_field_5">
-                        <text-field hint="input letters here.." single-line="false" status="enabled" type="letter"></text-field>
-                        <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_5').querySelector('text-field').resetValue();" text="reset"></custom-button>
-                    </div>
-                    <div>Operator Text Field</div>
-                    <div class="text_field_container" id="exp_text_field_6">
-                        <text-field hint="input operators here.." single-line="false" status="enabled" type="operator"></text-field>
-                        <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_6').querySelector('text-field').resetValue();" text="reset"></custom-button>
+                </div>
+                <div>
+                    <div>
+                        <div>Disabled Switch 2</div>
+                        <custom-switch active="on" id="exp_switch_4" status="disabled"></custom-switch>
                     </div>
                 </div>
             </div>
-            <div id="page_info"></div>
-        </main>
-    </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
-        <custom-scrollbar-track></custom-scrollbar-track>
-        <custom-scrollbar-thumb></custom-scrollbar-thumb>
-    </custom-scrollbar>
-</scroll-view>
+        </div>
+        <div class="main_block setting_block">
+            <div class="setting_block_content">
+                <div>Text Field</div>
+                <br>
+                <div>Normal Text Field</div>
+                <div class="text_field_container" id="exp_text_field_0">
+                    <text-field hint="input anything here.." single-line="false" status="enabled" type="all"></text-field>
+                </div>
+                <div>Normal Text Field Single Line</div>
+                <div class="text_field_container" id="exp_text_field_1">
+                    <text-field hint="input anything here.." single-line="true" status="enabled" type="all"></text-field>
+                </div>
+                <div>Disabled Text Field</div>
+                <div class="text_field_container" id="exp_text_field_2">
+                    <text-field hint="can't input here" single-line="false" status="disabled" type="all"></text-field>
+                </div>
+                <div>Text Field with Button</div>
+                <div class="text_field_container" id="exp_text_field_3">
+                    <text-field hint="input anything here.." single-line="false" status="enabled" type="all"></text-field>
+                    <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_3').querySelector('text-field').resetValue();" text="reset"></custom-button>
+                </div>
+                <div>Number Text Field</div>
+                <div class="text_field_container" id="exp_text_field_4">
+                    <text-field hint="input numbers here.." single-line="false" status="enabled" type="number"></text-field>
+                    <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_4').querySelector('text-field').resetValue();" text="reset"></custom-button>
+                </div>
+                <div>Letter Text Field</div>
+                <div class="text_field_container" id="exp_text_field_5">
+                    <text-field hint="input letters here.." single-line="false" status="enabled" type="letter"></text-field>
+                    <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_5').querySelector('text-field').resetValue();" text="reset"></custom-button>
+                </div>
+                <div>Operator Text Field</div>
+                <div class="text_field_container" id="exp_text_field_6">
+                    <text-field hint="input operators here.." single-line="false" status="enabled" type="operator"></text-field>
+                    <custom-button data="input|normal|||false||" js="document.getElementById('exp_text_field_6').querySelector('text-field').resetValue();" text="reset"></custom-button>
+                </div>
+            </div>
+        </div>
+        <div id="page_info"></div>
+    </main>
+</scroll-container>
+<custom-scrollbar>
+    <custom-scrollbar-track></custom-scrollbar-track>
+    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+</custom-scrollbar>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -284,12 +284,15 @@
 </body>
 
 <script>
+    const custom_elements_js = document.createElement('script');
     const public_script = document.createElement('script');
     const public_define = document.createElement('script');
 
+    custom_elements_js.src = '/minecraft_repository_test/javascript/custom_elements.js';
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
     public_define.src = '/minecraft_repository_test/javascript/public_define.js';
 
+    document.head.appendChild(custom_elements_js);
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 

@@ -494,7 +494,7 @@ setTimeout(function () {
         }
     }
 
-}, 200);
+}, 150);
 
 console.log("字符常量已成功应用");
 
