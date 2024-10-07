@@ -134,7 +134,7 @@
   "javascript\\advanced.js": "d562aa18abe6a9535e04a05017de7594",
   "javascript\\custom_elements.js": "3290d53c9e6c699028b4bde717cf7db6",
   "javascript\\editions.js": "795a056b1011d662f3cbd38c41962bee",
-  "javascript\\public_define.js": "e5958e75832facb88fced536e6fe52fc",
+  "javascript\\public_define.js": "6afa3e2edcc133cc79a3dfc273fdfb9f",
   "javascript\\public_script.js": "3f4b087eb60a1a72c6f7ce96480eb082",
   "notifications\\index.html": "7a47b5841a65fd5b7a635b5d3d6a928a",
   "README-en_US.md": "8c9ce26d032adfdc4e620dc53d683e74",
@@ -151,5 +151,5 @@
   "stylesheet\\loading_mask.css": "11e9c268dabe450bb220270750966dc7",
   "stylesheet\\public_style.css": "77b1d9fb8ae487915f94745a5b58fcbb",
   "Template\\index.html": "f873b99f08829a0b1cdc2bb56c3330c2",
-  "updatelog\\index.html": "2005a422d59c148d82ebc5e5ad1b36ae"
+  "updatelog\\index.html": "1c3d0d9e1f7f6ff556f443ff415e7f68"
 }
