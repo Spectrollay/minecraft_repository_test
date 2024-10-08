@@ -35,6 +35,7 @@ main {
 .setting_block {
     align-items: center;
     display: flex;
+    padding: 10px 16px;
 }
 
 .setting_block_title {

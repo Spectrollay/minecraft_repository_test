@@ -27,7 +27,6 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/stylesheet/advanced.css" rel="stylesheet">
     <link href="/minecraft_repository_test/images/Tool.png" rel="icon">
     <!--    <style>-->
 
@@ -81,7 +80,7 @@
                         <div class="setting_title_content">设置页面</div>
                         <custom-switch active="on" id="experimental_settings" status="disabled"></custom-switch>
                     </div>
-                    <div class="setting_block_description">启用版本库的设置页面</div>
+                    <div class="setting_block_description">启用版本库的设置页面<br>- 基础测试项,无法关闭</div>
                 </div>
             </div>
             <div class="main_block setting_block">
@@ -99,7 +98,7 @@
                         <div class="setting_title_content">惰性加载机制</div>
                         <custom-switch active="on" id="experimental_lazy_load" status="disabled"></custom-switch>
                     </div>
-                    <div class="setting_block_description">通过推迟加载部分大型资源提升网页加载速度</div>
+                    <div class="setting_block_description">通过推迟加载部分大型资源提升网页加载速度<br>- 基础测试项,无法关闭</div>
                 </div>
             </div>
             <div class="main_block setting_block">
@@ -108,7 +107,7 @@
                         <div class="setting_title_content">响应式布局</div>
                         <custom-switch active="on" id="experimental_responsive_design" status="disabled"></custom-switch>
                     </div>
-                    <div class="setting_block_description">使用更加灵活的页面布局以适应不同的设备</div>
+                    <div class="setting_block_description">使用更加灵活的页面布局以适应不同的设备<br>- 基础测试项,无法关闭</div>
                 </div>
             </div>
             <div class="main_block setting_block">
@@ -136,6 +135,15 @@
                         <custom-switch active="off" id="experimental_back_reload_optimization" status="disabled"></custom-switch>
                     </div>
                     <div class="setting_block_description">优化在执行返回操作时的页面重加载流程</div>
+                </div>
+            </div>
+            <div class="main_block setting_block">
+                <div class="setting_block_content">
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">全新的动画设计</div>
+                        <custom-switch active="on" id="new_animation_design" status="disabled"></custom-switch>
+                    </div>
+                    <div class="setting_block_description">为更多的事件添加动画,优化动画的动效和性能<br>- 基础测试项,无法关闭</div>
                 </div>
             </div>
             <div id="page_info"></div>
@@ -198,7 +206,6 @@
         hide_mask();
     });
 </script>
-<script src="/minecraft_repository_test/javascript/advanced.js"></script>
 
 <!--<style>-->
 <!--    -->

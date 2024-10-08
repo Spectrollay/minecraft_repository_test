@@ -212,6 +212,8 @@ const accessibility_js = document.createElement('script');
 accessibility_js.src = '/minecraft_repository_test/javascript/accessibility.js';
 const exp_js = document.createElement('script');
 exp_js.src = '/minecraft_repository_test/experiments/index.js';
+const advanced_js = document.createElement('script');
+advanced_js.src = '/minecraft_repository_test/javascript/advanced.js';
 const custom_elements_js = document.createElement('script');
 custom_elements_js.src = '/minecraft_repository_test/javascript/custom_elements.js';
 const custom_elements_css = document.createElement('link');
@@ -224,6 +226,7 @@ public_style.href = '/minecraft_repository_test/stylesheet/public_style.css';
 // 将内联元素添加到头部
 document.head.appendChild(accessibility_js);
 document.head.appendChild(exp_js);
+document.head.appendChild(advanced_js);
 document.head.appendChild(custom_elements_js);
 document.head.appendChild(custom_elements_css);
 document.head.appendChild(public_style);
@@ -307,7 +310,7 @@ const compatibilityModal = `
             </modal_title_area>
             <modal_content>
                     <p>由于不同平台的代码支持存在些许差异, 为确保你的使用体验, 我们推荐通过以下浏览器及内核的最新发行版访问本站以获得完全的特性支持</p>
-                    <p>浏览器: Edge / Chrome / Safari / Firefox<br>内核: Chromium / Android WebView / Apple WebKit</p>
+                    <p>浏览器: Edge / Chrome / Safari / Firefox<br/>内核: Chromium / Android WebView / Apple WebKit</p>
                     <p>在不支持或过旧的浏览器及内核上访问本站可能会出现错乱甚至崩溃问题</p>
             </modal_content>
             <modal_button_area>

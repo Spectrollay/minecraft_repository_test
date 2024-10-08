@@ -20,6 +20,12 @@
  * SOFTWARE.
  */
 
+const advanced_css = document.createElement('link');
+advanced_css.rel = 'stylesheet';
+advanced_css.href = '/minecraft_repository_test/stylesheet/advanced.css';
+
+document.head.appendChild(advanced_css);
+
 // 点击Debug图标事件
 function debugPage() {
     setTimeout(function () {
