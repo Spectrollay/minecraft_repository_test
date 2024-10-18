@@ -455,6 +455,7 @@ window.addEventListener('load', () => setTimeout(function () {
     }
 
     const buttons = document.querySelectorAll('.btn, custom-button');
+
     function updateButtonText(button) {
         const textKey = button.getAttribute('text-generation');
         if (textKey !== null) {
@@ -470,6 +471,15 @@ window.addEventListener('load', () => setTimeout(function () {
     buttons.forEach(button => {
         updateButtonText(button);
     });
+
+    const menu_icon = document.getElementById('menu_icon');
+    const back_icon = document.getElementById('back_icon');
+    if (back_icon) {
+        back_icon.src = '/minecraft_repository_test/images/arrowLeft.png';
+    }
+    if (menu_icon) {
+        menu_icon.src = '/minecraft_repository_test/images/menu.png';
+    }
 
     let linkImg = document.getElementsByClassName('link_img');
     let linkImgBlack = document.getElementsByClassName('link_img_black');

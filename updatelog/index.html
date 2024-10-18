@@ -31,7 +31,7 @@
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
-    <link href="/minecraft_repository_test/images/Logo.jpg" rel="icon">
+    <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
     <title>开发日志 - 星月Minecraft版本库</title>
 </head>
 
@@ -60,8 +60,7 @@
         <img alt="" class="back_icon" id="back_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Logo.jpg"/><span
-            class="header_title">Repository</span>
+        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
     </div>
     <div class="header_item header_item_right" id="feedback" onclick="playSound(this);toRepo();">
         <img alt="" class="feedback_icon" src="/minecraft_repository_test/images/Feedback.png"/>
@@ -101,18 +100,21 @@
                     <!--</div>-->
 
                     <div class="main plan_block_main">
-                        <div class="plan_block">计划中</div>
+                        <div class="plan_block">4.6.10 更新计划</div>
                         <div class="plan_block_area">
                             <div class="plan_block_content">
                                 <article_block>
                                     <article_detail>
-                                        <article_list>实验性内容页面解耦合</article_list>
-                                        <article_list>快速启动游戏</article_list>
-                                        <article_list>本地解析下载</article_list>
-                                        <article_list>Minecraft Java版镜像源</article_list>
-                                        <article_list>Minecraft基岩版iOS平台支持</article_list>
-                                        <article_list>聚合反馈方式至新的页面</article_list>
-                                        <article_list>通过预加载与缓存优化响应</article_list>
+                                        <article_note>本版本计划于2025年下旬更新</article_note>
+                                        <article_list>OreUI设计全面实装</article_list>
+                                        <article_list>将消息页面页面解耦合</article_list>
+                                        <article_list>将漏洞追踪器页面解耦合</article_list>
+                                        <article_list>将服务状态页面解耦合</article_list>
+                                        <article_list>将RSS订阅解耦合</article_list>
+                                        <article_list>重新设计的主页样式</article_list>
+                                        <article_list>重新设计的下载页面样式</article_list>
+                                        <article_list>优化网站服务响应</article_list>
+                                        <article_list>全新的动画设计</article_list>
                                     </article_detail>
                                 </article_block>
                             </div>
@@ -139,6 +141,38 @@
                                         <article_list>
                                             <div class="tag_area"><span class="tag red_tag">18%</span><span>响应式页面布局</span></div>
                                         </article_list>
+                                    </article_detail>
+                                </article_block>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main plan_block_main">
+                        <div class="plan_block">计划</div>
+                        <div class="plan_block_area">
+                            <div class="plan_block_content">
+                                <article_block>
+                                    <article_detail>
+                                        <article_list>实验性内容页面解耦合</article_list>
+                                        <article_list>快速启动游戏</article_list>
+                                        <article_list>本地解析下载</article_list>
+                                        <article_list>Minecraft Java版镜像源</article_list>
+                                        <article_list>Minecraft 基岩版iOS平台支持</article_list>
+                                        <article_list>聚合反馈方式至新的页面</article_list>
+                                        <article_list>通过预加载与缓存优化响应</article_list>
+                                    </article_detail>
+                                </article_block>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main plan_block_main">
+                        <div class="plan_block">提及</div>
+                        <div class="plan_block_area">
+                            <div class="plan_block_content">
+                                <article_block>
+                                    <article_detail>
+                                        <article_list>降低项目在国内的访问延迟</article_list>
+                                        <article_list>使用独立域名</article_list>
+                                        <article_list>更多的可选主题</article_list>
                                     </article_detail>
                                 </article_block>
                             </div>
@@ -248,7 +282,7 @@
                                                 </article_list_content>
                                                 <article_list_content>
                                                     <article_list_title>修复</article_list_title>
-                                                    <article_list>修复了在网页加载过程中可能会获取到空元素数据的问题的问题</article_list>
+                                                    <article_list>修复了在网页加载过程中可能会获取到空元素数据的问题</article_list>
                                                     <article_list>修复了侧边栏按钮有时不会正确加载内容的问题</article_list>
                                                     <article_list>修复了一些JS和CSS无法正确识别并加载的问题</article_list>
                                                     <article_list>修复了部分页面无法获取项目哈希值的问题</article_list>
@@ -3231,18 +3265,7 @@
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
-    const menu_icon = document.getElementById('menu_icon');
-    const back_icon = document.getElementById('back_icon');
-
-    if (back_icon) {
-        back_icon.src = '/minecraft_repository_test/images/arrowLeft.png';
-    }
-    if (menu_icon) {
-        menu_icon.src = '/minecraft_repository_test/images/menu.png';
-    }
-
     const loading_mask = document.getElementById('loading_mask');
-
     function hide_mask() {
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';

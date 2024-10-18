@@ -32,7 +32,7 @@
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
-    <link href="/minecraft_repository_test/images/Logo.jpg" rel="icon">
+    <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
     <title>教育版 - 星月Minecraft版本库</title>
 </head>
 
@@ -61,8 +61,7 @@
         <img alt="" class="menu_icon" id="menu_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Logo.jpg"/><span
-            class="header_title">Repository</span>
+        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
@@ -88,7 +87,7 @@
                             <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" onclick="playSound1();"
                                target="_blank">Education Edition</a>
                         </div>
-                        <div class="description1">正式版</div>
+                        <div class="description1">教育版 - 正式版</div>
                     </div>
                     <div class="main" id="release_1.21">
                         <div class="title2">1.21 - 云更新</div>
@@ -342,7 +341,7 @@
                             <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" onclick="playSound1();"
                                target="_blank">Education Edition</a>
                         </div>
-                        <div class="description1">预览版</div>
+                        <div class="description1">教育版 - 预览版</div>
                     </div>
                     <div class="main" id="preview_1.21">
                         <div class="title2">1.21 - 云更新</div>
@@ -445,18 +444,7 @@
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
-    const menu_icon = document.getElementById('menu_icon');
-    const back_icon = document.getElementById('back_icon');
-
-    if (back_icon) {
-        back_icon.src = '/minecraft_repository_test/images/arrowLeft.png';
-    }
-    if (menu_icon) {
-        menu_icon.src = '/minecraft_repository_test/images/menu.png';
-    }
-
     const loading_mask = document.getElementById('loading_mask');
-
     function hide_mask() {
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';

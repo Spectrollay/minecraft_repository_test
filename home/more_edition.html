@@ -32,7 +32,7 @@
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
-    <link href="/minecraft_repository_test/images/Logo.jpg" rel="icon">
+    <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
     <title>更多版本 - 星月Minecraft版本库</title>
 </head>
 
@@ -61,8 +61,7 @@
         <img alt="" class="back_icon" id="back_icon" src=""/>
     </div>
     <div class="header_logo" onclick="scrollToTop()">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Logo.jpg"/><span
-            class="header_title">Repository</span>
+        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
@@ -356,22 +355,10 @@
     document.head.appendChild(public_script);
     document.head.appendChild(public_define);
 
-    const menu_icon = document.getElementById('menu_icon');
-    const back_icon = document.getElementById('back_icon');
     const add_more = document.getElementById('add_more');
-
-    if (back_icon) {
-        back_icon.src = '/minecraft_repository_test/images/arrowLeft.png';
-    }
-    if (menu_icon) {
-        menu_icon.src = '/minecraft_repository_test/images/menu.png';
-    }
-    if (add_more) {
-        add_more.href = 'https://github.com/Spectrollay' + '/minecraft_repository_test/issues/new';
-    }
+    add_more.href = 'https://github.com/Spectrollay/minecraft_repository_test/issues/new';
 
     const loading_mask = document.getElementById('loading_mask');
-
     function hide_mask() {
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';
