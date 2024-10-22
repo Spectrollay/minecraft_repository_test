@@ -109,7 +109,7 @@
                 <div class="main">
                     <div class="title1">Minecraft Legends</div>
                     <div class="description1">
-                        <a href="https://zh.minecraft.wiki/w/Minecraft_Legends" onclick="playSound1();"
+                        <a href="https://zh.minecraft.wiki/w/Minecraft_Legends" onclick="playClickSound();"
                            target="_blank">传奇</a>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                 <div class="main">
                     <div class="title1">Minecraft Dungeons</div>
                     <div class="description1">
-                        <a href="https://zh.minecraft.wiki/w/Minecraft_Dungeons" onclick="playSound1();"
+                        <a href="https://zh.minecraft.wiki/w/Minecraft_Dungeons" onclick="playClickSound();"
                            target="_blank">地下城</a>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
                 <div class="main">
                     <div class="title1">Minecraft Story Mode</div>
                     <div class="description1">
-                        <a href="https://zh.minecraft.wiki/w/Minecraft_Dungeons" onclick="playSound1();"
+                        <a href="https://zh.minecraft.wiki/w/Minecraft_Dungeons" onclick="playClickSound();"
                            target="_blank">故事模式</a>
                     </div>
                 </div>
@@ -223,14 +223,14 @@
                 <div class="main">
                     <div class="title1">Minecraft Earth</div>
                     <div class="description1">
-                        <a href="https://zh.minecraft.wiki/w/Minecraft_Earth" onclick="playSound1();"
+                        <a href="https://zh.minecraft.wiki/w/Minecraft_Earth" onclick="playClickSound();"
                            target="_blank">地球</a>
                     </div>
                 </div>
                 <div class="main">
                     <div class="title2">0.33.0 - 最终版本</div>
                     <div class="description2">更新日志:
-                        <a href="https://zh.minecraft.wiki/w/Minecraft_Earth:0.33.0" onclick="playSound1();"
+                        <a href="https://zh.minecraft.wiki/w/Minecraft_Earth:0.33.0" onclick="playClickSound();"
                            target="_blank">中文Minecraft Wiki</a>
                     </div>
                     <div class="download_group">
@@ -278,11 +278,11 @@
                     </div>
                     <div class="description2">
                         版本库里的安装包都不合你的口味?想自定义一些比较独到的功能?那你就来对地方了!<br>
-                        加入 <a href="https://t.me/Spectrollay_MCW" onclick="playSound1();" target="_blank"><img
+                        加入 <a href="https://t.me/Spectrollay_MCW" onclick="playClickSound();" target="_blank"><img
                             alt="link" class="link_img" src=""/>Telegram</a> /
                         <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609"
-                           onclick="playSound1();" target="_blank"><img alt="link" class="link_img" src=""/>QQ</a> /
-                        <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" onclick="playSound1();"
+                           onclick="playClickSound();" target="_blank"><img alt="link" class="link_img" src=""/>QQ</a> /
+                        <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" onclick="playClickSound();"
                            target="_blank"><img alt="link" class="link_img" src=""/>云湖</a> 群聊,向开发者提出自己的需求.
                         <br>在得到开发者肯定答复且条件允许的情况下,7个工作日内会更新至上述网盘.<br>
                         请注意: 在提出需求前请先前往网盘确认是否已经存在相应的定制信息,否则不予答复.
@@ -347,13 +347,8 @@
 
 <script>
     const public_script = document.createElement('script');
-    const public_define = document.createElement('script');
-
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    public_define.src = '/minecraft_repository_test/javascript/public_define.js';
-
     document.head.appendChild(public_script);
-    document.head.appendChild(public_define);
 
     const add_more = document.getElementById('add_more');
     add_more.href = 'https://github.com/Spectrollay/minecraft_repository_test/issues/new';

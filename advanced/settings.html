@@ -92,7 +92,7 @@
             <div class="main_block setting_block exp_accessibility">
                 <div class="setting_title_content">使用文本转语音</div>
                 <div class="setting_control_right">
-                    <custom-switch active="off" status="disabled"></custom-switch>
+                    <custom-switch active="off" id="use_tts" status="disabled"></custom-switch>
                 </div>
             </div>
             <div class="main_block setting_block exp_accessibility">
@@ -101,13 +101,13 @@
             <div class="main_block setting_block exp_accessibility">
                 <div class="setting_title_content">高对比度UI</div>
                 <div class="setting_control_right">
-                    <custom-switch active="off" status="disabled"></custom-switch>
+                    <custom-switch active="off" id="high_contrast_ui" status="disabled"></custom-switch>
                 </div>
             </div>
             <div class="main_block setting_block exp_accessibility">
                 <div class="setting_title_content">访问受限弹窗</div>
                 <div class="setting_control_right">
-                    <custom-switch active="on" status="disabled"></custom-switch>
+                    <custom-switch active="on" id="limited_access_modal" status="disabled"></custom-switch>
                 </div>
             </div>
             <div class="main_block setting_block exp_accessibility">
@@ -411,13 +411,8 @@
 
 <script>
     const public_script = document.createElement('script');
-    const public_define = document.createElement('script');
-
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    public_define.src = '/minecraft_repository_test/javascript/public_define.js';
-
     document.head.appendChild(public_script);
-    document.head.appendChild(public_define);
 
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     if (rootPath.includes('_test')) {

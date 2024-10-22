@@ -21,7 +21,6 @@
  */
 
 // 实验性
-console.log("实验性内容");
 
 const exp_css = document.createElement('link');
 exp_css.rel = 'stylesheet';

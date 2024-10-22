@@ -72,7 +72,7 @@
         <div class="error-img"><img alt="Error Image" src="/minecraft_repository_test/images/Error_default.png"/></div>
         <p class="main_detail_center">This page is under maintenance..</p>
         <p class="main_detail_center">
-            <a href="javascript:void(0);" onclick="playSound1();mainPage();">Back to Main Page</a>
+            <a href="javascript:void(0);" onclick="playClickSound();mainPage();">Back to Main Page</a>
         </p>
     </div>
 </div>
@@ -85,13 +85,8 @@
 
 <script>
     const public_script = document.createElement('script');
-    const public_define = document.createElement('script');
-
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    public_define.src = '/minecraft_repository_test/javascript/public_define.js';
-
     document.head.appendChild(public_script);
-    document.head.appendChild(public_define);
 </script>
 
 <style>

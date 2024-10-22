@@ -28,7 +28,7 @@ function showDisclaimerModal(url) {
     const modal = document.getElementById("disclaimer_modal");
     overlay.style.display = "block";
     modal.style.display = "block";
-    console.log("显示免责声明弹窗");
+    logManager.log("显示免责声明弹窗");
     if (url === undefined) {
         openurl = null;
     } else {
@@ -44,13 +44,13 @@ function hideDisclaimerModal(button, state, url) {
     overlay.style.display = "none";
     modal.style.display = "none";
     if (state === -1) {
-        console.log("选择了不同意");
+        logManager.log("选择了不同意");
     } else if (state === 1) {
-        console.log("选择了同意并继续");
+        logManager.log("选择了同意并继续");
     }
-    console.log("关闭免责声明弹窗");
+    logManager.log("关闭免责声明弹窗");
     if (url !== null) {
-        console.log("获取到跳转链接:" + url);
+        logManager.log("获取到跳转链接:" + url);
         if (state === 1) {
             window.open(url);
         } else {
@@ -58,20 +58,20 @@ function hideDisclaimerModal(button, state, url) {
                 window.location.href = url;
             }, 600);
         }
-        console.log("跳转成功");
+        logManager.log("跳转成功");
     } else {
-        console.log("无跳转链接");
+        logManager.log("无跳转链接", 'warn');
     }
 }
 
 function howToBuyGame(button, state, url) {
     playSound(button);
     if (state === 0) {
-        console.log("选择了了解正版购买");
+        logManager.log("选择了了解正版购买");
     }
-    console.log("获取到跳转链接: " + url);
+    logManager.log("获取到跳转链接: " + url);
     setTimeout(function () {
         window.location.href = url;
     }, 600);
-    console.log("跳转成功");
+    logManager.log("跳转成功");
 }

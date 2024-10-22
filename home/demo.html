@@ -73,7 +73,7 @@
             <div class="block">
                 <div class="main">
                     <div class="title1">
-                        <a href="https://zh.minecraft.wiki/w/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" onclick="playSound1();"
+                        <a href="https://zh.minecraft.wiki/w/%E6%BC%94%E7%A4%BA%E6%A8%A1%E5%BC%8F" onclick="playClickSound();"
                            target="_blank">Minecraft Demo</a>
                     </div>
                     <div class="description1">演示版</div>
@@ -82,7 +82,7 @@
                     <div class="title2">0.2</div>
                     <div class="description2">更新日志:
                         <a class="wiki" href="https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%880.2.0"
-                           onclick="playSound1();" target="_blank"></a>
+                           onclick="playClickSound();" target="_blank"></a>
                     </div>
                     <div class="download_group">
                         <div class="btn_group">
@@ -115,7 +115,7 @@
                     <div class="title2">0.1</div>
                     <div class="description2">更新日志:
                         <a class="wiki" href="https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%880.1.0"
-                           onclick="playSound1();" target="_blank"></a>
+                           onclick="playClickSound();" target="_blank"></a>
                     </div>
                     <div class="download_group">
                         <div class="btn_group">
@@ -191,13 +191,8 @@
 
 <script>
     const public_script = document.createElement('script');
-    const public_define = document.createElement('script');
-
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    public_define.src = '/minecraft_repository_test/javascript/public_define.js';
-
     document.head.appendChild(public_script);
-    document.head.appendChild(public_define);
 
     const loading_mask = document.getElementById('loading_mask');
     function hide_mask() {

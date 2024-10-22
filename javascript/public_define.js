@@ -47,7 +47,7 @@ function getProjectHash() {
         const response = JSON.parse(xhr.responseText);
         return response.projectHash;
     } else {
-        console.error('获取项目哈希值时出错: ', xhr.status);
+        logManager.log('获取项目哈希值时出错: ' + xhr.status, 'error');
         return null;
     }
 }
@@ -56,7 +56,7 @@ const projectHash = getProjectHash();
 const version_info = "<table><tr><td colspan='2' style='text-align: center'>版本信息</td></tr><tr><td>主要更新: </td><td>" + primary_version_name + "</td></tr><tr><td>次要更新: </td><td>" + secondary_version_name + "</td></tr><tr><td>版本编号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名称: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr><tr></tr>" +
     "<tr><td colspan='2' style='text-align: center'>校验码</td></tr><tr><td colspan='2' style='text-align: center'>" + projectHash + "</td></tr></table>";
 
-console.log("发布版本: " + publish_version_name);
+logManager.log("发布版本: " + publish_version_name);
 
 //字符常量
 const texts = {
@@ -116,23 +116,23 @@ const tipElement = document.getElementById("banner_tip");
 let tipsWithWeights;
 const commonTips = [
     {
-        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay" + rootPath + "issues/new\" target='_blank' onclick='playSound1();'>欢迎提出</a>!</span>",
+        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay" + rootPath + "issues/new\" target='_blank' onclick='playClickSound();'>欢迎提出</a>!</span>",
         weight: 3
     },
     {
-        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' target='_blank' onclick='playSound1();'>Telegram</a> / <a href='https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609' target='_blank' onclick='playSound1();'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' target='_blank' onclick='playSound1();'>云湖</a>群聊!</span>",
+        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' target='_blank' onclick='playClickSound();'>Telegram</a> / <a href='https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609' target='_blank' onclick='playClickSound();'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' target='_blank' onclick='playClickSound();'>云湖</a>群聊!</span>",
         weight: 3
     },
     {
-        text: "<span>欢迎加入我们的官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick='playSound1();' target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick='playSound1();' target='_blank'>QQ</a></span>",
+        text: "<span>欢迎加入我们的官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick='playClickSound();' target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick='playClickSound();' target='_blank'>QQ</a></span>",
         weight: 3
     },
     {
-        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' target='_blank' onclick='playSound1();'>官方网站</a>!</span>",
+        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' target='_blank' onclick='playClickSound();'>官方网站</a>!</span>",
         weight: 3
     },
     {
-        text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' target='_blank' onclick='playSound1();'>中文译名修正项目</a>!</span>",
+        text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' target='_blank' onclick='playClickSound();'>中文译名修正项目</a>!</span>",
         weight: 3
     },
     {text: "Made by Spectrollay!", weight: 3},
@@ -271,18 +271,18 @@ if (!isFullVersion) {
 }
 
 if (hostPath.includes('file:///') || hostPath.includes('localhost')) {
-    console.log("LocalStorage数据");
+    logManager.log("LocalStorage数据");
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         const value = localStorage.getItem(key);
-        console.log("[" + [i + 1] + "]" + " " + key + ': ' + value);
+        logManager.log("[" + [i + 1] + "]" + " " + key + ': ' + value);
     }
     if (localStorage.length === 0) {
-        console.log("没有数据");
+        logManager.log("没有数据");
     }
 }
 
-console.log("加载常量和变量完成");
+logManager.log("加载常量和变量完成");
 
 // 节日标语
 const holiday_tip1 = document.getElementById('holiday_tip1');
@@ -290,7 +290,7 @@ const holiday_tip2 = document.getElementById('holiday_tip2');
 const minecraft_birthday = Y - 2009;
 const repository_birthday = Y - 2020;
 
-console.log("当前时间:", Y + '/' + M + '/' + D, h + ':' + m + ':' + s)
+logManager.log("当前时间: " + Y + '/' + M + '/' + D + ' ' + h + ':' + m + ':' + s)
 
 if (holiday_tip1) {
     const holiday_tip_display1 = holiday_tip1.querySelector('.banner');
@@ -355,7 +355,7 @@ if (holiday_tip2) {
     if (M === 4 && (D === 1 || (D === 2 && h < 12))) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span><a href='https://www.minecraft.net/article/poisonous-potato-update' target='_blank' onclick='playSound1();'>毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href='https://www.bilibili.com/video/BV1GJ411x7h7/' target='_blank' onclick='playSound1();'>点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
+            holiday_tip_display2.innerHTML = "<span><a href='https://www.minecraft.net/article/poisonous-potato-update' target='_blank' onclick='playClickSound();'>毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href='https://www.bilibili.com/video/BV1GJ411x7h7/' target='_blank' onclick='playClickSound();'>点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -367,7 +367,7 @@ if (holiday_tip2) {
     if (M === 4 && D > 19 && D < 26) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href='https://www.earthday.org/earth-day-2024/' target='_blank' onclick='playSound1();'>Planet vs. Plastics</a></span>";
+            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href='https://www.earthday.org/earth-day-2024/' target='_blank' onclick='playClickSound();'>Planet vs. Plastics</a></span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -446,9 +446,9 @@ window.addEventListener('load', () => setTimeout(function () {
             <div class="page_info_title">INFORMATION</div>
             <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}<br>Commited: ${commit}</span></div>
             <div class="page_info_title">BASED ON</div>
-            <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank" onclick="playSound1();">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" onclick="playSound1();">Web API</a> / <a href="https://webkit.org/" target="_blank" onclick="playSound1();">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" target="_blank" onclick="playSound1();">OreUI</a></span></div>
+            <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank" onclick="playClickSound();">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" onclick="playClickSound();">Web API</a> / <a href="https://webkit.org/" target="_blank" onclick="playClickSound();">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" target="_blank" onclick="playClickSound();">OreUI</a></span></div>
             <div class="page_info_title">ABOUT US</div>
-            <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playSound1();">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playSound1();">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playSound1();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playSound1();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playSound1();">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playSound1();" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound1();" target="_blank">QQ</a><span></div>
+            <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playClickSound();">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playClickSound();">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playClickSound();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playClickSound();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playClickSound();">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playClickSound();" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playClickSound();" target="_blank">QQ</a><span></div>
             <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
             <div class="page_info"><br></div>
         </div>`;
@@ -503,20 +503,20 @@ window.addEventListener('load', () => setTimeout(function () {
 
 }, 10));
 
-console.log("字符常量已成功应用");
+logManager.log("字符常量已成功应用");
 
 // 加载网页时的提示
 if (tipElement) {
     tipElement.innerHTML = getRandomTip();
-    console.log("提示已选择成功");
+    logManager.log("提示已选择成功");
 } else {
-    console.log("未发现提示框");
+    logManager.log("未发现提示框");
 }
 
 if (tipElement) {
     tipElement.addEventListener("click", (event) => {
         if (event.target.tagName === "A") {
-            console.log("检测到点击了链接,不执行切换提示操作");
+            logManager.log("检测到点击了链接,不执行切换提示操作");
         } else {
             tipElement.innerHTML = getRandomTip();
         }
@@ -525,8 +525,8 @@ if (tipElement) {
 
 function getRandomTip() {
     const totalWeight = tipsWithWeights.reduce((acc, tip) => acc + tip.weight, 0);
-    console.log("总权重: " + totalWeight + ", 上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
-    console.log("开始选择");
+    logManager.log("总权重: " + totalWeight + ", 上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
+    logManager.log("开始选择");
     let accumulatedWeight = 0;
     for (const tip of tipsWithWeights) {
         accumulatedWeight += tip.weight;
@@ -535,7 +535,7 @@ function getRandomTip() {
             previousTipIndex = currentTipIndex;
             currentTipIndex = tipsWithWeights.indexOf(tip);
             if (currentTipIndex === previousTipIndex) {
-                console.log("当前选中值与上次选中值相同!");
+                logManager.log("当前选中值与上次选中值相同!");
                 randomWeight = Math.random() * (totalWeight - tip.weight);
                 accumulatedWeight = 0;
                 for (const tip_new of tipsWithWeights) {
@@ -544,14 +544,14 @@ function getRandomTip() {
                         if (randomWeight <= accumulatedWeight) {
                             previousTipIndex = currentTipIndex;
                             currentTipIndex = tipsWithWeights.indexOf(tip_new);
-                            console.log("更新后的上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
+                            logManager.log("更新后的上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
                             return tip_new.text;
                         }
                     }
                 }
             } else {
-                console.log("当前选中值与上次选中值不同.");
-                console.log("上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
+                logManager.log("当前选中值与上次选中值不同.");
+                logManager.log("上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
                 return tip.text;
             }
         }

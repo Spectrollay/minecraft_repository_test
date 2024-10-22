@@ -44,7 +44,7 @@ class CustomButton extends HTMLElement {
         const ctype = type || 'default';
         const csize = size || 'middle';
         const cid = id || '';
-        const cisTip = isTip === true;
+        const cisTip = isTip === 'true';
         const ctip = tip || '';
         const js = this.getAttribute('js') || 'false';
         const text = this.getAttribute('text') || '';
@@ -73,12 +73,18 @@ class CustomButton extends HTMLElement {
         const button = this.querySelector('button');
         if (button) {
             button.addEventListener('click', () => {
+                logManager.log(`按钮 ${text} 被点击`);
                 playSound(button);
             });
             if (this.status !== 'disabled') {
                 if (js !== "false") {
                     button.addEventListener('click', () => {
-                        eval(js);
+                        try {
+                            logManager.log(`按钮 ${text} 执行函数: ${js}`);
+                            eval(js);
+                        } catch (error) {
+                            logManager.log(`按钮 ${text} 执行函数时出错: ${error.message}`, 'error');
+                        }
                     });
                 }
             }
@@ -131,16 +137,16 @@ class CustomCheckbox extends HTMLElement {
         }
 
         const isChecked = this.getAttribute('active') === 'on';
-        playSound1();
+        playClickSound();
         if (isChecked) {
             this.setAttribute('active', 'off');
-            console.log("关闭复选框", this.id);
+            logManager.log("关闭复选框 " + this.id);
             if (this.classList.contains('neverShowIn15Days')) {
                 localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
             }
         } else {
             this.setAttribute('active', 'on');
-            console.log("打开复选框", this.id);
+            logManager.log("打开复选框 " + this.id);
             if (this.classList.contains('neverShowIn15Days')) {
                 localStorage.setItem('(/minecraft_repository_test/)neverShowIn15Days', Date.now().toString());
             }
@@ -223,7 +229,8 @@ class CustomDropdown extends HTMLElement {
         const isVisible = this.dropdownOptions.style.display === 'block';
         this.dropdownOptions.style.display = isVisible ? 'none' : 'block';
         this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight + this.margin}px` : `${this.dropdownOptions.scrollHeight + this.margin}px`;
-        playSound1();
+        logManager.log(`下拉菜单 ${this.dropdownId} 选项 ${isVisible ? '隐藏' : '显示'}`);
+        playClickSound();
         mainHandleScroll(); // 联动自定义网页滚动条
     }
 
@@ -242,11 +249,13 @@ class CustomDropdown extends HTMLElement {
             const storedData = this.getStoredDropdownData();
             storedData[this.dropdownId] = this.selectedValue;
             this.saveDropdownData(storedData);
+            logManager.log(`下拉菜单 ${this.dropdownId} 选择了选项: ${this.optionsData[value - 1]}`);
         }
     }
 
     updateLabel() {
         this.label.textContent = this.optionsData[this.selectedValue - 1] || this.getAttribute('unselected-text') || '选择一个选项';
+        logManager.log(`下拉菜单 ${this.dropdownId} 标签设置为: ${this.label.textContent}`);
     }
 
     renderOptions() {
@@ -268,6 +277,7 @@ function showModal(modal) {
     overlay.style.display = "block";
     frame.style.display = "block";
     frame.focus();
+    logManager.log('显示弹窗 ' + modal);
 }
 
 function hideModal(button) {
@@ -287,6 +297,7 @@ function hideModal(button) {
     playSound(button);
     overlay.style.display = "none";
     frame.style.display = "none";
+    logManager.log('隐藏弹窗 ' + frame);
 }
 
 
@@ -294,7 +305,14 @@ function hideModal(button) {
 class CustomSlider extends HTMLElement {
     constructor() {
         super();
-        this.render();
+        this.isFirstRender = true;
+    }
+
+    connectedCallback() {
+        if (this.isFirstRender) {
+            this.render();
+            this.isFirstRender = false;
+        }
     }
 
     static get observedAttributes() {
@@ -302,8 +320,10 @@ class CustomSlider extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        this.render();
-        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+        if (!this.isFirstRender) {
+            this.render();
+            setTimeout(updateFocusableElements, 0); // 更新元素焦点
+        }
     }
 
     render() {
@@ -413,6 +433,7 @@ class CustomSlider extends HTMLElement {
         // 设置初始值并展示
         updateHandle(calculatePosition(currentValue));
         updateTooltip(calculatePosition(currentValue));
+        logManager.log(`滑块 ${sliderId} 值设置为: ${formatIntegerValue(currentValue)}`);
 
         if (type === 'range') {
             // 添加最小值和最大值提示
@@ -483,17 +504,22 @@ class CustomSlider extends HTMLElement {
                 } else {
                     setSliderValue(position);
                 }
+                logManager.log(`拖动结束,滑块 ${sliderId} 值设置为: ${formatIntegerValue(currentValue)}`);
             }
-            isDragging = false;
+            setTimeout(function () {
+                isDragging = false;
+            }, 0);
             process.style.transition = 'width 100ms linear';
             handle.style.transition = 'left 100ms linear';
         };
 
         const updatePosition = (event) => {
-            if (!isDragging) return;
-            event.preventDefault();
-            const position = currentPosition(event);
-            setSliderValue(position);
+            setTimeout(function () {
+                if (!isDragging) return;
+                event.preventDefault();
+                const position = currentPosition(event);
+                setSliderValue(position);
+            }, 0);
         };
 
         const currentPosition = (event) => {
@@ -522,12 +548,14 @@ class CustomSlider extends HTMLElement {
 
         // 点击可点击区域移动
         content.addEventListener('click', (event) => {
+            if (isDragging) return;
             const position = currentPosition(event);
             if (type === 'set') {
                 snapToSegment(position);
             } else {
                 setSliderValue(position);
             }
+            logManager.log(`移动结束,滑块 ${sliderId} 值设置为: ${formatIntegerValue(currentValue)}`);
         });
 
         // 通过方向键控制滑块
@@ -562,6 +590,7 @@ class CustomSlider extends HTMLElement {
                     const newPosition = calculatePosition(currentValue);
                     setSliderValue(newPosition);
                 }
+                logManager.log(`控制结束,滑块 ${sliderId} 值设置为: ${formatIntegerValue(currentValue)}`);
             }
         });
     }
@@ -626,6 +655,7 @@ class CustomSwitch extends HTMLElement {
     bindEvents() {
         const switchElement = this.querySelector(".switch");
         const switchSlider = this.querySelector(".switch_slider");
+        logManager.log(`开关 ${this.id} 值设置为: ${this.isSwitchOn}`);
 
         if (!this.isSwitchDisabled) {
             // 点击和拖动事件
@@ -686,8 +716,8 @@ class CustomSwitch extends HTMLElement {
 
         switchElement.classList.toggle("on", isOn);
         switchElement.classList.toggle("off", !isOn);
-        console.log(isOn ? "打开开关" : "关闭开关", this.id);
-        playSound1();
+        logManager.log(isOn ? "打开开关 " + this.id : "关闭开关 " + this.id);
+        playClickSound();
 
         // 更新存储
         const switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};

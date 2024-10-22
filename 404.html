@@ -91,13 +91,8 @@
 
 <script>
     const public_script = document.createElement('script');
-    const public_define = document.createElement('script');
-
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    public_define.src = '/minecraft_repository_test/javascript/public_define.js';
-
     document.head.appendChild(public_script);
-    document.head.appendChild(public_define);
 
     const not_found_img = document.getElementById('404_img');
     not_found_img.src = '/minecraft_repository_test/images/404.png';

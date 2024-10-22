@@ -84,7 +84,7 @@
                 <div class="block">
                     <div class="main">
                         <div class="title1">
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" onclick="playClickSound();"
                                target="_blank">Education Edition</a>
                         </div>
                         <div class="description1">教育版 - 正式版</div>
@@ -93,7 +93,7 @@
                         <div class="title2">1.21 - 云更新</div>
                         <div class="description2">更新日志:
                             <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.21.03"
-                               onclick="playSound1();"
+                               onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -128,7 +128,7 @@
                     <div class="main" id="release_1.20">
                         <div class="title2">1.20 - 足迹与故事</div>
                         <div class="description2">更新日志:
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.20.12" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.20.12" onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -164,7 +164,7 @@
                     <div class="main" id="release_1.19">
                         <div class="title2">1.19 - 荒野更新</div>
                         <div class="description2">更新日志:
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.19.52" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.19.52" onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -200,7 +200,7 @@
                     <div class="main" id="release_1.18">
                         <div class="title2">1.18 - Mobile, Multiplayer & More</div>
                         <div class="description2">更新日志:
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.18.32" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.18.32" onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -236,7 +236,7 @@
                     <div class="main" id="release_1.17">
                         <div class="title2">1.17 - 山羊更新</div>
                         <div class="description2">更新日志:
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.17.30" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.17.30" onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -269,7 +269,7 @@
                     <div class="main" id="release_1.14.70">
                         <div class="title2">1.14.70 - Camps & Clubs</div>
                         <div class="description2">更新日志:
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.14.70" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.14.70" onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -302,7 +302,7 @@
                     <div class="main" id="release_1.14">
                         <div class="title2">1.14 - Chromebook更新</div>
                         <div class="description2">更新日志:
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.14.31" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.14.31" onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -338,7 +338,7 @@
                 <div class="block">
                     <div class="main">
                         <div class="title1">
-                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" onclick="playSound1();"
+                            <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%88" onclick="playClickSound();"
                                target="_blank">Education Edition</a>
                         </div>
                         <div class="description1">教育版 - 预览版</div>
@@ -347,7 +347,7 @@
                         <div class="title2">1.21 - 云更新</div>
                         <div class="description2">更新日志:
                             <a href="https://zh.minecraft.wiki/w/%E6%95%99%E8%82%B2%E7%89%881.20.60.0"
-                               onclick="playSound1();"
+                               onclick="playClickSound();"
                                target="_blank">中文Minecraft Wiki</a>
                         </div>
                         <div class="download_group">
@@ -436,13 +436,8 @@
 
 <script>
     const public_script = document.createElement('script');
-    const public_define = document.createElement('script');
-
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    public_define.src = '/minecraft_repository_test/javascript/public_define.js';
-
     document.head.appendChild(public_script);
-    document.head.appendChild(public_define);
 
     const loading_mask = document.getElementById('loading_mask');
     function hide_mask() {

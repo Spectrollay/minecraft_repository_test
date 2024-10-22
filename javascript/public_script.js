@@ -24,14 +24,43 @@ let sidebarOpen = false;
 let overlayShow = false;
 
 const startTime = new Date().getTime();
-const audioInstances = [];
 const main = document.getElementById("main");
+
+window.logManager = {
+    log: function (message, level = 'info') {
+        const isLocalEnv = hostPath.includes('localhost') || rootPath.includes('_test');
+
+        // 根据环境输出不同日志
+        if (level === 'error') {
+            console.error(`[ERROR]: ${message}`);
+        } else if (isLocalEnv) {
+            // 在本地环境或测试环境中输出所有日志
+            if (level === 'info') {
+                console.log(`[INFO]: ${message}`);
+            } else if (level === 'warn') {
+                console.warn(`[WARN]: ${message}`);
+            }
+        }
+    }
+};
 
 // 检测浏览器是否处于夜间模式
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     // 覆盖夜间模式下的样式
     document.body.classList.add('no-dark-mode');
 }
+
+// 禁止拖动元素
+const images = document.querySelectorAll("img");
+const links = document.querySelectorAll("a");
+images.forEach(function (image) {
+    image.draggable = false;
+});
+
+links.forEach(function (link) {
+    link.draggable = false;
+});
+
 
 // 节流函数,防止事件频繁触发
 function throttle(func, delay) {
@@ -112,8 +141,7 @@ function handlePointerMove(e, dragState, thumb, container, content) {
     const maxScrollTop = content.scrollHeight - containerHeight; // 计算页面内容的滚动位置
 
     container.scrollTo({
-        top: (newTop / maxThumbTop) * maxScrollTop,
-        behavior: "instant" // 确保滚动时不产生动画
+        top: (newTop / maxThumbTop) * maxScrollTop, behavior: "instant" // 确保滚动时不产生动画
     });
 
     updateThumb(thumb, container, content, container.closest('scroll-view').querySelector('custom-scrollbar'));
@@ -182,10 +210,7 @@ function createHandleScroll(customScrollbar, customThumb, container, content) {
 // 自定义高度变化检测
 const mainScrollContainer = document.querySelector('.main_scroll_container');
 const mainHandleScroll = throttle(createHandleScroll( // NOTE 在有涉及到自定义高度变化的地方要调用这个代码
-    document.querySelector('.scroll_container').closest('scroll-view').querySelector('custom-scrollbar'),
-    document.querySelector('.scroll_container').closest('scroll-view').querySelector('custom-scrollbar-thumb'),
-    mainScrollContainer,
-    document.querySelector('.scroll_container')
+    document.querySelector('.scroll_container').closest('scroll-view').querySelector('custom-scrollbar'), document.querySelector('.scroll_container').closest('scroll-view').querySelector('custom-scrollbar-thumb'), mainScrollContainer, document.querySelector('.scroll_container')
 ), 1);
 
 let lastScrollHeight = mainScrollContainer.scrollHeight;
@@ -208,6 +233,8 @@ let rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
 // 创建内联元素
+const public_define = document.createElement('script');
+public_define.src = '/minecraft_repository_test/javascript/public_define.js';
 const accessibility_js = document.createElement('script');
 accessibility_js.src = '/minecraft_repository_test/javascript/accessibility.js';
 const exp_js = document.createElement('script');
@@ -224,6 +251,7 @@ public_style.rel = 'stylesheet';
 public_style.href = '/minecraft_repository_test/stylesheet/public_style.css';
 
 // 将内联元素添加到头部
+document.head.appendChild(public_define);
 document.head.appendChild(accessibility_js);
 document.head.appendChild(exp_js);
 document.head.appendChild(advanced_js);
@@ -231,24 +259,22 @@ document.head.appendChild(custom_elements_js);
 document.head.appendChild(custom_elements_css);
 document.head.appendChild(public_style);
 
-const soundClickPath = rootPath + 'sounds/click.ogg';
-const soundButtonPath = rootPath + 'sounds/button.ogg';
 const updatelogPath = rootPath + 'updatelog/';
 const messagePath = rootPath + 'notifications/';
 const pageLevel = (slashCount - 1) + "级页面";
 
-console.log("浏览器UA: ", navigator.userAgent)
-console.log("完整路径: ", currentURL);
-console.log("来源: ", hostPath);
-console.log("根路径: ", rootPath);
-console.log("当前路径: ", currentPagePath);
+logManager.log("浏览器UA: " + navigator.userAgent)
+logManager.log("完整路径: " + currentURL);
+logManager.log("来源: " + hostPath);
+logManager.log("根路径: " + rootPath);
+logManager.log("当前路径: " + currentPagePath);
 
 if (hostPath.includes('file:///')) {
-    console.log('当前运行在本地文件');
+    logManager.log('当前运行在本地文件');
 } else if (hostPath.includes('localhost')) {
-    console.log("当前运行在本地服务器");
+    logManager.log("当前运行在本地服务器");
 } else if (hostPath.includes('github.io')) {
-    console.log("当前运行在Github");
+    logManager.log("当前运行在Github");
     // 禁用右键菜单
     document.addEventListener('contextmenu', function (event) {
         event.preventDefault();
@@ -258,15 +284,216 @@ if (hostPath.includes('file:///')) {
         event.preventDefault();
     });
 } else {
-    console.log("当前运行在" + hostPath);
+    logManager.log("当前运行在" + hostPath);
 }
 if (rootPath.includes('_test')) {
-    console.log("环境为测试环境");
+    logManager.log("环境为测试环境");
 } else {
-    console.log("环境为标准环境");
+    logManager.log("环境为标准环境");
 }
 
-console.log("当前位于" + pageLevel);
+logManager.log("当前位于" + pageLevel);
+
+// 输出错误日志
+window.addEventListener("error", function (event) {
+    logManager.log("错误: " + event.message, 'error');
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    logManager.log("页面加载完成!");
+});
+
+window.addEventListener("load", function () {
+    const endTime = new Date().getTime();
+    let loadTime = endTime - startTime;
+    logManager.log("页面加载耗时: " + loadTime + "ms");
+});
+
+// 页面加载时缓存音效文件
+const cacheName = 'audio-cache';
+window.onload = async function () {
+    if ('caches' in window) {
+        try {
+            const cache = await caches.open(cacheName);
+            await cache.addAll([soundClickPath, soundButtonPath]);
+            logManager.log('音效文件已缓存!');
+        } catch (error) {
+            logManager.log('音效文件缓存失败: ' + error, 'error');
+        }
+    }
+};
+
+async function getCachedAudio(filePath) {
+    if ('caches' in window) {
+        try {
+            const cache = await caches.open(cacheName);
+            const response = await cache.match(filePath);
+            if (response) {
+                const blob = await response.blob();
+                const audioURL = URL.createObjectURL(blob);
+                logManager.log('从缓存获取音效文件');
+                return new Audio(audioURL); // 返回缓存中的音效
+            }
+        } catch (error) {
+            logManager.log('从缓存获取音效文件失败: ' + error, 'error');
+        }
+    } else {
+        return new Audio(filePath); // 缓存不存在或失败时直接返回网络资源
+    }
+}
+
+if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/minecraft_repository_test/index.html') {
+    if (rootPath.includes('_test')) {
+        const neverShowIn15Days = localStorage.getItem('(/minecraft_repository_test/)neverShowIn15Days');
+        if (neverShowIn15Days) {
+            const lastHideTime = new Date(parseInt(neverShowIn15Days, 10));
+            const now = new Date();
+            const diff = now - lastHideTime;
+            const fifteenDays = 15 * 24 * 60 * 60 * 1000;
+            if (diff > fifteenDays) {
+                localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
+            } else {
+                logManager.log("时间未到,不显示测试仓库提示");
+            }
+        } else {
+            const modal = document.getElementById("alert_modal");
+            modal.innerHTML = `
+                <modal>
+                    <modal_title_area>
+                        <modal_title>测试仓库提示</modal_title>
+                        <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                            <img alt="" class="modal_close_btn_img" src=""/>
+                        </modal_close_btn>
+                    </modal_title_area>
+                    <modal_content class="main_page_alert">
+                        <div>
+                            <p>你正在使用的是测试仓库, 在继续之前, 你需要了解以下内容: </p>
+                            <article_list>测试仓库可能包含部分未完成的功能和各种已知或未知的错误, 我们鼓励你在发现问题时及时提供反馈, 帮助我们进行改进.</article_list>
+                            <article_list>测试仓库可能包含部分未启用的或处于实验阶段的功能, 这些功能可能会在后续的版本发生变动, 请不要过度依赖于这些功能.</article_list>
+                            <article_list>测试仓库为快速迭代版本, 更新频率较高, 请及时关注版本更新以了解改进和修复. 在提交建议或反馈之前请先检查你的版本.</article_list>
+                            <article_list>如果你在使用过程中想要退出测试, 可以前往设置页面选择退出测试以重定向至发布仓库. 后续你还可以通过邀测重新加入测试.</article_list>
+                            <p>如果你不能承受内测带来的风险且不同意上述内容, 请选择返回发布仓库.</p>
+                        </div>
+                    </modal_content>
+                    <modal_checkbox_area>
+                        <custom-checkbox active="off" class="neverShowIn15Days" status="enabled"></custom-checkbox>15天之内不再提示</modal_checkbox_area>
+                    <modal_button_area>
+                        <modal_button_group>
+                            <modal_button_list>
+                                <custom-button data="modal|green|||false||" js="leaveTest();hideAlertModal(this);" text="返回发布仓库"></custom-button>
+                                <custom-button data="modal|disabled||continue_test_btn|false||" js="hideAlertModal(this);" text="继续"></custom-button>
+                            </modal_button_list>
+                        </modal_button_group>
+                    </modal_button_area>
+                </modal>`;
+            showAlertModal();
+            logManager.log("开发环境,显示测试仓库提示");
+        }
+        logManager.log("开发环境,不显示内测邀请");
+    } else {
+        const randomValue = Math.random();
+        if (randomValue < 0.02) {
+            const modal = document.getElementById("alert_modal");
+            modal.innerHTML = `
+                <modal>
+                    <modal_title_area>
+                        <modal_title>内部测试邀请</modal_title>
+                        <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                            <img alt="" class="modal_close_btn_img" src=""/>
+                        </modal_close_btn>
+                    </modal_title_area>
+                    <modal_content class="main_page_alert">
+                        <div>
+                            <p>哇哦! 祝贺你被选中参加测试, 成为小部分可以抢先体验新版本的用户! 这里有一些你需要了解的内容: </p>
+                            <article_list>请加入我们的内测群组以了解最新开发动态: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playClickSound();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playClickSound();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playClickSound();">云湖</a></article_list>
+                            <article_list>加入测试后你将无法访问发布仓库, 直到你选择退出测试. 访问发布仓库将会被重定向至测试仓库.</article_list>
+                            <article_list>不同于发布仓库, 测试仓库并不稳定, 可能存在部分问题以及正在测试的内容. 因此我们需要你在发现问题或有想法时及时向我们反馈.</article_list>
+                            <article_list>悄悄地说一句, 积极参与内测可能会有奖励哦.</article_list>
+                            <p>如果你可以承受内测带来的风险并同意上述内容, 请选择加入测试, 否则请取消.</p>
+                        </div>
+                    </modal_content>
+                    <modal_button_area>
+                        <modal_button_group>
+                            <modal_button_list>
+                                <custom-button data="modal|normal|||false||" js="hideAlertModal(this);" text="取消"></custom-button>
+                                <custom-button data="modal|disabled||join_test_btn|false||" js="hideAlertModal(this);joinTest();" text="加入测试"></custom-button>
+                            </modal_button_list>
+                        </modal_button_group>
+                    </modal_button_area>
+                </modal>`;
+            showAlertModal();
+            logManager.log("显示内测邀请");
+        }
+        logManager.log("正式环境,不显示测试仓库提示");
+    }
+
+    setTimeout(function () {
+        let joinTestBtn, continueTestBtn, joinTestFrame, continueTestFrame;
+        joinTestBtn = document.getElementById('join_test_btn');
+        continueTestBtn = document.getElementById('continue_test_btn');
+        if (joinTestBtn) {
+            joinTestFrame = joinTestBtn.parentElement;
+            startCountdown(joinTestBtn, joinTestFrame.getAttribute('text'), 10);
+        }
+        if (continueTestBtn) {
+            continueTestFrame = continueTestBtn.parentElement;
+            startCountdown(continueTestBtn, continueTestFrame.getAttribute('text'), 10);
+        }
+
+        function startCountdown(button, initialText, countdownTime) {
+            let remainingTime = countdownTime;
+            if (joinTestBtn) {
+                joinTestFrame.setAttribute('data', 'modal|disabled||join_test_btn|false||');
+                joinTestFrame.setAttribute('js', 'false');
+                joinTestFrame.setAttribute('text', `${initialText}(${remainingTime}s)`);
+            } else if (continueTestBtn) {
+                continueTestFrame.setAttribute('data', 'modal|disabled||continue_test_btn|false||');
+                continueTestFrame.setAttribute('js', 'false');
+                continueTestFrame.setAttribute('text', `${initialText}(${remainingTime}s)`);
+            }
+
+            const countdownInterval = setInterval(() => {
+                remainingTime -= 1;
+                if (joinTestBtn) {
+                    joinTestFrame.setAttribute('text', `${initialText}(${remainingTime}s)`);
+                } else if (continueTestBtn) {
+                    continueTestFrame.setAttribute('text', `${initialText}(${remainingTime}s)`);
+                }
+
+                if (remainingTime <= 0) {
+                    clearInterval(countdownInterval);
+                    if (joinTestBtn) {
+                        joinTestFrame.setAttribute('data', 'modal|green||join_test_btn|false||');
+                        joinTestFrame.setAttribute('js', 'hideAlertModal(this);joinTest();');
+                        joinTestFrame.setAttribute('text', `${initialText}`);
+                    } else if (continueTestBtn) {
+                        continueTestFrame.setAttribute('data', 'modal|normal||continue_test_btn|false||');
+                        continueTestFrame.setAttribute('js', 'hideAlertModal(this);');
+                        continueTestFrame.setAttribute('text', `${initialText}`);
+                    }
+                }
+            }, 1000);
+        }
+    }, 1000);
+
+    function showAlertModal() {
+        const overlay = document.getElementById("overlay_alert_modal");
+        const modal = document.getElementById("alert_modal");
+        overlay.style.display = "block";
+        modal.style.display = "block";
+        modal.focus();
+        logManager.log("显示提示弹窗");
+    }
+
+    function hideAlertModal(button) {
+        const overlay = document.getElementById("overlay_alert_modal");
+        const modal = document.getElementById("alert_modal");
+        playSound(button);
+        overlay.style.display = "none";
+        modal.style.display = "none";
+        logManager.log("关闭提示弹窗");
+    }
+}
 
 if (rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_attribute')) {
     localStorage.setItem('minecraft_repository_attribute', 'test=true');
@@ -288,17 +515,6 @@ function leaveTest() {
         window.location.href = hostPath + "/minecraft_repository";
     }, 600);
 }
-
-// 禁止拖动元素
-const images = document.querySelectorAll("img");
-const links = document.querySelectorAll("a");
-images.forEach(function (image) {
-    image.draggable = false;
-});
-
-links.forEach(function (link) {
-    link.draggable = false;
-});
 
 // 兼容性检测
 const compatibilityModal = `
@@ -326,16 +542,16 @@ const compatibilityModal = `
 
 document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
-setTimeout(function () {
+window.addEventListener('load', () => setTimeout(function () {
     if (localStorage.getItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain') !== '1') {
         const overlay = document.getElementById("overlay_compatibility_modal");
         const modal = document.getElementById("compatibility_modal");
         overlay.style.display = "block";
         modal.style.display = "block";
         modal.focus();
-        console.log("显示兼容性提示弹窗");
+        logManager.log("显示兼容性提示弹窗");
     }
-}, 100);
+}, 20));
 
 function hideCompatibilityModal(button) {
     const overlay = document.getElementById("overlay_compatibility_modal");
@@ -343,13 +559,13 @@ function hideCompatibilityModal(button) {
     playSound(button);
     overlay.style.display = "none";
     modal.style.display = "none";
-    console.log("关闭兼容性提示弹窗");
+    logManager.log("关闭兼容性提示弹窗");
 }
 
 function neverShowCompatibilityModalAgain(button) {
     hideCompatibilityModal(button);
     localStorage.setItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain', '1');
-    console.log("关闭兼容性提示弹窗且不再提示");
+    logManager.log("关闭兼容性提示弹窗且不再提示");
 }
 
 // 自动清除存储
@@ -385,14 +601,7 @@ document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 function checkFirstVisit() {
     firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
     const is404Page = document.title.includes("404 NOT FOUND");
-    const firstVisitAllowedPaths = [
-        `${rootPath}`,
-        `${rootPath}index.html`,
-        `${rootPath}home.html`,
-        `${rootPath}donate.html`,
-        `${rootPath}updatelog/`,
-        `${rootPath}updatelog/index.html`
-    ];
+    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}home.html`, `${rootPath}donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`];
 
     // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
     if (firstVisit !== today && !firstVisitAllowedPaths.includes(window.location.pathname) && !is404Page) {
@@ -415,78 +624,114 @@ function hideFirstVisitTodayModal(button) {
     modal.style.display = "none";
 }
 
-setTimeout(function () {
+window.addEventListener('load', () => setTimeout(function () {
     checkFirstVisit();
-}, 150);
+}, 20));
 
-// 输出错误日志
-window.addEventListener("error", function (event) {
-    console.error("错误: ", event.message);
-});
+const soundClickPath = rootPath + 'sounds/click.ogg';
+const soundButtonPath = rootPath + 'sounds/button.ogg';
+const soundPopPath = rootPath + 'sounds/pop.ogg';
+const soundHidePath = rootPath + 'sounds/hide.ogg';
+const soundOpenPath = rootPath + 'sounds/open.wav';
+const soundClosePath = rootPath + 'sounds/close.wav';
 
-document.addEventListener("DOMContentLoaded", function () {
-    const click = new Audio(soundClickPath);
-    const button = new Audio(soundButtonPath);
-    click.volume = 0;
-    button.volume = 0;
-    audioInstances.push(click);
-    audioInstances.push(button);
-    click.play().then(() => {
-        console.log("音频预加载成功!");
-    }).catch((error) => {
-        console.warn("音频预加载失败: ", error);
-    });
-    button.play().then(() => {
-        console.log("音频预加载成功!");
-    }).catch((error) => {
-        console.warn("音频预加载失败: ", error);
-    });
-
-    console.log("页面加载完成!");
-});
-
-window.addEventListener("load", function () {
-    const endTime = new Date().getTime();
-    let loadTime = endTime - startTime;
-    console.log("页面加载耗时: " + loadTime + "ms");
-});
-
-function playSound1() {
-    const audio = new Audio(soundClickPath);
-    audioInstances.push(audio);
-    audio.play().then(() => {
-        console.log("音效播放成功!");
-    }).catch((error) => {
-        console.error("音效播放失败: ", error);
+function playClickSound() {
+    getCachedAudio(soundClickPath).then(audio => {
+        audio.play().then(() => {
+            logManager.log("点击音效播放成功!");
+        }).catch(error => {
+            logManager.log('点击音效播放失败: ' + error, 'error');
+        });
+    }).catch(error => {
+        logManager.log('获取点击音效失败: ' + error, 'error');
     });
 }
 
-function playSound2() {
-    const audio = new Audio(soundButtonPath);
-    audioInstances.push(audio);
-    audio.play().then(() => {
-        console.log("音效播放成功!");
-    }).catch((error) => {
-        console.error("音效播放失败: ", error);
+function playButtonSound() {
+    getCachedAudio(soundButtonPath).then(audio => {
+        audio.play().then(() => {
+            logManager.log("按钮音效播放成功!");
+        }).catch(error => {
+            logManager.log('获取按钮音效失败: ' + error, 'error');
+        });
+    }).catch(error => {
+        logManager.log('获取按钮音效失败: ' + error, 'error');
     });
+}
+
+function playPopSound(){
+    getCachedAudio(soundPopPath).then(audio => {
+        audio.play().then(() => {
+            logManager.log("弹出音效播放成功!");
+        }).catch(error => {
+            logManager.log('获取弹出音效失败: ' + error, 'error');
+        });
+    }).catch(error => {
+        logManager.log('获取弹出音效失败: ' + error, 'error');
+    });
+}
+
+function playHideSound(){
+    getCachedAudio(soundHidePath).then(audio => {
+        audio.play().then(() => {
+            logManager.log("隐藏音效播放成功!");
+        }).catch(error => {
+            logManager.log('获取隐藏音效失败: ' + error, 'error');
+        });
+    }).catch(error => {
+        logManager.log('获取隐藏音效失败: ' + error, 'error');
+    });
+}
+
+function playOpenSound(){
+    getCachedAudio(soundOpenPath).then(audio => {
+        audio.play().then(() => {
+            logManager.log("打开音效播放成功!");
+        }).catch(error => {
+            logManager.log('获取打开音效失败: ' + error, 'error');
+        });
+    }).catch(error => {
+        logManager.log('获取打开音效失败: ' + error, 'error');
+    });
+}
+
+function playCloseSound(){
+    getCachedAudio(soundClosePath).then(audio => {
+        audio.play().then(() => {
+            logManager.log("关闭音效播放成功!");
+        }).catch(error => {
+            logManager.log('获取关闭音效失败: ' + error, 'error');
+        });
+    }).catch(error => {
+        logManager.log('获取关闭音效失败: ' + error, 'error');
+    });
+}
+
+// 按键音效
+function playSound(button) {
+    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || button.classList.contains("sidebar_btn") || (button.classList.contains("tab_bar_btn") && button.classList.contains("no_active")) || button.classList.contains("close_btn")) {
+        playClickSound();
+    } else if (button.classList.contains("green_btn")) {
+        playButtonSound();
+    }
 }
 
 // 切换Tab Bar
 const tabContent = document.querySelector(".tab_content");
 if (tabContent) {
     const defaultTabContent = document.querySelector(".tab_content.active");
-    console.log("Tab Bar初始选中: ", defaultTabContent.id);
+    logManager.log("Tab Bar初始选中: " + defaultTabContent.id);
 }
 
 function selectTab(tabNumber) {
     const currentTabContent = document.querySelector(".tab_content.active");
     const selectedTabContent = document.getElementById("content" + tabNumber);
     const selectedSidebarContent = document.getElementById("sidebar_content" + tabNumber);
-    console.log("Tab Bar当前选中: ", currentTabContent.id);
-    console.log("Tab Bar交互选中: ", selectedTabContent.id);
+    logManager.log("Tab Bar当前选中: " + currentTabContent.id);
+    logManager.log("Tab Bar交互选中: " + selectedTabContent.id);
     if (currentTabContent === selectedTabContent) {
         //选中一致
-        console.log("点击了已选中Tab");
+        logManager.log("点击了已选中Tab");
     } else {
         // 选中不一致
         setTimeout(mainHandleScroll, 100); // 联动自定义网页滚动条
@@ -499,7 +744,7 @@ function selectTab(tabNumber) {
         let tab_btn = document.getElementById(`tab${tabNumber}`);
         tab_btn.classList.add('active');
         tab_btn.classList.remove('no_active');
-        console.log("切换Tab标签");
+        logManager.log("切换Tab标签");
 
         // 切换Tab Bar包含内容
         const tabContents = document.getElementsByClassName("tab_content");
@@ -521,7 +766,7 @@ function selectTab(tabNumber) {
             selectedSidebarContent.classList.remove("no_active");
         }
 
-        console.log("切换与Tab相关的内容");
+        logManager.log("切换与Tab相关的内容");
     }
 }
 
@@ -531,14 +776,14 @@ function toggleSidebar() {
     if (sidebarOpen) {
         sidebar.style.width = "0";
         sidebarContent.style.width = "0";
-        console.log("侧边栏执行收起操作");
+        logManager.log("侧边栏执行收起操作");
     } else {
         sidebar.style.width = "160px";
         sidebarContent.style.width = "160px";
-        console.log("侧边栏执行展开操作");
+        logManager.log("侧边栏执行展开操作");
     }
     sidebarOpen = !sidebarOpen;
-    console.log("更新侧边栏状态成功");
+    logManager.log("更新侧边栏状态成功");
 }
 
 // 切换遮罩
@@ -546,29 +791,18 @@ function toggleOverlay() {
     const overlay_main = document.getElementById("overlay_main");
     if (overlayShow) {
         overlay_main.style.display = "none";
-        console.log("遮罩成功隐藏");
+        logManager.log("遮罩成功隐藏");
     } else {
         overlay_main.style.display = "block";
-        console.log("遮罩成功显示");
+        logManager.log("遮罩成功显示");
     }
     overlayShow = !overlayShow;
-    console.log("更新遮罩状态成功");
-}
-
-// 按键音效
-function playSound(button) {
-    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || button.classList.contains("sidebar_btn") || (button.classList.contains("tab_bar_btn") && button.classList.contains("no_active")) || button.classList.contains("close_btn")) {
-        console.log("选择播放点击音效");
-        playSound1();
-    } else if (button.classList.contains("green_btn")) {
-        console.log("选择播放按钮音效");
-        playSound2();
-    }
+    logManager.log("更新遮罩状态成功");
 }
 
 // 点击菜单图标事件
 function clickedMenu() {
-    playSound1();
+    playClickSound();
     toggleSidebar();
     toggleOverlay();
 }
@@ -594,15 +828,15 @@ function toRepo() {
 
 // 点击返回按钮事件
 function clickedBack() {
-    console.log("点击返回");
-    playSound1();
+    logManager.log("点击返回");
+    playClickSound();
     if (window.history.length <= 1) {
-        console.log("关闭窗口");
+        logManager.log("关闭窗口");
         setTimeout(function () {
             window.close();
         }, 600);
     } else {
-        console.log("返回上一级页面");
+        logManager.log("返回上一级页面");
         setTimeout(function () {
             window.history.back();
         }, 600);
@@ -616,7 +850,7 @@ function repoPage() {
 
 // 点击设置图标事件
 function settingsPage() {
-    playSound1();
+    playClickSound();
     setTimeout(function () {
         window.location.href = rootPath + "advanced/settings.html";
     }, 600);
@@ -631,7 +865,7 @@ function mainPage() {
 
 // 跳转链接
 function jumpToPage(link) {
-    playSound1();
+    playClickSound();
     setTimeout(function () {
         window.location.href = link;
     }, 320);
@@ -662,16 +896,14 @@ function clickedSidebarBottomBtn() {
 // 回到网页顶部
 function scrollToTop() {
     mainScrollContainer.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top: 0, behavior: "smooth"
     });
     console.log("成功执行回到顶部操作");
 }
 
 function toTop() {
     mainScrollContainer.scrollTo({
-        top: 0,
-        behavior: "instant"
+        top: 0, behavior: "instant"
     });
 }
 
@@ -688,10 +920,10 @@ function copyText(text) {
 
     navigator.clipboard.writeText(tempTextarea.value)
         .then(() => {
-            console.log('复制成功: ', tempTextarea.value);
+            logManager.log('复制成功: ', tempTextarea.value);
         })
-        .catch(err => {
-            console.log('复制失败: ', err);
+        .catch(error => {
+            logManager.log('复制失败: ' + error, 'error');
         });
 }
 
@@ -823,7 +1055,7 @@ function showMore() {
     currentThreshold += numToDisplay;
     updateButtonsVisibility();
     mainHandleScroll(); // 联动自定义网页滚动条
-    console.log("展开消息");
+    logManager.log("展开消息");
 }
 
 function showLess() {
@@ -834,5 +1066,5 @@ function showLess() {
     currentThreshold -= numToHide;
     updateButtonsVisibility();
     mainHandleScroll(); // 联动自定义网页滚动条
-    console.log("收起消息");
+    logManager.log("收起消息");
 }

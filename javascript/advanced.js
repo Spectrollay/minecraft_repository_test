@@ -51,7 +51,7 @@ function clearStorage() {
         }
     }
     sessionStorage.clear();
-    console.log('清除存储数据成功');
+    logManager.log('清除存储数据成功');
     mainPage();
 }
 
@@ -59,5 +59,5 @@ function clearStorage() {
 function reloadPage() {
     sessionStorage.clear();
     location.reload();
-    console.log('重载容器环境成功');
+    logManager.log('重载容器环境成功');
 }
