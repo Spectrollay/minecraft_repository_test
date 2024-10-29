@@ -102,7 +102,7 @@ function updateThumb(thumb, container, content, customScrollbar) {
 
 // 处理滚动条点击跳转
 function handleScrollbarClick(e, isDragging, customScrollbar, thumb, container, content) {
-    if (isDragging) return;
+    if (isDragging || content.classList.contains('sidebar_content')) return;
 
     const {top, height: scrollbarHeight} = customScrollbar.getBoundingClientRect();
     const clickPosition = e.clientY - top;
@@ -130,7 +130,7 @@ function handleScroll(customScrollbar, customThumb, container, content, scrollTi
 
 // 处理拖动滚动条的逻辑
 function handlePointerMove(e, dragState, thumb, container, content) {
-    if (!dragState.isDragging) return;
+    if (!dragState.isDragging || content.classList.contains('sidebar_content')) return;
 
     const currentY = e.clientY || e.touches[0].clientY;
     const deltaY = currentY - dragState.startY;

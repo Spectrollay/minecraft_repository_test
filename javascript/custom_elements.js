@@ -493,6 +493,7 @@ class CustomSlider extends HTMLElement {
             process.style.transition = 'none';
             handle.style.transition = 'none';
             isDragging = true;
+            event.preventDefault();
             updatePosition(event);
         };
 
@@ -516,7 +517,6 @@ class CustomSlider extends HTMLElement {
         const updatePosition = (event) => {
             setTimeout(function () {
                 if (!isDragging) return;
-                event.preventDefault();
                 const position = currentPosition(event);
                 setSliderValue(position);
             }, 0);
