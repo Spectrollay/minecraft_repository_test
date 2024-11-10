@@ -232,6 +232,27 @@ article_list_level3:before {
     width: 14px;
 }
 
+/* 侧边栏按钮 */
+.sidebar_btn {
+    background-color: #48494A;
+    border: 2px solid #131313;
+    box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E;
+    color: #FFFFFF;
+    height: 40px;
+    margin: 6px;
+    padding-bottom: 2px;
+    width: 140px;
+}
+
+.sidebar_btn:hover, .sidebar_btn:active {
+    background-color: #67686A;
+    border: 2px solid #FFFFFF;
+    box-shadow: unset;
+    height: 40px;
+    margin: 6px;
+    padding-bottom: 2px;
+}
+
 /* 带有Tooltip的按钮 */
 .btn_with_tooltip_cont {
     display: inline-block;
@@ -820,7 +841,7 @@ modal_button_list {
 }
 
 
-/* Text Field 文本框 */
+/* TextField文本框 */
 .text_field_container {
     display: flex;
     margin: 6px;

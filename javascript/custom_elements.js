@@ -20,6 +20,12 @@
  * SOFTWARE.
  */
 
+const custom_elements_css = document.createElement('link');
+custom_elements_css.rel = 'stylesheet';
+custom_elements_css.href = '/minecraft_repository_test/stylesheet/custom_elements.css';
+
+document.head.appendChild(custom_elements_css);
+
 // 自定义按钮
 class CustomButton extends HTMLElement {
     constructor() {
@@ -39,15 +45,15 @@ class CustomButton extends HTMLElement {
     render() {
         const data = this.getAttribute('data') || '';
         const [type, status, size, id, isTip, tip, icon] = data.split('|').map(item => item.trim());
-        this.status = status || 'normal';
+        this.status = status || 'normal'; // 状态
         this.icon = icon || '';
-        const ctype = type || 'default';
-        const csize = size || 'middle';
-        const cid = id || '';
+        const ctype = type || 'default'; // 样式
+        const csize = size || 'middle'; // 大小
+        const cid = id || ''; // ID
         const cisTip = isTip === 'true';
         const ctip = tip || '';
-        const js = this.getAttribute('js') || 'false';
-        const text = this.getAttribute('text') || '';
+        const js = this.getAttribute('js') || 'false'; // 附带函数
+        const text = this.getAttribute('text') || ''; // 文本
 
         if (ctype === "default") {
             if (cisTip === true) {
@@ -74,7 +80,7 @@ class CustomButton extends HTMLElement {
         if (button) {
             button.addEventListener('click', () => {
                 logManager.log(`按钮 ${text} 被点击`);
-                playSound(button);
+                playSoundType(button);
             });
             if (this.status !== 'disabled') {
                 if (js !== "false") {
@@ -101,7 +107,6 @@ class CustomCheckbox extends HTMLElement {
         super();
         this.render();
 
-        // 点击父元素执行点击事件
         const parentElement = this.parentElement;
         if (parentElement) {
             parentElement.addEventListener('click', this.toggleCheckbox.bind(this));
@@ -112,14 +117,18 @@ class CustomCheckbox extends HTMLElement {
         return ['status'];
     }
 
+    connectedCallback() {
+        this.restoreState(); // 页面加载时恢复状态
+    }
+
     attributeChangedCallback(name, oldValue, newValue) {
         this.render();
         setTimeout(updateFocusableElements, 0); // 更新元素焦点
     }
 
     render() {
-        const active = this.getAttribute('active') || 'off';
-        const status = this.getAttribute('status') || 'disabled';
+        const active = this.getAttribute('active') || 'off'; // 是否激活
+        const status = this.getAttribute('status') || 'disabled'; // 状态
 
         const isDisabled = status !== 'enabled';
         const isOn = active === 'on';
@@ -132,27 +141,42 @@ class CustomCheckbox extends HTMLElement {
     }
 
     toggleCheckbox() {
-        if (this.getAttribute('status') !== 'enabled') {
-            return;
-        }
+        if (this.getAttribute('status') !== 'enabled') return;
 
         const isChecked = this.getAttribute('active') === 'on';
-        playClickSound();
+        const checkboxData = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)checkbox_value')) || {};
+        playSound('click');
+
         if (isChecked) {
             this.setAttribute('active', 'off');
             logManager.log("关闭复选框 " + this.id);
-            if (this.classList.contains('neverShowIn15Days')) {
+            if (this.id === 'neverShowIn15Days') {
                 localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
+            } else {
+                checkboxData[this.id] = 'off';
             }
         } else {
             this.setAttribute('active', 'on');
             logManager.log("打开复选框 " + this.id);
-            if (this.classList.contains('neverShowIn15Days')) {
+            if (this.id === 'neverShowIn15Days') {
                 localStorage.setItem('(/minecraft_repository_test/)neverShowIn15Days', Date.now().toString());
+            } else {
+                checkboxData[this.id] = 'on';
             }
         }
 
+        localStorage.setItem('(/minecraft_repository_test/)checkbox_value', JSON.stringify(checkboxData));
         this.render();
+    }
+
+    restoreState() {
+        const checkboxData = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)checkbox_value')) || {};
+        const state = checkboxData[this.id];
+
+        if (state) {
+            if (this.id === 'neverShowIn15Days') return; // 这个功能有独立的存储
+            this.setAttribute('active', state); // 恢复上次状态
+        }
     }
 }
 
@@ -163,8 +187,7 @@ customElements.define('custom-checkbox', CustomCheckbox);
 class CustomDropdown extends HTMLElement {
     constructor() {
         super();
-        this.dropdownId = this.getAttribute('id') || 'default-dropdown';
-        this.margin = 6; // 外边距,与css内相同
+        this.margin = 6; // 外边距,与CSS内相同
         this.optionsData = JSON.parse(this.getAttribute('data-option')) || [];
         this.selectedValue = this.getAttribute('data-selected') || null;
 
@@ -195,7 +218,7 @@ class CustomDropdown extends HTMLElement {
 
         this.storageKey = '(/minecraft_repository_test/)dropdown_value';
         const storedData = this.getStoredDropdownData();
-        this.selectedValue = storedData[this.dropdownId] || this.selectedValue;
+        this.selectedValue = storedData[this.id] || this.selectedValue;
 
         this.addEventListener('click', (e) => this.toggleOptions(e));
         this.updateLabel();
@@ -228,9 +251,9 @@ class CustomDropdown extends HTMLElement {
 
         const isVisible = this.dropdownOptions.style.display === 'block';
         this.dropdownOptions.style.display = isVisible ? 'none' : 'block';
-        this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight + this.margin}px` : `${this.dropdownOptions.scrollHeight + this.margin}px`;
-        logManager.log(`下拉菜单 ${this.dropdownId} 选项 ${isVisible ? '隐藏' : '显示'}`);
-        playClickSound();
+        this.closest('.dropdown_container').style.height = isVisible ? `${this.label.offsetHeight + this.margin}px` : `${this.dropdownOptions.scrollHeight + this.margin}px`; // 根据显示状态切换高度
+        logManager.log(`下拉菜单 ${this.id} 选项 ${isVisible ? '隐藏' : '显示'}`);
+        playSound('click');
         mainHandleScroll(); // 联动自定义网页滚动条
     }
 
@@ -247,15 +270,15 @@ class CustomDropdown extends HTMLElement {
             this.renderOptions();
 
             const storedData = this.getStoredDropdownData();
-            storedData[this.dropdownId] = this.selectedValue;
+            storedData[this.id] = this.selectedValue;
             this.saveDropdownData(storedData);
-            logManager.log(`下拉菜单 ${this.dropdownId} 选择了选项: ${this.optionsData[value - 1]}`);
+            logManager.log(`下拉菜单 ${this.id} 选择了选项: ${this.optionsData[value - 1]}`);
         }
     }
 
     updateLabel() {
         this.label.textContent = this.optionsData[this.selectedValue - 1] || this.getAttribute('unselected-text') || '选择一个选项';
-        logManager.log(`下拉菜单 ${this.dropdownId} 标签设置为: ${this.label.textContent}`);
+        logManager.log(`下拉菜单 ${this.id} 标签设置为: ${this.label.textContent}`);
     }
 
     renderOptions() {
@@ -276,7 +299,7 @@ function showModal(modal) {
     const frame = document.getElementById(modal);
     overlay.style.display = "block";
     frame.style.display = "block";
-    frame.focus();
+    frame.focus(); // 将焦点聚集到弹窗上,防止选中弹窗下方元素
     logManager.log('显示弹窗 ' + modal);
 }
 
@@ -294,7 +317,7 @@ function hideModal(button) {
 
     const overlay = document.getElementById("overlay_" + frameId);
     const frame = document.getElementById(frameId);
-    playSound(button);
+    playSoundType(button);
     overlay.style.display = "none";
     frame.style.display = "none";
     logManager.log('隐藏弹窗 ' + frame);
@@ -308,15 +331,15 @@ class CustomSlider extends HTMLElement {
         this.isFirstRender = true;
     }
 
+    static get observedAttributes() {
+        return ['status'];
+    }
+
     connectedCallback() {
         if (this.isFirstRender) {
             this.render();
             this.isFirstRender = false;
         }
-    }
-
-    static get observedAttributes() {
-        return ['status'];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -346,16 +369,16 @@ class CustomSlider extends HTMLElement {
         const process = this.querySelector('.slider_process');
         const handle = this.querySelector('.slider_slider');
         const sliderData = JSON.parse(this.getAttribute('data-slider'));
-        const minValue = sliderData.minValue;
-        const maxValue = sliderData.maxValue;
-        const segments = sliderData.segments;
-        const initialValue = sliderData.initialValue || minValue;
+        const minValue = sliderData.minValue; // 最小值
+        const maxValue = sliderData.maxValue; // 最大值
+        const segments = sliderData.segments; // 分段滑块标识
+        const initialValue = sliderData.initialValue || minValue; // 默认值(默认为最小值)
         const showSegments = this.getAttribute('data-show-segments');
         const customSegments = this.getAttribute('data-custom-segments') === "true";
         const segmentValues = customSegments ? JSON.parse(this.getAttribute('data-segment-values')) : [];
-        const isDisabled = this.getAttribute('status') === "disabled";
+        const isDisabled = this.getAttribute('status') === "disabled"; // 状态
         const type = this.getAttribute('type');
-        const sliderId = this.id;
+        const sliderId = this.id; // ID
 
         let currentValue = initialValue;
         let isDragging = false;
@@ -367,11 +390,11 @@ class CustomSlider extends HTMLElement {
         }
 
         function formatIntegerValue(value) {
-            return value.toFixed(2).replace(/\.?0+$/, '');
+            return value.toFixed(2).replace(/\.?0+$/, ''); // 保留两位小数,舍去末尾的0
         }
 
         function formatDecimalValue(value) {
-            return value.toFixed(2);
+            return value.toFixed(2); // 始终保留两位小数
         }
 
         function updateHandle(position) {
@@ -383,12 +406,12 @@ class CustomSlider extends HTMLElement {
             if (type === 'set') {
                 const segmentIndex = Math.round(position / (100 / segments));
                 const segmentValue = customSegments ? segmentValues[segmentIndex] : minValue + segmentIndex * (maxValue - minValue) / segments;
-                tooltip.textContent = customSegments ? segmentValue : formatIntegerValue(segmentValue);
+                tooltip.textContent = customSegments ? segmentValue : formatIntegerValue(segmentValue); // 这里不保留末尾的0
             } else {
                 if (position === 0 || position === 100) {
-                    tooltip.textContent = formatIntegerValue(calculateValue(position));
+                    tooltip.textContent = formatIntegerValue(calculateValue(position)); // 这里不保留末尾的0
                 } else {
-                    tooltip.textContent = formatDecimalValue(calculateValue(position));
+                    tooltip.textContent = formatDecimalValue(calculateValue(position)); // 始终保留两位小数
                 }
             }
         }
@@ -442,21 +465,19 @@ class CustomSlider extends HTMLElement {
                 minValueLabel.classList.add('slider_value_info');
                 minValueLabel.textContent = formatIntegerValue(minValue);
                 minValueLabel.style.position = 'absolute';
-                minValueLabel.style.bottom = '-35px';
+                minValueLabel.style.bottom = '-35px'; // 提示和滑块轨道的距离
                 slider.appendChild(minValueLabel);
-
                 const minValueLabelWidth = minValueLabel.offsetWidth;
-                minValueLabel.style.left = `calc(0% - ${minValueLabelWidth / 2}px)`;
+                minValueLabel.style.left = `calc(0% - ${minValueLabelWidth / 2}px)`; // 居中
 
                 const maxValueLabel = document.createElement('div');
                 maxValueLabel.classList.add('slider_value_info');
                 maxValueLabel.textContent = formatIntegerValue(maxValue);
                 maxValueLabel.style.position = 'absolute';
-                maxValueLabel.style.bottom = '-35px';
+                maxValueLabel.style.bottom = '-35px'; // 提示和滑块轨道的距离
                 slider.appendChild(maxValueLabel);
-
                 const maxValueLabelWidth = maxValueLabel.offsetWidth;
-                maxValueLabel.style.left = `calc(100% - ${maxValueLabelWidth / 2}px)`;
+                maxValueLabel.style.left = `calc(100% - ${maxValueLabelWidth / 2}px)`; // 居中
             }
         } else if (type === 'set') {
             // 创建分段线和标签
@@ -464,7 +485,7 @@ class CustomSlider extends HTMLElement {
                 if (i > 0 && i < segments) {
                     const segment = document.createElement('div');
                     segment.classList.add('slider_segment');
-                    segment.style.left = `calc(${(i / segments) * 100}% - 1px)`;
+                    segment.style.left = `calc(${(i / segments) * 100}% - 1px)`; // 居中(1px为分段线宽度的一半)
                     slider.appendChild(segment);
                 }
 
@@ -474,11 +495,10 @@ class CustomSlider extends HTMLElement {
                     segmentValueLabel.classList.add('slider_value_info');
                     segmentValueLabel.textContent = customSegments ? segmentValue : formatIntegerValue(segmentValue);
                     segmentValueLabel.style.position = 'absolute';
-                    segmentValueLabel.style.bottom = '-35px';
+                    segmentValueLabel.style.bottom = '-35px'; // 提示和滑块轨道的距离
                     slider.appendChild(segmentValueLabel);
-
                     const segmentValueLabelWidth = segmentValueLabel.offsetWidth;
-                    segmentValueLabel.style.left = `calc(${(i / segments) * 100}% - ${segmentValueLabelWidth / 2}px)`;
+                    segmentValueLabel.style.left = `calc(${(i / segments) * 100}% - ${segmentValueLabelWidth / 2}px)`; // 居中
                 }
             }
         }
@@ -519,7 +539,7 @@ class CustomSlider extends HTMLElement {
                 if (!isDragging) return;
                 const position = currentPosition(event);
                 setSliderValue(position);
-            }, 0);
+            }, 0); // 延时防止调用失败
         };
 
         const currentPosition = (event) => {
@@ -669,17 +689,17 @@ class CustomSwitch extends HTMLElement {
                 e.preventDefault();
                 const currentX = e.type === 'mousemove' ? e.clientX : e.changedTouches[0].clientX;
                 const distanceMoved = currentX - this.startX;
-                this.isDragging = distanceMoved > 10 || distanceMoved < -10;
+                this.isDragging = distanceMoved > 10 || distanceMoved < -10; // 指针移动距离小于10不判定为拖动
             };
 
             const handlePointerUp = (e) => {
                 if (this.isDragging) {
                     const currentX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
                     const distanceMoved = currentX - this.startX;
-                    if (distanceMoved > 10 && !this.isSwitchOn) {
+                    if (distanceMoved > 10 && !this.isSwitchOn) { // 向右拖动
                         this.isSwitchOn = true;
                         this.updateSwitchState(this.isSwitchOn);
-                    } else if (distanceMoved < -10 && this.isSwitchOn) {
+                    } else if (distanceMoved < -10 && this.isSwitchOn) { // 向左拖动
                         this.isSwitchOn = false;
                         this.updateSwitchState(this.isSwitchOn);
                     }
@@ -687,7 +707,7 @@ class CustomSwitch extends HTMLElement {
                 setTimeout(() => {
                     this.isDragging = false;
                     switchSlider.classList.remove('active');
-                }, 0);
+                }, 0); // 延时防止调用失败
             };
 
             const handleClick = () => {
@@ -717,7 +737,7 @@ class CustomSwitch extends HTMLElement {
         switchElement.classList.toggle("on", isOn);
         switchElement.classList.toggle("off", !isOn);
         logManager.log(isOn ? "打开开关 " + this.id : "关闭开关 " + this.id);
-        playClickSound();
+        playSound('click');
 
         // 更新存储
         const switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
@@ -753,26 +773,22 @@ class CustomSwitch extends HTMLElement {
 customElements.define('custom-switch', CustomSwitch);
 
 
-// 自定义Text Field文本框
+// 自定义TextField文本框
 class TextField extends HTMLElement {
     constructor() {
         super();
         const containerId = this.parentNode.id;
+        const type = this.getAttribute('type') || 'text';
+        const isSingleLine = this.getAttribute('single-line') || 'true';
         this.classList.add(containerId);
-
-        this.initialValue = '41';
-
         this.inputField = document.createElement('textarea');
         this.inputField.classList.add('input');
         this.appendChild(this.inputField);
-
         this.hint = document.createElement('div');
         this.hint.classList.add('hint');
         this.hint.textContent = this.getAttribute('hint') || '';
         this.appendChild(this.hint);
 
-        const isSingleLine = this.getAttribute('single-line') || 'true';
-        const type = this.getAttribute('type') || 'text';
         if (isSingleLine === 'true') {
             this.inputField.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
@@ -800,8 +816,7 @@ class TextField extends HTMLElement {
             const {isValid, filtered} = this.isValidAndFilterInput(inputValue, type);
             if (!isValid) {
                 this.inputField.value = filtered; // 过滤掉非法字符
-                // 不保存到localStorage
-                return; // 直接返回
+                return; // 不保存到存储,直接返回
             }
             this.saveTextFieldValue(); // 有效输入才保存
         });
@@ -823,12 +838,10 @@ class TextField extends HTMLElement {
             }
         });
 
-        this.inputField.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
-        this.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
         setTimeout(() => {
             this.updateTextField();
             this.getTextFieldValue();
-        }, 100);
+        }, 100); // 延时防止获取到不正确数据
     }
 
     static get observedAttributes() {
@@ -858,15 +871,15 @@ class TextField extends HTMLElement {
     }
 
     autoResize() {
-        this.inputField.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
-        this.style.height = Math.max(this.initialValue, 40) + 'px'; // 默认值
-        this.inputField.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
-        this.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
+        this.inputField.style.height = '40px'; // 默认值(40px可与按钮高度对齐)
+        this.style.height = '40px'; // 默认值(40px可与按钮高度对齐)
+        this.inputField.style.height = this.inputField.scrollHeight + 'px';
+        this.style.height = this.inputField.scrollHeight + 'px';
     }
 
     updateContainerHeight() {
         const container = this.parentNode;
-        container.style.height = Math.max(this.inputField.scrollHeight, 40) + 'px';
+        container.style.height = this.inputField.scrollHeight + 'px';
         mainHandleScroll(); // 联动自定义网页滚动条
     }
 

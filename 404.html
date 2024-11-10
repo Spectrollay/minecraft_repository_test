@@ -96,9 +96,9 @@
 
     const not_found_img = document.getElementById('404_img');
     not_found_img.src = '/minecraft_repository_test/images/404.png';
-
-    const loading_mask = document.getElementById('loading_mask');
+    
     function hide_mask() {
+        const loading_mask = document.getElementById('loading_mask');
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';
         setTimeout(function () {

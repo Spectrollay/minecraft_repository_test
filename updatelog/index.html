@@ -62,7 +62,7 @@
     <div class="header_logo" onclick="scrollToTop();">
         <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
     </div>
-    <div class="header_item header_item_right" id="feedback" onclick="playSound(this);toRepo();">
+    <div class="header_item header_item_right" id="feedback" onclick="playSoundType(this);toRepo();">
         <img alt="" class="feedback_icon" src="/minecraft_repository_test/images/Feedback.png"/>
     </div>
 </header>
@@ -72,8 +72,8 @@
             <div id="main_top"></div>
             <div class="tab_bar_area main_tab_bar">
                 <div class="tab_bar">
-                    <button class="tab_bar_btn no_active" id="tab1" onclick="playSound(this);selectTab(1);toTop();">更新计划</button>
-                    <button class="tab_bar_btn active" id="tab2" onclick="playSound(this);selectTab(2);toTop();">更新历史</button>
+                    <button class="tab_bar_btn no_active" id="tab1" onclick="playSoundType(this);selectTab(1);toTop();">更新计划</button>
+                    <button class="tab_bar_btn active" id="tab2" onclick="playSoundType(this);selectTab(2);toTop();">更新历史</button>
                 </div>
             </div>
             <div class="tab_content no_active" id="content1">
@@ -191,7 +191,7 @@
                     <div class="expandable_card_group">
 
                         <!--<div class="expandable_card_area" id="">-->
-                        <!--    <div class="expandable_card expanded" onclick="playClickSound();">-->
+                        <!--    <div class="expandable_card expanded" onclick="playSound('click');">-->
                         <!--        <div class="expandable_card_text_area">-->
                         <!--            <div class="expandable_card_text">-->
                         <!--                <div class="expandable_card_text_title"></div>-->
@@ -244,7 +244,7 @@
                         <!--</div>-->
 
                         <div class="expandable_card_area" id="4.6.5">
-                            <div class="expandable_card expanded" onclick="playClickSound();">
+                            <div class="expandable_card expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.6.5 Stable</div>
@@ -255,6 +255,49 @@
                             </div>
                             <div class="expandable_card_down_area">
                                 <div class="expandable_card_down">
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20241110.01</article_title>
+                                            <article_subtitle>(V) 4.6.5.66</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新主要进行了一些优化改进以及问题修复. 欢迎向我们汇报你的发现或想法!
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title class="exp_title">实验性</article_list_title>
+                                                    <article_list>优化了TextField文本框的样式</article_list>
+                                                    <article_list>修复了Slider滑块在拖动时仍然可以控制页面滚动的问题</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>中文译名修正项目</article_list_title>
+                                                    <article_list>网页更新V2.0.1</article_list>
+                                                    <article_list>同步了OreUI近期更改</article_list>
+                                                    <article_list>现在不再依赖版本库项目了</article_list>
+                                                    <article_list>修复了一些问题</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>加入了一些新的提示</article_list>
+                                                    <article_list>优化了资源调用</article_list>
+                                                    <article_list>优化了正版购买指南页面布局</article_list>
+                                                    <article_list>对公共JS进行了大量优化改进</article_list>
+                                                    <article_list>音效现在通过统一的函数管理了</article_list>
+                                                    <article_list>日志管理器现在会追踪日志来源了</article_list>
+                                                    <article_list>现在次要滚动条不再能够被拖动了</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了一些显示错误</article_list>
+                                                    <article_list>修复了随机选择并不随机的问题</article_list>
+                                                    <article_list>倒计时功能现在会在页面加载完成后正确初始化了</article_list>
+                                                    <article_list>Checkbox复选框现在可以正确的记住并恢复状态了</article_list>
+                                                    <article_list>修复了自定义折叠组件在网页加载时会获取到不正确返回值的问题</article_list>
+                                                    <article_list>修复了在相同权值情况下上方元素会比下方元素有更大概率被选中的问题</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
                                     <div class="expandable_card_down_content">
                                         <article_block>
                                             <article_title>4.6.20241007.01</article_title>
@@ -330,7 +373,7 @@
                                                     <article_list_level2>选中时按下ArrowUp键可以将滑块移至最右端</article_list_level2>
                                                     <article_list_level2>选中时按下ArrowRight键可以将滑块向右移动一个单元</article_list_level2>
                                                     <article_list_level2>选中时按下ArrowDown键可以将滑块移至最左端</article_list_level2>
-                                                    <article_list>禁用的Text Field文本框现在不再可以被Tab键选中了</article_list>
+                                                    <article_list>禁用的TextField文本框现在不再可以被Tab键选中了</article_list>
                                                     <article_list_level2>至此所有的自定义控件已悉数适配无障碍设计</article_list_level2>
                                                     <article_list>修复了Slider滑块的一些数据转化问题</article_list>
                                                     <article_list>修复了Switch开关在打开状态下Slider右偏移量缺少了1px的问题</article_list>
@@ -387,10 +430,10 @@
                                                     <article_list>Dropdown下拉菜单</article_list>
                                                     <article_list_level2>Dropdown下拉菜单在改变高度时会更新页面滚动条了</article_list_level2>
                                                     <article_list_level2>优化了Dropdown下拉菜单的样式</article_list_level2>
-                                                    <article_list>Text Field文本框</article_list>
-                                                    <article_list_level2>Text Field文本框在改变高度时会更新页面滚动条了</article_list_level2>
-                                                    <article_list_level2>优化了Text Field文本框的样式</article_list_level2>
-                                                    <article_list_level2>修复了Text Field文本框的一些对齐问题</article_list_level2>
+                                                    <article_list>TextField文本框</article_list>
+                                                    <article_list_level2>TextField文本框在改变高度时会更新页面滚动条了</article_list_level2>
+                                                    <article_list_level2>优化了TextField文本框的样式</article_list_level2>
+                                                    <article_list_level2>修复了TextField文本框的一些对齐问题</article_list_level2>
                                                 </article_list_content>
                                                 <article_list_content>
                                                     <article_list_title>新内容</article_list_title>
@@ -434,11 +477,11 @@
                                                     <article_list_level2>更新了Switch开关的数据存储逻辑</article_list_level2>
                                                     <article_list_level2>Switch开关现在规范了通用的保存逻辑</article_list_level2>
                                                     <article_list_level2>Switch开关现在可以正确的保存和加载数据了</article_list_level2>
-                                                    <article_list>Text Field文本框</article_list>
-                                                    <article_list_level2>Text Field文本框现在不会保存空数据了</article_list_level2>
-                                                    <article_list_level2>优化了Text Field文本框在触摸设备上的使用体验</article_list_level2>
-                                                    <article_list_level2>修复了Text Field文本框在一些情况下显示不正确的问题</article_list_level2>
-                                                    <article_list_level2>修复了Text Field文本框的一些预设判定问题</article_list_level2>
+                                                    <article_list>TextField文本框</article_list>
+                                                    <article_list_level2>TextField文本框现在不会保存空数据了</article_list_level2>
+                                                    <article_list_level2>优化了TextField文本框在触摸设备上的使用体验</article_list_level2>
+                                                    <article_list_level2>修复了TextField文本框在一些情况下显示不正确的问题</article_list_level2>
+                                                    <article_list_level2>修复了TextField文本框的一些预设判定问题</article_list_level2>
                                                 </article_list_content>
                                                 <article_list_content>
                                                     <article_list_title>更改</article_list_title>
@@ -464,7 +507,7 @@
                                                 </article_note>
                                                 <article_list_content>
                                                     <article_list_title class="exp_title">实验性</article_list_title>
-                                                    <article_list>加入了Text Field文本框</article_list>
+                                                    <article_list>加入了TextField文本框</article_list>
                                                 </article_list_content>
                                                 <article_list_content>
                                                     <article_list_title>更改</article_list_title>
@@ -838,7 +881,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.6.4">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.6.4 Canary</div>
@@ -869,11 +912,11 @@
                                                 <article_list_level3>现在主要滚动条有右间距了,不再紧靠右侧了</article_list_level3>
                                                 <article_list_level3>现在主要滚动条可以显示没被遮挡的下方元素了</article_list_level3>
                                                 <article_list_level3>现在主要滚动条会在没有触发事件时自动消失了</article_list_level3>
-                                                <article_list_level2>更新了侧边栏滚动条</article_list_level2>
-                                                <article_list_level3>现在侧边栏滚动条拥有了新的样式</article_list_level3>
-                                                <article_list_level3>现在侧边栏滚动条拥有渐隐渐显动画了</article_list_level3>
-                                                <article_list_level3>现在侧边栏滚动条不会占用元素宽度了</article_list_level3>
-                                                <article_list_level3>现在侧边栏滚动条会在没有触发事件时自动消失了</article_list_level3>
+                                                <article_list_level2>更新了次要滚动条</article_list_level2>
+                                                <article_list_level3>现在次要滚动条拥有了新的样式</article_list_level3>
+                                                <article_list_level3>现在次要滚动条拥有渐隐渐显动画了</article_list_level3>
+                                                <article_list_level3>现在次要滚动条不会占用元素宽度了</article_list_level3>
+                                                <article_list_level3>现在次要滚动条会在没有触发事件时自动消失了</article_list_level3>
                                                 <article_list_level2>移除了Modal弹窗的滚动条</article_list_level2>
                                                 <article_list>
                                                     <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span>修复了滚动条在Safari和Firefox上无法显示的问题<span></span></div>
@@ -897,7 +940,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.6.3">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.6.3 Canary</div>
@@ -1153,7 +1196,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.6.2">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.6.2 Canary</div>
@@ -1222,7 +1265,7 @@
                                                 <article_list>更新了开发日志页面的部分样式</article_list>
                                                 <article_list>现在disclaimer_modal弹窗有关闭按钮了</article_list>
                                                 <article_list>统一了按钮的代码,现在按钮样式具有普适性了</article_list>
-                                                <article_list>Tab Bar的按钮现在解耦合了</article_list>
+                                                <article_list>TabBar标签栏的按钮现在解耦合了</article_list>
                                                 <article_list>开发日志页面不再属于实验性内容了</article_list>
                                                 <article_list>带有关闭按钮的Modal弹窗不再属于实验性内容了</article_list>
                                                 <article_list>修复了部分文字不会正确应用的问题</article_list>
@@ -1413,7 +1456,7 @@
                                                 <article_list>实现了自定义元素功能组件</article_list>
                                                 <article_list>再次更新了标签的代码</article_list>
                                                 <article_list>顶栏标题现在相对于顶栏居中了</article_list>
-                                                <article_list>可展开的卡片的标题现在相对于卡片居中了</article_list>
+                                                <article_list>可展开卡片的标题现在相对于卡片居中了</article_list>
                                                 <article_list>带有提示的按钮不再属于实验性内容了</article_list>
                                                 <article_list>Divider分割线现在是自定义标签了</article_list>
                                                 <article_list>Divider分割线不再属于实验性内容了</article_list>
@@ -1426,7 +1469,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.6.1">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.6.1 Canary</div>
@@ -1524,7 +1567,7 @@
                                                 <article_list_level2>Minecraft周年纪标语现在持续显示3天</article_list_level2>
                                                 <article_list_level2>版本库周年纪标语现在持续显示3天</article_list_level2>
                                                 <article_list>更新了一些节日标语的内容</article_list>
-                                                <article_list>修复了可展开的卡片组在重新计算高度时可能出现同时展开两个卡片的问题</article_list>
+                                                <article_list>修复了可展开卡片组在重新计算高度时可能出现同时展开两个卡片的问题</article_list>
                                             </article_detail>
                                         </article_block>
                                     </div>
@@ -1614,8 +1657,8 @@
                                             <article_detail>
                                                 <article_note>本版本基于4.5.1-Beta6 (4.5.1.9)开发</article_note>
                                                 <article_list>更新了Tag标签的显示</article_list>
-                                                <article_list>更新了开发日志页面Tab Bar的样式</article_list>
-                                                <article_list_level2>现在Tab Bar的判定范围内不会显示其他页面内容了,即便元素透明</article_list_level2>
+                                                <article_list>更新了开发日志页面TabBar标签栏的样式</article_list>
+                                                <article_list_level2>现在TabBar标签栏的判定范围内不会显示其他页面内容了,即便元素透明</article_list_level2>
                                             </article_detail>
                                         </article_block>
                                     </div>
@@ -1686,7 +1729,7 @@
                                             <article_detail>
                                                 <article_note>本版本基于4.5.1-Beta6 (4.5.1.9)开发</article_note>
                                                 <article_list>现在实验性内容页面的项目按照首字母排序了</article_list>
-                                                <article_list>将可展开的卡片及卡片组移出了实验性内容</article_list>
+                                                <article_list>将可展开卡片及卡片组移出了实验性内容</article_list>
                                                 <article_list>加入了新的提示</article_list>
                                                 <article_list>重新加入了多级项目</article_list>
                                             </article_detail>
@@ -1704,9 +1747,9 @@
                                                 <article_list>更新了设置页面的内容</article_list>
                                                 <article_list>为开发日志页面加入了更多默认样式</article_list>
                                                 <article_list>为开发日志页面的预览提示加入了查看旧设计按钮</article_list>
-                                                <article_list>对可展开的卡片样式进行了一些调整</article_list>
+                                                <article_list>对可展开卡片样式进行了一些调整</article_list>
                                                 <article_list>优化了路径的检测与加载机制</article_list>
-                                                <article_list>现在可展开的卡片会在元素变化时自动调整高度了</article_list>
+                                                <article_list>现在可展开卡片会在元素变化时自动调整高度了</article_list>
                                                 <article_list>修复了一系列新设计的问题</article_list>
                                             </article_detail>
                                         </article_block>
@@ -1720,7 +1763,7 @@
                                                 <article_note>本版本基于4.5.1-Beta4 (4.5.1.6)开发</article_note>
                                                 <article_list>修复了一些显示问题</article_list>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag red_tag known_issue_tag">已知问题</span><span>可展开的卡片在部分情况下高度显示不正确</span></div>
+                                                    <div class="tag_area"><span class="tag red_tag known_issue_tag">已知问题</span><span>可展开卡片在部分情况下高度显示不正确</span></div>
                                                 </article_list>
                                             </article_detail>
                                         </article_block>
@@ -1732,7 +1775,7 @@
                                             <article_date>2024-03-02</article_date>
                                             <article_detail>
                                                 <article_note>本版本基于4.5.1-Beta4 (4.5.1.6)开发</article_note>
-                                                <article_list>为可展开的卡片加入了点击音效</article_list>
+                                                <article_list>为可展开卡片加入了点击音效</article_list>
                                                 <article_list>为开发日志页面引入了全新的设计样式</article_list>
                                                 <article_list_level2>请注意: 设计仍未完工,欢迎积极提出你的建议</article_list_level2>
                                             </article_detail>
@@ -1742,7 +1785,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.6.0">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.6.0 Canary</div>
@@ -1775,7 +1818,7 @@
                                                 <article_list>将原有仓库入口由主页面移至设置页面</article_list>
                                                 <article_list>将更新历史重命名为开发日志</article_list>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>加入了可展开的卡片及卡片组</span></div>
+                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>加入了可展开卡片及卡片组</span></div>
                                                 </article_list>
                                                 <article_list>
                                                     <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>加入了带有Tooltip的按钮的禁用样式</span></div>
@@ -2014,7 +2057,7 @@
                                                 <article_list>为Switch开关加入了回弹动画</article_list>
                                                 <article_list>更新了Switch开关的样式</article_list>
                                                 <article_list>更新了滚动条的样式</article_list>
-                                                <article_list>更新了Tab Bar的样式</article_list>
+                                                <article_list>更新了TabBar标签栏的样式</article_list>
                                                 <article_list>优化了Switch开关的注册事件</article_list>
                                                 <article_list>修复了一些潜在的问题</article_list>
                                             </article_detail>
@@ -2027,7 +2070,7 @@
                                             <article_date>2024-02-22</article_date>
                                             <article_detail>
                                                 <article_note>本版本基于4.5.1-Beta4 (4.5.1.6)开发</article_note>
-                                                <article_list>更新了Tab Bar的默认样式</article_list>
+                                                <article_list>更新了TabBar标签栏的默认样式</article_list>
                                                 <article_list>移除了子页面的设计预览提示</article_list>
                                                 <article_list>修复了布局存在的一些问题</article_list>
                                                 <article_list>修复了元素不存在导致的错误问题</article_list>
@@ -2041,7 +2084,7 @@
                                             <article_date>2024-02-21</article_date>
                                             <article_detail>
                                                 <article_note>本版本基于4.5.1-Beta4 (4.5.1.6)开发</article_note>
-                                                <article_list>将带有Tooltip的按钮和Tab Bar移出了实验性内容</article_list>
+                                                <article_list>将带有Tooltip的按钮和Tab Ba标签栏移出了实验性内容</article_list>
                                                 <article_list>更新了基岩版页面和携带版页面</article_list>
                                                 <article_list>更新了正版购买指南页面</article_list>
                                                 <article_list>重新设计了开发日志页面</article_list>
@@ -2052,7 +2095,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.5.10">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.5.10 Preview</div>
@@ -2142,7 +2185,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.5.2">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.5.2 Beta</div>
@@ -2194,8 +2237,8 @@
                                             </article_detail>
                                         </article_block>
                                     </div>
+                                    <line></line>
                                     <div class="expandable_card_down_content">
-                                        <line></line>
                                         <article_block>
                                             <article_title>4.5.2-Beta1 (4.5.2.1)</article_title>
                                             <article_date>2024-03-31</article_date>
@@ -2219,7 +2262,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.5.1">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.5.1 Release</div>
@@ -2240,10 +2283,10 @@
                                                     <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>加入了Switch开关</span></div>
                                                 </article_list>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>为Tab Bar加入了包含元素</span></div>
+                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>为TabBar标签栏加入了包含元素</span></div>
                                                 </article_list>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>现在只有在切换Tab Bar时才会播放音效了</span></div>
+                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>现在只有在切换TabBar标签栏时才会播放音效了</span></div>
                                                 </article_list>
                                                 <article_list>
                                                     <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>为实验性内容加入了更多的日志输出</span></div>
@@ -2378,10 +2421,10 @@
                                                 </article_list>
                                                 <article_list_level2>该特性仍在开发中,缺失部分预期特性</article_list_level2>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>为Tab Bar加入了包含元素</span></div>
+                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>为TabBar标签栏加入了包含元素</span></div>
                                                 </article_list>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>现在只有在切换Tab Bar时才会播放音效了</span></div>
+                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>现在只有在切换TabBar标签栏时才会播放音效了</span></div>
                                                 </article_list>
                                                 <article_list>
                                                     <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>为实验性内容加入了更多的日志输出</span></div>
@@ -2397,7 +2440,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.5.0">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.5.0 Release</div>
@@ -2414,7 +2457,7 @@
                                             <article_date>2024-02-13</article_date>
                                             <article_detail>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>修正了Tab Bar在进行交互时的一些显示问题</span></div>
+                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>修正了TabBar标签栏在进行交互时的一些显示问题</span></div>
                                                 </article_list>
                                                 <article_list>完善了一些元素的交互</article_list>
                                             </article_detail>
@@ -2480,7 +2523,7 @@
                                             <article_title>4.5-Pre1 (4.5.0.12)</article_title>
                                             <article_date>2024-02-06</article_date>
                                             <article_detail>
-                                                <article_list>修正了Tab Bar的一些显示问题</article_list>
+                                                <article_list>修正了TabBar标签栏的一些显示问题</article_list>
                                                 <article_list>修正了一些错误</article_list>
                                             </article_detail>
                                         </article_block>
@@ -2495,7 +2538,7 @@
                                                     <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>加入了带Tooltip的按钮样式</span></div>
                                                 </article_list>
                                                 <article_list>
-                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>加入了Tab Bar组件</span></div>
+                                                    <div class="tag_area"><span class="tag yellow_tag exp_tag">实验性</span><span>加入了TabBar标签栏组件</span></div>
                                                 </article_list>
                                                 <article_list>加入了教育版的下载链接</article_list>
                                                 <article_list>加入了试玩版的下载链接</article_list>
@@ -2599,7 +2642,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.3.0">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.3.0 Preview</div>
@@ -2673,7 +2716,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.2.0">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.2.0 Preview</div>
@@ -2825,7 +2868,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.1.0">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.1.0 Preview</div>
@@ -2936,7 +2979,7 @@
                             </div>
                         </div>
                         <div class="expandable_card_area" id="4.0.0">
-                            <div class="expandable_card no_expanded" onclick="playClickSound();">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
                                         <div class="expandable_card_text_title">4.0.0 Preview</div>
@@ -3263,8 +3306,8 @@
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
     document.head.appendChild(public_script);
 
-    const loading_mask = document.getElementById('loading_mask');
     function hide_mask() {
+        const loading_mask = document.getElementById('loading_mask');
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';
         setTimeout(function () {

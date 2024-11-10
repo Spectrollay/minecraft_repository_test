@@ -40,7 +40,7 @@ function showDisclaimerModal(url) {
 function hideDisclaimerModal(button, state, url) {
     const overlay = document.getElementById("overlay_disclaimer_modal");
     const modal = document.getElementById("disclaimer_modal");
-    playSound(button);
+    playSoundType(button);
     overlay.style.display = "none";
     modal.style.display = "none";
     if (state === -1) {
@@ -65,7 +65,7 @@ function hideDisclaimerModal(button, state, url) {
 }
 
 function howToBuyGame(button, state, url) {
-    playSound(button);
+    playSoundType(button);
     if (state === 0) {
         logManager.log("选择了了解正版购买");
     }

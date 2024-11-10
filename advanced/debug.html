@@ -110,8 +110,8 @@
     public_script.src = '/minecraft_repository_test/javascript/public_script.js';
     document.head.appendChild(public_script);
 
-    const loading_mask = document.getElementById('loading_mask');
     function hide_mask() {
+        const loading_mask = document.getElementById('loading_mask');
         // 延时600ms后隐藏蒙版
         loading_mask.style.opacity = '0';
         setTimeout(function () {

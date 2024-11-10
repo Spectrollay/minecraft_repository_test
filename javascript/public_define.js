@@ -25,12 +25,12 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".5"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".60"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".66"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20241007" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20241110" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -116,87 +116,101 @@ const tipElement = document.getElementById("banner_tip");
 let tipsWithWeights;
 const commonTips = [
     {
-        text: "<span>发现问题或有好的建议?<a href=\"https://github.com/Spectrollay" + rootPath + "issues/new\" target='_blank' onclick='playClickSound();'>欢迎提出</a>!</span>",
-        weight: 3
+        text: "<span>发现问题或有好的建议?<a href='https://github.com/Spectrollay/minecraft_repository_test/issues/new' onclick=\"playSound('click');\" target='_blank'>欢迎提出</a>!</span>",
+        weight: 5
     },
     {
-        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' target='_blank' onclick='playClickSound();'>Telegram</a> / <a href='https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609' target='_blank' onclick='playClickSound();'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' target='_blank' onclick='playClickSound();'>云湖</a>群聊!</span>",
-        weight: 3
+        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' onclick=\"playSound('click');\" target='_blank'>Telegram</a> / <a href='https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609' onclick=\"playSound('click');\" target='_blank'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' onclick=\"playSound('click');\" target='_blank'>云湖</a>群聊!</span>",
+        weight: 5
     },
     {
-        text: "<span>欢迎加入我们的官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick='playClickSound();' target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick='playClickSound();' target='_blank'>QQ</a></span>",
-        weight: 3
+        text: "<span>欢迎加入我们的官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick=\"playSound('click');\" target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick=\"playSound('click');\" target='_blank'>QQ</a></span>",
+        weight: 5
     },
     {
-        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' target='_blank' onclick='playClickSound();'>官方网站</a>!</span>",
-        weight: 3
+        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' onclick=\"playSound('click');\" target='_blank'>官方网站</a>!</span>",
+        weight: 5
     },
     {
-        text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' target='_blank' onclick='playClickSound();'>中文译名修正项目</a>!</span>",
-        weight: 3
+        text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' onclick=\"playSound('click');\" target='_blank'>中文译名修正项目</a>!</span>",
+        weight: 5
     },
-    {text: "Made by Spectrollay!", weight: 3},
-    {text: "← 点击框框内部可以切换提示 →", weight: 3},
-    {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 3},
-    {text: "本站指向的站外内容可能不受保障!", weight: 3},
-    {text: "请直接分享本站而不是转载其中的内容!", weight: 3},
-    {text: "感谢你使用星月Minecraft版本库!", weight: 3},
+    {text: "Made by Spectrollay!", weight: 5},
+    {text: "← 点击框框内部可以切换提示 →", weight: 5},
+    {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 5},
+    {text: "本站指向的站外内容可能不受保障!", weight: 5},
+    {text: "请直接分享本站而不是转载其中的内容!", weight: 5},
+    {text: "感谢你使用星月Minecraft版本库!", weight: 5},
 ];
 const fullVersionTips = [
     {text: "你完成你的事情了吗?", weight: 3},
-    {text: "我们保留了一些bug,这样你才知道你在使用的是星月Minecraft版本库.", weight: 2},
-    {text: "你知道吗,版本库的第一个版本仅用了两天时间构建.", weight: 2},
-    {text: "你知道吗,这个项目始于2020年.", weight: 2},
-    {text: "你知道吗,你可以参与这个项目的开发与维护.", weight: 2},
-    {text: "我想你应该会喜欢彩蛋的!", weight: 2},
-    {text: "现在实现彩蛋自由了!", weight: 2},
-    {text: "现在你看到了一条提示.", weight: 2},
-    {text: "猜一猜下一条出现的提示是什么?", weight: 2},
-    {text: "猜一猜下一次看到这条提示是什么时候?", weight: 2},
-    {text: "是谁把我放在这的?", weight: 2},
-    {text: "不妨试着点点我?你可能会发现什么.", weight: 2},
-    {text: "Minecraft, 启动!", weight: 2},
-    {text: "看到这条提示就去启动Minecraft吧!", weight: 2},
-    {text: "也去玩玩Minceraft吧!", weight: 2},
-    {text: "也去玩玩饥荒吧!", weight: 2},
-    {text: "也去玩玩泰拉瑞亚吧!", weight: 2},
-    {text: "触摸设备友好型!", weight: 2},
-    {text: "不要这样看着人家,会害羞的啦!", weight: 2},
-    {text: "不要一直戳人家啦!", weight: 2},
-    {text: "今天是一个不错的日子,你说对吗?", weight: 2},
-    {text: "你有些事情需要在今天结束的时候考虑一下...", weight: 2},
-    {text: "你看到了这条提示,这使你充满了决心.", weight: 2},
-    {text: "完全随机的提示!", weight: 2},
-    {text: "多抬头看看天空吧!", weight: 2},
-    {text: "天空即为极限!", weight: 2},
-    {text: "记得要天天开心哦!", weight: 2},
-    {text: "很高兴看到你!", weight: 2},
-    {text: "劳逸结合!", weight: 2},
-    {text: "持续支持中!", weight: 2},
-    {text: "独一无二的设计!", weight: 2},
-    {text: "Technoblade never dies!", weight: 2},
-    {text: "Hello world!", weight: 2},
-    {text: "95% OreUI!", weight: 2},
-    {text: "90% bug free!", weight: 2},
-    {text: "/give @a hugs 64", weight: 2},
-    {text: "sqrt(-1) love you!", weight: 2},
-    {text: "P不包含NP!", weight: 2},
-    {text: "Creeper?", weight: 2},
-    {text: "Aww man!", weight: 2},
-    {text: "Hmmmrmm!", weight: 2},
-    {text: "Ssssss...BOOM!", weight: 2},
-    {text: "Nooooooooooooo!", weight: 2},
-    {text: "Everybody do the Leif!", weight: 2},
-    {text: "What DOES the fox say?", weight: 2},
-    {text: "!!!1!", weight: 2},
-    {text: "llI1IlI11lllI", weight: 2},
-    {text: "Wow!", weight: 2},
-    {text: "像幽匿尖啸体一样尖啸!", weight: 2},
-    {text: "你做完你的作业了吗?", weight: 2},
-    {text: "末影人把我的作业偷走了!", weight: 2},
-    {text: "苦力怕把我的作业炸了!", weight: 2},
-    {text: "别杀怪物,你这个海豚!", weight: 2},
-    {text: "你要去码头整点薯条吗?", weight: 2},
+    {text: "你最好已经购买了正版!", weight: 3},
+    {text: "我们保留了一些bug,这样你才知道你在使用的是星月Minecraft版本库.", weight: 3},
+    {text: "你知道吗,版本库的第一个版本仅用了两天时间构建.", weight: 3},
+    {text: "你知道吗,这个项目始于2020年.", weight: 3},
+    {text: "你知道吗,你可以参与这个项目的开发与维护.", weight: 3},
+    {text: "我想你应该会喜欢彩蛋的!", weight: 3},
+    {text: "现在实现彩蛋自由了!", weight: 3},
+    {text: "加载提示时遇到问题,请点击重试.", weight: 3},
+    {text: "现在你看到了一条提示.", weight: 3},
+    {text: "猜一猜下一条出现的提示是什么?", weight: 3},
+    {text: "猜一猜下一次看到这条提示是什么时候?", weight: 3},
+    {text: "是谁把我放在这的?", weight: 3},
+    {text: "不妨试着点点我?你可能会发现什么.", weight: 3},
+    {text: "网页\"星月Minecraft版本库\"没有响应", weight: 3},
+    {text: "版本库是这样的,开发者只要更新版本就可以了,而用户要考虑的事情就很多了.", weight: 3},
+    {text: "有一个人前来下载MC.", weight: 3},
+    {text: "Minecraft, 启动!", weight: 3},
+    {text: "看到这条提示就去启动Minecraft吧!", weight: 3},
+    {text: "也去玩玩Minceraft吧!", weight: 3},
+    {text: "也去玩玩饥荒吧!", weight: 3},
+    {text: "也去玩玩泰拉瑞亚吧!", weight: 3},
+    {text: "触摸设备友好型!", weight: 3},
+    {text: "不要这样看着人家,会害羞的啦!", weight: 3},
+    {text: "不要一直戳人家啦!", weight: 3},
+    {text: "今天是一个不错的日子,你说对吗?", weight: 3},
+    {text: "你有些事情需要在今天结束的时候考虑一下...", weight: 3},
+    {text: "你看到了这条提示,这使你充满了决心.", weight: 3},
+    {text: "什么Bug?哪里有Bug?你不要乱讲,那是特性!", weight: 3},
+    {text: "完全随机的提示!", weight: 3},
+    {text: "多抬头看看天空吧!", weight: 3},
+    {text: "天空即为极限!", weight: 3},
+    {text: "记得要天天开心哦!", weight: 3},
+    {text: "很高兴看到你!", weight: 3},
+    {text: "劳逸结合!", weight: 3},
+    {text: "持续支持中!", weight: 3},
+    {text: "独一无二的设计!", weight: 3},
+    {text: "Technoblade never dies!", weight: 3},
+    {text: "Hello world!", weight: 3},
+    {text: "95% OreUI!", weight: 3},
+    {text: "90% bug free!", weight: 3},
+    {text: "Powered by AI!", weight: 3},
+    {text: "Are you OK?", weight: 3},
+    {text: "/give @a hugs 64", weight: 3},
+    {text: "sqrt(-1) love you!", weight: 3},
+    {text: "P不包含NP!", weight: 3},
+    {text: "Creeper?", weight: 3},
+    {text: "Aww man!", weight: 3},
+    {text: "Hmmmrmm!", weight: 3},
+    {text: "Ssssss...BOOM!", weight: 3},
+    {text: "Nooooooooooooo!", weight: 3},
+    {text: "Who are you? I'm Steve!", weight: 3},
+    {text: "Everybody do the Leif!", weight: 3},
+    {text: "What DOES the fox say?", weight: 3},
+    {text: "← To Be Continued...", weight: 3},
+    {text: "!!!1!", weight: 3},
+    {text: "llI1IlI11lllI", weight: 3},
+    {text: "Wow!", weight: 3},
+    {text: "袜袄--------!!", weight: 3},
+    {text: "警告: 版本库里没有红色的开关!如果在使用过程中发现了红色的开关,请!立刻!关闭!网页!并喝!一杯!热水!", weight: 3},
+    {text: "崩溃这种事情不要啊!", weight: 3},
+    {text: "像幽匿尖啸体一样尖啸!", weight: 3},
+    {text: "你做完你的作业了吗?", weight: 3},
+    {text: "末影人把我的作业偷走了!", weight: 3},
+    {text: "苦力怕把我的作业炸了!", weight: 3},
+    {text: "别杀怪物,你这个海豚!", weight: 3},
+    {text: "你要去码头整点薯条吗?", weight: 3},
+    {text: "<br>", weight: 2},
     {text: "真的会有人看这些吗?", weight: 2},
     {
         text: "<span style='background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;'>这是一条彩色的提示!</span>",
@@ -213,6 +227,7 @@ const fullVersionTips = [
     {text: "<span style='color: dodgerblue'>获得物品: 羊驼唾沫!</span>", weight: 1},
     {text: "<span style='color: dodgerblue'>驯服宠物: 六角恐龙!</span>", weight: 1},
     {text: "<span style='color: gold'>获得稀有物品: 附魔金苹果!</span>", weight: 0.1},
+    {text: "<br><br><br><br><br><br><br><br><br><br><br><br>", weight: 0.01},
     {text: "<span style='color: yellow'>解锁隐藏成就: 仓库尽头的提示</span>", weight: 0.001},
     {text: "这是一条永远不会出现的提示.", weight: 0},
 ];
@@ -355,7 +370,7 @@ if (holiday_tip2) {
     if (M === 4 && (D === 1 || (D === 2 && h < 12))) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span><a href='https://www.minecraft.net/article/poisonous-potato-update' target='_blank' onclick='playClickSound();'>毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href='https://www.bilibili.com/video/BV1GJ411x7h7/' target='_blank' onclick='playClickSound();'>点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
+            holiday_tip_display2.innerHTML = "<span><a href='https://www.minecraft.net/article/poisonous-potato-update' onclick=\"playSound('click');\" target='_blank'>毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href='https://www.bilibili.com/video/BV1GJ411x7h7/' target='_blank'>点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -367,7 +382,7 @@ if (holiday_tip2) {
     if (M === 4 && D > 19 && D < 26) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href='https://www.earthday.org/earth-day-2024/' target='_blank' onclick='playClickSound();'>Planet vs. Plastics</a></span>";
+            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href='https://www.earthday.org/earth-day-2024/' onclick=\"playSound('click');\" target='_blank'>Planet vs. Plastics</a></span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -446,9 +461,9 @@ window.addEventListener('load', () => setTimeout(function () {
             <div class="page_info_title">INFORMATION</div>
             <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}<br>Commited: ${commit}</span></div>
             <div class="page_info_title">BASED ON</div>
-            <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank" onclick="playClickSound();">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" onclick="playClickSound();">Web API</a> / <a href="https://webkit.org/" target="_blank" onclick="playClickSound();">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" target="_blank" onclick="playClickSound();">OreUI</a></span></div>
+            <div class="page_info"><span><a href="https://html.spec.whatwg.org/" onclick="playSound('click');" target="_blank">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" onclick="playSound('click');" target="_blank">Web API</a> / <a href="https://webkit.org/" onclick="playSound('click');" target="_blank">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" onclick="playSound('click');" target="_blank">OreUI</a></span></div>
             <div class="page_info_title">ABOUT US</div>
-            <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playClickSound();">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" target="_blank" onclick="playClickSound();">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank" onclick="playClickSound();">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" target="_blank" onclick="playClickSound();">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank" onclick="playClickSound();">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playClickSound();" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playClickSound();" target="_blank">QQ</a><span></div>
+            <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" onclick="playSound('click');" target="_blank">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" onclick="playSound('click');" target="_blank">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" onclick="playSound('click');" target="_blank">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" onclick="playSound('click');" target="_blank">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" onclick="playSound('click');" target="_blank">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playSound('click');" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound('click');" target="_blank">QQ</a><span></div>
             <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
             <div class="page_info"><br></div>
         </div>`;
@@ -524,36 +539,55 @@ if (tipElement) {
 }
 
 function getRandomTip() {
-    const totalWeight = tipsWithWeights.reduce((acc, tip) => acc + tip.weight, 0);
-    logManager.log("总权重: " + totalWeight + ", 上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
-    logManager.log("开始选择");
-    let accumulatedWeight = 0;
+    // 按权值分组
+    const tipsByWeight = {};
     for (const tip of tipsWithWeights) {
-        accumulatedWeight += tip.weight;
-        let randomWeight = Math.random() * totalWeight;
+        if (!tipsByWeight[tip.weight]) {
+            tipsByWeight[tip.weight] = [];
+        }
+        tipsByWeight[tip.weight].push(tip);
+    }
+    // logManager.log("按权值分组的提示: " + JSON.stringify(tipsByWeight));
+
+    // 计算去重权值总和
+    const uniqueWeights = Object.keys(tipsByWeight).map(Number).sort((a, b) => b - a); // 权值降序排列
+    const totalWeight = Math.round(uniqueWeights.reduce((acc, weight) => acc + weight, 0) * 1000) / 1000;
+
+    logManager.log("去重总权值: " + totalWeight);
+
+    let randomWeight = Math.random() * totalWeight;
+    logManager.log("生成的随机权值: " + randomWeight.toFixed(4));
+
+    let accumulatedWeight = 0;
+    let selectedWeight;
+
+    // 确定权值区间
+    for (const weight of uniqueWeights) {
+        accumulatedWeight += weight;
+
         if (randomWeight <= accumulatedWeight) {
-            previousTipIndex = currentTipIndex;
-            currentTipIndex = tipsWithWeights.indexOf(tip);
-            if (currentTipIndex === previousTipIndex) {
-                logManager.log("当前选中值与上次选中值相同!");
-                randomWeight = Math.random() * (totalWeight - tip.weight);
-                accumulatedWeight = 0;
-                for (const tip_new of tipsWithWeights) {
-                    if (tip_new !== tip) {
-                        accumulatedWeight += tip_new.weight;
-                        if (randomWeight <= accumulatedWeight) {
-                            previousTipIndex = currentTipIndex;
-                            currentTipIndex = tipsWithWeights.indexOf(tip_new);
-                            logManager.log("更新后的上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
-                            return tip_new.text;
-                        }
-                    }
-                }
-            } else {
-                logManager.log("当前选中值与上次选中值不同.");
-                logManager.log("上次选中值: " + previousTipIndex + ", 当前选中值: " + currentTipIndex);
-                return tip.text;
-            }
+            selectedWeight = weight;
+            logManager.log(`当前权值: ${weight}, 累积权值: ${accumulatedWeight}`);
+            logManager.log("选定的权值区间: " + selectedWeight);
+            break;
         }
     }
+
+    // 在选定权值区间内随机选择提示,并避免与上次选中相同
+    const availableTips = tipsByWeight[selectedWeight];
+    let chosenTip;
+    // logManager.log("在权值 " + selectedWeight + " 区间内可用的提示: " + JSON.stringify(availableTips));
+
+    do {
+        chosenTip = availableTips[Math.floor(Math.random() * availableTips.length)];
+        currentTipIndex = tipsWithWeights.indexOf(chosenTip);
+        // logManager.log("尝试选中提示: " + chosenTip.text + ", 索引: " + currentTipIndex);
+        logManager.log("尝试选中提示索引: " + currentTipIndex);
+    } while (currentTipIndex === previousTipIndex);
+
+    previousTipIndex = currentTipIndex;
+    // logManager.log("最终选中提示: " + chosenTip.text + "，权值: " + selectedWeight);
+    logManager.log("最终选中提示索引: " + currentTipIndex);
+
+    return chosenTip.text;
 }

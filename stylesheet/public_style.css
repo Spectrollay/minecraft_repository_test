@@ -219,7 +219,7 @@ main {
     width: 100vw;
 }
 
-/* 主体框架滚动条 */
+/* 主要滚动条 */
 custom-scrollbar {
     display: block;
     opacity: 1;
@@ -255,7 +255,7 @@ custom-scrollbar-thumb {
     width: 12px;
 }
 
-/* Tab Bar组件 */
+/* TabBar标签栏组件 */
 .tab_bar_area {
     align-items: center;
     display: flex;
@@ -554,6 +554,13 @@ a {
 
 .notice_img {
     width: 280px;
+}
+
+.guidance_image {
+    display: flex;
+    margin: 20px 10px;
+    max-width: 600px;
+    justify-self: center;
 }
 
 /* 块间隙 */
@@ -856,26 +863,6 @@ td {
     background-color: #67686A;
 }
 
-.sidebar_btn {
-    background-color: #48494A;
-    border: 2px solid #131313;
-    box-shadow: inset -1px -1px #1E1E1F, inset 1px 1px #1E1E1F, inset -2px -2px #313233, inset 2px 2px #6D6D6E;
-    color: #FFFFFF;
-    height: 40px;
-    margin: 6px;
-    padding-bottom: 2px;
-    width: 140px;
-}
-
-.sidebar_btn:hover, .sidebar_btn:active {
-    background-color: #67686A;
-    border: 2px solid #FFFFFF;
-    box-shadow: unset;
-    height: 40px;
-    margin: 6px;
-    padding-bottom: 2px;
-}
-
 /* 全屏遮罩 */
 .overlay {
     background-color: rgba(0, 0, 0, 0.7);
@@ -900,7 +887,7 @@ td {
     z-index: 1;
 }
 
-/* Expandable Card */
+/* 可展开卡片 */
 .expandable_card {
     align-items: center;
     border-bottom: 2px solid #333334;
