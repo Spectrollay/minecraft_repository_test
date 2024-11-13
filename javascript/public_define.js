@@ -124,7 +124,7 @@ const commonTips = [
         weight: 5
     },
     {
-        text: "<span>欢迎加入我们的官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick=\"playSound('click');\" target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick=\"playSound('click');\" target='_blank'>QQ</a></span>",
+        text: "<span>欢迎加入版本库官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick=\"playSound('click');\" target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick=\"playSound('click');\" target='_blank'>QQ</a></span>",
         weight: 5
     },
     {

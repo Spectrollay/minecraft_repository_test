@@ -11,7 +11,7 @@
   "experiments\\index.css": "e3f9e8f2d87df0c00abe864967aaf6e9",
   "experiments\\index.html": "20ebcdac041b2c930b952e863228cb40",
   "experiments\\index.js": "00b4d0b5fe3e8f7c097b09ce246c9a88",
-  "Feed\\database.xml": "d16cdd6ae14f732396cfde5b025443cc",
+  "Feed\\database.xml": "8237e265c30a9d403c4c5139f6a4fb04",
   "Feed\\main.xml": "f5be196f7e0f95f94eee17f5c73efcd5",
   "Feed\\messages.xml": "1c24a98ff83bdc56d026043d412bd778",
   "Feed\\update.xml": "0b896e147edd0b4414efee072125c97f",
@@ -133,14 +133,14 @@
   "images\\update\\logo\\Update_Aquatic.png": "cc3e6f78620f02b96f3dd1ee6bc788ae",
   "images\\update\\logo\\Village&Pillage.png": "afa9288d18710378aa0b997c4559aa5b",
   "images\\Write.png": "9eb90637a35e8f1fd31aea178b024d3c",
-  "index.html": "09bdabb9148ad2c9c93902c8bac4cb7d",
+  "index.html": "2bbe0a822d451802cc29b5d6441db1d0",
   "issue_tracker\\index.html": "6d0a8265d15752ff9fd8d6e91f1ab9dc",
   "javascript\\accessibility.js": "75c72c24f9e23368537e9f41bf026aa2",
   "javascript\\advanced.js": "73cf3c0cb965ba420567394954c791f2",
   "javascript\\custom_elements.js": "058172a77b52c612a433e7a36c2a5f6f",
   "javascript\\editions.js": "7a4c6a65ac1f8a7c82a8004d175c186c",
-  "javascript\\public_define.js": "cdf46928051e6f88df27d5e71c9e6a75",
-  "javascript\\public_script.js": "89096abba957f36d9d4311c4fd394524",
+  "javascript\\public_define.js": "e689d0598d7f509367d9bd28b364b040",
+  "javascript\\public_script.js": "f55c2fdcf07d1802865236bc54424bfd",
   "notifications\\index.html": "e7be3c1b47fd7d3f546295761e427823",
   "README-en_US.md": "8c9ce26d032adfdc4e620dc53d683e74",
   "README.md": "f6ad7532a8a75f70ec4240a668ee3bb4",
@@ -156,5 +156,5 @@
   "stylesheet\\loading_mask.css": "11e9c268dabe450bb220270750966dc7",
   "stylesheet\\public_style.css": "e44759d132cd2e9ee5934ac28d76e62b",
   "Template\\index.html": "01eb10aa7888ecb7732ed033405ee20e",
-  "updatelog\\index.html": "cb984c8a49ab1fecc8f8ffd40da920d4"
+  "updatelog\\index.html": "04ea15ed05b1ad86f3491baf8fe7dc88"
 }
