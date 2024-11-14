@@ -139,7 +139,7 @@
   "javascript\\advanced.js": "c425be5f08c256976484a57cbda65833",
   "javascript\\custom_elements.js": "058172a77b52c612a433e7a36c2a5f6f",
   "javascript\\editions.js": "7a4c6a65ac1f8a7c82a8004d175c186c",
-  "javascript\\public_define.js": "c8927eeede2739774784b23c52bdaedf",
+  "javascript\\public_define.js": "f326cdd09fabc39413277c8d2b6e446d",
   "javascript\\public_script.js": "f55c2fdcf07d1802865236bc54424bfd",
   "notifications\\index.html": "e7be3c1b47fd7d3f546295761e427823",
   "README-en_US.md": "8c9ce26d032adfdc4e620dc53d683e74",
@@ -156,5 +156,5 @@
   "stylesheet\\loading_mask.css": "11e9c268dabe450bb220270750966dc7",
   "stylesheet\\public_style.css": "e44759d132cd2e9ee5934ac28d76e62b",
   "Template\\index.html": "01eb10aa7888ecb7732ed033405ee20e",
-  "updatelog\\index.html": "80d3bd5508a9e88369ca86cbd6271b3a"
+  "updatelog\\index.html": "edfcd660f90511d94c54b26e1cb542f0"
 }
