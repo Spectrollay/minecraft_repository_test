@@ -30,7 +30,7 @@ const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Al
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20241110" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20241114" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -85,9 +85,11 @@ const texts = {
 
 rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 hostPath = window.location.origin;
+switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
 
 let isRelease = (version_type === "Beta" || version_type === "Pre" || version_type === "RC" || version_type === "Release" || version_type === "Stable" || version_type === "SP");
 let isFullVersion = (version_type !== "Demo" && version_type !== "Trial" && version_type !== "Lite");
+let isAllTip = switchValues['all_tip'] || 'off';
 let mode;
 if (version_type === "Demo") {
     mode = "演示";
@@ -140,6 +142,7 @@ const commonTips = [
     {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 5},
     {text: "本站指向的站外内容可能不受保障!", weight: 5},
     {text: "请直接分享本站而不是转载其中的内容!", weight: 5},
+    {text: "你知道吗,正是像你这样的玩家创造了无限的社区！", weight: 5},
     {text: "感谢你使用星月Minecraft版本库!", weight: 5},
 ];
 const fullVersionTips = [
@@ -156,6 +159,8 @@ const fullVersionTips = [
     {text: "猜一猜下一条出现的提示是什么?", weight: 3},
     {text: "猜一猜下一次看到这条提示是什么时候?", weight: 3},
     {text: "是谁把我放在这的?", weight: 3},
+    {text: "Herobrine已移除!", weight: 3},
+    {text: "创意无极限!", weight: 3},
     {text: "不妨试着点点我?你可能会发现什么.", weight: 3},
     {text: "网页\"星月Minecraft版本库\"没有响应", weight: 3},
     {text: "版本库是这样的,开发者只要更新版本就可以了,而用户要考虑的事情就很多了.", weight: 3},
@@ -174,8 +179,11 @@ const fullVersionTips = [
     {text: "什么Bug?哪里有Bug?你不要乱讲,那是特性!", weight: 3},
     {text: "完全随机的提示!", weight: 3},
     {text: "多抬头看看天空吧!", weight: 3},
+    {text: "别怕,有光.", weight: 3},
     {text: "天空即为极限!", weight: 3},
     {text: "记得要天天开心哦!", weight: 3},
+    {text: "今天辛苦了!加油!", weight: 3},
+    {text: "不要泄气,你真的很棒!", weight: 3},
     {text: "很高兴看到你!", weight: 3},
     {text: "劳逸结合!", weight: 3},
     {text: "持续支持中!", weight: 3},
@@ -211,6 +219,7 @@ const fullVersionTips = [
     {text: "别杀怪物,你这个海豚!", weight: 3},
     {text: "你要去码头整点薯条吗?", weight: 3},
     {text: "<br>", weight: 2},
+    {text: "Spectrollay love you!", weight: 2},
     {text: "真的会有人看这些吗?", weight: 2},
     {
         text: "<span style='background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;'>这是一条彩色的提示!</span>",
@@ -221,6 +230,9 @@ const fullVersionTips = [
         weight: 2
     },
     {text: "点我抽盲盒!", weight: 2},
+    {text: "这里,是梦开始的地方...", weight: 1},
+    {text: "那是一个下午,你像往常一样打开了Minecraft.那时的你怎么也不会想到,此后你再也没有进入过方块世界了...", weight: 1},
+    {text: "那天,你做了一场梦,看到了那扇永远没能打开的天堂门...", weight: 1},
     {text: "<span style='color: dodgerblue'>获得物品: 雷石东直放站!</span>", weight: 1},
     {text: "<span style='color: dodgerblue'>获得物品: 雷霆之杖!</span>", weight: 1},
     {text: "<span style='color: dodgerblue'>获得物品: 试用密钥!</span>", weight: 1},
@@ -228,6 +240,8 @@ const fullVersionTips = [
     {text: "<span style='color: dodgerblue'>驯服宠物: 六角恐龙!</span>", weight: 1},
     {text: "<span style='color: gold'>获得稀有物品: 附魔金苹果!</span>", weight: 0.1},
     {text: "<br><br><br><br><br><br><br><br><br><br><br><br>", weight: 0.01},
+    {text: " - 曲终人散,黄粱一梦.玩家开始了新的梦境,玩家再次做起了梦,更好的梦.玩家就是宇宙.玩家就是爱.<br> - 你就是那个玩家.<br> - 该醒了.", weight: 0.01},
+    {text: " - 二十年之后,更令你懊悔的不是你做了什么,而是你没做什么.所以解开帆索,离开安全的港湾,赶着航程中的信风,去探索,去梦想,去发现.", weight: 0.01},
     {text: "<span style='color: yellow'>解锁隐藏成就: 仓库尽头的提示</span>", weight: 0.001},
     {text: "这是一条永远不会出现的提示.", weight: 0},
 ];
@@ -243,7 +257,7 @@ const replaceTips = (newTips) => {
 if (isRelease) {
     tipsWithWeights = [...commonTips, ...fullVersionTips];
 } else {
-    addTips([
+    const testTips = [
         {text: "很高兴你能够加入测试!", weight: 5},
         {text: "你当前使用的是测试仓库!", weight: 5},
         {text: "开发版本并不代表最终品质!", weight: 5},
@@ -255,7 +269,12 @@ if (isRelease) {
         {text: "想要贡献自己的代码?你可以在Github上协助我们一起开发!", weight: 5},
         {text: "我们欢迎你的反馈!前往项目仓库提交或直接向开发者汇报你的发现!", weight: 5},
         {text: "不要担心漏洞!测试仓库中发现的问题往往会在发布仓库更新前得以解决.", weight: 5},
-    ], commonTips);
+        ...commonTips];
+    if (isAllTip === 'on') {
+        addTips(testTips, fullVersionTips);
+    } else {
+        replaceTips(testTips);
+    }
 }
 
 if (!isFullVersion) {

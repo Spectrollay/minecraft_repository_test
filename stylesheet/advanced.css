@@ -64,3 +64,9 @@ main {
 .setting_btn {
     width: calc(100% - 12px);
 }
+
+#the_end {
+    display: none;
+    margin: 20px;
+    min-height: 60px;
+}

@@ -61,3 +61,42 @@ function reloadPage() {
     location.reload();
     logManager.log('重载容器环境成功');
 }
+
+const versionBlock = document.getElementById("version_block");
+let clickCount = 0;
+let clickTimer;
+let isConditionMet = sessionStorage.getItem("showTheEnd") === "true";
+
+if (isConditionMet) {
+    document.getElementById('the_end').style.display = "flex";
+}
+
+if (versionBlock) {
+    versionBlock.addEventListener("click", function (event) {
+        if (isConditionMet) {
+            logManager.log('已发现彩蛋!');
+            return;
+        }
+
+        if (!event.target.closest("custom-button")) {
+            clickCount++;
+            logManager.log('连续点击次数: ' + clickCount);
+
+            if (clickCount === 1) { // 第一次点击时启动计时器
+                clickTimer = setTimeout(() => {
+                    clickCount = 0; // 重置计数器
+                }, 1000); // 点击时间间隔
+            }
+
+            if (clickCount === 6) {
+                clearTimeout(clickTimer); // 清除计时器
+                clickCount = 0; // 重置计数器
+                isConditionMet = true;
+                sessionStorage.setItem("showTheEnd", "true"); // 设置临时存储
+                document.getElementById('the_end').style.display = "flex";
+                mainHandleScroll(); // 联动自定义网页滚动条
+                logManager.log('发现了彩蛋!');
+            }
+        }
+    });
+}

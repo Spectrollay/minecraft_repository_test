@@ -149,6 +149,17 @@
                 <div class="setting_title_content">UI标度</div>
             </div>
             <div class="setting_title">行为</div>
+            <div class="main_block setting_block" id="use_all_tip">
+                <div class="setting_block_content">
+                    <div class="setting_block_title flex">
+                        <div class="setting_title_content">完整提示列表</div>
+                        <div class="setting_control_right">
+                            <custom-switch active="off" id="all_tip" status="enabled"></custom-switch>
+                        </div>
+                    </div>
+                    <div class="setting_block_description">在开发仓库可以查看完整的主页提示</div>
+                </div>
+            </div>
             <div class="main_block setting_block">
                 <div class="setting_title_content">加载指示器</div>
             </div>
@@ -233,7 +244,7 @@
                     <custom-button data="setting|normal|||false||" js="repoPage();" text="仓库"></custom-button>
                 </div>
             </div>
-            <div class="main_block setting_block">
+            <div class="main_block setting_block" id="version_block">
                 <div class="setting_title_content">版本: <span id="setting_version"></span></div>
                 <div class="setting_control_right setting_control_right_large">
                     <custom-button data="setting|normal|||false||" js="showModal('version_info_modal');" text="详情"></custom-button>
@@ -278,6 +289,7 @@
                     <custom-button data="setting|normal|||false||" js="showModal('acknowledgments_modal');" text="查看"></custom-button>
                 </div>
             </div>
+            <div id="the_end"></div>
         </main>
     </scroll-container>
     <custom-scrollbar class="main_custom_scrollbar">
@@ -417,6 +429,7 @@
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     if (rootPath.includes('_test')) {
         document.getElementById('quit_test').style.display = "flex";
+        document.getElementById('use_all_tip').style.display = "flex";
     }
 
     function hide_mask() {
@@ -492,7 +505,7 @@
         display: none;
     }
 
-    #quit_test {
+    #quit_test, #show_all_tip {
         display: none;
     }
 
