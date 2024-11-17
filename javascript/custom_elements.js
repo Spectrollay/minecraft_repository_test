@@ -944,6 +944,7 @@ class TextField extends HTMLElement {
         const storageKey = '(/minecraft_repository_test/)text_field_value';
         const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
         const currentValue = this.inputField.value;
+        if (this.classList.contains("do_not_save")) return;
         if (currentValue.length === 0) {
             delete storedData[this.classList[0]];
         } else {

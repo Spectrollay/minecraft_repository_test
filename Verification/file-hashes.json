@@ -1,7 +1,7 @@
 {
   "404.html": "c90e52a6bdcf2160b36d22a686e9fbb4",
   "advanced\\debug.html": "60219467e608653e5efe36c3a14e7892",
-  "advanced\\settings.html": "62b6f7013263ac9b3a32f938ee7bb08e",
+  "advanced\\settings.html": "089ef5c5c7f18691eea4f7cdeedec480",
   "advanced\\status.html": "4219ec259463a28bfa9062a76ca99eb1",
   "default\\coming_soon.html": "87be910bd10a657a96b0eb7144d4cc3a",
   "default\\error_default.html": "561809093da4c8399075b0559a100751",
@@ -137,7 +137,7 @@
   "issue_tracker\\index.html": "6d0a8265d15752ff9fd8d6e91f1ab9dc",
   "javascript\\accessibility.js": "75c72c24f9e23368537e9f41bf026aa2",
   "javascript\\advanced.js": "d3e57e7df44c0fd9091aa6b4ccc76a6c",
-  "javascript\\custom_elements.js": "6b20a64a29180c0bd7f72b261d8dd41c",
+  "javascript\\custom_elements.js": "6ddfbbee8fedcca6190e8367c27092a1",
   "javascript\\editions.js": "7a4c6a65ac1f8a7c82a8004d175c186c",
   "javascript\\public_define.js": "f326cdd09fabc39413277c8d2b6e446d",
   "javascript\\public_script.js": "f55c2fdcf07d1802865236bc54424bfd",
