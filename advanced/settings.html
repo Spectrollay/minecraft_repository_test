@@ -388,13 +388,13 @@
         <modal_textfield_area>
             <modal_textfield_title>请输入"我知道我在做什么"以继续</modal_textfield_title>
             <div class="text_field_container" id="check_input">
-                <text-field hint="在此输入" single-line="true" status="enabled" type="all"></text-field>
+                <text-field hint="在此输入.." single-line="true" status="enabled" type="all"></text-field>
             </div>
         </modal_textfield_area>
         <modal_button_area>
             <modal_button_group>
                 <modal_button_list>
-                    <custom-button data="modal|normal|||false||" js="hideModal(this);document.getElementById('check_input').querySelector('text-field').resetValue();" text="取消"></custom-button>
+                    <custom-button data="modal|green|||false||" js="hideModal(this);document.getElementById('check_input').querySelector('text-field').resetValue();" text="取消"></custom-button>
                     <custom-button data="modal|disabled||check_continue|false||" js="" text="重置"></custom-button>
                 </modal_button_list>
             </modal_button_group>
