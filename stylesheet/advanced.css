@@ -77,5 +77,6 @@ main {
 
 .red_stroke {
     color: #C02D2D;
-    -webkit-text-stroke: 0.01em #000000;
+    -webkit-text-stroke: 0.1em #FFFFFF;
+    paint-order: stroke;
 }
