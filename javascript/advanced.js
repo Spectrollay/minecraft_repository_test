@@ -124,7 +124,12 @@ if (sessionStorage.getItem("showTheEnd") === "true") {
 if (versionBlock) {
     versionBlock.addEventListener("click", (event) => {
         handleClick(event, "enableDebug", "解锁调试模式!", () => {
-            document.querySelector(".debug_mode").style.display = "flex";
+            const debug = document.querySelectorAll("#debug, .debug_mode, .clear_all");
+            if (debug) {
+                debug.forEach(item => {
+                    item.style.display = 'flex';
+                })
+            }
             mainHandleScroll();
         });
     });
