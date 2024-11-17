@@ -487,7 +487,7 @@ custom-dropdown .disabled_dropdown {
 
 
 /* Modal弹窗 */
-#overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_version_info_modal, #overlay_disclaimer_modal, #overlay_donate_modal, #overlay_acknowledgments_modal {
+#overlay_clear_storage_warning, #overlay_reload_page_warning, #overlay_clear_all_warning, #overlay_version_info_modal, #overlay_disclaimer_modal, #overlay_donate_modal, #overlay_acknowledgments_modal {
     z-index: 12;
 }
 
@@ -516,7 +516,7 @@ modal_area {
     z-index: 11;
 }
 
-#clear_storage_warning, #reload_page_warning, #version_info_modal, #disclaimer_modal, #donate_modal, #acknowledgments_modal {
+#clear_storage_warning, #reload_page_warning, #clear_all_warning, #version_info_modal, #disclaimer_modal, #donate_modal, #acknowledgments_modal {
     z-index: 13;
 }
 
@@ -610,6 +610,19 @@ modal_button_area {
     display: flex;
     justify-content: center;
     padding: 2px 0;
+}
+
+modal_textfield_area {
+    background-color: #48494A;
+    border-bottom: 2px solid #333334;
+    border-top: 2px solid #5A5B5C;
+    display: block;
+    padding: 2px 0;
+    text-align: left;
+}
+
+modal_textfield_title {
+    margin: 10px;
 }
 
 .modal_custom_btn {

@@ -55,6 +55,14 @@ function clearStorage() {
     mainPage();
 }
 
+// 重置全部
+function resetAll() {
+    localStorage.clear();
+    sessionStorage.clear();
+    logManager.log('重置全部内容成功');
+    mainPage();
+}
+
 // 重载页面
 function reloadPage() {
     sessionStorage.clear();
@@ -97,9 +105,11 @@ function handleClick(event, conditionKey, successMessage, callback) {
 
 // 检查是否显示
 if (sessionStorage.getItem("enableDebug") === "true") {
-    const debugBtn = document.getElementById('debug');
-    if (debugBtn) {
-        debugBtn.style.display = "flex";
+    const debug = document.querySelectorAll("#debug, .debug_mode, .clear_all");
+    if (debug) {
+        debug.forEach(item => {
+            item.style.display = 'flex';
+        })
     }
 }
 
@@ -110,11 +120,13 @@ if (sessionStorage.getItem("showTheEnd") === "true") {
     }
 }
 
-
 // 添加事件监听
 if (versionBlock) {
     versionBlock.addEventListener("click", (event) => {
-        handleClick(event, "enableDebug", "解锁调试模式!");
+        handleClick(event, "enableDebug", "解锁调试模式!", () => {
+            document.querySelector(".debug_mode").style.display = "flex";
+            mainHandleScroll();
+        });
     });
 }
 
@@ -125,4 +137,30 @@ if (developerBlock) {
             mainHandleScroll();
         });
     });
+}
+
+const checkInput = document.querySelector('#check_input text-field');
+
+function checkInputValue() {
+    const inputValue = checkInput.getValue().trim(); // 获取并去除输入值的空格
+    const requiredValue = "我知道我在做什么"; // 预期的文本
+    const checkContinueBtn = document.getElementById('check_continue');
+    const checkContinueFrame = checkContinueBtn.parentElement;
+
+    // 比对输入值和预期文本
+    if (inputValue === requiredValue) {
+        if (checkContinueBtn) {
+            checkContinueFrame.setAttribute('data', 'modal|red||check_continue|false||');
+            checkContinueFrame.setAttribute('js', 'hideModal(this);document.getElementById(\'check_input\').querySelector(\'text-field\').resetValue();checkInputValue();resetAll();');
+        }
+    } else {
+        if (checkContinueBtn) {
+            checkContinueFrame.setAttribute('data', 'modal|disabled||check_continue|false||');
+            checkContinueFrame.setAttribute('js', 'false');
+        }
+    }
+}
+
+if (checkInput) {
+    checkInput.addEventListener('input', checkInputValue);
 }

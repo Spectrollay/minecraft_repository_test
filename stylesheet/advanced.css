@@ -74,3 +74,8 @@ main {
     margin: 20px;
     min-height: 60px;
 }
+
+.red_stroke {
+    color: #C02D2D;
+    -webkit-text-stroke: 0.01em #000000;
+}

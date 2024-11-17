@@ -234,7 +234,13 @@
             <div class="main_block setting_block debug_mode">
                 <div class="setting_title_content">加载调试程序</div>
                 <div class="setting_control_right">
-                    <custom-button data="setting|red|||false||" js="jumpToPage('/minecraft_repository_test/default/error_no-access.html');" text="调试"></custom-button>
+                    <custom-button data="setting|red|||false||" js="jumpToPage('/minecraft_repository_test/advanced/debug.html');" text="调试"></custom-button>
+                </div>
+            </div>
+            <div class="main_block setting_block clear_all">
+                <div class="setting_title_content red_stroke">重置全部内容</div>
+                <div class="setting_control_right">
+                    <custom-button data="setting|red|||false||" js="showModal('clear_all_warning');" text="重置"></custom-button>
                 </div>
             </div>
             <div class="setting_title">关于</div>
@@ -332,13 +338,10 @@
 <modal_area id="clear_storage_warning">
     <modal>
         <modal_title_area>
-            <modal_title style="color: #C02D2D">清除存储数据</modal_title>
-            <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                <img alt="" class="modal_close_btn_img" src=""/>
-            </modal_close_btn>
+            <modal_title class="red_stroke">清除存储数据</modal_title>
         </modal_title_area>
         <modal_content>
-            <p>清除存储数据为危险功能!<br>这会导致你本地存储的本站数据全部丢失!<br>非必要请不要运行此功能!</p>
+            <p>清除存储数据为危险功能!<br>这会导致你本地存储的本站数据全部丢失且无法恢复!<br>非必要请不要运行此功能!</p>
         </modal_content>
         <modal_button_area>
             <modal_button_group>
@@ -357,9 +360,6 @@
     <modal>
         <modal_title_area>
             <modal_title>重载容器环境</modal_title>
-            <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                <img alt="" class="modal_close_btn_img" src=""/>
-            </modal_close_btn>
         </modal_title_area>
         <modal_content>
             <p>建议在每次更新版本后运行此功能.<br>这可能可以解决网站的加载异常问题.<br>此功能不会影响你的本地数据.</p>
@@ -369,6 +369,33 @@
                 <modal_button_list>
                     <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
                     <custom-button data="modal|normal|||false||" js="hideModal(this);reloadPage();" text="继续"></custom-button>
+                </modal_button_list>
+            </modal_button_group>
+        </modal_button_area>
+    </modal>
+</modal_area>
+
+<!--重置警告弹窗-->
+<div class="overlay" id="overlay_clear_all_warning"></div>
+<modal_area id="clear_all_warning">
+    <modal>
+        <modal_title_area>
+            <modal_title class="red_stroke">重置全部内容</modal_title>
+        </modal_title_area>
+        <modal_content>
+            <p>重置全部内容为极度危险功能!<br>这会导致本域名下所有站点的本地存储数据全部丢失且无法恢复!<br>请不要运行此功能除非你知道你在干什么!</p>
+        </modal_content>
+        <modal_textfield_area>
+            <modal_textfield_title>请输入"我知道我在做什么"以继续</modal_textfield_title>
+            <div class="text_field_container" id="check_input">
+                <text-field hint="在此输入" single-line="true" status="enabled" type="all"></text-field>
+            </div>
+        </modal_textfield_area>
+        <modal_button_area>
+            <modal_button_group>
+                <modal_button_list>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);document.getElementById('check_input').querySelector('text-field').resetValue();" text="取消"></custom-button>
+                    <custom-button data="modal|disabled||check_continue|false||" js="" text="继续"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -397,7 +424,7 @@
     </modal>
 </modal_area>
 
-<!--捐赠支持弹窗-->
+<!--特别鸣谢弹窗-->
 <div class="overlay" id="overlay_acknowledgments_modal"></div>
 <modal_area id="acknowledgments_modal">
     <modal>
@@ -533,6 +560,10 @@
     .switch_content {
         display: flex;
         justify-content: center;
+    }
+
+    .debug_mode, .clear_all {
+        display: none;
     }
 </style>
 
