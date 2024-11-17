@@ -63,40 +63,66 @@ function reloadPage() {
 }
 
 const versionBlock = document.getElementById("version_block");
+const developerBlock = document.getElementById("developer_block");
 let clickCount = 0;
 let clickTimer;
-let isConditionMet = sessionStorage.getItem("showTheEnd") === "true";
 
-if (isConditionMet) {
-    document.getElementById('the_end').style.display = "flex";
+// 快速连点处理函数
+function handleClick(event, conditionKey, successMessage, callback) {
+    if (sessionStorage.getItem(conditionKey) === "true") {
+        logManager.log('已解锁!');
+        return;
+    }
+
+    if (!event.target.closest("custom-button")) {
+        clickCount++;
+        logManager.log('连续点击次数: ' + clickCount);
+
+        if (clickCount === 1) { // 第一次点击时启动计时器
+            clickTimer = setTimeout(() => {
+                clickCount = 0; // 重置计数器
+            }, 1000); // 点击时间间隔
+        }
+
+        if (clickCount === 6) {
+            clearTimeout(clickTimer); // 清除计时器
+            clickCount = 0; // 重置计数器
+            sessionStorage.setItem(conditionKey, "true"); // 设置临时存储
+
+            logManager.log(successMessage);
+            if (callback) callback(); // 执行自定义逻辑
+        }
+    }
 }
 
+// 检查是否显示
+if (sessionStorage.getItem("enableDebug") === "true") {
+    const debugBtn = document.getElementById('debug');
+    if (debugBtn) {
+        debugBtn.style.display = "flex";
+    }
+}
+
+if (sessionStorage.getItem("showTheEnd") === "true") {
+    const theEnd = document.getElementById('the_end');
+    if (theEnd) {
+        theEnd.style.display = "flex";
+    }
+}
+
+
+// 添加事件监听
 if (versionBlock) {
-    versionBlock.addEventListener("click", function (event) {
-        if (isConditionMet) {
-            logManager.log('已发现彩蛋!');
-            return;
-        }
+    versionBlock.addEventListener("click", (event) => {
+        handleClick(event, "enableDebug", "解锁调试模式!");
+    });
+}
 
-        if (!event.target.closest("custom-button")) {
-            clickCount++;
-            logManager.log('连续点击次数: ' + clickCount);
-
-            if (clickCount === 1) { // 第一次点击时启动计时器
-                clickTimer = setTimeout(() => {
-                    clickCount = 0; // 重置计数器
-                }, 1000); // 点击时间间隔
-            }
-
-            if (clickCount === 6) {
-                clearTimeout(clickTimer); // 清除计时器
-                clickCount = 0; // 重置计数器
-                isConditionMet = true;
-                sessionStorage.setItem("showTheEnd", "true"); // 设置临时存储
-                document.getElementById('the_end').style.display = "flex";
-                mainHandleScroll(); // 联动自定义网页滚动条
-                logManager.log('发现了彩蛋!');
-            }
-        }
+if (developerBlock) {
+    developerBlock.addEventListener("click", (event) => {
+        handleClick(event, "showTheEnd", "发现了彩蛋!", () => {
+            document.getElementById('the_end').style.display = "flex";
+            mainHandleScroll();
+        });
     });
 }

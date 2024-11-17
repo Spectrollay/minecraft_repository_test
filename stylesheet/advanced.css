@@ -65,6 +65,10 @@ main {
     width: calc(100% - 12px);
 }
 
+#debug {
+    display: none;
+}
+
 #the_end {
     display: none;
     margin: 20px;
