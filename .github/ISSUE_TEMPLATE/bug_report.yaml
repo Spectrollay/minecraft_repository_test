@@ -1,0 +1,125 @@
+name: 反馈问题
+description: 反馈你遇到的问题
+title: "[错误]: "
+labels: ["发生的错误(bug & error)"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 感谢你愿意向我们反馈问题!
+        ## 以下是一些注意事项,请务必阅读让我们能够更容易处理
+
+        ### 确定没有相同或类似的Issue已被提出.
+        ### 确定你在下方填写的信息是准确无误的.
+        ### 你可以在设置页面连点6次版本号进入调试模式,在调试页面启用抓取日志.
+        ### 如果你不知道如何有效且精准地表述,我们强烈建议你先阅读[《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md).
+
+        ---
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 请确保你已阅读以上注意事项,然后勾选下方的确认框.
+      options:
+        - label: 我已经使用一个推荐的干净的且无其它非必要插件的环境测试过,问题依旧存在.
+          required: true
+        - label: 我已经在 [Issue Tracker](https://github.com/Spectrollay/minecraft_repository_test/issues) 以及 [Pull Request](https://github.com/Spectrollay/minecraft_repository_test/pulls) 中找过我要反馈的问题,没有找到相同或类似的Issue和以及解决了相关或类似问题的PR.
+          required: true
+        - label: 我已知晓并同意,本处仅用于反馈发现的问题,否则请在 [这里](https://github.com/Spectrollay/minecraft_repository_test/issues/new/choose) 选择合适的模板.若该Issue是关于其他内容则可能会被无条件自动关闭或/并锁定.
+          required: true
+        - label: 我已知晓并同意,如果我不按照模板提供的指示进行填写,则该Issue可能会被无条件删除.
+          required: true
+
+  - type: dropdown
+    id: env-os
+    attributes:
+      label: 系统
+      description: 选择你在发现问题时使用的系统
+      options:
+        - Android
+        - iOS
+        - HarmonyOS
+        - Windows
+        - Linux
+        - MacOS
+        - 其他(请在下方说明)
+    validations:
+      required: true
+
+  - type: input
+    id: env-os-ver
+    attributes:
+      label: 选择你在发现问题时使用的系统版本(若上方勾选了'其他'请在此将系统名称一并列出,格式'系统名称 - 系统版本')
+    validations:
+      required: true
+
+  - type: dropdown
+    id: env-browser
+    attributes:
+      label: 浏览器
+      description: 选择你在发现问题时使用的浏览器
+      options:
+        - Edge
+        - Chrome
+        - Safari
+        - Firefox
+        - 其他(请在下方说明)
+    validations:
+      required: true
+
+  - type: input
+    id: env-browser-ver
+    attributes:
+      label: 浏览器版本(若上方勾选了'其他'请在此将浏览器名称一并列出,格式'浏览器名称 - 浏览器版本')
+    validations:
+      required: true
+
+  - type: input
+    id: env-core-ver
+    attributes:
+      label: 请输入浏览器内核版本,格式'内核名称 版本号'(你也可以将浏览器UA直接粘贴进来,在调试日志中可以找到)
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: 复现步骤
+      description: |
+        我们需要执行哪些操作才能发现这个问题?
+        简洁清晰的复现步骤能够帮助我们更加迅速地定位问题.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望的结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际的结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: logging
+    attributes:
+      label: |
+        (可选)日志记录
+        日志可以帮助我们更好的了解问题发生的全过程.
+
+  - type: textarea
+    id: extra-desc
+    attributes:
+      label: (可选)补充说明
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## 感谢你的反馈!我们稍后将评估你的反馈并向你返回评估结果.
