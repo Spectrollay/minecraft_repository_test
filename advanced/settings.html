@@ -105,12 +105,6 @@
                 </div>
             </div>
             <div class="main_block setting_block exp_accessibility">
-                <div class="setting_title_content">访问受限弹窗</div>
-                <div class="setting_control_right">
-                    <custom-switch active="on" id="limited_access_modal" status="disabled"></custom-switch>
-                </div>
-            </div>
-            <div class="main_block setting_block exp_accessibility">
                 <div class="setting_title_content">通知持续时间</div>
             </div>
             <div class="setting_title">外观</div>
@@ -158,6 +152,12 @@
                         </div>
                     </div>
                     <div class="setting_block_description">在开发仓库可以查看完整的主页提示</div>
+                </div>
+            </div>
+            <div class="main_block setting_block exp_accessibility">
+                <div class="setting_title_content">访问受限弹窗</div>
+                <div class="setting_control_right">
+                    <custom-switch active="on" id="limited_access_modal" status="disabled"></custom-switch>
                 </div>
             </div>
             <div class="main_block setting_block">
@@ -326,7 +326,7 @@
             <modal_button_group>
                 <modal_button_list>
                     <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
-                    <custom-button data="modal|normal|||false||" js="copyText(projectHash);hideModal(this);" text="复制校验码"></custom-button>
+                    <custom-button data="modal|normal|||false||" js="copyText(document.getElementById('project_hash').innerText);hideModal(this);" text="复制校验码"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -417,7 +417,7 @@
         <modal_button_area>
             <modal_button_group>
                 <modal_button_list>
-                    <custom-button data="modal|normal|||false||" js="hideModal(this);jumpToPage('/minecraft_repository_test/donate.html');" text="打赏"></custom-button>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);jumpToPage('/minecraft_repository_test/about/donate.html');" text="打赏"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -448,40 +448,14 @@
 
 </body>
 
+<script src="/minecraft_repository_test/javascript/loading.js"></script>
+<script src="/minecraft_repository_test/javascript/public_script.js"></script>
 <script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     if (rootPath.includes('_test')) {
         document.getElementById('quit_test').style.display = "flex";
         document.getElementById('use_all_tip').style.display = "flex";
     }
-
-    function hide_mask() {
-        const loading_mask = document.getElementById('loading_mask');
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
-    });
 
     // 新的实验性内容页面  TODO: 在旧的实验性内容页面被移除时时删除
     const newFlagsPageElement = document.getElementsByClassName('new_flags_page');
@@ -543,6 +517,10 @@
         width: auto;
     }
 
+    table {
+        margin: 10px 0;
+    }
+
     tr {
         height: 25px;
     }
@@ -551,9 +529,16 @@
         width: 120px;
     }
 
+    .left_td {
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    .right_td {
+        padding-left: 10px;
+    }
+
     #setting_version_detail {
-        align-items: center;
-        display: flex;
         justify-items: center;
     }
 

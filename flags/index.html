@@ -115,10 +115,10 @@
             <div class="main_block setting_block">
                 <div class="setting_block_content">
                     <div class="setting_block_title flex">
-                        <div class="setting_title_content">无障碍体验优化</div>
+                        <div class="setting_title_content">网页文本转语音</div>
                         <custom-switch active="on" id="experimental_accessibility" status="enabled"></custom-switch>
                     </div>
-                    <div class="setting_block_description">适配无障碍设计,优化在各种环境下的使用体验</div>
+                    <div class="setting_block_description">启用文本转语音这一实验性功能</div>
                 </div>
             </div>
             <div class="main_block setting_block">
@@ -163,35 +163,11 @@
 
 </body>
 
-<script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-
-    function hide_mask() {
-        const loading_mask = document.getElementById('loading_mask');
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
-    });
-</script>
+<script src="/minecraft_repository_test/javascript/loading.js"></script>
+<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<!--<script>-->
+<!--    -->
+<!--</script>-->
 
 <!--<style>-->
 <!--    -->

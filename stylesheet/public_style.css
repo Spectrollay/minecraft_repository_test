@@ -85,6 +85,7 @@
 .wrap_flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* 总体样式 */
@@ -158,8 +159,7 @@ header {
 }
 
 /* 顶栏按钮图标 */
-
-.back_icon, .menu_icon, .repo_icon, .debug_icon, .settings_icon, .feedback_icon {
+.back_icon, .menu_icon, .repo_icon, .debug_icon, .settings_icon, .feedback_icon, .run_icon {
     height: 32px;
 }
 
@@ -167,7 +167,7 @@ header {
     padding: 4px 6px 4px 4px;
 }
 
-.repo_icon, .debug_icon, .settings_icon, .feedback_icon {
+.repo_icon, .debug_icon, .settings_icon, .feedback_icon, .run_icon {
     padding: 4px 4px 4px 6px;
 }
 
@@ -201,11 +201,16 @@ header {
 }
 
 /* 主体框架 */
+scroll-view {
+    display: flex;
+}
+
 scroll-container {
     display: grid;
     height: calc(100% - 44px);
     overflow-x: hidden;
     overflow-y: auto;
+    overscroll-behavior: contain;
     position: fixed;
     scroll-behavior: smooth;
     scrollbar-width: none;
@@ -725,6 +730,43 @@ td {
     min-width: 100px;
 }
 
+/* 友链样式 */
+reciprocal-link-block {
+    cursor: pointer;
+    display: block;
+    border: 2px solid #58585A;
+    margin: 6px;
+    min-height: 80px;
+    width: 270px;
+}
+
+reciprocal-link-block:hover, reciprocal-link-block:active {
+    border: 2px solid #6D6D6E;
+    background-color: #58585A;
+}
+
+.reciprocal_link_title {
+    display: flex;
+    justify-content: center;
+    margin: 10px 4px;
+}
+
+.reciprocal_link_title_img {
+    align-self: center;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.reciprocal_link_title_text {
+    align-self: center;
+    font-size: 17px;
+}
+
+.reciprocal_link_description {
+    margin: 10px;
+    color: #D0D1D4;
+}
+
 /* 表格底部信息区域 */
 .info_area {
     align-items: center;
@@ -771,21 +813,20 @@ td {
     background-color: #313233;
     font-family: "NotoSans Bold", sans-serif;
     height: calc(100% - 44px);
-    left: 0;
+    left: -160px; /* 初始隐藏到屏幕左侧 */
     overflow-x: hidden;
     overflow-y: hidden;
     position: fixed;
     top: 44px;
-    transition: 0.6s;
-    width: 0;
+    transition: left 0.6s;
+    width: 160px;
     z-index: 2;
 }
 
 .sidebar_scroll_container {
     height: calc(100% - 44px);
     top: 44px;
-    transition: width 0.6s;
-    width: 0;
+    width: 160px;
 }
 
 .sidebar custom-scrollbar {
@@ -872,7 +913,7 @@ td {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 10;
+    z-index: 11;
 }
 
 /* 除了顶栏 */

@@ -31,7 +31,7 @@
     <!--    <style>-->
     <!--        -->
     <!--    </style>-->
-    <title>漏洞追踪器</title>
+    <title>Template</title>
 </head>
 
 <body>
@@ -58,7 +58,7 @@
     <div class="header_item header_item_left" id="back" onclick="clickedBack();">
         <img alt="Back" class="back_icon" id="back_icon" src=""/>
     </div>
-    <div class="header_logo"><span class="header_title">Bugs</span></div>
+    <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
 <scroll-view>
@@ -79,35 +79,11 @@
 
 </body>
 
-<script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-
-    function hide_mask() {
-        const loading_mask = document.getElementById('loading_mask');
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
-    });
-</script>
+<script src="/minecraft_repository_test/javascript/loading.js"></script>
+<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<!--<script>-->
+<!--    -->
+<!--</script>-->
 
 <!--<style>-->
 <!--    -->

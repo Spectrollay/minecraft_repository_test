@@ -38,13 +38,9 @@ function flagsPage() {
     switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
     newFlagsPageState = switchValues['new_flags_page'] || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
     if (newFlagsPageState === 'on') {
-        setTimeout(function () {
-            window.location.href = "/minecraft_repository_test/flags/";
-        }, 600);
+        ifNavigating("jump", "/minecraft_repository_test/flags/");
     } else {
-        setTimeout(function () {
-            window.location.href = "/minecraft_repository_test/experiments/";
-        }, 600);
+        ifNavigating("jump", "/minecraft_repository_test/experiments/");
     }
 }
 

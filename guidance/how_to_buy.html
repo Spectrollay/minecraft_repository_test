@@ -28,12 +28,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
     <style>
         .main_block_cont {
             margin: 6px 0;
         }
     </style>
-    <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
     <title>正版购买指南 - 星月Minecraft版本库</title>
 </head>
 
@@ -193,39 +193,13 @@
 
 </body>
 
+<script src="/minecraft_repository_test/javascript/loading.js"></script>
+<script src="/minecraft_repository_test/javascript/public_script.js"></script>
 <script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-
     // 惰性加载
     const lazyImages = document.querySelectorAll('img');
     lazyImages.forEach(img => {
         img.setAttribute('loading', 'lazy');
-    });
-
-    function hide_mask() {
-        const loading_mask = document.getElementById('loading_mask');
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
     });
 </script>
 

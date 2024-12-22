@@ -25,12 +25,12 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".5"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".66"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".80"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20241114" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20241224" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -38,27 +38,138 @@ if (commit === "#") {
     commit = "#" + update_count.replace(/\./g, "");
 }
 
-function getProjectHash() {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', '/minecraft_repository_test/Verification/project-hash.json', false); // 第三个参数为false表示同步请求
-    xhr.send(null);
-
-    if (xhr.status === 200) {
-        const response = JSON.parse(xhr.responseText);
-        return response.projectHash;
-    } else {
-        logManager.log('获取项目哈希值时出错: ' + xhr.status, 'error');
+const data = "https://spectrollay.github.io/data";
+async function getProjectHash() {
+    try {
+        const response = await fetch('/minecraft_repository_test/Verification/project-hash.json');
+        if (response.ok) {
+            const data = await response.json();
+            return data.projectHash;
+        } else {
+            logManager.log("获取项目哈希值时出错: " + response.status, 'error');
+            return null;
+        }
+    } catch (error) {
+        logManager.log("获取项目哈希值时发生异常: " + error.message, 'error');
         return null;
     }
 }
 
-const projectHash = getProjectHash();
-const version_info = "<table><tr><td colspan='2' style='text-align: center'>版本信息</td></tr><tr><td>主要更新: </td><td>" + primary_version_name + "</td></tr><tr><td>次要更新: </td><td>" + secondary_version_name + "</td></tr><tr><td>版本编号: </td><td>" + version_name_short + "</td></tr><tr><td>版本类型: </td><td>" + version_type + "</td></tr><tr><td>版本名称: </td><td>" + version_name + "</td></tr><tr><td>版本别称: </td><td>" + version_nickname + "</td></tr><tr><td>发布编号: </td><td>" + update_count + "</td></tr><tr><td>最后提交: </td><td>" + commit + "</td></tr><tr></tr>" +
-    "<tr><td colspan='2' style='text-align: center'>校验码</td></tr><tr><td colspan='2' style='text-align: center'>" + projectHash + "</td></tr></table>";
+// 版本信息
+let version_info = `
+    <table>
+        <tr><td colspan='2' style='text-align: center'>版本信息</td></tr>
+        <tr><td class="left_td">主要更新: </td><td class="right_td">${primary_version_name}</td></tr>
+        <tr><td class="left_td">次要更新: </td><td class="right_td">${secondary_version_name}</td></tr>
+        <tr><td class="left_td">版本编号: </td><td class="right_td">${version_name_short}</td></tr>
+        <tr><td class="left_td">版本类型: </td><td class="right_td">${version_type}</td></tr>
+        <tr><td class="left_td">版本名称: </td><td class="right_td">${version_name}</td></tr>
+        <tr><td class="left_td">版本别称: </td><td class="right_td">${version_nickname}</td></tr>
+        <tr><td class="left_td">发布编号: </td><td class="right_td">${update_count}</td></tr>
+        <tr><td class="left_td">最后提交: </td><td class="right_td">${commit}</td></tr>
+        <tr></tr>
+        <tr><td colspan='2' style='text-align: center'>校验码</td></tr>
+        <tr><td colspan='2' id="project_hash" style='text-align: center'>未知</td></tr>
+    </table>
+`;
+
+// 项目校验
+getProjectHash().then(projectHash => {
+    version_info = `
+    <table>
+        <tr><td colspan='2' style='text-align: center'>版本信息</td></tr>
+        <tr><td class="left_td">主要更新: </td><td class="right_td">${primary_version_name}</td></tr>
+        <tr><td class="left_td">次要更新: </td><td class="right_td">${secondary_version_name}</td></tr>
+        <tr><td class="left_td">版本编号: </td><td class="right_td">${version_name_short}</td></tr>
+        <tr><td class="left_td">版本类型: </td><td class="right_td">${version_type}</td></tr>
+        <tr><td class="left_td">版本名称: </td><td class="right_td">${version_name}</td></tr>
+        <tr><td class="left_td">版本别称: </td><td class="right_td">${version_nickname}</td></tr>
+        <tr><td class="left_td">发布编号: </td><td class="right_td">${update_count}</td></tr>
+        <tr><td class="left_td">最后提交: </td><td class="right_td">${commit}</td></tr>
+        <tr></tr>
+        <tr><td colspan='2' style='text-align: center'>校验码</td></tr>
+        <tr><td colspan='2' id="project_hash" style='text-align: center'>${projectHash}</td></tr>
+    </table>
+`;
+});
 
 logManager.log("发布版本: " + publish_version_name);
 
-//字符常量
+// 网站状态
+fetch(data + '/minecraft_repository_test/status.xml')
+    .then((response) => response.text())
+    .then((xmlText) => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+
+        // 检查XML是否解析成功
+        if (xmlDoc.querySelector('parsererror')) {
+            logManager.log("状态配置解析错误: " + xmlDoc.querySelector('parsererror').textContent, 'warn');
+            return;
+        }
+
+        // 提取配置数据并处理
+        const siteStatus = xmlDoc.querySelector('site_status').textContent.trim();
+        const isShowModal = xmlDoc.querySelector('is_show_modal').textContent.trim();
+        const showModalTimes = parseInt(xmlDoc.querySelector('show_modal_times')?.textContent.trim() || "0", 10); // 获取弹窗显示次数
+        const currentUrl = encodeURIComponent(window.location.href);
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("redirected")) {
+            return;
+        }
+
+        // 获取状态码
+        switch (siteStatus) {
+            case "error":
+                location.replace(`/minecraft_repository_test/default/error_default.html?redirected=true&source=${currentUrl}`);
+                return;
+            case "warn":
+                location.replace(`/minecraft_repository_test/default/under_maintenance.html?redirected=true&source=${currentUrl}`);
+                return;
+            case "404":
+                location.replace("/minecraft_repository_test/404.html?redirected=true");
+                return;
+            case "200":
+                break;
+            default:
+                logManager.log("未知的网站状态: " + siteStatus + "\n请添加判定或修改配置", 'warn');
+        }
+
+        // 获取弹窗数据
+        if (isShowModal === "1") {
+            const modalConfig = xmlDoc.querySelector('modal_config').textContent.trim();
+            const parser = new DOMParser();
+            const modalDoc = parser.parseFromString(modalConfig, 'text/html'); // 解析为HTML文档
+            const overlayElement = modalDoc.querySelector('.overlay');
+            const modalAreaElement = modalDoc.querySelector('modal_area');
+
+            if (!overlayElement || !modalAreaElement) {
+                logManager.log("无法从配置中解析弹窗,请检查配置", 'error');
+                return;
+            }
+
+            if (showModalTimes > 0) {
+                const modalDisplayedCount = parseInt(sessionStorage.getItem('modal_displayed_count') || "0", 10);
+                if (modalDisplayedCount >= showModalTimes) {
+                    logManager.log("弹窗显示次数已达上限,不显示");
+                    return;
+                }
+                sessionStorage.setItem('modal_displayed_count', modalDisplayedCount + 1);
+            }
+
+            document.body.appendChild(overlayElement);
+            document.body.appendChild(modalAreaElement);
+            overlayElement.style.display = "block";
+            modalAreaElement.style.display = "block";
+            modalAreaElement.focus(); // 将焦点聚集到弹窗上,防止选中弹窗下方元素
+            logManager.log("显示弹窗: " + modalAreaElement.id);
+        }
+    })
+    .catch((error) => {
+        logManager.log("加载状态配置文件时出错: " + error, 'error');
+    });
+
+// 字符常量
 const texts = {
     preview_title: "欢迎观看设计预览!",
     preview_detail1: "我们想听听你对这个新设计的意见.",

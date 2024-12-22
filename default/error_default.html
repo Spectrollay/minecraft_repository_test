@@ -70,9 +70,10 @@
     <div class="display">
         <h1>Minecraft Kit</h1>
         <div class="error-img"><img alt="Error Image" src="/minecraft_repository_test/images/Error_default.png"/></div>
-        <p class="main_detail_center">This page is under maintenance..</p>
+        <p class="main_detail_center">Something Went Wrong</p>
+        <p class="main_detail_center" style="font-size: 16px">maybe you'd come back later</p>
         <p class="main_detail_center">
-            <a href="javascript:void(0);" onclick="mainPage();">Back to Main Page</a>
+            <a href="javascript:void(0);" onclick="retry();">Retry</a> | <a href="javascript:void(0);" onclick="mainPage();">Main Page</a>
         </p>
     </div>
 </div>
@@ -83,11 +84,7 @@
 
 </body>
 
-<script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-</script>
+<script src="/minecraft_repository_test/javascript/public_script.js"></script>
 
 <style>
     body {

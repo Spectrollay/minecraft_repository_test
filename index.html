@@ -30,14 +30,14 @@
     <meta content="Minecraft, MC, 我的世界, 版本库, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球" name="keywords"/>
     <meta content="星月Minecraft版本库是一个开放共享的资源站,专注于收录Minecraft发布过的所有版本." name="description"/>
     <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <!--    <style>-->
-    <!--        -->
-    <!--    </style>-->
     <link href="/minecraft_repository_test/Feed/main.xml" rel="alternate" title="星月Minecraft版本库主要订阅" type="application/rss+xml">
     <link href="/minecraft_repository_test/Feed/messages.xml" rel="alternate" title="星月Minecraft版本库通知订阅" type="application/rss+xml">
     <link href="/minecraft_repository_test/Feed/update.xml" rel="alternate" title="星月Minecraft版本库更新订阅" type="application/rss+xml">
     <link href="/minecraft_repository_test/Feed/database.xml" rel="alternate" title="星月Minecraft版本库数据库订阅" type="application/rss+xml">
     <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
+    <!--    <style>-->
+    <!--        -->
+    <!--    </style>-->
     <title>星月Minecraft版本库</title>
 </head>
 
@@ -86,22 +86,9 @@
                 <div class="banner neutral_banner" id="banner_tip"></div>
             </div>
 
-            <!-- TODO 在主页开发完成后移除此提示 -->
-            <div style="display: none;">
-                <div class="main preview_block preview_block_old">
-                    <div class="preview_title" id="preview_title"></div>
-                    <div class="preview_detail" id="preview_detail1"></div>
-                    <div class="preview_detail" id="preview_detail2"></div>
-                    <div class="btn_group">
-                        <custom-button data="default|green|large|preview_btn2|false||" js="toRepo();" text=""></custom-button>
-                    </div>
-                </div>
-                <div class="block_spacing"></div>
-            </div>
-
             <!-- TODO 在新主页开放测试时显示此提示 -->
             <div style="display: none;">
-                <div class="main preview_block preview_block_new">
+                <div class="main preview_block">
                     <div class="preview_title">体验响应式设计</div>
                     <div class="preview_detail">主页响应式布局现已开启测试,欢迎体验!</div>
                     <div class="preview_detail">不用担心,在测试期间你可以随时返回旧设计.</div>
@@ -134,6 +121,16 @@
                             </tr>
                             <tr>
                                 <td class="left_table">
+                                    <div class="description2">[2024-12-08]</div>
+                                </td>
+                                <td class="right_table">
+                                    <div class="description2">
+                                        <a href="javascript:void(0);" onclick="jumpToPage('/minecraft_repository/notifications/#update_plan_202412');">更多的版本下载选项!</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="left_table">
                                     <div class="description2">[2024-07-27]</div>
                                 </td>
                                 <td class="right_table">
@@ -149,16 +146,6 @@
                                 <td class="right_table">
                                     <div class="description2">
                                         <a href="javascript:void(0);" onclick="jumpToPage('/minecraft_repository_test/notifications/#feedback_rewards');">版本库反馈有奖活动上线!</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="left_table">
-                                    <div class="description2">[2024-05-17]</div>
-                                </td>
-                                <td class="right_table">
-                                    <div class="description2">
-                                        <a href="javascript:void(0);" onclick="jumpToPage('/minecraft_repository_test/notifications/#mc_15_y');">Minecraft 15 周年庆典!</a>
                                     </div>
                                 </td>
                             </tr>
@@ -395,37 +382,37 @@
             <div class="block_spacing"></div>
             <div class="block">
                 <div class="main choose_edition_title">选择版本</div>
-                <div class="main edition_block" id="bedrock_edition" onclick="jumpToPage('/minecraft_repository_test/home/bedrock_edition.html');">
+                <div class="main edition_block" id="bedrock_edition" onclick="playSound('click');jumpToPage('/minecraft_repository_test/home/bedrock_edition.html');">
                     <div>
                         <div class="title1">Bedrock Edition</div>
                         <div class="description1">基岩版</div>
                     </div>
                 </div>
-                <div class="main edition_block" id="pocket_edition" onclick="jumpToPage('/minecraft_repository_test/home/pocket_edition.html');">
+                <div class="main edition_block" id="pocket_edition" onclick="playSound('click');jumpToPage('/minecraft_repository_test/home/pocket_edition.html');">
                     <div>
                         <div class="title1">Pocket Edition</div>
                         <div class="description1">携带版</div>
                     </div>
                 </div>
-                <div class="main edition_block" id="education_edition" onclick="jumpToPage('/minecraft_repository_test/home/education_edition.html');">
+                <div class="main edition_block" id="education_edition" onclick="playSound('click');jumpToPage('/minecraft_repository_test/home/education_edition.html');">
                     <div>
                         <div class="title1">Education Edition</div>
                         <div class="description1">教育版</div>
                     </div>
                 </div>
-                <div class="main edition_block" id="trial" onclick="jumpToPage('/minecraft_repository_test/home/trial.html');">
+                <div class="main edition_block" id="trial" onclick="playSound('click');jumpToPage('/minecraft_repository_test/home/trial.html');">
                     <div>
                         <div class="title1">Minecraft Trial</div>
                         <div class="description1">试玩版</div>
                     </div>
                 </div>
-                <div class="main edition_block" id="demo" onclick="jumpToPage('/minecraft_repository_test/home/demo.html');">
+                <div class="main edition_block" id="demo" onclick="playSound('click');jumpToPage('/minecraft_repository_test/home/demo.html');">
                     <div>
                         <div class="title1">Minecraft Demo</div>
                         <div class="description1">演示版</div>
                     </div>
                 </div>
-                <div class="main edition_block" id="more_edition" onclick="jumpToPage('/minecraft_repository_test/home/more_edition.html');">
+                <div class="main edition_block" id="more_edition" onclick="playSound('click');jumpToPage('/minecraft_repository_test/home/more_edition.html');">
                     <div>
                         <div class="title1">更多版本</div>
                         <div class="description1">这里可能会有你想要的</div>
@@ -467,7 +454,7 @@
                     <div class="description2">
                         <div id="donate_message"></div>
                         <div class="btn_group">
-                            <custom-button data="default|normal|large||false||" js="jumpToPage('/minecraft_repository_test/donate.html');" text="打赏"></custom-button>
+                            <custom-button data="default|normal|large||false||" js="jumpToPage('/minecraft_repository_test/about/donate.html');" text="打赏"></custom-button>
                         </div>
                     </div>
                 </div>
@@ -480,10 +467,41 @@
                 <div class="main footer_notice_body">
                     <div class="title3">友情链接</div>
                     <div class="description2">
-                        <div>
-                            <p>数据库准备中</p>
-                            <p><a href="https://wj.qq.com/s2/15430190/90c5/" target="_blank"><img alt="link" class="link_img" src=""/>交换友链 (验证码: spec6)</a></p>
+                        <div class="wrap_flex">
+                            <!-- zihao_il的MC版本库 -->
+                            <reciprocal-link-block onclick="playSound('click');openLink('https://bbk.endyun.ltd/download');">
+                                <div class="reciprocal_link_title">
+                                    <img alt="" class="reciprocal_link_title_img" src="https://bbk.endyun.ltd/favicon.ico">
+                                    <span class="reciprocal_link_title_text">zihao_il的MC版本库</span>
+                                </div>
+                                <div class="reciprocal_link_description">Minecraft安卓版全版本下载</div>
+                            </reciprocal-link-block>
+                            <!-- 方块社区 - 我的世界中文论坛 -->
+                            <reciprocal-link-block onclick="playSound('click');openLink('https://www.cubezone.cc/');">
+                                <div class="reciprocal_link_title">
+                                    <img alt="" class="reciprocal_link_title_img" src="https://www.cubezone.cc/data/assets/logo_default/logo.svg">
+                                    <span class="reciprocal_link_title_text">方块社区</span>
+                                </div>
+                                <div class="reciprocal_link_description">一个Minecraft交流与资源社区</div>
+                            </reciprocal-link-block>
+                            <!-- Qrasa的小站 -->
+                            <reciprocal-link-block onclick="playSound('click');openLink('https://blog.qrasa.cn/');">
+                                <div class="reciprocal_link_title">
+                                    <img alt="" class="reciprocal_link_title_img" src="https://qrasa.cn/assets/avatar.png">
+                                    <span class="reciprocal_link_title_text">Qrasa的小站</span>
+                                </div>
+                                <div class="reciprocal_link_description">记录一些活着的日常</div>
+                            </reciprocal-link-block>
+                            <!-- 友链 -->
+                            <!--    <reciprocal-link-block onclick="playSound('click');openLink('https://www.google.com');">-->
+                            <!--        <div class="reciprocal_link_title">-->
+                            <!--            <img alt="" class="reciprocal_link_title_img" src="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg">-->
+                            <!--            <span class="reciprocal_link_title_text">这是网站名称</span>-->
+                            <!--        </div>-->
+                            <!--        <div class="reciprocal_link_description">这是网站描述</div>-->
+                            <!--    </reciprocal-link-block>-->
                         </div>
+                        <p><a href="https://wj.qq.com/s2/15430190/90c5/" target="_blank"><img alt="link" class="link_img" src=""/>交换友链 (验证码: spec6)</a></p>
                     </div>
                 </div>
             </div>
@@ -564,18 +582,16 @@
 
 </body>
 
+<script src="/minecraft_repository_test/javascript/loading.js"></script>
+<script src="/minecraft_repository_test/javascript/public_script.js"></script>
 <script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     const repositoryAttribute = localStorage.getItem('minecraft_repository_attribute');
 
     if (repositoryAttribute) {
         if (repositoryAttribute.includes('test=true')) {
             if (!rootPath.includes('_test')) {
-                window.location.href = window.location.origin + "/minecraft_repository_test";
+                ifNavigating("jump", window.location.origin + "/minecraft_repository_test");
             }
         } else if (repositoryAttribute.includes('test=false')) {
             if (rootPath.includes('_test')) {
@@ -589,30 +605,6 @@
         if (localStorage.getItem('(/minecraft_repository/)never_show_maintenance_modal_again_20241212') !== 'true') {
             showModal('maintenance_notice');
         }
-    });
-
-    function hide_mask() {
-        const loading_mask = document.getElementById('loading_mask');
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
     });
 </script>
 

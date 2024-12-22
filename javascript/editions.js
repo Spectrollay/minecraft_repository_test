@@ -52,11 +52,13 @@ function hideDisclaimerModal(button, state, url) {
     if (url !== null) {
         logManager.log("获取到跳转链接:" + url);
         if (state === 1) {
-            window.open(url);
+            if (url.includes('huang1111')) { // TODO 在移除全部相关链接后删除判定
+                ifNavigating("open", "/minecraft_repository_test/default/error_not-found.html");
+            } else {
+                ifNavigating("open", url);
+            }
         } else {
-            setTimeout(function () {
-                window.location.href = url;
-            }, 600);
+            ifNavigating("jump", url);
         }
         logManager.log("跳转成功");
     } else {
@@ -70,8 +72,6 @@ function howToBuyGame(button, state, url) {
         logManager.log("选择了了解正版购买");
     }
     logManager.log("获取到跳转链接: " + url);
-    setTimeout(function () {
-        window.location.href = url;
-    }, 600);
+    ifNavigating("jump", url);
     logManager.log("跳转成功");
 }

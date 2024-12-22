@@ -34,9 +34,18 @@
             width: 280px;
         }
 
+        .donate_block_title {
+            font-size: 18px;
+        }
+
         .donate_qrcode {
             margin: 6px 0 0 0;
             width: 280px;
+        }
+
+        .table {
+            margin: 6px;
+            width: calc(100% - 12px);
         }
     </style>
     <title>感谢支持~</title>
@@ -84,7 +93,7 @@
             </div>
             <div class="main main_block">
                 <div class="main_block_cont">
-                    <div>感谢你的支持!</div>
+                    <div class="donate_block_title">感谢你的支持!</div>
                     <div class="wrap_flex">
                         <div class="donate_block">
                             <div>微信</div>
@@ -95,6 +104,29 @@
                             <div>支付宝</div>
                             <img alt="" class="donate_qrcode" src="/minecraft_repository_test/images/donate/Alipay.jpg"/>
                             <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main main_block">
+                <div class="main_block_cont">
+                    <div class="donate_block_title">捐赠列表</div>
+                    <div class="table_area">
+                        <div class="table">
+                            <table>
+                                <tr>
+                                    <td>用户</td>
+                                    <td>捐赠</td>
+                                </tr>
+                                <tr>
+                                    <td>一颗不帅</td>
+                                    <td>CNY 5</td>
+                                </tr>
+                                <tr>
+                                    <td>Engine</td>
+                                    <td>CNY 15</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -114,35 +146,9 @@
 
 </body>
 
+<script src="/minecraft_repository_test/javascript/loading.js"></script>
+<script src="/minecraft_repository_test/javascript/public_script.js"></script>
 <script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-
-    function hide_mask() {
-        const loading_mask = document.getElementById('loading_mask');
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
-    });
-
     function saveImage(button) {
         let parent = button.parentElement;
         while (parent && !parent.classList.contains('donate_block')) {
@@ -165,10 +171,6 @@
 <style>
     .main_block_cont {
         margin: 6px 0;
-    }
-
-    .wrap_flex {
-        justify-content: center;
     }
 </style>
 

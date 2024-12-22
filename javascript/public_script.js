@@ -36,7 +36,6 @@ window.logManager = {
     }
 };
 
-
 // 检测浏览器是否处于夜间模式
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.body.classList.add('no-dark-mode'); // 覆盖夜间模式下的样式
@@ -82,7 +81,7 @@ function updateThumb(thumb, container, content, customScrollbar) {
     thumb.style.height = `${thumbHeight}px`;
     thumb.style.top = `${thumbPosition}px`;
     customScrollbar.style.height = `${containerHeight}px`;
-    customScrollbar.style.display = thumbHeight >= containerHeight ? 'none' : 'block';
+    customScrollbar.style.display = (thumbHeight + 0.5) >= containerHeight ? 'none' : 'block'; // 解决计算精度不同导致的问题
 }
 
 // 处理滚动条点击跳转
@@ -215,6 +214,27 @@ if (firstVisit < '2024-05-25') { // NOTE 只在涉及到不兼容改变时更新
     clearStorage();
 }
 
+// 跳转判定
+let isNavigating = false;
+
+function ifNavigating(way, url) {
+    if (isNavigating) {
+        return; // 防止重复点击
+    }
+    isNavigating = true; // 设置状态,正在跳转
+    if (way === 'open') {
+        setTimeout(function () {
+            window.open(url);
+            isNavigating = false; // 重置状态,允许下一次点击
+        }, 100);
+    } else if (way === 'jump') {
+        setTimeout(function () {
+            window.location.href = url;
+            isNavigating = false; // 重置状态,允许下一次点击
+        }, 600);
+    }
+}
+
 // 路径检测
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
@@ -251,10 +271,10 @@ logManager.log("完整路径: " + currentURL);
 logManager.log("来源: " + hostPath);
 logManager.log("根路径: " + rootPath);
 logManager.log("当前路径: " + currentPagePath);
-logManager.log("当前位于" + slashCount - 1 + "级页面");
+logManager.log("当前位于" + (slashCount - 1) + "级页面");
 
 if (hostPath.includes('file:///')) {
-    logManager.log('当前运行在本地文件');
+    logManager.log("当前运行在本地文件");
 } else if (hostPath.includes('localhost')) {
     logManager.log("当前运行在本地服务器");
 } else if (hostPath.includes('github.io')) {
@@ -313,10 +333,10 @@ window.onload = async function () {
     if ('caches' in window) {
         try {
             const cache = await caches.open(cacheName);
-            await cache.addAll([soundPaths['click'], soundPaths['button']]);
-            logManager.log('音效文件已缓存!');
+            await cache.addAll([soundPaths['click'], soundPaths['button'], soundPaths['open'], soundPaths['close']]);
+            logManager.log("音效文件已缓存!");
         } catch (error) {
-            logManager.log('音效文件缓存失败: ' + error, 'error');
+            logManager.log("音效文件缓存失败: " + error, 'error');
         }
     }
 };
@@ -329,15 +349,19 @@ async function getCachedAudio(filePath) {
             if (response) {
                 const blob = await response.blob();
                 const audioURL = URL.createObjectURL(blob);
-                logManager.log('从缓存获取音效文件');
+                logManager.log("从缓存获取音效文件");
                 return new Audio(audioURL); // 返回缓存中的音效
+            } else {
+                logManager.log("缓存中未找到音效文件,尝试直接从链接加载");
             }
         } catch (error) {
-            logManager.log('从缓存获取音效文件失败: ' + error, 'error');
+            logManager.log("从缓存获取音效文件失败: " + error, 'error');
         }
     } else {
-        return new Audio(filePath); // 缓存不存在或失败时直接返回网络资源
+        logManager.log("浏览器不支持缓存API,直接加载音效");
     }
+    // 如果缓存获取失败直接返回网络资源
+    return new Audio(filePath);
 }
 
 if (rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_attribute')) {
@@ -504,17 +528,13 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
 
 function joinTest() {
     localStorage.setItem('minecraft_repository_attribute', 'test=true');
-    setTimeout(function () {
-        window.location.href = hostPath + "/minecraft_repository_test";
-    }, 600);
+    ifNavigating("jump", hostPath + "/minecraft_repository_test");
 }
 
 function leaveTest() {
     localStorage.setItem('minecraft_repository_attribute', 'test=false');
     localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
-    setTimeout(function () {
-        window.location.href = hostPath + "/minecraft_repository";
-    }, 600);
+    ifNavigating("jump", hostPath + "/minecraft_repository");
 }
 
 // 兼容性检测
@@ -596,7 +616,7 @@ document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 function checkFirstVisit() {
     firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
     const is404Page = document.title.includes("404 NOT FOUND");
-    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}home.html`, `${rootPath}donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`];
+    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}home.html`, `${rootPath}about/donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`];
 
     // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
     if (firstVisit !== today && !firstVisitAllowedPaths.includes(window.location.pathname) && !is404Page) {
@@ -623,13 +643,16 @@ window.addEventListener('load', () => setTimeout(function () {
     checkFirstVisit();
 }, 20));
 
+// TODO 用户音量调节
+let userVolume = 1;
+
 const soundPaths = {
     click: rootPath + 'sounds/click.ogg',
     button: rootPath + 'sounds/button.ogg',
     pop: rootPath + 'sounds/pop.ogg',
     hide: rootPath + 'sounds/hide.ogg',
-    open: rootPath + 'sounds/open.wav',
-    close: rootPath + 'sounds/close.wav'
+    open: rootPath + 'sounds/drawer_open.ogg',
+    close: rootPath + 'sounds/drawer_close.ogg'
 };
 
 function playSound(type) {
@@ -661,85 +684,86 @@ function playSoundType(button) {
 
 // 点击菜单图标事件
 function clickedMenu() {
-    playSound('click');
     toggleSidebar();
     toggleOverlay();
 }
 
 function toUpdatelog() {
     const updatelogPath = '/minecraft_repository_test/updatelog/';
-    setTimeout(function () {
-        window.location.href = updatelogPath;
-    }, 600);
+    ifNavigating("jump", updatelogPath);
 }
 
 function toMessage() {
     const messagePath = '/minecraft_repository_test/notifications/';
-    setTimeout(function () {
-        window.location.href = messagePath;
-    }, 600);
+    ifNavigating("jump", messagePath);
 }
-
 
 function toRepo() {
     setTimeout(function () {
-        window.open("https://github.com/Spectrollay/minecraft_repository_test/issues/new");
+        ifNavigating("open", "https://github.com/Spectrollay/minecraft_repository_test/issues/new");
     }, 600);
+}
+
+// 重试按钮事件
+function retry(defaultUrl = "/minecraft_repository_test/") {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get('source');
+
+    if (source) {
+        ifNavigating("jump", decodeURIComponent(source));
+    } else {
+        ifNavigating("jump", defaultUrl);
+    }
 }
 
 // 点击返回按钮事件
 function clickedBack() {
     logManager.log("点击返回");
     playSound('click');
-    if (window.history.length <= 1) {
-        logManager.log("关闭窗口");
-        setTimeout(function () {
+    setTimeout(function () {
+        if (window.history.length <= 1) {
+            logManager.log("关闭窗口");
             window.close();
-        }, 600);
-    } else {
-        logManager.log("返回上一级页面");
-        setTimeout(function () {
+        } else {
+            logManager.log("返回上一级页面");
             window.history.back();
-        }, 600);
-    }
+        }
+    }, 600);
 }
 
 // 点击仓库图标事件
 function repoPage() {
-    window.open("https://github.com/Spectrollay/minecraft_repository_test/");
+    ifNavigating("open", "https://github.com/Spectrollay/minecraft_repository_test/");
 }
 
 // 点击设置图标事件
 function settingsPage() {
     playSound('click');
-    setTimeout(function () {
-        window.location.href = "/minecraft_repository_test/advanced/settings.html";
-    }, 600);
+    ifNavigating("jump", "/minecraft_repository_test/advanced/settings.html");
 }
 
 // 跳转主页
 function mainPage() {
-    setTimeout(function () {
-        window.location.href = rootPath;
-    }, 600);
+    ifNavigating("jump", rootPath);
 }
 
 // 跳转链接
 function jumpToPage(link) {
-    playSound('click');
-    setTimeout(function () {
-        window.location.href = link;
-    }, 360);
+    ifNavigating("jump", link);
 }
 
 // 打开网页
 function openLink(url) {
-    window.open(url);
+    if (url.includes('huang1111') || url.includes('mcarc')) { // TODO 在移除全部相关链接后删除判定
+        ifNavigating("open", "/minecraft_repository_test/default/error_not-found.html");
+    } else {
+        ifNavigating("open", url);
+    }
 }
 
 function delayedOpenLink(url) {
     setTimeout(function () {
-        window.open(url);
+        ifNavigating("open", url);
     }, 1500);
 }
 
@@ -751,7 +775,7 @@ function clickedOverlay() {
 
 // 点击侧边栏底部按钮事件
 function clickedSidebarBottomBtn() {
-    window.open("https://github.com/Spectrollay/minecraft_kit");
+    ifNavigating("open", "https://github.com/Spectrollay/minecraft_kit");
 }
 
 // 滚动到网页顶部
@@ -778,9 +802,9 @@ function copyText(text) {
     tempTextarea.select();
     tempTextarea.setSelectionRange(0, 999999); // 兼容移动设备
     navigator.clipboard.writeText(tempTextarea.value).then(() => {
-        logManager.log('复制成功: ', tempTextarea.value);
+        logManager.log("复制成功: ", tempTextarea.value);
     }).catch(error => {
-        logManager.log('复制失败: ' + error, 'error');
+        logManager.log("复制失败: " + error, 'error');
     });
 }
 
@@ -841,14 +865,13 @@ let sidebarOpen = false;
 
 function toggleSidebar() { // 切换侧边栏状态
     const sidebar = document.getElementById("sidebar");
-    const sidebarContent = sidebar.querySelector(".sidebar_scroll_container");
     if (sidebarOpen) {
-        sidebar.style.width = "0";
-        sidebarContent.style.width = "0";
+        playSound('close');
+        sidebar.style.left = "-160px"; // 隐藏到屏幕左侧
         logManager.log("侧边栏执行收起操作");
     } else {
-        sidebar.style.width = "160px"; // 侧边栏宽度,与CSS内相同
-        sidebarContent.style.width = "160px"; // 侧边栏宽度,与CSS内相同
+        playSound('open');
+        sidebar.style.left = "0"; // 显示侧边栏
         logManager.log("侧边栏执行展开操作");
     }
     sidebarOpen = !sidebarOpen;

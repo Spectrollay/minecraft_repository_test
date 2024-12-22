@@ -123,7 +123,9 @@ modals.forEach((modal) => {
     });
 });
 
-updateFocusableElements(); // 初始化元素焦点
+window.addEventListener('load', () => {
+    updateFocusableElements(); // 初始化元素焦点
+});
 
 if (expAccessibilityState === 'on') {
 

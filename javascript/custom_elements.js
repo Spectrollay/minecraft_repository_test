@@ -300,7 +300,7 @@ function showModal(modal) {
     overlay.style.display = "block";
     frame.style.display = "block";
     frame.focus(); // 将焦点聚集到弹窗上,防止选中弹窗下方元素
-    logManager.log('显示弹窗 ' + modal);
+    logManager.log("显示弹窗 " + modal);
 }
 
 function hideModal(button) {
@@ -320,7 +320,7 @@ function hideModal(button) {
     playSoundType(button);
     overlay.style.display = "none";
     frame.style.display = "none";
-    logManager.log('隐藏弹窗 ' + frameId);
+    logManager.log("隐藏弹窗 " + frameId);
 }
 
 

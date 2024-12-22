@@ -28,16 +28,12 @@ document.head.appendChild(advanced_css);
 
 // 点击Debug图标事件
 function debugPage() {
-    setTimeout(function () {
-        window.location.href = "/minecraft_repository_test/advanced/debug.html";
-    }, 600);
+    ifNavigating("jump", "/minecraft_repository_test/advanced/debug.html");
 }
 
 // 点击环境指南按钮
 function enviPage() {
-    setTimeout(function () {
-        window.location.href = "/minecraft_repository_test/guidance/environment_guidance.html";
-    }, 600);
+    ifNavigating("jump", "/minecraft_repository_test/guidance/environment_guidance.html");
 }
 
 // 清除存储
@@ -51,7 +47,7 @@ function clearStorage() {
         }
     }
     sessionStorage.clear();
-    logManager.log('清除存储数据成功');
+    logManager.log("清除存储数据成功");
     mainPage();
 }
 
@@ -59,7 +55,7 @@ function clearStorage() {
 function resetAll() {
     localStorage.clear();
     sessionStorage.clear();
-    logManager.log('重置全部内容成功');
+    logManager.log("重置全部内容成功");
     mainPage();
 }
 
@@ -67,7 +63,7 @@ function resetAll() {
 function reloadPage() {
     sessionStorage.clear();
     location.reload();
-    logManager.log('重载容器环境成功');
+    logManager.log("重载容器环境成功");
 }
 
 const versionBlock = document.getElementById("version_block");
@@ -78,13 +74,13 @@ let clickTimer;
 // 快速连点处理函数
 function handleClick(event, conditionKey, successMessage, callback) {
     if (sessionStorage.getItem(conditionKey) === "true") {
-        logManager.log('已解锁!');
+        logManager.log("已解锁!");
         return;
     }
 
     if (!event.target.closest("custom-button")) {
         clickCount++;
-        logManager.log('连续点击次数: ' + clickCount);
+        logManager.log("连续点击次数: " + clickCount);
 
         if (clickCount === 1) { // 第一次点击时启动计时器
             clickTimer = setTimeout(() => {
