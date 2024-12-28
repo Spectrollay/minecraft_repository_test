@@ -29,18 +29,24 @@ exp_css.href = '/minecraft_repository_test/experiments/index.css';
 document.head.appendChild(exp_css);
 
 
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+
 // 新的实验性页面
 let newFlagsPageSwitch = document.getElementById('new_flags_page');
 let newFlagsPageState;
 let switchValues;
 
 function flagsPage() {
-    switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
-    newFlagsPageState = switchValues['new_flags_page'] || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
-    if (newFlagsPageState === 'on') {
+    if (!rootPath.includes('_test')) {
         ifNavigating("jump", "/minecraft_repository_test/flags/");
     } else {
-        ifNavigating("jump", "/minecraft_repository_test/experiments/");
+        switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+        newFlagsPageState = switchValues['new_flags_page'] || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
+        if (newFlagsPageState === 'on') {
+            ifNavigating("jump", "/minecraft_repository_test/flags/");
+        } else {
+            ifNavigating("jump", "/minecraft_repository_test/experiments/");
+        }
     }
 }
 
