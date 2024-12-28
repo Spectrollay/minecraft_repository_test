@@ -225,12 +225,16 @@ function ifNavigating(way, url) {
     if (way === 'open') {
         setTimeout(function () {
             window.open(url);
-            isNavigating = false; // 重置状态,允许下一次点击
+            setTimeout(function () {
+                isNavigating = false; // 重置状态,允许下一次点击
+            }, 100);
         }, 100);
     } else if (way === 'jump') {
         setTimeout(function () {
             window.location.href = url;
-            isNavigating = false; // 重置状态,允许下一次点击
+            setTimeout(function () {
+                isNavigating = false; // 重置状态,允许下一次点击
+            }, 100);
         }, 600);
     }
 }

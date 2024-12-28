@@ -218,6 +218,10 @@ scroll-container {
     width: 100%;
 }
 
+.scroll_container {
+    overscroll-behavior: contain;
+}
+
 main {
     color: #FFFFFF;
     min-width: 330px;
