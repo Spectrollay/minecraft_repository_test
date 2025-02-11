@@ -267,7 +267,9 @@ function ifNavigating(way, url) {
 
 // 重载页面
 function reloadPage() {
-    location.reload();
+    setTimeout(function () {
+        location.reload();
+    }, 600);
 }
 
 // 路径检测
@@ -772,7 +774,7 @@ function playSound(type) {
 
 // 按键音效
 function playSoundType(button) {
-    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || button.classList.contains("sidebar_btn") || (button.classList.contains("tab_bar_btn") && button.classList.contains("no_active")) || button.classList.contains("close_btn")) {
+    if (button.classList.contains("normal_btn") || button.classList.contains("red_btn") || button.classList.contains("sidebar_btn") || (button.classList.contains("tab_bar_btn") && button.classList.contains("no_active")) || button.classList.contains("close_btn") || button.classList.contains("header_item")) {
         playSound('click');
     } else if (button.classList.contains("green_btn")) {
         playSound('button');
