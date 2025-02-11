@@ -24,13 +24,13 @@
 // TODO 需在每次提交前检查
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
-const secondary_version_name = primary_version_name + ".5"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".81"; // 例 4.0.0.1  NOTE 小版本
+const secondary_version_name = primary_version_name + ".6"; // 例 4.0.0
+const version_name_short = secondary_version_name + ".29"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20241228" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "2025211" + ".03"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -39,6 +39,7 @@ if (commit === "#") {
 }
 
 const data = "https://spectrollay.github.io/data";
+
 async function getProjectHash() {
     try {
         const response = await fetch('/minecraft_repository_test/Verification/project-hash.json');
@@ -96,7 +97,14 @@ getProjectHash().then(projectHash => {
 logManager.log("发布版本: " + publish_version_name);
 
 // 网站状态
-fetch(data + '/minecraft_repository_test/status.xml')
+let status;
+if (window.location.origin.includes('https')) {
+    status = data + '/minecraft_repository_test/status.xml';
+} else {
+    status = '/minecraft_repository_test/status.xml';
+}
+
+fetch(status)
     .then((response) => response.text())
     .then((xmlText) => {
         const parser = new DOMParser();
@@ -175,19 +183,26 @@ const texts = {
     preview_detail1: "我们想听听你对这个新设计的意见.",
     preview_detail2: "请注意: 新设计仍未完工,可能会缺失部分功能.",
     preview_btn1: "开发日志",
-    preview_btn2: "<img class='link_img' src='' alt=''/>提出反馈",
+    preview_btn2: "<img alt='' class='link_img' src=''/>提出反馈",
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
     minecraft_wiki: "中文Minecraft Wiki",
     experiment_banner: "实验性内容页面展示的是一部分未完成开发或正在开发的特性, 这些特性最终可能会在未来版本中正式加入或发生变动甚至被移除.<br>请注意: 本页面的特性尚未完成开发, 使用过程中随时可能出现故障/崩溃或一些预料之外的问题. 向我们发送你的任何意见或反馈发现的任何问题!",
-    download_channel1: "默认云盘",
-    download_channel2: "蓝奏云盘",
-    download_channel3: "123云盘",
-    download_channel4: "天翼云盘",
-    download_channel5: "百度云盘",
-    download_channel6: "<img class='link_img_black' src='' alt=''/>外部链接",
+    download_channel1_old: "默认云盘",
+    download_channel2_old: "蓝奏云盘",
+    download_channel3_old: "123云盘",
+    download_channel4_old: "天翼云盘",
+    download_channel5_old: "百度云盘",
+    download_channel6_old: "<img alt='' class='link_img_black' src=''/>外部链接",
+    download_channel1: "OneDrive",
+    download_channel2: "百度网盘",
+    download_channel3: "夸克网盘",
+    download_channel4: "123云盘",
+    download_channel5: "蓝奏云",
+    download_channel6: "huang1111网盘",
+    download_channel7: "<img alt='' class='link_img_black' src=''/>外部链接",
     download_type1: "官方原版",
-    download_type1_out: "<img class='link_img_black' src='' alt=''/>官方原版(外部链接)",
+    download_type1_out: "<img alt='' class='link_img_black' src=''/>官方原版(外部链接)",
     download_type2: "中文译名修正",
     download_type3: "去验证版",
     download_type4: "多架构版",
@@ -229,23 +244,23 @@ const tipElement = document.getElementById("banner_tip");
 let tipsWithWeights;
 const commonTips = [
     {
-        text: "<span>发现问题或有好的建议?<a href='https://github.com/Spectrollay/minecraft_repository_test/issues/new' onclick=\"playSound('click');\" target='_blank'>欢迎提出</a>!</span>",
+        text: "<span>发现问题或有好的建议?<a href='https://github.com/Spectrollay/minecraft_repository_test/issues/new' target='_blank'>欢迎提出</a>!</span>",
         weight: 12
     },
     {
-        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' onclick=\"playSound('click');\" target='_blank'>Telegram</a> / <a href='https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609' onclick=\"playSound('click');\" target='_blank'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' onclick=\"playSound('click');\" target='_blank'>云湖</a>群聊!</span>",
+        text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' target='_blank'>Telegram</a> / <a href='https://qm.qq.com/q/AqLmKLH9mM' target='_blank'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' target='_blank'>云湖</a>群聊!</span>",
         weight: 12
     },
     {
-        text: "<span>欢迎加入版本库官方频道: <a href='https://t.me/spectrollay_minecraft_repository' onclick=\"playSound('click');\" target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick=\"playSound('click');\" target='_blank'>QQ</a></span>",
+        text: "<span>欢迎加入版本库官方频道: <a href='https://t.me/spectrollay_minecraft_repository' target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' target='_blank'>QQ</a></span>",
         weight: 12
     },
     {
-        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' onclick=\"playSound('click');\" target='_blank'>官方网站</a>!</span>",
+        text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' target='_blank'>官方网站</a>!</span>",
         weight: 12
     },
     {
-        text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' onclick=\"playSound('click');\" target='_blank'>中文译名修正项目</a>!</span>",
+        text: "<span>也来看看我们的<a href='https://github.com/Spectrollay/mclang_cn' target='_blank'>中文译名修正项目</a>!</span>",
         weight: 12
     },
     {text: "Made by Spectrollay!", weight: 12},
@@ -500,7 +515,7 @@ if (holiday_tip2) {
     if (M === 4 && (D === 1 || (D === 2 && h < 12))) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span><a href='https://www.minecraft.net/article/poisonous-potato-update' onclick=\"playSound('click');\" target='_blank'>毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href='https://www.bilibili.com/video/BV1GJ411x7h7/' target='_blank'>点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
+            holiday_tip_display2.innerHTML = "<span><a href='https://www.minecraft.net/article/poisonous-potato-update' target='_blank'>毒马铃薯更新现已正式发布!</a><br>版本库4.0满月感恩大回馈! <a href='https://www.bilibili.com/video/BV1GJ411x7h7/' target='_blank'>点此链接抽一人送 Minecraft PC 捆绑包!</a> 距离活动结束仅剩1天!</span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -512,7 +527,7 @@ if (holiday_tip2) {
     if (M === 4 && D > 19 && D < 26) {
         if (Y === 2024) {
             holiday_tip2.style.display = 'flex';
-            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href='https://www.earthday.org/earth-day-2024/' onclick=\"playSound('click');\" target='_blank'>Planet vs. Plastics</a></span>";
+            holiday_tip_display2.innerHTML = "<span>2024 世界地球日<br><a href='https://www.earthday.org/earth-day-2024/' target='_blank'>Planet vs. Plastics</a></span>";
         }
         if (Y === 2025) { // 即将到来
             holiday_tip2.style.display = 'flex';
@@ -538,19 +553,33 @@ const setElementText = (elementId, text) => {
     }
 }
 
-// 彩蛋标题
+// 彩蛋标题(旧) TODO 旧页面完成迭代后移除
 const repositoryLogo = document.getElementById("repository_logo");
 if (repositoryLogo) {
     const randomValue = Math.floor(Math.random() * 10000); // 0.01%
     if (randomValue < 1) {
-        repositoryLogo.innerHTML = `<div class="repository_logo_area">星月Minceraft版本库</div>`;
-        // repositoryLogo.innerHTML = `<div class="repository_logo_area">星月<img alt="" class="repository_logo_img" src="/minecraft_repository_test/images/Minceraft.png"/>版本库</div>`;
+        repositoryLogo.innerHTML = `星月Minceraft版本库`;
     } else {
-        repositoryLogo.innerHTML = `<div class="repository_logo_area">星月Minecraft版本库</div>`;
-        // repositoryLogo.innerHTML = `<div class="repository_logo_area">星月<img alt="" class="repository_logo_img" src="/minecraft_repository_test/images/Minecraft.png"/>版本库</div>`;
+        repositoryLogo.innerHTML = `星月Minecraft版本库`;
     }
 }
 
+// 彩蛋标题
+const StarmoonTitleShort = document.getElementById("starmoon_title_short");
+const StarmoonTitleLong = document.getElementById("starmoon_title_long");
+const randomValue = Math.floor(Math.random() * 1000); // 0.1%
+
+if (StarmoonTitleShort && StarmoonTitleLong) {
+    if (randomValue < 1) {
+        StarmoonTitleShort.src = '/minecraft_repository_test/images/logo/Starmoon_title_ee.png';
+        StarmoonTitleLong.src = '/minecraft_repository_test/images/logo/Starmoon_title_long_ee.png';
+    } else {
+        StarmoonTitleShort.src = '/minecraft_repository_test/images/logo/Starmoon_title.png';
+        StarmoonTitleLong.src = '/minecraft_repository_test/images/logo/Starmoon_title_long.png';
+    }
+}
+
+// 常见文本赋值
 window.addEventListener('load', () => setTimeout(function () {
     setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
     setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
@@ -591,9 +620,9 @@ window.addEventListener('load', () => setTimeout(function () {
             <div class="page_info_title">INFORMATION</div>
             <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}<br>Commited: ${commit}</span></div>
             <div class="page_info_title">BASED ON</div>
-            <div class="page_info"><span><a href="https://html.spec.whatwg.org/" onclick="playSound('click');" target="_blank">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" onclick="playSound('click');" target="_blank">Web API</a> / <a href="https://webkit.org/" onclick="playSound('click');" target="_blank">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" onclick="playSound('click');" target="_blank">OreUI</a></span></div>
+            <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank">HTML5</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">Web API</a> / <a href="https://webkit.org/" target="_blank">WebKit</a> / <a href="https://github.com/Spectrollay/OreUI" target="_blank">OreUI</a></span></div>
             <div class="page_info_title">ABOUT US</div>
-            <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" onclick="playSound('click');" target="_blank">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" onclick="playSound('click');" target="_blank">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" onclick="playSound('click');" target="_blank">Telegram</a> / <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=WVA6aPqtv99hiYleW7vUq5OsBIufCAB1&authKey=B0%2BaXMCTqnmQrGh0wzCZTyWTIPyHS%2FPEM5QXcFfVwroFowNnzs6Yg1er1%2F8Fekqp&noverify=0&group_code=833473609" onclick="playSound('click');" target="_blank">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" onclick="playSound('click');" target="_blank">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" onclick="playSound('click');" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" onclick="playSound('click');" target="_blank">QQ</a><span></div>
+            <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank">Telegram</a> / <a href="https://qm.qq.com/q/AqLmKLH9mM" target="_blank">QQ</a> / <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" target="_blank">Telegram</a> / <a href="https://pd.qq.com/s/h8a7gt2u4" target="_blank">QQ</a><span></div>
             <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
             <div class="page_info"><br></div>
         </div>`;
@@ -620,10 +649,10 @@ window.addEventListener('load', () => setTimeout(function () {
     const menu_icon = document.getElementById('menu_icon');
     const back_icon = document.getElementById('back_icon');
     if (back_icon) {
-        back_icon.src = '/minecraft_repository_test/images/arrowLeft.png';
+        back_icon.src = '/minecraft_repository_test/images/Back.png';
     }
     if (menu_icon) {
-        menu_icon.src = '/minecraft_repository_test/images/menu.png';
+        menu_icon.src = '/minecraft_repository_test/images/Menu.png';
     }
 
     let linkImg = document.getElementsByClassName('link_img');
@@ -639,6 +668,13 @@ window.addEventListener('load', () => setTimeout(function () {
         }
     }
 
+    let backImg = document.getElementsByClassName('back_img');
+    if (backImg) {
+        for (let i = 0; i < backImg.length; i++) {
+            backImg[i].src = '/minecraft_repository_test/images/arrowLeft_white.png';
+        }
+    }
+
     let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
     if (modal_close_btn_img) {
         for (let i = 0; i < modal_close_btn_img.length; i++) {
@@ -646,7 +682,44 @@ window.addEventListener('load', () => setTimeout(function () {
         }
     }
 
+    // 禁止拖动元素
+    let cantDraggableElements = document.querySelectorAll("img, a");
+    cantDraggableElements.forEach(function (cantDraggableElement) {
+        cantDraggableElement.draggable = false;
+    });
+
+    // 为链接添加点击音效
+    let links = document.querySelectorAll('a:not(.sidebar_item)'); // 选择所有类名不为sidebar_item的链接
+    links.forEach(link => {
+        const originalOnClick = link.getAttribute('onclick');
+        if (originalOnClick) { // 如果存在原始的点击事件则先调用原有的再添加
+            link.setAttribute('onclick', `playSound('click');${originalOnClick}`);
+        } else {
+            link.setAttribute('onclick', "playSound('click');");
+        }
+    });
+
 }, 10));
+
+const mclang_cn_fix = document.querySelector('#mclang_cn_fix.mclang_cn_fix');
+if (mclang_cn_fix) {
+    mclang_cn_fix.innerHTML = `
+        <div class="block_main wrap_flex">
+            <div>
+                <div class="title2 download_block_title">和基岩版的无脑翻译说再见!</div>
+                <div class="download_block_description" style="text-align: center;">适用于所有基于基岩引擎开发的游戏版本!<br>独家适配隐藏内容和不同平台的独有内容!<br>快速适配最新的绝大多数正式版和开发版!</div>
+            </div>
+            <div>
+                <div class="link_block_group_title">访问项目</div>
+                <link-block onclick="playSound('click');openLink('https://spectrollay.github.io/mclang_cn/');">
+                    <div class="link_title">
+                        <img alt="" class="link_title_img" src="/minecraft_repository_test/images/logo/mclang_cn_fix.png">中文译名修正项目
+                    </div>
+                </link-block>
+            </div>
+        </div>
+    `;
+}
 
 logManager.log("字符常量已成功应用");
 
@@ -664,6 +737,22 @@ if (tipElement) {
             logManager.log("检测到点击了链接,不执行切换提示操作");
         } else {
             tipElement.innerHTML = getRandomTip();
+            // 禁止拖动元素
+            let cantDraggableElements = tipElement.querySelectorAll("img, a");
+            cantDraggableElements.forEach(function (cantDraggableElement) {
+                cantDraggableElement.draggable = false;
+            });
+
+            // 为链接添加点击音效
+            let links = tipElement.querySelectorAll('a:not(.sidebar_item)'); // 选择所有类名不为sidebar_item的链接
+            links.forEach(link => {
+                const originalOnClick = link.getAttribute('onclick');
+                if (originalOnClick) { // 如果存在原始的点击事件则先调用原有的再添加
+                    link.setAttribute('onclick', `playSound('click');${originalOnClick}`);
+                } else {
+                    link.setAttribute('onclick', "playSound('click');");
+                }
+            });
         }
     });
 }
@@ -716,7 +805,7 @@ function getRandomTip() {
     } while (currentTipIndex === previousTipIndex);
 
     previousTipIndex = currentTipIndex;
-    // logManager.log("最终选中提示: " + chosenTip.text + "，权值: " + selectedWeight);
+    // logManager.log("最终选中提示: " + chosenTip.text + ", 权值: " + selectedWeight);
     logManager.log("最终选中提示索引: " + currentTipIndex);
 
     return chosenTip.text;

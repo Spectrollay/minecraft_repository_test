@@ -81,6 +81,13 @@ class CustomButton extends HTMLElement {
             button.addEventListener('click', () => {
                 logManager.log(`按钮 ${text} 被点击`);
                 playSoundType(button);
+
+                // 创建按钮点击自定义事件
+                const buttonClickEvent = new CustomEvent('button-click', {
+                    bubbles: true,  // 使事件冒泡
+                    cancelable: true,  // 允许取消事件
+                });
+                this.dispatchEvent(buttonClickEvent);
             });
             if (this.status !== 'disabled') {
                 if (js !== "false") {
@@ -167,6 +174,13 @@ class CustomCheckbox extends HTMLElement {
 
         localStorage.setItem('(/minecraft_repository_test/)checkbox_value', JSON.stringify(checkboxData));
         this.render();
+
+        // 创建复选框点击自定义事件
+        const checkboxClickEvent = new CustomEvent('checkbox-click', {
+            bubbles: true,  // 使事件冒泡
+            cancelable: true,  // 允许取消事件
+        });
+        this.dispatchEvent(checkboxClickEvent);
     }
 
     restoreState() {
@@ -223,6 +237,8 @@ class CustomDropdown extends HTMLElement {
         this.addEventListener('click', (e) => this.toggleOptions(e));
         this.updateLabel();
         this.renderOptions();
+        document.addEventListener('mousedown', (e) => this.handleOutsideClick(e));
+        document.addEventListener('touchstart', (e) => this.handleOutsideClick(e));
     }
 
     static get observedAttributes() {
@@ -255,6 +271,13 @@ class CustomDropdown extends HTMLElement {
         logManager.log(`下拉菜单 ${this.id} 选项 ${isVisible ? '隐藏' : '显示'}`);
         playSound('click');
         mainHandleScroll(); // 联动自定义网页滚动条
+
+        // 创建下拉菜单点击自定义事件
+        const dropdownClickEvent = new CustomEvent('dropdown-click', {
+            bubbles: true,  // 使事件冒泡
+            cancelable: true,  // 允许取消事件
+        });
+        this.dispatchEvent(dropdownClickEvent);
     }
 
     selectOption(e) {
@@ -277,8 +300,18 @@ class CustomDropdown extends HTMLElement {
     }
 
     updateLabel() {
-        this.label.textContent = this.optionsData[this.selectedValue - 1] || this.getAttribute('unselected-text') || '选择一个选项';
-        logManager.log(`下拉菜单 ${this.id} 标签设置为: ${this.label.textContent}`);
+        this.label.innerHTML = this.optionsData[this.selectedValue - 1] || this.getAttribute('unselected-text') || '选择一个选项';
+        logManager.log(`下拉菜单 ${this.id} 标签设置为: ${this.label.innerHTML}`);
+
+        // 创建下拉菜单值改变自定义事件
+        const dropdownValueChangeEvent = new CustomEvent('dropdown-value-change', {
+            bubbles: true,  // 使事件冒泡
+            cancelable: true,  // 允许取消事件
+            detail: {
+                value: this.selectedValue, // 传递选中值
+            },
+        });
+        this.dispatchEvent(dropdownValueChangeEvent);
     }
 
     renderOptions() {
@@ -287,6 +320,18 @@ class CustomDropdown extends HTMLElement {
             option.classList.toggle('selected', isSelected);
             option.querySelector('.dropdown_checkmark').style.display = isSelected ? 'block' : 'none';
         });
+    }
+
+    handleOutsideClick(e) {
+        // 点击外部区域收起下拉菜单
+        const isVisible = this.dropdownOptions.style.display === 'block';
+        if (!isVisible) return;
+        if (!this.contains(e.target)) {
+            this.dropdownOptions.style.display = 'none';
+            this.closest('.dropdown_container').style.height = `${this.label.offsetHeight + this.margin}px`; // 根据显示状态切换高度
+            logManager.log(`因点击外部, 下拉菜单 ${this.id} 隐藏`);
+            mainHandleScroll(); // 联动自定义网页滚动条
+        }
     }
 }
 
@@ -301,6 +346,13 @@ function showModal(modal) {
     frame.style.display = "block";
     frame.focus(); // 将焦点聚集到弹窗上,防止选中弹窗下方元素
     logManager.log("显示弹窗 " + modal);
+
+    // 创建弹窗显示自定义事件
+    const modalShowEvent = new CustomEvent('modal-show', {
+        bubbles: true,  // 使事件冒泡
+        cancelable: true,  // 允许取消事件
+    });
+    frame.dispatchEvent(modalShowEvent);
 }
 
 function hideModal(button) {
@@ -321,6 +373,13 @@ function hideModal(button) {
     overlay.style.display = "none";
     frame.style.display = "none";
     logManager.log("隐藏弹窗 " + frameId);
+    
+    // 创建弹窗隐藏自定义事件
+    const modalHideEvent = new CustomEvent('modal-hide', {
+        bubbles: true,  // 使事件冒泡
+        cancelable: true,  // 允许取消事件
+    });
+    frame.dispatchEvent(modalHideEvent);
 }
 
 
@@ -424,20 +483,29 @@ class CustomSlider extends HTMLElement {
             return position * (maxValue - minValue) / 100 + minValue;
         }
 
+        function changeValue(value) {
+            updateHandle(value);
+            updateTooltip(value);
+            saveSliderValue();
+
+            // 创建滑块值改变自定义事件
+            const sliderValueChangeEvent = new CustomEvent('slider-value-change', {
+                bubbles: true,  // 使事件冒泡
+                cancelable: true,  // 允许取消事件
+            });
+            slider.dispatchEvent(sliderValueChangeEvent);
+        }
+
         function setSliderValue(position) {
             currentValue = position * (maxValue - minValue) / 100 + minValue;
-            updateHandle(position);
-            updateTooltip(position);
-            saveSliderValue();
+            changeValue(position);
         }
 
         function snapToSegment(position) {
             const segmentIndex = Math.round(position / (100 / segments));
             const segmentPosition = segmentIndex * (100 / segments);
             currentValue = minValue + segmentIndex * (maxValue - minValue) / segments;
-            updateHandle(segmentPosition);
-            updateTooltip(segmentPosition);
-            saveSliderValue();
+            changeValue(segmentPosition);
         }
 
         // 从存储中获取存储的滑块值
@@ -759,6 +827,13 @@ class CustomSwitch extends HTMLElement {
         }
 
         this.updateRender(); // 重新渲染以更新状态
+
+        // 创建开关值改变自定义事件
+        const switchValueChangeEvent = new CustomEvent('switch-value-change', {
+            bubbles: true,  // 使事件冒泡
+            cancelable: true,  // 允许取消事件
+        });
+        this.dispatchEvent(switchValueChangeEvent);
     }
 
     getSwitchValue() {
@@ -819,6 +894,14 @@ class TextField extends HTMLElement {
                 const {isValid, filtered} = this.isValidAndFilterInput(inputValue, type);
                 if (!isValid) {
                     this.inputField.value = filtered; // 过滤掉非法字符
+
+                    // 创建文本框过滤非法字符自定义事件
+                    const textfieldInvalidInputEvent = new CustomEvent('textfield-invalid-input', {
+                        bubbles: true,  // 使事件冒泡
+                        cancelable: true,  // 允许取消事件
+                    });
+                    this.dispatchEvent(textfieldInvalidInputEvent);
+
                     return; // 不保存到存储,直接返回
                 }
                 this.saveTextFieldValue(); // 有效输入才保存
@@ -830,6 +913,13 @@ class TextField extends HTMLElement {
                 const {isValid} = this.isValidAndFilterInput(e.data, type);
                 if (!isValid) {
                     e.preventDefault(); // 阻止非法输入
+
+                    // 创建文本框过滤非法字符自定义事件
+                    const textfieldInvalidInputEvent = new CustomEvent('textfield-invalid-input', {
+                        bubbles: true,  // 使事件冒泡
+                        cancelable: true,  // 允许取消事件
+                    });
+                    this.dispatchEvent(textfieldInvalidInputEvent);
                 }
             }
         });
@@ -840,6 +930,13 @@ class TextField extends HTMLElement {
             // 仅在输入有效时保存
             if (this.isValidAndFilterInput(this.inputField.value, type).isValid) {
                 this.saveTextFieldValue();
+
+                // 创建文本框值改变自定义事件
+                const textfieldValueChangeEvent = new CustomEvent('textfield-value-change', {
+                    bubbles: true,  // 使事件冒泡
+                    cancelable: true,  // 允许取消事件
+                });
+                this.dispatchEvent(textfieldValueChangeEvent);
             }
         });
 
@@ -898,7 +995,7 @@ class TextField extends HTMLElement {
     }
 
     isValidAndFilterInput(input, type) {
-        if (!input) return {isValid: true, filtered: input}; // 如果没有输入，直接返回有效
+        if (!input) return {isValid: true, filtered: input}; // 如果没有输入,直接返回有效
 
         let regex;
         let filteredInput;

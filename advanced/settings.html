@@ -1,3 +1,4 @@
+<!-- OreUI V1.5 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -24,21 +25,22 @@
 <html lang="zh">
 
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/images/Settings.png" rel="icon">
-    <!--    <style>-->
-    <!--        -->
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./images/Settings.png" rel="icon">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>设置</title>
 </head>
 
-<body>
+<body class="old">
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -48,25 +50,25 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
 <header>
     <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="" class="back_icon" id="back_icon" src=""/>
+        <img alt="" class="header_left_icon" id="back_icon" src=""/>
     </div>
-    <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Settings.png"/>
+    <div class="header_logo">
+        <img alt="" class="title_icon" src="./images/Settings.png"/>
         <span class="header_title">Settings</span>
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
 <scroll-view>
-    <scroll-container class="main_scroll_container">
+    <scroll-container class="old main_scroll_container">
         <main class="scroll_container" id="main">
             <div class="main_title">
                 <div class="main_title_span">设置</div>
@@ -79,7 +81,7 @@
                 <div class="preview_detail">请注意: 开发仍在进行中,可能会缺失部分功能.</div>
                 <div class="btn_group">
                     <custom-button data="default|normal|small|preview_btn1|false||" js="toUpdatelog();" text=""></custom-button>
-                    <custom-button data="default|green|small|preview_btn2|false||" js="toRepo();" text=""></custom-button>
+                    <custom-button data="default|green|small|preview_btn2|false||" js="contact();" text=""></custom-button>
                 </div>
             </div>
             <div class="main_block setting_block" id="quit_test">
@@ -89,13 +91,13 @@
                 </div>
             </div>
             <div class="setting_title">无障碍</div>
-            <div class="main_block setting_block exp_accessibility">
-                <div class="setting_title_content">使用文本转语音<span class="tag yellow_tag exp_tag">实验性</span></div>
+            <div class="main_block setting_block">
+                <div class="setting_title_content">使用文本转语音</div>
                 <div class="setting_control_right">
                     <custom-switch active="off" id="use_tts" status="disabled"></custom-switch>
                 </div>
             </div>
-            <div class="main_block setting_block exp_accessibility">
+            <div class="main_block setting_block">
                 <div class="setting_title_content">文本转语音音量</div>
             </div>
             <div class="main_block setting_block">
@@ -125,12 +127,6 @@
                         </div>
                     </div>
                     <div class="setting_block_description">OreUI主题下无法启用</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_title_content">新的UI设计</div>
-                <div class="setting_control_right">
-                    <custom-switch active="on" id="new_ui" status="disabled"></custom-switch>
                 </div>
             </div>
             <div class="main_block setting_block">
@@ -234,7 +230,7 @@
             <div class="main_block setting_block debug_mode">
                 <div class="setting_title_content">加载调试程序</div>
                 <div class="setting_control_right">
-                    <custom-button data="setting|red|||false||" js="jumpToPage('/minecraft_repository_test/advanced/debug.html');" text="调试"></custom-button>
+                    <custom-button data="setting|red|||false||" js="jumpToPage('./advanced/debug.html');" text="调试"></custom-button>
                 </div>
             </div>
             <div class="main_block setting_block clear_all">
@@ -280,7 +276,7 @@
             <div class="main_block setting_block">
                 <div class="setting_title_content">联系我们</div>
                 <div class="setting_control_right">
-                    <custom-button data="setting|normal|||false||" js="jumpToPage('/minecraft_repository_test/default/error_not-found.html');" text="打开"></custom-button>
+                    <custom-button data="setting|normal|||false||" js="jumpToPage('./default/error_not-found.html');" text="打开"></custom-button>
                 </div>
             </div>
             <div class="main_block setting_block">
@@ -310,8 +306,8 @@
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 
 <!--版本信息弹窗-->
-<div class="overlay" id="overlay_version_info_modal"></div>
-<modal_area id="version_info_modal">
+<div class="overlay normal_overlay" id="overlay_version_info_modal"></div>
+<modal_area class="normal_modal" id="version_info_modal">
     <modal>
         <modal_title_area>
             <modal_title>详情</modal_title>
@@ -334,8 +330,8 @@
 </modal_area>
 
 <!--清除数据警告弹窗-->
-<div class="overlay" id="overlay_clear_storage_warning"></div>
-<modal_area id="clear_storage_warning">
+<div class="overlay normal_overlay" id="overlay_clear_storage_warning"></div>
+<modal_area class="normal_modal" id="clear_storage_warning">
     <modal>
         <modal_title_area>
             <modal_title class="red_stroke">清除存储数据</modal_title>
@@ -355,8 +351,8 @@
 </modal_area>
 
 <!--重载页面警告弹窗-->
-<div class="overlay" id="overlay_reload_page_warning"></div>
-<modal_area id="reload_page_warning">
+<div class="overlay normal_overlay" id="overlay_reload_page_warning"></div>
+<modal_area class="normal_modal" id="reload_page_warning">
     <modal>
         <modal_title_area>
             <modal_title>重载容器环境</modal_title>
@@ -368,7 +364,7 @@
             <modal_button_group>
                 <modal_button_list>
                     <custom-button data="modal|normal|||false||" js="hideModal(this);" text="取消"></custom-button>
-                    <custom-button data="modal|normal|||false||" js="hideModal(this);reloadPage();" text="继续"></custom-button>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);clearAndReload();" text="继续"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -376,8 +372,8 @@
 </modal_area>
 
 <!--重置警告弹窗-->
-<div class="overlay" id="overlay_clear_all_warning"></div>
-<modal_area id="clear_all_warning">
+<div class="overlay normal_overlay" id="overlay_clear_all_warning"></div>
+<modal_area class="normal_modal" id="clear_all_warning">
     <modal>
         <modal_title_area>
             <modal_title class="red_stroke">重置全部内容</modal_title>
@@ -395,7 +391,7 @@
             <modal_button_group>
                 <modal_button_list>
                     <custom-button data="modal|green|||false||" js="hideModal(this);document.getElementById('check_input').querySelector('text-field').resetValue();" text="取消"></custom-button>
-                    <custom-button data="modal|disabled||check_continue|false||" js="" text="重置"></custom-button>
+                    <custom-button data="modal|disabled||check_continue|false||" js="false" text="重置"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -403,8 +399,8 @@
 </modal_area>
 
 <!--捐赠支持弹窗-->
-<div class="overlay" id="overlay_donate_modal"></div>
-<modal_area id="donate_modal">
+<div class="overlay normal_overlay" id="overlay_donate_modal"></div>
+<modal_area class="normal_modal" id="donate_modal">
     <modal>
         <modal_title_area>
             <modal_title>捐赠支持</modal_title>
@@ -417,7 +413,7 @@
         <modal_button_area>
             <modal_button_group>
                 <modal_button_list>
-                    <custom-button data="modal|normal|||false||" js="hideModal(this);jumpToPage('/minecraft_repository_test/about/donate.html');" text="打赏"></custom-button>
+                    <custom-button data="modal|normal|||false||" js="hideModal(this);jumpToPage('./about/donate.html');" text="打赏"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -425,8 +421,8 @@
 </modal_area>
 
 <!--特别鸣谢弹窗-->
-<div class="overlay" id="overlay_acknowledgments_modal"></div>
-<modal_area id="acknowledgments_modal">
+<div class="overlay normal_overlay" id="overlay_acknowledgments_modal"></div>
+<modal_area class="normal_modal" id="acknowledgments_modal">
     <modal>
         <modal_title_area>
             <modal_title>特别鸣谢</modal_title>
@@ -448,8 +444,8 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
 <script>
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     if (rootPath.includes('_test')) {
@@ -480,29 +476,9 @@
             envi_guide_element.style.display = 'none';
         })
     }
-
-    // 实验性无障碍  TODO: 在移除实验性无障碍时移除相关代码
-    let expAccessibilityState = switchValues['experimental_accessibility'] || 'on';
-    let accessibility_elements = document.querySelectorAll('.exp_accessibility');
-
-    if (expAccessibilityState === 'on') {
-        accessibility_elements.forEach(accessibility_element => {
-            accessibility_element.style.display = 'flex';
-        })
-    } else {
-        accessibility_elements.forEach(accessibility_element => {
-            accessibility_element.style.display = 'none';
-        })
-    }
 </script>
 
 <style>
-    /* TODO: 在移除预览提示块时移除该样式 */
-    .preview_block {
-        border-bottom: 2px solid #333334;
-        border-top: 2px solid #5A5B5C;
-    }
-
     /* TODO: 在移除环境指南页面实验性内容时移除该样式 */
     .exp_envi_guide {
         display: none;
@@ -510,6 +486,14 @@
 
     #quit_test, #show_all_tip {
         display: none;
+    }
+
+    .setting_block { /* TODO 旧页面完成迭代后移除 */
+        justify-content: flex-start;
+    }
+
+    .setting_block_content { /* TODO 旧页面完成迭代后移除 */
+        max-width: unset;
     }
 
     table, th, tr, td {
@@ -538,6 +522,10 @@
 
     .right_td {
         padding-left: 10px;
+    }
+
+    #use_all_tip {
+        display: none;
     }
 
     #setting_version_detail {

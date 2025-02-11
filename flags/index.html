@@ -1,3 +1,4 @@
+<!-- OreUI V2 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -23,21 +24,22 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/images/Tool.png" rel="icon">
-    <!--    <style>-->
-
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./images/Tool.png" rel="icon">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>实验性内容</title>
 </head>
 
 <body>
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -47,115 +49,118 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
-<header>
-    <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="" class="back_icon" id="back_icon" src=""/>
-    </div>
-    <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Tool.png"/>
-        <span class="header_title">Experiments</span>
-    </div>
-    <div class="header_item header_item_right" id="debug" onclick="playSoundType(this);debugPage();">
-        <img alt="" class="debug_icon" src="/minecraft_repository_test/images/Debug.png"/>
-    </div>
-</header>
-<scroll-view>
-    <scroll-container class="main_scroll_container">
-        <main class="scroll_container" id="main">
-            <div id="main_top"></div>
-            <div class="main_title">
-                <div class="main_title_span">实验性内容</div>
-            </div>
-            <div class="banner_area">
-                <div class="banner information_banner" id="experiment_banner"></div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">设置页面</div>
-                        <custom-switch active="on" id="experimental_settings" status="disabled"></custom-switch>
+<dispaly-area>
+    <header>
+        <div class="header_item header_item_left" id="back" onclick="clickedBack();">
+            <img alt="" class="header_left_icon" id="back_icon" src=""/>
+        </div>
+        <div class="header_logo">
+            <img alt="" class="title_icon" src="./images/Tool.png"/>
+            <span class="header_title">EXPERIMENTS</span>
+        </div>
+        <div class="header_item header_item_right" id="debug" onclick="playSoundType(this);debugPage();">
+            <img alt="" class="header_right_icon" src="./images/Debug.png"/>
+        </div>
+    </header>
+    <display-body>
+        <scroll-view class="main_scroll_view">
+            <scroll-container class="main_scroll_container">
+                <main class="scroll_container" id="main">
+                    <div class="main_title">
+                        <div class="main_title_span">实验性内容</div>
                     </div>
-                    <div class="setting_block_description">启用版本库的设置页面<br>- 基础测试项,无法关闭</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">环境指南页面</div>
-                        <custom-switch active="off" id="experimental_envi_guide" status="enabled"></custom-switch>
+                    <div class="banner_area">
+                        <div class="banner information_banner" id="experiment_banner"></div>
                     </div>
-                    <div class="setting_block_description">启用环境指南页面</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">惰性加载机制</div>
-                        <custom-switch active="on" id="experimental_lazy_load" status="disabled"></custom-switch>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">设置页面</div>
+                                <custom-switch active="on" id="experimental_settings" status="disabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">启用版本库的设置页面<br>- 基础测试项,无法关闭</div>
+                        </div>
                     </div>
-                    <div class="setting_block_description">通过推迟加载部分大型资源提升网页加载速度<br>- 基础测试项,无法关闭</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">响应式布局</div>
-                        <custom-switch active="on" id="experimental_responsive_design" status="disabled"></custom-switch>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">环境指南页面</div>
+                                <custom-switch active="off" id="experimental_envi_guide" status="enabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">启用环境指南页面</div>
+                        </div>
                     </div>
-                    <div class="setting_block_description">使用更加灵活的页面布局以适应不同的设备<br>- 基础测试项,无法关闭</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">网页文本转语音</div>
-                        <custom-switch active="on" id="experimental_accessibility" status="enabled"></custom-switch>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">惰性加载机制</div>
+                                <custom-switch active="on" id="experimental_lazy_load" status="disabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">通过推迟加载部分大型资源提升网页加载速度<br>- 基础测试项,无法关闭</div>
+                        </div>
                     </div>
-                    <div class="setting_block_description">启用文本转语音这一实验性功能</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">服务响应优化</div>
-                        <custom-switch active="off" id="experimental_service_response_optimization" status="disabled"></custom-switch>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">响应式设计</div>
+                                <custom-switch active="on" id="experimental_responsive_design" status="disabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">使用更加灵活的页面设计以适应不同的设备<br>- 基础测试项,无法关闭</div>
+                        </div>
                     </div>
-                    <div class="setting_block_description">通过优化网站缓存与加载机制提升响应速度</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">返回重载优化</div>
-                        <custom-switch active="off" id="experimental_back_reload_optimization" status="disabled"></custom-switch>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">服务响应优化</div>
+                                <custom-switch active="off" id="experimental_service_response_optimization" status="disabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">通过优化网站缓存与加载机制提升响应速度</div>
+                        </div>
                     </div>
-                    <div class="setting_block_description">优化在执行返回操作时的页面重加载流程</div>
-                </div>
-            </div>
-            <div class="main_block setting_block">
-                <div class="setting_block_content">
-                    <div class="setting_block_title flex">
-                        <div class="setting_title_content">全新的动画设计</div>
-                        <custom-switch active="on" id="new_animation_design" status="disabled"></custom-switch>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">返回重载优化</div>
+                                <custom-switch active="off" id="experimental_back_reload_optimization" status="disabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">优化在执行返回操作时的页面重加载流程</div>
+                        </div>
                     </div>
-                    <div class="setting_block_description">为更多的事件添加动画,优化动画的动效和性能<br>- 基础测试项,无法关闭</div>
-                </div>
-            </div>
-            <div id="page_info"></div>
-        </main>
-    </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
-        <custom-scrollbar-track></custom-scrollbar-track>
-        <custom-scrollbar-thumb></custom-scrollbar-thumb>
-    </custom-scrollbar>
-</scroll-view>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">全新的动画设计</div>
+                                <custom-switch active="on" id="new_animation_design" status="disabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">为更多的事件添加动画,优化动画的动效和性能<br>- 基础测试项,无法关闭</div>
+                        </div>
+                    </div>
+                    <div class="main_block setting_block">
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">网页文本转语音</div>
+                                <custom-switch active="off" id="experimental_tts" status="disabled"></custom-switch>
+                            </div>
+                            <div class="setting_block_description">启用文本转语音这一实验性功能</div>
+                        </div>
+                    </div>
+                    <div id="page_info"></div>
+                </main>
+            </scroll-container>
+            <custom-scrollbar class="main_custom_scrollbar">
+                <custom-scrollbar-track></custom-scrollbar-track>
+                <custom-scrollbar-thumb></custom-scrollbar-thumb>
+            </custom-scrollbar>
+        </scroll-view>
+    </display-body>
+</dispaly-area>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -163,8 +168,8 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->

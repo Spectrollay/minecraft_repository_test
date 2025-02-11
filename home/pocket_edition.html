@@ -1,3 +1,4 @@
+<!-- OreUI V1.1 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -24,22 +25,23 @@
 <html lang="zh">
 
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/stylesheet/editions.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
-    <!--    <style>-->
-    <!--        -->
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/editions.css" rel="stylesheet">
+    <link href="./images/logo/Minecraft_Repository_icon.jpg" rel="icon">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>携带版 - 星月Minecraft版本库</title>
 </head>
 
-<body>
+<body class="old">
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -49,26 +51,25 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
 <header>
-    <div class="header_item header_item_left" id="menu" onclick="clickedMenu();">
-        <img alt="" class="menu_icon" id="menu_icon" src=""/>
+    <div class="old header_item header_item_left" id="menu" onclick="clickedMenu();">
+        <img alt="" class="header_left_icon" id="menu_icon" src=""/>
     </div>
-    <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
+    <div class="header_logo">
+        <img alt="" class="title_icon" src="./images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
 <scroll-view>
-    <scroll-container class="main_scroll_container">
+    <scroll-container class="old main_scroll_container">
         <main class="scroll_container" id="main">
-            <div id="main_top"></div>
             <div class="block_spacing"></div>
             <div class="block">
                 <div class="main">
@@ -91,7 +92,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/1.1/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -101,26 +102,26 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/GlMoSW');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134gdcf');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 1.1</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://www.123pan.com/s/qILA-VcLN3.html');"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1eo8QYz7Gw1bv3pCwgXGwNQ?pwd=tkaj');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -137,7 +138,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/1.0/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -147,26 +148,26 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/lKkkCL');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134gbzg');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 1.0</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://www.123pan.com/s/qILA-5cLN3.html');"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1depcCPb-ISmp5DFDqNmoUA?pwd=ezj4');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -183,7 +184,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.16/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -193,25 +194,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/AvMRsB');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fpji');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.16</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/19g2lEFbqnHSUOy-BuKgfxg?pwd=e2ha');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -228,7 +229,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.15/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -238,25 +239,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/bAXMiY');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fphg');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.15</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1Qg_7btK0vUk5JhkCQh4ooA?pwd=6m4m');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -273,7 +274,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.14/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -283,25 +284,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/4avWIg');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fpfe');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.14</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1WTBcaymV1pB8ZD22fLMzWA?pwd=hvtd');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -318,7 +319,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.13/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -328,25 +329,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/vgk9iE');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fpcb');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.13</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1h3qm_Mnzidy6Ju3rQu4t4Q?pwd=3n9q');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -363,7 +364,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.12/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -373,25 +374,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/qXkxs3');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fpaj');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.12</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1_Ig7YTkzMIib_42CXECKNA?pwd=ezq9');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -408,7 +409,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.11/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -418,25 +419,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/MKMOHx');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fp9i');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.11</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1jcyhM2pChDtKgT6GPJ4OGQ?pwd=ng4r');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -453,7 +454,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.10/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -463,25 +464,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/wxkBhK');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fp6f');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.10</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1Obe5VGnHEEC5ezJj43Nfbg?pwd=rrr4');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -498,7 +499,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.9/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -508,25 +509,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/9xMBTd');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fp4d');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.9</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1N8gW7u42UvPMFFlRs_TbAw?pwd=a3a8');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -543,7 +544,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.8/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -553,25 +554,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/zyq6HM');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fp3c');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.8</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1x67QXMQ3Gi6VNpPyDCaetA?pwd=jh8n');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -588,7 +589,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.7/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -598,25 +599,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/dmV8CV');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fp2b');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.7</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/17WbdUsuZFBPjtLQoyrmlZw?pwd=w3vb');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -633,7 +634,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.6/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -643,25 +644,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/PD56hm');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fozi');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.6</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1BIFPsanmDhuFpL62Nq-MBw?pwd=4hir');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -678,7 +679,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.5/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -688,25 +689,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/1DGzuv');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134foxg');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.5</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1vYQP00tXOWsQ5ghBaECTmQ?pwd=vcqh');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -723,7 +724,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.4/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -733,25 +734,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/xvDkIV');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fowf');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.4</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1aKmzhIWWJ-qDIaWvMW_AZQ?pwd=kqde');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -768,7 +769,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.3/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -778,25 +779,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/Xx7oul');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fotc');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.3</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1tARDI2dh4pN_xNurzznF6w?pwd=mbd3');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -813,7 +814,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.2/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -823,25 +824,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/6YDAfN');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fora');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.2</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1dkjCRvmGS_TUaHFDbhWuxQ?pwd=czb7');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -858,7 +859,7 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://mcarc.github.io/Android/0.1/');"
-                                    text-generation="download_channel6"></button>
+                                    text-generation="download_channel6_old"></button>
                         </div>
                     </div>
                     <div class="download_group">
@@ -868,25 +869,25 @@
                         <div class="btn_group">
                             <button class="btn normal_btn large_btn"
                                     onclick="playSoundType(this);openLink('https://pan.huang1111.cn/s/xVmEUV');"
-                                    text-generation="download_channel1"></button>
+                                    text-generation="download_channel1_old"></button>
                         </div>
                         <div class="btn_group">
                             <div class="btn_with_tooltip_cont">
                                 <button class="btn normal_btn btn_with_tooltip small_btn"
                                         onclick="playSoundType(this);delayedOpenLink('https://www.lanzouj.com/b0134fopi');"
-                                        text-generation="download_channel2"></button>
+                                        text-generation="download_channel2_old"></button>
                                 <div class="btn_tooltip">密码: 0.1</div>
-                                <img alt="Key" class="tip_icon" src="/minecraft_repository_test/images/Key.png"/>
+                                <img alt="Key" class="tip_icon" src="./images/Key.png"/>
                             </div>
                             <button class="btn red_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel3"></button>
+                                    text-generation="download_channel3_old"></button>
                         </div>
                         <div class="btn_group">
                             <button class="btn disabled_btn small_btn" onclick="playSoundType(this);"
-                                    text-generation="download_channel4"></button>
+                                    text-generation="download_channel4_old"></button>
                             <button class="btn normal_btn small_btn"
                                     onclick="playSoundType(this);openLink('https://pan.baidu.com/s/1LvdOgSedhJmEnAxC1Q4SKA?pwd=r3z3');"
-                                    text-generation="download_channel5"></button>
+                                    text-generation="download_channel5_old"></button>
                         </div>
                     </div>
                 </div>
@@ -901,33 +902,33 @@
 </scroll-view>
 
 <!--侧边栏-->
-<div class="sidebar" id="sidebar">
+<div class="old sidebar" id="sidebar">
     <scroll-view>
-        <scroll-container class="sidebar_scroll_container">
+        <scroll-container class="old sidebar_scroll_container">
             <div class="sidebar_content scroll_container">
                 <div class="sidebar_header">
                     <custom-button data="sidebar|normal|||false||" js="mainPage();" text="返回首页"></custom-button>
                 </div>
                 <div class="sidebar_list">
                     <div class="sidebar_item">携带版</div>
-                    <a class="sidebar_item" href="#1.1">1.1</a>
-                    <a class="sidebar_item" href="#1.0">1.0</a>
-                    <a class="sidebar_item" href="#0.16">0.16</a>
-                    <a class="sidebar_item" href="#0.15">0.15</a>
-                    <a class="sidebar_item" href="#0.14">0.14</a>
-                    <a class="sidebar_item" href="#0.13">0.13</a>
-                    <a class="sidebar_item" href="#0.12">0.12</a>
-                    <a class="sidebar_item" href="#0.11">0.11</a>
-                    <a class="sidebar_item" href="#0.10">0.10</a>
-                    <a class="sidebar_item" href="#0.9">0.9</a>
-                    <a class="sidebar_item" href="#0.8">0.8</a>
-                    <a class="sidebar_item" href="#0.7">0.7</a>
-                    <a class="sidebar_item" href="#0.6">0.6</a>
-                    <a class="sidebar_item" href="#0.5">0.5</a>
-                    <a class="sidebar_item" href="#0.4">0.4</a>
-                    <a class="sidebar_item" href="#0.3">0.3</a>
-                    <a class="sidebar_item" href="#0.2">0.2</a>
-                    <a class="sidebar_item" href="#0.1">0.1</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#1.1">1.1</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#1.0">1.0</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.16">0.16</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.15">0.15</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.14">0.14</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.13">0.13</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.12">0.12</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.11">0.11</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.10">0.10</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.9">0.9</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.8">0.8</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.7">0.7</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.6">0.6</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.5">0.5</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.4">0.4</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.3">0.3</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.2">0.2</a>
+                    <a class="sidebar_item" href="./home/pocket_edition.html#0.1">0.1</a>
                 </div>
                 <div class="sidebar_info">
                     <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
@@ -951,9 +952,9 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
-<script src="/minecraft_repository_test/javascript/editions.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
+<script src="./javascript/editions.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->

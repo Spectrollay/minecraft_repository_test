@@ -1,3 +1,4 @@
+<!-- OreUI V1.3 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -24,21 +25,22 @@
 <html lang="zh">
 
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg" rel="icon">
-    <!--    <style>-->
-    <!--        -->
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./images/logo/Minecraft_Repository_icon.jpg" rel="icon">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>开发日志 - 星月Minecraft版本库</title>
 </head>
 
-<body>
+<body class="old">
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -48,28 +50,27 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
 <header>
     <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="" class="back_icon" id="back_icon" src=""/>
+        <img alt="" class="header_left_icon" id="back_icon" src=""/>
     </div>
-    <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
+    <div class="header_logo">
+        <img alt="" class="title_icon" src="./images/logo/Minecraft_Repository_icon.jpg"/><span class="header_title">Repository</span>
     </div>
-    <div class="header_item header_item_right" id="feedback" onclick="playSoundType(this);toRepo();">
-        <img alt="" class="feedback_icon" src="/minecraft_repository_test/images/Feedback.png"/>
+    <div class="header_item header_item_right" id="feedback" onclick="playSoundType(this);contact();">
+        <img alt="" class="header_right_icon" src="./images/Feedback.png"/>
     </div>
 </header>
 <scroll-view>
-    <scroll-container class="main_scroll_container">
+    <scroll-container class="tab main_scroll_container">
         <main class="scroll_container main_with_tab_bar" id="main">
-            <div id="main_top"></div>
             <div class="tab_bar_area main_tab_bar">
                 <div class="tab_bar">
                     <button class="tab_bar_btn no_active" id="tab1" onclick="playSoundType(this);selectTab(1);toTop();">更新计划</button>
@@ -127,16 +128,16 @@
                                 <article_block>
                                     <article_detail>
                                         <article_list>
-                                            <div class="tag_area"><span class="tag yellow_tag">63%</span><span>设置页面</span></div>
+                                            <div class="tag_area"><span class="tag yellow_tag">65%</span><span>设置页面</span></div>
                                         </article_list>
                                         <article_list>
-                                            <div class="tag_area"><span class="tag yellow_tag">32%</span><span>优化下载块的样式与下载体验</span></div>
+                                            <div class="tag_area"><span class="tag green_tag">79%</span><span>优化下载块的样式与下载体验</span></div>
                                         </article_list>
                                         <article_list>
-                                            <div class="tag_area"><span class="tag green_tag">85%</span><span>惰性加载机制</span></div>
+                                            <div class="tag_area"><span class="tag yellow_tag">54%</span><span>响应式页面布局</span></div>
                                         </article_list>
                                         <article_list>
-                                            <div class="tag_area"><span class="tag red_tag">23%</span><span>响应式页面布局</span></div>
+                                            <div class="tag_area"><span class="tag red_tag">13%</span><span>更多的版本下载选项</span></div>
                                         </article_list>
                                     </article_detail>
                                 </article_block>
@@ -150,8 +151,6 @@
                                 <article_block>
                                     <article_detail>
                                         <article_list>快速启动游戏</article_list>
-                                        <article_list>更多的版本下载选项</article_list>
-                                        <article_list>聚合反馈方式至新的页面</article_list>
                                         <article_list>通过预加载与缓存优化响应</article_list>
                                         <article_list>使用独立域名</article_list>
                                         <article_list>降低项目在国内的访问延迟</article_list>
@@ -240,11 +239,11 @@
                         <!--    </div>-->
                         <!--</div>-->
 
-                        <div class="expandable_card_area" id="4.6.5">
+                        <div class="expandable_card_area" id="4.6.6">
                             <div class="expandable_card expanded" onclick="playSound('click');">
                                 <div class="expandable_card_text_area">
                                     <div class="expandable_card_text">
-                                        <div class="expandable_card_text_title">4.6.5 Stable</div>
+                                        <div class="expandable_card_text_title">4.6.6 Canary</div>
                                     </div>
                                 </div>
                                 <div class="expandable_card_image_area"><img alt="" class="expandable_card_image" src=""/>
@@ -252,6 +251,392 @@
                             </div>
                             <div class="expandable_card_down_area">
                                 <div class="expandable_card_down">
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250211</article_title>
+                                            <article_subtitle>(V) 4.6.6.29</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    元宵快乐! 我们正在努力实现新的响应式设计页面! 但是它还暂未达到我们认为的可以发布的标准, 因此我们决定暂不公开发布. 以下是本次的新内容和更改修复, 欢迎向我们提出你的想法和发现!
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title class="exp_title">实验性</article_list_title>
+                                                    <article_list>响应式设计</article_list>
+                                                    <article_list_level2>更新了页面框架</article_list_level2>
+                                                    <article_list_level2>将部分页面更新为响应式设计</article_list_level2>
+                                                    <article_list>文本转语音</article_list>
+                                                    <article_list_level2>现在属于独立的实验性功能了</article_list_level2>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>新内容</article_list_title>
+                                                    <article_list>加入了版本库主页的新设计(仅开发者版本)</article_list>
+                                                    <article_list>加入了游戏下载页面的新设计(仅开发者版本)</article_list>
+                                                    <article_list>加入了启动应用功能</article_list>
+                                                    <article_list>加入了联系我们页面</article_list>
+                                                    <article_list>加入了带有图标的按钮样式</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>更新了部分图标</article_list>
+                                                    <article_list>更新了部分插图</article_list>
+                                                    <article_list>更新了部分部分元素的样式</article_list>
+                                                    <article_list>更新了免责申明弹窗</article_list>
+                                                    <article_list>现在可以通过将光标置于滚动条上方使用鼠标滚轮精确控制滑动了</article_list>
+                                                    <article_list>现在点击反馈图标会跳转到联系我们页面了</article_list>
+                                                    <article_list>Dropdown下拉菜单现在在展开后可以通过点击外部区域收起了</article_list>
+                                                    <article_list>现在使用插件来实现惰性加载了</article_list>
+                                                    <article_list>改进了侧边栏的使用体验</article_list>
+                                                    <article_list>移除了兼容性提示弹窗</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了顶栏元素在部分情况下可能出现的显示问题</article_list>
+                                                    <article_list>修复了当光标位于滚动条上时无法通过鼠标滚轮控制滚动的问题</article_list>
+                                                    <article_list>修复了因采用硬编码链接地址且链接定位方式杂糅导致的各种可能发生的错误</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>技术性</article_list_title>
+                                                    <article_list>现在项目使用统一的变量来指示基准路径了</article_list>
+                                                    <article_list>加入了插件功能</article_list>
+                                                    <article_list>为自定义元素加入了回调事件</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="expandable_card_area" id="4.6.5">
+                            <div class="expandable_card no_expanded" onclick="playSound('click');">
+                                <div class="expandable_card_text_area">
+                                    <div class="expandable_card_text">
+                                        <div class="expandable_card_text_title">4.6.5 Release</div>
+                                    </div>
+                                </div>
+                                <div class="expandable_card_image_area"><img alt="" class="expandable_card_image" src=""/>
+                                </div>
+                            </div>
+                            <div class="expandable_card_down_area">
+                                <div class="expandable_card_down">
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250129.01</article_title>
+                                            <article_subtitle>(V) 4.6.5.99</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    新年快乐! 4.6.5正式版现已发布, 以下为本次的主要更新内容. 新的一年祝大家心想事成, 万事如意!
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>新内容</article_list_title>
+                                                    <article_list>支持了RSS订阅</article_list>
+                                                    <article_list>加入了通知页面</article_list>
+                                                    <article_list>加入了中文译名修正项目页面</article_list>
+                                                    <article_list>加入了模板页面</article_list>
+                                                    <article_list>加入了环境指南页面</article_list>
+                                                    <article_list>加入了服务状态页面</article_list>
+                                                    <article_list>加入了网页加载遮罩</article_list>
+                                                    <article_list>加入了网站维护提示页面</article_list>
+                                                    <article_list>加入了防呆设计</article_list>
+                                                    <article_list>加入了响应式设计</article_list>
+                                                    <article_list>加入了全新的动画设计</article_list>
+                                                    <article_list>加入了自定义标签</article_list>
+                                                    <article_list>加入了文章自定义标签及模板</article_list>
+                                                    <article_list>加入了自适应折叠组件</article_list>
+                                                    <article_list>加入了可展开卡片及卡片组</article_list>
+                                                    <article_list>加入了带有Tooltip的按钮的禁用样式</article_list>
+                                                    <article_list>加入了带有关闭按钮的Modal弹窗</article_list>
+                                                    <article_list>加入了Neutral Banner样式</article_list>
+                                                    <article_list>加入了Tag标签</article_list>
+                                                    <article_list>加入了Badge角标</article_list>
+                                                    <article_list>加入了Checkbox复选框</article_list>
+                                                    <article_list>加入了Slider滑块</article_list>
+                                                    <article_list>加入了Dropdown下拉菜单</article_list>
+                                                    <article_list>加入了TextField文本框</article_list>
+                                                    <article_list>加入了Divider分割线</article_list>
+                                                    <article_list>加入了文件哈希值生成器(依赖于Node.js)</article_list>
+                                                    <article_list>加入了浏览器禁用JavaScript时的加载遮罩警告</article_list>
+                                                    <article_list>加入了网站状态检测</article_list>
+                                                    <article_list>加入了入站检测</article_list>
+                                                    <article_list>加入了重定向功能和重定向提示</article_list>
+                                                    <article_list>加入了跳转标识和跳转判定</article_list>
+                                                    <article_list>加入了捐赠列表</article_list>
+                                                    <article_list>加入了定制版本自助获取</article_list>
+                                                    <article_list_level2>位于更多版本页面底部</article_list_level2>
+                                                    <article_list>加入了项目校验码</article_list>
+                                                    <article_list_level2>位于设置->关于->版本</article_list_level2>
+                                                    <article_list>加入了文本转语音接口和屏幕阅读器接口</article_list>
+                                                    <article_list>加入了带有Checkbox复选框的Modal弹窗样式</article_list>
+                                                    <article_list>加入了清除存储数据功能,位于设置->高级</article_list>
+                                                    <article_list_level2>用于清除网站的本地全部数据</article_list_level2>
+                                                    <article_list>加入了重载容器环境功能,位于设置->高级</article_list>
+                                                    <article_list_level2>用于重载网站的本地加载环境</article_list_level2>
+                                                    <article_list>加入了语言选择下拉菜单</article_list>
+                                                    <article_list_level2>位于设置->其他->语言</article_list_level2>
+                                                    <article_list>加入了新的交互音效文件</article_list>
+                                                    <article_list>为一些高亮文本加入了文字描边</article_list>
+                                                    <article_list>为侧边栏的展开收起动画加入了独特的音效</article_list>
+                                                    <article_list>加入了大量新提示</article_list>
+                                                    <article_list>加入了节日标语</article_list>
+                                                    <article_list>加入了特别鸣谢板块</article_list>
+                                                    <article_list>加入了友情链接板块</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>重做了滚动条</article_list>
+                                                    <article_list_level2>滚动条现在适配所有的浏览器和内核了</article_list_level2>
+                                                    <article_list_level2>滚动条滑块现在不再会因为页面过长而过小了</article_list_level2>
+                                                    <article_list_level2>更新了主要滚动条</article_list_level2>
+                                                    <article_list_level3>现在主要滚动条的鼠标指针是pointer了</article_list_level3>
+                                                    <article_list_level3>现在主要滚动条可以被拖动和点击了</article_list_level3>
+                                                    <article_list_level3>现在主要滚动条拥有渐隐渐显动画了</article_list_level3>
+                                                    <article_list_level3>现在主要滚动条有右间距了,不再紧靠右侧了</article_list_level3>
+                                                    <article_list_level3>现在主要滚动条可以显示没被遮挡的下方元素了</article_list_level3>
+                                                    <article_list_level3>现在主要滚动条会在没有触发事件时自动消失了</article_list_level3>
+                                                    <article_list_level2>更新了次要滚动条</article_list_level2>
+                                                    <article_list_level3>现在次要滚动条拥有了新的样式</article_list_level3>
+                                                    <article_list_level3>现在次要滚动条拥有渐隐渐显动画了</article_list_level3>
+                                                    <article_list_level3>现在次要滚动条不会占用元素宽度了</article_list_level3>
+                                                    <article_list_level3>现在次要滚动条会在没有触发事件时自动消失了</article_list_level3>
+                                                    <article_list_level2>移除了Modal弹窗的滚动条</article_list_level2>
+                                                    <article_list>更新了弹窗的显示</article_list>
+                                                    <article_list_level2>现在可以在一个界面上同时显示多个弹窗了</article_list_level2>
+                                                    <article_list_level2>现在弹窗的大小是自适应的了</article_list_level2>
+                                                    <article_list_level2>不同的弹窗拥有了不同的展示优先级</article_list_level2>
+                                                    <article_list>优化了弹窗的Focus事件</article_list>
+                                                    <article_list_level2>现在只会在弹窗范围内选择了</article_list_level2>
+                                                    <article_list_level2>现在标题栏的关闭按钮也是可以被选择的了</article_list_level2>
+                                                    <article_list_level2>现在鼠标焦点在遮罩内时使用Tab键不会错误地导航到遮罩下方的元素了</article_list_level2>
+                                                    <article_list>优化了弹窗的遮罩</article_list>
+                                                    <article_list_level2>以匹配上述对弹窗的更改</article_list_level2>
+                                                    <article_list>Switch开关</article_list>
+                                                    <article_list_level2>现在可以通过拖动控制状态了</article_list_level2>
+                                                    <article_list_level2>优化了注册事件</article_list_level2>
+                                                    <article_list_level2>加入了回弹动画</article_list_level2>
+                                                    <article_list_level2>优化了事件函数和日志输出</article_list_level2>
+                                                    <article_list>TabBar标签栏</article_list>
+                                                    <article_list_level2>更新了默认样式</article_list_level2>
+                                                    <article_list>迁移版本库首页至新的地址</article_list>
+                                                    <article_list_level2>现在访问旧的地址会被重定向至新的地址</article_list_level2>
+                                                    <article_list>现在符合要求的元素可以通过键盘访问了</article_list>
+                                                    <article_list>更新了部分符合要求的元素的鼠标指针</article_list>
+                                                    <article_list>日志现在拥有了统一的日志管理器</article_list>
+                                                    <article_list>优化了音效事件的相关函数</article_list>
+                                                    <article_list>优化了存储数据结构</article_list>
+                                                    <article_list>现在当升级到不兼容的更新时会自动清除数据了</article_list>
+                                                    <article_list>为消息中心页面实现了惰性加载机制</article_list>
+                                                    <article_list>为正版购买指南页面实现了惰性加载机制</article_list>
+                                                    <article_list>更新了提示列表,优化了提示加载逻辑</article_list>
+                                                    <article_list>更新了部分JS中的寻址判定</article_list>
+                                                    <article_list>禁用了指针事件的高亮显示</article_list>
+                                                    <article_list>将环境指南页面移入了指南目录</article_list>
+                                                    <article_list>将正版购买指南页面移入了指南目录</article_list>
+                                                    <article_list>重新设计了开发日志页面</article_list>
+                                                    <article_list>更新了项目环境指南页面</article_list>
+                                                    <article_list>更新了教育版页面的显示样式</article_list>
+                                                    <article_list>更新了正版购买指南页面</article_list>
+                                                    <article_list>更新了基岩版页面和携带版页面</article_list>
+                                                    <article_list>重新加入了404页面</article_list>
+                                                    <article_list>为开发环境重新启用了菜单</article_list>
+                                                    <article_list>主仓库现在有极小的概率会出现内部测试邀请弹窗</article_list>
+                                                    <article_list>主仓库现在不会出现测试仓库提示弹窗</article_list>
+                                                    <article_list>将原有仓库入口由主页面移至设置页面</article_list>
+                                                    <article_list>开发日志页面现在会在更新日志下显示一段更新提示了</article_list>
+                                                    <article_list>重新设计了正版购买指南页面</article_list>
+                                                    <article_list>为代码文件加入了版权信息</article_list>
+                                                    <article_list>更新了部分页面的艺术图</article_list>
+                                                    <article_list>增大了提示文本框的高度</article_list>
+                                                    <article_list>更新了版本库的名称和Logo</article_list>
+                                                    <article_list>增大了顶栏图标的大小</article_list>
+                                                    <article_list>现在部分设计相对父元素居中了</article_list>
+                                                    <article_list>对元素加载行为进行了优化</article_list>
+                                                    <article_list>为主页的部分提及内容加入了链接</article_list>
+                                                    <article_list>优化了部分内容的加载与判定</article_list>
+                                                    <article_list>更新了部分JS和CSS的加载方式</article_list>
+                                                    <article_list>对一些代码进行了拆分和重组</article_list>
+                                                    <article_list>对部分代码进行了格式化</article_list>
+                                                    <article_list>优化了路径的检测与加载机制</article_list>
+                                                    <article_list>优化了部分页面的显示</article_list>
+                                                    <article_list>优化了版本信息的显示</article_list>
+                                                    <article_list>优化了部分本地内容的加载方式</article_list>
+                                                    <article_list>优化了部分日志的输出</article_list>
+                                                    <article_list>移除了实验性内容页面内的非实验性内容</article_list>
+                                                    <article_list>移除了部分被弃用的内容</article_list>
+                                                    <article_list>移除了一些冗余代码</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了在部分情况下页面会产生不正确跳转行为的问题(MC-REPO-T-1)</article_list>
+                                                    <article_list>修复了在网页加载过程中可能会获取到空元素数据的问题</article_list>
+                                                    <article_list>修复了相对定位元素在网页大小发生变化时位置并不会更新的问题</article_list>
+                                                    <article_list>修复了随机选择并不随机的问题</article_list>
+                                                    <article_list>修复了元素不存在导致的错误问题</article_list>
+                                                    <article_list>修复了一些JS和CSS无法正确识别并加载的问题</article_list>
+                                                    <article_list>修复了环境检测异常的问题</article_list>
+                                                    <article_list>修复了测试环境指向链接不正确的问题</article_list>
+                                                    <article_list>修复了部分图片可能会溢出边框的问题</article_list>
+                                                    <article_list>修复了在窄屏设备上的一些显示问题</article_list>
+                                                    <article_list>修复了部分图标失真的问题</article_list>
+                                                    <article_list>修复了部分文字不会正确应用的问题</article_list>
+                                                    <article_list>修复了在相同权值情况下上方元素会比下方元素有更大概率被选中的问题</article_list>
+                                                    <article_list>修复了在点击按钮边界范围时不会触发按钮点击事件却可以打开链接的问题</article_list>
+                                                    <article_list>修复了弹窗标题栏的关闭按钮在被选择时无法通过Enter键执行点击事件的问题</article_list>
+                                                    <article_list>修复了顶栏的一些显示问题</article_list>
+                                                    <article_list>修复了侧边栏按钮在点击时会有错误的偏移的问题</article_list>
+                                                    <article_list>修复了侧边栏按钮文字不局中问题</article_list>
+                                                    <article_list>修复了侧边栏按钮有时不会正确加载内容的问题</article_list>
+                                                    <article_list>修复了布局存在的一些问题</article_list>
+                                                    <article_list>修复了部分按钮没有音效的问题</article_list>
+                                                    <article_list>修复了打开链接图片有时不会正确加载的问题</article_list>
+                                                    <article_list>修正了一些符号规范问题</article_list>
+                                                    <article_list>修正了一些拼写错误</article_list>
+                                                    <article_list>计时器现在会在页面加载完成后正确初始化了</article_list>
+                                                    <article_list>修复了一些显示问题</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>技术性</article_list_title>
+                                                    <article_list>加入了MutationObserver API</article_list>
+                                                    <article_list>现在使用异步处理在线数据</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250128</article_title>
+                                            <line></line>
+                                            <article_subtitle>(V) 4.6.5.97</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新进行了一些小改动, 如果没有意外我们将于明天发布4.6.5的正式版! 除夕快乐!
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>更改了维护提示弹窗的内容并将其移至下载页面</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250125</article_title>
+                                            <line></line>
+                                            <article_subtitle>(V) 4.6.5.94</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新修复了一些已知问题.
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了一些已知问题</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                            <line></line>
+                                            <article_subtitle>(V) 4.6.5.93</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新修复了一些已知问题.
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了部分页面元素被错误居中的问题</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250124</article_title>
+                                            <article_subtitle>(V) 4.6.5.91</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新进行了一些改进并修复了大量已知问题.
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>更新了部分元素的引用</article_list>
+                                                    <article_list>默认错误页面现在不再依赖外部函数和样式了</article_list>
+                                                    <article_list>现在当光标位于滚动条内时可以通过鼠标滚轮精准控制页面滑动了</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了部分元素仍然可以被拖动的问题</article_list>
+                                                    <article_list>修复了链接框无法通过Tab键选中的问题</article_list>
+                                                    <article_list>修复了部分元素点击音效会重复播放的问题</article_list>
+                                                    <article_list>修复了复制文本会导致页面元素错乱的问题</article_list>
+                                                    <article_list>修复了禁用的按钮中图片不会转变为灰色的问题</article_list>
+                                                    <article_list>修复了按钮中的元素在部分情况下不会居中的问题</article_list>
+                                                    <article_list>修复了部分页面无法通过点击顶栏回到顶部的问题</article_list>
+                                                    <article_list>修复了在预发环境下部分资源无法跨域访问的问题</article_list>
+                                                    <article_list>修复了光标位于滚动条内时无法通过鼠标滚轮控制页面滑动的问题</article_list>
+                                                    <article_list>修正了部分颜色命名空间不规范的问题</article_list>
+                                                    <article_list>修正了部分描述文本中符号使用混乱问题</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250117</article_title>
+                                            <article_subtitle>(V) 4.6.5.89</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    我们推送了一个新的版本, 以下为更新详情, 请查阅.
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>更新了订阅源</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250112</article_title>
+                                            <article_subtitle>(V) 4.6.5.88</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新进行了部分改进. 请积极的向我们提出反馈!
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>移除了新的UI设计开关</article_list>
+                                                    <article_list>优化了正式仓库和开发仓库之间的跳转逻辑</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250106</article_title>
+                                            <article_subtitle>(V) 4.6.5.85</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新进行了一些改动并修复了一些已知问题. 如果没有意外, 下周将推送第一个预发布版本. 欢迎来到2025年.
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>增大了提示文本框的高度</article_list>
+                                                    <article_list>增大了顶栏图标的大小</article_list>
+                                                    <article_list>更改了部分提示文本</article_list>
+                                                    <article_list>更改了一些文本的显示</article_list>
+                                                    <article_list>现在脚本无法加载的提示信息会高亮显示了</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了文本转语音ID不正确的问题</article_list>
+                                                    <article_list>修复了页面加载过程中可能无法获取到部分元素的问题</article_list>
+                                                    <article_list>修复了完整提示列表在正式仓库依旧可见的问题</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
                                     <div class="expandable_card_down_content">
                                         <article_block>
                                             <article_title>4.6.20241228</article_title>
@@ -3407,8 +3792,8 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->

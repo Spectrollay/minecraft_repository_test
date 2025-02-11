@@ -1,3 +1,4 @@
+<!-- OreUI V2 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -24,20 +25,21 @@
 <html lang="zh">
 
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <!--    <style>-->
-    <!--        -->
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>NOT FOUND</title>
 </head>
 
 <body>
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -47,37 +49,41 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
-<header>
-    <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="" class="back_icon" id="back_icon" src=""/>
-    </div>
-    <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
-    <div class="header_item header_item_right header_right_blank"></div>
-</header>
-<scroll-view>
-    <scroll-container class="main_scroll_container">
-        <main class="main_content_center scroll_container" id="main">
-            <div class="display">
-                <p class="not_found-img"><img alt="Not Found Image" class="notice_img" src="/minecraft_repository_test/images/Nothing.png"/></p>
-                <p class="main_detail_center">页面未找到</p>
-                <p class="main_detail_center">
-                    <custom-button data="default|green|large||false||" js="mainPage();" text="首页"></custom-button>
-                </p>
-            </div>
-        </main>
-    </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
-        <custom-scrollbar-track></custom-scrollbar-track>
-        <custom-scrollbar-thumb></custom-scrollbar-thumb>
-    </custom-scrollbar>
-</scroll-view>
+<dispaly-area>
+    <header>
+        <div class="header_item header_item_left" id="back" onclick="clickedBack();">
+            <img alt="" class="header_left_icon" id="back_icon" src=""/>
+        </div>
+        <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
+        <div class="header_item header_item_right header_right_blank"></div>
+    </header>
+    <display-body>
+        <scroll-view class="main_scroll_view">
+            <scroll-container class="main_scroll_container">
+                <main class="main_content_center scroll_container" id="main">
+                    <div class="display">
+                        <p class="not_found-img"><img alt="Not Found Image" class="notice_img" src="./images/Nothing.png"/></p>
+                        <p class="main_detail_center">页面未找到</p>
+                        <p class="main_detail_center">
+                            <custom-button data="default|green|large||false||" js="mainPage();" text="首页"></custom-button>
+                        </p>
+                    </div>
+                </main>
+            </scroll-container>
+            <custom-scrollbar class="main_custom_scrollbar">
+                <custom-scrollbar-track></custom-scrollbar-track>
+                <custom-scrollbar-thumb></custom-scrollbar-thumb>
+            </custom-scrollbar>
+        </scroll-view>
+    </display-body>
+</dispaly-area>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -85,17 +91,14 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->
 
-<style>
-    main {
-        color: #FFFFFF;
-        flex: 1;
-    }
-</style>
+<!--<style>-->
+<!--    -->
+<!--</style>-->
 
 </html>

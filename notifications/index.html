@@ -1,3 +1,4 @@
+<!-- OreUI V1.2 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -24,21 +25,22 @@
 <html lang="zh">
 
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/images/Messages.png" rel="icon">
-    <!--    <style>-->
-    <!--        -->
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./images/Messages.png" rel="icon">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>消息中心</title>
 </head>
 
-<body>
+<body class="old">
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -48,25 +50,25 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
 <header>
     <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="Back" class="back_icon" id="back_icon" src=""/>
+        <img alt="" class="header_left_icon" id="back_icon" src=""/>
     </div>
-    <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Messages.png"/>
-        <span class="header_title">Messages</span>
+    <div class="header_logo">
+        <img alt="" class="title_icon" src="./images/Messages.png"/>
+        <span class="header_title">MESSAGES</span>
     </div>
     <div class="header_item header_item_right header_right_blank"></div>
 </header>
 <scroll-view>
-    <scroll-container class="main_scroll_container">
+    <scroll-container class="old main_scroll_container">
         <main class="scroll_container" id="main">
             <div>
                 <div class="block">
@@ -146,25 +148,25 @@
                             <article_date>发布: 2024-05-17</article_date>
                             <article_detail>
                                 <p>1. 周年庆大促</p>
-                                <div class="article_image"><img alt="" src="/minecraft_repository_test/images/event/Anniversary15/Sale.png"/></div>
+                                <div class="article_image"><img alt="" src="./images/event/Anniversary15/Sale.png"/></div>
                                 <p>在5月15日至6月22日期间, 快来获取 Minecraft / Minecraft Dungeons / Minecraft Legends 等内容, 折扣高达50%. 你想要建造一件艺术品, 与朋友并肩作战, 拯救主世界, 还是三者兼而有之?</p>
                                 <p><a href="https://www.minecraft.net/" target="_blank">前往官方网站购买</a></p>
                                 <p>2. Minecraft 15天</p>
-                                <div class="article_image"><img alt="" src="/minecraft_repository_test/images/event/Anniversary15/DressingRoom.png"/></div>
+                                <div class="article_image"><img alt="" src="./images/event/Anniversary15/DressingRoom.png"/></div>
                                 <p>获取持续发放15天的免费角色道具, 庆祝 Minecraft 15周年纪念! 在5月15日至29日期间, 每日均可在 Minecraft 基岩版更衣室领取礼物.</p>
                                 <p>3. TikTok 15天</p>
-                                <div class="article_image"><img alt="" src="/minecraft_repository_test/images/event/Anniversary15/TikTok.jpg" style="height: 220px; width: unset"/></div>
+                                <div class="article_image"><img alt="" src="./images/event/Anniversary15/TikTok.jpg" style="height: 220px; width: unset"/></div>
                                 <p><a href="https://www.minecraft.net/en-us/redeem" target="_blank">在这里</a>收集你的独家 TikTok 15天 Minecraft 角色创建器物品!</p>
                                 <p>请在6月1日前完成任务并兑换</p>
                                 <p>4. Twitch 15天</p>
-                                <div class="article_image"><img alt="" src="/minecraft_repository_test/images/event/Anniversary15/Twitch.jpg" style="height: 220px; width: unset"/></div>
+                                <div class="article_image"><img alt="" src="./images/event/Anniversary15/Twitch.jpg" style="height: 220px; width: unset"/></div>
                                 <p><a href="https://www.minecraft.net/en-us/redeem" target="_blank">在这里</a>收集你的独家 Twitch 15天 Minecraft 观看时长任务的紫心披风和支持主播的故障面具!</p>
                                 <p>请在6月1日前完成任务并兑换</p>
                                 <p>5. 15周年纪念披风</p>
-                                <div class="article_image"><img alt="" src="/minecraft_repository_test/images/event/Anniversary15/Cape.png"/></div>
+                                <div class="article_image"><img alt="" src="./images/event/Anniversary15/Cape.png"/></div>
                                 <p><a href="https://www.minecraft.net/zh-hans/15th-anniversary" target="_blank">点击前往官网领取</a>, 位于活动页面底部</p>
                                 <p>6. 15周年庆典地图</p>
-                                <div class="article_image"><img alt="" src="/minecraft_repository_test/images/event/Anniversary15/15YearJourney.jpg"/></div>
+                                <div class="article_image"><img alt="" src="./images/event/Anniversary15/15YearJourney.jpg"/></div>
                                 <p>前往基岩版商城领取地图15年之旅, 回顾Minecraft的15周年</p>
                             </article_detail>
                         </article_block>
@@ -206,14 +208,13 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
+<script src="./library/lazyLoadImage.js"></script>
 <script>
     // 惰性加载
-    const lazyImages = document.querySelectorAll('img');
-    lazyImages.forEach(img => {
-        img.setAttribute('loading', 'lazy');
-    });
+    const lazyImage = new LazyLoadImage('img');
+    lazyImage.init();
 </script>
 
 <style>

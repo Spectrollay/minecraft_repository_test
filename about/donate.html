@@ -1,3 +1,4 @@
+<!-- OreUI V2 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -24,37 +25,21 @@
 <html lang="zh">
 
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <style>
-        .donate_block {
-            margin: 12px;
-            width: 280px;
-        }
-
-        .donate_block_title {
-            font-size: 18px;
-        }
-
-        .donate_qrcode {
-            margin: 6px 0 0 0;
-            width: 280px;
-        }
-
-        .table {
-            margin: 6px;
-            width: calc(100% - 12px);
-        }
-    </style>
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>感谢支持~</title>
 </head>
 
 <body>
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -64,81 +49,102 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
-<header>
-    <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="Back" class="back_icon" id="back_icon" src=""/>
-    </div>
-    <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
-    <div class="header_item header_item_right header_right_blank"></div>
-</header>
-<scroll-view>
-    <scroll-container class="main_scroll_container">
-        <main class="scroll_container" id="main">
-            <div class="main_title">
-                <div class="main_title_area">
-                    <div class="main_title_span">捐赠支持</div>
-                </div>
-            </div>
-            <div class="banner_area">
-                <div class="banner information_banner">
-                    如果你还未实现经济独立, 请不要向我们打赏, 你的心意我们领了. 父母赚钱不易, 请把钱花在更重要的地方吧. 如果你非要表示一下支持, 那就让更多需要的人知道我们, 这也是对我们的强有力的支持.
-                </div>
-            </div>
-            <div class="main main_block">
-                <div class="main_block_cont">
-                    <div class="donate_block_title">感谢你的支持!</div>
-                    <div class="wrap_flex">
-                        <div class="donate_block">
-                            <div>微信</div>
-                            <img alt="" class="donate_qrcode" src="/minecraft_repository_test/images/donate/Wechat%20Pay.jpg"/>
-                            <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
-                        </div>
-                        <div class="donate_block">
-                            <div>支付宝</div>
-                            <img alt="" class="donate_qrcode" src="/minecraft_repository_test/images/donate/Alipay.jpg"/>
-                            <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
+<dispaly-area>
+    <header>
+        <div class="header_item header_item_left" id="back" onclick="clickedBack();">
+            <img alt="" class="header_left_icon" id="back_icon" src=""/>
+        </div>
+        <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
+        <div class="header_item header_item_right header_right_blank"></div>
+    </header>
+    <display-body>
+        <scroll-view class="main_scroll_view">
+            <scroll-container class="old main_scroll_container">
+                <main class="scroll_container" id="main">
+                    <div class="main_title">
+                        <div class="main_title_area">
+                            <div class="main_title_span">捐赠我们</div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="main main_block">
-                <div class="main_block_cont">
-                    <div class="donate_block_title">捐赠列表</div>
-                    <div class="table_area">
-                        <div class="table">
-                            <table>
-                                <tr>
-                                    <td>用户</td>
-                                    <td>捐赠</td>
-                                </tr>
-                                <tr>
-                                    <td>一颗不帅</td>
-                                    <td>CNY 5</td>
-                                </tr>
-                                <tr>
-                                    <td>Engine</td>
-                                    <td>CNY 15</td>
-                                </tr>
-                            </table>
+                    <div class="banner_area">
+                        <div class="banner information_banner">
+                            如果你还未实现经济独立, 请不要捐赠, 你的心意我们领了. 父母赚钱不易, 请把钱花在更重要的地方吧. 如果非要表示一下, 那就让更多需要的人知道我们, 这也是对我们强有力的支持.
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id="page_info"></div>
-        </main>
-    </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
-        <custom-scrollbar-track></custom-scrollbar-track>
-        <custom-scrollbar-thumb></custom-scrollbar-thumb>
-    </custom-scrollbar>
-</scroll-view>
+                    <div class="main main_block">
+                        <div class="main_block_cont">
+                            <div class="wrap_flex wrap_flex_top">
+                                <div>
+                                    <div class="donate_block_title">感谢支持</div>
+                                    <div>捐赠可以帮助我们更好的发展!</div>
+                                    <div class="wrap_flex">
+                                        <div class="donate_block">
+                                            <div>微信</div>
+                                            <img alt="" class="donate_qrcode" src="./images/donate/Wechat%20Pay.jpg"/>
+                                            <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
+                                        </div>
+                                        <div class="donate_block">
+                                            <div>支付宝</div>
+                                            <img alt="" class="donate_qrcode" src="./images/donate/Alipay.jpg"/>
+                                            <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="donate_block_title">捐赠专享</div>
+                                    <div>捐赠2元及以上可解锁更多特权!</div>
+                                    <div class="donor_only">
+                                        <div>捐赠专享是针对捐赠用户的额外权利,当你在此页面内捐赠达到一定数额可解锁相应的权利!请注意,这不会对普通用户已有的权利造成任何影响,版本库承诺永久免费对外开放核心功能.</div>
+                                        <div class="link_block_group">
+                                            <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png"/>
+                                            <div>即将到来</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main main_block">
+                        <div class="main_block_cont">
+                            <div class="donate_block_title">捐赠列表</div>
+                            <div class="table_area donate_table_area">
+                                <div class="table donate_table">
+                                    <table>
+                                        <tr>
+                                            <td>用户</td>
+                                            <td>捐赠</td>
+                                        </tr>
+                                        <tr>
+                                            <td>一颗不帅</td>
+                                            <td>CNY 5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Engine</td>
+                                            <td>CNY 15</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="donate_description">请在捐赠后及时与我们取得联系以便将你的信息加入捐赠列表中!</div>
+                        </div>
+                    </div>
+                    <div id="page_info"></div>
+                </main>
+            </scroll-container>
+            <custom-scrollbar class="main_custom_scrollbar">
+                <custom-scrollbar-track></custom-scrollbar-track>
+                <custom-scrollbar-thumb></custom-scrollbar-thumb>
+            </custom-scrollbar>
+        </scroll-view>
+    </display-body>
+</dispaly-area>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -146,8 +152,8 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
 <script>
     function saveImage(button) {
         let parent = button.parentElement;
@@ -171,6 +177,44 @@
 <style>
     .main_block_cont {
         margin: 6px 0;
+    }
+
+    .wrap_flex_top {
+        align-items: flex-start;
+    }
+
+    .donate_block {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 6px;
+        width: 320px;
+    }
+
+    .donate_block_title {
+        font-size: 18px;
+        margin: 12px;
+    }
+
+    .donate_qrcode {
+        margin: 6px 0 0 0;
+        width: 280px;
+    }
+
+    .donate_table_area {
+        margin: 12px;
+    }
+
+    .donate_table {
+        margin: 6px;
+        width: calc(100% - 12px);
+    }
+
+    .donor_only {
+        margin: 6px;
+        max-width: 600px;
+        min-width: 280px;
+        width: calc(100% - 12px);
     }
 </style>
 

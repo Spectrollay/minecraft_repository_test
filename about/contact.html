@@ -1,3 +1,4 @@
+<!-- OreUI V2 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -24,20 +25,21 @@
 <html lang="zh">
 
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <!--    <style>-->
-    <!--        -->
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>联系我们</title>
 </head>
 
 <body>
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -47,31 +49,100 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
-<header>
-    <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="Back" class="back_icon" id="back_icon" src=""/>
-    </div>
-    <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
-    <div class="header_item header_item_right header_right_blank"></div>
-</header>
-<scroll-view>
-    <scroll-container class="main_scroll_container">
-        <main class="main_content_center scroll_container" id="main">
-
-        </main>
-    </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
-        <custom-scrollbar-track></custom-scrollbar-track>
-        <custom-scrollbar-thumb></custom-scrollbar-thumb>
-    </custom-scrollbar>
-</scroll-view>
+<dispaly-area>
+    <header>
+        <div class="header_item header_item_left" id="back" onclick="clickedBack();">
+            <img alt="" class="header_left_icon" id="back_icon" src=""/>
+        </div>
+        <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
+        <div class="header_item header_item_right header_right_blank"></div>
+    </header>
+    <display-body>
+        <scroll-view class="main_scroll_view">
+            <scroll-container class="main_scroll_container">
+                <main class="scroll_container" id="main">
+                    <div class="main_title">
+                        <div class="main_title_area">
+                            <div class="main_title_span">联系我们</div>
+                        </div>
+                    </div>
+                    <div class="main main_block">
+                        <div class="main_block_cont">
+                            <div class="wrap_flex">
+                                <div class="contact_description">你可以加入版本库官方频道, 获取游戏最新资讯与版本库最新动态, 参与不定期的官方活动, 在交流区中畅所欲言, 或是反馈区提出你对版本库的建议及意见.</div>
+                                <div class="body_text">官方频道
+                                    <div class="wrap_flex">
+                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://t.me/spectrollay_minecraft_repository');">
+                                            <div class="link_title">
+                                                <img alt="" class="link_title_img" src="./images/logo/small_icon/telegram.ico">Telegram
+                                            </div>
+                                        </link-block>
+                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://pd.qq.com/s/h8a7gt2u4');">
+                                            <div class="link_title">
+                                                <img alt="" class="link_title_img" src="./images/logo/small_icon/qq.ico">QQ
+                                            </div>
+                                        </link-block>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap_flex">
+                                <div class="contact_description">你也可以加入开发者的聊天群组, 与群友一起闲聊吹水, 进行游戏信息的交流分享, 下载游戏相关资源, 或是向管理员获取更多相关的内容.</div>
+                                <div class="body_text">聊天群组
+                                    <div class="wrap_flex">
+                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://t.me/Spectrollay_MCW');">
+                                            <div class="link_title">
+                                                <img alt="" class="link_title_img" src="./images/logo/small_icon/telegram.ico">Telegram
+                                            </div>
+                                        </link-block>
+                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://qm.qq.com/q/AqLmKLH9mM');">
+                                            <div class="link_title">
+                                                <img alt="" class="link_title_img" src="./images/logo/small_icon/qq.ico">QQ
+                                            </div>
+                                        </link-block>
+                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802');">
+                                            <div class="link_title">
+                                                <img alt="" class="link_title_img" src="./images/logo/small_icon/yunhu.ico">云湖
+                                            </div>
+                                        </link-block>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>当然, 我们也欢迎你直接与开发者取得联系: Github/Gitee/酷安 - Spectrollay, QQ - 494219104</div>
+                        </div>
+                    </div>
+                    <div class="main main_block">
+                        <div class="main_block_cont">
+                            <div class="wrap_flex">
+                                <div class="contact_description">当你在使用版本库过程中发现问题时, 你可以通过以下方式进行反馈. 值得注意的是, 你在聊天群组中同样也可以反馈, 但是通过以下方式提交的反馈将会在评估通过后给予一定的回报.</div>
+                                <div class="body_text">反馈
+                                    <div class="wrap_flex">
+                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://github.com/Spectrollay/minecraft_repository_test/issues/new');">
+                                            <div class="link_title">
+                                                <img alt="" class="link_title_img" src="./images/Github.png">Github
+                                            </div>
+                                        </link-block>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="page_info"></div>
+                </main>
+            </scroll-container>
+            <custom-scrollbar class="main_custom_scrollbar">
+                <custom-scrollbar-track></custom-scrollbar-track>
+                <custom-scrollbar-thumb></custom-scrollbar-thumb>
+            </custom-scrollbar>
+        </scroll-view>
+    </display-body>
+</dispaly-area>
 
 <!--遮罩-->
 <!--除了顶栏-->
@@ -79,8 +150,8 @@
 
 </body>
 
-<script src="/minecraft_repository_test/javascript/loading.js"></script>
-<script src="/minecraft_repository_test/javascript/public_script.js"></script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->

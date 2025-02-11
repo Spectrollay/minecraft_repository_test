@@ -21,7 +21,7 @@
  */
 
 main {
-    color: white;
+    color: #FFFFFF;
 }
 
 .setting_title {
@@ -35,6 +35,7 @@ main {
 .setting_block {
     align-items: center;
     display: flex;
+    justify-content: center;
     padding: 10px 16px;
 }
 
@@ -49,6 +50,7 @@ main {
 
 .setting_block_content {
     margin: 6px 0;
+    max-width: 1000px;
     width: 100%;
 }
 
@@ -77,6 +79,6 @@ main {
 
 .red_stroke {
     color: #C02D2D;
-    -webkit-text-stroke: 0.1em #FFFFFF;
     paint-order: stroke;
+    -webkit-text-stroke: 0.1em #FFFFFF;
 }

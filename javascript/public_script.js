@@ -41,10 +41,14 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     document.body.classList.add('no-dark-mode'); // 覆盖夜间模式下的样式
 }
 
-// 禁止拖动元素
-const cantDraggableElements = document.querySelectorAll("img, a");
-cantDraggableElements.forEach(function (cantDraggableElement) {
-    cantDraggableElement.draggable = false;
+// 响应式设计动画
+document.addEventListener("DOMContentLoaded", function () {
+    const mainScrollView = document.querySelector('.main_scroll_view.with_sidebar');
+    if (mainScrollView) {
+        window.addEventListener('resize', function () {
+            mainScrollView.classList.add('animate');
+        });
+    }
 });
 
 // 节流函数,防止事件频繁触发
@@ -69,13 +73,13 @@ function showScroll(customScrollbar, scrollTimeout) {
 
 // 更新滚动条滑块位置和尺寸
 function updateThumb(thumb, container, content, customScrollbar) {
-    const scrollHeight = content.scrollHeight;
-    const containerHeight = container.getBoundingClientRect().height;
+    const scrollHeight = content.scrollHeight; // 滚动区域的总高度
+    const containerHeight = container.getBoundingClientRect().height; // 滚动区域的显示高度
     if (content.classList.contains('main_with_tab_bar')) customScrollbar.style.top = '100px'; // 这里需要给标签栏预留高度
-    const thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight, 20); // 最小高度20px,防止滚动条过小
-    const maxScrollTop = scrollHeight - containerHeight; // 滚动条能到达的最大位置
-    const currentScrollTop = Math.round(container.scrollTop); // 当前的滚动条位置
-    let thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - (thumbHeight + 4)); // 4为滚动条滑块的Border总高度,计算时应去除
+    const thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight, 20); // 滑块的高度,最小高度20px,防止滚动条过小
+    const maxScrollTop = scrollHeight - containerHeight; // 滑块能到达的最大位置
+    const currentScrollTop = Math.round(container.scrollTop); // 当前的滑块位置
+    let thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - (thumbHeight + 4)); // 4为滑块的Border总高度,计算时应去除
     if (content.classList.contains('sidebar_content')) thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - thumbHeight); // 次要滚动条的样式与主要滚动条样式不同
 
     thumb.style.height = `${thumbHeight}px`;
@@ -157,6 +161,14 @@ function bindScrollEvents(container, content, customScrollbar, customThumb) {
         scrollTimeout = handleScroll(customScrollbar, customThumb, container, content, scrollTimeout);
     }, 1); // 使用节流函数优化性能
 
+    // 自定义滚动条精确滚动
+    customScrollbar.addEventListener('wheel', (e) => {
+        let delta = e.deltaY > 0 ? 10 : -10;
+        container.scrollTop += delta;
+        throttledScroll();
+        e.preventDefault();
+    });
+
     container.addEventListener('scroll', throttledScroll);
     window.addEventListener('resize', throttledScroll);
     document.addEventListener('mousemove', throttledScroll);
@@ -208,6 +220,11 @@ function watchHeightChange() { // 检查高度变化 NOTE 在有容器高度平�
     requestAnimationFrame(watchHeightChange); // 在下一帧再次检查
 }
 
+// 点击顶栏回到顶部
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.header_logo').addEventListener('click', scrollToTop);
+});
+
 // 自动清除存储
 let firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
 if (firstVisit < '2024-05-25') { // NOTE 只在涉及到不兼容改变时更新
@@ -222,13 +239,22 @@ function ifNavigating(way, url) {
         return; // 防止重复点击
     }
     isNavigating = true; // 设置状态,正在跳转
-    if (way === 'open') {
+    if (way === 'direct') {
+        window.location.href = url;
+    } else if (way === 'open') {
         setTimeout(function () {
             window.open(url);
             setTimeout(function () {
                 isNavigating = false; // 重置状态,允许下一次点击
             }, 100);
         }, 100);
+    } else if (way === 'delayed_open') {
+        setTimeout(function () {
+            window.open(url);
+            setTimeout(function () {
+                isNavigating = false; // 重置状态,允许下一次点击
+            }, 100);
+        }, 1500);
     } else if (way === 'jump') {
         setTimeout(function () {
             window.location.href = url;
@@ -237,6 +263,11 @@ function ifNavigating(way, url) {
             }, 100);
         }, 600);
     }
+}
+
+// 重载页面
+function reloadPage() {
+    location.reload();
 }
 
 // 路径检测
@@ -251,7 +282,7 @@ const slashCount = (currentPagePath.match(/\//g) || []).length;
 const public_define = document.createElement('script'); // 公共定义函数
 public_define.src = '/minecraft_repository_test/javascript/public_define.js';
 const accessibility_js = document.createElement('script'); // 无障碍函数
-accessibility_js.src = '/minecraft_repository_test/javascript/accessibility.js';
+accessibility_js.src = '/minecraft_repository_test/library/accessibility.js';
 const exp_js = document.createElement('script'); // 实验性功能函数
 exp_js.src = '/minecraft_repository_test/experiments/index.js';
 const advanced_js = document.createElement('script'); // 高级功能函数
@@ -316,21 +347,6 @@ window.addEventListener("load", function () {
     logManager.log("页面加载耗时: " + loadTime + "ms");
 });
 
-// 为链接添加点击音效
-function addClickSoundToLinks() {
-    const links = document.querySelectorAll('a:not(.sidebar_item)'); // 选择所有类名不为sidebar_item的链接
-    links.forEach(link => {
-        const originalOnClick = link.getAttribute('onclick');
-        if (originalOnClick) { // 如果存在原始的点击事件则先调用原有的再添加
-            link.setAttribute('onclick', `playSound('click');${originalOnClick}`);
-        } else {
-            link.setAttribute('onclick', "playSound('click');");
-        }
-    });
-}
-
-window.addEventListener('load', () => setTimeout(addClickSoundToLinks, 100)); // 页面加载完成后延时执行
-
 // 页面加载时缓存音效文件
 const cacheName = 'audio-cache';
 window.onload = async function () {
@@ -368,14 +384,14 @@ async function getCachedAudio(filePath) {
     return new Audio(filePath);
 }
 
+// 仓库提示弹窗
 if (rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_attribute')) {
     localStorage.setItem('minecraft_repository_attribute', 'test=true');
 } else if (!rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_attribute')) {
     localStorage.setItem('minecraft_repository_attribute', 'test=false');
 }
 
-// 仓库提示弹窗
-if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/minecraft_repository_test/index.html') {
+if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/minecraft_repository_test/index.html' || currentPagePath === '/minecraft_repository_test/index_new.html') { // TODO 在测试结束后移除
     if (rootPath.includes('_test')) {
         const neverShowIn15Days = localStorage.getItem('(/minecraft_repository_test/)neverShowIn15Days');
         if (neverShowIn15Days) {
@@ -541,10 +557,37 @@ function leaveTest() {
     ifNavigating("jump", hostPath + "/minecraft_repository");
 }
 
+// 捐赠专享 // TODO 捐赠专享
+const donorOnlyModal = `
+    <div class="overlay normal_overlay" id="overlay_donor_only_modal"></div>
+    <modal_area class="normal_modal" id="donor_only_modal">
+        <modal>
+            <modal_title_area>
+                <modal_title>捐赠专享</modal_title>
+                <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                    <img alt="" class="modal_close_btn_img" src=""/>
+                </modal_close_btn>
+            </modal_title_area>
+            <modal_content>
+                <p>[Placeholder]</p>
+            </modal_content>
+            <modal_button_area>
+                <modal_button_group>
+                    <modal_button_list>
+                        <custom-button data="modal|green||modal_agree_btn|false||" js="hideModal(this);" text="前往捐赠"></custom-button>
+                        <custom-button data="modal|red|||false||" js="hideModal(this);" text="以后再说"></custom-button>
+                    </modal_button_list>
+                </modal_button_group>
+            </modal_button_area>
+        </modal>
+    </modal_area>`;
+
+document.body.insertAdjacentHTML('afterbegin', donorOnlyModal);
+
 // 兼容性检测
 const compatibilityModal = `
-    <div class="overlay" id="overlay_compatibility_modal" tabindex="-1"></div>
-    <modal_area id="compatibility_modal" tabindex="-1">
+    <div class="overlay" id="overlay_compatibility_modal"></div>
+    <modal_area id="compatibility_modal">
         <modal>
             <modal_title_area>
                 <modal_title>兼容性提示</modal_title>
@@ -567,16 +610,16 @@ const compatibilityModal = `
 
 document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
-window.addEventListener('load', () => setTimeout(function () {
-    if (localStorage.getItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain') !== '1') {
-        const overlay = document.getElementById("overlay_compatibility_modal");
-        const modal = document.getElementById("compatibility_modal");
-        overlay.style.display = "block";
-        modal.style.display = "block";
-        modal.focus();
-        logManager.log("显示兼容性提示弹窗");
-    }
-}, 20)); // 页面加载完成后延时显示弹窗
+// window.addEventListener('load', () => setTimeout(function () {
+//     if (localStorage.getItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain') !== '1') {
+//         const overlay = document.getElementById("overlay_compatibility_modal");
+//         const modal = document.getElementById("compatibility_modal");
+//         overlay.style.display = "block";
+//         modal.style.display = "block";
+//         modal.focus();
+//         logManager.log("显示兼容性提示弹窗");
+//     }
+// }, 20)); // 页面加载完成后延时显示弹窗
 
 function hideCompatibilityModal(button) {
     const overlay = document.getElementById("overlay_compatibility_modal");
@@ -596,8 +639,8 @@ function neverShowCompatibilityModalAgain(button) {
 // 访问受限提示
 const today = new Date().toISOString().split('T')[0];
 const firstVisitTodayModal = `
-    <div class="overlay" id="overlay_first_visit_today_modal" tabindex="-1"></div>
-    <modal_area id="first_visit_today_modal" tabindex="-1">
+    <div class="overlay" id="overlay_first_visit_today_modal"></div>
+    <modal_area id="first_visit_today_modal">
         <modal>
             <modal_title_area>
                 <modal_title>访问受限</modal_title>
@@ -620,7 +663,7 @@ document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 function checkFirstVisit() {
     firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
     const is404Page = document.title.includes("404 NOT FOUND");
-    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}home.html`, `${rootPath}about/donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`];
+    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}index_new.html`, `${rootPath}home.html`, `${rootPath}about/donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`]; // TODO 在完成新主页测试后移除index_new.html
 
     // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
     if (firstVisit !== today && !firstVisitAllowedPaths.includes(window.location.pathname) && !is404Page) {
@@ -628,10 +671,11 @@ function checkFirstVisit() {
         const modal = document.getElementById("first_visit_today_modal");
         overlay.style.display = "block";
         modal.style.display = "block";
+        modal.focus();
     }
 }
 
-if (window.location.pathname === `${rootPath}` || window.location.pathname === `${rootPath}index.html`) {
+if (window.location.pathname === `${rootPath}` || window.location.pathname === `${rootPath}index.html` || window.location.pathname === `${rootPath}index_new.html`) { // TODO 在完成新主页测试后移除index_new.html
     localStorage.setItem('(/minecraft_repository_test/)firstVisit', today);
 }
 
@@ -646,6 +690,55 @@ function hideFirstVisitTodayModal(button) {
 window.addEventListener('load', () => setTimeout(function () {
     checkFirstVisit();
 }, 20));
+
+// 免责申明弹窗
+function showDisclaimerModal(url) {
+    const overlay = document.getElementById("overlay_disclaimer_modal");
+    const modal = document.getElementById("disclaimer_modal");
+    overlay.style.display = "block";
+    modal.style.display = "block";
+    logManager.log("显示免责声明弹窗");
+    modal.dataset.openurl = url || ""; // 存储URL
+    modal.focus();
+}
+
+function hideDisclaimerModal(button, state) {
+    const overlay = document.getElementById("overlay_disclaimer_modal");
+    const modal = document.getElementById("disclaimer_modal");
+    const url = modal.dataset.openurl || null; // 取出存储的URL
+
+    playSoundType(button);
+    overlay.style.display = "none";
+    modal.style.display = "none";
+
+    if (url) {
+        if (state === 1) {
+            logManager.log("选择了同意并继续");
+            if (url.includes('huang1111')) { // TODO 在移除全部相关链接后删除判定
+                ifNavigating("open", "/minecraft_repository_test/default/error_not-found.html");
+            } else {
+                ifNavigating("open", url);
+            }
+            logManager.log("跳转成功");
+        } else if (state === -1) {
+            logManager.log("选择了不同意");
+        }
+    } else {
+        logManager.log("未获取到跳转链接", 'warn');
+    }
+
+    logManager.log("关闭免责声明弹窗");
+}
+
+function howToBuyGame(button, state, url) {
+    playSoundType(button);
+    if (state === 0) {
+        logManager.log("选择了正版购买指南");
+    }
+    logManager.log("获取到跳转链接: " + url);
+    ifNavigating("jump", url);
+    logManager.log("跳转成功");
+}
 
 // TODO 用户音量调节
 let userVolume = 1;
@@ -702,21 +795,19 @@ function toMessage() {
     ifNavigating("jump", messagePath);
 }
 
-function toRepo() {
-    setTimeout(function () {
-        ifNavigating("open", "https://github.com/Spectrollay/minecraft_repository_test/issues/new");
-    }, 600);
+function contact() {
+    ifNavigating("jump", "/minecraft_repository_test/about/contact.html");
 }
 
 // 重试按钮事件
-function retry(defaultUrl = "/minecraft_repository_test/") {
+function retry() {
     const params = new URLSearchParams(window.location.search);
     const source = params.get('source');
 
     if (source) {
         ifNavigating("jump", decodeURIComponent(source));
     } else {
-        ifNavigating("jump", defaultUrl);
+        ifNavigating("jump", rootPath);
     }
 }
 
@@ -765,10 +856,14 @@ function openLink(url) {
     }
 }
 
-function delayedOpenLink(url) {
+function delayedOpenLink(url) { // TODO 在页面完成迭代后移除
     setTimeout(function () {
         ifNavigating("open", url);
     }, 1500);
+}
+
+function launchApplication(deeplink) {
+    window.location.assign(deeplink);
 }
 
 // 点击全屏遮罩事件
@@ -799,14 +894,8 @@ function toTop() {
 
 // 复制文本
 function copyText(text) {
-    let textToCopy = text;
-    let tempTextarea = document.createElement("textarea");
-    tempTextarea.value = textToCopy;
-    document.body.appendChild(tempTextarea);
-    tempTextarea.select();
-    tempTextarea.setSelectionRange(0, 999999); // 兼容移动设备
-    navigator.clipboard.writeText(tempTextarea.value).then(() => {
-        logManager.log("复制成功: ", tempTextarea.value);
+    navigator.clipboard.writeText(text).then(() => {
+        logManager.log("复制成功: " + text);
     }).catch(error => {
         logManager.log("复制失败: " + error, 'error');
     });
@@ -865,13 +954,15 @@ function selectTab(tabNumber) {
     }
 }
 
+
+// 侧边栏
 let sidebarOpen = false;
 
 function toggleSidebar() { // 切换侧边栏状态
     const sidebar = document.getElementById("sidebar");
     if (sidebarOpen) {
         playSound('close');
-        sidebar.style.left = "-160px"; // 隐藏到屏幕左侧
+        sidebar.style.left = -sidebar.offsetWidth + "px"; // 隐藏到屏幕左侧
         logManager.log("侧边栏执行收起操作");
     } else {
         playSound('open');

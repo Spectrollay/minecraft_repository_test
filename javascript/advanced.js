@@ -60,7 +60,7 @@ function resetAll() {
 }
 
 // 重载页面
-function reloadPage() {
+function clearAndReload() {
     sessionStorage.clear();
     location.reload();
     logManager.log("重载容器环境成功");

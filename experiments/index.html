@@ -1,3 +1,4 @@
+<!-- OreUI V1.3 -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -23,21 +24,22 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/minecraft_repository_test/stylesheet/loading_mask.css" rel="stylesheet">
-    <link href="/minecraft_repository_test/images/Tool.png" rel="icon">
-    <!--    <style>-->
-
-    <!--    </style>-->
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./images/Tool.png" rel="icon">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
     <title>实验性内容</title>
 </head>
 
-<body>
+<body class="old">
 <div class="loading_mask" id="loading_mask">
     <div>
-        <div class="spinner"><img alt="" id="spinner_img" src="/minecraft_repository_test/images/Loading_white.gif"/></div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
             <div class="spinner"><span class="spinner_text">载入中</span></div>
         </div>
@@ -47,29 +49,28 @@
                     display: none;
                 }
             </style>
-            <div class="spinner"><img alt="" id="spinner_img_error" src="/minecraft_repository_test/images/ErrorMessage.png"/></div>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前浏览器已禁用JavaScript.<br>请在启用相关功能后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
             </div>
         </noscript>
     </div>
 </div>
 <header>
     <div class="header_item header_item_left" id="back" onclick="clickedBack();">
-        <img alt="" class="back_icon" id="back_icon" src=""/>
+        <img alt="" class="header_left_icon" id="back_icon" src=""/>
     </div>
-    <div class="header_logo" onclick="scrollToTop();">
-        <img alt="Title Icon" class="title_icon" src="/minecraft_repository_test/images/Tool.png"/>
+    <div class="header_logo">
+        <img alt="" class="title_icon" src="./images/Tool.png"/>
         <span class="header_title">Experiments</span>
     </div>
     <div class="header_item header_item_right" id="debug" onclick="playSoundType(this);debugPage();">
-        <img alt="" class="debug_icon" src="/minecraft_repository_test/images/Debug.png"/>
+        <img alt="" class="header_right_icon" src="./images/Debug.png"/>
     </div>
 </header>
 <scroll-view>
-    <scroll-container class="main_scroll_container">
+    <scroll-container class="old main_scroll_container">
         <main class="scroll_container" id="main">
-            <div id="main_top"></div>
             <div class="main_title">
                 <div class="main_title_span">实验性内容</div>
             </div>
@@ -113,13 +114,6 @@
                     <divider></divider>
                     <div>
                         <div class="setting_block_title flex">
-                            <div class="setting_title_content">网页文本转语音</div>
-                            <custom-switch active="on" id="experimental_accessibility" status="enabled"></custom-switch>
-                        </div>
-                    </div>
-                    <divider></divider>
-                    <div>
-                        <div class="setting_block_title flex">
                             <div class="setting_title_content">服务响应优化</div>
                             <custom-switch active="off" id="experimental_service_response_optimization" status="disabled"></custom-switch>
                         </div>
@@ -136,6 +130,13 @@
                         <div class="setting_block_title flex">
                             <div class="setting_title_content">全新的动画设计</div>
                             <custom-switch active="on" id="new_animation_design" status="disabled"></custom-switch>
+                        </div>
+                    </div>
+                    <divider></divider>
+                    <div>
+                        <div class="setting_block_title flex">
+                            <div class="setting_title_content">网页文本转语音</div>
+                            <custom-switch active="off" id="experimental_tts" status="disabled"></custom-switch>
                         </div>
                     </div>
                     <br>
@@ -288,35 +289,11 @@
 
 </body>
 
-<script>
-    const public_script = document.createElement('script');
-    public_script.src = '/minecraft_repository_test/javascript/public_script.js';
-    document.head.appendChild(public_script);
-
-    function hide_mask() {
-        const loading_mask = document.getElementById('loading_mask');
-        // 延时600ms后隐藏蒙版
-        loading_mask.style.opacity = '0';
-        setTimeout(function () {
-            loading_mask.style.display = 'none';
-        }, 600);
-    }
-
-    // 加载超过8秒时
-    let count = 8;
-    const secondInterval = setInterval(function () {
-        count--;
-        if (count <= 0) {
-            clearInterval(secondInterval);
-            hide_mask();
-        }
-    }, 1000);
-
-    // 页面加载完成时
-    window.addEventListener('load', function () {
-        hide_mask();
-    });
-</script>
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
+<!--<script>-->
+<!--    -->
+<!--</script>-->
 
 <!--<style>-->
 <!--    -->
