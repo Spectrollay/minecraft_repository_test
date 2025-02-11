@@ -247,13 +247,13 @@ const dropdownData = JSON.parse(localStorage.getItem('(/minecraft_repository_tes
                                     ` : ""}
                                     ${currentVersion.platforms[platform].style === 'channel' ? `
                                         <!-- 按下载渠道 -->
-                                        ${Object.entries(currentVersion.platforms[platform].channels).map(([channelData]) => `
+                                        ${Object.entries(currentVersion.platforms[platform].channels).map(([channelKey, channelData]) => `
                                         <div class="btn_group">
-                                            ${channelData.all ? `
+                                            ${channelData.完整 ? `
                                                 ${channelData.name === "OneDrive" ? `
-                                                    <custom-button data="default|green|large||true|捐赠专享|Crown" js="checkIfDonate('url', '${channelData.all}');" text="${channelData.name}"></custom-button>
+                                                    <custom-button data="default|green|large||true|捐赠专享|Crown" js="checkIfDonate('url', '${channelData.完整}');" text="${channelData.name}"></custom-button>
                                                 ` : `
-                                                    <custom-button data="default|normal|large||false||" js="ifNavigating('open', '${channelData.all}');" text="${channelData.name}"></custom-button>
+                                                    <custom-button data="default|normal|large||false||" js="ifNavigating('open', '${channelData.完整}');" text="${channelData.name}"></custom-button>
                                                 `}
                                             ` : `
                                                 ${channelData.name === "OneDrive" ? `
