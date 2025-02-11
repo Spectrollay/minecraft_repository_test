@@ -19,12 +19,12 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "未知",
+                "release": "未知", // TODO
                 "build": "1.21.70.20, 1.21.70.22",
                 "support": "目标API: 34(Android 14) / 最小API: 26(Android 8.0)",
                 "arch": "ARMv8 / x86_64 / ARMv7 / x86 / Universal",
                 "type": "APK(修改版) / APKS(原版)",
-                "size": "未知",
+                "size": "未知", // TODO
                 "note": "正式版暂未发布",
                 "style": "type",
                 "channels": {
@@ -63,12 +63,12 @@
                 }
               },
               "ios": {
-                "release": "未知",
+                "release": "未知", // TODO
                 "build": "无",
                 "support": "最低系统版本: iOS 13",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
-                "size": "未知",
+                "size": "未知", // TODO
                 "note": "正式版暂未发布",
                 "style": "channel",
                 "channels": {
@@ -91,12 +91,12 @@
                 }
               },
               "windows": {
-                "release": "未知",
+                "release": "未知", // TODO
                 "build": "无",
                 "support": "最低系统版本: Windows 10.0.19041.0",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
-                "size": "未知",
+                "size": "未知", // TODO
                 "note": "正式版暂未发布",
                 "style": "channel",
                 "channels": {
@@ -129,12 +129,12 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "未知",
+                "release": "未知", // TODO
                 "build": "1.21.60.21, 1.21.60.23, 1.21.60.24, 1.21.60.25, 1.21.60.27, 1.21.60.28",
                 "support": "目标API: 34(Android 14) / 最小API: 26(Android 8.0)",
                 "arch": "ARMv8 / x86_64 / ARMv7 / x86 / Universal",
                 "type": "APK(修改版) / APKS(原版)",
-                "size": "未知",
+                "size": "未知", // TODO
                 "note": "正式版暂未发布",
                 "style": "type",
                 "channels": {
@@ -173,12 +173,12 @@
                 }
               },
               "ios": {
-                "release": "未知",
+                "release": "未知", // TODO
                 "build": "无",
                 "support": "最低系统版本: iOS 13",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
-                "size": "未知",
+                "size": "未知", // TODO
                 "note": "正式版暂未发布",
                 "style": "channel",
                 "channels": {
@@ -201,12 +201,12 @@
                 }
               },
               "windows": {
-                "release": "未知",
+                "release": "未知", // TODO
                 "build": "无",
                 "support": "最低系统版本: Windows 10.0.19041.0",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
-                "size": "未知",
+                "size": "未知", // TODO
                 "note": "正式版暂未发布",
                 "style": "channel",
                 "channels": {
@@ -245,7 +245,7 @@
                 "arch": "ARMv8 / x86_64 / ARMv7 / x86 / Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "472MB ~ 617MB",
-                "note": "1.21.51.01的armv8架构包错误的启用了旧版HAL着色器, 1.21.51.02修复了这个问题.",
+                "note": "1.21.51.01的armv8架构包错误地启用了旧版HAL着色器, 1.21.51.02修复了这个问题.",
                 "style": "type",
                 "channels": {
                   "channel1": {
