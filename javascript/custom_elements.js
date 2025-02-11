@@ -39,7 +39,7 @@ class CustomButton extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         this.render();
-        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+        setTimeout(updateFocusableElements, 10); // 更新元素焦点
     }
 
     render() {
@@ -130,7 +130,7 @@ class CustomCheckbox extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         this.render();
-        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+        setTimeout(updateFocusableElements, 10); // 更新元素焦点
     }
 
     render() {
@@ -250,7 +250,7 @@ class CustomDropdown extends HTMLElement {
             this.label.classList.toggle('disabled_dropdown', newValue === 'disabled');
             this.arrow.classList.toggle('disabled_dropdown_arrow', newValue === 'disabled');
         }
-        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+        setTimeout(updateFocusableElements, 10); // 更新元素焦点
     }
 
     getStoredDropdownData() {
@@ -404,7 +404,7 @@ class CustomSlider extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         if (!this.isFirstRender) {
             this.render();
-            setTimeout(updateFocusableElements, 0); // 更新元素焦点
+            setTimeout(updateFocusableElements, 10); // 更新元素焦点
         }
     }
 
@@ -704,7 +704,7 @@ class CustomSwitch extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         this.updateRender();
-        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+        setTimeout(updateFocusableElements, 10); // 更新元素焦点
     }
 
     render() {
@@ -963,7 +963,7 @@ class TextField extends HTMLElement {
         if (name === 'status') {
             this.classList.toggle('disabled_text_field', newValue === 'disabled');
         }
-        setTimeout(updateFocusableElements, 0); // 更新元素焦点
+        setTimeout(updateFocusableElements, 10); // 更新元素焦点
     }
 
     updateTextField() {

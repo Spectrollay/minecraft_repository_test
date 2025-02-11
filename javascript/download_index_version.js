@@ -121,13 +121,13 @@ const dropdownData = JSON.parse(localStorage.getItem('(/minecraft_repository_tes
                     searchParams.set('version', prev_version);
                     const prevLink = `${currentUrl.origin}${currentUrl.pathname}?${searchParams.toString()}`;
                     prevButton.setAttribute('data', 'default|normal|extra_small||false||');
-                    prevButton.setAttribute('js', `window.location.href='${prevLink}';`);
+                    prevButton.setAttribute('js', `ifNavigating("jump", "${prevLink}");`);
                     prevButton.setAttribute('text', `<img alt='' class='button_img left' src='./images/arrowLeft.png'>${prev_version}`
                     );
                 } else {
                     prevButton.setAttribute('data', 'default|disabled|extra_small||false||');
-                    prevButton.setAttribute('text', `<img alt='' class='button_img left' src='./images/arrowLeft.png'>上个版本`);
                     prevButton.setAttribute('js', '');
+                    prevButton.setAttribute('text', `<img alt='' class='button_img left' src='./images/arrowLeft.png'>上个版本`);
                 }
             })
 
@@ -137,13 +137,13 @@ const dropdownData = JSON.parse(localStorage.getItem('(/minecraft_repository_tes
                     searchParams.set('version', next_version);
                     const nextLink = `${currentUrl.origin}${currentUrl.pathname}?${searchParams.toString()}`;
                     nextButton.setAttribute('data', 'default|normal|extra_small||false||');
-                    nextButton.setAttribute('js', `window.location.href='${nextLink}';`);
+                    nextButton.setAttribute('js', `ifNavigating("jump", "${nextLink}");`);
                     nextButton.setAttribute('text', `${next_version}<img alt='' class='button_img right' src='./images/arrowRight.png'>`
                     );
                 } else {
                     nextButton.setAttribute('data', 'default|disabled|extra_small||false||');
-                    nextButton.setAttribute('text', `下个版本<img alt='' class='button_img right' src='./images/arrowRight.png'>`);
                     nextButton.setAttribute('js', '');
+                    nextButton.setAttribute('text', `下个版本<img alt='' class='button_img right' src='./images/arrowRight.png'>`);
                 }
             })
 
@@ -294,7 +294,7 @@ const dropdownData = JSON.parse(localStorage.getItem('(/minecraft_repository_tes
 })();
 
 document.title = `${platformName} - ${version} - ${edition} - 星月Minecraft版本库`;
-platformIcon.src = `${rootPath}images/logo/${url.searchParams.get('platform')}.png`;
+platformIcon.src = `${rootPath}images/logo/${platformName}.png`;
 mainTitle.innerHTML = `${platformName} - ${version} - ${edition}<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href);" src="./images/ExternalLink_white.png">`;
 sidebarTitle.innerHTML = `${version}`;
 
