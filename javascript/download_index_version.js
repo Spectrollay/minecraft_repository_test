@@ -193,73 +193,73 @@ const dropdownData = JSON.parse(localStorage.getItem('(/minecraft_repository_tes
                                         ${Object.entries(currentVersion.platforms[platform].channels).map(([channelKey, channelData]) => `
                                         <div id="${platform}_${currentVersion.id}_${channelKey}">
                                             <div class="btn_group">
-                                                ${channelData.origin ? `
+                                                ${channelData.原版 ? `
                                                     ${channelData.name === "OneDrive" ? `
-                                                        <custom-button data="default|normal|large||false||" js="checkIfDonate('url', '${channelData.origin}');" text-generation="download_type1"></custom-button>
+                                                        <custom-button data="default|normal|large||false||" js="checkIfDonate('url', '${channelData.原版}');" text="官方原版"></custom-button>
                                                     ` : `
-                                                        <custom-button data="default|normal|large||false||" js="ifNavigating('open', '${channelData.origin}');" text-generation="download_type1"></custom-button>
+                                                        <custom-button data="default|normal|large||false||" js="ifNavigating('open', '${channelData.原版}');" text="官方原版"></custom-button>
                                                     `}
                                                 ` : `
-                                                    <custom-button data="default|disabled|large||false||" js="false" text-generation="download_type1"></custom-button>
+                                                    <custom-button data="default|disabled|large||false||" js="false" text="官方原版"></custom-button>
                                                 `}
                                             </div>
                                             <div class="btn_group">
-                                                ${channelData.cn_fix ? `
+                                                ${channelData.中文译名修正 ? `
                                                     ${channelData.name === "OneDrive" ? `
-                                                        <custom-button data="default|green|small||false||" js="checkIfDonate('url', '${channelData.cn_fix}');" text-generation="download_type2"></custom-button>
+                                                        <custom-button data="default|green|small||false||" js="checkIfDonate('url', '${channelData.中文译名修正}');" text="中文译名修正"></custom-button>
                                                     ` : `
-                                                        <custom-button data="default|green|small||false||" js="showDisclaimerModal('${channelData.cn_fix}');" text-generation="download_type2"></custom-button>
+                                                        <custom-button data="default|green|small||false||" js="showDisclaimerModal('${channelData.中文译名修正}');" text="中文译名修正"></custom-button>
                                                     `}
                                                 ` : `
-                                                    <custom-button data="default|disabled|small||false||" js="false" text-generation="download_type2"></custom-button>
+                                                    <custom-button data="default|disabled|small||false||" js="false" text="中文译名修正"></custom-button>
                                                 `}
-                                                ${channelData.crack ? `
+                                                ${channelData.去验证版 ? `
                                                     ${channelData.name === "OneDrive" ? `
-                                                        <custom-button data="default|normal|small||false||" js="checkIfDonate('url', '${channelData.crack}');" text-generation="download_type3"></custom-button>
+                                                        <custom-button data="default|normal|small||false||" js="checkIfDonate('url', '${channelData.去验证版}');" text="去验证版"></custom-button>
                                                     ` : `
-                                                        <custom-button data="default|normal|small||false||" js="showDisclaimerModal('${channelData.crack}');" text-generation="download_type3"></custom-button>
+                                                        <custom-button data="default|normal|small||false||" js="showDisclaimerModal('${channelData.去验证版}');" text="去验证版"></custom-button>
                                                     `}
                                                 ` : `
-                                                    <custom-button data="default|disabled|small||false||" js="false" text-generation="download_type3"></custom-button>
+                                                    <custom-button data="default|disabled|small||false||" js="false" text="去验证版"></custom-button>
                                                 `}
                                             </div>
                                             <div class="btn_group">
-                                                ${channelData.multi_arch ? `
+                                                ${channelData.多架构版 ? `
                                                     ${channelData.name === "OneDrive" ? `
-                                                        <custom-button data="default|normal|small||false||" js="checkIfDonate('url', '${channelData.multi_arch}');" text-generation="download_type4"></custom-button>
+                                                        <custom-button data="default|normal|small||false||" js="checkIfDonate('url', '${channelData.多架构版}');" text="多架构版"></custom-button>
                                                     ` : `
-                                                        <custom-button data="default|normal|small||false||" js="showDisclaimerModal('${channelData.multi_arch}');" text-generation="download_type4"></custom-button>
+                                                        <custom-button data="default|normal|small||false||" js="showDisclaimerModal('${channelData.多架构版}');" text="多架构版"></custom-button>
                                                     `}
                                                 ` : `
-                                                    <custom-button data="default|disabled|small||false||" js="false" text-generation="download_type4"></custom-button>
+                                                    <custom-button data="default|disabled|small||false||" js="false" text="多架构版"></custom-button>
                                                 `}
-                                                ${channelData.lite ? `
+                                                ${channelData.精简版 ? `
                                                     ${channelData.name === "OneDrive" ? `
-                                                        <custom-button data="default|normal|small||false||" js="checkIfDonate('url', '${channelData.lite}');" text-generation="download_type5"></custom-button>
+                                                        <custom-button data="default|normal|small||false||" js="checkIfDonate('url', '${channelData.精简版}');" text="精简版"></custom-button>
                                                     ` : `
-                                                        <custom-button data="default|normal|small||false||" js="showDisclaimerModal('${channelData.lite}');" text-generation="download_type5"></custom-button>
+                                                        <custom-button data="default|normal|small||false||" js="showDisclaimerModal('${channelData.精简版}');" text="精简版"></custom-button>
                                                     `}
                                                 ` : `
-                                                    <custom-button data="default|disabled|small||false||" js="false" text-generation="download_type5"></custom-button>
+                                                    <custom-button data="default|disabled|small||false||" js="false" text="精简版"></custom-button>
                                                 `}
                                             </div>
                                         </div>`).join("")}
                                     ` : ""}
                                     ${currentVersion.platforms[platform].style === 'channel' ? `
                                         <!-- 按下载渠道 -->
-                                        ${Object.entries(currentVersion.platforms[platform].channels).map(([channelKey, channelData]) => `
+                                        ${Object.entries(currentVersion.platforms[platform].channels).map(([channelData]) => `
                                         <div class="btn_group">
                                             ${channelData.all ? `
                                                 ${channelData.name === "OneDrive" ? `
-                                                    <custom-button data="default|green|large||true|捐赠专享|Crown" js="checkIfDonate('url', '${channelData.all}');" text-generation="download_${channelKey}"></custom-button>
+                                                    <custom-button data="default|green|large||true|捐赠专享|Crown" js="checkIfDonate('url', '${channelData.all}');" text="${channelData.name}"></custom-button>
                                                 ` : `
-                                                    <custom-button data="default|normal|large||false||" js="ifNavigating('open', '${channelData.all}');" text-generation="download_${channelKey}"></custom-button>
+                                                    <custom-button data="default|normal|large||false||" js="ifNavigating('open', '${channelData.all}');" text="${channelData.name}"></custom-button>
                                                 `}
                                             ` : `
                                                 ${channelData.name === "OneDrive" ? `
-                                                    <custom-button data="default|disabled|large||true|捐赠专享|Crown" js="false" text-generation="download_${channelKey}"></custom-button>
+                                                    <custom-button data="default|disabled|large||true|捐赠专享|Crown" js="false" text="${channelData.name}"></custom-button>
                                                 ` : `
-                                                    <custom-button data="default|disabled|large||false||" js="false" text-generation="download_${channelKey}"></custom-button>
+                                                    <custom-button data="default|disabled|large||false||" js="false" text="${channelData.name}"></custom-button>
                                                 `}
                                             `}
                                         </div>
