@@ -216,7 +216,7 @@
   "javascript\\download_index_version.js": "34b6a8c7ab26a33a364f6555f0dc067a",
   "javascript\\editions.js": "12fa3406418cf871267af37d580ff51e",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "0a9882c264bdc521df8f26261005b4ae",
+  "javascript\\public_define.js": "4e119c94c6a0f2b001c848ff5c496e88",
   "javascript\\public_script.js": "d07e59dc00be7026203a2c55543d5889",
   "javascript\\text_to_speech.js": "c0ffaf686d33a16d15571a853d703f71",
   "library\\accessibility.js": "d40d838c2e235db84a7ff10d7aa7cc98",
@@ -239,7 +239,7 @@
   "stylesheet\\custom_elements.css": "938c44390812855f09ddd5c429ab194f",
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
   "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
-  "stylesheet\\public_style.css": "6359501f512b6c2dbdfbf57d2c556db5",
+  "stylesheet\\public_style.css": "7c1c9c9c982e21e532f2bacd0971f615",
   "Template\\index.html": "d7d2634b787156dcf1d347e93d9df261",
   "updatelog\\index.html": "c4be7c82acf8e8089de36020c38b1820",
   "Verification\\.pl\\fuck_csdn.txt": "1fa2bf8c04ffcaf2a134736add6150c6"
