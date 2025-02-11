@@ -865,7 +865,9 @@ function delayedOpenLink(url) { // TODO 在页面完成迭代后移除
 }
 
 function launchApplication(deeplink) {
-    window.location.assign(deeplink);
+    // setTimeout(function () {
+        window.location.assign(deeplink);
+    // }, 100);
 }
 
 // 点击全屏遮罩事件
