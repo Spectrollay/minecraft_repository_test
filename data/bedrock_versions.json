@@ -129,13 +129,13 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "未知", // TODO
+                "release": "1.21.60.10",
                 "build": "1.21.60.21, 1.21.60.23, 1.21.60.24, 1.21.60.25, 1.21.60.27, 1.21.60.28",
                 "support": "目标API: 34(Android 14) / 最小API: 26(Android 8.0)",
                 "arch": "ARMv8 / x86_64 / ARMv7 / x86 / Universal",
                 "type": "APK(修改版) / APKS(原版)",
-                "size": "未知", // TODO
-                "note": "正式版暂未发布",
+                "size": "241MB ~ 710MB",
+                "note": "无",
                 "style": "type",
                 "channels": {
                   "channel1": {
@@ -173,13 +173,13 @@
                 }
               },
               "ios": {
-                "release": "未知", // TODO
+                "release": "1.21.60.10",
                 "build": "无",
                 "support": "最低系统版本: iOS 13",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
-                "size": "未知", // TODO
-                "note": "正式版暂未发布",
+                "size": "489MB",
+                "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
@@ -201,13 +201,13 @@
                 }
               },
               "windows": {
-                "release": "未知", // TODO
+                "release": "1.21.60.10",
                 "build": "无",
                 "support": "最低系统版本: Windows 10.0.19041.0",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
-                "size": "未知", // TODO
-                "note": "正式版暂未发布",
+                "size": "未知",
+                "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
