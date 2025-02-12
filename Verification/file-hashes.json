@@ -6,9 +6,6 @@
   "advanced\\debug.html": "a0e73b51f917ccaf6b311074cd4746e5",
   "advanced\\settings.html": "72f772735fc2edea9a9eba81466c94a8",
   "advanced\\status.html": "330c1c159d509d40aec2cd987f958675",
-  "data\\bedrock_main.json": "7b7cb485c6b55d98c8dc3713c30e74ed",
-  "data\\bedrock_versions.json": "559367af6a43b011760156acfb606056",
-  "data\\education_main_index.json": "d751713988987e9331980363e24189ce",
   "default\\coming_soon.html": "2ed8f40615dc776bf7261916fd9829d3",
   "default\\error_default.html": "fff0ff5817161d878e6c4bb7059bebc6",
   "default\\error_no-access.html": "428a9bfc7b5e67f51f7ac90068032725",
@@ -20,8 +17,6 @@
   "experiments\\index.css": "f227348871eca5403b0aca19d0edd65e",
   "experiments\\index.html": "4adfba773cd1e7157d132977a2f57183",
   "experiments\\index.js": "a8ecfc30c2fd56a7327ba3558060ee7f",
-  "Feed\\main.xml": "0542888713794d87ecf33c6e21798c8b",
-  "Feed\\update.xml": "b0c8e6e868f249a43e61ca60810955b3",
   "flags\\index.html": "7df0d95a58a9376e901f1dbe2d85b418",
   "fonts\\Minecraft-Five-Bold.otf": "17ba4c2007cf79329c4b84e8dbc6fd34",
   "fonts\\Minecraft-Five.otf": "070d5f6822481c45102b7c8e71619fe1",
@@ -200,7 +195,6 @@
   "images\\update\\artwork\\Village_&_Pillage.jpg": "d06afd3869499139115d243bb51c7d84",
   "images\\update\\artwork\\Wild_Update_Artwork.jpg": "26bf641c62126c18c5c7ee83c29c0c2b",
   "images\\update\\logo\\Caves&Cliffs.png": "11c8d1ae6b5bacc5b39521a73b584bfd",
-  "images\\update\\logo\\desktop.ini": "ef353e491ee93601bd106cc33ee7a0ab",
   "images\\update\\logo\\Exploration_Update.png": "0845cf495f2859fc3dffa2eb7fe27b60",
   "images\\update\\logo\\Nether_Update.png": "80c3606ada15e0516f385d635f632820",
   "images\\update\\logo\\The_Wild_Update.png": "2cc45c559828415f4d6a6dcf46d39568",
@@ -225,8 +219,6 @@
   "library\\gsap.min.js": "353e2906f2f9520678e8d82e58d40c97",
   "library\\lazyLoadImage.js": "c750536512ca3ed856c712ce1dfe533a",
   "notifications\\index.html": "8e6120783851b4a37493b7b6d5aa7969",
-  "README-en_US.md": "8c9ce26d032adfdc4e620dc53d683e74",
-  "README.md": "f6ad7532a8a75f70ec4240a668ee3bb4",
   "sounds\\button.ogg": "543573dd41a4e5962f7e5ef0510077b0",
   "sounds\\click.ogg": "697d86282cec21fea5e64a58db441432",
   "sounds\\drawer_close.ogg": "91b209908fec33a76c2425203ade1a1b",
@@ -242,6 +234,5 @@
   "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
   "stylesheet\\public_style.css": "7c1c9c9c982e21e532f2bacd0971f615",
   "Template\\index.html": "d7d2634b787156dcf1d347e93d9df261",
-  "updatelog\\index.html": "5a4e9b2bcd752138c4e958e3bff5d7c2",
-  "Verification\\.pl\\fuck_csdn.txt": "1fa2bf8c04ffcaf2a134736add6150c6"
+  "updatelog\\index.html": "5a4e9b2bcd752138c4e958e3bff5d7c2"
 }
