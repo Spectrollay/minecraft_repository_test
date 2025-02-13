@@ -30,7 +30,7 @@ const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Al
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250213" + ".03"; // NOTE 小版本,有提交就变
+const update_count = "20250213" + ".05"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -38,7 +38,10 @@ if (commit === "#") {
     commit = "#" + update_count.replace(/\./g, "");
 }
 
-const data = "https://spectrollay.github.io/data";
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+hostPath = window.location.origin;
+switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+const data = "https://" + rootPath + "/data";
 
 async function getProjectHash() {
     try {
@@ -208,10 +211,6 @@ const texts = {
     download_type4: "多架构版",
     download_type5: "精简版",
 };
-
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-hostPath = window.location.origin;
-switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
 
 let isRelease = (version_type === "Beta" || version_type === "Pre" || version_type === "RC" || version_type === "Release" || version_type === "Stable" || version_type === "SP");
 let isFullVersion = (version_type !== "Demo" && version_type !== "Trial" && version_type !== "Lite");
