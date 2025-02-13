@@ -314,9 +314,8 @@ if (hostPath.includes('file:///')) {
     logManager.log("当前运行在本地文件");
 } else if (hostPath.includes('localhost')) {
     logManager.log("当前运行在本地服务器");
-} else if (hostPath.includes('github.io')) {
-    logManager.log("当前运行在Github");
-    // 禁用右键菜单
+} else {
+    logManager.log("当前运行在" + hostPath);// 禁用右键菜单
     document.addEventListener('contextmenu', function (event) {
         event.preventDefault();
     });
@@ -324,8 +323,6 @@ if (hostPath.includes('file:///')) {
     document.addEventListener('touchstart', function (event) {
         event.preventDefault();
     });
-} else {
-    logManager.log("当前运行在" + hostPath);
 }
 if (rootPath.includes('_test')) {
     logManager.log("环境为测试环境");
