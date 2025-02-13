@@ -1,7 +1,7 @@
 {
-  "404.html": "6d324798820d4859cf82724044f182b6",
+  "404.html": "eab3bfc526d7e029ff43e4a113dc5955",
   "about\\contact.html": "6e49b6cecb22e005609915a946c54efc",
-  "about\\donate.html": "525f84eb7f84827463347c50913a6cc3",
+  "about\\donate.html": "dcaf513d525287473dfd67d91ba2421d",
   "about\\support.html": "d7d2634b787156dcf1d347e93d9df261",
   "advanced\\debug.html": "a0e73b51f917ccaf6b311074cd4746e5",
   "advanced\\settings.html": "72f772735fc2edea9a9eba81466c94a8",
@@ -9,8 +9,8 @@
   "default\\coming_soon.html": "2ed8f40615dc776bf7261916fd9829d3",
   "default\\error_default.html": "fff0ff5817161d878e6c4bb7059bebc6",
   "default\\error_no-access.html": "428a9bfc7b5e67f51f7ac90068032725",
-  "default\\error_not-found.html": "94a5d16da05eab076f63ceddadd5c4eb",
-  "default\\under_maintenance.html": "b93c2cc3361b64f74acdfecef8afaa9b",
+  "default\\error_not-found.html": "50671c6021e7636dd59f2ab9af0a638d",
+  "default\\under_maintenance.html": "7b14f83f0ba93f17303cbbfdd7abb074",
   "download\\bedrock\\index.html": "5228edb8d251862265614897d4af198a",
   "download\\bedrock\\versions.html": "2ab97a2258206a1b90e22ca195b74438",
   "download\\education\\index.html": "ac99fce96511d094173a898c93a70546",
@@ -211,7 +211,7 @@
   "javascript\\download_index_version.js": "a7acfdf4933ddf22f8b4616452a0d400",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "d465f41dd63347b92f93aa848cb21926",
+  "javascript\\public_define.js": "c044611e81e7c6946f0e8415cd9de8a7",
   "javascript\\public_script.js": "d3b911befcfbc4ecc17ba277ebabfa7d",
   "javascript\\text_to_speech.js": "c0ffaf686d33a16d15571a853d703f71",
   "library\\accessibility.js": "d40d838c2e235db84a7ff10d7aa7cc98",
@@ -234,5 +234,5 @@
   "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
   "stylesheet\\public_style.css": "7c1c9c9c982e21e532f2bacd0971f615",
   "Template\\index.html": "d7d2634b787156dcf1d347e93d9df261",
-  "updatelog\\index.html": "059dfd55ec5e3b87bf4be8c3ca5764d0"
+  "updatelog\\index.html": "cab71a7963f823a0a94a8da97b92e9be"
 }
