@@ -25,12 +25,12 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".6"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".31"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".32"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250213" + ".05"; // NOTE 小版本,有提交就变
+const update_count = "20250214" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2024010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -40,15 +40,15 @@ if (commit === "#") {
 
 rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 hostPath = window.location.origin;
-switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
-const data = "https://" + rootPath + "/data";
+switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
+const data = hostPath + "/data";
 
 async function getProjectHash() {
     try {
-        const response = await fetch('/minecraft_repository_test/Verification/project-hash.json');
+        const response = await fetch(rootPath + 'Verification/project-hash.json');
         if (response.ok) {
-            const data = await response.json();
-            return data.projectHash;
+            const hash = await response.json();
+            return hash.projectHash;
         } else {
             logManager.log("获取项目哈希值时出错: " + response.status, 'error');
             return null;
@@ -102,9 +102,9 @@ logManager.log("发布版本: " + publish_version_name);
 // 网站状态
 let status;
 if (window.location.origin.includes('https')) {
-    status = data + '/minecraft_repository_test/status.xml';
+    status = data + rootPath + 'status.xml';
 } else {
-    status = '/minecraft_repository_test/status.xml';
+    status = rootPath + 'status.xml';
 }
 
 fetch(status)
@@ -132,13 +132,13 @@ fetch(status)
         // 获取状态码
         switch (siteStatus) {
             case "error":
-                location.replace(`/minecraft_repository_test/default/error_default.html?redirected=true&source=${currentUrl}`);
+                location.replace(`${rootPath}default/error_default.html?redirected=true&source=${currentUrl}`);
                 return;
             case "warn":
-                location.replace(`/minecraft_repository_test/default/under_maintenance.html?redirected=true&source=${currentUrl}`);
+                location.replace(`${rootPath}default/under_maintenance.html?redirected=true&source=${currentUrl}`);
                 return;
             case "404":
-                location.replace("/minecraft_repository_test/404.html?redirected=true");
+                location.replace(`${rootPath}404.html?redirected=true`);
                 return;
             case "200":
                 break;
@@ -570,11 +570,11 @@ const randomValue = Math.floor(Math.random() * 1000); // 0.1%
 
 if (StarmoonTitleShort && StarmoonTitleLong) {
     if (randomValue < 1) {
-        StarmoonTitleShort.src = '/minecraft_repository_test/images/logo/Starmoon_title_ee.png';
-        StarmoonTitleLong.src = '/minecraft_repository_test/images/logo/Starmoon_title_long_ee.png';
+        StarmoonTitleShort.src = rootPath + 'images/logo/Starmoon_title_ee.png';
+        StarmoonTitleLong.src = rootPath + 'images/logo/Starmoon_title_long_ee.png';
     } else {
-        StarmoonTitleShort.src = '/minecraft_repository_test/images/logo/Starmoon_title.png';
-        StarmoonTitleLong.src = '/minecraft_repository_test/images/logo/Starmoon_title_long.png';
+        StarmoonTitleShort.src = rootPath + 'images/logo/Starmoon_title.png';
+        StarmoonTitleLong.src = rootPath + 'images/logo/Starmoon_title_long.png';
     }
 }
 
@@ -648,36 +648,36 @@ window.addEventListener('load', () => setTimeout(function () {
     const menu_icon = document.getElementById('menu_icon');
     const back_icon = document.getElementById('back_icon');
     if (back_icon) {
-        back_icon.src = '/minecraft_repository_test/images/Back.png';
+        back_icon.src = rootPath + 'images/Back.png';
     }
     if (menu_icon) {
-        menu_icon.src = '/minecraft_repository_test/images/Menu.png';
+        menu_icon.src = rootPath + 'images/Menu.png';
     }
 
     let linkImg = document.getElementsByClassName('link_img');
     let linkImgBlack = document.getElementsByClassName('link_img_black');
     if (linkImg) {
         for (let i = 0; i < linkImg.length; i++) {
-            linkImg[i].src = '/minecraft_repository_test/images/ExternalLink_white.png';
+            linkImg[i].src = rootPath + 'images/ExternalLink_white.png';
         }
     }
     if (linkImgBlack) {
         for (let i = 0; i < linkImgBlack.length; i++) {
-            linkImgBlack[i].src = '/minecraft_repository_test/images/ExternalLink.png';
+            linkImgBlack[i].src = rootPath + 'images/ExternalLink.png';
         }
     }
 
     let backImg = document.getElementsByClassName('back_img');
     if (backImg) {
         for (let i = 0; i < backImg.length; i++) {
-            backImg[i].src = '/minecraft_repository_test/images/arrowLeft_white.png';
+            backImg[i].src = rootPath + 'images/arrowLeft_white.png';
         }
     }
 
     let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
     if (modal_close_btn_img) {
         for (let i = 0; i < modal_close_btn_img.length; i++) {
-            modal_close_btn_img[i].src = '/minecraft_repository_test/images/cross_white.png';
+            modal_close_btn_img[i].src = rootPath + 'images/cross_white.png';
         }
     }
 
@@ -712,7 +712,7 @@ if (mclang_cn_fix) {
                 <div class="link_block_group_title">访问项目</div>
                 <link-block onclick="playSound('click');openLink('https://spectrollay.github.io/mclang_cn/');">
                     <div class="link_title">
-                        <img alt="" class="link_title_img" src="/minecraft_repository_test/images/logo/mclang_cn_fix.png">中文译名修正项目
+                        <img alt="" class="link_title_img" src="${rootPath}images/logo/mclang_cn_fix.png">中文译名修正项目
                     </div>
                 </link-block>
             </div>

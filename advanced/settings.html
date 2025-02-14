@@ -461,7 +461,7 @@
         }
     }
 
-    switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+    switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
 
     // 环境指南页面  TODO: 在移除环境指南页面实验性内容时移除相关代码
     let expEnviGuideState = switchValues['experimental_envi_guide'] || 'off';

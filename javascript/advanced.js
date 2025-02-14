@@ -20,25 +20,27 @@
  * SOFTWARE.
  */
 
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+
 const advanced_css = document.createElement('link');
 advanced_css.rel = 'stylesheet';
-advanced_css.href = '/minecraft_repository_test/stylesheet/advanced.css';
+advanced_css.href = rootPath + 'stylesheet/advanced.css';
 
 document.head.appendChild(advanced_css);
 
 // 点击Debug图标事件
 function debugPage() {
-    ifNavigating("jump", "/minecraft_repository_test/advanced/debug.html");
+    ifNavigating("jump", rootPath + "advanced/debug.html");
 }
 
 // 点击环境指南按钮
 function enviPage() {
-    ifNavigating("jump", "/minecraft_repository_test/guidance/environment_guidance.html");
+    ifNavigating("jump", rootPath + "guidance/environment_guidance.html");
 }
 
 // 清除存储
 function clearStorage() {
-    const keyPatterns = ["(/minecraft_repository_test/)", "minecraft_repository_attribute"];
+    const keyPatterns = [`(${rootPath})`, "minecraft_repository_attribute"];
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (keyPatterns.some(pattern => key.includes(pattern))) {

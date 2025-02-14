@@ -84,7 +84,7 @@ if (window.location.pathname.includes('download/bedrock/')) {
 }
 
 // 获取下拉菜单数据
-const dropdownData = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)dropdown_value')) || {};
+const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_value`)) || {};
 
 (async () => {
     if (dataFile && mainContainer && sidebarContainer) {
@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // 若存在则停止检查
         if (dropdowns.length > 0) {
             clearInterval(checkDropdownsExist);  // 清除定时器
-            const dropdownValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)dropdown_value')) || {};
+            const dropdownValues = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_value`)) || {};
 
             dropdowns.forEach(dropdown => {
                 const dropdownValue = dropdownValues[dropdown.id] || dropdown.getAttribute('data-selected');

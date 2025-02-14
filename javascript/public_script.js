@@ -20,6 +20,14 @@
  * SOFTWARE.
  */
 
+// 路径检测
+const currentURL = window.location.href;
+const currentPagePath = window.location.pathname;
+let hostPath = window.location.origin;
+const parts = currentPagePath.split('/').filter(Boolean);
+let rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
+const slashCount = (currentPagePath.match(/\//g) || []).length;
+
 // 日志管理器
 window.logManager = {
     log: function (message, level = 'info') {
@@ -226,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // 自动清除存储
-let firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
+let firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
 if (firstVisit < '2024-05-25') { // NOTE 只在涉及到不兼容改变时更新
     clearStorage();
 }
@@ -272,28 +280,20 @@ function reloadPage() {
     }, 600);
 }
 
-// 路径检测
-const currentURL = window.location.href;
-const currentPagePath = window.location.pathname;
-let hostPath = window.location.origin;
-const parts = currentPagePath.split('/').filter(Boolean);
-let rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
-const slashCount = (currentPagePath.match(/\//g) || []).length;
-
 // 创建内联元素
 const public_define = document.createElement('script'); // 公共定义函数
-public_define.src = '/minecraft_repository_test/javascript/public_define.js';
+public_define.src = rootPath + 'javascript/public_define.js';
 const accessibility_js = document.createElement('script'); // 无障碍函数
-accessibility_js.src = '/minecraft_repository_test/library/accessibility.js';
+accessibility_js.src = rootPath + 'library/accessibility.js';
 const exp_js = document.createElement('script'); // 实验性功能函数
-exp_js.src = '/minecraft_repository_test/experiments/index.js';
+exp_js.src = rootPath + 'experiments/index.js';
 const advanced_js = document.createElement('script'); // 高级功能函数
-advanced_js.src = '/minecraft_repository_test/javascript/advanced.js';
+advanced_js.src = rootPath + 'javascript/advanced.js';
 const custom_elements_js = document.createElement('script'); // 自定义元素函数
-custom_elements_js.src = '/minecraft_repository_test/javascript/custom_elements.js';
+custom_elements_js.src = rootPath + 'javascript/custom_elements.js';
 const public_style = document.createElement('link'); // 公共样式
 public_style.rel = 'stylesheet';
-public_style.href = '/minecraft_repository_test/stylesheet/public_style.css';
+public_style.href = rootPath + 'stylesheet/public_style.css';
 
 // 将内联元素添加到头部
 document.head.appendChild(public_define);
@@ -392,14 +392,14 @@ if (rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_at
 
 if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/minecraft_repository_test/index.html' || currentPagePath === '/minecraft_repository_test/index_new.html') { // TODO 在测试结束后移除
     if (rootPath.includes('_test')) {
-        const neverShowIn15Days = localStorage.getItem('(/minecraft_repository_test/)neverShowIn15Days');
+        const neverShowIn15Days = localStorage.getItem(`(${rootPath})neverShowIn15Days`);
         if (neverShowIn15Days) {
             const lastHideTime = new Date(parseInt(neverShowIn15Days, 10));
             const now = new Date();
             const diff = now - lastHideTime;
             const fifteenDays = 15 * 24 * 60 * 60 * 1000; // 15天
             if (diff > fifteenDays) {
-                localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
+                localStorage.removeItem(`(${rootPath})neverShowIn15Days`);
             } else {
                 logManager.log("时间未到,不显示测试仓库提示");
             }
@@ -552,7 +552,7 @@ function joinTest() {
 
 function leaveTest() {
     localStorage.setItem('minecraft_repository_attribute', 'test=false');
-    localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
+    localStorage.removeItem(`(${rootPath})neverShowIn15Days`);
     ifNavigating("jump", hostPath + "/minecraft_repository");
 }
 
@@ -610,7 +610,7 @@ const compatibilityModal = `
 document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
 // window.addEventListener('load', () => setTimeout(function () {
-//     if (localStorage.getItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain') !== '1') {
+//     if (localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) !== '1') {
 //         const overlay = document.getElementById("overlay_compatibility_modal");
 //         const modal = document.getElementById("compatibility_modal");
 //         overlay.style.display = "block";
@@ -631,7 +631,7 @@ function hideCompatibilityModal(button) {
 
 function neverShowCompatibilityModalAgain(button) {
     hideCompatibilityModal(button);
-    localStorage.setItem('(/minecraft_repository_test/)neverShowCompatibilityModalAgain', '1');
+    localStorage.setItem(`(${rootPath})neverShowCompatibilityModalAgain`, '1');
     logManager.log("关闭兼容性提示弹窗且不再提示");
 }
 
@@ -660,7 +660,7 @@ const firstVisitTodayModal = `
 document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 
 function checkFirstVisit() {
-    firstVisit = localStorage.getItem('(/minecraft_repository_test/)firstVisit');
+    firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
     const is404Page = document.title.includes("404 NOT FOUND");
     const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}index_new.html`, `${rootPath}home.html`, `${rootPath}about/donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`]; // TODO 在完成新主页测试后移除index_new.html
 
@@ -675,7 +675,7 @@ function checkFirstVisit() {
 }
 
 if (window.location.pathname === `${rootPath}` || window.location.pathname === `${rootPath}index.html` || window.location.pathname === `${rootPath}index_new.html`) { // TODO 在完成新主页测试后移除index_new.html
-    localStorage.setItem('(/minecraft_repository_test/)firstVisit', today);
+    localStorage.setItem(`(${rootPath})firstVisit`, today);
 }
 
 function hideFirstVisitTodayModal(button) {
@@ -714,7 +714,7 @@ function hideDisclaimerModal(button, state) {
         if (state === 1) {
             logManager.log("选择了同意并继续");
             if (url.includes('huang1111')) { // TODO 在移除全部相关链接后删除判定
-                ifNavigating("open", "/minecraft_repository_test/default/error_not-found.html");
+                ifNavigating("open", rootPath + "default/error_not-found.html");
             } else {
                 ifNavigating("open", url);
             }
@@ -785,17 +785,17 @@ function clickedMenu() {
 }
 
 function toUpdatelog() {
-    const updatelogPath = '/minecraft_repository_test/updatelog/';
+    const updatelogPath = rootPath + 'updatelog/';
     ifNavigating("jump", updatelogPath);
 }
 
 function toMessage() {
-    const messagePath = '/minecraft_repository_test/notifications/';
+    const messagePath = rootPath + 'notifications/';
     ifNavigating("jump", messagePath);
 }
 
 function contact() {
-    ifNavigating("jump", "/minecraft_repository_test/about/contact.html");
+    ifNavigating("jump", rootPath + "about/contact.html");
 }
 
 // 重试按钮事件
@@ -833,7 +833,7 @@ function repoPage() {
 // 点击设置图标事件
 function settingsPage() {
     playSound('click');
-    ifNavigating("jump", "/minecraft_repository_test/advanced/settings.html");
+    ifNavigating("jump", rootPath + "advanced/settings.html");
 }
 
 // 跳转主页

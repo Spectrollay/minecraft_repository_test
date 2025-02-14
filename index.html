@@ -94,7 +94,7 @@
                     <div class="preview_detail">响应式布局现已开启测试,欢迎体验!</div>
                     <div class="preview_detail">不用担心,在测试期间你可以随时返回旧设计.</div>
                     <div class="btn_group">
-                        <custom-button data="default|normal|small||false||" js="jumpToPage('./index_new.html');localStorage.setItem('(/minecraft_repository_test/)new_home_test', 'true');" text="前往新设计"></custom-button>
+                        <custom-button data="default|normal|small||false||" js="jumpToPage('./index_new.html');localStorage.setItem(`(${rootPath})new_home_test`, 'true');" text="前往新设计"></custom-button>
                         <custom-button data="default|green|small||false||" js="contact();" text="<img class='link_img' src='' alt=''/>提出反馈"></custom-button>
                     </div>
                 </div>
@@ -560,7 +560,7 @@
 <script src="./javascript/public_script.js"></script>
 <script>
     // TODO 新主页测试跳转逻辑
-    if (localStorage.getItem('(/minecraft_repository_test/)new_home_test') === 'true') {
+    if (localStorage.getItem(`(${rootPath})new_home_test`) === 'true') {
         ifNavigating("direct", "./index_new.html");
     }
 

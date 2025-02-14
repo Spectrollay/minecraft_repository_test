@@ -22,14 +22,13 @@
 
 // 实验性
 
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+
 const exp_css = document.createElement('link');
 exp_css.rel = 'stylesheet';
-exp_css.href = '/minecraft_repository_test/experiments/index.css';
+exp_css.href = rootPath + 'experiments/index.css';
 
 document.head.appendChild(exp_css);
-
-
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 
 // 新的实验性页面
 let newFlagsPageSwitch = document.getElementById('new_flags_page');
@@ -38,14 +37,14 @@ let switchValues;
 
 function flagsPage() {
     if (!rootPath.includes('_test')) {
-        ifNavigating("jump", "/minecraft_repository_test/flags/");
+        ifNavigating("jump", rootPath + "flags/");
     } else {
-        switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+        switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
         newFlagsPageState = switchValues['new_flags_page'] || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
         if (newFlagsPageState === 'on') {
-            ifNavigating("jump", "/minecraft_repository_test/flags/");
+            ifNavigating("jump", rootPath + "flags/");
         } else {
-            ifNavigating("jump", "/minecraft_repository_test/experiments/");
+            ifNavigating("jump", rootPath + "experiments/");
         }
     }
 }

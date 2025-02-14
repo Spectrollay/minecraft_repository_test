@@ -20,9 +20,11 @@
  * SOFTWARE.
  */
 
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+
 const custom_elements_css = document.createElement('link');
 custom_elements_css.rel = 'stylesheet';
-custom_elements_css.href = '/minecraft_repository_test/stylesheet/custom_elements.css';
+custom_elements_css.href = rootPath + 'stylesheet/custom_elements.css';
 
 document.head.appendChild(custom_elements_css);
 
@@ -61,7 +63,7 @@ class CustomButton extends HTMLElement {
                     <div class="btn_with_tooltip_cont">
                         <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
                         <div class="btn_tooltip">${ctip}</div>
-                        <img alt="" class="tip_icon" src="/minecraft_repository_test/images/${icon}.png"/>
+                        <img alt="" class="tip_icon" src="${rootPath}images/${icon}.png"/>
                     </div>
                 `;
             } else {
@@ -142,7 +144,7 @@ class CustomCheckbox extends HTMLElement {
 
         this.innerHTML = `
             <div class="custom-checkbox ${isOn ? 'on' : 'off'} ${isDisabled ? 'disabled' : 'enabled'}">
-                <img alt="" class="checkmark" src="/minecraft_repository_test/images/check_white.png"/>
+                <img alt="" class="checkmark" src="${rootPath}images/check_white.png"/>
             </div>
         `;
     }
@@ -151,14 +153,14 @@ class CustomCheckbox extends HTMLElement {
         if (this.getAttribute('status') !== 'enabled') return;
 
         const isChecked = this.getAttribute('active') === 'on';
-        const checkboxData = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)checkbox_value')) || {};
+        const checkboxData = JSON.parse(localStorage.getItem(`(${rootPath})checkbox_value`)) || {};
         playSound('click');
 
         if (isChecked) {
             this.setAttribute('active', 'off');
             logManager.log("关闭复选框 " + this.id);
             if (this.id === 'neverShowIn15Days') {
-                localStorage.removeItem('(/minecraft_repository_test/)neverShowIn15Days');
+                localStorage.removeItem(`(${rootPath})neverShowIn15Days`);
             } else {
                 checkboxData[this.id] = 'off';
             }
@@ -166,13 +168,13 @@ class CustomCheckbox extends HTMLElement {
             this.setAttribute('active', 'on');
             logManager.log("打开复选框 " + this.id);
             if (this.id === 'neverShowIn15Days') {
-                localStorage.setItem('(/minecraft_repository_test/)neverShowIn15Days', Date.now().toString());
+                localStorage.setItem(`(${rootPath})neverShowIn15Days`, Date.now().toString());
             } else {
                 checkboxData[this.id] = 'on';
             }
         }
 
-        localStorage.setItem('(/minecraft_repository_test/)checkbox_value', JSON.stringify(checkboxData));
+        localStorage.setItem(`(${rootPath})checkbox_value`, JSON.stringify(checkboxData));
         this.render();
 
         // 创建复选框点击自定义事件
@@ -184,7 +186,7 @@ class CustomCheckbox extends HTMLElement {
     }
 
     restoreState() {
-        const checkboxData = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)checkbox_value')) || {};
+        const checkboxData = JSON.parse(localStorage.getItem(`(${rootPath})checkbox_value`)) || {};
         const state = checkboxData[this.id];
 
         if (state) {
@@ -213,7 +215,7 @@ class CustomDropdown extends HTMLElement {
         // 创建下拉菜单箭头
         this.arrow = document.createElement('img');
         this.arrow.classList.add('dropdown_arrow');
-        this.arrow.src = '/minecraft_repository_test/images/arrowDown.png';
+        this.arrow.src = rootPath + 'images/arrowDown.png';
         this.appendChild(this.arrow);
 
         // 创建下拉选项容器
@@ -225,12 +227,12 @@ class CustomDropdown extends HTMLElement {
             const option = document.createElement('div');
             option.classList.add('dropdown_option');
             option.setAttribute('data-value', (index + 1).toString());
-            option.innerHTML = `${label} <img alt="" class="dropdown_checkmark" src="/minecraft_repository_test/images/check_white.png">`;
+            option.innerHTML = `${label} <img alt="" class="dropdown_checkmark" src="${rootPath}images/check_white.png">`;
             option.addEventListener('click', (e) => this.selectOption(e));
             this.dropdownOptions.appendChild(option);
         });
 
-        this.storageKey = '(/minecraft_repository_test/)dropdown_value';
+        this.storageKey = `(${rootPath})dropdown_value`;
         const storedData = this.getStoredDropdownData();
         this.selectedValue = storedData[this.id] || this.selectedValue;
 
@@ -510,15 +512,15 @@ class CustomSlider extends HTMLElement {
 
         // 从存储中获取存储的滑块值
         function getSliderValue(sliderId) {
-            const sliderStorage = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)slider_value')) || {};
+            const sliderStorage = JSON.parse(localStorage.getItem(`(${rootPath})slider_value`)) || {};
             return sliderStorage[sliderId] !== undefined ? sliderStorage[sliderId] : null; // 返回存储的索引值
         }
 
         // 保存滑块值到存储
         function saveSliderValue(segmentIndex = null) {
-            const sliderStorage = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)slider_value')) || {};
+            const sliderStorage = JSON.parse(localStorage.getItem(`(${rootPath})slider_value`)) || {};
             sliderStorage[sliderId] = currentValue;
-            localStorage.setItem('(/minecraft_repository_test/)slider_value', JSON.stringify(sliderStorage));
+            localStorage.setItem(`(${rootPath})slider_value`, JSON.stringify(sliderStorage));
         }
 
         // 设置初始值并展示
@@ -715,8 +717,8 @@ class CustomSwitch extends HTMLElement {
         this.innerHTML = `
             <div class="switch_content">
                 <div class="switch ${this.isSwitchOn ? 'on' : 'off'} ${this.isSwitchDisabled ? 'disabled_switch' : 'normal_switch'}">
-                    <div class="switch_style left"><img alt="" src="/minecraft_repository_test/images/switch_on.png"/></div>
-                    <div class="switch_style right"><img alt="" src="/minecraft_repository_test/images/switch_off.png"/></div>
+                    <div class="switch_style left"><img alt="" src="${rootPath}images/switch_on.png"/></div>
+                    <div class="switch_style right"><img alt="" src="${rootPath}images/switch_off.png"/></div>
                     <div class="switch_slider can_click"></div>
                 </div>
             </div>
@@ -808,9 +810,9 @@ class CustomSwitch extends HTMLElement {
         playSound('click');
 
         // 更新存储
-        const switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+        const switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
         switchValues[this.id] = isOn ? 'on' : 'off';
-        localStorage.setItem('(/minecraft_repository_test/)switch_value', JSON.stringify(switchValues));
+        localStorage.setItem(`(${rootPath})switch_value`, JSON.stringify(switchValues));
 
         // 更新开关类名
         if (isOn) {
@@ -837,7 +839,7 @@ class CustomSwitch extends HTMLElement {
     }
 
     getSwitchValue() {
-        const switchValues = JSON.parse(localStorage.getItem('(/minecraft_repository_test/)switch_value')) || {};
+        const switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
         if (this.id in switchValues) {
             return switchValues[this.id];
         }
@@ -1038,7 +1040,7 @@ class TextField extends HTMLElement {
     }
 
     saveTextFieldValue() {
-        const storageKey = '(/minecraft_repository_test/)text_field_value';
+        const storageKey = `(${rootPath})text_field_value`;
         const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
         const currentValue = this.inputField.value;
         if (this.parentElement.classList.contains("do_not_save")) return;
@@ -1051,7 +1053,7 @@ class TextField extends HTMLElement {
     }
 
     getTextFieldValue() {
-        const storageKey = '(/minecraft_repository_test/)text_field_value';
+        const storageKey = `(${rootPath})text_field_value`;
         const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
         if (storedData[this.classList[0]]) {
             this.inputField.value = storedData[this.classList[0]]; // 设置已保存的值
