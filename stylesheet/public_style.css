@@ -1008,6 +1008,7 @@ link-block:hover, link-block:active {
 .download_block_description {
     margin: 8px 16px;
     max-width: 400px;
+    min-width: 240px;
     text-align: left;
     color: rgba(255, 255, 255, 0.8);
 }

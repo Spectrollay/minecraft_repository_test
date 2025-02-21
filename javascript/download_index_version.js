@@ -56,7 +56,12 @@ if (!version) {
 
 if (window.location.pathname.includes('download/bedrock/')) {
     dataFile = 'data/bedrock_versions.json';
-    edition = '基岩版';
+    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+    if (collator.compare(version, '1.2') < 0) {
+        edition = '携带版';
+    } else {
+        edition = '基岩版';
+    }
 } else if (window.location.pathname.includes('download/java/')) {
     // dataFile = 'data/java_versions.json';
     edition = 'Java版';
@@ -91,7 +96,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
         try {
             const response = await fetch(rootPath + dataFile);
             let rawJson = await response.text(); // 获取原始文本
-            const cleanedJson = rawJson.replace(/\/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
+            const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
             const data = JSON.parse(cleanedJson); // 解析为JSON对象
 
             const majorVersions = data[0].major_versions;
@@ -99,8 +104,8 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
             // 获取主版本
             const majorVersion = majorVersions.find(mv => mv.main_version === version);
             if (!majorVersion) {
-                logManager.log(`主版本 ${version} 未找到`, "warn");
-                return;
+                logManager.log(`主版本 ${version} 未找到`, 'error');
+                ifJump = "true";
             }
 
             const {version_name, prev_version, next_version} = majorVersion;
@@ -171,15 +176,17 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                             </div>` : ""}
                         </div>
                         <div class="wrap_flex">
-                            <div class="download_block_description">
-                                <div>正式版本: ${currentVersion.platforms[platform].release}</div>
-                                <div>测试版本: ${currentVersion.platforms[platform].build}</div>
-                                <div>${currentVersion.platforms[platform].support}</div>
-                                <div>架构: ${currentVersion.platforms[platform].arch}</div>
-                                <div>类型: ${currentVersion.platforms[platform].type}</div>
-                                <div>大小: ${currentVersion.platforms[platform].size}</div>
-                                <div>备注: ${currentVersion.platforms[platform].note}</div>
-                            </div>
+                            ${currentVersion.platforms[platform].info === 'false' ? `` : `
+                                <div class="download_block_description">
+                                    <div>正式版本: ${currentVersion.platforms[platform].release}</div>
+                                    <div>测试版本: ${currentVersion.platforms[platform].build}</div>
+                                    <div>${currentVersion.platforms[platform].support}</div>
+                                    <div>架构: ${currentVersion.platforms[platform].arch}</div>
+                                    <div>类型: ${currentVersion.platforms[platform].type}</div>
+                                    <div>大小: ${currentVersion.platforms[platform].size}</div>
+                                    <div>备注: ${currentVersion.platforms[platform].note}</div>
+                                </div>
+                            `}
                             <div class="download_block_new_list">
                                 ${currentVersion.platforms[platform].style === 'type' ? `
                                     <!-- 按版本类型 -->
@@ -352,7 +359,15 @@ function checkIfDonate(type, para) {
     const ifDonate = localStorage.getItem('donate') === 'true';
     console.log(ifDonate);
     if(ifDonate === true) {
-        // TODO 捐赠专享
+        if (type === "url") {
+            ifNavigating("open", para)
+        } else if (type === "fun") {
+            try {
+                eval(para);
+            } catch (error) {
+                logManager.log(`执行函数时出错: ${error.message}`, 'error');
+            }
+        }
     } else {
         showModal('donor_only_modal');
     }

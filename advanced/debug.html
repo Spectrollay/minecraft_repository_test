@@ -72,7 +72,64 @@
         <scroll-view class="main_scroll_view">
             <scroll-container class="main_scroll_container">
                 <main class="scroll_container" id="main">
-
+                    <div class="main_title">
+                        <div class="main_title_span">调试</div>
+                    </div>
+                    <div class="setting_title">日志</div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">日志级别</div>
+                        <div class="setting_control_right">
+                            <div class="dropdown_container">
+                                <custom-dropdown data-option='["错误", "警告", "详细"]' data-selected="3" id="theme_selection" status="disabled" unselected-text=""></custom-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">导出日志</div>
+                        <div class="setting_control_right">
+                        </div>
+                    </div>
+                    <div class="setting_title">捐赠</div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">启用高级捐赠权限</div>
+                        <div class="setting_control_right">
+                            <custom-button data="setting|normal|||false||" js="enableDonateDebug();" text="应用"></custom-button>
+                        </div>
+                    </div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">撤销高级捐赠权限</div>
+                        <div class="setting_control_right">
+                            <custom-button data="setting|normal|||false||" js="disableDonateDebug();" text="应用"></custom-button>
+                        </div>
+                    </div>
+                    <div class="setting_title">活动</div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">即将到来</div>
+                        <div class="setting_control_right">
+                        </div>
+                    </div>
+                    <div class="setting_title">商城</div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">即将到来</div>
+                        <div class="setting_control_right">
+                        </div>
+                    </div>
+                    <div class="setting_title">高级</div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">界面调试</div>
+                        <div class="setting_control_right">
+                        </div>
+                    </div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">网络调节器</div>
+                        <div class="setting_control_right">
+                        </div>
+                    </div>
+                    <div class="main_block setting_block">
+                        <div class="setting_title_content">开发控制台</div>
+                        <div class="setting_control_right">
+                        </div>
+                    </div>
                 </main>
             </scroll-container>
             <custom-scrollbar class="main_custom_scrollbar">
@@ -94,6 +151,14 @@
 <script>
     if (!sessionStorage.getItem("enableDebug")) {
         location.replace("./default/error_no-access.html");
+    }
+
+    function enableDonateDebug() {
+        localStorage.setItem("donate", "true");
+    }
+
+    function disableDonateDebug() {
+        localStorage.removeItem("donate");
     }
 </script>
 

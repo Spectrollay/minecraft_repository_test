@@ -57,8 +57,10 @@ if (window.location.pathname.includes('download/bedrock/')) {
 
 if (dataFile && mainContainer && sidebarContainer) {
     fetch(rootPath + dataFile)
-        .then(response => response.json())
-        .then(versions => {
+        .then(response => response.text())
+        .then(rawJson => {
+            const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
+            const versions = JSON.parse(cleanedJson);
             versions.forEach(version => {
                 const mainBlock = document.createElement("div");
                 const sidebarBlock = document.createElement("div");

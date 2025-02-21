@@ -7,8 +7,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.21.0\" target=\"_blank\">1.21.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E6%A3%98%E5%B7%A7%E8%AF%95%E7%82%BC\" target=\"_blank\">棘巧试炼</a>的首个正式版, 也是基岩版的一次主要更新, 发布于2024年6月13日. 该版本在Minecraft Live 2023期间宣布, 主题名称于2024年4月26日的Minecraft Monthly上公布. 此次更新加入了试炼密室结构, 新生物旋风人和沼骸, 不祥事件, 以及大量的新方块与新物品.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -19,8 +19,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.20.0\" target=\"_blank\">1.20.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E8%B6%B3%E8%BF%B9%E4%B8%8E%E6%95%85%E4%BA%8B\" target=\"_blank\">足迹与故事</a>的首个正式版, 也是基岩版的一次主要更新, 发布于2023年6月7日. 此次更新加入了樱花树林生物群系/新生物骆驼和嗅探兽/考古学相关内容, 以及大量的新方块与新物品. 此次更新在Minecraft Live 2022期间宣布, 主题名称于2023年3月2日的Minecraft Monthly上公布.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -31,8 +31,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.19.0\" target=\"_blank\">1.19.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E8%8D%92%E9%87%8E%E6%9B%B4%E6%96%B0\" target=\"_blank\">荒野更新</a>的首个正式版, 也是基岩版的一次主要更新, 发布于2022年6月7日. 该版本宣布于Minecraft Live 2021. 此次更新加入了深暗之域和红树林沼泽生物群系, 远古城市结构, 新生物监守者/青蛙/蝌蚪和悦灵, 以及大量的新方块与新物品.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -43,8 +43,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.18.0\" target=\"_blank\">1.18.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E6%B4%9E%E7%A9%B4%E4%B8%8E%E5%B1%B1%E5%B4%96\" target=\"_blank\">洞穴与山崖</a>第二部分的首个正式版, 也是基岩版的一次主要更新, 发布于2021年11月30日. 该版本于2021年4月14日Java版快照21w15a发布时被一同公布. 此次更新完全重制了主世界的生成机制, 加入了含有含水层的更大的洞穴/更高的山脉, 以及新的洞穴和山地生物群系.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -55,8 +55,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.17.0\" target=\"_blank\">1.17.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E6%B4%9E%E7%A9%B4%E4%B8%8E%E5%B1%B1%E5%B4%96\" target=\"_blank\">洞穴与山崖</a>的首个正式版, 也是基岩版的一次主要更新, 发布于2021年6月8日. 该版本宣布于Minecraft Live 2020. 此次更新加入了紫晶洞, 以紫水晶/铜/深板岩为主的大量方块与物品, 以及新生物山羊/发光鱿鱼和美西螈.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -67,8 +67,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.16.0\" target=\"_blank\">1.16.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E4%B8%8B%E7%95%8C%E6%9B%B4%E6%96%B0\" target=\"_blank\">下界更新</a>的首个正式版, 也是基岩版的一次主要更新, 发布于2020年6月23日. 此次更新对下界进行了重大更改, 加入了新的生物/生物群系和方块等内容, 同步了一些原本Java版独有的特性, 以及重新加入了一些原本教育版独有的特性.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -78,8 +78,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.14.0\" target=\"_blank\">1.14.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E5%97%A1%E5%97%A1%E8%9C%82%E7%BE%A4\" target=\"_blank\">嗡嗡蜂群</a>的首个正式版, 也是基岩版的一次主要更新, 在Nintendo Switch上发布于2019年12月11日, 而在其他平台上发布于12月10日, 与Java版1.15同期发布. 此次更新加入了蜜蜂及其相关的方块和物品, 如蜂蜜块和蜂巢.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -89,8 +89,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.13.0\" target=\"_blank\">1.13.0</a>是基岩版的一次主要更新, 发布于2019年10月29日, 加入了狐狸/棕色哞菇/谜之炖菜/凋灵玫瑰/结构方块的功能和一些其他特性, 以及对地图制作和命令进行进一步完善, 并修复了大量漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -100,8 +100,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.12.0\" target=\"_blank\">1.12.0</a>是基岩版的一次主要更新, 除了Android版以外, 都于2019年7月9日发布(Android版于隔天发布). 本次更新加入了几个命令相关的功能, 以及扩展游戏的附加包和地图制作方面的更新.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -112,8 +112,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.11.0\" target=\"_blank\">1.11.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E6%9D%91%E5%BA%84%E4%B8%8E%E6%8E%A0%E5%A4%BA\" target=\"_blank\">村庄与掠夺</a>的首个正式版本, 也是基岩版的一次主要更新, 发布于2019年4月23日. 加入了最后一批村庄与掠夺的特性, 除了狐狸, 其会在1.13.0加入.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -123,8 +123,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.10.0\" target=\"_blank\">1.10.0</a>是基岩版的一次主要更新, 发布于2019年3月19日. 加入了第三批村庄与掠夺特性, 例如盾牌/新式村庄/村民和流浪商人, 以及新的纹理, 并修复了大量漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -134,8 +134,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.9.0\" target=\"_blank\">1.9.0</a>是基岩版的一次主要更新, 发布于2019年2月6日. 此次更新加入了一些于1.8.0内没有加入的村庄与掠夺特性, 例如新的花/掠夺者/新的楼梯和台阶以及不同变种的告示牌.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -145,8 +145,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.8.0\" target=\"_blank\">1.8.0</a>是假日更新的正式版, 也是基岩版的一次主要更新, 发布于2018年12月11日, 加入了首批村庄与掠夺更新的特性, 例如熊猫/竹子/脚手架和猫.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -156,8 +156,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.7.0\" target=\"_blank\">1.7.0</a>是基岩版的一次主要更新, 在iOS平台上发布于2018年10月15日, 而在其他平台上发布于10月16日, 加入了/scoreboard命令以及基本的记分板和精选服务器中的The Hive服务器, 并修复了一些漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -167,8 +167,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.6.0\" target=\"_blank\">1.6.0</a>是基岩版的一次主要更新, 发布于2018年8月28日, 加入了屏障/幻翼, 以及缓降效果, 并修复了一些漏洞. 在水域更新(Java版)中加入的非水生特性, 大多也被推迟到了此次更新.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -179,8 +179,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.5.0\" target=\"_blank\">1.5.0</a>, 即<a href=\"https://zh.minecraft.wiki/w/%E6%B0%B4%E5%9F%9F%E6%9B%B4%E6%96%B0\" target=\"_blank\">水域更新</a>的第二阶段, 是一个于2018年7月10日发布的基岩版主要更新. 它加入了水域更新第一阶段(1.4.0)后的其他特性, 如海龟和潮涌核心.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -191,8 +191,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.4.0\" target=\"_blank\">1.4.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E6%B0%B4%E5%9F%9F%E6%9B%B4%E6%96%B0\" target=\"_blank\">水域更新</a>第一阶段的首个正式版, 也是基岩版的一次主要更新, 发布于2018年5月16日. 此次更新加入了诸多水域更新的新特性, 例如新的海洋/海豚/沉船/鱼/三叉戟/埋藏的宝藏/海底废墟/溺尸, 以及其他一些更改和修复.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -202,8 +202,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%881.2.0\" target=\"_blank\">1.2.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E7%8B%AC%E4%B9%90%E4%B8%8D%E5%A6%82%E4%BC%97%E4%B9%90%E6%9B%B4%E6%96%B0\" target=\"_blank\">独乐不如众乐更新</a>的首个正式版, 也是基岩版的一次主要更新, 发布于2017年9月20日. 本次更新将游戏标题更改为单独的\"Minecraft\", 加入了对Xbox One和Nintendo Switch的支持, 引入了跨平台游戏的新功能, 且使得游戏特性大幅接近Java版.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -214,8 +214,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%881.1.0\" target=\"_blank\">1.1.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E6%8E%A2%E7%B4%A2%E6%9B%B4%E6%96%B0\" target=\"_blank\">探索更新</a>的首个正式版, 也是携带版的一次主要更新, 发布于2017年6月1日. 它添加了许多主要专注于探索的新功能(类似于Java版1.11), 例如林地府邸/冒险模式和探险家地图, 以及一些围绕游戏的调色板不断发展的功能(类似于Java版1.12), 例如混凝土和带釉陶瓦. 其余的新功能包括新的生物, 例如羊驼和恼鬼, 商城和部分实现的副手槽.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -225,8 +225,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%881.0.0\" target=\"_blank\">1.0.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E6%9C%AB%E5%BD%B1%E6%9B%B4%E6%96%B0\" target=\"_blank\">末影更新</a>的首个正式版, 也是携带版的一次主要更新, 发布于2016年12月19日. 此次更新主要加入了新的维度末地/新的成就/游戏音乐/增加高度限制, 也加入了如末影龙/潜影贝和北极熊的新的生物, 并修复了大量的漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -236,8 +236,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%880.16.0\" target=\"_blank\">0.16.0</a>是<a href=\"https://zh.minecraft.wiki/w/Boss%E6%9B%B4%E6%96%B0\" target=\"_blank\">Boss更新</a>的首个正式版, 也是携带版的一次主要更新, 在Android/FireOS/Windows Phone和Windows 10上发布于2016年10月21日, 而在iOS上发布于10月25日. 此次更新加入了许多新特性, 例如命令/信标/海底神殿/守卫者/远古守卫者和凋灵, 并修复了一些漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -247,8 +247,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%880.15.0\" target=\"_blank\">0.15.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E5%8F%8B%E5%A5%BD%E6%9B%B4%E6%96%B0\" target=\"_blank\">友好更新</a>的首个正式版, 也是携带版的一次主要更新, 在Android上发布于2016年6月10日, 在iOS/FireOS/Windows Phone/Windows 10和Gear VR上发布于6月13日. 此版本加入了如活塞/马/完整的Realms/命名牌/成就/丛林神庙/胡萝卜钓竿以及其他一些新特性, 并修复了大量漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -258,8 +258,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%880.14.0\" target=\"_blank\">0.14.0</a>是<a href=\"https://zh.minecraft.wiki/w/%E4%B8%BB%E4%B8%96%E7%95%8C%E6%9B%B4%E6%96%B0\" target=\"_blank\">主世界更新</a>的首个正式版, 也是携带版的一次主要更新, 发布于2016年2月18日, 加入了更多关于红石的方块/沼泽小屋/黏液块以及其他内容, 并修复了大量漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -269,8 +269,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%880.13.0\" target=\"_blank\">0.13.0</a>是携带版的一次主要更新, 发布于2015年11月19日. 此次更新加入了新的红石物品/新的兔子种类以及沙漠神殿, 并修复了大量漏洞.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
@@ -280,8 +280,8 @@
     "description": "<a href=\"https://zh.minecraft.wiki/w/%E6%90%BA%E5%B8%A6%E7%89%880.12.1\" target=\"_blank\">0.12.1</a>是携带版的一次主要更新, 发布于2015年9月4日至9日. 此版本加入了许多新内容, 例如下界/酿造/附魔/饥饿值/天气和其他内容. 此版本发布后, 携带版的发展进度更加靠近Java版了, 但仍然有一些重要特性没有加入, 例如红石机制等.",
     "platform": {
       "Android": "Android",
-      "iOS": "iOS",
-      "Windows": "Windows"
+      "iOS": "iOS" // ,
+      // "Windows": "Windows"
     }
   },
   {
