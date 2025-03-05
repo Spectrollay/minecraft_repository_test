@@ -88,7 +88,7 @@
             </div>
 
             <!-- TODO 在响应式开放测试时显示此提示 -->
-            <div style="display: none;">
+            <div class="responsive_design_test">
                 <div class="main preview_block">
                     <div class="preview_title">体验响应式设计</div>
                     <div class="preview_detail">响应式布局现已开启测试,欢迎体验!</div>
@@ -564,6 +564,12 @@
         ifNavigating("direct", "./index_new.html");
     }
 
+    switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
+    expNewUiState = switchValues['exp_new_ui'] || false; // 默认禁用
+    if (expNewUiState === 'on') {
+        document.querySelector('.responsive_design_test').style.display = 'block';
+    }
+
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     const repositoryAttribute = localStorage.getItem('minecraft_repository_attribute');
 
@@ -586,6 +592,11 @@
     .preview_block {
         border-bottom: 4px solid #333334;
         border-top: 4px solid #5A5B5C;
+    }
+
+    /* TODO: 在开放响应式布局测试时移除该样式 */
+    .responsive_design_test {
+        display: none;
     }
 
     .edition_block {

@@ -1961,58 +1961,58 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "无",
-                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "release": "1.9.0.15(+1)",
+                "build": "1.9.0.0, 1.9.0.2, 1.9.0.3, 1.9.0.5",
+                "support": "目标API: 26(Android 8.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
                 "type": "APK",
-                "size": "",
+                "size": "85MB ~ 88MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EiOrNvbjTldLv0inSePAn10BX1re5SYdFK-5eW2SN19Umg?e=teVgEa"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1-W8iOYzBszNJPcbJXgjDaA?pwd=58mb"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/f1196cae5ee5"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-ivVN3"
                   }
                 }
               },
               "ios": {
-                "release": "",
+                "release": "1.9.0",
                 "build": "无",
                 "support": "最低系统版本: iOS 8",
                 "arch": "ARM32",
                 "type": "IPA(原版)",
-                "size": "",
+                "size": "100MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/ErxJq1xM3ONPkxcQLG-OoZoBBBdBkfBbhCeSpOel0-eDtQ?e=pnn5EN"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1amX8rXDqD9BQ_0RACGXXrA?pwd=x3rr"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/147ca76e03c3"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-tvVN3"
                   }
                 }
               },
@@ -2049,13 +2049,13 @@
         ]
       },
       // ========================================================================================================================
-      // 1.8
+      // 1.8 - 假日更新
       // ========================================================================================================================
       {
         "prev_version": "1.7",
         "main_version": "1.8",
         "next_version": "1.9",
-        "version_name": "1.8",
+        "version_name": "1.8 - 假日更新",
         "child_versions": [
           // ============================================================
           // 1.8
@@ -2066,58 +2066,58 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "无",
-                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "release": "1.8.0.24(+1), 1.8.1.2(+1)",
+                "build": "1.8.0.8, 1.8.0.10, 1.8.0.11, 1.8.0.13, 1.8.0.14",
+                "support": "目标API: 26(Android 8.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
                 "type": "APK",
-                "size": "",
+                "size": "83MB ~ 87MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Epj2ZdkP7MlApF2x8Xk9XGkBBoLCvPtixYBEnb4Rsa1Ydg?e=qiNFwV"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1Qe-6XIIlFJ_MZoDO0fMtEg?pwd=h8zs"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/702e15ebc3e6"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-UvVN3"
                   }
                 }
               },
               "ios": {
-                "release": "",
+                "release": "1.8.0, 1.8.1",
                 "build": "无",
                 "support": "最低系统版本: iOS 8",
                 "arch": "ARM32",
                 "type": "IPA(原版)",
-                "size": "",
+                "size": "95MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ehh8Px8V3AFBtVQTEWDBYzABM5tjHS5mBO_tDH4mmwyPAA?e=svxlFp"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1pkZgeAo1Uad-wCeyxbgANQ?pwd=vefr"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/9e2754b44c41"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-uvVN3"
                   }
                 }
               },
@@ -2171,58 +2171,58 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "无",
+                "release": "1.7.0.13(+3)",
+                "build": "1.7.0.2, 1.7.0.3, 1.7.0.5, 1.7.0.7, 1.7.0.9",
                 "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "arch": "ARMv7, x86",
                 "type": "APK",
-                "size": "",
+                "size": "74MB ~ 86MB",
                 "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EjXDXvVp2epHvMYD97EGeGcBJYDgxcQ5GyAb47ttFhmd1g?e=FXKVrk"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1qc0aSACJSJeWCsQKCRONCQ?pwd=rmbm"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/15f7f6752777"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-KvVN3"
                   }
                 }
               },
               "ios": {
-                "release": "",
+                "release": "1.7.0",
                 "build": "无",
                 "support": "最低系统版本: iOS 8",
                 "arch": "ARM32",
                 "type": "IPA(原版)",
-                "size": "",
+                "size": "78MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/ElESp3qAXVZLjD7kWccGdmAB8ZU6NTo3EhlJLx3vxBqqng?e=tkcRY3"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/10DrhC-6rdxDsHjbILcarzQ?pwd=bkkq"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/e706cc4cb573"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-0vVN3"
                   }
                 }
               },
@@ -2276,58 +2276,58 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "无",
+                "release": "1.6.0.14(+3), 1.6.1.0(+3)",
+                "build": "1.6.0.1, 1.6.0.5, 1.6.0.6, 1.6.0.8, 1.6.0.30",
                 "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "arch": "ARMv7, x86",
                 "type": "APK",
-                "size": "",
+                "size": "74MB ~ 88MB",
                 "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eq3nXVZBy8pKsbnHE986nFgBcT8meEOS6pHlqjFqcIjN6w?e=i15YQ7"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1AHdrXi0csbmNhxLQqn-I_g?pwd=vi98"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/e71ddcbfd50e"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-8vVN3"
                   }
                 }
               },
               "ios": {
-                "release": "",
+                "release": "1.6.0, 1.6.1, 1.6.2",
                 "build": "无",
                 "support": "最低系统版本: iOS 8",
                 "arch": "ARM32",
                 "type": "IPA(原版)",
-                "size": "",
+                "size": "77MB ~ 88MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtEJXQQDgR1EvLrmC7U2W_8BINuNAGXSM4PdBZpB1WXryw?e=d0TvK9"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1evkQEKrDz931IfrCGh7ddw?pwd=cyfc"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/70bd85434e04"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-RvVN3"
                   }
                 }
               },
@@ -2381,58 +2381,58 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "无",
+                "release": "1.5.0.14(+3), 1.5.1.2(+3), 1.5.2.1(+3), 1.5.3.0(+3)",
+                "build": "1.5.0.0, 1.5.0.1, 1.5.0.4, 1.5.0.7, 1.5.0.10",
                 "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "arch": "ARMv7, x86",
                 "type": "APK",
-                "size": "",
+                "size": "68MB ~ 73MB",
                 "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Er80YJtMxNZOiTiURZ0of3YBFCGvpPBgcF9OyFpYCUvQtw?e=flAMvm"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1D2izkyntFnNFpcOkj4TxAA?pwd=3chu"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/0a4f78b0daef"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-OvVN3"
                   }
                 }
               },
               "ios": {
-                "release": "",
+                "release": "1.5.0, 1.5.1, 1.5.2, 1.5.3",
                 "build": "无",
                 "support": "最低系统版本: iOS 8",
                 "arch": "ARM32",
                 "type": "IPA(原版)",
-                "size": "",
+                "size": "76MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ev0aNA24G-lBrHaqGqfGjrkBZGhLi6V03_toXEYTV58QJA?e=H3WhZL"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/11vb5Qly6c6XXiDQ0nDBNJQ?pwd=xz8v"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/815905c78b76"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-NvVN3"
                   }
                 }
               },
@@ -2486,58 +2486,58 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "无",
+                "release": "1.4.0.5(+3), 1.4.1.0(+3), 1.4.2.0(+3), 1.4.4.0(+3)",
+                "build": "1.2.14.2, 1.2.14.3, 1.2.20.1, 1.2.20.2",
                 "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "arch": "ARMv7, x86",
                 "type": "APK",
-                "size": "",
+                "size": "65MB ~ 69MB",
                 "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Emgnp3GLZ3hOkP66yLRsqAIBfpFl914Y2y0TzkWQKtuJCQ?e=E09XYu"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1E6aHp76n7np6dFOQ_dudVA?pwd=ai8a"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/41a0f2722193"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-CvVN3"
                   }
                 }
               },
               "ios": {
-                "release": "",
+                "release": "1.4.0, 1.4.2, 1.4.3",
                 "build": "无",
                 "support": "最低系统版本: iOS 8",
                 "arch": "ARM32",
                 "type": "IPA(原版)",
-                "size": "",
+                "size": "69MB ~ 70MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnSFVQvKeHZPmRh2JHIXL3IBt9Gt3chYbELoSZQ2cvIl8g?e=zedJLw"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/15WfWNFpkH44yvs3BhS3Mqw?pwd=75tf"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/44c0159f47ef"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-WvVN3"
                   }
                 }
               },
@@ -2583,6 +2583,500 @@
         "version_name": "1.2 - 独乐不如众乐更新",
         "child_versions": [
           // ============================================================
+          // 1.2.16
+          // ============================================================
+          {
+            "id": "1.2.16",
+            "version_name": "1.2.16",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.13.60",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "63MB ~ 64MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/ElTvSce1AENOlcT78RC3DuwBXdXNR2Igvwrp3_5eYs21yw?e=qYZrNw"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1WuSfnuTWct84ItDeQ3KHEA?pwd=cjym"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/282c46d6c026"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-2vVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.13
+          // ============================================================
+          {
+            "id": "1.2.13",
+            "version_name": "1.2.13",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.13.54(+3)",
+                "build": "1.2.13.5, 1.2.13.6, 1.2.13.8, 1.2.13.10, 1.2.13.11, 1.2.13.12",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "62MB ~ 64MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eqz0oj95XTdOv_wFe85TUtIBQZDxSB-fo9uXg0GtnX7voQ?e=KOVzZl"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1DFLdAJXUuWiXdQ_HMD_1Ig?pwd=mvp7"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/313443572d19"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-nvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.11
+          // ============================================================
+          {
+            "id": "1.2.11",
+            "version_name": "1.2.11",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.11.4(+3)",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "60MB ~ 61MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EpX-tIDy745ClST961sHsaABR8Ag7qs3JkzQFoxaJ92SzA?e=voKGzI"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1LqvtCcchAgwH3doI39P2HA?pwd=en9g"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/0acfb6439329"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-XvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.10
+          // ============================================================
+          {
+            "id": "1.2.10",
+            "version_name": "1.2.10",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.10.2(+3)",
+                "build": "1.2.10.1",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "60MB ~ 61MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EoYZW_ovHgRElPh4ARueTv8BGu95M8vG6CZr3GcI1d1Oog?e=uamBdh"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1_S37-eR8JZJOUrq6A4i17w?pwd=phxn"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/1de604ab900c"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-PvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.9
+          // ============================================================
+          {
+            "id": "1.2.9",
+            "version_name": "1.2.9",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.9.1(+3)",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "60MB ~ 61MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eg4vpK9uIjtArz_ePAoSz2gBuJNfUbObLl7ae4eD9D-f1A?e=VQT3HN"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1eQ6_2KpodMKCbF3eBVIL5w?pwd=zs6m"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/ca79c94dd8dc"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-GvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.8
+          // ============================================================
+          {
+            "id": "1.2.8",
+            "version_name": "1.2.8",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.8.0",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "60MB ~ 61MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtUN7uNVCKpJvP_QPi6aHHEBehlm5_279clr9_dM5bMnBw?e=AfaKSv"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/14cz4nQk3poxJykfuF6iVaQ?pwd=846n"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/e382eaf8cabd"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-YvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.7
+          // ============================================================
+          {
+            "id": "1.2.7",
+            "version_name": "1.2.7",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.7.2(+3)",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "60MB ~ 61MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Evk1zpAv041Jo_CsfbV0_3wB2CyhZXvBaxMD8ptLOHG_NQ?e=gCvLlc"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1tANLh-P4CSMNjHUhhSpc1w?pwd=mq58"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/7df90fe1c3d8"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-FvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.6.60
+          // ============================================================
+          {
+            "id": "1.2.6.60",
+            "version_name": "1.2.6.60",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.6.60(+3)",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "59MB ~ 61MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EvRFykHAigtEsMTHIlBmG1oBFOY-He_CX05Sr5cWvDcg9g?e=1ibOoJ"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1F8XSA21aYgLd0KpAd5bZDA?pwd=nbnc"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/4bcd7ad9943b"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-gvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.6
+          // ============================================================
+          {
+            "id": "1.2.6",
+            "version_name": "1.2.6",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.6.55(+3)",
+                "build": "1.2.6.2",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "60MB ~ 61MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/ErwFy8Tk9QNOlFmU5zB_Q4IBsQjGBLiYN3ddxNR09JDZdA?e=k59sIf"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/12eBzeWR-OoBlNLTVLqo0IQ?pwd=rwwz"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/fc9c5e49e8d4"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-wvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.5
+          // ============================================================
+          {
+            "id": "1.2.5",
+            "version_name": "1.2.5",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.5.52(+3)",
+                "build": "1.2.5.0, 1.2.5.12, 1.2.5.15",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "58MB ~ 60MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EgAQC3r_XRtBkNMIK2AH07gBTbfyt6_pFRGcZOVGNtaLSQ?e=wa9wcH"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1ixgsqyqVN7F6Eau_3JzfUg?pwd=f2ee"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/e6da8e2d39b4"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-MvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.3
+          // ============================================================
+          {
+            "id": "1.2.3",
+            "version_name": "1.2.3",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.3.6(+3)",
+                "build": "1.2.3.3",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "58MB ~ 64MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EhJQYJhMAuJCux9uaR_oAOwBdDQJ0mCkUmVEUYOneO4EXA?e=zCf0Mj"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1-GOEg88x80sGXC54IxEYGw?pwd=iqe9"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/979eab0021e3"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-IvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.2
+          // ============================================================
+          {
+            "id": "1.2.2",
+            "version_name": "1.2.2",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.2.3(+3)",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "64MB ~ 65MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtB61cEmuUZGkpLpmrAIVLUBoQr90gXczQPIODgGz-1yHQ?e=seA1Nw"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1X9czyig-jZUllEsyJ-Iesg?pwd=ygyk"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/1e8b68e1141f"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-JvVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.2.1
+          // ============================================================
+          {
+            "id": "1.2.1",
+            "version_name": "1.2.1",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.2.1.1(+3)",
+                "build": "无",
+                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
+                "type": "APK",
+                "size": "64MB ~ 65MB",
+                "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
+                "style": "channel",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnDoblNcgK9Jni05ErYNBHwBi4dQuzMWpYOdL0nKSe_HPg?e=V10Brw"
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "完整": "https://pan.baidu.com/s/1C4aWzpAE4uiKGCDli5RmwA?pwd=i2pv"
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "完整": "https://pan.quark.cn/s/2c1e9599a3c4"
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "完整": "https://www.123684.com/s/qILA-avVN3"
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
           // 1.2.0
           // ============================================================
           {
@@ -2591,30 +3085,30 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "无",
+                "release": "1.2.0.81(+3)",
+                "build": "1.2.0.2, 1.2.0.7, 1.2.0.9, 1.2.0.11, 1.2.0.15, 1.2.0.18, 1.2.0.22, 1.2.0.25, 1.2.0.31",
                 "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "arch": "ARMv7, x86",
                 "type": "APK",
-                "size": "53MB ~ 56MB",
+                "size": "63MB ~ 65MB",
                 "note": "m14版本的目标API为22(Android 5.0), 最小API为14(Android 4.0/4.0.1/4.0.2), 其余内容与标准版无异.",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EiZeXFM68ixOmyJat9Z-yMQBwwE2hsF9IWvVYUcm7TW72Q?e=5eh1I9"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1bN1SAcMwNzyqJxyz1Pm9gw?pwd=b4ef"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/cbaf9bcf1af4"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-fvVN3"
                   }
                 }
               }
@@ -2640,19 +3134,19 @@
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EgllQPQlG4BNpUBnfj5v-zABPG8JNMR3AR0Mmy55jZRUkA?e=CgtEZO"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1XYRPX_DGu_k_r2qvv5ibng?pwd=mupk"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/8f1d5c2f09b5"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-z6yN3"
                   }
                 }
               },
