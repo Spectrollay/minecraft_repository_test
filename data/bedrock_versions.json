@@ -1466,7 +1466,7 @@
               "ios": {
                 "release": "",
                 "build": "无",
-                "support": "最低系统版本: iOS 13",
+                "support": "最低系统版本: iOS 8",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
                 "size": "未知",
@@ -1492,9 +1492,9 @@
                 }
               },
               "windows": {
-                "release": "",
+                "release": "无",
                 "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
+                "support": "最低系统版本: 未知",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
                 "size": "未知",
@@ -1543,11 +1543,11 @@
               "android": {
                 "release": "",
                 "build": "无",
-                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "support": "目标API: 28(Android 9) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "",
-                "note": "无",
+                "note": "1.13.1起应用将目标API从26提升至28.",
                 "style": "channel",
                 "channels": {
                   "channel1": {
@@ -1648,8 +1648,8 @@
               "android": {
                 "release": "",
                 "build": "无",
-                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "support": "目标API: 26(Android 8.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "",
                 "note": "无",
@@ -1753,8 +1753,8 @@
               "android": {
                 "release": "",
                 "build": "无",
-                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "support": "目标API: 26(Android 8.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "",
                 "note": "无",
@@ -1858,8 +1858,8 @@
               "android": {
                 "release": "",
                 "build": "无",
-                "support": "目标API: 24(Android 7.0) / 最小API: 17(Android 4.2/4.2.2)",
-                "arch": "ARMv7",
+                "support": "目标API: 26(Android 8.0) / 最小API: 17(Android 4.2/4.2.2)",
+                "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "",
                 "note": "无",

@@ -27,7 +27,7 @@
   "fonts\\NotoSans-Italic.ttf": "2dd3612ceb1db1b016f4374d309ff72a",
   "guidance\\environment_guidance.html": "51eaaeb82ac8c64fe5a327abf37fbc6b",
   "guidance\\how_to_buy.html": "bd0bcad8aa75c19999323dc14644fe39",
-  "home\\bedrock_edition.html": "287aad898407dfd9bbd980c3c4944623",
+  "home\\bedrock_edition.html": "86fd252f36245602e07acb76c31289e3",
   "home\\demo.html": "47ed840086ff8cea23e0a96abfbb3a52",
   "home\\education_edition.html": "97dd222746d765996a995fd796f75b63",
   "home\\more_edition.html": "b227e0d46c8eaf9a79476d7499bcbc29",
@@ -211,7 +211,7 @@
   "javascript\\download_index_version.js": "2432ce2651cf2a443c5e695e3ec2df67",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "3a7cb6401fc72b2110282480996db7ee",
+  "javascript\\public_define.js": "ba7eea7a2d8bac8c6c59c90a67e41146",
   "javascript\\public_script.js": "d9fb0f38528c2d40059dcab685a23908",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
@@ -234,5 +234,5 @@
   "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
   "stylesheet\\public_style.css": "14dac87399651e831b630219f95fd5e5",
   "Template\\index.html": "d7d2634b787156dcf1d347e93d9df261",
-  "updatelog\\index.html": "a264a2d8ad68ecabe8ca1eb09381916f"
+  "updatelog\\index.html": "ffed904313344ef93259a7590f2c1f61"
 }
