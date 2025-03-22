@@ -25,12 +25,12 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".6"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".32"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".33"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250311" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20250322" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -263,7 +263,7 @@ const commonTips = [
         weight: 12
     },
     {text: "Made by Spectrollay!", weight: 12},
-    {text: "← 点击框框内部可以切换提示 →", weight: 12},
+    {text: "← 点击框框内部可以切换提示标语 →", weight: 12},
     {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 12},
     {text: "本站指向的站外内容可能不受保障!", weight: 12},
     {text: "请直接分享本站而不是转载其中的内容!", weight: 12},
@@ -274,24 +274,27 @@ const fullVersionTips = [
     {text: "你完成你的事情了吗?", weight: 5},
     {text: "你最好已经购买了正版!", weight: 5},
     {text: "我们保留了一些bug,这样你才知道你在使用的是星月Minecraft版本库.", weight: 5},
+    {text: "你知道吗,你知道吗?", weight: 5},
     {text: "你知道吗,版本库的第一个版本仅用了两天时间构建.", weight: 5},
     {text: "你知道吗,这个项目始于2020年.", weight: 5},
     {text: "你知道吗,你可以参与这个项目的开发与维护.", weight: 5},
+    {text: "你知道吗,一万行代码需要三个月的时间来实现,而删掉它们只需要三秒.", weight: 5},
     {text: "我想你应该会喜欢彩蛋的!", weight: 5},
     {text: "现在实现彩蛋自由了!", weight: 5},
-    {text: "加载提示时遇到问题,请点击重试.", weight: 5},
-    {text: "现在你看到了一条提示.", weight: 5},
-    {text: "猜一猜下一条出现的提示是什么?", weight: 5},
-    {text: "猜一猜下一次看到这条提示是什么时候?", weight: 5},
+    {text: "加载提示标语时遇到问题,请点击重试.", weight: 5},
+    {text: "现在你看到了一条提示标语.", weight: 5},
+    {text: "猜一猜下一条出现的提示标语是什么?", weight: 5},
+    {text: "猜一猜下一次看到这条提示标语是什么时候?", weight: 5},
     {text: "是谁把我放在这的?", weight: 5},
     {text: "Herobrine已移除!", weight: 5},
     {text: "创意无极限!", weight: 5},
+    {text: "我们DNA里的氮元素,牙齿里的钙元素,血液里的铁元素,还有苹果派里的碳元素,都源自大爆炸时崩裂的万千恒星.我们都是星辰.", weight: 5},
     {text: "不妨试着点点我?你可能会发现什么.", weight: 5},
     {text: "网页\"星月Minecraft版本库\"没有响应", weight: 5},
     {text: "版本库是这样的,开发者只要更新版本就可以了,而用户要考虑的事情就很多了.", weight: 5},
     {text: "有一个人前来下载MC.", weight: 5},
     {text: "Minecraft, 启动!", weight: 5},
-    {text: "看到这条提示就去启动Minecraft吧!", weight: 5},
+    {text: "看到这条提示标语就去启动Minecraft吧!", weight: 5},
     {text: "也去玩玩Minceraft吧!", weight: 5},
     {text: "也去玩玩饥荒吧!", weight: 5},
     {text: "也去玩玩泰拉瑞亚吧!", weight: 5},
@@ -300,9 +303,10 @@ const fullVersionTips = [
     {text: "不要一直戳人家啦!", weight: 5},
     {text: "今天是一个不错的日子,你说对吗?", weight: 5},
     {text: "你有些事情需要在今天结束的时候考虑一下...", weight: 5},
-    {text: "你看到了这条提示,这使你充满了决心.", weight: 5},
+    {text: "你看到了这条提示标语,这使你充满了决心.", weight: 5},
+    {text: "背上行囊出发吧,去触摸山川湖海的心跳.", weight: 5},
     {text: "什么Bug?哪里有Bug?你不要乱讲,那是特性!", weight: 5},
-    {text: "完全随机的提示!", weight: 5},
+    {text: "完全随机的提示标语!", weight: 5},
     {text: "多抬头看看天空吧!", weight: 5},
     {text: "别怕,有光.", weight: 5},
     {text: "天空即为极限!", weight: 5},
@@ -313,12 +317,15 @@ const fullVersionTips = [
     {text: "劳逸结合!", weight: 5},
     {text: "持续支持中!", weight: 5},
     {text: "独一无二的设计!", weight: 5},
+    {text: "生命是物质能量与信息的统一体.", weight: 5},
+    {text: "客观的规律都是通过一定的科学概念去认识和表达的,而且这些概念本身,就在一定程度上反映着规律的本质.", weight: 5},
     {text: "Technoblade never dies!", weight: 5},
     {text: "Hello world!", weight: 5},
     {text: "95% OreUI!", weight: 5},
     {text: "90% bug free!", weight: 5},
     {text: "Powered by AI!", weight: 5},
     {text: "Are you OK?", weight: 5},
+    {text: "wake up", weight: 5},
     {text: "/give @a hugs 64", weight: 5},
     {text: "sqrt(-1) love you!", weight: 5},
     {text: "P不包含NP!", weight: 5},
@@ -342,16 +349,16 @@ const fullVersionTips = [
     {text: "苦力怕把我的作业炸了!", weight: 5},
     {text: "<br>", weight: 2},
     {text: "← To Be Continued...", weight: 2},
-    {text: "Spectrollay love you!", weight: 2},
+    {text: "\"好久不见\"", weight: 2},
     {text: "别杀怪物,你这个海豚!", weight: 2},
     {text: "你要去码头整点薯条吗?", weight: 2},
     {text: "真的会有人看这些吗?", weight: 2},
     {
-        text: "<span style='background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;'>这是一条彩色的提示!</span>",
+        text: "<span style='background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;'>这是一条彩色的提示标语!</span>",
         weight: 2
     },
     {
-        text: "<span style='transform: scaleX(-1) scaleY(-1);'>这是一条颠倒的提示!</span>",
+        text: "<span style='transform: scaleX(-1) scaleY(-1);'>这是一条颠倒的提示标语!</span>",
         weight: 2
     },
     {text: "点我抽盲盒!", weight: 2},
@@ -367,8 +374,8 @@ const fullVersionTips = [
     {text: "<br><br><br><br><br><br><br><br><br><br><br><br>", weight: 0.01},
     {text: " - 曲终人散,黄粱一梦.玩家开始了新的梦境,玩家再次做起了梦,更好的梦.玩家就是宇宙.玩家就是爱.<br> - 你就是那个玩家.<br> - 该醒了.", weight: 0.01},
     {text: " - 二十年之后,更令你懊悔的不是你做了什么,而是你没做什么.所以解开帆索,离开安全的港湾,赶着航程中的信风,去探索,去梦想,去发现.", weight: 0.01},
-    {text: "<span style='color: yellow'>解锁隐藏成就: 仓库尽头的提示</span>", weight: 0.001},
-    {text: "这是一条永远不会出现的提示.", weight: 0},
+    {text: "<span style='color: yellow'>解锁隐藏成就: 仓库尽头的提示标语</span>", weight: 0.001},
+    {text: "这是一条永远不会出现的提示标语.", weight: 0},
 ];
 
 const addTips = (newTips, oldTips) => {
@@ -722,18 +729,18 @@ if (mclang_cn_fix) {
 
 logManager.log("字符常量已成功应用");
 
-// 加载网页时的提示
+// 加载网页时的提示标语
 if (tipElement) {
     tipElement.innerHTML = getRandomTip();
-    logManager.log("提示已选择成功");
+    logManager.log("提示标语已选择成功");
 } else {
-    logManager.log("未发现提示框");
+    logManager.log("未发现提示标语框");
 }
 
 if (tipElement) {
     tipElement.addEventListener("click", (event) => {
         if (event.target.tagName === "A") {
-            logManager.log("检测到点击了链接,不执行切换提示操作");
+            logManager.log("检测到点击了链接,不执行切换提示标语操作");
         } else {
             tipElement.innerHTML = getRandomTip();
             // 禁止拖动元素
@@ -765,7 +772,7 @@ function getRandomTip() {
         }
         tipsByWeight[tip.weight].push(tip);
     }
-    // logManager.log("按权值分组的提示: " + JSON.stringify(tipsByWeight));
+    // logManager.log("按权值分组的提示标语: " + JSON.stringify(tipsByWeight));
 
     // 计算去重权值总和
     const uniqueWeights = Object.keys(tipsByWeight).map(Number).sort((a, b) => b - a); // 权值降序排列
@@ -791,21 +798,21 @@ function getRandomTip() {
         }
     }
 
-    // 在选定权值区间内随机选择提示,并避免与上次选中相同
+    // 在选定权值区间内随机选择提示标语,并避免与上次选中相同
     const availableTips = tipsByWeight[selectedWeight];
     let chosenTip;
-    // logManager.log("在权值 " + selectedWeight + " 区间内可用的提示: " + JSON.stringify(availableTips));
+    // logManager.log("在权值 " + selectedWeight + " 区间内可用的提示标语: " + JSON.stringify(availableTips));
 
     do {
         chosenTip = availableTips[Math.floor(Math.random() * availableTips.length)];
         currentTipIndex = tipsWithWeights.indexOf(chosenTip);
-        // logManager.log("尝试选中提示: " + chosenTip.text + ", 索引: " + currentTipIndex);
-        logManager.log("尝试选中提示索引: " + currentTipIndex);
+        // logManager.log("尝试选中提示标语: " + chosenTip.text + ", 索引: " + currentTipIndex);
+        logManager.log("尝试选中提示标语索引: " + currentTipIndex);
     } while (currentTipIndex === previousTipIndex);
 
     previousTipIndex = currentTipIndex;
-    // logManager.log("最终选中提示: " + chosenTip.text + ", 权值: " + selectedWeight);
-    logManager.log("最终选中提示索引: " + currentTipIndex);
+    // logManager.log("最终选中提示标语: " + chosenTip.text + ", 权值: " + selectedWeight);
+    logManager.log("最终选中提示标语索引: " + currentTipIndex);
 
     return chosenTip.text;
 }
