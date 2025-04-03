@@ -148,7 +148,7 @@
                             <div class="sidebar_detail_title" id="sidebar_title">基岩版</div>
                         </div>
                         <div class="sidebar_list">
-                            <a class="sidebar_item" href="./download/bedrock/index.html#mclang_cn_fix">
+                            <a class="sidebar_item" id="ctr_sidebar">
                                 <article_list>中文译名修正</article_list>
                             </a>
                             <generate-area class="sidebar_gen"></generate-area>
@@ -210,6 +210,8 @@
 <script src="./javascript/download_index_version.js"></script>
 <script src="./library/lazyLoadImage.js"></script>
 <script>
+    document.getElementById("ctr_sidebar").href = window.location.origin + window.location.pathname + window.location.search + "#mclang_cn_fix";
+
     // 惰性加载
     const lazyImage = new LazyLoadImage('img');
     lazyImage.init();

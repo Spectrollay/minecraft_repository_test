@@ -280,7 +280,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
 
                 // 填充侧边栏块
                 sidebarBlock.innerHTML = `
-                    <a class="sidebar_item" href="${window.location}#${currentVersion.id}">
+                    <a class="sidebar_item" href="${window.location.origin}${window.location.pathname}${window.location.search}#${currentVersion.id}">
                         <article_list>${currentVersion.id}</article_list>
                     </a>
                 `;
