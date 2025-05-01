@@ -275,6 +275,9 @@ function ifNavigating(way, url) {
 
 // 重载页面
 function reloadPage() {
+    let refreshCount = parseInt(localStorage.getItem(`(${rootPath})refreshTimes`) || '0');
+    refreshCount++;
+    localStorage.setItem(`(${rootPath})refreshTimes`, refreshCount.toString());
     setTimeout(function () {
         location.reload();
     }, 600);
@@ -562,7 +565,7 @@ const donorOnlyModal = `
     <modal_area class="normal_modal" id="donor_only_modal">
         <modal>
             <modal_title_area>
-                <modal_title>捐赠专享</modal_title>
+                <modal_title><img alt="" class="small_icon" src="./images/Crown.png">捐赠专享</modal_title>
                 <modal_close_btn class="close_btn" onclick="hideModal(this);">
                     <img alt="" class="modal_close_btn_img" src=""/>
                 </modal_close_btn>
@@ -863,7 +866,7 @@ function delayedOpenLink(url) { // TODO 在页面完成迭代后移除
 
 function launchApplication(deeplink) {
     // setTimeout(function () {
-        window.location.assign(deeplink);
+    window.location.assign(deeplink);
     // }, 100);
 }
 

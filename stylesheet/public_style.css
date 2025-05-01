@@ -875,7 +875,7 @@ a {
 .download_platform {
     align-self: center;
     justify-self: center;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 80%;
 }
 
@@ -889,6 +889,11 @@ a {
 
 .about_us_block {
     min-width: 300px;
+}
+
+.about_text {
+    max-width: 500px;
+    text-align: justify;
 }
 
 /* 链接框样式 */
@@ -1030,6 +1035,12 @@ link-block:hover, link-block:active {
     min-width: 240px;
     text-align: left;
     color: rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (min-width: 500px) {
+    .download_block_description {
+        width: 400px;
+    }
 }
 
 .update_logo_area {

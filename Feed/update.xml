@@ -7,12 +7,20 @@
         <description>星月Minecraft版本库: 一个开放共享的全版本Minecraft下载站</description>
         <language>zh-cn</language>
         <item>
+            <title>版本库已更新 4.6.6.36.Canary</title>
+            <link>https://spectrollay.github.io/minecraft_repository_test/</link>
+            <description>更新内容详见:
+                <a href="https://spectrollay.github.io/minecraft_repository_test/updatelog/">开发日志</a>
+            </description>
+            <pubDate>Thu, 1 May 2025 22:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title>版本库已更新 4.6.6.33.Canary</title>
             <link>https://spectrollay.github.io/minecraft_repository_test/</link>
             <description>更新内容详见:
                 <a href="https://spectrollay.github.io/minecraft_repository_test/updatelog/">开发日志</a>
             </description>
-            <pubDate>Sat, 22 Feb 2024 23:00:00 GMT</pubDate>
+            <pubDate>Sat, 22 Feb 2025 23:00:00 GMT</pubDate>
         </item>
         <item>
             <title>版本库已更新 4.6.6.32.Canary</title>
@@ -20,7 +28,7 @@
             <description>更新内容详见:
                 <a href="https://spectrollay.github.io/minecraft_repository_test/updatelog/">开发日志</a>
             </description>
-            <pubDate>Fri, 14 Feb 2024 20:00:00 GMT</pubDate>
+            <pubDate>Fri, 14 Feb 2025 20:00:00 GMT</pubDate>
         </item>
         <item>
             <title>版本库已更新 4.6.6.31.Canary</title>
@@ -28,7 +36,7 @@
             <description>更新内容详见:
                 <a href="https://spectrollay.github.io/minecraft_repository_test/updatelog/">开发日志</a>
             </description>
-            <pubDate>Thu, 13 Feb 2024 12:00:00 GMT</pubDate>
+            <pubDate>Thu, 13 Feb 2025 12:00:00 GMT</pubDate>
         </item>
         <item>
             <title>版本库已更新 4.6.6.29.Canary</title>
@@ -36,7 +44,7 @@
             <description>更新内容详见:
                 <a href="https://spectrollay.github.io/minecraft_repository_test/updatelog/">开发日志</a>
             </description>
-            <pubDate>Tue, 11 Feb 2024 16:00:00 GMT</pubDate>
+            <pubDate>Tue, 11 Feb 2025 16:00:00 GMT</pubDate>
         </item>
         <item>
             <title>版本库已更新 4.6.5.81.Canary</title>

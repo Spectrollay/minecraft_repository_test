@@ -230,6 +230,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                                                     <custom-button data="default|disabled|small||false||" js="false" text="去验证版"></custom-button>
                                                 `}
                                             </div>
+                                            ${currentVersion.platforms[platform].more_type === 'false' ? `` : `
                                             <div class="btn_group">
                                                 ${channelData.多架构版 ? `
                                                     ${channelData.name === "OneDrive" ? `
@@ -250,6 +251,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                                                     <custom-button data="default|disabled|small||false||" js="false" text="精简版"></custom-button>
                                                 `}
                                             </div>
+                                            `}
                                         </div>`).join("")}
                                     ` : ""}
                                     ${currentVersion.platforms[platform].style === 'channel' ? `

@@ -25,15 +25,15 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".6"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".33"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".36"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250322" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20250501" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
-let commit = "#2025040301"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
+let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/\./g, "");
 }
@@ -713,7 +713,7 @@ if (mclang_cn_fix) {
         <div class="block_main wrap_flex">
             <div>
                 <div class="title2 download_block_title">和基岩版的无脑翻译说再见!</div>
-                <div class="download_block_description" style="text-align: center;">适用于所有基于基岩引擎开发的游戏版本!<br>独家适配隐藏内容和不同平台的独有内容!<br>快速适配最新的绝大多数正式版和开发版!</div>
+                <div class="download_block_description" style="text-align: center; width: auto;">适用于所有基于基岩引擎开发的游戏版本!<br>独家适配隐藏内容和不同平台的独有内容!<br>快速适配最新的绝大多数正式版和开发版!</div>
             </div>
             <div>
                 <div class="link_block_group_title">访问项目</div>
