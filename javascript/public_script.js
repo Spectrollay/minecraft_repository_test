@@ -559,7 +559,26 @@ function leaveTest() {
     ifNavigating("jump", hostPath + "/minecraft_repository");
 }
 
-// 捐赠专享 // TODO 捐赠专享
+// 检查是否捐赠
+function checkIfDonate(type, para) {
+    const ifDonate = localStorage.getItem('donate') === 'true';
+    console.log(ifDonate);
+    if(ifDonate === true) {
+        if (type === "url") {
+            ifNavigating("open", para)
+        } else if (type === "fun") {
+            try {
+                eval(para);
+            } catch (error) {
+                logManager.log(`执行函数时出错: ${error.message}`, 'error');
+            }
+        }
+    } else {
+        showModal('donor_only_modal');
+    }
+}
+
+// 捐赠专享
 const donorOnlyModal = `
     <div class="overlay normal_overlay" id="overlay_donor_only_modal"></div>
     <modal_area class="normal_modal" id="donor_only_modal">
@@ -571,12 +590,12 @@ const donorOnlyModal = `
                 </modal_close_btn>
             </modal_title_area>
             <modal_content>
-                <p>[Placeholder]</p>
+                <p>此功能为捐赠用户专享.<br>请前往捐赠页面解锁或了解更多信息.</p>
             </modal_content>
             <modal_button_area>
                 <modal_button_group>
                     <modal_button_list>
-                        <custom-button data="modal|green||modal_agree_btn|false||" js="hideModal(this);" text="前往捐赠"></custom-button>
+                        <custom-button data="modal|green||modal_agree_btn|false||" js="hideModal(this);jumpToPage('./about/donate.html');" text="前往捐赠"></custom-button>
                         <custom-button data="modal|red|||false||" js="hideModal(this);" text="以后再说"></custom-button>
                     </modal_button_list>
                 </modal_button_group>
@@ -585,6 +604,32 @@ const donorOnlyModal = `
     </modal_area>`;
 
 document.body.insertAdjacentHTML('afterbegin', donorOnlyModal);
+
+// 激活捐赠专享
+const activeDonorOnlyModal = `
+    <div class="overlay normal_overlay" id="overlay_active_donor_only_modal"></div>
+    <modal_area class="normal_modal" id="active_donor_only_modal">
+        <modal>
+            <modal_title_area>
+                <modal_title>激活捐赠专享</modal_title>
+                <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                    <img alt="" class="modal_close_btn_img" src=""/>
+                </modal_close_btn>
+            </modal_title_area>
+            <modal_content>
+                <p>即将到来</p>
+            </modal_content>
+            <modal_button_area>
+                <modal_button_group>
+                    <modal_button_list>
+                        <custom-button data="modal|green||modal_agree_btn|false||" js="hideModal(this);" text="我知道了"></custom-button>
+                    </modal_button_list>
+                </modal_button_group>
+            </modal_button_area>
+        </modal>
+    </modal_area>`;
+
+document.body.insertAdjacentHTML('afterbegin', activeDonorOnlyModal);
 
 // 兼容性检测
 const compatibilityModal = `
@@ -774,6 +819,25 @@ function playSoundType(button) {
         playSound('click');
     } else if (button.classList.contains("green_btn")) {
         playSound('button');
+    }
+}
+
+// 保存图片
+function saveImage(button) {
+    let parent = button.parentElement;
+    while (parent && !parent.classList.contains('image_block')) {
+        parent = parent.parentElement;
+    }
+    if (parent) {
+        const image = parent.querySelector('.image_downloadable');
+        const imageUrl = image.src;
+        const fileName = decodeURIComponent(imageUrl.substring(imageUrl.lastIndexOf('/') + 1));
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = fileName || 'downloaded_image.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 }
 

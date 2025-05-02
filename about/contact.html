@@ -30,6 +30,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./images/Feedback.png" rel="icon">
     <!--<style>-->
     <!--    -->
     <!--</style>-->
@@ -76,6 +77,22 @@
                     <div class="main main_block">
                         <div class="main_block_cont">
                             <div class="wrap_flex">
+                                <div class="contact_description">当你在使用版本库过程中发现问题或有新的建议时, 你可以通过以下方式向我们反馈. 值得注意的是, 你在聊天群组中同样也可以反馈, 但是通过以下方式提交的反馈将会在评估通过后发放一定的权益.</div>
+                                <div class="body_text">反馈
+                                    <div class="wrap_flex">
+                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://github.com/Spectrollay/minecraft_repository_test/issues/new');">
+                                            <div class="link_title">
+                                                <img alt="" class="link_title_img" src="./images/Github.png">Github
+                                            </div>
+                                        </link-block>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main main_block">
+                        <div class="main_block_cont">
+                            <div class="wrap_flex">
                                 <div class="contact_description">你可以加入版本库官方频道, 获取游戏最新资讯与版本库最新动态, 参与不定期的官方活动, 在交流区中畅所欲言, 或是反馈区提出你对版本库的建议及意见.</div>
                                 <div class="body_text">官方频道
                                     <div class="wrap_flex">
@@ -114,20 +131,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>当然, 我们也欢迎你直接与开发者取得联系: Github/Gitee/酷安 - Spectrollay, QQ - 494219104</div>
-                        </div>
-                    </div>
-                    <div class="main main_block">
-                        <div class="main_block_cont">
+                            <div>当然, 我们也欢迎你直接与开发者取得联系:</div>
+                            <div class="contact_platform"><a href="https://github.com/Spectrollay" target="_blank">Github</a> | <a href="https://gitee.com/Spectrollay" target="_blank">Gitee</a> | <a href="http://www.coolapk.com/u/3399852" target="_blank">酷安</a> | QQ | Telegram</div>
                             <div class="wrap_flex">
-                                <div class="contact_description">当你在使用版本库过程中发现问题时, 你可以通过以下方式进行反馈. 值得注意的是, 你在聊天群组中同样也可以反馈, 但是通过以下方式提交的反馈将会在评估通过后给予一定的回报.</div>
-                                <div class="body_text">反馈
-                                    <div class="wrap_flex">
-                                        <link-block class="contact_link_block" onclick="playSound('click');openLink('https://github.com/Spectrollay/minecraft_repository_test/issues/new');">
-                                            <div class="link_title">
-                                                <img alt="" class="link_title_img" src="./images/Github.png">Github
-                                            </div>
-                                        </link-block>
+                                <div class="contact_block image_block">
+                                    <img alt="" class="contact_qrcode image_downloadable" src="./images/contact/QQ.png"/>
+                                    <div class="btn_group">
+                                        <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
+                                    </div>
+                                </div>
+                                <div class="contact_block image_block">
+                                    <img alt="" class="contact_qrcode image_downloadable" src="./images/contact/Telegram.jpg"/>
+                                    <div class="btn_group">
+                                        <custom-button data="default|normal|small||false||" js="saveImage(this);" text="保存图片"></custom-button>
                                     </div>
                                 </div>
                             </div>
@@ -156,8 +172,24 @@
 <!--    -->
 <!--</script>-->
 
-<!--<style>-->
-<!--    -->
-<!--</style>-->
+<style>
+    .contact_qrcode {
+        margin: 6px 0 0 0;
+        width: 280px;
+    }
+
+    .contact_block {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 6px;
+        width: 320px;
+    }
+
+    .contact_platform {
+        font-size: 18px;
+        margin: 10px;
+    }
+</style>
 
 </html>

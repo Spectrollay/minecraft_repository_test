@@ -356,21 +356,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 10);
 });
-
-function checkIfDonate(type, para) {
-    const ifDonate = localStorage.getItem('donate') === 'true';
-    console.log(ifDonate);
-    if(ifDonate === true) {
-        if (type === "url") {
-            ifNavigating("open", para)
-        } else if (type === "fun") {
-            try {
-                eval(para);
-            } catch (error) {
-                logManager.log(`执行函数时出错: ${error.message}`, 'error');
-            }
-        }
-    } else {
-        showModal('donor_only_modal');
-    }
-}
