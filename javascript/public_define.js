@@ -34,7 +34,7 @@ const update_count = "20250503" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
-if (commit === "#") {
+if (commit === "#2025050302") {
     commit = "#" + update_count.replace(/\./g, "");
 }
 

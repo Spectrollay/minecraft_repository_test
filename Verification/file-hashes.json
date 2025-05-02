@@ -1,7 +1,7 @@
 {
   "404.html": "938876c8325cab7ef80df3c595f0d4cb",
   "about\\contact.html": "4d900ec60da4717c752457bacbe27bcf",
-  "about\\donate.html": "b3a7ca7531f947e64876aae6149e105e",
+  "about\\donate.html": "bf9a2f22692cc12fc9e9c98e2c52c306",
   "about\\support.html": "e3c0b855e5489fecdea81a1e0f8f97c6",
   "advanced\\debug.html": "368a0e66f8131d60b5e92e4b0b761cdc",
   "advanced\\settings.html": "795dd18db7479acb0ea62024c0c24f4a",
@@ -209,7 +209,7 @@
   "javascript\\download_index_version.js": "a26bc0634460dadabe41660033789c82",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "95a871eda128e42b8fe47385bb671c81",
+  "javascript\\public_define.js": "99e4e214aa609033365a807ce060e7a2",
   "javascript\\public_script.js": "21de985b1a0c9ff407305d7b87f264d0",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
@@ -232,5 +232,5 @@
   "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
   "stylesheet\\public_style.css": "056efdb79fe0a72378d0b2a1e0cc429c",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "230aa35bb992d0cc6e75b9c82ee701bc"
+  "updatelog\\index.html": "ef24bf100890096e8895755780b605df"
 }
