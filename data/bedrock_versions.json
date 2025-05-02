@@ -2792,8 +2792,8 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "1.10.0.7(+2)",
-                "build": "无",
+                "release": "1.10.0.7(+1)",
+                "build": "1.10.0.3, 1.10.0.4",
                 "support": "目标API: 26 / 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",

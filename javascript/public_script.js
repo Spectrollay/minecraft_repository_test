@@ -665,7 +665,7 @@ document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 function checkFirstVisit() {
     firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
     const is404Page = document.title.includes("404 NOT FOUND");
-    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}index_new.html`, `${rootPath}home.html`, `${rootPath}about/donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`]; // TODO 在完成新主页测试后移除index_new.html
+    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}index_new.html`, `${rootPath}home.html`, `${rootPath}about/donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`, `${rootPath}advanced/settings.html`]; // TODO 在完成新主页测试后移除index_new.html
 
     // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
     if (firstVisit !== today && !firstVisitAllowedPaths.includes(window.location.pathname) && !is404Page) {
@@ -716,11 +716,7 @@ function hideDisclaimerModal(button, state) {
     if (url) {
         if (state === 1) {
             logManager.log("选择了同意并继续");
-            if (url.includes('huang1111')) { // TODO 在移除全部相关链接后删除判定
-                ifNavigating("open", rootPath + "default/error_not-found.html");
-            } else {
-                ifNavigating("open", url);
-            }
+            ifNavigating("open", url);
             logManager.log("跳转成功");
         } else if (state === -1) {
             logManager.log("选择了不同意");
@@ -851,7 +847,7 @@ function jumpToPage(link) {
 
 // 打开网页
 function openLink(url) {
-    if (url.includes('huang1111') || url.includes('mcarc')) { // TODO 在移除全部相关链接后删除判定
+    if (url.includes('mcarc')) { // TODO 在移除全部相关链接后删除判定
         ifNavigating("open", "/minecraft_repository_test/default/error_not-found.html");
     } else {
         ifNavigating("open", url);

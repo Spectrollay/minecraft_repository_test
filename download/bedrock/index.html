@@ -61,10 +61,10 @@
     <header>
         <div class="header_left">
             <div class="header_item header_item_left with_menu" id="back" onclick="clickedBack();">
-                <img alt="" class="header_left_icon" id="back_icon" src=""/>
+                <img alt="" class="header_left_icon" id="back_icon" src="./images/Back.png"/>
             </div>
             <div class="header_item header_item_left" id="menu" onclick="clickedMenu();">
-                <img alt="" class="header_left_icon" id="menu_icon" src=""/>
+                <img alt="" class="header_left_icon" id="menu_icon" src="./images/Menu.png"/>
             </div>
             <div class="header_item header_item_left" id="home" onclick="playSoundType(this);mainPage();">
                 <img alt="" class="header_left_icon" src="./images/Home.png"/>
@@ -94,6 +94,17 @@
                     </div>
                     <div class="block_spacing"></div>
                     <div class="block mclang_cn_fix" id="mclang_cn_fix"></div>
+                    <div class="block_spacing"></div>
+                    <div class="block latest_quick_download" id="latest_quick_download">
+                        <div class="block_main wrap_flex">
+                            <div class="title2 download_block_title">最新版本快速下载</div>
+                            <link-block onclick="playSound('click');openLink('https://pan.huang1111.cn/s/8Qv7xUQ');">
+                                <div class="link_title">
+                                    <img alt="" class="link_title_img" src="./images/ExternalLink_white.png">打开网盘
+                                </div>
+                            </link-block>
+                        </div>
+                    </div>
                     <generate-area class="main_gen"></generate-area>
                     <div id="page_info"></div>
                 </main>
@@ -112,7 +123,12 @@
                             <div class="sidebar_detail_title">基岩版</div>
                         </div>
                         <div class="sidebar_list">
-                            <a class="sidebar_item" href="./download/bedrock/index.html#mclang_cn_fix"><article_list>中文译名修正</article_list></a>
+                            <a class="sidebar_item" href="./download/bedrock/#mclang_cn_fix">
+                                <article_list>中文译名修正</article_list>
+                            </a>
+                            <a class="sidebar_item" href="./download/bedrock/#latest_quick_download">
+                                <article_list>最新</article_list>
+                            </a>
                             <generate-area class="sidebar_gen"></generate-area>
                         </div>
                         <div class="sidebar_info">
