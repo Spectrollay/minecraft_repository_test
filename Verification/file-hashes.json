@@ -209,8 +209,8 @@
   "javascript\\download_index_version.js": "a26bc0634460dadabe41660033789c82",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "ba5b6b1b73f6b094e1ff920a64c47673",
-  "javascript\\public_script.js": "21de985b1a0c9ff407305d7b87f264d0",
+  "javascript\\public_define.js": "1ac026036f403f7ffe1b2d105b8c9290",
+  "javascript\\public_script.js": "855f7fef10af7ee8817be29a2edc8f9d",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
   "library\\axios.min.js": "8d395f4901858a8d5e48bf4c3b94e1df",
@@ -229,8 +229,8 @@
   "stylesheet\\advanced.css": "b682d80f16ab24363582cdb579950e57",
   "stylesheet\\custom_elements.css": "81fe5db20297e1fcf8f189c9f73dc933",
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
-  "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
+  "stylesheet\\loading_mask.css": "464cfc481b050935062bba4a3f2f6d1c",
   "stylesheet\\public_style.css": "25ed665d3db90cc546cc96910520e1f7",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "e051204ef637c46f33a24bdf1a145b91"
+  "updatelog\\index.html": "2a3a1f939f127e0b246507976cd420d4"
 }

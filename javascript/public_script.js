@@ -201,7 +201,9 @@ function initializeScrollContainers() {
 }
 
 // 初始化滚动容器
-initializeScrollContainers();
+document.addEventListener("DOMContentLoaded", function () {
+    initializeScrollContainers();
+});
 
 // 使用闭包的简化函数
 function createHandleScroll(customScrollbar, customThumb, container, content) {
@@ -229,7 +231,7 @@ function watchHeightChange() { // 检查高度变化 NOTE 在有容器高度平�
 }
 
 // 点击顶栏回到顶部
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('.header_logo').addEventListener('click', scrollToTop);
 });
 
@@ -563,7 +565,7 @@ function leaveTest() {
 function checkIfDonate(type, para) {
     const ifDonate = localStorage.getItem('donate') === 'true';
     console.log(ifDonate);
-    if(ifDonate === true) {
+    if (ifDonate === true) {
         if (type === "url") {
             ifNavigating("open", para)
         } else if (type === "fun") {
@@ -925,9 +927,7 @@ function delayedOpenLink(url) { // TODO 在页面完成迭代后移除
 }
 
 function launchApplication(deeplink) {
-    // setTimeout(function () {
     window.location.assign(deeplink);
-    // }, 100);
 }
 
 // 点击全屏遮罩事件
