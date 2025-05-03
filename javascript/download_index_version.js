@@ -290,6 +290,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                 // 添加到容器中
                 mainContainer.appendChild(mainBlock);
                 sidebarContainer.appendChild(sidebarBlock);
+                mainHandleScroll(); // 联动自定义网页滚动条
             });
         } catch (error) {
             logManager.log("加载版本索引错误: " + error.message, 'error');
