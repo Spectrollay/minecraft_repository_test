@@ -202,14 +202,14 @@
   "images\\update\\logo\\Village&Pillage.png": "afa9288d18710378aa0b997c4559aa5b",
   "images\\Wait.png": "12509b848ee9d86bb7c8b3c4a4996a90",
   "index.html": "309d1c09c2150ccdea097f0d0d1db20b",
-  "index_new.html": "488fd0f465a64df8ae2cc051b3bb0d28",
+  "index_new.html": "b830cbf15ecfa340d5660acd18e9a80b",
   "javascript\\advanced.js": "7415ba2f9ac6ddcaa7a0e5666f63c35c",
   "javascript\\custom_elements.js": "e596b0bbe568e5b8687e9042d429fffc",
   "javascript\\download_index_main.js": "3804d6655f9d3fa7d293f7076b9f4052",
   "javascript\\download_index_version.js": "a26bc0634460dadabe41660033789c82",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "3b04797ddf6d2da4ecd8c62a629de445",
+  "javascript\\public_define.js": "ba5b6b1b73f6b094e1ff920a64c47673",
   "javascript\\public_script.js": "21de985b1a0c9ff407305d7b87f264d0",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
@@ -230,7 +230,7 @@
   "stylesheet\\custom_elements.css": "81fe5db20297e1fcf8f189c9f73dc933",
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
   "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
-  "stylesheet\\public_style.css": "056efdb79fe0a72378d0b2a1e0cc429c",
+  "stylesheet\\public_style.css": "25ed665d3db90cc546cc96910520e1f7",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "37ba3dfa9306d0f6a9bb427e0b667af4"
+  "updatelog\\index.html": "e051204ef637c46f33a24bdf1a145b91"
 }

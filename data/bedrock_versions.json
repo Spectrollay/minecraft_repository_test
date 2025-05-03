@@ -21,15 +21,14 @@
             "platforms": {
               "android": {
                 "release": "未知",
-                // TODO
                 "build": "1.21.90.20, 1.21.90.21",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
-                // TODO
                 "note": "正式版暂未发布",
                 "style": "type",
+                "more_type": "true",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
@@ -62,66 +61,6 @@
                     "去验证版": "",
                     "多架构版": "",
                     "精简版": ""
-                  }
-                }
-              },
-              "ios": {
-                "release": "未知",
-                // TODO
-                "build": "无",
-                "support": "最低系统版本: iOS 13",
-                "arch": "ARM64",
-                "type": "IPA(原版)",
-                "size": "未知",
-                // TODO
-                "note": "正式版暂未发布",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "未知",
-                // TODO
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
-                "size": "未知",
-                // TODO
-                "note": "正式版暂未发布",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
                   }
                 }
               }
@@ -137,15 +76,14 @@
             "platforms": {
               "android": {
                 "release": "未知",
-                // TODO
                 "build": "1.21.80.20, 1.21.80.21, 1.21.80.22, 1.21.80.25, 1.21.80.27, 1.21.80.28",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
-                // TODO
                 "note": "正式版暂未发布",
                 "style": "type",
+                "more_type": "true",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
@@ -178,66 +116,6 @@
                     "去验证版": "",
                     "多架构版": "",
                     "精简版": ""
-                  }
-                }
-              },
-              "ios": {
-                "release": "未知",
-                // TODO
-                "build": "无",
-                "support": "最低系统版本: iOS 13",
-                "arch": "ARM64",
-                "type": "IPA(原版)",
-                "size": "未知",
-                // TODO
-                "note": "正式版暂未发布",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "未知",
-                // TODO
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
-                "size": "未知",
-                // TODO
-                "note": "正式版暂未发布",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
                   }
                 }
               }
@@ -252,14 +130,12 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "未知",
-                // TODO
+                "release": "1.21.70.03(+4)",
                 "build": "1.21.70.20, 1.21.70.22, 1.21.70.23, 1.21.70.24, 1.21.70.25, 1.21.70.26",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
-                // TODO
                 "note": "正式版暂未发布",
                 "style": "type",
                 "channels": {
@@ -294,66 +170,6 @@
                     "去验证版": "",
                     "多架构版": "",
                     "精简版": ""
-                  }
-                }
-              },
-              "ios": {
-                "release": "未知",
-                // TODO
-                "build": "无",
-                "support": "最低系统版本: iOS 13",
-                "arch": "ARM64",
-                "type": "IPA(原版)",
-                "size": "未知",
-                // TODO
-                "note": "正式版暂未发布",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "未知",
-                // TODO
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
-                "size": "未知",
-                // TODO
-                "note": "正式版暂未发布",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
                   }
                 }
               }
@@ -370,7 +186,7 @@
               "android": {
                 "release": "1.21.62.01",
                 "build": "无",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "478MB ~ 710MB",
@@ -408,62 +224,6 @@
                     "去验证版": "",
                     "多架构版": "",
                     "精简版": ""
-                  }
-                }
-              },
-              "ios": {
-                "release": "1.21.62.01",
-                "build": "无",
-                "support": "最低系统版本: iOS 13",
-                "arch": "ARM64",
-                "type": "IPA(原版)",
-                "size": "487MB",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "1.21.62.01",
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
-                "size": "未知",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
                   }
                 }
               }
@@ -480,7 +240,7 @@
               "android": {
                 "release": "1.21.61.01",
                 "build": "无",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "478MB ~ 710MB",
@@ -520,62 +280,6 @@
                     "精简版": ""
                   }
                 }
-              },
-              "ios": {
-                "release": "1.21.61.01",
-                "build": "无",
-                "support": "最低系统版本: iOS 13",
-                "arch": "ARM64",
-                "type": "IPA(原版)",
-                "size": "487MB",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "1.21.61.01",
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
-                "size": "未知",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
               }
             }
           },
@@ -590,7 +294,7 @@
               "android": {
                 "release": "1.21.60.10",
                 "build": "1.21.60.21, 1.21.60.23, 1.21.60.24, 1.21.60.25, 1.21.60.27, 1.21.60.28",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "241MB ~ 710MB",
@@ -630,62 +334,6 @@
                     "精简版": ""
                   }
                 }
-              },
-              "ios": {
-                "release": "1.21.60.10",
-                "build": "无",
-                "support": "最低系统版本: iOS 13",
-                "arch": "ARM64",
-                "type": "IPA(原版)",
-                "size": "489MB",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "1.21.60.10",
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
-                "size": "未知",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
               }
             }
           },
@@ -700,7 +348,7 @@
               "android": {
                 "release": "1.21.51.01, 1.21.51.02",
                 "build": "无",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "472MB ~ 617MB",
@@ -740,62 +388,6 @@
                     "精简版": ""
                   }
                 }
-              },
-              "ios": {
-                "release": "1.21.51.01",
-                "build": "无",
-                "support": "最低系统版本: iOS 13",
-                "arch": "ARM64",
-                "type": "IPA(原版)",
-                "size": "498MB",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "1.21.51.01",
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
-                "size": "未知",
-                "note": "无",
-                "style": "channel",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "完整": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "完整": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "完整": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "完整": ""
-                  }
-                }
               }
             }
           },
@@ -810,7 +402,7 @@
               "android": {
                 "release": "1.21.50.07",
                 "build": "1.21.50.20, 1.21.50.22, 1.21.50.24, 1.21.50.25, 1.21.50.26, 1.21.50.28, 1.21.50.29",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "236MB ~ 699MB",
@@ -850,14 +442,25 @@
                     "精简版": ""
                   }
                 }
-              },
+              }
+            }
+          },
+          // 更早版本
+          // ============================================================
+          // 1.21
+          // ============================================================
+          {
+            "id": "1.21",
+            "version_name": "1.21",
+            "update_artwork": "",
+            "platforms": {
               "ios": {
-                "release": "1.21.50.07",
+                "release": "",
                 "build": "无",
                 "support": "最低系统版本: iOS 13",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
-                "size": "512MB",
+                "size": "未知",
                 "note": "无",
                 "style": "channel",
                 "channels": {
@@ -880,9 +483,9 @@
                 }
               },
               "windows": {
-                "release": "1.21.50.07",
+                "release": "",
                 "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
+                "support": "最低系统版本: 未知",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
                 "size": "未知",
@@ -909,7 +512,6 @@
               }
             }
           }
-          // 更早版本
         ]
       },
       // ========================================================================================================================
@@ -932,12 +534,13 @@
               "android": {
                 "release": "",
                 "build": "",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "",
                 "note": "无",
                 "style": "type",
+                "more_type": "true",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
@@ -972,7 +575,18 @@
                     "精简版": ""
                   }
                 }
-              },
+              }
+            }
+          },
+          // 更早版本
+          // ============================================================
+          // 1.20
+          // ============================================================
+          {
+            "id": "1.20",
+            "version_name": "1.20",
+            "update_artwork": "",
+            "platforms": {
               "ios": {
                 "release": "",
                 "build": "无",
@@ -980,7 +594,7 @@
                 "arch": "ARM64",
                 "type": "IPA(原版)",
                 "size": "未知",
-                "note": "正式版暂未发布",
+                "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
@@ -1004,11 +618,11 @@
               "windows": {
                 "release": "",
                 "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
+                "support": "最低系统版本: 未知",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
                 "size": "未知",
-                "note": "正式版暂未发布",
+                "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
@@ -1031,7 +645,6 @@
               }
             }
           }
-          // 更早版本
         ]
       },
       // ========================================================================================================================
@@ -1054,12 +667,13 @@
               "android": {
                 "release": "",
                 "build": "",
-                "support": "目标API: 34 / 最小API: 26",
+                "support": "目标API: 34 | 最小API: 26",
                 "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "",
                 "note": "无",
                 "style": "type",
+                "more_type": "false",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
@@ -1136,11 +750,11 @@
               "windows": {
                 "release": "",
                 "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
+                "support": "最低系统版本: 未知",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
                 "size": "未知",
-                "note": "正式版暂未发布",
+                "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
@@ -1175,6 +789,391 @@
         "version_name": "1.18 - 洞穴与山崖(第二部分)",
         "child_versions": [
           // ============================================================
+          // 1.18.32
+          // ============================================================
+          {
+            "id": "1.18.32",
+            "version_name": "1.18.32",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.18.32.02(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ehup3oMq4wRFtKJ7H49arRsBhxFEry0oT5teR68yBFXIyA?e=lO81gB",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EncEkwrgtnpKog9KcJGOkOQBByuxEQyt1lT8mLevFEojog?e=r9xVaH",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1Nhj9Mi9E5tPO0SY9fGiO5g?pwd=uabx",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1fDnV9WJvl2-dESCPp3_UeA?pwd=1nng",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/2d797f1a3fe9",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/44b2ba2901d9",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-C8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-N8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.18.31
+          // ============================================================
+          {
+            "id": "1.18.31",
+            "version_name": "1.18.31",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.18.31.04(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EgolLH4ycsNAkIVvxjmgpLsB_odYiwPxHgaM_aLygezerg?e=eCx1rC",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EggUXVf1O2tJpOrz-yMNM_QBoxMGNHp0fzlYjXYqP9Vm_Q?e=EHRmne",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1bu4uGKJh2s8zhGuJ7Z3pog?pwd=amsv",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/195hvJrsmF4fyDYXDk1L8rg?pwd=xp7f",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/95ad81c7a2d8",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/e966605f8676",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-s8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-W8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.18.30
+          // ============================================================
+          {
+            "id": "1.18.30",
+            "version_name": "1.18.30",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.18.30.04(+3)",
+                "build": "1.18.20.21, 1.18.20.23, 1.18.20.25, 1.18.20.27, 1.18.20.29, 1.18.30.20, 1.18.30.22, 1.18.30.26, 1.18.30.28, 1.18.30.30, 1.18.30.32",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "1.18.30.20起应用将目标API从30提升至31. 从1.18.30起所有平台均已启用RenderDragon.",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnrR7NXtoIVAtwtsLTHsUzABNuUBPMX25sgDCBNHFZ25-A?e=7BYwTe",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eqf0nOHO_NtOjPK4BKKMaZAB3jjXmCaeglstfzjBT7P0qw?e=tJFzDO",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1okm34z5I3vwjhSyw5rsk3g?pwd=mf15",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1drOlzTZo2RhPdToFvHKZyA?pwd=1n2r",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/88012631f6d8",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/38eb025a1e47",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-n8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-28VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.18.12
+          // ============================================================
+          {
+            "id": "1.18.12",
+            "version_name": "1.18.12",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.18.12.01(+3)",
+                "build": "无",
+                "support": "目标API: 30 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EutGbIXgGd9FhUOY_buNhfABj76jT4_6JMXPcfhyDMnBEQ?e=HAaxr7",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtRWuR9gZ3ZHpS5NA7esP04B_EgpOpNVMC0tZvCfypbYAw?e=b6rL7N",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1fbf7If8ZbJhc1otExNbG5g?pwd=jg8w",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1qjSbvL8y3oBDmwdKqsK3Xw?pwd=3z2h",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/44b5a083424d",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/9c733122e1a4",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-P8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-X8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.18.10
+          // ============================================================
+          {
+            "id": "1.18.10",
+            "version_name": "1.18.10",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.18.10.04(+3)",
+                "build": "1.18.10.20, 1.18.10.21, 1.18.10.22, 1.18.10.24, 1.18.10.26, 1.18.10.27, 1.18.10.28",
+                "support": "目标API: 30 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "1.18.10.24起应用将目标API从29提升至30.",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EngqQcrBO49ItgZ06Xk5TfkBvxjaBTRDQW63-oJt9lL8yQ?e=NlzpaO",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/ErQRkZX7AH9NsHxQVdsq9poB6BAIcYInrNx7FZOGXlXPdw?e=VoKwuu",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1A5DtkBP1YaHMrrRn3ZSCsw?pwd=23b9",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1Yn_EG6Yfb6uonYWOkkILoA?pwd=jzv8",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/d913ec6ee53d",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/481153023237",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-Y8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-G8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.18.2
+          // ============================================================
+          {
+            "id": "1.18.2",
+            "version_name": "1.18.2",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.18.2.03(+3)",
+                "build": "无",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eov4ekWwfuVDv5Ez-pCJmZ8BOjNT3Pbil8w_Miwgic1FyA?e=vp7ovE",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eii02NnuVb1OrcDajQCvKRUB4GBxbFCMk3o-aat4ZI9PsQ?e=IKfSyi",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1ADV6U1nsUyHPQHTymoMAjg?pwd=i568",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1toykp9CzF4VuaPAacjeyuA?pwd=bgd6",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/a0b1039586a4",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/f08ebb130dc5",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-g8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-F8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.18.1
+          // ============================================================
+          {
+            "id": "1.18.1",
+            "version_name": "1.18.1",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.18.1.02(+3)",
+                "build": "无",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EjpFqp5bv-1DlWDLT2kOyakBDcu2ReWv4bVpUgtPgQUJzg?e=PUg68o",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EitjjrwZX6hLh3RTIYB-QMIBVRBiCG1sPHakH8xX1i4euQ?e=eOQblK",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1N98i4Ob58Cw5DKESS4WXZg?pwd=mtbt",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1zu0YZ1TgixwRZEhkMCK4Nw?pwd=4jue",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/4a09549b3445",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/c5af9c9a093b",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-M8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-w8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
           // 1.18.0
           // ============================================================
           {
@@ -1183,74 +1182,47 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "",
-                "support": "目标API: 34 / 最小API: 26",
-                "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
+                "release": "1.18.0.02(+3)",
+                "build": "1.18.0.20, 1.18.0.21, 1.18.0.22, 1.18.0.23, 1.18.0.24, 1.18.0.25, 1.18.0.27",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
-                "size": "",
-                "note": "无",
-                "style": "type",
-                "channels": {
-                  "channel1": {
-                    "name": "OneDrive",
-                    "原版": "",
-                    "中文译名修正": "",
-                    "去验证版": "",
-                    "多架构版": "",
-                    "精简版": ""
-                  },
-                  "channel2": {
-                    "name": "百度网盘",
-                    "原版": "",
-                    "中文译名修正": "",
-                    "去验证版": "",
-                    "多架构版": "",
-                    "精简版": ""
-                  },
-                  "channel3": {
-                    "name": "夸克网盘",
-                    "原版": "",
-                    "中文译名修正": "",
-                    "去验证版": "",
-                    "多架构版": "",
-                    "精简版": ""
-                  },
-                  "channel4": {
-                    "name": "123云盘",
-                    "原版": "",
-                    "中文译名修正": "",
-                    "去验证版": "",
-                    "多架构版": "",
-                    "精简版": ""
-                  }
-                }
-              },
-              "windows": {
-                "release": "",
-                "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
-                "arch": "x86_64",
-                "type": "APPX(原版)",
                 "size": "未知",
-                "note": "正式版暂未发布",
-                "style": "channel",
+                "note": "1.18.0.21将目标API从29提升至30(这一改动在1.18.0.25被回退以修复一些问题), 因此从该版本起游戏更新了数据外部存储目录.",
+                "style": "type",
+                "more_type": "false",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnSY_-kOxMlAuunRPK2wLu4BkBi39NindzvMZl7UqsAgww?e=SS7heo",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Etzol0RIsapPkDnenA49jRQBByHjlkFpiOuZLJuKwbl-pA?e=faVMii",
+                    "多架构版": "",
+                    "精简版": ""
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "原版": "https://pan.baidu.com/s/1_mjoPys7z7o0q7Nr87D3EA?pwd=zswq",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1p_ooJBW0ojN9j050R0xcSA?pwd=qy8e",
+                    "多架构版": "",
+                    "精简版": ""
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "原版": "https://pan.quark.cn/s/65a71049f30a",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/9ca0e8aa3c79",
+                    "多架构版": "",
+                    "精简版": ""
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "原版": "https://www.123684.com/s/qILA-J8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-I8VN3",
+                    "多架构版": "",
+                    "精简版": ""
                   }
                 }
               }
@@ -1265,30 +1237,30 @@
             "update_artwork": "",
             "platforms": {
               "ios": {
-                "release": "",
+                "release": "1.18.0, 1.18.1, 1.18.2, 1.18.10, 1.18.12, 1.18.30, 1.18.31",
                 "build": "无",
                 "support": "最低系统版本: iOS 10",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
-                "size": "未知",
+                "size": "145MB ~ 175MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eiv_HDYUqyFFgUSYI5tvT6wBIeO97epTzSM8xM__Ddpw9w?e=nbGD4k"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1y50gEIvPKURliWzzzj2dJw?pwd=n4jt"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/3440618d9f44"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-f8VN3"
                   }
                 }
               },
@@ -1334,6 +1306,446 @@
         "version_name": "1.17 - 洞穴与山崖(第一部分)",
         "child_versions": [
           // ============================================================
+          // 1.17.41
+          // ============================================================
+          {
+            "id": "1.17.41",
+            "version_name": "1.17.41",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.41.01(+3)",
+                "build": "无",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EpySZYntW6FFv41fDflIAnQBPj-hCAk9TS6p75ZPcNvBAQ?e=c9fEKt",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eme9jBYS4YhCmqhPJspQxb0BQBP9FoploQiDM6RRlZNZKA?e=x2pf7J",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1Plz8EwY82Ga7UMOuvUGOqA?pwd=sq3c",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1xyOewWZiy6J9LPVkAe5iZQ?pwd=hmyz",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/9cecb50d94f6",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/eb52dcb36c08",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-x8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-p8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.17.40
+          // ============================================================
+          {
+            "id": "1.17.40",
+            "version_name": "1.17.40",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.40.06(+3)",
+                "build": "1.17.40.20(+1), 1.17.40.21(+1), 1.17.40.23(+1)",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EqK9bE-0sPZMnfgYuOrjfiYBMSPN6ptxYZx9KtJgoD0oHQ?e=em0Wcw",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtjXUFXk7BRNtaL6kISUwrUBm4Fwk37Jc7WYkPgl49OKfQ?e=jU3b7L",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1XdH3x9g3JgLXMktZpdQi3Q?pwd=6y57",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1BVNn2G3yktELhFIbR-7pEg?pwd=swnr",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/da3e3c2d0f0e",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/11430a2b44d9",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-18VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-48VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.17.34
+          // ============================================================
+          {
+            "id": "1.17.34",
+            "version_name": "1.17.34",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.34.02",
+                "build": "无",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Em4Tg4Z_GJFCjOBzOLilNgAB8cXT8EoYfXhDoroBikYztA?e=wh0mZW",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ekc_1VM5BC9Iud2ZowNMdoUBKhFpt6Oqy9snLYAnOh0Jxg?e=FQ9GuC",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1s_AeooXdHPyWDydhiHtGlg?pwd=nsjx",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1Hwj5EWxg5M5WCdqvj7sKJQ?pwd=i6sf",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/b1cab4bf6261",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/576a81d48cb7",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-o8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-m8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.17.32
+          // ============================================================
+          {
+            "id": "1.17.32",
+            "version_name": "1.17.32",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.32.02(+3)",
+                "build": "无",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ev6waE2Tr89Fs0xFMcQYirEBkcYmcVysJMmmjhYuC2STAw?e=L11li9",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EkhXYyQxuF9Gg6Ygm2VPF8sBETdfyvtJeLBstWp30fgohg?e=WyMPPr",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1MNsfZOZZAcxHr258wB-zVg?pwd=nsmf",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1MlEI-jf95ObhgYa3LdPGCg?pwd=neym",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/49f897e259a0",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/5ea82b5d4b37",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-E8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-k8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.17.30
+          // ============================================================
+          {
+            "id": "1.17.30",
+            "version_name": "1.17.30",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.30.04(+3)",
+                "build": "1.17.20.20(+1), 1.17.20.21(+1), 1.17.20.22(+1), 1.17.20.23(+1), 1.17.30.20(+1), 1.17.30.21(+1), 1.17.30.22(+1), 1.17.30.23(+1), 1.17.30.24(+1), 1.17.30.25(+1)",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EiaT5cnBRz1CiLnaE071vXkBbty9_3irStTAmAgfo9e9AQ?e=dGfwAs",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EqkPdw_Sk95EsiDvG-Y5oRUBJKUtkdbSswcrx9NtBoOhsg?e=Vcw2yf",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1elvZNGiPZCf-VzOyxpLiLw?pwd=k66v",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1yvhmgb9O7XWnmZ4hMjaUaw?pwd=3a9h",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/4635220133eb",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/50ce97600476",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-H8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-A8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.17.11
+          // ============================================================
+          {
+            "id": "1.17.11",
+            "version_name": "1.17.11",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.11.01(+3)",
+                "build": "无",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ei0vVCai8DpHqueU745A1twB6vM8G5X7m-Gxph2uxjpBvQ?e=Dlg5kP",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ekrh48zzExdDjDuW744OV6UBo4h6hqtkS8ifur75ucJ4WA?e=Y0F7Uw",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1n2zS9HqUqu5-Agd3Y_Spdg?pwd=w37s",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1Or6dQCUHJsM4nkO8MLZBHQ?pwd=58t4",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/2416f3b1e1c8",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/9a7b25a9ff14",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-38VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-h8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.17.10
+          // ============================================================
+          {
+            "id": "1.17.10",
+            "version_name": "1.17.10",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.10.04(+3)",
+                "build": "1.17.10.20(+1), 1.17.10.22(+1), 1.17.10.23(+1)",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EpTE5pm35w9No1QLGVNH4jkBvxNznM3gFexNZL5lu8LrdA?e=kqHwJo",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnSQFK5QWuVFvj2XSrOzjIIBe6gapV2fhuMSicxaD53j4g?e=KXdIuS",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1hoh4lMF82jqr-F7enBP1Xw?pwd=igx6",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1AYJB3tYZvqE4VFb3dKk_Aw?pwd=jn18",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/ba27134d7f6c",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/6b451d5c37f1",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-v8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-d8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.17.2
+          // ============================================================
+          {
+            "id": "1.17.2",
+            "version_name": "1.17.2",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.17.2.01",
+                "build": "无",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EjY32S5zdY9Nq8a4Mi7Xo1cBz560G8iGYNpKTXV3dqBkvw?e=CDKFNg",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Et1mH8ewEfRKv9iSLHSVn5YBtVRk0D_ofHpGvWhgdd035w?e=SzMxe6",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/13yZ4WouCxfclrF4fI_sRCQ?pwd=enzt",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1FlkICxUW98HBWjz-8Qazbw?pwd=5gr8",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/54d2011c7700",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/f7acc08efd7b",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-jrVN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-T8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
           // 1.17.0
           // ============================================================
           {
@@ -1342,44 +1754,45 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "",
-                "support": "目标API: 34 / 最小API: 26",
-                "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
+                "release": "1.17.0.02(+3)",
+                "build": "1.16.230.50(+1), 1.16.230.52(+1), 1.16.230.54(+1), 1.16.230.56(+1), 1.17.0.50(+1), 1.17.0.52(+1), 1.17.0.54(+1), 1.17.0.56(+1), 1.17.0.58(+1)",
+                "support": "目标API: 29 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
-                "size": "",
+                "size": "未知",
                 "note": "无",
                 "style": "type",
+                "more_type": "false",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "原版": "",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EhKFsNwkL9tDjusklEw-4MQBTnMdGBTm1x7P_CGqQd4dbA?e=7CdMz6",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EhjUV4sFvs5GmNvydAVXfT4BTXb04PPcNpwLxks4ZKzRvg?e=RVcI9X",
                     "多架构版": "",
                     "精简版": ""
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "原版": "",
+                    "原版": "https://pan.baidu.com/s/1clS5y5MGOHDXnJsfndUECg?pwd=1vfq",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://pan.baidu.com/s/1feS_Ohh6YcLFlS8dSAKJog?pwd=fptc",
                     "多架构版": "",
                     "精简版": ""
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "原版": "",
+                    "原版": "https://pan.quark.cn/s/e5a5b8391887",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://pan.quark.cn/s/78da11e170e8",
                     "多架构版": "",
                     "精简版": ""
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "原版": "",
+                    "原版": "https://www.123684.com/s/qILA-yrVN3",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://www.123684.com/s/qILA-VrVN3",
                     "多架构版": "",
                     "精简版": ""
                   }
@@ -1396,7 +1809,7 @@
             "update_artwork": "",
             "platforms": {
               "ios": {
-                "release": "",
+                "release": "1.17.0, 1.17.2, 1.17.10, 1.17.11, 1.17.30, 1.17.32, 1.17.34, 1.17.40, 1.17.41",
                 "build": "无",
                 "support": "最低系统版本: iOS 10",
                 "arch": "ARM64",
@@ -1407,30 +1820,30 @@
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EpUD_dz2SHJBr-kBtY-X0FUBpH0-YweX5VqPNewIRqDmyw?e=wOL3Td"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/10zuws5vHQQF0hMlgTWzM_w?pwd=e8vy"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/3dda85d2be18"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-LrVN3"
                   }
                 }
               },
               "windows": {
                 "release": "",
                 "build": "无",
-                "support": "最低系统版本: Windows 10.0.19041.0",
+                "support": "最低系统版本: 未知",
                 "arch": "x86_64",
                 "type": "APPX(原版)",
                 "size": "未知",
-                "note": "正式版暂未发布",
+                "note": "无",
                 "style": "channel",
                 "channels": {
                   "channel1": {
@@ -1475,7 +1888,7 @@
               "android": {
                 "release": "1.16.221.01(+3)",
                 "build": "无",
-                "support": "目标API: 29 / 最小API: 21",
+                "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1530,7 +1943,7 @@
               "android": {
                 "release": "1.16.220.02(+3)",
                 "build": "1.16.220.50(+1), 1.16.220.51(+1), 1.16.220.52(+1)",
-                "support": "目标API: 29 / 最小API: 21",
+                "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1585,7 +1998,7 @@
               "android": {
                 "release": "1.16.210.05(+3)",
                 "build": "1.16.210.50(+1), 1.16.210.51(+1), 1.16.210.53(+1), 1.16.210.54(+1), 1.16.210.55(+1), 1.16.210.56(+1), 1.16.210.57(+1), 1.16.210.58(+1), 1.16.210.59(+1), 1.16.210.60(+1), 1.16.210.61(+1)",
-                "support": "目标API: 29 / 最小API: 21",
+                "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1640,7 +2053,7 @@
               "android": {
                 "release": "1.16.201.01(+3)",
                 "build": "无",
-                "support": "目标API: 29 / 最小API: 21",
+                "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1695,7 +2108,7 @@
               "android": {
                 "release": "1.16.200.02(+3)",
                 "build": "1.16.200.50(+1), 1.16.200.51(+1), 1.16.200.52(+1), 1.16.200.53(+1), 1.16.200.54(+1), 1.16.200.55(+1), 1.16.200.56(+1), 1.16.200.57(+1)",
-                "support": "目标API: 29 / 最小API: 21",
+                "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1750,7 +2163,7 @@
               "android": {
                 "release": "1.16.101.01(+3)",
                 "build": "无",
-                "support": "目标API: 29 / 最小API: 21",
+                "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1805,7 +2218,7 @@
               "android": {
                 "release": "1.16.100.04(+3)",
                 "build": "1.16.100.50(+1), 1.16.100.51(+1), 1.16.100.52(+1), 1.16.100.53(+1), 1.16.100.54(+1), 1.16.100.55(+1), 1.16.100.56(+1), 1.16.100.57(+1), 1.16.100.58(+1), 1.16.100.59(+1), 1.16.100.60(+1)",
-                "support": "目标API: 29 / 最小API: 21",
+                "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1860,7 +2273,7 @@
               "android": {
                 "release": "1.16.40.02(+3)",
                 "build": "无",
-                "support": "目标API: 28 / 最小API: 21",
+                "support": "目标API: 28 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1915,7 +2328,7 @@
               "android": {
                 "release": "1.16.20.03(+3)",
                 "build": "1.16.20.50(+1), 1.16.20.51(+1), 1.16.20.52(+1), 1.16.20.53(+1), 1.16.20.54(+1)",
-                "support": "目标API: 28 / 最小API: 21",
+                "support": "目标API: 28 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -1970,7 +2383,7 @@
               "android": {
                 "release": "1.16.10.02(+3)",
                 "build": "无",
-                "support": "目标API: 28 / 最小API: 21",
+                "support": "目标API: 28 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -2025,7 +2438,7 @@
               "android": {
                 "release": "1.16.1.02(+3)",
                 "build": "无",
-                "support": "目标API: 28 / 最小API: 21",
+                "support": "目标API: 28 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -2080,7 +2493,7 @@
               "android": {
                 "release": "1.16.0.2(+3)",
                 "build": "1.15.0.51, 1.15.0.53, 1.15.0.54, 1.15.0.55, 1.15.0.56, 1.16.0.51, 1.16.0.52, 1.16.0.53, 1.16.0.54, 1.16.0.55(+1), 1.16.0.57(+1), 1.16.0.58(+1), 1.16.0.59(+1), 1.16.0.60(+1), 1.16.0.61(+1), 1.16.0.63(+1), 1.16.0.64(+1), 1.16.0.65(+1), 1.16.0.66(+1), 1.16.0.67(+1), 1.16.0.68(+1)",
-                "support": "目标API: 28 / 最小API: 21",
+                "support": "目标API: 28 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
                 "size": "未知",
@@ -2212,7 +2625,7 @@
               "android": {
                 "release": "1.14.60.5(+3)",
                 "build": "无",
-                "support": "目标API: 28 / 最小API: 21",
+                "support": "目标API: 28 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK",
                 "size": "90MB ~ 93MB",
@@ -2250,7 +2663,7 @@
               "android": {
                 "release": "1.14.30.2(+1)",
                 "build": "1.14.30.51",
-                "support": "目标API: 28 / 最小API: 17",
+                "support": "目标API: 28 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "90MB ~ 94MB",
@@ -2288,7 +2701,7 @@
               "android": {
                 "release": "1.14.20.1(+1)",
                 "build": "1.14.2.50, 1.14.2.51, 1.14.25.1",
-                "support": "目标API: 28 / 最小API: 17",
+                "support": "目标API: 28 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "90MB ~ 94MB",
@@ -2326,7 +2739,7 @@
               "android": {
                 "release": "1.14.1.4(+1), 1.14.1.5(+1)",
                 "build": "1.14.0.50, 1.14.0.51, 1.14.0.52, 1.14.1.2, 1.14.1.3",
-                "support": "目标API: 28 / 最小API: 17",
+                "support": "目标API: 28 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "90MB ~ 94MB",
@@ -2364,7 +2777,7 @@
               "android": {
                 "release": "1.14.0.9(+1)",
                 "build": "1.14.0.1, 1.14.0.2, 1.14.0.3, 1.14.0.4, 1.14.0.5, 1.14.0.6",
-                "support": "目标API: 28 / 最小API: 17",
+                "support": "目标API: 28 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "90MB ~ 94MB",
@@ -2479,7 +2892,7 @@
               "android": {
                 "release": "1.13.0.34(+1), 1.13.1.5(+1)",
                 "build": "1.13.0.1, 1.13.0.2, 1.13.0.3, 1.13.0.4, 1.13.0.5, 1.13.0.6, 1.13.0.9, 1.13.0.13, 1.13.0.15, 1.13.0.16, 1.13.0.18",
-                "support": "目标API: 28 / 最小API: 17",
+                "support": "目标API: 28 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "83MB ~ 94MB",
@@ -2584,7 +2997,7 @@
               "android": {
                 "release": "1.12.0.28(+1), 1.12.1.1(+1)",
                 "build": "1.12.0.2, 1.12.0.3, 1.12.0.4, 1.12.0.6, 1.12.0.9, 1.12.0.10, 1.12.0.11, 1.12.0.12, 1.12.0.13, 1.12.0.14",
-                "support": "目标API: 26 / 最小API: 17",
+                "support": "目标API: 26 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "88MB ~ 91MB",
@@ -2689,7 +3102,7 @@
               "android": {
                 "release": "1.11.0.23(+1), 1.11.1.2(+1), 1.11.3.1(+1), 1.11.4.2(+1)",
                 "build": "1.11.0.1, 1.11.0.3, 1.11.0.4, 1.11.0.5, 1.11.0.7, 1.11.0.8, 1.11.0.9, 1.11.0.10",
-                "support": "目标API: 26 / 最小API: 17",
+                "support": "目标API: 26 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "86MB ~ 92MB",
@@ -2794,7 +3207,7 @@
               "android": {
                 "release": "1.10.0.7(+1)",
                 "build": "1.10.0.3, 1.10.0.4",
-                "support": "目标API: 26 / 最小API: 17",
+                "support": "目标API: 26 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "87MB ~ 90MB",
@@ -2899,7 +3312,7 @@
               "android": {
                 "release": "1.9.0.15(+1)",
                 "build": "1.9.0.0, 1.9.0.2, 1.9.0.3, 1.9.0.5",
-                "support": "目标API: 26 / 最小API: 17",
+                "support": "目标API: 26 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "85MB ~ 88MB",
@@ -3004,7 +3417,7 @@
               "android": {
                 "release": "1.8.0.24(+1), 1.8.1.2(+1)",
                 "build": "1.8.0.8, 1.8.0.10, 1.8.0.11, 1.8.0.13, 1.8.0.14",
-                "support": "目标API: 26 / 最小API: 17",
+                "support": "目标API: 26 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "83MB ~ 87MB",
@@ -3109,7 +3522,7 @@
               "android": {
                 "release": "1.7.0.13(+3)",
                 "build": "1.7.0.2, 1.7.0.3, 1.7.0.5, 1.7.0.7, 1.7.0.9",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "74MB ~ 86MB",
@@ -3214,7 +3627,7 @@
               "android": {
                 "release": "1.6.0.14(+3), 1.6.1.0(+3)",
                 "build": "1.6.0.1, 1.6.0.5, 1.6.0.6, 1.6.0.8, 1.6.0.30",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "74MB ~ 88MB",
@@ -3319,7 +3732,7 @@
               "android": {
                 "release": "1.5.0.14(+3), 1.5.1.2(+3), 1.5.2.1(+3), 1.5.3.0(+3)",
                 "build": "1.5.0.0, 1.5.0.1, 1.5.0.4, 1.5.0.7, 1.5.0.10",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "68MB ~ 73MB",
@@ -3424,7 +3837,7 @@
               "android": {
                 "release": "1.4.0.5(+3), 1.4.1.0(+3), 1.4.2.0(+3), 1.4.4.0(+3)",
                 "build": "1.2.14.2, 1.2.14.3, 1.2.20.1, 1.2.20.2",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "65MB ~ 69MB",
@@ -3529,7 +3942,7 @@
               "android": {
                 "release": "1.2.13.60",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "63MB ~ 64MB",
@@ -3567,7 +3980,7 @@
               "android": {
                 "release": "1.2.13.54(+3)",
                 "build": "1.2.13.5, 1.2.13.6, 1.2.13.8, 1.2.13.10, 1.2.13.11, 1.2.13.12",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "62MB ~ 64MB",
@@ -3605,7 +4018,7 @@
               "android": {
                 "release": "1.2.11.4(+3)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "60MB ~ 61MB",
@@ -3643,7 +4056,7 @@
               "android": {
                 "release": "1.2.10.2(+3)",
                 "build": "1.2.10.1",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "60MB ~ 61MB",
@@ -3681,7 +4094,7 @@
               "android": {
                 "release": "1.2.9.1(+3)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "60MB ~ 61MB",
@@ -3719,7 +4132,7 @@
               "android": {
                 "release": "1.2.8.0",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "60MB ~ 61MB",
@@ -3757,7 +4170,7 @@
               "android": {
                 "release": "1.2.7.2(+3)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "60MB ~ 61MB",
@@ -3795,7 +4208,7 @@
               "android": {
                 "release": "1.2.6.60(+3)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "59MB ~ 61MB",
@@ -3833,7 +4246,7 @@
               "android": {
                 "release": "1.2.6.55(+3)",
                 "build": "1.2.6.2",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "60MB ~ 61MB",
@@ -3871,7 +4284,7 @@
               "android": {
                 "release": "1.2.5.52(+3)",
                 "build": "1.2.5.0, 1.2.5.12, 1.2.5.15",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "58MB ~ 60MB",
@@ -3909,7 +4322,7 @@
               "android": {
                 "release": "1.2.3.6(+3)",
                 "build": "1.2.3.3",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "58MB ~ 64MB",
@@ -3947,7 +4360,7 @@
               "android": {
                 "release": "1.2.2.3(+3)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "64MB ~ 65MB",
@@ -3985,7 +4398,7 @@
               "android": {
                 "release": "1.2.1.1(+3)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "64MB ~ 65MB",
@@ -4023,7 +4436,7 @@
               "android": {
                 "release": "1.2.0.81(+3)",
                 "build": "1.2.0.2, 1.2.0.7, 1.2.0.9, 1.2.0.11, 1.2.0.15, 1.2.0.18, 1.2.0.22, 1.2.0.25, 1.2.0.31",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7, x86",
                 "type": "APK",
                 "size": "63MB ~ 65MB",
@@ -4138,7 +4551,7 @@
               "android": {
                 "release": "1.1.5.0(+1), 1.1.5.1",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "53MB ~56MB",
@@ -4176,7 +4589,7 @@
               "android": {
                 "release": "1.1.4.51(+1)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "55MB",
@@ -4214,7 +4627,7 @@
               "android": {
                 "release": "1.1.3.52(+1)",
                 "build": "1.1.3.0(+1), 1.1.3.1(+1)",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "54MB ~ 55MB",
@@ -4252,7 +4665,7 @@
               "android": {
                 "release": "1.1.2.50(+1)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "54MB",
@@ -4290,7 +4703,7 @@
               "android": {
                 "release": "1.1.1.51",
                 "build": "1.1.1.0(+1), 1.1.1.1(+1)",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "54MB",
@@ -4328,7 +4741,7 @@
               "android": {
                 "release": "1.1.0.55(+1)",
                 "build": "1.1.0.0(+1), 1.1.0.1(+1), 1.1.0.3(+1), 1.1.0.4(+1), 1.1.0.5(+1), 1.1.0.8(+1), 1.1.0.9(+1)",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "53MB ~ 56MB",
@@ -4443,7 +4856,7 @@
               "android": {
                 "release": "1.0.9.1(+1)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "48MB",
@@ -4481,7 +4894,7 @@
               "android": {
                 "release": "1.0.8.1(+1)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "48MB",
@@ -4519,7 +4932,7 @@
               "android": {
                 "release": "1.0.7.0(+1)",
                 "build": "无",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "48MB",
@@ -4557,7 +4970,7 @@
               "android": {
                 "release": "1.0.6.52(+1)",
                 "build": "1.0.6.0(+1)",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "48MB",
@@ -4595,7 +5008,7 @@
               "android": {
                 "release": "1.0.5.54(+1)",
                 "build": "1.0.5.0(+1), 1.0.5.3(+1), 1.0.5.11(+1), 1.0.5.13(+1)",
-                "support": "目标API: 24 / 最小API: 17",
+                "support": "目标API: 24 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "59MB ~ 60MB",
@@ -4633,7 +5046,7 @@
               "android": {
                 "release": "1.0.4.11(+1)",
                 "build": "1.0.4.0(+1), 1.0.4.1(+1)",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "58MB ~ 72MB",
@@ -4671,7 +5084,7 @@
               "android": {
                 "release": "1.0.3.12(+1)",
                 "build": "1.0.3.0(+1)",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "71MB ~ 72MB",
@@ -4709,7 +5122,7 @@
               "android": {
                 "release": "1.0.2.1(+1)",
                 "build": "无",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "无",
@@ -4747,7 +5160,7 @@
               "android": {
                 "release": "1.0.0.16(+1)",
                 "build": "0.17.0.1(+1), 0.17.0.2(+1), 1.0.0.0(+1), 1.0.0.1(+1), 1.0.0.2(+1), 1.0.0.7(+1)",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "59MB ~ 82MB",
@@ -4859,7 +5272,7 @@
               "android": {
                 "release": "0.16.0(+1), 0.16.1(+1), 0.16.2(+1)",
                 "build": "0.15.90.0(+1), 0.15.90.1(+1), 0.15.90.2(+1), 0.15.90.7(+1), 0.15.90.8(+1)",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "42MB ~ 56MB",
@@ -4961,7 +5374,7 @@
               "android": {
                 "release": "0.15.0(+1), 0.15.1(+1), 0.15.2(+1), 0.15.3(+1), 0.15.4(+1), 0.15.6(+1), 0.15.7(+1), 0.15.8(+1), 0.15.8.1(+1), 0.15.9(+1), 0.15.10(+1)",
                 "build": "0.15.0.a2, 0.15.0.a3, 0.15.0.a4, 0.14.99.0(+1), 0.14.99.2(+1), 0.14.99.3(+1), 0.15.0.50(+1),",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "28MB ~ 72MB",
@@ -5063,7 +5476,7 @@
               "android": {
                 "release": "0.14.0(+2), 0.14.1(+2), 0.14.2(+8)",
                 "build": "0.14.0.b1(+2), 0.14.0.b2(+2), 0.14.0.b3(+2), 0.14.0.b4(+2), 0.14.0.b5(+2), 0.14.0.b6(+2), 0.14.0.b7(+2)",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "18MB ~ 21MB",
@@ -5165,7 +5578,7 @@
               "android": {
                 "release": "0.13.0(+2), 0.13.1(+2),  0.13.2(+8)",
                 "build": "0.13.0.b1(+2), 0.13.0.b2(+2), 0.13.0.b3(+2), 0.13.0.b4(+2), 0.13.0.b5(+2)",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "17MB ~ 18MB",
@@ -5267,7 +5680,7 @@
               "android": {
                 "release": "0.12.1(+2), 0.12.2(+2), 0.12.3(+2)",
                 "build": "0.12.0.b1(+2), 0.12.0.b2(+2), 0.12.0.b3(+2), 0.12.0.b4(+2), 0.12.0.b5(+2), 0.12.0.b6(+2), 0.12.0.b7(+2), 0.12.0.b8(+2), 0.12.0.b9(+2), 0.12.0.b10(+2), 0.12.0.b11(+2), 0.12.0.b12(+2), 0.12.0.b13(+2)",
-                "support": "目标API: 22 / 最小API: 17",
+                "support": "目标API: 22 | 最小API: 17",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "12MB ~ 16MB",
@@ -5369,7 +5782,7 @@
               "android": {
                 "release": "0.11.0(+1), 0.11.1(+3)",
                 "build": "0.11.0.b1(+1), 0.11.0.b2(+1), 0.11.0.b3(+1), 0.11.0.b4(+1), 0.11.0.b5(+1), 0.11.0.b6(+1), 0.11.0.b7(+1), 0.11.0.b8(+1), 0.11.0.b9(+1), 0.11.0.b10(+1), 0.11.0.b11(+1), 0.11.0.b12(+1), 0.11.0.b13(+1), 0.11.0.b14(+1)",
-                "support": "目标API: 21 / 最小API: 11",
+                "support": "目标API: 21 | 最小API: 11",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "14MB ~ 15MB",
@@ -5443,7 +5856,7 @@
               "android": {
                 "release": "0.10.0(+1), 0.10.1(+1), 0.10.2(+1), 0.10.3(+1), 0.10.4(+1), 0.10.5(+1)",
                 "build": "",
-                "support": "目标API: 19 / 最小API: 11",
+                "support": "目标API: 19 | 最小API: 11",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "13MB",
@@ -5517,7 +5930,7 @@
               "android": {
                 "release": "0.9.0(+1), 0.9.1(+1), 0.9.2(+1), 0.9.3(+1), 0.9.4(+1), 0.9.5(+3)",
                 "build": "0.9.0.b1(+1), 0.9.0.b2(+1), 0.9.0.b3(+1), 0.9.0.b4(+1), 0.9.0.b5(+1), 0.9.0.b6(+1), 0.9.0.b7(+1), 0.9.0.b8(+1), 0.9.0.b9(+1), 0.9.0.b10(+1), 0.9.0.b11(+1), 0.9.0.b12(+1)",
-                "support": "目标API: 11 / 最小API: 11",
+                "support": "目标API: 11 | 最小API: 11",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "10MB ~ 13MB",
@@ -5591,7 +6004,7 @@
               "android": {
                 "release": "0.8.0(+1), 0.8.1(+1)",
                 "build": "0.8.0.b1(+1), 0.8.0.b2, 0.8.0.b3, 0.8.0.b4, 0.8.0.b5, 0.8.0.b6, 0.8.0.b7, 0.8.0.b8",
-                "support": "目标API: 11 / 最小API: 11",
+                "support": "目标API: 11 | 最小API: 11",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "10MB",
@@ -5665,7 +6078,7 @@
               "android": {
                 "release": "0.7.0, 0.7.1, 0.7.2, 0.7.3(+1), 0.7.4(+1), 0.7.5(+1), 0.7.6(+1)",
                 "build": "无",
-                "support": "目标API: 11 / 最小API: 11",
+                "support": "目标API: 11 | 最小API: 11",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "7MB ~ 10MB",
@@ -5739,7 +6152,7 @@
               "android": {
                 "release": "0.6.0, 0.6.1",
                 "build": "无",
-                "support": "目标API: 9 / 最小API: 9",
+                "support": "目标API: 9 | 最小API: 9",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "6MB",
@@ -5813,7 +6226,7 @@
               "android": {
                 "release": "0.5.0",
                 "build": "无",
-                "support": "目标API: 9 / 最小API: 9",
+                "support": "目标API: 9 | 最小API: 9",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "2MB ~ 6MB",
@@ -5887,7 +6300,7 @@
               "android": {
                 "release": "0.4.0(+1)",
                 "build": "无",
-                "support": "目标API: 9 / 最小API: 9",
+                "support": "目标API: 9 | 最小API: 9",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "2MB ~ 5MB",
@@ -5961,7 +6374,7 @@
               "android": {
                 "release": "0.3.0(+3), 0.3.2(+1), 0.3.3(+1)",
                 "build": "无",
-                "support": "目标API: 9 / 最小API: 9",
+                "support": "目标API: 9 | 最小API: 9",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "2MB ~ 6MB",
@@ -6035,7 +6448,7 @@
               "android": {
                 "release": "0.2.0(+2), 0.2.1(+3), 0.2.2",
                 "build": "无",
-                "support": "目标API: 9 / 最小API: 9",
+                "support": "目标API: 9 | 最小API: 9",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "2MB ~ 3MB",
@@ -6109,7 +6522,7 @@
               "android": {
                 "release": "0.1.0, 0.1.1(+1), 0.1.2(+1), 0.1.3(+2)",
                 "build": "无",
-                "support": "目标API: 9 / 最小API: 9",
+                "support": "目标API: 9 | 最小API: 9",
                 "arch": "ARMv7",
                 "type": "APK",
                 "size": "2MB",
