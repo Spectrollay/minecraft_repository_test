@@ -209,7 +209,7 @@
   "javascript\\download_index_version.js": "a26bc0634460dadabe41660033789c82",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "99e4e214aa609033365a807ce060e7a2",
+  "javascript\\public_define.js": "3b04797ddf6d2da4ecd8c62a629de445",
   "javascript\\public_script.js": "21de985b1a0c9ff407305d7b87f264d0",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
@@ -232,5 +232,5 @@
   "stylesheet\\loading_mask.css": "d459d4df41ec441782b557ef6b4c42a6",
   "stylesheet\\public_style.css": "056efdb79fe0a72378d0b2a1e0cc429c",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "ef24bf100890096e8895755780b605df"
+  "updatelog\\index.html": "37ba3dfa9306d0f6a9bb427e0b667af4"
 }
