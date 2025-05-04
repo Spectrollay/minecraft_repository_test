@@ -1,6 +1,6 @@
 {
   "404.html": "938876c8325cab7ef80df3c595f0d4cb",
-  "about\\contact.html": "4d900ec60da4717c752457bacbe27bcf",
+  "about\\contact.html": "a986e7a6bbba314b79ccf88c819469a8",
   "about\\donate.html": "bf9a2f22692cc12fc9e9c98e2c52c306",
   "about\\support.html": "e3c0b855e5489fecdea81a1e0f8f97c6",
   "advanced\\debug.html": "368a0e66f8131d60b5e92e4b0b761cdc",
@@ -209,7 +209,7 @@
   "javascript\\download_index_version.js": "d4d2d5d986be55a7230af48d7985be42",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "ba334a93f78e38dd16e18c341a290762",
+  "javascript\\public_define.js": "2ec72eb5eb498384f7c92006bfec8bdd",
   "javascript\\public_script.js": "855f7fef10af7ee8817be29a2edc8f9d",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
@@ -230,7 +230,7 @@
   "stylesheet\\custom_elements.css": "81fe5db20297e1fcf8f189c9f73dc933",
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
   "stylesheet\\loading_mask.css": "7b3de773e3b143e3a03578e784c97527",
-  "stylesheet\\public_style.css": "25ed665d3db90cc546cc96910520e1f7",
+  "stylesheet\\public_style.css": "f26c1be61e22d9383b1b9379920ca45e",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
   "updatelog\\index.html": "c229de3941138c1506c796a286615efb"
 }

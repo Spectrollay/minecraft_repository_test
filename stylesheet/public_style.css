@@ -1077,6 +1077,7 @@ link-block:hover, link-block:active {
 .contact_description {
     margin: 6px;
     max-width: 400px;
+    text-align: justify;
 }
 
 .donate_description {
