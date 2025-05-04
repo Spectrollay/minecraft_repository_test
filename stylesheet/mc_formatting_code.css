@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020. Spectrollay
+ *  Copyright © 2020. Spectrollay
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,65 +20,27 @@
  * SOFTWARE.
  */
 
-main {
-    color: #FFFFFF;
+.mcfc {
+    font-family: "Minecraft Seven", sans-serif;
 }
 
-.setting_title {
-    align-items: center;
-    display: flex;
-    font-size: 18px;
-    min-height: 60px;
-    padding: 0 16px;
+.randomChar {
+    display: inline-block;
+    white-space: nowrap;
 }
 
-.setting_block {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding: 10px 16px;
+.charWidth1 {
+    width: 5px;
 }
 
-.setting_block_title {
-    font-size: 16px;
+.charWidth2 {
+    width: 8px;
 }
 
-.setting_block_description {
-    color: #D0D1D4;
-    font-size: 14px;
+.charWidth3 {
+    width: 10px;
 }
 
-.setting_block_content {
-    margin: 6px 0;
-    max-width: 1000px;
-    width: 100%;
-}
-
-.setting_title_content {
-    align-self: center;
-    flex: 1;
-}
-
-.setting_control_right {
-    width: 140px;
-}
-
-.setting_btn {
-    width: calc(100% - 12px);
-}
-
-#debug {
-    display: none;
-}
-
-#the_end {
-    display: none;
-    margin: 20px;
-    min-height: 60px;
-}
-
-.red_stroke {
-    color: #C02D2D;
-    paint-order: stroke; /* 先描边后填充 */
-    -webkit-text-stroke: 0.1em #FFFFFF; /* 文字描边 */
+.charWidth4 {
+    width: 12px;
 }

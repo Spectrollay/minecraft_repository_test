@@ -657,6 +657,1161 @@
         "version_name": "1.19 - 荒野更新",
         "child_versions": [
           // ============================================================
+          // 1.19.83
+          // ============================================================
+          {
+            "id": "1.19.83",
+            "version_name": "1.19.83",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.83.01(+3)",
+                "build": "无",
+                "support": "目标API: 33 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EqhQm9cB7exAprLatto8hAIB9lQ_OmkSr1rtZKYrvCI6BQ?e=o3QmdN",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EuubiPLTbJNAtllUuj9GWN8BUw4aLWMz7wufp5bif0EzEg?e=pIoZp1",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1HD7gxIyA663tFgZ4_on6Lw?pwd=p23k",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1OGV9hhCe6qLbw7n3O4OtyA?pwd=idm5",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/6f0f3f251f57",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/d1f0ad87b88c",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-R0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-D0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.81
+          // ============================================================
+          {
+            "id": "1.19.81",
+            "version_name": "1.19.81",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.81.01(+3)",
+                "build": "无",
+                "support": "目标API: 33 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EgPq-2qFr0VMl1blsyhRwoMBtb3MCyrtjqbViTyK44MBpA?e=KIsiia",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EhUTpy_aX4NPqvuP71bnuRcBuAjvr_I0GuGuItjcfHOu0g?e=j5aSvu",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1idNmUT0irPiQxNtDls6eDg?pwd=t6r9",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1CPXYx4_8sIJ7arhkiIFCkA?pwd=8na8",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/bef948561881",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/3c5b5c88faed",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-N0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-O0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.80
+          // ============================================================
+          {
+            "id": "1.19.80",
+            "version_name": "1.19.80",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.80.02(+3)",
+                "build": "1.19.80.20, 1.19.80.21, 1.19.80.22, 1.19.80.23, 1.19.80.24",
+                "support": "目标API: 33 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EqwvUay94TpDr4qaxT7orcQBaOT1dxB4Ddl1w6qOoytq3g?e=ORn4tT",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnMGepvgLzBPqQirw0ZWnW8BHLfx04ePiMCZ_BDWLJ1Y3Q?e=dApgB9",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/18iau7QFUKYLVUS180gkmiw?pwd=u5de",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1f0auLPNkg2MWZZrhsUTiGQ?pwd=y62j",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/67c461464f1a",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/d8560ce764aa",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-W0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-C0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.73
+          // ============================================================
+          {
+            "id": "1.19.73",
+            "version_name": "1.19.73",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.73.02(+3)",
+                "build": "无",
+                "support": "目标API: 33 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Esc7ccU4nrFAppC3rliRjwQB91q-mWVB4Ry0jU8M_01LBg?e=Sjbb3u",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EldJopxMoMJKtMRYWTnb4uoBLoqhavxMYDTOwE12tYHkdA?e=pU0Fh2",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1M_WrThrWzNfU1nJxwUp1og?pwd=a77p",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1ymMMtNEvmRq1DbzNHeFsfw?pwd=msmw",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/83f859651156",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/3fe0a670b655",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-P0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-s0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.71
+          // ============================================================
+          {
+            "id": "1.19.71",
+            "version_name": "1.19.71",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.71.02(+3)",
+                "build": "无",
+                "support": "目标API: 33 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Etmrq5-GGdJCgIzMTBnpIXMBXnuFsacw2BYv7-dCmveV0Q?e=P2A7FQ",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EoEcPKwv0VxMmzkJ2jlqDEwBsPUMqAdUJYdKE7EJJVkcCw?e=BKSMYh",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1xeMDZu8dTmajW4SMvjj1zg?pwd=a3q2",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/10QK0ndjRddKJxdIZEDKvlQ?pwd=23am",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/6318d034532d",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/097f1a4d4aa6",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-F0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-Y0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.70
+          // ============================================================
+          {
+            "id": "1.19.70",
+            "version_name": "1.19.70",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.70.02(+3)",
+                "build": "1.19.70.20, 1.19.70.21, 1.19.70.22, 1.19.70.23, 1.19.70.24, 1.19.70.26",
+                "support": "目标API: 33 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EhfLrTN0sxFPqh52ECu3p3QBrSIpTlfiad6t52rro92GIQ?e=SKSyTX",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnFyGRlPz69Gm0HR7GdREMUBJMn5CEepDp0o5M0sS46BRQ?e=ZE3prA",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/173NIGfyk7hZJN4dizR0kPA?pwd=xwnq",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1K0Gk5YEMBzV73eIcF_WmMA?pwd=8bbm",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/13b127a84eb3",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/53a2a8ffbea3",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-M0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-w0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.63
+          // ============================================================
+          {
+            "id": "1.19.63",
+            "version_name": "1.19.63",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.63.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EjIPlxrKeytHs85Wl7RrNvgBv-tNVrFlbVfbt7HdbmjMHg?e=16fLOk",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EvAU88hgaN5FnuE6ffA-x7oBY_Wkcru0ncL9LzLTQVfgJA?e=rsYtIp",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1mHRG6ZqfliRyEX3lhfNQlg?pwd=r8sn",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1CH02qejfC00HhVurtJw_Pg?pwd=k4m9",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/3d700140a719",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/de5727983605",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-J0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-I0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.62
+          // ============================================================
+          {
+            "id": "1.19.62",
+            "version_name": "1.19.62",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.62.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Eq2KkuQ0ywBMkhTTtj8q95oB_D0W0zxMuEH9DK_-fZ06Zw?e=drlF7U",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EjUJJXQnBvRIlHhj4TJvIV4BZDFMNMeosYYifyibcoKTIg?e=Czvizm",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1G28S0bTNzGHXmiDnm03l4A?pwd=jwk3",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1qvuxu-9G-I4hMs2A9CniBQ?pwd=uhak",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/dbab44c143c0",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/690fbb1198f5",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-a0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-B0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.60
+          // ============================================================
+          {
+            "id": "1.19.60",
+            "version_name": "1.19.60",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.60.03(+3)",
+                "build": "1.19.60.20, 1.19.60.22, 1.19.60.23, 1.19.60.24, 1.19.60.25, 1.19.60.26, 1.19.60.27",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EvBdRPWiewdKjnRFEtzMiXABmCeVgcYgZrRt7J6Q8SJCsQ?e=QNKBNS",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EqTicRrehXlHhPQjc768SU0BhSEYBtILKqSxowxDNVpX5w?e=0XtsDT",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1QpsZJF7FYAHKc0rrkeaM5g?pwd=iegg",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1JVB5f81uPM7XPqaEsPdQXA?pwd=6knu",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/e687b8dea1c8",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/5958e692ec3f",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-p0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-f0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.51
+          // ============================================================
+          {
+            "id": "1.19.51",
+            "version_name": "1.19.51",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.51.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EsQkC0wDCIlMqmy5Lk_8OxoBT7Qs_FFDu3g9A6M8CyNBSQ?e=OyaUUm",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EkYR1K_groNKjzqXYv9nt90BjD8BJccdFTo0pZ335hx_yg?e=rxURxE",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1SyVm0A3oMNYI6WgDOsqOmg?pwd=9ejh",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1GA-uLzICjqAGVRJVrWJMBA?pwd=d65k",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/350a54cf0bd6",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/6caa9f065abc",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-40VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-x0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.50
+          // ============================================================
+          {
+            "id": "1.19.50",
+            "version_name": "1.19.50",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.50.02(+3)",
+                "build": "1.19.50.20, 1.19.50.21, 1.19.50.22, 1.19.50.23, 1.19.50.24, 1.19.50.25",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EgQfHaF9GjlMktMAnyqUHj0BmiLeye3-d8i5Syt4akb7ng?e=cwQ7ze",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtdyF901Gr1Ju28dzt9MaG4B3MZRVgU5Ej1fSe2bbYB29w?e=uThsUZ",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/13lz5yel-uMwqq0-GqyFoRw?pwd=rp8j",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1o6SfDthlOXzYBMkUXEcv9w?pwd=btm4",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/09f816280a06",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/74cfb36ec131",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-m0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-10VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.41
+          // ============================================================
+          {
+            "id": "1.19.41",
+            "version_name": "1.19.41",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.41.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EiJo008heGpJvxiO6H3bfHwBJSo5IL9K2TVHNg6iuhcdyw?e=DphaED",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ei1C1dzLMxhMtkdvR24PF-kBawdvRj8IY55AVuIv-pFUTg?e=vR5ZQb",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1Gl6duS7a9fbRZ23op-N5vw?pwd=w2is",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1u23RQAwiRgo79JVCfFUdtA?pwd=jy5u",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/bd2a820d3d68",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/608bda223f87",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-k0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-o0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.40
+          // ============================================================
+          {
+            "id": "1.19.40",
+            "version_name": "1.19.40",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.40.02(+3)",
+                "build": "1.19.40.20, 1.19.40.21, 1.19.40.22, 1.19.40.23, 1.19.40.24",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EmciVyNaJ4lKlxrl4BAZPp8BV3qodVvtsHDFoKzTmaMlbg?e=2gKuIp",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EhIM9PfyEFlBkSHY77UDHggBHQknyBMwHS7hMEA76LPMyg?e=HL2tz5",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1tAehWRKJoSr9epV3zNHMvg?pwd=wcj7",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1VaIa3nhhjwCu-HOr6ouAqg?pwd=vsue",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/333536efaa8f",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/9512f1b0d982",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-Q0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-E0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.31
+          // ============================================================
+          {
+            "id": "1.19.31",
+            "version_name": "1.19.31",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.31.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtrzH8sVcadGpBqEOfernNcB0ij7eUWy9J6L6FGiHGt6hg?e=kTfpQ3",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EoYfX3o1aQdDqQ5eU_09pAEBAYvEG-qUfaf8Wq0E1svuGw?e=xLBAFT",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1Zmbi6GM06hC4zE7jBBy4hA?pwd=4j2a",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1IgT4vNUMT9uEbuuRf7tN5g?pwd=hiir",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/c88de0b3de11",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/ab5732071e73",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-A0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-90VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.30
+          // ============================================================
+          {
+            "id": "1.19.30",
+            "version_name": "1.19.30",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.30.04(+3)",
+                "build": "1.19.30.20, 1.19.30.21, 1.19.30.22, 1.19.30.23, 1.19.30.25",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EhA6cgQhZPtItsfpMoGmPk8B49xF9N_jUGQ3sLaJIZe-SQ?e=5D09dp",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ei6LgnnUrIhCi_YribCusM8BlkCKsxK4e_3oHivbgzMsAQ?e=lHdr1l",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1qgoCHzemG_fk3kxE2k6fAg?pwd=7a9r",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/15sjDk_s8PoX7YuHicr8iog?pwd=1xyq",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/c29690690abb",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/770242549a8e",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-h0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-H0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.22
+          // ============================================================
+          {
+            "id": "1.19.22",
+            "version_name": "1.19.22",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.22.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EqR_HyzQnhVGtgSATSmKK3oBmPWGVWwbUC7mLqrcmbH9Ew?e=PTNd3L",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/Ei5Mu01Z6I5PpdQk78txmC0BjtFzqYDbeISTegJ0RKVspA?e=6cCfxt",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1LudFuYi9QB0Hd_nvinAfTA?pwd=qb3k",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1700EFdMKP4JMJB62VUo-Mg?pwd=g93c",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/612e7354c7eb",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/09a579ae9bf5",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-d0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-30VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.21
+          // ============================================================
+          {
+            "id": "1.19.21",
+            "version_name": "1.19.21",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.21.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EpEp_VlwSj9OolmNusUN4G4BNzcSaOYnxrocfdacU6SKlQ?e=0CuUTl",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EuPFi6J2R2hOv7d1IcxvV00BNjVUCUA2C9iJ7Vh502OhBA?e=eSkkYy",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/18XeJms3sWvBlXMRTDliUwQ?pwd=yxvw",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1jq5dk4eC9yBuXaO9hQGBXg?pwd=rieq",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/80aa2d473693",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/085bd97963a9",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-T0VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-v0VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.20
+          // ============================================================
+          {
+            "id": "1.19.20",
+            "version_name": "1.19.20",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.20.02(+3)",
+                "build": "1.19.20.20, 1.19.20.22, 1.19.20.23, 1.19.20.24",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EuGXKkdoKJ9KhMErZMRbOioBwiFsXzyQJiIbSfd1k838eQ?e=ZELZPe",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EnEF01ZLrW9DurVcn7_D-2gB6Is2E3WIZ4MFCxGrK0L2lw?e=hsRjoF",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1Wid9Z6_dqhDYQ9_iSKRe8g?pwd=qk41",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1NgJU_HuRKJsbGk3Z6mU4qw?pwd=36jk",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/83d1dacd16e1",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/b0960668db7e",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-V8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-j8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.11
+          // ============================================================
+          {
+            "id": "1.19.11",
+            "version_name": "1.19.11",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.11.01(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EtHeqtpM1eZIsMGlz33Yvb8BFCsJg486LuojpPzftYKf3A?e=EnfgvE",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EsDwkOxStC5EmZMTTDT21UkBvDCP-stoL_vCHIofxUibCQ?e=pLaZfS",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1Bo3k8m3nmkDlYqoVHUyuLA?pwd=fkic",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/12n-XNWLW6Up-aMUM-AxSdA?pwd=c5by",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/b14cb745941b",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/a6154dae0809",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-68VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-y8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.10
+          // ============================================================
+          {
+            "id": "1.19.10",
+            "version_name": "1.19.10",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.10.03(+3)",
+                "build": "1.19.10.20, 1.19.10.21, 1.19.10.22, 1.19.10.23, 1.19.10.24",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EmQTV7c2epdKncwaPpD_370Btilr6Hw7FlZdlOwy_zqSmg?e=5e0Ej0",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EuHy2hwk-TFEobvRpBV8q68BniuE9qQBofRKPzSaKrf8CQ?e=5zuCk4",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/12FHZpbfttnPx_ouRq9XsYg?pwd=trmn",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1jWDP_GCtRkNJlAkuCbNVVA?pwd=vq3q",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://pan.quark.cn/s/88c2174cb5c3",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/6e24ebdee853",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-58VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-q8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
+          // 1.19.2
+          // ============================================================
+          {
+            "id": "1.19.2",
+            "version_name": "1.19.2",
+            "update_artwork": "",
+            "platforms": {
+              "android": {
+                "release": "1.19.2.02(+3)",
+                "build": "无",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
+                "type": "APK(修改版) / APKS(原版)",
+                "size": "未知",
+                "note": "无",
+                "style": "type",
+                "more_type": "false",
+                "channels": {
+                  "channel1": {
+                    "name": "OneDrive",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EsgFZ6qP_tFKuHh50lm_sG4BTSgZLYs14S2WLmYnUM3XOw?e=Ks6D9F",
+                    "中文译名修正": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EvokL1O8MgZHpTKRynnPWhsBm2BdRAv36l6KGGtFYsKu9Q?e=bjdlnE",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel2": {
+                    "name": "百度网盘",
+                    "原版": "https://pan.baidu.com/s/1fyxbQBrbn7FcoryLFGUijA?pwd=shy9",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.baidu.com/s/1Sgh5XZ_jreWGCC3fXOhy8g?pwd=ut4b",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel3": {
+                    "name": "夸克网盘",
+                    "原版": "https://www.123684.com/s/qILA-L8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://pan.quark.cn/s/53ed80993ce9",
+                    "多架构版": "",
+                    "精简版": ""
+                  },
+                  "channel4": {
+                    "name": "123云盘",
+                    "原版": "https://www.123684.com/s/qILA-z8VN3",
+                    "中文译名修正": "",
+                    "去验证版": "https://www.123684.com/s/qILA-L8VN3",
+                    "多架构版": "",
+                    "精简版": ""
+                  }
+                }
+              }
+            }
+          },
+          // ============================================================
           // 1.19.0
           // ============================================================
           {
@@ -665,45 +1820,45 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "",
-                "build": "",
-                "support": "目标API: 34 | 最小API: 26",
-                "arch": "ARMv8, x86_64, ARMv7, x86, Universal",
+                "release": "1.19.0.05(+3)",
+                "build": "1.19.0.20, 1.19.0.24, 1.19.0.26, 1.19.0.28, 1.19.0.30, 1.19.0.32, 1.19.0.34",
+                "support": "目标API: 31 | 最小API: 21",
+                "arch": "ARMv8, x86_64, ARMv7, x86",
                 "type": "APK(修改版) / APKS(原版)",
-                "size": "",
+                "size": "未知",
                 "note": "无",
                 "style": "type",
                 "more_type": "false",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "原版": "",
+                    "原版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EoLYkk7xcTVGvQP0er8dbfgBy4CwTxlANcXqzS7Bp8iv6g?e=9ZOfN5",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EphQ-ST1115IhQqWiwS7F7IBFtkS2GrXI6K5RLQOAAogIA?e=gKkwP7",
                     "多架构版": "",
                     "精简版": ""
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "原版": "",
+                    "原版": "https://pan.baidu.com/s/1C2N2fofSuv8fyDh2lqavaQ?pwd=gspu",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://pan.baidu.com/s/1mvr7TUtoZoYFgqxG3Jw2ew?pwd=2ubn",
                     "多架构版": "",
                     "精简版": ""
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "原版": "",
+                    "原版": "https://pan.quark.cn/s/3d5d0385ad82",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://pan.quark.cn/s/6d3e93804a21",
                     "多架构版": "",
                     "精简版": ""
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "原版": "",
+                    "原版": "https://www.123684.com/s/qILA-t8VN3",
                     "中文译名修正": "",
-                    "去验证版": "",
+                    "去验证版": "https://www.123684.com/s/qILA-i8VN3",
                     "多架构版": "",
                     "精简版": ""
                   }
@@ -720,30 +1875,30 @@
             "update_artwork": "",
             "platforms": {
               "ios": {
-                "release": "",
+                "release": "1.19.0, 1.19.2, 1.19.10, 1.19.11, 1.19.20, 1.19.20, 1.19.21, 1.19.22, 1.19.30, 1.19.31, 1.19.40, 1.19.41, 1.19.50, 1.19.51, 1.19.60, 1.19.62, 1.19.63, 1.19.70, 1.19.71, 1.19.73, 1.19.80, 1.19.81, 1.19.83",
                 "build": "无",
                 "support": "最低系统版本: iOS 11",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
-                "size": "未知",
-                "note": "1.19.70起应用将最低系统版本要求从10提升至11.",
+                "size": "178MB ~ 578MB",
+                "note": "1.19.10起应用内置了原版音乐包. 1.19.70起应用将最低系统版本要求从10提升至11.",
                 "style": "channel",
                 "channels": {
                   "channel1": {
                     "name": "OneDrive",
-                    "完整": ""
+                    "完整": "https://stellarnetwork-my.sharepoint.com/:f:/g/personal/spectrollay_e5_ilogic_studio/EmZBVxYGn1ROqKdzcJpBBJkBNEVkHQ7CC8jlC35Dy4lEvQ?e=FgqzSr"
                   },
                   "channel2": {
                     "name": "百度网盘",
-                    "完整": ""
+                    "完整": "https://pan.baidu.com/s/1h0RCu30O_00ivdCYc6O6Zg?pwd=3c86"
                   },
                   "channel3": {
                     "name": "夸克网盘",
-                    "完整": ""
+                    "完整": "https://pan.quark.cn/s/5669b4de8b9b"
                   },
                   "channel4": {
                     "name": "123云盘",
-                    "完整": ""
+                    "完整": "https://www.123684.com/s/qILA-78VN3"
                   }
                 }
               },

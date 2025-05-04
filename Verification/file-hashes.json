@@ -209,8 +209,9 @@
   "javascript\\download_index_version.js": "d4d2d5d986be55a7230af48d7985be42",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "2ec72eb5eb498384f7c92006bfec8bdd",
-  "javascript\\public_script.js": "855f7fef10af7ee8817be29a2edc8f9d",
+  "javascript\\mc_formatting_code.js": "ca5ffd6f9e382c3f16e6eb3160c716fe",
+  "javascript\\public_define.js": "d42be7b146d2be2978e27c960b1ba1a9",
+  "javascript\\public_script.js": "a982caebd57b7a0314c92b0e039bfe2d",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
   "library\\axios.min.js": "8d395f4901858a8d5e48bf4c3b94e1df",
@@ -226,11 +227,12 @@
   "sounds\\toast.ogg": "1f84c8b2e15b22fae498e875423b46bc",
   "sounds\\xp.ogg": "1e1f433746c1b4b86497abab5dfc9cfb",
   "starcoin\\store.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "stylesheet\\advanced.css": "b682d80f16ab24363582cdb579950e57",
+  "stylesheet\\advanced.css": "fb95e5d7d24437c4c4929b4a41009273",
   "stylesheet\\custom_elements.css": "81fe5db20297e1fcf8f189c9f73dc933",
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
-  "stylesheet\\loading_mask.css": "7b3de773e3b143e3a03578e784c97527",
+  "stylesheet\\loading_mask.css": "0ecfa3a122c8cb6384962dadc829d2fc",
+  "stylesheet\\mc_formatting_code.css": "762368f6591158a6709b5ebf43e78441",
   "stylesheet\\public_style.css": "f26c1be61e22d9383b1b9379920ca45e",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "c229de3941138c1506c796a286615efb"
+  "updatelog\\index.html": "39a094ed02e7e696bd0b7d3a3410e3aa"
 }

@@ -296,6 +296,8 @@ const advanced_js = document.createElement('script'); // 高级功能函数
 advanced_js.src = rootPath + 'javascript/advanced.js';
 const custom_elements_js = document.createElement('script'); // 自定义元素函数
 custom_elements_js.src = rootPath + 'javascript/custom_elements.js';
+const mc_formatting_code_js = document.createElement('script'); // MC格式化代码函数
+mc_formatting_code_js.src = rootPath + 'javascript/mc_formatting_code.js';
 const public_style = document.createElement('link'); // 公共样式
 public_style.rel = 'stylesheet';
 public_style.href = rootPath + 'stylesheet/public_style.css';
@@ -306,6 +308,7 @@ document.head.appendChild(accessibility_js);
 document.head.appendChild(exp_js);
 document.head.appendChild(advanced_js);
 document.head.appendChild(custom_elements_js);
+document.head.appendChild(mc_formatting_code_js);
 document.head.appendChild(public_style);
 
 logManager.log("浏览器UA: " + navigator.userAgent)
