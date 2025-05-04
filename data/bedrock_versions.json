@@ -1424,7 +1424,7 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "1.17.34.02",
+                "release": "1.17.34.02(+3)",
                 "build": "无",
                 "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
@@ -1699,7 +1699,7 @@
             "update_artwork": "",
             "platforms": {
               "android": {
-                "release": "1.17.2.01",
+                "release": "1.17.2.01(+3)",
                 "build": "无",
                 "support": "目标API: 29 | 最小API: 21",
                 "arch": "ARMv8, x86_64, ARMv7, x86",
@@ -1814,7 +1814,7 @@
                 "support": "最低系统版本: iOS 10",
                 "arch": "ARM64",
                 "type": "IPA(原版)",
-                "size": "未知",
+                "size": "134MB ~ 141MB",
                 "note": "无",
                 "style": "channel",
                 "channels": {
