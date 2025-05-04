@@ -104,7 +104,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                 sidebarContainer.appendChild(sidebarBlock);
                 setTimeout(function () {
                     mainHandleScroll(); // 联动自定义网页滚动条
-                }, 100)
+                }, 10)
             });
         })
         .catch(error => logManager.log("加载版本索引错误: " + error, 'error'));
