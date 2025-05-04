@@ -205,11 +205,11 @@
   "index_new.html": "b830cbf15ecfa340d5660acd18e9a80b",
   "javascript\\advanced.js": "7415ba2f9ac6ddcaa7a0e5666f63c35c",
   "javascript\\custom_elements.js": "e596b0bbe568e5b8687e9042d429fffc",
-  "javascript\\download_index_main.js": "5037e1e193bea6b0112d619934c97626",
-  "javascript\\download_index_version.js": "1843c824edb837b0e8e73fc40b6b113f",
+  "javascript\\download_index_main.js": "4a1e6b40b5081090daccf3888d9e9513",
+  "javascript\\download_index_version.js": "9ddb505762bb1755a03c4a27c6053c14",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\public_define.js": "1ac026036f403f7ffe1b2d105b8c9290",
+  "javascript\\public_define.js": "ba334a93f78e38dd16e18c341a290762",
   "javascript\\public_script.js": "855f7fef10af7ee8817be29a2edc8f9d",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
@@ -232,5 +232,5 @@
   "stylesheet\\loading_mask.css": "7b3de773e3b143e3a03578e784c97527",
   "stylesheet\\public_style.css": "25ed665d3db90cc546cc96910520e1f7",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "2a3a1f939f127e0b246507976cd420d4"
+  "updatelog\\index.html": "c229de3941138c1506c796a286615efb"
 }

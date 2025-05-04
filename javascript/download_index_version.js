@@ -56,7 +56,7 @@ if (!version) {
 
 if (window.location.pathname.includes('download/bedrock/')) {
     dataFile = 'data/bedrock_versions.json';
-    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+    const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
     if (collator.compare(version, '1.2') < 0) {
         edition = '携带版';
     } else {
@@ -290,7 +290,9 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                 // 添加到容器中
                 mainContainer.appendChild(mainBlock);
                 sidebarContainer.appendChild(sidebarBlock);
-                mainHandleScroll(); // 联动自定义网页滚动条
+                setTimeout(function () {
+                    mainHandleScroll(); // 联动自定义网页滚动条
+                }, 100)
             });
         } catch (error) {
             logManager.log("加载版本索引错误: " + error.message, 'error');
