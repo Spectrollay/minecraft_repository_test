@@ -24,6 +24,10 @@
     font-family: "Minecraft Seven", sans-serif;
 }
 
+.mcfc span {
+    /*-webkit-text-stroke: 0 currentColor; !* 隐藏文字描边 *!*/
+}
+
 .randomChar {
     display: inline-block;
     white-space: nowrap;

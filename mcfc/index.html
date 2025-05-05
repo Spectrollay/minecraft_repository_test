@@ -1,0 +1,245 @@
+<!--
+  ~  Copyright © 2020. Spectrollay
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <base href="../"><!-- 项目根路径 -->
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <!--<style>-->
+    <!--    -->
+    <!--</style>-->
+    <title>Template</title>
+</head>
+
+<body>
+<div class="loading_mask" id="loading_mask">
+    <div>
+        <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
+        <div class="spinner">
+            <div class="spinner"><span class="spinner_text">载入中</span></div>
+        </div>
+        <noscript>
+            <style>
+                #spinner_img, .spinner_text {
+                    display: none;
+                }
+            </style>
+            <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
+            <div class="spinner">
+                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
+            </div>
+        </noscript>
+    </div>
+</div>
+<dispaly-area>
+    <header>
+        <div class="header_left">
+            <div class="header_item header_item_left" id="back" onclick="clickedBack();">
+                <img alt="" class="header_left_icon" id="back_icon" src="./images/Back.png"/>
+            </div>
+            <div class="header_item header_item_left" id="home" onclick="playSoundType(this);mainPage();">
+                <img alt="" class="header_left_icon" src="./images/Home.png"/>
+            </div>
+        </div>
+        <div class="header_logo"><span class="header_title">Minecraft Kit</span></div>
+        <div class="header_right">
+            <div class="header_item header_item_right" id="reload" onclick="playSoundType(this);reloadPage();">
+                <img alt="" class="header_right_icon" src="./images/Refresh.png"/>
+            </div>
+            <div class="header_item header_item_right" id="feedback" onclick="playSoundType(this);contact();">
+                <img alt="" class="header_right_icon" src="./images/Feedback.png"/>
+            </div>
+        </div>
+    </header>
+    <display-body>
+        <scroll-view class="main_scroll_view">
+            <scroll-container class="main_scroll_container">
+                <main class="scroll_container" id="main">
+                    <div class="block_spacing"></div>
+                    <div class="block">
+                        <div class="block_main title_block">
+                            <div class="title1">Minecraft格式化代码渲染<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href);" src="./images/ExternalLink_white.png"></div>
+                            <div class="title_info">V2.0
+                                <vertical-line></vertical-line>
+                                2025-05-05
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block_spacing"></div>
+                    <div class="block">
+                        <div class="block_main wrap_flex">
+                            <div class="input_area">
+                                <div class="title3">输入</div>
+                                <div class="text_field_container do_not_save" id="formatting_code_input">
+                                    <text-field hint="在此输入包含§的格式化代码.." single-line="false" status="enabled" type="all"></text-field>
+                                    <div class="flex">
+                                        <custom-button data="input|green|||false||" js="renderFormattingCode();" text="渲染"></custom-button>
+                                        <custom-button data="input|normal|||false||" js="resetRender();" text="重置"></custom-button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="output_area">
+                                <div class="title3">输出</div>
+                                <div class="output_code" id="render_area">
+                                    <span class="hint_text">请点击渲染按钮后再来看看吧!</span>
+                                </div>
+                                <div class="output_tip">发现问题? 点击右上角联系我们图标进行反馈!</div>
+                            </div>
+                        </div>
+                        <div class="block_main wrap_flex">
+                            <div>
+                                <div class="title3">使用指南</div>
+                                <div class="use_guide">
+                                    <div>欢迎使用Minecraft格式化代码渲染在线工具!</div>
+                                    <div style="margin: 8px">
+                                        <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png"/>
+                                        <div>即将到来</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </scroll-container>
+            <custom-scrollbar class="main_custom_scrollbar">
+                <custom-scrollbar-track></custom-scrollbar-track>
+                <custom-scrollbar-thumb></custom-scrollbar-thumb>
+            </custom-scrollbar>
+        </scroll-view>
+    </display-body>
+</dispaly-area>
+
+<!--遮罩-->
+<!--除了顶栏-->
+<div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
+
+</body>
+
+<script src="./javascript/loading.js"></script>
+<script src="./javascript/public_script.js"></script>
+<script>
+    function renderFormattingCode() {
+        const input = document.getElementById('formatting_code_input').querySelector('text-field').getValue();
+        const renderArea = document.getElementById('render_area');
+        const span = document.createElement('span');
+
+        renderArea.innerHTML = '';
+        if (!/\S/.test(input)) {
+            const hint = document.createElement('span');
+            hint.className = 'hint_text';
+            hint.textContent = '请输入内容再来试试吧!';
+            renderArea.appendChild(hint);
+            return;
+        }
+
+        span.className = 'mcfc';
+        span.dataset.rawText = input;
+        span.textContent = input;
+
+        renderArea.innerHTML = '';
+        renderArea.appendChild(span);
+
+        renderAllMinecraftText();
+    }
+
+    function resetRender() {
+        const renderArea = document.getElementById('render_area');
+        const hint = document.createElement('span');
+
+        document.getElementById('formatting_code_input').querySelector('text-field').resetValue();
+
+        renderArea.innerHTML = '';
+        hint.className = 'hint_text';
+        hint.textContent = '请点击渲染按钮后再来看看吧!';
+        renderArea.appendChild(hint);
+    }
+</script>
+
+<style>
+    .title_block {
+        flex-direction: column;
+    }
+
+    .title_info {
+        align-items: center;
+        display: flex;
+        font-family: "Minecraft Seven", sans-serif;
+        font-size: 18px;
+        height: auto;
+        margin: 10px;
+        justify-content: center;
+    }
+
+    vertical-line {
+        height: 20px;
+    }
+
+    .input_area, .output_area {
+        display: flex;
+        flex-direction: column;
+        margin: 2px 10px;
+    }
+
+    .output_area {
+        align-self: flex-start;
+        width: 336px;
+    }
+
+    .text_field_container {
+        height: auto !important;
+        display: unset;
+    }
+
+    text-field, textarea {
+        min-height: 100px !important;
+        width: 324px;
+    }
+
+    .input_btn {
+        width: 150px;
+    }
+
+    .output_code {
+        border: 1px #FFFFFF solid;
+        margin: 6px;
+        padding: 10px;
+    }
+
+    .hint_text {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .output_tip {
+        margin: 4px 2px;
+    }
+
+    .use_guide {
+        margin: 10px;
+    }
+</style>
+
+</html>

@@ -180,7 +180,7 @@ function parseMinecraftText(text, defaultColor) {
         const outerSpan = document.createElement("span");
         const innerSpan = document.createElement("span");
 
-        outerSpan.style.cssText = `paint-order: stroke; -webkit-text-stroke: 0.05em ${strokeColor}; display: inline-block;`;
+        outerSpan.style.cssText = `paint-order: stroke; -webkit-text-stroke: 0.03em ${strokeColor}; display: inline-block;`;
         innerSpan.style.cssText = currentColor + currentStyles;
 
         if (obfuscated) {
