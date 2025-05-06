@@ -205,13 +205,13 @@
   "index.html": "309d1c09c2150ccdea097f0d0d1db20b",
   "index_new.html": "b830cbf15ecfa340d5660acd18e9a80b",
   "javascript\\advanced.js": "7415ba2f9ac6ddcaa7a0e5666f63c35c",
-  "javascript\\custom_elements.js": "28bd2ce5d10a051900a468c936f7f04c",
+  "javascript\\custom_elements.js": "5418e990ebe0e93a94ee670792323eab",
   "javascript\\download_index_main.js": "33ed97a06dcbf1adc37e9bad1177f9c6",
   "javascript\\download_index_version.js": "d4d2d5d986be55a7230af48d7985be42",
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
-  "javascript\\mc_formatting_code.js": "4614c3baf99529a9bbad544da7d12784",
-  "javascript\\public_define.js": "7855e22859003e1e50affcbae4d58323",
+  "javascript\\mc_formatting_code.js": "3372418e1f1cba5a4b49cd10fa32a03c",
+  "javascript\\public_define.js": "b869f273c14cf502159cd9b1b05b29a8",
   "javascript\\public_script.js": "2528caaa252df09c24ba04e0e134208e",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
@@ -219,7 +219,7 @@
   "library\\gsap.min.js": "353e2906f2f9520678e8d82e58d40c97",
   "library\\lazyLoadImage.js": "c750536512ca3ed856c712ce1dfe533a",
   "LICENSE": "1d67e842dcbb5ca57d364cd01b24b5ff",
-  "mcfc\\index.html": "0ad29b51bde37a83f4c9507fa7b9695f",
+  "mcfc\\index.html": "c6ce38b726160177b0e558f53af7b25c",
   "notifications\\index.html": "f32c4db6458f691cc497f5fd19fbd921",
   "sounds\\button.ogg": "543573dd41a4e5962f7e5ef0510077b0",
   "sounds\\click.ogg": "697d86282cec21fea5e64a58db441432",
@@ -237,5 +237,5 @@
   "stylesheet\\mc_formatting_code.css": "78a25ed75ca2e95d3e07b4a9fa202891",
   "stylesheet\\public_style.css": "f26c1be61e22d9383b1b9379920ca45e",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "39a094ed02e7e696bd0b7d3a3410e3aa"
+  "updatelog\\index.html": "b39d26bf6562cbe05a632f37a0400399"
 }

@@ -105,20 +105,58 @@
                             </div>
                             <div class="output_area">
                                 <div class="title3">输出</div>
-                                <div class="output_code" id="render_area">
+                                <div class="output_code" id="render_area" onclick="initFullscreenZoom();playSound('click');">
                                     <span class="hint_text">点击渲染按钮在此进行预览.</span>
                                 </div>
                                 <div class="output_tip">发现问题? 点击右上角联系我们图标进行反馈!</div>
+                                <div class="output_tip">如果你认为这个项目做得不错或对你有所帮助, 不妨<a href="https://github.com/Spectrollay/minecraft_formatting_code_online" target="_blank">为项目点个星标</a>支持一下~ 十分感谢!</div>
                             </div>
                         </div>
                         <div class="block_main wrap_flex">
                             <div>
                                 <div class="title3">使用指南</div>
-                                <div class="use_guide">
+                                <div class="use_guidance">
                                     <div>欢迎使用MC格式化代码渲染器!</div>
-                                    <div style="margin: 8px">
-                                        <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png"/>
-                                        <div>即将到来</div>
+                                    <div class="guidance_text">
+                                        <div>在开始使用之前, 你需要了解<a href="https://zh.minecraft.wiki/w/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81" target="_blank"><img alt="link" class="link_img" src=""/>Minecraft格式化代码</a>的基本用法.</div>
+                                        <div>你需要在页面上方的输入框内输入包含<a class="no_link" onclick="copyText(this.text)">§</a>(点击即可复制)的格式化代码, 完成输入后, 点击输入框下方的渲染按钮, 即可在输出框内渲染出对应的文本. 点击输出框可以使输出内容全屏显示并自由缩放. 如果你需要快速清除输入框和输出框, 请点击输入框下方的重置按钮.</div>
+                                        <div>以下为本站使用的代码规范:</div>
+                                        <div>§0: <span class="mcfc">§0 #000000</span></div>
+                                        <div>§1: <span class="mcfc">§1 #0000AA</span></div>
+                                        <div>§2: <span class="mcfc">§2 #00AA00</span></div>
+                                        <div>§3: <span class="mcfc">§3 #00AAAA</span></div>
+                                        <div>§4: <span class="mcfc">§4 #AA0000</span></div>
+                                        <div>§5: <span class="mcfc">§5 #AA00AA</span></div>
+                                        <div>§6: <span class="mcfc">§6 #FFAA00</span></div>
+                                        <div>§7: <span class="mcfc">§7 #AAAAAA</span></div>
+                                        <div>§8: <span class="mcfc">§8 #555555</span></div>
+                                        <div>§9: <span class="mcfc">§9 #5555FF</span></div>
+                                        <div>§a: <span class="mcfc">§a #55FF55</span></div>
+                                        <div>§b: <span class="mcfc">§b #55FFFF</span></div>
+                                        <div>§c: <span class="mcfc">§c #FF5555</span></div>
+                                        <div>§d: <span class="mcfc">§d #FF55FF</span></div>
+                                        <div>§e: <span class="mcfc">§e #FFFF55</span></div>
+                                        <div>§f: <span class="mcfc">§f #FFFFFF</span></div>
+                                        <div>§g: <span class="mcfc">§g #DDD605</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§h: <span class="mcfc">§h #E3D4D1</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§i: <span class="mcfc">§i #CECACA</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§j: <span class="mcfc">§j #443A3B</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§k: <span class="mcfc">§k 这是一段乱码文本</span><span class="hint_text"> - 乱码</span></div>
+                                        <div>§l: <span class="mcfc">§l 粗体文本</span></div>
+                                        <div>§m: <span class="mcfc">§m #971607</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§M: <span class="mcfc">§M 删除线</span><span class="hint_text"> - 兼容Java版样式</span></div>
+                                        <div>§n: <span class="mcfc">§n #B4684D</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§N: <span class="mcfc">§N 下划线</span><span class="hint_text"> - 兼容Java版样式</span></div>
+                                        <div>§o: <span class="mcfc">§o 斜体文本</span></div>
+                                        <div>§p: <span class="mcfc">§p #DEB12D</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§q: <span class="mcfc">§q #47A036</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§r: <span class="mcfc">§r 默认文本</span></div>
+                                        <div>§s: <span class="mcfc">§s #2CBAA8</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§t: <span class="mcfc">§t #21497B</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§u: <span class="mcfc">§u #9A5CC6</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>§v: <span class="mcfc">§v #EB7114</span><span class="hint_text"> - 使用基岩版样式</span></div>
+                                        <div>在渲染规则上, 本站除了渲染文本外部有额外的文字描边外其余与基岩版基本保持一致. 文字描边的渲染基于当前字体颜色, 删除线与下划线的渲染基于默认字体颜色. 当字体颜色为浅色时这三者均渲染为深色, 当字体颜色为深色时这三者均渲染为浅色.</div>
+                                        <div>恭喜你! 你已经了解了基本的使用方法, 快来探索更多的进阶功能吧!</div>
                                     </div>
                                 </div>
                             </div>
@@ -179,6 +217,157 @@
         hint.textContent = '点击渲染按钮在此进行预览.';
         renderArea.appendChild(hint);
     }
+
+    function initFullscreenZoom() {
+        if (document.querySelector('.zoom_mask')) return;
+
+        const renderArea = document.getElementById('render_area');
+        const zoomMask = document.createElement('div');
+        const zoomContainer = document.createElement('div');
+        const clonedRenderArea = renderArea.cloneNode(true);
+
+        zoomMask.className = 'zoom_mask';
+        zoomContainer.className = 'zoom_container';
+        clonedRenderArea.removeAttribute('onclick');
+        clonedRenderArea.id = '';
+        zoomContainer.appendChild(clonedRenderArea);
+        let scale = 2;
+        let startX = 0, startY = 0;
+        let initialX = 0, initialY = 0;
+        let isDragging = false;
+
+        // 鼠标拖动
+        zoomContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - initialX;
+            startY = e.clientY - initialY;
+            zoomContainer.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            initialX = e.clientX - startX;
+            initialY = e.clientY - startY;
+            updateTransform();
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                zoomContainer.style.cursor = 'grab';
+            }
+        });
+
+        // 触摸拖动 + 双指缩放
+        let lastTouchDistance = null;
+
+        zoomContainer.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                const touch = e.touches[0];
+                startX = touch.clientX - initialX;
+                startY = touch.clientY - initialY;
+                zoomContainer.style.cursor = 'grabbing';
+            } else if (e.touches.length === 2) {
+                isDragging = false;
+                lastTouchDistance = getTouchDistance(e.touches);
+            }
+        });
+
+        zoomContainer.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // 阻止页面滚动等默认行为
+            if (e.touches.length === 1 && isDragging) { // 确保是单指并且处于拖动状态
+                const touch = e.touches[0];
+                initialX = touch.clientX - startX;
+                initialY = touch.clientY - startY;
+                updateTransform();
+            } else if (e.touches.length === 2) {
+                const newDistance = getTouchDistance(e.touches);
+                if (lastTouchDistance) {
+                    const deltaScale = newDistance / lastTouchDistance;
+                    scale = Math.min(Math.max(0.5, scale * deltaScale), 5);
+                    updateTransform();
+                }
+                lastTouchDistance = newDistance;
+            }
+        });
+
+        zoomContainer.addEventListener('touchend', (e) => {
+            if (e.touches.length < 2) {
+                lastTouchDistance = null;
+            }
+            // 如果没有触摸点且之前在拖动
+            if (e.touches.length < 1 && isDragging) {
+                isDragging = false;
+                zoomContainer.style.cursor = 'grab';
+            }
+        });
+
+        // 鼠标滚轮缩放
+        zoomMask.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            scale = Math.min(Math.max(0.5, scale + delta), 5);
+            updateTransform();
+        });
+
+        // 更新变换
+        function updateTransform() {
+            zoomContainer.style.transform = `translate(${initialX}px, ${initialY}px) scale(${scale})`;
+        }
+
+        // 获取双指间距离
+        function getTouchDistance(touches) {
+            const dx = touches[0].clientX - touches[1].clientX;
+            const dy = touches[0].clientY - touches[1].clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        // 主题配置
+        const THEMES = Object.freeze([
+            {name: 'gray', background: '#48494a', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)'},
+            {name: 'black', background: '#000000', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)'},
+            {name: 'white', background: '#FFFFFF', color: '#000000', hint: 'rgba(0, 0, 0, 0.8)'},
+        ]);
+        let currentThemeIndex = 0;
+
+        function applyTheme(theme) {
+            clonedRenderArea.style.backgroundColor = theme.background;
+            clonedRenderArea.style.color = theme.color;
+            if (clonedRenderArea.querySelector('.hint_text')) {
+                clonedRenderArea.querySelector('.hint_text').style.color = theme.hint;
+            }
+        }
+
+        // 应用初始默认主题
+        applyTheme(THEMES[currentThemeIndex]);
+
+        // 关闭按钮
+        const closeBtn = document.createElement('div');
+        closeBtn.className = 'zoom_close_btn';
+        closeBtn.innerHTML = `<img alt="" class="modal_close_btn_img" src="./images/cross_white.png"/>`;
+        closeBtn.onclick = () => {
+            playSound('click');
+            document.body.removeChild(zoomMask);
+        };
+
+        // 主题切换按钮
+        const themeBtn = document.createElement('div');
+        themeBtn.className = 'zoom_theme_btn';
+        themeBtn.textContent = '🎨';
+        themeBtn.onclick = () => {
+            currentThemeIndex = (currentThemeIndex + 1) % THEMES.length;
+            applyTheme(THEMES[currentThemeIndex]);
+            renderAllMinecraftText();
+            playSound('click');
+        };
+
+        zoomMask.appendChild(closeBtn);
+        zoomMask.appendChild(themeBtn);
+        zoomMask.appendChild(zoomContainer);
+        document.body.appendChild(zoomMask);
+    }
 </script>
 
 <style>
@@ -226,9 +415,13 @@
     }
 
     .output_code {
-        border: 1px #FFFFFF solid;
+        border: 1px rgba(255, 255, 255, 0.6) solid;
         margin: 6px;
         padding: 10px;
+    }
+
+    .output_code:hover {
+        background: #58585A;
     }
 
     .hint_text {
@@ -239,8 +432,85 @@
         margin: 4px 2px;
     }
 
-    .use_guide {
+    .use_guidance {
         margin: 10px;
+    }
+
+    .guidance_text {
+        margin: 6px;
+        max-width: 700px;
+        text-align: justify;
+    }
+
+    .guidance_text div {
+        margin: 6px 0;
+    }
+
+    .no_link {
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        width: 16px;
+    }
+
+    #render_area {
+        cursor: pointer;
+    }
+
+    .zoom_mask {
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #FFFFFF;
+        display: flex;
+        height: calc(100% - 44px);
+        justify-content: center;
+        left: 0;
+        overflow: hidden;
+        position: fixed;
+        top: 44px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .zoom_container {
+        cursor: grab;
+        position: relative;
+        transform: scale(2);
+        transition: transform 0.1s ease;
+        width: 48%;
+    }
+
+    .zoom_container #render_area {
+        background: #48494A;
+        cursor: grab;
+    }
+
+    .zoom_close_btn, .zoom_theme_btn {
+        align-items: center;
+        background: #48494A;
+        border: 1px rgba(255, 255, 255, 0.6) solid;
+        cursor: pointer;
+        display: flex;
+        height: 34px;
+        justify-content: center;
+        position: absolute;
+        width: 34px;
+        z-index: 2;
+    }
+
+    .zoom_close_btn {
+        right: 20px;
+        top: 20px;
+    }
+
+    .zoom_theme_btn {
+        right: 66px;
+        top: 20px;
+    }
+
+    .zoom_close_btn:hover {
+        background: #58585A;
+        cursor: pointer;
     }
 </style>
 

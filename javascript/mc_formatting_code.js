@@ -48,7 +48,7 @@ const styleMap = {
 };
 
 // 字符宽度分组池
-const allPools = {
+const charPools = {
     'charWidth1': "',.:;i|! `l",
     'charWidth2': "*-I[]jt\"()<>fk{}",
     'charWidth3': "$%&+/0123456789=?ABCDEFGHJKLMNOPQRSTUVWXYZ\\^_abcdeghmnopqrsuvwxyz",
@@ -56,22 +56,48 @@ const allPools = {
 };
 
 // 构建字符 => 宽度类名映射表
-const charToWidthClassMap = {};
-for (const [cls, chars] of Object.entries(allPools)) {
-    for (const char of chars) {
-        charToWidthClassMap[char] = cls;
-    }
+const charToWidthClassMap = Object.fromEntries(
+    Object.entries(charPools).flatMap(([cls, chars]) => chars.split('').map(c => [c, cls]))
+);
+
+const fallbackCharWidthMap = {};
+
+// 统计各宽度组权重
+function calculateWidthGroupWeights() {
+    const total = Object.values(charPools).reduce((sum, pool) => sum + pool.length, 0);
+    return Object.fromEntries(Object.entries(charPools).map(([group, pool]) => [group, pool.length / total]));
 }
 
-// 获取字符的宽度类名
+// 按权重随机选择一个宽度组(根据字符池长度)
+function selectWidthGroupByWeight(weights) {
+    const rand = Math.random();
+    let cumulativeWeight = 0;
+
+    for (const [group, weight] of Object.entries(weights)) {
+        cumulativeWeight += weight;
+        if (rand <= cumulativeWeight) {
+            return group;
+        }
+    }
+
+    return Object.entries(weights).reduce((a, b) => a[1] > b[1] ? a : b)[0]; // 防止浮点误差
+}
+
+// 获取字符宽度组(未知字符随机选并缓存)
 function getCharWidthClass(c) {
-    return charToWidthClassMap[c] || 'charWidth3';
+    if (charToWidthClassMap[c]) return charToWidthClassMap[c];
+    if (fallbackCharWidthMap[c]) return fallbackCharWidthMap[c];
+
+    const weights = calculateWidthGroupWeights();
+    const randomWidth = selectWidthGroupByWeight(weights);
+    fallbackCharWidthMap[c] = randomWidth;
+    return randomWidth;
 }
 
 // 获取与宽度相近的随机字符(用于§k乱码)
 function getRandomChar(baseChar) {
-    const cls = getCharWidthClass(baseChar);
-    const pool = allPools[cls] || allPools['charWidth3'];
+    const widthClass = getCharWidthClass(baseChar);
+    const pool = charPools[widthClass] || charPools['charWidth3'];
     return pool[Math.floor(Math.random() * pool.length)] || ' ';
 }
 
@@ -126,7 +152,7 @@ function getStrokeColor(color) {
     if (!rgb) return '#000000';
     const [r, g, b] = rgb;
     const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
-    return brightness < 128 ? '#FFFFFF' : '#000000';
+    return brightness < 128 ? '#FFFFFFCC' : '#000000CC';
 }
 
 // 将带有§代码的字符串解析为HTML结构
@@ -144,16 +170,15 @@ function parseMinecraftText(text, defaultColor) {
                 const hex = colorMap[code];
                 strokeColor = getStrokeColor(hex);
                 currentColor = `color: ${hex};`;
-                currentStyles = '';
-                obfuscated = false;
+                currentStyles = ''; // 颜色代码重置所有样式
+                obfuscated = false; // 颜色代码重置乱码状态
             } else if (styleMap[code]) {
-                // 对于下划线和删除线,加上描边颜色
+                // 设置下划线和删除线的颜色(与描边颜色相同)
                 if (code === 'M' || code === 'N') {
                     currentStyles += styleMap[code] + `text-decoration-color: ${parseColorToHexCached(defaultColor)};`;
                 } else {
                     currentStyles += styleMap[code];
                 }
-                obfuscated = false;
             } else if (code === 'r') {
                 // 重置样式
                 currentColor = `color: ${defaultColor};`;
@@ -162,7 +187,6 @@ function parseMinecraftText(text, defaultColor) {
                 obfuscated = false;
             } else if (code === 'k') {
                 // 启用乱码
-                strokeColor = getStrokeColor(defaultColor);
                 obfuscated = true;
             }
             continue;
@@ -213,9 +237,11 @@ function renderAllMinecraftText() {
 
 // 每30ms更新一次乱码字符
 setInterval(() => {
-    document.querySelectorAll(".randomChar").forEach(el => {
-        const baseChar = el.dataset.char || "A";
-        el.textContent = getRandomChar(baseChar);
+    document.querySelectorAll(".randomChar").forEach(element => { // element是外部元素
+        const baseChar = element.dataset.char || "a";
+        if (element.firstChild && element.firstChild.nodeName === 'SPAN') { // 确保内部元素存在
+            element.firstChild.textContent = getRandomChar(baseChar);
+        }
     });
 }, 30);
 
