@@ -301,11 +301,13 @@
     // 设置触摸拖动与双指缩放功能
     function setupTouchHandlers(mask, container, state) {
         let lastTouchDistance = null;
+        let wasPinching = false;
 
         // 双指开始缩放
         mask.addEventListener('touchstart', e => {
             if (e.touches.length === 2) {
                 lastTouchDistance = getTouchDistance(e.touches);
+                wasPinching = true;
             }
         });
 
@@ -323,18 +325,30 @@
             }
         });
 
-        // 单指离开或结束缩放
+        // 双指缩放结束
         mask.addEventListener('touchend', e => {
-            if (e.touches.length < 2) lastTouchDistance = null;
+            if (e.touches.length < 2) {
+                lastTouchDistance = null;
+            }
         });
 
-        // 单指拖动
+        // 单指拖动开始
         container.addEventListener('touchstart', e => {
             if (e.touches.length === 1) {
-                state.isDragging = true;
                 const touch = e.touches[0];
-                state.startX = touch.clientX - state.initialX;
-                state.startY = touch.clientY - state.initialY;
+
+                // 如果是从缩放切换为拖动则重置偏移量
+                if (wasPinching) {
+                    wasPinching = false;
+                    state.startX = touch.clientX - state.initialX;
+                    state.startY = touch.clientY - state.initialY;
+                } else {
+                    // 否则保持原行为
+                    state.startX = touch.clientX - state.initialX;
+                    state.startY = touch.clientY - state.initialY;
+                }
+
+                state.isDragging = true;
                 container.style.cursor = 'grabbing';
             }
         });
@@ -506,7 +520,7 @@
         margin: 6px 0;
     }
 
-    .no_link {
+    .clickable_no_link {
         cursor: pointer;
         display: inline-block;
         text-align: center;
