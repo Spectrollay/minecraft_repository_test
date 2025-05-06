@@ -262,27 +262,15 @@
         // 触摸拖动 + 双指缩放
         let lastTouchDistance = null;
 
-        zoomContainer.addEventListener('touchstart', (e) => {
-            if (e.touches.length === 1) {
-                isDragging = true;
-                const touch = e.touches[0];
-                startX = touch.clientX - initialX;
-                startY = touch.clientY - initialY;
-                zoomContainer.style.cursor = 'grabbing';
-            } else if (e.touches.length === 2) {
-                isDragging = false;
+        zoomMask.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
                 lastTouchDistance = getTouchDistance(e.touches);
             }
         });
 
-        zoomContainer.addEventListener('touchmove', (e) => {
-            e.preventDefault(); // 阻止页面滚动等默认行为
-            if (e.touches.length === 1 && isDragging) { // 确保是单指并且处于拖动状态
-                const touch = e.touches[0];
-                initialX = touch.clientX - startX;
-                initialY = touch.clientY - startY;
-                updateTransform();
-            } else if (e.touches.length === 2) {
+        zoomMask.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 2) {
+                e.preventDefault();
                 const newDistance = getTouchDistance(e.touches);
                 if (lastTouchDistance) {
                     const deltaScale = newDistance / lastTouchDistance;
@@ -293,10 +281,34 @@
             }
         });
 
-        zoomContainer.addEventListener('touchend', (e) => {
+        zoomMask.addEventListener('touchend', (e) => {
             if (e.touches.length < 2) {
                 lastTouchDistance = null;
             }
+        });
+
+        zoomContainer.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                const touch = e.touches[0];
+                startX = touch.clientX - initialX;
+                startY = touch.clientY - initialY;
+                zoomContainer.style.cursor = 'grabbing';
+            }
+        });
+
+        zoomContainer.addEventListener('touchmove', (e) => {
+            // 确保是单指并且处于拖动状态
+            if (e.touches.length === 1 && isDragging) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                initialX = touch.clientX - startX;
+                initialY = touch.clientY - startY;
+                updateTransform();
+            }
+        });
+
+        zoomContainer.addEventListener('touchend', (e) => {
             // 如果没有触摸点且之前在拖动
             if (e.touches.length < 1 && isDragging) {
                 isDragging = false;
