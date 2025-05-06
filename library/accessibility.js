@@ -32,10 +32,12 @@ const exclusionSelectors = [
     'modal_area',
     'modal_content',
     'modal_checkbox_area .custom-checkbox',
-    'textarea'
+    'textarea',
+    '.zoom_mask'
 ];
 // 新增焦点列表
 const inclusionSelectors = [
+    '.clickable_no_link',
     '.header_item:not(.header_right_blank)',
     '#banner_tip',
     'modal_close_btn',
@@ -50,62 +52,106 @@ const inclusionSelectors = [
     '.slider_slider:not(.disabled_slider)',
     '.dropdown_label:not(.disabled_dropdown)',
     '.dropdown_option',
-    'text-field:not(.disabled_text_field) textarea'
+    'text-field:not(.disabled_text_field) textarea',
+    '.output_code.selectable',
+    '.zoom_close_btn',
+    '.zoom_theme_btn'
 ];
 
-// 生成选择器字符串
+// 生成用于选择元素的选择器字符串
 const exclusionSelectorString = exclusionSelectors.join(', ');
 const inclusionSelectorString = inclusionSelectors.join(', ');
-let exclusionElements, inclusionElements;
 
-function chooseModalElementsTabindex(modal) {
-    exclusionElements = modal.querySelectorAll(exclusionSelectorString);
-    inclusionElements = modal.querySelectorAll(inclusionSelectorString);
-    setElementsTabindex();
-
-    const modalFocusableElements = Array.from(inclusionElements);
-    const firstTabStop = modalFocusableElements[0];
-    const lastTabStop = modalFocusableElements[modalFocusableElements.length - 1];
-
-    return {firstTabStop, lastTabStop};
-}
-
-function setElementsTabindex() { // 为每个选中的元素设置tabindex属性
-    exclusionElements.forEach(exclusionElement => {
-        exclusionElement.setAttribute('tabindex', '-1');
-    });
-
-    inclusionElements.forEach(inclusionElement => {
-        inclusionElement.setAttribute('tabindex', '0');
-        inclusionElement.removeEventListener('keyup', handleEnterPress);
-        inclusionElement.addEventListener('keyup', handleEnterPress);
-    });
-}
-
+// 模拟点击当前元素
 function handleEnterPress(e) {
     if (e.key === 'Enter') {
-        e.target.click();
+        if (e.target && typeof e.target.click === 'function') {
+            e.target.click(); // 模拟点击
+        }
+        e.stopPropagation(); // 阻止事件冒泡
+        e.preventDefault();  // 阻止浏览器默认行为
     }
 }
 
-function updateFocusableElements() { // NOTE 在有涉及到元素状态变化的地方要调用这个函数
-    exclusionElements = document.querySelectorAll(exclusionSelectorString);
-    inclusionElements = document.querySelectorAll(inclusionSelectorString);
-    setElementsTabindex();
+// 设置tabindex属性,并给可聚焦元素添加回车键监听器
+function setElementsTabindex(inclusionList, exclusionList) {
+    if (exclusionList) {
+        exclusionList.forEach(el => {
+            if (el) {
+                el.setAttribute('tabindex', '-1'); // 禁用焦点
+            }
+        });
+    }
+
+    if (inclusionList) {
+        inclusionList.forEach(el => {
+            if (el) {
+                el.setAttribute('tabindex', '0'); // 允许通过Tab聚焦
+                el.removeEventListener('keyup', handleEnterPress); // 防止重复绑定
+                el.addEventListener('keyup', handleEnterPress);    // 绑定回车事件
+            }
+        });
+    }
 }
 
-function handleTabNavigation(e, modal) {
-    const {firstTabStop, lastTabStop} = chooseModalElementsTabindex(modal);
+// 获取父元素下的所有可聚焦元素,设置tabindex并返回焦点信息
+function chooseElementsTabindex(parentElement) {
+    if (!parentElement || typeof parentElement.querySelectorAll !== 'function') {
+        logManager.log("提供焦点选择的父元素无效!", 'error');
+        return {firstTabStop: null, lastTabStop: null, focusableList: []};
+    }
 
-    if (e.shiftKey) { // Shift + Tab
-        if (document.activeElement === firstTabStop) {
-            e.preventDefault();
-            lastTabStop.focus();
+    const localExclusionElements = parentElement.querySelectorAll(exclusionSelectorString);
+    const localInclusionElements = parentElement.querySelectorAll(inclusionSelectorString);
+
+    setElementsTabindex(localInclusionElements, localExclusionElements);
+
+    // 过滤出真正可以聚焦的元素
+    const focusableList = Array.from(localInclusionElements).filter(el => el && typeof el.focus === 'function');
+    const firstTabStop = focusableList[0] || null;
+    const lastTabStop = focusableList[focusableList.length - 1] || null;
+
+    return {firstTabStop, lastTabStop, focusableList};
+}
+
+// 全局更新页面上所有元素的tabindex和监听器
+function updateFocusableElements() { // NOTE 在有涉及到元素状态变化的地方要调用这个函数
+    const globalExclusionElements = document.querySelectorAll(exclusionSelectorString);
+    const globalInclusionElements = document.querySelectorAll(inclusionSelectorString);
+    setElementsTabindex(globalInclusionElements, globalExclusionElements);
+}
+
+// 自定义Tab键导航逻辑,实现焦点陷阱
+function handleTabNavigation(e, trappingElement) {
+    if (!trappingElement || e.key !== 'Tab') return;
+
+    const {focusableList} = chooseElementsTabindex(trappingElement);
+
+    if (!focusableList.length) {
+        e.preventDefault(); // 没有可聚焦元素时阻止默认行为
+        return;
+    }
+
+    const firstTabStop = focusableList[0];
+    const lastTabStop = focusableList[focusableList.length - 1];
+    const currentActiveElement = document.activeElement;
+    const currentIndex = focusableList.indexOf(currentActiveElement);
+
+    e.preventDefault(); // 阻止默认逻辑,使用自定义逻辑
+
+    if (e.shiftKey) {
+        // Shift + Tab - 向后循环
+        if (currentIndex <= 0) {
+            lastTabStop?.focus();
+        } else {
+            focusableList[currentIndex - 1]?.focus();
         }
-    } else { // Tab
-        if (document.activeElement === lastTabStop) {
-            e.preventDefault();
-            firstTabStop.focus();
+    } else {
+        // Tab - 向前循环
+        if (currentIndex === -1 || currentIndex === focusableList.length - 1) {
+            firstTabStop?.focus();
+        } else {
+            focusableList[currentIndex + 1]?.focus();
         }
     }
 }
@@ -114,7 +160,7 @@ function handleTabNavigation(e, modal) {
 const modals = document.querySelectorAll('modal');
 modals.forEach((modal) => {
     modal.removeEventListener('keydown', handleTabNavigation); // 移除旧的事件监听器
-    const {firstTabStop} = chooseModalElementsTabindex(modal); // 弹窗元素选择器
+    const {firstTabStop} = chooseElementsTabindex(modal); // 弹窗元素选择器
 
     modal.addEventListener('keydown', (e) => handleTabNavigation(e, modal));
     modal.addEventListener('shown.modal', () => {

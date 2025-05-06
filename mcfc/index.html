@@ -107,7 +107,7 @@
                             </div>
                             <div class="output_area">
                                 <div class="title3">输出</div>
-                                <div class="output_code" id="render_area" onclick="initFullscreenZoom();playSound('click');">
+                                <div class="output_code selectable" id="render_area" onclick="initFullscreenZoom();playSound('click');">
                                     <span class="hint_text">点击渲染按钮在此进行预览.</span>
                                 </div>
                                 <div class="output_tip">发现问题? 点击右上角联系我们图标进行反馈!</div>
@@ -121,7 +121,7 @@
                                     <div>欢迎使用MC格式化代码渲染器!</div>
                                     <div class="guidance_text">
                                         <div>在开始使用之前, 你需要了解<a href="https://zh.minecraft.wiki/w/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81" target="_blank"><img alt="link" class="link_img" src=""/>Minecraft格式化代码</a>的基本用法.</div>
-                                        <div>你需要在页面上方的输入框内输入包含<a class="no_link" onclick="copyText(this.text)">§</a>(点击即可复制)的格式化代码, 完成输入后, 点击输入框下方的渲染按钮, 即可在输出框内渲染出对应的文本. 点击输出框可以使输出内容全屏显示并自由缩放. 如果你需要快速清除输入框和输出框, 请点击输入框下方的重置按钮.</div>
+                                        <div>你需要在页面上方的输入框内输入包含<a class="clickable_no_link" onclick="copyText(this.text)">§</a>(点击即可复制)的格式化代码, 完成输入后, 点击输入框下方的渲染按钮, 即可在输出框内渲染出对应的文本. 点击输出框可以使输出内容全屏显示并自由缩放. 如果你需要快速清除输入框和输出框, 请点击输入框下方的重置按钮.</div>
                                         <div>以下为本站使用的代码规范:</div>
                                         <div>§0: <span class="mcfc">§0 #000000</span></div>
                                         <div>§1: <span class="mcfc">§1 #0000AA</span></div>
@@ -175,6 +175,16 @@
     </display-body>
 </dispaly-area>
 
+<div class="zoom_mask" style="display: none;">
+    <div class="zoom_close_btn">
+        <img alt="" class="close_btn_img" src="./images/cross_white.png"/>
+    </div>
+    <div class="zoom_theme_btn">
+        <img alt="" class="palette_btn_img" src="./images/Palette.png"/>
+    </div>
+    <div class="zoom_container"></div>
+</div>
+
 <!--遮罩-->
 <!--除了顶栏-->
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
@@ -220,167 +230,203 @@
         renderArea.appendChild(hint);
     }
 
+    // 初始化全屏放大遮罩功能
     function initFullscreenZoom() {
-        if (document.querySelector('.zoom_mask')) return;
+        const zoomMask = document.querySelector('.zoom_mask');
+        const zoomContainer = zoomMask.querySelector('.zoom_container');
+        const closeBtn = zoomMask.querySelector('.zoom_close_btn');
+        const themeBtn = zoomMask.querySelector('.zoom_theme_btn');
+        const state = { // 初始化状态
+            scale: 2,
+            initialX: 0,
+            initialY: 0,
+            isDragging: false
+        };
 
+        if (!zoomMask || !zoomContainer) return;
+
+        const clonedRenderArea = cloneAndInsertRenderArea(zoomContainer); // 克隆原始渲染区域并插入遮罩容器中
+        updateTransform(zoomContainer, state); // 再次初始化渲染区域
+
+        // 绑定交互
+        setupMouseDrag(zoomContainer, state);
+        setupTouchHandlers(zoomMask, zoomContainer, state);
+        setupWheelZoom(zoomMask, zoomContainer, state);
+        setupThemeToggle(themeBtn, clonedRenderArea);
+        setupCloseButton(closeBtn, zoomMask);
+        setupFocusTrap(zoomMask);
+
+        // 显示全屏放大遮罩
+        zoomMask.style.display = 'flex';
+        zoomMask.focus();
+    }
+
+    // 克隆原始渲染区域并插入到全屏放大遮罩容器中
+    function cloneAndInsertRenderArea(container) {
         const renderArea = document.getElementById('render_area');
-        const zoomMask = document.createElement('div');
-        const zoomContainer = document.createElement('div');
-        const clonedRenderArea = renderArea.cloneNode(true);
+        const clone = renderArea.cloneNode(true);
+        clone.classList.remove('selectable');
+        clone.removeAttribute('onclick');
+        clone.removeAttribute('id');
+        container.innerHTML = '';
+        container.appendChild(clone);
+        return clone;
+    }
 
-        zoomMask.className = 'zoom_mask';
-        zoomContainer.className = 'zoom_container';
-        clonedRenderArea.removeAttribute('onclick');
-        clonedRenderArea.id = '';
-        zoomContainer.appendChild(clonedRenderArea);
-        let scale = 2;
-        let startX = 0, startY = 0;
-        let initialX = 0, initialY = 0;
-        let isDragging = false;
-
-        // 鼠标拖动
-        zoomContainer.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - initialX;
-            startY = e.clientY - initialY;
-            zoomContainer.style.cursor = 'grabbing';
+    // 设置鼠标拖动缩放区域功能
+    function setupMouseDrag(container, state) {
+        container.addEventListener('mousedown', e => {
+            state.isDragging = true;
+            state.startX = e.clientX - state.initialX;
+            state.startY = e.clientY - state.initialY;
+            container.style.cursor = 'grabbing';
         });
 
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
+        document.addEventListener('mousemove', e => {
+            if (!state.isDragging) return;
             e.preventDefault();
-            initialX = e.clientX - startX;
-            initialY = e.clientY - startY;
-            updateTransform();
+            state.initialX = e.clientX - state.startX;
+            state.initialY = e.clientY - state.startY;
+            updateTransform(container, state);
         });
 
         document.addEventListener('mouseup', () => {
-            if (isDragging) {
-                isDragging = false;
-                zoomContainer.style.cursor = 'grab';
+            if (state.isDragging) {
+                state.isDragging = false;
+                container.style.cursor = 'grab';
             }
         });
+    }
 
-        // 触摸拖动 + 双指缩放
+    // 设置触摸拖动与双指缩放功能
+    function setupTouchHandlers(mask, container, state) {
         let lastTouchDistance = null;
 
-        zoomMask.addEventListener('touchstart', (e) => {
+        // 双指开始缩放
+        mask.addEventListener('touchstart', e => {
             if (e.touches.length === 2) {
                 lastTouchDistance = getTouchDistance(e.touches);
             }
         });
 
-        zoomMask.addEventListener('touchmove', (e) => {
+        // 双指缩放
+        mask.addEventListener('touchmove', e => {
             if (e.touches.length === 2) {
                 e.preventDefault();
                 const newDistance = getTouchDistance(e.touches);
                 if (lastTouchDistance) {
                     const deltaScale = newDistance / lastTouchDistance;
-                    scale = Math.min(Math.max(0.5, scale * deltaScale), 5);
-                    updateTransform();
+                    state.scale = Math.min(Math.max(0.5, state.scale * deltaScale), 5);
+                    updateTransform(container, state);
+                    lastTouchDistance = newDistance;
                 }
-                lastTouchDistance = newDistance;
             }
         });
 
-        zoomMask.addEventListener('touchend', (e) => {
-            if (e.touches.length < 2) {
-                lastTouchDistance = null;
-            }
+        // 单指离开或结束缩放
+        mask.addEventListener('touchend', e => {
+            if (e.touches.length < 2) lastTouchDistance = null;
         });
 
-        zoomContainer.addEventListener('touchstart', (e) => {
+        // 单指拖动
+        container.addEventListener('touchstart', e => {
             if (e.touches.length === 1) {
-                isDragging = true;
+                state.isDragging = true;
                 const touch = e.touches[0];
-                startX = touch.clientX - initialX;
-                startY = touch.clientY - initialY;
-                zoomContainer.style.cursor = 'grabbing';
+                state.startX = touch.clientX - state.initialX;
+                state.startY = touch.clientY - state.initialY;
+                container.style.cursor = 'grabbing';
             }
         });
 
-        zoomContainer.addEventListener('touchmove', (e) => {
-            // 确保是单指并且处于拖动状态
-            if (e.touches.length === 1 && isDragging) {
+        container.addEventListener('touchmove', e => {
+            if (e.touches.length === 1 && state.isDragging) {
                 e.preventDefault();
                 const touch = e.touches[0];
-                initialX = touch.clientX - startX;
-                initialY = touch.clientY - startY;
-                updateTransform();
+                state.initialX = touch.clientX - state.startX;
+                state.initialY = touch.clientY - state.startY;
+                updateTransform(container, state);
             }
         });
 
-        zoomContainer.addEventListener('touchend', (e) => {
-            // 如果没有触摸点且之前在拖动
-            if (e.touches.length < 1 && isDragging) {
-                isDragging = false;
-                zoomContainer.style.cursor = 'grab';
+        container.addEventListener('touchend', e => {
+            if (e.touches.length === 0 && state.isDragging) {
+                state.isDragging = false;
+                container.style.cursor = 'grab';
             }
         });
+    }
 
-        // 鼠标滚轮缩放
-        zoomMask.addEventListener('wheel', (e) => {
+    // 设置滚轮缩放功能
+    function setupWheelZoom(mask, container, state) {
+        mask.addEventListener('wheel', e => {
             e.preventDefault();
             const delta = e.deltaY > 0 ? -0.1 : 0.1;
-            scale = Math.min(Math.max(0.5, scale + delta), 5);
-            updateTransform();
+            state.scale = Math.min(Math.max(0.5, state.scale + delta), 5);
+            updateTransform(container, state);
         });
+    }
 
-        // 更新变换
-        function updateTransform() {
-            zoomContainer.style.transform = `translate(${initialX}px, ${initialY}px) scale(${scale})`;
-        }
+    // 主题列表
+    const THEMES = Object.freeze([
+        { name: 'gray', background: '#48494a', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)' },
+        { name: 'black', background: '#000000', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)' },
+        { name: 'white', background: '#FFFFFF', color: '#000000', hint: 'rgba(0, 0, 0, 0.8)' },
+    ]);
 
-        // 获取双指间距离
-        function getTouchDistance(touches) {
-            const dx = touches[0].clientX - touches[1].clientX;
-            const dy = touches[0].clientY - touches[1].clientY;
-            return Math.sqrt(dx * dx + dy * dy);
-        }
-
-        // 主题配置
-        const THEMES = Object.freeze([
-            {name: 'gray', background: '#48494a', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)'},
-            {name: 'black', background: '#000000', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)'},
-            {name: 'white', background: '#FFFFFF', color: '#000000', hint: 'rgba(0, 0, 0, 0.8)'},
-        ]);
+    // 设置主题切换功能
+    function setupThemeToggle(button, renderArea) {
         let currentThemeIndex = 0;
 
         function applyTheme(theme) {
-            clonedRenderArea.style.backgroundColor = theme.background;
-            clonedRenderArea.style.color = theme.color;
-            if (clonedRenderArea.querySelector('.hint_text')) {
-                clonedRenderArea.querySelector('.hint_text').style.color = theme.hint;
-            }
+            renderArea.style.backgroundColor = theme.background;
+            renderArea.style.color = theme.color;
+
+            const hint = renderArea.querySelector('.hint_text');
+            if (hint) hint.style.color = theme.hint;
         }
 
-        // 应用初始默认主题
+        // 初始主题
         applyTheme(THEMES[currentThemeIndex]);
 
-        // 关闭按钮
-        const closeBtn = document.createElement('div');
-        closeBtn.className = 'zoom_close_btn';
-        closeBtn.innerHTML = `<img alt="" class="modal_close_btn_img" src="./images/cross_white.png"/>`;
-        closeBtn.onclick = () => {
-            playSound('click');
-            document.body.removeChild(zoomMask);
-        };
-
-        // 主题切换按钮
-        const themeBtn = document.createElement('div');
-        themeBtn.className = 'zoom_theme_btn';
-        themeBtn.textContent = '🎨';
-        themeBtn.onclick = () => {
+        // 切换下一个主题
+        button.onclick = () => {
             currentThemeIndex = (currentThemeIndex + 1) % THEMES.length;
             applyTheme(THEMES[currentThemeIndex]);
-            renderAllMinecraftText();
+            renderAllMinecraftText();  // 重新渲染格式化代码
             playSound('click');
         };
+    }
 
-        zoomMask.appendChild(closeBtn);
-        zoomMask.appendChild(themeBtn);
-        zoomMask.appendChild(zoomContainer);
-        document.body.appendChild(zoomMask);
+    // 设置关闭按钮功能
+    function setupCloseButton(button, mask) {
+        button.onclick = () => {
+            playSound('click');
+            mask.style.display = 'none';
+        };
+    }
+
+    // 设置焦点陷阱
+    function setupFocusTrap(mask) {
+        mask.removeEventListener('keydown', handleTabNavigation);
+        mask.addEventListener('keydown', e => handleTabNavigation(e, mask));
+
+        const { firstTabStop } = chooseElementsTabindex(mask);
+        if (firstTabStop) {
+            firstTabStop.focus();
+        }
+    }
+
+    // 更新容器变换
+    function updateTransform(container, state) {
+        container.style.transform = `translate(${state.initialX}px, ${state.initialY}px) scale(${state.scale})`;
+    }
+
+    // 获取双指间距离
+    function getTouchDistance(touches) {
+        const dx = touches[0].clientX - touches[1].clientX;
+        const dy = touches[0].clientY - touches[1].clientY;
+        return Math.sqrt(dx * dx + dy * dy);
     }
 </script>
 
@@ -525,6 +571,16 @@
     .zoom_close_btn:hover, .zoom_theme_btn:hover {
         background: #58585A;
         cursor: pointer;
+    }
+
+    .close_btn_img {
+        height: 22px;
+        width: 22px;
+    }
+
+    .palette_btn_img {
+        height: 20px;
+        width: 20px;
     }
 </style>
 

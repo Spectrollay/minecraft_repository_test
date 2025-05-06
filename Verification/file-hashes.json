@@ -145,6 +145,7 @@
   "images\\Note.png": "2c5270e5d39cc37b958e121951c9075c",
   "images\\NotFound.png": "29523078fdb20db7f0437685df7266c5",
   "images\\Nothing.png": "aa74f299c85c6aa4f8715aa8f73e4397",
+  "images\\Palette.png": "874777beb694480423e4c83b77648cca",
   "images\\Refresh.png": "f64a459182cf215bcfe24adffe2af9dd",
   "images\\Run.png": "ce4f72cb5a9584b40ddcad5230801d4e",
   "images\\Settings.png": "6f29bb26a5c8766e2d44594e951ee2f2",
@@ -211,15 +212,15 @@
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
   "javascript\\mc_formatting_code.js": "3372418e1f1cba5a4b49cd10fa32a03c",
-  "javascript\\public_define.js": "b869f273c14cf502159cd9b1b05b29a8",
+  "javascript\\public_define.js": "36286897e435306b20684e11bbad8320",
   "javascript\\public_script.js": "2528caaa252df09c24ba04e0e134208e",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
-  "library\\accessibility.js": "656968e8c17c8761073a890c9107897a",
+  "library\\accessibility.js": "e8bbb1f80174272da2a8e0f3f01e94d3",
   "library\\axios.min.js": "8d395f4901858a8d5e48bf4c3b94e1df",
   "library\\gsap.min.js": "353e2906f2f9520678e8d82e58d40c97",
   "library\\lazyLoadImage.js": "c750536512ca3ed856c712ce1dfe533a",
   "LICENSE": "1d67e842dcbb5ca57d364cd01b24b5ff",
-  "mcfc\\index.html": "934880fc3130b65ae29649952919be33",
+  "mcfc\\index.html": "5ad88c893fa4f62b5dd80e7d7f273af1",
   "notifications\\index.html": "f32c4db6458f691cc497f5fd19fbd921",
   "sounds\\button.ogg": "543573dd41a4e5962f7e5ef0510077b0",
   "sounds\\click.ogg": "697d86282cec21fea5e64a58db441432",
@@ -237,5 +238,5 @@
   "stylesheet\\mc_formatting_code.css": "78a25ed75ca2e95d3e07b4a9fa202891",
   "stylesheet\\public_style.css": "f26c1be61e22d9383b1b9379920ca45e",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "b39d26bf6562cbe05a632f37a0400399"
+  "updatelog\\index.html": "a53f84121e825006d3eba277c0f315fb"
 }
