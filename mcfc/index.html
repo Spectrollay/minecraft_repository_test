@@ -29,10 +29,11 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./images/book.png" rel="icon">
     <!--<style>-->
     <!--    -->
     <!--</style>-->
-    <title>Template</title>
+    <title>MC格式化代码渲染器</title>
 </head>
 
 <body>
@@ -82,7 +83,7 @@
                     <div class="block_spacing"></div>
                     <div class="block">
                         <div class="block_main title_block">
-                            <div class="title1">Minecraft格式化代码渲染<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href);" src="./images/ExternalLink_white.png"></div>
+                            <div class="title1">MC格式化代码渲染器<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href);" src="./images/ExternalLink_white.png"></div>
                             <div class="title_info">V2.0
                                 <vertical-line></vertical-line>
                                 2025-05-05
@@ -105,7 +106,7 @@
                             <div class="output_area">
                                 <div class="title3">输出</div>
                                 <div class="output_code" id="render_area">
-                                    <span class="hint_text">请点击渲染按钮后再来看看吧!</span>
+                                    <span class="hint_text">点击渲染按钮在此进行预览.</span>
                                 </div>
                                 <div class="output_tip">发现问题? 点击右上角联系我们图标进行反馈!</div>
                             </div>
@@ -114,7 +115,7 @@
                             <div>
                                 <div class="title3">使用指南</div>
                                 <div class="use_guide">
-                                    <div>欢迎使用Minecraft格式化代码渲染在线工具!</div>
+                                    <div>欢迎使用MC格式化代码渲染器!</div>
                                     <div style="margin: 8px">
                                         <img alt="Coming Soon Image" class="coming_soon-img" src="./images/Building.png"/>
                                         <div>即将到来</div>
@@ -123,6 +124,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="block_spacing"></div>
                 </main>
             </scroll-container>
             <custom-scrollbar class="main_custom_scrollbar">
@@ -151,7 +153,7 @@
         if (!/\S/.test(input)) {
             const hint = document.createElement('span');
             hint.className = 'hint_text';
-            hint.textContent = '请输入内容再来试试吧!';
+            hint.textContent = '请输入格式化代码后再渲染!';
             renderArea.appendChild(hint);
             return;
         }
@@ -174,7 +176,7 @@
 
         renderArea.innerHTML = '';
         hint.className = 'hint_text';
-        hint.textContent = '请点击渲染按钮后再来看看吧!';
+        hint.textContent = '点击渲染按钮在此进行预览.';
         renderArea.appendChild(hint);
     }
 </script>

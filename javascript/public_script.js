@@ -715,10 +715,35 @@ document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 function checkFirstVisit() {
     firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
     const is404Page = document.title.includes("404 NOT FOUND");
-    const firstVisitAllowedPaths = [`${rootPath}`, `${rootPath}index.html`, `${rootPath}index_new.html`, `${rootPath}home.html`, `${rootPath}about/donate.html`, `${rootPath}updatelog/`, `${rootPath}updatelog/index.html`, `${rootPath}advanced/settings.html`]; // TODO 在完成新主页测试后移除index_new.html
 
-    // 检查是否是第一次访问且路径不在允许的路径中且不是404页面
-    if (firstVisit !== today && !firstVisitAllowedPaths.includes(window.location.pathname) && !is404Page) {
+    // 精确匹配的文件路径
+    const allowedFiles = [
+        `${rootPath}`,
+        `${rootPath}index.html`,
+        `${rootPath}index_new.html`, // TODO 在完成新主页测试后移除
+        `${rootPath}home.html`,
+        `${rootPath}advanced/status.html`
+    ];
+
+    // 包含判断的文件夹路径
+    const allowedFolders = [
+        `${rootPath}about/`,
+        `${rootPath}default/`,
+        `${rootPath}guidance/`,
+        `${rootPath}mcfc/`,
+        `${rootPath}mclang_cn/`,
+        `${rootPath}notifications/`,
+        `${rootPath}starcoin/`,
+        `${rootPath}Template/`,
+        `${rootPath}updatelog/`
+    ];
+
+    const currentPath = window.location.pathname;
+
+    const isAllowedFile = allowedFiles.includes(currentPath);
+    const isAllowedFolder = allowedFolders.some(folder => currentPath.startsWith(folder));
+
+    if (firstVisit !== today && !isAllowedFile && !isAllowedFolder && !is404Page) {
         const overlay = document.getElementById("overlay_first_visit_today_modal");
         const modal = document.getElementById("first_visit_today_modal");
         overlay.style.display = "block";

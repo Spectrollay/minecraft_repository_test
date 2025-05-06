@@ -915,8 +915,10 @@ text-field {
     height: max(100%, 40px);
     outline: none;
     overflow-y: hidden;
+    overscroll-behavior: contain;
     padding: 10px 10px 11px 10px;
     resize: none;
+    touch-action: pan-y;
     width: 100%;
 }
 

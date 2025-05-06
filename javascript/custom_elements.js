@@ -945,7 +945,7 @@ class TextField extends HTMLElement {
         setTimeout(() => {
             this.updateTextField();
             this.getTextFieldValue();
-        }, 100); // 延时防止获取到不正确数据
+        }, 10); // 延时防止获取到不正确数据
     }
 
     validateLength(maxLength) {
