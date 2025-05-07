@@ -302,65 +302,121 @@
 
     // 设置触摸拖动与双指缩放功能
     function setupTouchHandlers(mask, container, state) {
-        let lastTouchDistance = null;
-        let wasPinching = false;
+        let lastTouchDistance = null; // 上一次双指间的距离
+        let wasPinching = false; // 标记是否为双指缩放
+
+        let dragStartTouchX = 0; // 单指拖动开始时手指的X坐标
+        let dragStartTouchY = 0; // 单指拖动开始时手指的Y坐标
+        let dragStartElementX = 0; // 单指拖动开始时元素的X偏移
+        let dragStartElementY = 0; // 单指拖动开始时元素的Y偏移
 
         // 开始触摸
         mask.addEventListener('touchstart', e => {
             if (e.touches.length === 2) {
-                // 双指缩放开始
-                lastTouchDistance = getTouchDistance(e.touches);
+                // 初始化双指缩放
+                state.isDragging = false;
                 wasPinching = true;
+                lastTouchDistance = getTouchDistance(e.touches);
             } else if (e.touches.length === 1) {
-                // 单指拖动开始
-                const touch = e.touches[0];
-
-                if (wasPinching) {
-                    // 缩放切换为拖动,重新校准拖动起点
-                    wasPinching = false;
-                    state.startX = touch.clientX - state.initialX;
-                    state.startY = touch.clientY - state.initialY;
-                } else {
-                    state.startX = touch.clientX - state.initialX;
-                    state.startY = touch.clientY - state.initialY;
-                }
-
-                state.isDragging = true;
-                container.style.cursor = 'grabbing';
             }
         });
 
         // 触摸移动
         mask.addEventListener('touchmove', e => {
+            e.preventDefault();
+
             if (e.touches.length === 2) {
                 // 双指缩放
-                e.preventDefault();
+                if (!wasPinching) {
+                    lastTouchDistance = getTouchDistance(e.touches);
+                    state.isDragging = false;
+                }
+                wasPinching = true;
+                container.style.cursor = 'default';
+
                 const newDistance = getTouchDistance(e.touches);
                 if (lastTouchDistance) {
                     const deltaScale = newDistance / lastTouchDistance;
-                    state.scale = Math.min(Math.max(0.5, state.scale * deltaScale), 5);
+                    const currentScale = state.scale || 1;
+                    state.scale = Math.min(Math.max(0.5, currentScale * deltaScale), 5); // 限制缩放范围
                     updateTransform(container, state);
+                    lastTouchDistance = newDistance; // 更新为本次距离,供下次计算
+                } else {
                     lastTouchDistance = newDistance;
                 }
-            } else if (e.touches.length === 1 && state.isDragging) {
+
+            } else if (e.touches.length === 1) {
                 // 单指拖动
-                e.preventDefault();
-                const touch = e.touches[0];
-                state.initialX = touch.clientX - state.startX;
-                state.initialY = touch.clientY - state.startY;
-                updateTransform(container, state);
+                if (wasPinching || !state.isDragging) {
+                    const touch = e.touches[0];
+                    dragStartTouchX = touch.clientX;
+                    dragStartTouchY = touch.clientY;
+                    dragStartElementX = state.initialX || 0; // 使用元素当前的X偏移
+                    dragStartElementY = state.initialY || 0; // 使用元素当前的Y偏移
+
+                    state.isDragging = true; // 正式进入拖动状态
+                    wasPinching = false; // 清除缩放标记
+                    container.style.cursor = 'grabbing';
+                }
+
+                // 如果正在拖动,则执行相对位移逻辑
+                if (state.isDragging) {
+                    const touch = e.touches[0];
+                    const currentTouchX = touch.clientX;
+                    const currentTouchY = touch.clientY;
+
+                    // 计算手指从拖动开始时的位移
+                    const deltaX = currentTouchX - dragStartTouchX;
+                    const deltaY = currentTouchY - dragStartTouchY;
+
+                    // 元素的新位置
+                    state.initialX = dragStartElementX + deltaX;
+                    state.initialY = dragStartElementY + deltaY;
+
+                    updateTransform(container, state);
+                }
             }
         });
 
-        // 触摸结束
+        // 触摸结束/取消
         mask.addEventListener('touchend', e => {
-            if (e.touches.length < 2) {
-                lastTouchDistance = null;
+            const touchesRemaining = e.touches.length;
+
+            if (wasPinching) {
+                if (touchesRemaining < 2) {
+                    wasPinching = false;
+                    lastTouchDistance = null;
+
+                    if (touchesRemaining === 1) {
+                        const touch = e.touches[0];
+                        dragStartTouchX = touch.clientX;
+                        dragStartTouchY = touch.clientY;
+                        dragStartElementX = state.initialX || 0;
+                        dragStartElementY = state.initialY || 0;
+                        state.isDragging = false;
+                        container.style.cursor = 'grab';
+                    }
+                }
             }
-            if (e.touches.length === 0 && state.isDragging) {
+
+            if (state.isDragging && touchesRemaining === 0) {
                 state.isDragging = false;
                 container.style.cursor = 'grab';
             }
+
+            if (touchesRemaining === 0) {
+                state.isDragging = false;
+                wasPinching = false;
+                lastTouchDistance = null;
+                container.style.cursor = 'grab';
+            }
+        });
+
+        mask.addEventListener('touchcancel', () => {
+            state.isDragging = false;
+            wasPinching = false;
+            lastTouchDistance = null;
+            container.style.cursor = 'grab';
         });
     }
 
