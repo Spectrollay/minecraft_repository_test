@@ -212,15 +212,15 @@
   "javascript\\editions.js": "5294cb8d9c8d6b808f775ada7bcac77f",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
   "javascript\\mc_formatting_code.js": "3372418e1f1cba5a4b49cd10fa32a03c",
-  "javascript\\public_define.js": "5d1cfa505b162cab364feecbc757925a",
+  "javascript\\public_define.js": "7657bb72edc4aa805f29ad39db034cf5",
   "javascript\\public_script.js": "2528caaa252df09c24ba04e0e134208e",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
-  "library\\accessibility.js": "e8bbb1f80174272da2a8e0f3f01e94d3",
+  "library\\accessibility.js": "11f7fe73c959896e2f86c5caa61e007c",
   "library\\axios.min.js": "8d395f4901858a8d5e48bf4c3b94e1df",
   "library\\gsap.min.js": "353e2906f2f9520678e8d82e58d40c97",
   "library\\lazyLoadImage.js": "c750536512ca3ed856c712ce1dfe533a",
   "LICENSE": "1d67e842dcbb5ca57d364cd01b24b5ff",
-  "mcfc\\index.html": "c4234ea598ea09ac33578dbfe23135a5",
+  "mcfc\\index.html": "87eb993e65f0cd2136f2e86666cee972",
   "notifications\\index.html": "f32c4db6458f691cc497f5fd19fbd921",
   "sounds\\button.ogg": "543573dd41a4e5962f7e5ef0510077b0",
   "sounds\\click.ogg": "697d86282cec21fea5e64a58db441432",
@@ -238,5 +238,5 @@
   "stylesheet\\mc_formatting_code.css": "78a25ed75ca2e95d3e07b4a9fa202891",
   "stylesheet\\public_style.css": "f26c1be61e22d9383b1b9379920ca45e",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "301f468aed04b09361c197bef4a5547c"
+  "updatelog\\index.html": "24d0a2e36bf4e3a8796be5161a43275a"
 }

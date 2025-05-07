@@ -424,12 +424,13 @@
 
     // 设置焦点陷阱
     function setupFocusTrap(mask) {
-        mask.removeEventListener('keydown', handleTabNavigation);
-        mask.addEventListener('keydown', e => handleTabNavigation(e, mask));
+        mask.removeEventListener('keydown', handleTabNavigation); // 移除旧的事件监听器
+        mask.addEventListener('keydown', handleTabNavigation); // 添加新的事件监听器
 
-        const {firstTabStop} = chooseElementsTabindex(mask);
+        const {firstTabStop} = chooseElementsTabindex(mask); // 在遮罩显示时重新获取最新的可聚焦列表
         if (firstTabStop) {
-            firstTabStop.focus();
+            firstTabStop.focus(); // 聚焦遮罩内的第一个可聚焦元素
+        } else {
         }
     }
 
@@ -561,7 +562,7 @@
         cursor: grab;
         position: relative;
         transform: scale(2);
-        transition: transform 0.1s ease;
+        /*transition: transform 0.1s ease; !* 可能在拖动的时候导致闪屏 *!*/
         width: 48%;
     }
 

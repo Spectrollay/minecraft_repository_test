@@ -73,6 +73,31 @@ function handleEnterPress(e) {
     }
 }
 
+// 检查元素是否真实可见且可聚焦
+function isElementActuallyFocusable(el) {
+    if (!el || typeof el.focus !== 'function' || el.hasAttribute('disabled')) {  // 如果元素不存在或没有focus方法,则不可聚焦
+        return false;
+    }
+    if (el.getAttribute('tabindex') === '-1') { // 检查tabindex是否为-1
+        return false;
+    }
+    try {
+        // 检查可见性
+        const style = window.getComputedStyle(el);
+        if (style.display === 'none' || style.visibility === 'hidden' || parseFloat(style.opacity) === 0) {
+            return false; // 元素不可见
+        }
+        // 检查元素是否在渲染树中并且有实际占位
+        if (el.getClientRects().length === 0) { // 如果长度为0通常意味着元素没有被渲染或没有尺寸
+            return false;
+        }
+    } catch (e) {
+        return false;
+        // 如果获取样式出错也认为不可聚焦
+    }
+    return true; // 所有检查通过,元素可聚焦
+}
+
 // 设置tabindex属性,并给可聚焦元素添加回车键监听器
 function setElementsTabindex(inclusionList, exclusionList) {
     if (exclusionList) {
@@ -104,10 +129,10 @@ function chooseElementsTabindex(parentElement) {
     const localExclusionElements = parentElement.querySelectorAll(exclusionSelectorString);
     const localInclusionElements = parentElement.querySelectorAll(inclusionSelectorString);
 
-    setElementsTabindex(localInclusionElements, localExclusionElements);
+    setElementsTabindex(localInclusionElements, localExclusionElements); // 设置tabindex
 
-    // 过滤出真正可以聚焦的元素
-    const focusableList = Array.from(localInclusionElements).filter(el => el && typeof el.focus === 'function');
+    // 使用过滤器来确定实际可聚焦的元素
+    const focusableList = Array.from(localInclusionElements).filter(isElementActuallyFocusable);
     const firstTabStop = focusableList[0] || null;
     const lastTabStop = focusableList[focusableList.length - 1] || null;
 
@@ -122,50 +147,58 @@ function updateFocusableElements() { // NOTE 在有涉及到元素状态变化�
 }
 
 // 自定义Tab键导航逻辑,实现焦点陷阱
-function handleTabNavigation(e, trappingElement) {
+function handleTabNavigation(e) {
+    const trappingElement = e.currentTarget;
+
     if (!trappingElement || e.key !== 'Tab') return;
 
-    const {focusableList} = chooseElementsTabindex(trappingElement);
+    const {focusableList, firstTabStop, lastTabStop} = chooseElementsTabindex(trappingElement);
 
     if (!focusableList.length) {
-        e.preventDefault(); // 没有可聚焦元素时阻止默认行为
+        e.preventDefault(); // 阻止默认行为
         return;
     }
 
-    const firstTabStop = focusableList[0];
-    const lastTabStop = focusableList[focusableList.length - 1];
     const currentActiveElement = document.activeElement;
     const currentIndex = focusableList.indexOf(currentActiveElement);
 
-    e.preventDefault(); // 阻止默认逻辑,使用自定义逻辑
+    e.preventDefault(); // 阻止默认行为
+
+    let nextFocusElement; // 用于记录将要聚焦的元素
 
     if (e.shiftKey) {
-        // Shift + Tab - 向后循环
-        if (currentIndex <= 0) {
-            lastTabStop?.focus();
-        } else {
-            focusableList[currentIndex - 1]?.focus();
+        // (Shift + Tab) - 向后循环
+        if (currentIndex === 0) { // 如果当前在第一个元素
+            nextFocusElement = lastTabStop;
+        } else if (currentIndex > 0) { // 如果当前在列表中且不是第一个
+            nextFocusElement = focusableList[currentIndex - 1];
+        } else { // 如果当前焦点不在列表,通常聚焦到最后一个
+            nextFocusElement = lastTabStop;
         }
     } else {
         // Tab - 向前循环
-        if (currentIndex === -1 || currentIndex === focusableList.length - 1) {
-            firstTabStop?.focus();
-        } else {
-            focusableList[currentIndex + 1]?.focus();
+        if (currentIndex === focusableList.length - 1) { // 如果当前在最后一个元素
+            nextFocusElement = firstTabStop;
+        } else if (currentIndex >= 0 && currentIndex < focusableList.length - 1) { // 如果当前在列表中且不是最后一个
+            nextFocusElement = focusableList[currentIndex + 1];
+        } else { // 如果当前焦点不在列表,通常聚焦到第一个
+            nextFocusElement = firstTabStop;
         }
     }
+
+    nextFocusElement.focus();
 }
 
 // 弹窗焦点陷阱
 const modals = document.querySelectorAll('modal');
 modals.forEach((modal) => {
     modal.removeEventListener('keydown', handleTabNavigation); // 移除旧的事件监听器
-    const {firstTabStop} = chooseElementsTabindex(modal); // 弹窗元素选择器
-
-    modal.addEventListener('keydown', (e) => handleTabNavigation(e, modal));
+    modal.addEventListener('keydown', handleTabNavigation); // 添加新的事件监听器
     modal.addEventListener('shown.modal', () => {
-        if (firstTabStop) {
-            firstTabStop.focus(); // 聚焦弹窗内的第一个可聚焦元素
+        const {firstTabStop: modalFirstTabStop} = chooseElementsTabindex(modal); // 在弹窗显示时重新获取最新的可聚焦列表
+        if (modalFirstTabStop) {
+            modalFirstTabStop.focus(); // 聚焦弹窗内的第一个可聚焦元素
+        } else {
         }
     });
 });
