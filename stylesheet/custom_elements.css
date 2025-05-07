@@ -896,6 +896,7 @@ modal_button_list {
 text-field {
     display: block;
     flex: 1;
+    min-height: 40px;
     position: relative;
 }
 
@@ -913,6 +914,7 @@ text-field {
     cursor: text;
     font-family: "NotoSans Bold", sans-serif;
     height: max(100%, 40px);
+    min-height: 40px;
     outline: none;
     overflow-y: hidden;
     overscroll-behavior: contain;
