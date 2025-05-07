@@ -94,23 +94,25 @@
                     </div>
                     <div class="block_spacing"></div>
                     <div class="block">
-                        <div class="block_main wrap_flex">
-                            <div class="input_area">
-                                <div class="title3">输入</div>
-                                <div class="text_field_container do_not_save" id="formatting_code_input">
-                                    <text-field hint="在此输入包含§的格式化代码.." single-line="false" status="enabled" type="all"></text-field>
-                                    <div class="flex">
-                                        <custom-button data="input|green|||false||" js="renderFormattingCode();" text="渲染"></custom-button>
-                                        <custom-button data="input|normal|||false||" js="resetRender();" text="重置"></custom-button>
+                        <div class="block_main">
+                            <div class="wrap_flex">
+                                <div class="input_area">
+                                    <div class="title3">输入</div>
+                                    <div class="text_field_container do_not_save" id="formatting_code_input">
+                                        <text-field hint="在此输入包含§的格式化代码.." single-line="false" status="enabled" type="all"></text-field>
+                                        <div class="flex">
+                                            <custom-button data="input|green|||false||" js="renderFormattingCode();" text="渲染"></custom-button>
+                                            <custom-button data="input|normal|||false||" js="resetRender();" text="重置"></custom-button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="output_area">
-                                <div class="title3">输出</div>
-                                <div class="output_code selectable" id="render_area" onclick="initFullscreenZoom();playSound('click');">
-                                    <span class="hint_text">点击渲染按钮在此进行预览.</span>
+                                <div class="output_area">
+                                    <div class="title3">输出</div>
+                                    <div class="output_code selectable" id="render_area" onclick="initFullscreenZoom();playSound('click');">
+                                        <span class="hint_text">点击渲染按钮在此进行预览.</span>
+                                    </div>
+                                    <div class="output_tip">发现问题? 点击右上角联系我们图标进行反馈!</div>
                                 </div>
-                                <div class="output_tip">发现问题? 点击右上角联系我们图标进行反馈!</div>
                             </div>
                             <div class="support_tip">如果你认为这个项目做得不错或对你有所帮助, 不妨<a href="https://github.com/Spectrollay/minecraft_formatting_code_online" target="_blank">为项目点个星标</a>支持一下~ 十分感谢!</div>
                         </div>
@@ -383,9 +385,9 @@
 
     // 主题列表
     const THEMES = Object.freeze([
-        { name: 'gray', background: '#48494a', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)' },
-        { name: 'black', background: '#000000', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)' },
-        { name: 'white', background: '#FFFFFF', color: '#000000', hint: 'rgba(0, 0, 0, 0.8)' },
+        {name: 'gray', background: '#48494a', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)'},
+        {name: 'black', background: '#000000', color: '#FFFFFF', hint: 'rgba(255, 255, 255, 0.8)'},
+        {name: 'white', background: '#FFFFFF', color: '#000000', hint: 'rgba(0, 0, 0, 0.8)'},
     ]);
 
     // 设置主题切换功能
@@ -425,7 +427,7 @@
         mask.removeEventListener('keydown', handleTabNavigation);
         mask.addEventListener('keydown', e => handleTabNavigation(e, mask));
 
-        const { firstTabStop } = chooseElementsTabindex(mask);
+        const {firstTabStop} = chooseElementsTabindex(mask);
         if (firstTabStop) {
             firstTabStop.focus();
         }
