@@ -550,7 +550,10 @@ custom-scrollbar-thumb {
 }
 
 .title1, .title2, .title3 {
+    align-items: center;
+    display: flex;
     font-weight: unset;
+    justify-content: center;
     margin: 4px 0;
 }
 
@@ -949,13 +952,21 @@ link-block:hover::after {
 }
 
 @keyframes thickFlash {
-    0% { left: -150%; }
-    100% { left: 150%; }
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
 }
 
 @keyframes thinFlash {
-    0% { left: -150%; }
-    100% { left: 150%; }
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
 }
 
 .choose_version_guide, .download_platform {
@@ -1021,8 +1032,9 @@ link-block:hover, link-block:active {
 
 .share_img_title {
     cursor: pointer;
-    height: 18px;
+    height: 20px;
     margin-left: 8px;
+    margin-top: 4px; /* 在视觉上居中 */
 }
 
 .download_block_description {

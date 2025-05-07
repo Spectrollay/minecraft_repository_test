@@ -949,6 +949,10 @@ class TextField extends HTMLElement {
         });
     }
 
+    static get observedAttributes() {
+        return ['status'];
+    }
+
     connectedCallback() {
         // 元素被添加到DOM后执行,获取父节点信息
         if (this.parentNode && this.parentNode.id) {
@@ -979,10 +983,6 @@ class TextField extends HTMLElement {
         if (maxLength !== null && length > maxLength) {
             this.inputField.value = content.substring(0, maxLength); // 如果超过最大长度则截断
         }
-    }
-
-    static get observedAttributes() {
-        return ['status'];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {

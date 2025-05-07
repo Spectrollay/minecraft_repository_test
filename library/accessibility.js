@@ -53,6 +53,7 @@ const inclusionSelectors = [
     '.dropdown_label:not(.disabled_dropdown)',
     '.dropdown_option',
     'text-field:not(.disabled_text_field) textarea',
+    '.share_img_title',
     '.output_code.selectable',
     '.zoom_close_btn',
     '.zoom_theme_btn'
