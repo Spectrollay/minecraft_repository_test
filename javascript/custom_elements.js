@@ -1000,7 +1000,6 @@ class TextField extends HTMLElement {
     updateTextField() {
         this.updateHint();
         this.autoResize();
-        this.updateContainerHeight();
     }
 
     updateHint() {
@@ -1027,26 +1026,18 @@ class TextField extends HTMLElement {
             cssMinHeight = parseFloat(computedStyle.minHeight);
         }
 
-        // JavaScript层面设定的最小高度是40px，但要优先考虑CSS的min-height
+        // JavaScript层面设定的最小高度是40px,但要优先考虑CSS的min-height
         const effectiveMinHeight = Math.max(cssMinHeight);
-
-        // targetHeight 既要容纳内容 (scrollH)，又不能小于有效最小高度
         let targetHeight = Math.max(scrollH, effectiveMinHeight);
 
         this.inputField.style.height = targetHeight + 'px';
         // 调整自定义元素本身的高度以匹配输入区域
-        this.style.height = targetHeight + 'px'; // 默认值(40px可与按钮高度对齐) - 这里的注释基于原代码的意图
-    }
+        this.style.height = targetHeight + 'px';
 
-    updateContainerHeight() {
-        const container = this.parentNode;
-        if (container) {
-            const textFieldElementStyleHeight = parseFloat(this.style.height); // 直接读取this.style.height
-            let heightToApply = this.offsetHeight; // 默认最小高度
-
-            container.style.height = Math.max(heightToApply) + 'px';
-            mainHandleScroll(); // 联动自定义网页滚动条
-        }
+        // 设置容器高度(可能会导致渲染问题)
+        // const container = this.parentNode;
+        // container.style.height = targetHeight + 'px';
+        mainHandleScroll(); // 联动自定义网页滚动条
     }
 
     isValidAndFilterInput(input, type) {

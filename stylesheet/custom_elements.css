@@ -890,12 +890,15 @@ modal_button_list {
 /* TextField文本框 */
 .text_field_container {
     display: flex;
+    height: auto;
     margin: 6px;
 }
 
 text-field {
+    align-self: center;
     display: block;
     flex: 1;
+    margin: 6px 0;
     min-height: 40px;
     position: relative;
 }
