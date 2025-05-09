@@ -191,7 +191,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                                 ${currentVersion.platforms[platform].style === 'type' ? `
                                     <!-- 按版本类型 -->
                                     <div class="dropdown_container">
-                                        <custom-dropdown data-option='["<div class=\\"wrap_flex\\"><img class=\\"small_icon\\" src=\\"./images/Crown.png\\">OneDrive</div>", "百度网盘", "夸克网盘", "123云盘"]' data-selected="1" id="${platform}_${currentVersion.id}" status="enabled" unselected-text="请选择下载渠道"></custom-dropdown>
+                                        <custom-dropdown data-option='["<div class=\\"wrap_flex\\"><img class=\\"small_icon\\" src=\\"./images/Crown.png\\">OneDrive</div>", "百度网盘", "夸克网盘", "123云盘"]' data-selected="2" id="${platform}_${currentVersion.id}" status="enabled" unselected-text="请选择下载渠道"></custom-dropdown>
                                     </div>
                                 ` : ""}
                                 <div>
