@@ -80,5 +80,5 @@ main {
 .red_stroke {
     color: #C02D2D;
     paint-order: stroke; /* 先描边后填充 */
-    -webkit-text-stroke: 0.1em #FFFFFF; /* 文字描边 */
+    -webkit-text-stroke: 0.05em #FFFFFF; /* 文字描边 */
 }
