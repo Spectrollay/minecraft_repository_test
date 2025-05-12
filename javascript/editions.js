@@ -21,8 +21,8 @@
  */
 
 const maintenanceModal = `
-    <div class="overlay" id="overlay_maintenance_notice" style="z-index: 51"></div>
-    <modal_area id="maintenance_notice" style="z-index: 52">
+    <div class="overlay" id="overlay_maintenance_notice" style="z-index: 51;"></div>
+    <modal_area id="maintenance_notice" style="z-index: 52;">
         <modal>
             <modal_title_area>
                 <modal_title>数据库调整维护通知</modal_title>

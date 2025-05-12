@@ -32,6 +32,13 @@
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./images/logo/Bedrock_Edition_icon.png" rel="icon">
     <style>
+        .version_info {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         .description_info {
             display: flex;
             align-items: center;
@@ -50,7 +57,7 @@
             height: 152px;
             justify-content: center;
             overflow: hidden;
-            width: 350px;
+            width: 280px;
         }
     </style>
     <title>星月Minecraft版本库</title>
@@ -177,7 +184,7 @@
 
 <!--免责申明弹窗-->
 <div class="overlay normal_overlay" id="overlay_disclaimer_modal"></div>
-<modal_area class="normal_modal" id="disclaimer_modal">
+<modal_area class="normal_modal" id="disclaimer_modal" style="display: none;">
     <modal>
         <modal_title_area>
             <modal_title>温馨提示</modal_title>

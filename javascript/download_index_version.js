@@ -169,7 +169,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                 // 填充主要内容块
                 mainBlock.innerHTML = `
                     <div class="version_block_left wrap_flex" id="${currentVersion.id}">
-                        <div>
+                        <div class="version_info">
                             <div class="title2 download_block_title">${currentVersion.version_name}</div>
                             ${currentVersion.update_artwork ? `<div class="drop_artwork_area">
                                 <img alt="" class="update_artwork" src="./images/update/artwork/${currentVersion.update_artwork}">

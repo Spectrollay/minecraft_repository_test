@@ -586,7 +586,7 @@ function checkIfDonate(type, para) {
 // 捐赠专享
 const donorOnlyModal = `
     <div class="overlay normal_overlay" id="overlay_donor_only_modal"></div>
-    <modal_area class="normal_modal" id="donor_only_modal">
+    <modal_area class="normal_modal" id="donor_only_modal" style="display: none;">
         <modal>
             <modal_title_area>
                 <modal_title><img alt="" class="small_icon" src="./images/Crown.png">捐赠专享</modal_title>
@@ -610,36 +610,10 @@ const donorOnlyModal = `
 
 document.body.insertAdjacentHTML('afterbegin', donorOnlyModal);
 
-// 激活捐赠专享
-const activeDonorOnlyModal = `
-    <div class="overlay normal_overlay" id="overlay_active_donor_only_modal"></div>
-    <modal_area class="normal_modal" id="active_donor_only_modal">
-        <modal>
-            <modal_title_area>
-                <modal_title>激活捐赠专享</modal_title>
-                <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                    <img alt="" class="modal_close_btn_img" src=""/>
-                </modal_close_btn>
-            </modal_title_area>
-            <modal_content>
-                <p>即将到来</p>
-            </modal_content>
-            <modal_button_area>
-                <modal_button_group>
-                    <modal_button_list>
-                        <custom-button data="modal|green||modal_agree_btn|false||" js="hideModal(this);" text="我知道了"></custom-button>
-                    </modal_button_list>
-                </modal_button_group>
-            </modal_button_area>
-        </modal>
-    </modal_area>`;
-
-document.body.insertAdjacentHTML('afterbegin', activeDonorOnlyModal);
-
 // 兼容性检测
 const compatibilityModal = `
     <div class="overlay" id="overlay_compatibility_modal"></div>
-    <modal_area id="compatibility_modal">
+    <modal_area id="compatibility_modal" style="display: none;">
         <modal>
             <modal_title_area>
                 <modal_title>兼容性提示</modal_title>
@@ -660,7 +634,7 @@ const compatibilityModal = `
         </modal>
     </modal_area>`;
 
-document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
+// document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
 // window.addEventListener('load', () => setTimeout(function () {
 //     if (localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) !== '1') {
@@ -692,7 +666,7 @@ function neverShowCompatibilityModalAgain(button) {
 const today = new Date().toISOString().split('T')[0];
 const firstVisitTodayModal = `
     <div class="overlay" id="overlay_first_visit_today_modal"></div>
-    <modal_area id="first_visit_today_modal">
+    <modal_area id="first_visit_today_modal" style="display: none;">
         <modal>
             <modal_title_area>
                 <modal_title>访问受限</modal_title>
