@@ -1038,16 +1038,20 @@ link-block:hover, link-block:active {
 }
 
 .download_block_description {
-    margin: 8px 16px;
-    max-width: 400px;
-    min-width: 240px;
-    text-align: left;
     color: rgba(255, 255, 255, 0.8);
+    margin: 8px 16px;
+    text-align: left;
+    width: min(95%, 400px);
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
     .download_block_description {
         width: 400px;
+    }
+}
+@media screen and (min-width: 1100px) {
+    .download_block_description {
+        width: 500px;
     }
 }
 
