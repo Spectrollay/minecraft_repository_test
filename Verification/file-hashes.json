@@ -213,7 +213,7 @@
   "javascript\\editions.js": "ec895a3ff6ffeee697aa47ef40d79ff0",
   "javascript\\loading.js": "1c4967377c06931f576163fb44098c41",
   "javascript\\mc_formatting_code.js": "3372418e1f1cba5a4b49cd10fa32a03c",
-  "javascript\\public_define.js": "241da8021dcd2c4801bd617d56fd9214",
+  "javascript\\public_define.js": "457ac3e0fb4c1f22a63855651dbe8a6a",
   "javascript\\public_script.js": "cdc0597db996b6228be963c0313655c6",
   "javascript\\text_to_speech.js": "556d179e8204bd25ac0c259e770c009b",
   "library\\accessibility.js": "98874e520b8bfa9caddcc39ef99d5f3a",
@@ -239,5 +239,5 @@
   "stylesheet\\mc_formatting_code.css": "78a25ed75ca2e95d3e07b4a9fa202891",
   "stylesheet\\public_style.css": "1a50801e5ac34360f505321ba13211d6",
   "Template\\index.html": "c22644ce4b7f439c8fb1fb1da8dce864",
-  "updatelog\\index.html": "9a0d18b0b81377d009c73e9e76ab292f"
+  "updatelog\\index.html": "75f67a03d087d988432c3ae0a292a296"
 }
