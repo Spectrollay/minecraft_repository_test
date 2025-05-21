@@ -78,6 +78,18 @@
                     </button>
                 </div>
             </div>
+            <div class="block_spacing"></div>
+            <div class="block">
+                <div class="block_main preview_block">
+                    <div class="preview_title">新版下载页面预览</div>
+                    <div class="preview_detail">我们正在对基岩版下载页面进行改进!</div>
+                    <div class="preview_detail">点击下方按钮抢先体验!你可以随时返回旧版本.</div>
+                    <div class="btn_group">
+                        <custom-button data="default|green|small||false||" js="contact();" text="<img class='link_img' src='' alt=''/>提出反馈"></custom-button>
+                        <custom-button data="default|normal|small||false||" js="jumpToPage('./download/bedrock/');" text="前往新设计"></custom-button>
+                    </div>
+                </div>
+            </div>
             <div class="tab_content active" id="content1">
                 <div class="block_spacing"></div>
                 <div class="block">
@@ -119,7 +131,7 @@
                                 <button class="btn normal_btn small_btn" onclick="playSoundType(this);openLink('https://pan.quark.cn/s/db914de6651b');">夸克网盘</button>
                             </div>
                             <div class="btn_group">
-                                <button class="btn disabled_btn small_btn" onclick="playSoundType(this);" text-generation="download_channel4"></button>
+                                <button class="btn disabled_btn small_btn" onclick="playSoundType(this);" text-generation="download_channel4_old"></button>
                                 <button class="btn normal_btn small_btn" onclick="playSoundType(this);openLink('https://www.123684.com/s/qILA-GRyN3');">123云盘</button>
                             </div>
                         </div>
@@ -1192,6 +1204,11 @@
     scroll-container {
         height: calc(100% - 100px);
         top: 100px;
+    }
+
+    /* TODO: 在结束响应式设计后移除该样式 */
+    .preview_block {
+        flex-direction: column;
     }
 
     /* TODO: 加入具体内容后移除该样式 */

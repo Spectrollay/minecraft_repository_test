@@ -95,6 +95,11 @@ html {
     height: 100%;
 }
 
+html.grayscale {
+    filter: grayscale(100%) !important;
+    -webkit-filter: grayscale(100%) !important;
+}
+
 body {
     background: #48494A;
     font-family: "NotoSans Bold", sans-serif;
