@@ -1,5 +1,9 @@
 <!--
-  ~  Copyright © 2020. Spectrollay
+ * @Author: Spectrollay
+ * @WebUI: OreUI V2
+ -->
+<!--
+  ~ Copyright © 2020. Spectrollay
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -29,11 +33,174 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./images/book.png" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
-    <title>MC格式化代码渲染器</title>
+    <style>
+        .block_main {
+            flex-direction: column;
+        }
+
+        .title_block {
+            flex-direction: column;
+        }
+
+        .title_info {
+            align-items: center;
+            display: flex;
+            font-family: "Minecraft Seven", sans-serif;
+            font-size: 18px;
+            height: auto;
+            margin: 10px;
+            justify-content: center;
+        }
+
+        vertical-line {
+            height: 20px;
+        }
+
+        .input_area, .output_area {
+            align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            margin: 2px 10px;
+            width: 336px;
+        }
+
+        .text_field_container {
+            display: unset;
+        }
+
+        text-field, textarea {
+            width: 324px;
+        }
+
+        .input_btn {
+            width: 150px;
+        }
+
+        .output_code {
+            border: 1px rgba(255, 255, 255, 0.6) solid;
+            margin: 6px;
+            padding: 10px;
+        }
+
+        .output_code:hover {
+            background: #58585A;
+        }
+
+        .hint_text {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .output_tip {
+            margin: 4px 2px;
+        }
+
+        .support_tip {
+            margin: 10px 20px;
+        }
+
+        @media screen and (max-width: 759px) {
+            .support_tip {
+                max-width: 336px;
+            }
+        }
+
+        .use_guidance {
+            margin: 10px;
+        }
+
+        .guidance_text {
+            margin: 6px;
+            max-width: 700px;
+            text-align: justify;
+        }
+
+        .guidance_text div {
+            margin: 6px 0;
+        }
+
+        .clickable_no_link {
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            width: 20px;
+        }
+
+        #render_area {
+            cursor: pointer;
+        }
+
+        .zoom_mask {
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFFFFF;
+            display: flex;
+            height: calc(100% - 44px);
+            justify-content: center;
+            left: 0;
+            overflow: hidden;
+            position: fixed;
+            top: 44px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .zoom_container {
+            cursor: grab;
+            position: relative;
+            transform: scale(2);
+            /*transition: transform 0.1s ease; !* 可能在拖动的时候导致闪屏 *!*/
+            width: 48%;
+        }
+
+        .zoom_container #render_area {
+            background: #48494A;
+            cursor: grab;
+        }
+
+        .zoom_close_btn, .zoom_theme_btn {
+            align-items: center;
+            background: #48494A;
+            border: 1px rgba(255, 255, 255, 0.6) solid;
+            cursor: pointer;
+            display: flex;
+            height: 34px;
+            justify-content: center;
+            position: absolute;
+            width: 34px;
+            z-index: 2;
+        }
+
+        .zoom_close_btn {
+            right: 20px;
+            top: 20px;
+        }
+
+        .zoom_theme_btn {
+            right: 66px;
+            top: 20px;
+        }
+
+        .zoom_close_btn:hover, .zoom_theme_btn:hover {
+            background: #58585A;
+            cursor: pointer;
+        }
+
+        .close_btn_img {
+            height: 22px;
+            width: 22px;
+        }
+
+        .palette_btn_img {
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+    <title>MC格式化代码渲染器 - Minecraft Kit</title>
 </head>
 
 <body>
@@ -194,7 +361,11 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <script>
     function renderFormattingCode() {
         const input = document.getElementById('formatting_code_input').querySelector('text-field').getValue();
@@ -493,168 +664,5 @@
         return Math.sqrt(dx * dx + dy * dy);
     }
 </script>
-
-<style>
-    .block_main {
-        flex-direction: column;
-    }
-
-    .title_block {
-        flex-direction: column;
-    }
-
-    .title_info {
-        align-items: center;
-        display: flex;
-        font-family: "Minecraft Seven", sans-serif;
-        font-size: 18px;
-        height: auto;
-        margin: 10px;
-        justify-content: center;
-    }
-
-    vertical-line {
-        height: 20px;
-    }
-
-    .input_area, .output_area {
-        align-self: flex-start;
-        display: flex;
-        flex-direction: column;
-        margin: 2px 10px;
-        width: 336px;
-    }
-
-    .text_field_container {
-        display: unset;
-    }
-
-    text-field, textarea {
-        width: 324px;
-    }
-
-    .input_btn {
-        width: 150px;
-    }
-
-    .output_code {
-        border: 1px rgba(255, 255, 255, 0.6) solid;
-        margin: 6px;
-        padding: 10px;
-    }
-
-    .output_code:hover {
-        background: #58585A;
-    }
-
-    .hint_text {
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .output_tip {
-        margin: 4px 2px;
-    }
-
-    .support_tip {
-        margin: 10px 20px;
-    }
-
-    @media screen and (max-width: 759px) {
-        .support_tip {
-            max-width: 336px;
-        }
-    }
-
-    .use_guidance {
-        margin: 10px;
-    }
-
-    .guidance_text {
-        margin: 6px;
-        max-width: 700px;
-        text-align: justify;
-    }
-
-    .guidance_text div {
-        margin: 6px 0;
-    }
-
-    .clickable_no_link {
-        cursor: pointer;
-        display: inline-block;
-        text-align: center;
-        width: 20px;
-    }
-
-    #render_area {
-        cursor: pointer;
-    }
-
-    .zoom_mask {
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.8);
-        color: #FFFFFF;
-        display: flex;
-        height: calc(100% - 44px);
-        justify-content: center;
-        left: 0;
-        overflow: hidden;
-        position: fixed;
-        top: 44px;
-        width: 100%;
-        z-index: 1;
-    }
-
-    .zoom_container {
-        cursor: grab;
-        position: relative;
-        transform: scale(2);
-        /*transition: transform 0.1s ease; !* 可能在拖动的时候导致闪屏 *!*/
-        width: 48%;
-    }
-
-    .zoom_container #render_area {
-        background: #48494A;
-        cursor: grab;
-    }
-
-    .zoom_close_btn, .zoom_theme_btn {
-        align-items: center;
-        background: #48494A;
-        border: 1px rgba(255, 255, 255, 0.6) solid;
-        cursor: pointer;
-        display: flex;
-        height: 34px;
-        justify-content: center;
-        position: absolute;
-        width: 34px;
-        z-index: 2;
-    }
-
-    .zoom_close_btn {
-        right: 20px;
-        top: 20px;
-    }
-
-    .zoom_theme_btn {
-        right: 66px;
-        top: 20px;
-    }
-
-    .zoom_close_btn:hover, .zoom_theme_btn:hover {
-        background: #58585A;
-        cursor: pointer;
-    }
-
-    .close_btn_img {
-        height: 22px;
-        width: 22px;
-    }
-
-    .palette_btn_img {
-        height: 20px;
-        width: 20px;
-    }
-</style>
 
 </html>

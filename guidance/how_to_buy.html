@@ -1,4 +1,7 @@
-<!-- OreUI V1.10 -->
+<!--
+ * @Author: Spectrollay
+ * @WebUI: OreUI V1.10
+ -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -30,10 +33,16 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./images/logo/Minecraft_Repository_icon.jpg" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
+    <style>
+        .how_to_buy_guide {
+            max-width: 800px;
+        }
+    </style>
     <title>正版购买指南 - 星月Minecraft版本库</title>
 </head>
 
@@ -198,18 +207,16 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
-<script src="./javascript/public_script.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./library/lazyLoadImage.js"></script>
+<script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <script>
     // 惰性加载
     const lazyImage = new LazyLoadImage('img');
     lazyImage.init();
 </script>
-
-<style>
-    .how_to_buy_guide {
-        max-width: 800px;
-    }
-</style>
 
 </html>

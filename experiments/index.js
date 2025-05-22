@@ -24,12 +24,6 @@
 
 rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 
-const exp_css = document.createElement('link');
-exp_css.rel = 'stylesheet';
-exp_css.href = rootPath + 'experiments/index.css';
-
-document.head.appendChild(exp_css);
-
 // 新的实验性页面
 let newFlagsPageSwitch = document.getElementById('new_flags_page');
 let newFlagsPageState;

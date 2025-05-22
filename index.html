@@ -1,4 +1,7 @@
-<!-- OreUI V1.1 -->
+<!--
+ * @Author: Spectrollay
+ * @WebUI: OreUI V1.1
+ -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -32,14 +35,66 @@
     <meta content="Minecraft, MC, 我的世界, 版本库, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球" name="keywords"/>
     <meta content="星月Minecraft版本库是一个开放共享的资源站,专注于收录Minecraft发布过的所有版本." name="description"/>
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./Feed/main.xml" rel="alternate" title="星月Minecraft版本库主要订阅" type="application/rss+xml">
     <link href="https://spectrollay.github.io/data/minecraft_repository/messages.xml" rel="alternate" title="星月Minecraft版本库通知订阅" type="application/rss+xml">
     <link href="./Feed/update.xml" rel="alternate" title="星月Minecraft版本库更新订阅" type="application/rss+xml">
     <link href="https://spectrollay.github.io/data/minecraft_repository/database.xml" rel="alternate" title="星月Minecraft版本库数据库订阅" type="application/rss+xml">
     <link href="./images/logo/Minecraft_Repository_icon.jpg" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
+    <style>
+        /* TODO: 在移除预览提示块时移除该样式 */
+        .preview_block {
+            border-bottom: 4px solid #333334;
+            border-top: 4px solid #5A5B5C;
+        }
+
+        /* TODO: 在开放响应式布局测试时移除该样式 */
+        .responsive_design_test {
+            display: none;
+        }
+
+        .edition_block {
+            cursor: pointer;
+            height: 80px;
+            width: auto;
+        }
+
+        .edition_block:hover {
+            background-color: #58585A;
+        }
+
+        .edition_block:active {
+            background-color: #3D3E3F;
+            border: 2px solid #3D3E3F;
+        }
+
+        .main_page_alert {
+            text-align: left;
+        }
+
+        .notice_table {
+            width: auto;
+        }
+
+        .notice_table, .notice_table th, .notice_table td {
+            border: 0;
+        }
+
+        .notice_table td {
+            height: 25px;
+        }
+
+        .notice_table .left_table {
+            text-align: right;
+        }
+
+        .notice_table .right_table {
+            text-align: left;
+        }
+    </style>
     <title>星月Minecraft版本库</title>
 </head>
 
@@ -526,8 +581,12 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
 <script src="./javascript/reciprocal_link.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <script>
     // TODO 新主页测试跳转逻辑
     if (localStorage.getItem(`(${rootPath})new_home_test`) === 'true') {
@@ -556,57 +615,5 @@
     } else {
     }
 </script>
-
-<style>
-    /* TODO: 在移除预览提示块时移除该样式 */
-    .preview_block {
-        border-bottom: 4px solid #333334;
-        border-top: 4px solid #5A5B5C;
-    }
-
-    /* TODO: 在开放响应式布局测试时移除该样式 */
-    .responsive_design_test {
-        display: none;
-    }
-
-    .edition_block {
-        cursor: pointer;
-        height: 80px;
-        width: auto;
-    }
-
-    .edition_block:hover {
-        background-color: #58585A;
-    }
-
-    .edition_block:active {
-        background-color: #3D3E3F;
-        border: 2px solid #3D3E3F;
-    }
-
-    .main_page_alert {
-        text-align: left;
-    }
-
-    .notice_table {
-        width: auto;
-    }
-
-    .notice_table, .notice_table th, .notice_table td {
-        border: 0;
-    }
-
-    .notice_table td {
-        height: 25px;
-    }
-
-    .notice_table .left_table {
-        text-align: right;
-    }
-
-    .notice_table .right_table {
-        text-align: left;
-    }
-</style>
 
 </html>

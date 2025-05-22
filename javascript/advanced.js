@@ -22,12 +22,6 @@
 
 rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 
-const advanced_css = document.createElement('link');
-advanced_css.rel = 'stylesheet';
-advanced_css.href = rootPath + 'stylesheet/advanced.css';
-
-document.head.appendChild(advanced_css);
-
 // 点击Debug图标事件
 function debugPage() {
     ifNavigating("jump", rootPath + "advanced/debug.html");

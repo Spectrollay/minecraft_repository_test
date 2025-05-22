@@ -1,4 +1,7 @@
-<!-- OreUI V2 -->
+<!--
+ * @Author: Spectrollay
+ * @WebUI: OreUI V2
+ -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -30,11 +33,65 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./images/Like.png" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
-    <title>感谢支持~</title>
+    <style>
+        .main_block_cont {
+            margin: 6px 0;
+        }
+
+        .wrap_flex_top {
+            align-items: flex-start;
+        }
+
+        .donate_block {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            margin: 6px;
+            width: 320px;
+        }
+
+        .donate_block_title {
+            font-size: 22px;
+            margin: 12px;
+        }
+
+        .donate_platform, .donate_message {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .donate_qrcode {
+            margin: 6px 0 0 0;
+            width: 280px;
+        }
+
+        .donate_table_area {
+            margin: 12px;
+            width: calc(100% - 24px);
+        }
+
+        .donate_table {
+            margin: 6px;
+            width: calc(100% - 12px);
+        }
+
+        .donor_only {
+            margin: 6px;
+            max-width: 600px;
+            min-width: 280px;
+            width: calc(100% - 12px);
+        }
+
+        .donor_only_text {
+            text-align: justify;
+        }
+    </style>
+    <title>捐赠我们 - Minecraft Kit</title>
 </head>
 
 <body>
@@ -67,11 +124,11 @@
     </header>
     <display-body>
         <scroll-view class="main_scroll_view">
-            <scroll-container class="old main_scroll_container">
+            <scroll-container class="main_scroll_container">
                 <main class="scroll_container" id="main">
                     <div class="main_title">
                         <div class="main_title_area">
-                            <div class="main_title_span">捐赠我们</div>
+                            <div class="main_title_span">感谢支持~</div>
                         </div>
                     </div>
                     <div class="banner_area">
@@ -173,7 +230,11 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <script>
     // 激活捐赠专享
     const activeDonorOnlyModal = `
@@ -201,59 +262,5 @@
 
     document.body.insertAdjacentHTML('afterbegin', activeDonorOnlyModal);
 </script>
-
-<style>
-    .main_block_cont {
-        margin: 6px 0;
-    }
-
-    .wrap_flex_top {
-        align-items: flex-start;
-    }
-
-    .donate_block {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        margin: 6px;
-        width: 320px;
-    }
-
-    .donate_block_title {
-        font-size: 22px;
-        margin: 12px;
-    }
-
-    .donate_platform, .donate_message {
-        font-size: 18px;
-        margin: 10px;
-    }
-
-    .donate_qrcode {
-        margin: 6px 0 0 0;
-        width: 280px;
-    }
-
-    .donate_table_area {
-        margin: 12px;
-        width: calc(100% - 24px);
-    }
-
-    .donate_table {
-        margin: 6px;
-        width: calc(100% - 12px);
-    }
-
-    .donor_only {
-        margin: 6px;
-        max-width: 600px;
-        min-width: 280px;
-        width: calc(100% - 12px);
-    }
-
-    .donor_only_text {
-        text-align: justify;
-    }
-</style>
 
 </html>

@@ -1,4 +1,7 @@
-<!-- OreUI V2 -->
+<!--
+ * @Author: Spectrollay
+ * @WebUI: OreUI V2
+ -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -30,11 +33,31 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./images/Feedback.png" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
-    <title>联系我们</title>
+    <style>
+        .contact_platform {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .contact_qrcode {
+            margin: 6px 0 0 0;
+            width: 280px;
+        }
+
+        .contact_block {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            margin: 6px;
+            width: 320px;
+        }
+    </style>
+    <title>联系我们 - Minecraft Kit</title>
 </head>
 
 <body>
@@ -167,29 +190,13 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->
-
-<style>
-    .contact_qrcode {
-        margin: 6px 0 0 0;
-        width: 280px;
-    }
-
-    .contact_block {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        margin: 6px;
-        width: 320px;
-    }
-
-    .contact_platform {
-        font-size: 18px;
-        margin: 10px;
-    }
-</style>
 
 </html>

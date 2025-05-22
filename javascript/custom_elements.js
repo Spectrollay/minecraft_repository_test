@@ -22,12 +22,6 @@
 
 rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
 
-const custom_elements_css = document.createElement('link');
-custom_elements_css.rel = 'stylesheet';
-custom_elements_css.href = rootPath + 'stylesheet/custom_elements.css';
-
-document.head.appendChild(custom_elements_css);
-
 // 自定义按钮
 class CustomButton extends HTMLElement {
     constructor() {

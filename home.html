@@ -1,4 +1,7 @@
-<!-- OreUI V2 -->
+<!--
+ * @Author: Spectrollay
+ * @WebUI: OreUI V2
+ -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -31,10 +34,31 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./images/logo/Starmoon_icon.png" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
+    <style>
+        main {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        .redirect_title, .redirect_message {
+            color: #FFFFFF;
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+    </style>
     <title>星月Minecraft版本库</title>
 </head>
 
@@ -64,7 +88,7 @@
             <img alt="" class="header_left_icon" id="back_icon" src="./images/Back.png"/>
         </div>
         <div class="header_logo">
-            <img alt="" class="title_icon" src="./images/logo/Starmoon_logo.png"/><span class="header_title">Repository</span>
+            <img alt="" class="title_icon" src="./images/logo/Starmoon_logo.png"/>
         </div>
         <div class="header_item header_item_right header_right_blank"></div>
     </header>
@@ -94,7 +118,11 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <script>
     // 页面加载完成时
     window.addEventListener('load', function () {
@@ -112,26 +140,5 @@
         }
     });
 </script>
-
-<style>
-    main {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    }
-
-    h2 {
-        margin: 10px 0;
-    }
-
-    .redirect_title, .redirect_message {
-        color: #FFFFFF;
-    }
-
-    .message {
-        margin: 10px 0;
-    }
-</style>
 
 </html>

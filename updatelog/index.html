@@ -1,4 +1,7 @@
-<!-- OreUI V1.3 -->
+<!--
+ * @Author: Spectrollay
+ * @WebUI: OreUI V1.3
+ -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -30,10 +33,46 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./images/logo/Minecraft_Repository_icon.jpg" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
+    <style>
+        scroll-container {
+            height: calc(100% - 100px);
+            top: 100px;
+        }
+
+        .block {
+            margin: 20px;
+        }
+
+        .plan_block_main {
+            padding: 0;
+        }
+
+        .plan_block {
+            align-items: center;
+            display: flex;
+            font-family: "Minecraft Seven", sans-serif;
+            font-size: 24px;
+            height: 56px;
+            justify-content: center;
+        }
+
+        article_list_title.exp_title {
+            background-color: rgba(255, 232, 102, 0.05);
+            border-left: 6px solid #FFE866;
+        }
+
+        article_list_title.bug_title {
+            background-color: rgba(244, 109, 109, 0.05);
+            border-left: 6px solid #F46D6D;
+        }
+
+        .previous_version {}
+    </style>
     <title>开发日志 - 星月Minecraft版本库</title>
 </head>
 
@@ -251,6 +290,33 @@
                             </div>
                             <div class="expandable_card_down_area">
                                 <div class="expandable_card_down">
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250523.01</article_title>
+                                            <article_subtitle>(V) 4.6.6.50</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    本次更新进行了一些技术性更改并修复了一些已知问题. 我们正在对页面加载流程进行优化, 你可能会遇到各种不稳定因素. 发现问题或有好的建议? 欢迎向我们反馈!
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>更新了部分页面的图标</article_list>
+                                                    <article_list>将设置页面使用的UI版本从V1.5迁移至V2</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了一些V2页面被错误地标记为了V1页面的问题</article_list>
+                                                    <article_list>修复了部分页面可能会溢出屏幕的问题</article_list>
+                                                    <article_list>修复了一些在加载过程中可能会出现的错误问题</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>技术性</article_list_title>
+                                                    <article_list>优化了页面样式和脚本的加载逻辑</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
                                     <div class="expandable_card_down_content">
                                         <article_block>
                                             <article_title>4.6.20250521.01</article_title>
@@ -4329,47 +4395,13 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <!--<script>-->
 <!--    -->
 <!--</script>-->
-
-<style>
-    scroll-container {
-        height: calc(100% - 100px);
-        top: 100px;
-    }
-
-    .block {
-        margin: 20px;
-    }
-
-    .plan_block_main {
-        padding: 0;
-    }
-
-    .plan_block {
-        align-items: center;
-        display: flex;
-        font-family: "Minecraft Seven", sans-serif;
-        font-size: 24px;
-        height: 56px;
-        justify-content: center;
-    }
-
-    article_list_title.exp_title {
-        background-color: rgba(255, 232, 102, 0.05);
-        border-left: 6px solid #FFE866;
-    }
-
-    article_list_title.bug_title {
-        background-color: rgba(244, 109, 109, 0.05);
-        border-left: 6px solid #F46D6D;
-    }
-
-    .previous_version {
-
-    }
-</style>
 
 </html>

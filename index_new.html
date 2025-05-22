@@ -1,4 +1,7 @@
-<!-- OreUI V2 -->
+<!--
+ * @Author: Spectrollay
+ * @WebUI: OreUI V2
+ -->
 <!--
   ~ Copyright © 2020. Spectrollay
   ~
@@ -32,14 +35,32 @@
     <meta content="Minecraft, MC, 我的世界, 版本库, 全版本, 下载站" name="keywords"/>
     <meta content="一个开放共享的全版本Minecraft下载站." name="description"/>
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
+    <link href="./stylesheet/public_style.css" rel="stylesheet">
+    <link href="./stylesheet/advanced.css" rel="stylesheet">
+    <link href="./stylesheet/custom_elements.css" rel="stylesheet">
+    <link href="./stylesheet/mc_formatting_code.css" rel="stylesheet">
     <link href="./Feed/main.xml" rel="alternate" title="星月Minecraft版本库主要订阅" type="application/rss+xml">
     <link href="https://spectrollay.github.io/data/minecraft_repository/messages.xml" rel="alternate" title="星月Minecraft版本库通知订阅" type="application/rss+xml">
     <link href="./Feed/update.xml" rel="alternate" title="星月Minecraft版本库更新订阅" type="application/rss+xml">
     <link href="https://spectrollay.github.io/data/minecraft_repository/database.xml" rel="alternate" title="星月Minecraft版本库数据库订阅" type="application/rss+xml">
     <link href="./images/logo/Starmoon_icon.png" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
+    <style>
+        .main_title {
+            border-top: 2px solid #5A5B5C;
+        }
+
+        .main_page_alert {
+            text-align: left;
+        }
+
+        .edition_block {
+            width: 200px;
+        }
+
+        .guide_title {
+            font-size: 18px;
+        }
+    </style>
     <title>星月Minecraft版本库</title>
 </head>
 
@@ -535,8 +556,12 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
+<script src="./javascript/public_define.js"></script>
+<script src="./javascript/custom_elements.js"></script>
 <script src="./javascript/reciprocal_link.js"></script>
+<script src="./javascript/mc_formatting_code.js"></script>
 <script>
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     const repositoryAttribute = localStorage.getItem('minecraft_repository_attribute');
@@ -554,23 +579,5 @@
     } else {
     }
 </script>
-
-<style>
-    .main_title {
-        border-top: 2px solid #5A5B5C;
-    }
-
-    .main_page_alert {
-        text-align: left;
-    }
-
-    .edition_block {
-        width: 200px;
-    }
-
-    .guide_title {
-        font-size: 18px;
-    }
-</style>
 
 </html>

@@ -20,14 +20,6 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-
-const mc_formatting_code_css = document.createElement('link');
-mc_formatting_code_css.rel = 'stylesheet';
-mc_formatting_code_css.href = rootPath + 'stylesheet/mc_formatting_code.css';
-
-document.head.appendChild(mc_formatting_code_css);
-
 // 颜色代码映射
 const colorMap = {
     '0': '#000000', '1': '#0000AA', '2': '#00AA00', '3': '#00AAAA',

@@ -285,32 +285,6 @@ function reloadPage() {
     }, 600);
 }
 
-// 创建内联元素
-const public_define = document.createElement('script'); // 公共定义函数
-public_define.src = rootPath + 'javascript/public_define.js';
-const accessibility_js = document.createElement('script'); // 无障碍函数
-accessibility_js.src = rootPath + 'library/accessibility.js';
-const exp_js = document.createElement('script'); // 实验性功能函数
-exp_js.src = rootPath + 'experiments/index.js';
-const advanced_js = document.createElement('script'); // 高级功能函数
-advanced_js.src = rootPath + 'javascript/advanced.js';
-const custom_elements_js = document.createElement('script'); // 自定义元素函数
-custom_elements_js.src = rootPath + 'javascript/custom_elements.js';
-const mc_formatting_code_js = document.createElement('script'); // MC格式化代码函数
-mc_formatting_code_js.src = rootPath + 'javascript/mc_formatting_code.js';
-const public_style = document.createElement('link'); // 公共样式
-public_style.rel = 'stylesheet';
-public_style.href = rootPath + 'stylesheet/public_style.css';
-
-// 将内联元素添加到头部
-document.head.appendChild(public_define);
-document.head.appendChild(accessibility_js);
-document.head.appendChild(exp_js);
-document.head.appendChild(advanced_js);
-document.head.appendChild(custom_elements_js);
-document.head.appendChild(mc_formatting_code_js);
-document.head.appendChild(public_style);
-
 logManager.log("浏览器UA: " + navigator.userAgent)
 logManager.log("完整路径: " + currentURL);
 logManager.log("来源: " + hostPath);
