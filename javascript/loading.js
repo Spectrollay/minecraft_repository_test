@@ -27,6 +27,7 @@ function hide_mask() {
         loading_mask.style.opacity = '0';
         setTimeout(() => {
             loading_mask.style.display = 'none';
+            mainHandleScroll(); // 联动自定义网页滚动条
         }, 800);
     }, 1200);
 }
