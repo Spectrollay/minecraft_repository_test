@@ -25,7 +25,6 @@ function hide_mask() {
     // 1.2s后隐藏遮罩
     setTimeout(() => {
         loading_mask.style.opacity = '0';
-        mainHandleScroll(); // 联动自定义网页滚动条
         setTimeout(() => {
             loading_mask.style.display = 'none';
         }, 800);
