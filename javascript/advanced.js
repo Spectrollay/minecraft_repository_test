@@ -122,7 +122,7 @@ if (versionBlock) {
                     item.style.display = 'flex';
                 })
             }
-            mainHandleScroll();
+            mainHandleScroll(); // 联动自定义网页滚动条
         });
     });
 }
@@ -131,7 +131,7 @@ if (developerBlock) {
     developerBlock.addEventListener("click", (event) => {
         handleClick(event, "showTheEnd", "发现了彩蛋!", () => {
             document.getElementById('the_end').style.display = "flex";
-            mainHandleScroll();
+            mainHandleScroll(); // 联动自定义网页滚动条
         });
     });
 }

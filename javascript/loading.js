@@ -22,15 +22,15 @@
 
 function hide_mask() {
     const loading_mask = document.getElementById('loading_mask');
-    // 600ms后隐藏遮罩
+    // 1.2s后隐藏遮罩
     loading_mask.style.opacity = '0';
     setTimeout(() => {
         loading_mask.style.display = 'none';
-    }, 600);
+    }, 1200);
 }
 
-// 8秒后强制隐藏遮罩
-let count = 8;
+// 6秒后强制隐藏遮罩
+let count = 6;
 const secondInterval = setInterval(() => {
     count--;
     if (count <= 0) {
