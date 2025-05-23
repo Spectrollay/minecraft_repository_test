@@ -23,9 +23,11 @@
 function hide_mask() {
     const loading_mask = document.getElementById('loading_mask');
     // 1.2s后隐藏遮罩
-    loading_mask.style.opacity = '0';
     setTimeout(() => {
-        loading_mask.style.display = 'none';
+        loading_mask.style.opacity = '0';
+        setTimeout(() => {
+            loading_mask.style.display = 'none';
+        }, 800);
     }, 1200);
 }
 

@@ -30,7 +30,7 @@
     opacity: 1;
     position: fixed;
     top: 0;
-    transition: opacity 0.6s;
+    transition: opacity 0.8s;
     width: 100vw;
     z-index: 999;
 }

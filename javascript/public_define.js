@@ -678,13 +678,6 @@ window.addEventListener('load', () => setTimeout(function () {
         }
     }
 
-    let backImg = document.getElementsByClassName('back_img');
-    if (backImg) {
-        for (let i = 0; i < backImg.length; i++) {
-            backImg[i].src = rootPath + 'images/arrowLeft_white.png';
-        }
-    }
-
     let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
     if (modal_close_btn_img) {
         for (let i = 0; i < modal_close_btn_img.length; i++) {
