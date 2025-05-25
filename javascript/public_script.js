@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeScrollContainers();
 });
 
-// 使用闭包的简化函数
+// 使用带有内部状态的滚动处理闭包函数
 function createHandleScroll(customScrollbar, customThumb, container, content) {
     let scrollTimeout;
     return function () {

@@ -40,7 +40,10 @@
     <link href="./images/Like.png" rel="icon">
     <style>
         .main_block_cont {
+            align-items: center;
+            display: flex;
             margin: 6px 0;
+            width: 100%;
         }
 
         .wrap_flex_top {
@@ -70,16 +73,6 @@
             width: 280px;
         }
 
-        .donate_table_area {
-            margin: 12px;
-            width: calc(100% - 24px);
-        }
-
-        .donate_table {
-            margin: 6px;
-            width: calc(100% - 12px);
-        }
-
         .donor_only {
             margin: 6px;
             max-width: 600px;
@@ -89,6 +82,29 @@
 
         .donor_only_text {
             text-align: justify;
+        }
+
+        .donate_list {
+            margin: 6px;
+            max-width: 600px;
+            min-width: 280px;
+            width: calc(100% - 12px);
+        }
+
+        .donate_list th, .donate_list td {
+            border: 1px solid #6D6D6E;
+        }
+
+        .donate_list th {
+            background-color: #58585A;
+        }
+
+        .donor_list:hover {
+            background-color: #58585A;
+        }
+
+        .donor_name, .donor_amount {
+            height: 36px;
         }
     </style>
     <title>捐赠我们 - Minecraft Kit</title>
@@ -129,7 +145,7 @@
                 <main class="scroll_container" id="main">
                     <div class="main_title">
                         <div class="main_title_area">
-                            <div class="main_title_span">感谢支持~</div>
+                            <div class="main_title_span">捐赠我们</div>
                         </div>
                     </div>
                     <div class="banner_area">
@@ -186,30 +202,15 @@
                         </div>
                     </div>
                     <div class="main main_block">
-                        <div class="main_block_cont">
+                        <div class="main_block_cont" style="flex-direction: column;">
                             <div class="donate_block_title">捐赠列表</div>
-                            <div class="table_area donate_table_area">
-                                <div class="table donate_table">
-                                    <table>
-                                        <tr>
-                                            <td>用户</td>
-                                            <td>捐赠</td>
-                                        </tr>
-                                        <tr>
-                                            <td>XIAOXING</td>
-                                            <td>CNY 50</td>
-                                        </tr>
-                                        <tr>
-                                            <td>一颗不帅</td>
-                                            <td>CNY 5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Engine</td>
-                                            <td>CNY 30</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+                            <div>列表按照捐赠的时间先后顺序展示</div>
+                            <table class="donate_list" id="donate_list">
+                                <tr class="donor_list header">
+                                    <th class="donor_name">用户昵称</th>
+                                    <th class="donor_amount">捐赠数额</th>
+                                </tr>
+                            </table>
                             <div class="donate_message">请在捐赠后及时与我们<a href="./about/contact.html">取得联系</a>以便将你的信息加入捐赠列表中.</div>
                         </div>
                     </div>
@@ -235,6 +236,7 @@
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/data_driven.js"></script>
 <script src="./javascript/mcfc.js"></script>
 <script>
     // 激活捐赠专享
