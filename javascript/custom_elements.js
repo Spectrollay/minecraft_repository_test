@@ -379,6 +379,84 @@ function hideModal(button) {
 }
 
 
+// Pop弹窗
+function showPop(message, duration, styleClass) {
+    const area = document.getElementById("pop_area");
+    const pop = document.createElement("div");
+
+    duration = Number(duration);
+    if (!Number.isFinite(duration) || duration <= 0) {
+        duration = 3000;
+    }
+
+    pop.className = "pop" + (styleClass ? ` ${styleClass}` : "");
+    pop.textContent = message;
+
+    setTimeout(() => {
+        area.prepend(pop);
+        playSound('toast');
+
+        // 插入后触发动画
+        requestAnimationFrame(() => {
+            void pop.offsetHeight;
+            pop.classList.add("show");
+        });
+
+        manageVisiblePops(); // 控制最多显示5个
+
+        // 自动移除
+        setTimeout(() => {
+            pop.classList.remove("show");
+            setTimeout(() => {
+                // 删除前尝试恢复旧的未到消失时间的pop
+                if (area.contains(pop)) {
+                    area.removeChild(pop);
+                    restoreHiddenPop();
+                }
+            }, 300);
+        }, duration);
+    }, 300);
+}
+
+function manageVisiblePops() {
+    const area = document.getElementById("pop_area");
+    const pops = Array.from(area.querySelectorAll(".pop"));
+
+    // 找出所有还未到消失时间的pop
+    const visiblePops = pops.filter(p => p.style.display !== 'none' && p.classList.contains("show"));
+
+    if (visiblePops.length >= 5) {
+        // 隐藏旧的那个还在显示的pop
+        for (let i = pops.length - 1; i >= 0; i--) {
+            const p = pops[i];
+            if (p.style.display !== 'none' && p.classList.contains("show")) {
+                p.style.display = 'none';
+                break;
+            }
+        }
+    }
+}
+
+function restoreHiddenPop() {
+    const area = document.getElementById("pop_area");
+    const pops = Array.from(area.querySelectorAll(".pop"));
+
+    // 当前显示的pop数量
+    const visibleCount = pops.filter(p => p.style.display !== 'none' && p.classList.contains("show")).length;
+
+    // 只有有空位时才恢复隐藏的pop
+    if (visibleCount < 5) {
+        for (let i = pops.length - 1; i >= 0; i--) {
+            const p = pops[i];
+            if (p.style.display === 'none' && p.classList.contains("show")) {
+                p.style.display = '';
+                break;
+            }
+        }
+    }
+}
+
+
 // 自定义Slider滑块
 class CustomSlider extends HTMLElement {
     constructor() {

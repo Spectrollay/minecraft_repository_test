@@ -20,61 +20,53 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
-expTtsState = switchValues['experimental_tts'] || 'on';
+// TTS文本转语音
+let enable_tts;
+enable_tts = false;
+if (enable_tts) {
+    useTTS();
+}
 
-if (expTtsState === 'on') {
+function useTTS() {
+    if ('speechSynthesis' in window) {
+        // 支持TTS
+        let currentUtterance = null;
+        let lastText = '';
 
-    // TTS文本转语音
-    let enable_tts;
-    enable_tts = false;
-    if (enable_tts) {
-        useTTS();
-    }
+        function speakText(text) {
+            if (text === lastText) return; // 如果目标文本没有改变
+            lastText = text;
 
-    function useTTS() {
-        if ('speechSynthesis' in window) {
-            // 支持TTS
-            let currentUtterance = null;
-            let lastText = '';
-
-            function speakText(text) {
-                if (text === lastText) return; // 如果目标文本没有改变
-                lastText = text;
-
-                if (currentUtterance) {
-                    window.speechSynthesis.cancel();
-                }
-
-                currentUtterance = new SpeechSynthesisUtterance(text);
-                window.speechSynthesis.speak(currentUtterance);
+            if (currentUtterance) {
+                window.speechSynthesis.cancel();
             }
 
-            function handleEvent(event) {
-                const text = event.target.innerText.trim();
-                if (text) {
-                    speakText(text);
-                }
-            }
-
-            document.addEventListener('mouseover', handleEvent);
-            document.addEventListener('touchstart', handleEvent, {passive: true});
-
-            window.addEventListener('unload', () => {
-                window.speechSynthesis.cancel(); // 页面卸载时取消未完成的语音任务
-            });
-        } else {
-            // 不支持TTS
-            logManager.log("当前浏览器不支持TTS文本转语音", 'warn');
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(currentUtterance);
         }
-    }
 
-    // Screen Reader屏幕阅读器
-    let element;
-    if (element) {
-        element.setAttribute('role', 'main');
-        element.setAttribute('aria-hidden', true);
-    }
+        function handleEvent(event) {
+            const text = event.target.innerText.trim();
+            if (text) {
+                speakText(text);
+            }
+        }
 
+        document.addEventListener('mouseover', handleEvent);
+        document.addEventListener('touchstart', handleEvent, {passive: true});
+
+        window.addEventListener('unload', () => {
+            window.speechSynthesis.cancel(); // 页面卸载时取消未完成的语音任务
+        });
+    } else {
+        // 不支持TTS
+        logManager.log("当前浏览器不支持TTS文本转语音", 'warn');
+    }
+}
+
+// Screen Reader屏幕阅读器
+let element;
+if (element) {
+    element.setAttribute('role', 'main');
+    element.setAttribute('aria-hidden', true);
 }

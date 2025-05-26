@@ -146,7 +146,7 @@
             position: fixed;
             top: 44px;
             width: 100%;
-            z-index: 1;
+            z-index: 5;
         }
 
         .zoom_container {
@@ -172,7 +172,7 @@
             justify-content: center;
             position: absolute;
             width: 34px;
-            z-index: 2;
+            z-index: 6;
         }
 
         .zoom_close_btn {
@@ -251,10 +251,6 @@
                     <div class="block">
                         <div class="block_main title_block">
                             <div class="title1">MC格式化代码渲染器<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href);" src="./images/ExternalLink_white.png"></div>
-                            <div class="title_info">V2.0
-                                <vertical-line></vertical-line>
-                                2025-05-05
-                            </div>
                         </div>
                     </div>
                     <div class="block_spacing"></div>
@@ -331,7 +327,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block_spacing"></div>
+                    <div>
+                        <div class="page_info"><br></div>
+                        <div class="page_info_title">项目信息</div>
+                        <div class="page_info" id="version_info"></div>
+                        <div class="page_info_title">关于我们</div>
+                        <div class="page_info">开发者: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>维护者: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>聊天群组: <a href="https://t.me/Spectrollay_MCW" target="_blank">Telegram</a> | <a href="https://qm.qq.com/q/AqLmKLH9mM" target="_blank">QQ</a> | <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank">云湖</a></div>
+                        <div class="page_info_title">用❤️制作</div>
+                        <div class="page_info"><br></div>
+                    </div>
                 </main>
             </scroll-container>
             <custom-scrollbar class="main_custom_scrollbar">
@@ -352,9 +356,12 @@
     <div class="zoom_container"></div>
 </div>
 
-<!--遮罩-->
-<!--除了顶栏-->
+<!-- 遮罩 -->
+<!-- 除了顶栏 -->
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
+
+<!-- Pop弹窗 -->
+<div class="pop_area" id="pop_area"></div>
 
 </body>
 
@@ -365,6 +372,16 @@
 <script src="./javascript/custom_elements.js"></script>
 <script src="./javascript/mcfc.js"></script>
 <script>
+    const mcfc_site_version = "2.0"; // NOTE 版本号
+    const mcfc_update_count = "2025-05-05-01"; // NOTE 发布编号
+    const mcfc_server_version = "4.0";
+    const mcfc_version_info = "<span>项目版本: " + mcfc_site_version + "<br>服务端版本: " + mcfc_server_version + "<br>最后更新: " + mcfc_update_count + "</span>";
+
+    const version_area = document.getElementById('version_info');
+    if (version_area) {
+        version_area.innerHTML = mcfc_version_info;
+    }
+
     function renderFormattingCode() {
         const input = document.getElementById('formatting_code_input').querySelector('text-field').getValue();
         const renderArea = document.getElementById('render_area');

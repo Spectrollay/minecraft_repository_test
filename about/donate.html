@@ -225,9 +225,12 @@
     </display-body>
 </dispaly-area>
 
-<!--遮罩-->
-<!--除了顶栏-->
+<!-- 遮罩 -->
+<!-- 除了顶栏 -->
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
+
+<!-- Pop弹窗 -->
+<div class="pop_area" id="pop_area"></div>
 
 </body>
 
@@ -251,12 +254,17 @@
                 </modal_close_btn>
             </modal_title_area>
             <modal_content>
-                <p>即将到来</p>
+                <p>感谢你的支持与捐赠</p>
+                <p style="text-align: justify;">在继续之前, 请确认是否已向我们提交捐赠信息, 如果还未提交捐赠信息, 请按照页面内提示进行提交. 确认提交信息后, 请点击弹窗下方的"立即验证捐赠"按钮进行验证激活, 我们会自动处理你的验证提交. 如果你已经激活过捐赠专享, 请点击弹窗下方的"曾激活过捐赠专享?"按钮进行重新激活. 捐赠专享一经激活永久生效, 不接受退款也无需补差价或重复捐赠.</p>
+                <p>对捐赠专享还有疑惑? 请参见页面内FAQ.</p>
             </modal_content>
             <modal_button_area>
                 <modal_button_group>
                     <modal_button_list>
-                        <custom-button data="modal|green||modal_agree_btn|false||" js="hideModal(this);" text="我知道了"></custom-button>
+                        <custom-button data="modal|normal|||false||" js="hideModal(this);showModal('reactive_donor_only_modal');" text="曾激活过捐赠专享?"></custom-button>
+                    </modal_button_list>
+                    <modal_button_list>
+                        <custom-button data="modal|green|||false||" js="hideModal(this);showModal('verify_donor_only_modal');" text="立即验证捐赠"></custom-button>
                     </modal_button_list>
                 </modal_button_group>
             </modal_button_area>
@@ -264,6 +272,86 @@
     </modal_area>`;
 
     document.body.insertAdjacentHTML('afterbegin', activeDonorOnlyModal);
+
+    // 重新激活捐赠专享
+    const reactiveDonorOnlyModal = `
+    <div class="overlay normal_overlay" id="overlay_reactive_donor_only_modal"></div>
+    <modal_area class="normal_modal" id="reactive_donor_only_modal" style="display: none;">
+        <modal>
+            <modal_title_area>
+                <modal_title>重新激活</modal_title>
+                <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                    <img alt="" class="modal_close_btn_img" src=""/>
+                </modal_close_btn>
+            </modal_title_area>
+            <modal_content>
+                <p style="text-align: justify;">
+                如果你已捐赠并激活过捐赠专享, 但因某些原因需要重新激活, 请点击弹窗下方的"重新激活"按钮进行激活.
+                <br><br>
+                请注意: 捐赠专享功能基于诚信激活机制, 不设置相关监测, 不绑定任何账号系统, 也无需提交捐赠凭证.
+                </p>
+            </modal_content>
+            <modal_button_area>
+                <modal_button_group>
+                    <modal_button_list>
+                        <custom-button data="modal|green|||false||" js="hideModal(this);activeDonorOnly();" text="重新激活"></custom-button>
+                    </modal_button_list>
+                    <modal_button_list>
+                        <custom-button data="modal|normal|||false||" js="hideModal(this);showModal('active_donor_only_modal');" text="我未曾激活过"></custom-button>
+                    </modal_button_list>
+                </modal_button_group>
+            </modal_button_area>
+        </modal>
+    </modal_area>`;
+
+    document.body.insertAdjacentHTML('afterbegin', reactiveDonorOnlyModal);
+
+    // 验证激活捐赠专享
+    const verifyDonorOnlyModal = `
+    <div class="overlay normal_overlay" id="overlay_verify_donor_only_modal"></div>
+    <modal_area class="normal_modal" id="verify_donor_only_modal" style="display: none;">
+        <modal>
+            <modal_title_area>
+                <modal_title>验证激活</modal_title>
+                <modal_close_btn class="close_btn" onclick="hideModal(this);">
+                    <img alt="" class="modal_close_btn_img" src=""/>
+                </modal_close_btn>
+            </modal_title_area>
+            <modal_content>
+                <p>在激活之前你需要阅读以下内容</p>
+                <p style="text-align: justify;">
+                    本条款用于授权使用星月Minecraft版本库的捐赠专享功能, 该服务仅面向特定渠道用户开放. 点击弹窗下方的"验证激活"按钮即视为服务正式开始. 如你拒绝接受服务, 或存在违反我们其他使用条款的行为, 我们保留中止该服务支持的权利.
+                    <br><br>
+                    捐赠专享功能授权分为当前设备授权与个人授权两种. 当用户甲在设备A上激活了捐赠专享功能, 即可在任意能够访问本站的设备上使用该功能; 若用户乙未捐赠激活且使用设备A和设备B, 则只能在A设备上使用该功能(如设备由用户甲出借), 在设备B及其他可能存在的设备上无法使用.
+                    <br><br>
+                    捐赠专享生效所需的金额可能会随版本迭代而调整. 功能一经激活即长期有效, 不支持退款, 也无需补差价或重复捐赠.
+                    <br><br>
+                    捐赠专享功能基于诚信激活机制, 不设置相关监测, 不绑定任何账号系统, 也无需提交捐赠凭证.
+                </p>
+            </modal_content>
+            <modal_button_area>
+                <modal_button_group>
+                    <modal_button_list>
+                        <custom-button data="modal|green|||false||" js="hideModal(this);activeDonorOnly();" text="验证激活"></custom-button>
+                    </modal_button_list>
+                    <modal_button_list>
+                        <custom-button data="modal|normal|||false||" js="hideModal(this);" text="暂时不了"></custom-button>
+                    </modal_button_list>
+                </modal_button_group>
+            </modal_button_area>
+        </modal>
+    </modal_area>`;
+
+    document.body.insertAdjacentHTML('afterbegin', verifyDonorOnlyModal);
+
+    function activeDonorOnly() {
+        if (localStorage.getItem("donate") === "true") {
+            showPop('已激活过捐赠专享,无需重复激活!', 3000, 'error');
+        } else {
+            localStorage.setItem("donate", "true");
+            showPop('好耶!已成功验证并激活捐赠专享!', 3000, 'vip');
+        }
+    }
 </script>
 
 </html>

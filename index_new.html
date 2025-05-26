@@ -245,42 +245,42 @@
                                             <img alt="" class="link_title_img" src="./images/logo/Bedrock_Edition_icon.png">基岩版
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/Java_Edition_icon.png">Java版
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/Minecraft_Education_icon.png">教育版
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/Bedrock_Dedicated_Server_icon.png">服务端
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/Minecraft_Trial_icon.png">试玩版
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/MCSM_icon.png">Minecraft: 故事模式
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/MCEarth_icon.png">Minecraft Earth
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/Minecraft_Dungeons_icon.png">Minecraft Dungeons
                                         </div>
                                     </link-block>
-                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('');">
+                                    <link-block class="edition_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                         <div class="link_text">
                                             <img alt="" class="link_title_img" src="./images/logo/Minecraft_Legends_icon.png">Minecraft Legends
                                         </div>
@@ -398,7 +398,7 @@
                                 <div>
                                     <div class="body_text">
                                         <div class="link_block_group_title">助力我们发展</div>
-                                        <link-block class="how_to_buy_link_block" onclick="playSound('click');">
+                                        <link-block class="support_us_link_block" onclick="playSound('click');jumpToPage('./default/coming_soon.html');">
                                             <div class="link_title">
                                                 <img alt="" class="link_title_img" src="./images/Support.png">支持我们
                                             </div>
@@ -546,11 +546,14 @@
     </display-body>
 </dispaly-area>
 
-<!--遮罩-->
-<!--除了顶栏-->
+<!-- 遮罩 -->
+<!-- 除了顶栏 -->
 <div class="new overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 
-<!--提示弹窗-->
+<!-- Pop弹窗 -->
+<div class="pop_area" id="pop_area"></div>
+
+<!-- 提示弹窗 -->
 <div class="overlay" id="overlay_alert_modal"></div>
 <modal_area id="alert_modal" style="display: none;"></modal_area>
 

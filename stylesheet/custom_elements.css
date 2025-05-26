@@ -676,6 +676,54 @@ modal_button_list {
 }
 
 
+/* Pop 弹窗 */
+.pop_area {
+    align-items: center;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column-reverse; /* 让新消息从下往上排 */
+    left: 50%;
+    overflow: hidden;
+    pointer-events: none;
+    position: fixed;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.pop {
+    background-color: #1F1F1F;
+    color: white;
+    margin: 6px 0;
+    opacity: 0;
+    padding: 10px 20px;
+    pointer-events: none;
+    text-align: center;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.pop.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pop.success {
+    color: #6CC349;
+}
+
+.pop.process {
+    color: #FFE866;
+}
+
+.pop.error {
+    color: #F46D6D;
+}
+
+.pop.vip {
+    color: #FEE039;
+}
+
+
 /* Slider 滑块 */
 .slider_content {
     align-items: center;

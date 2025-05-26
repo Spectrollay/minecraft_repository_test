@@ -71,10 +71,12 @@ function throttle(func, delay) {
 }
 
 // 处理滚动条显示的逻辑
-function showScroll(customScrollbar, scrollTimeout) {
-    clearTimeout(scrollTimeout); // 清除之前的隐藏定时器
+function showScroll(customScrollbar) {
+    if (customScrollbar._scrollHideTimeout) {
+        clearTimeout(customScrollbar._scrollHideTimeout); // 清除之前的隐藏定时器
+    }
     customScrollbar.style.opacity = "1"; // 显示滚动条
-    return setTimeout(() => {
+    customScrollbar._scrollHideTimeout = setTimeout(() => {
         customScrollbar.style.opacity = "0"; // 3秒后隐藏滚动条
     }, 3000);
 }
@@ -83,49 +85,77 @@ function showScroll(customScrollbar, scrollTimeout) {
 function updateThumb(thumb, container, content, customScrollbar) {
     const scrollHeight = content.scrollHeight; // 滚动区域的总高度
     const containerHeight = container.getBoundingClientRect().height; // 滚动区域的显示高度
-    if (content.classList.contains('main_with_tab_bar')) customScrollbar.style.top = '100px'; // 这里需要给标签栏预留高度
+    // 内容未溢出或滚动区域过小则隐藏滚动条并返回
+    if (Math.round(scrollHeight) <= Math.round(containerHeight)) { // 解决计算精度不同导致的问题
+        customScrollbar.style.display = 'none';
+        return;
+    } else {
+        customScrollbar.style.display = 'block';
+    }
     const thumbHeight = Math.max((containerHeight / scrollHeight) * containerHeight, 20); // 滑块的高度,最小高度20px,防止滚动条过小
-    const maxScrollTop = scrollHeight - containerHeight; // 滑块能到达的最大位置
+    const maxContentScroll = scrollHeight - containerHeight; // 滑块能到达的最大位置
     const currentScrollTop = Math.round(container.scrollTop); // 当前的滑块位置
-    let thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - (thumbHeight + 4)); // 4为滑块的Border总高度,计算时应去除
-    if (content.classList.contains('sidebar_content')) thumbPosition = (currentScrollTop / maxScrollTop) * (containerHeight - thumbHeight); // 次要滚动条的样式与主要滚动条样式不同
-
+    let thumbPosition, thumbTrackSpace;
+    if (content.classList.contains('main_with_tab_bar')) customScrollbar.style.top = '100px'; // 这里需要给标签栏预留高度
+    if (content.classList.contains('sidebar_content')) {
+        thumbTrackSpace = containerHeight - thumbHeight; // 次要滚动条的样式与主要滚动条样式不同
+    } else {
+        thumbTrackSpace = containerHeight - (thumbHeight + 4); // 4为滑块的Border总高度
+    }
+    if (maxContentScroll > 0 && thumbTrackSpace > 0) { // 确保有滚动空间和滑块移动空间
+        thumbPosition = (currentScrollTop / maxContentScroll) * thumbTrackSpace;
+        thumbPosition = Math.max(0, Math.min(thumbPosition, thumbTrackSpace)); // 限制滑块在有效范围内
+    } else {
+        thumbPosition = 0; // 滑块置于顶部
+    }
     thumb.style.height = `${thumbHeight}px`;
     thumb.style.top = `${thumbPosition}px`;
     customScrollbar.style.height = `${containerHeight}px`;
-    customScrollbar.style.display = (thumbHeight + 0.5) >= containerHeight ? 'none' : 'block'; // 解决计算精度不同导致的问题
 }
 
 // 处理滚动条点击跳转
 function handleScrollbarClick(e, isDragging, customScrollbar, thumb, container, content) {
     if (isDragging || content.classList.contains('sidebar_content')) return; // 次要滚动条和拖动中的主要滚动条不能点击跳转
 
-    const {top, height: scrollbarHeight} = customScrollbar.getBoundingClientRect();
-    const clickPosition = e.clientY - top;
-    const thumbHeight = thumb.offsetHeight;
-    const containerHeight = container.clientHeight;
-    const maxScrollTop = content.scrollHeight - containerHeight;
+    const {top: scrollbarClientRectTop, height: scrollbarActualHeight} = customScrollbar.getBoundingClientRect();
+    const clickClientY = e.clientY;
+    const clickPositionInScrollbar = clickClientY - scrollbarClientRectTop;
+    const thumbVisualHeight = thumb.offsetHeight; // 滑块的实际可见高度
+    const containerVisibleHeight = container.getBoundingClientRect().height;
+    const contentScrollHeight = content.scrollHeight;
+    const maxContentScroll = contentScrollHeight - containerVisibleHeight;
+    if (maxContentScroll <= 0) return;
 
-    if (clickPosition < thumb.offsetTop || clickPosition > (thumb.offsetTop + thumbHeight)) {
-        container.scrollTop = (clickPosition / (scrollbarHeight - thumbHeight)) * maxScrollTop;
-        updateThumb(thumb, container, content, customScrollbar);
+    const thumbCurrentOffsetTop = thumb.offsetTop; // 滑块相对于其父元素的顶部
+    if (clickPositionInScrollbar < thumbCurrentOffsetTop || clickPositionInScrollbar > (thumbCurrentOffsetTop + thumbVisualHeight)) {
+        let scrollbarTrackEffectiveHeight;
+        if (content.classList.contains('sidebar_content')) {
+            scrollbarTrackEffectiveHeight = scrollbarActualHeight - thumbVisualHeight;
+        } else {
+            scrollbarTrackEffectiveHeight = scrollbarActualHeight - (thumbVisualHeight + 4);
+        }
+
+        if (scrollbarTrackEffectiveHeight <= 0) return;
+
+        let targetThumbTop = clickPositionInScrollbar - (thumbVisualHeight / 2); // 让点击点作为新的滑块位置中点
+        targetThumbTop = Math.max(0, Math.min(targetThumbTop, scrollbarTrackEffectiveHeight)); // 将滑块限制在轨道内
+        const newScrollTop = (targetThumbTop / scrollbarTrackEffectiveHeight) * maxContentScroll; // 根据新的滑块位置计算内容的滚动高度
+        container.scrollTop = Math.round(newScrollTop);
     }
 }
 
 // 处理滚动事件
-function handleScroll(customScrollbar, customThumb, container, content, scrollTimeout) {
-    if (!customScrollbar || !customThumb) return scrollTimeout;
+function handleScroll(customScrollbar, customThumb, container, content) {
+    if (!customScrollbar || !customThumb) return;
 
-    scrollTimeout = showScroll(customScrollbar, scrollTimeout);
+    showScroll(customScrollbar);
     requestAnimationFrame(() => { // 动画优化
         updateThumb(customThumb, container, content, customScrollbar);
     });
-
-    return scrollTimeout;
 }
 
 // 处理拖动滚动条的逻辑
-function handlePointerMove(e, dragState, thumb, container, content) {
+function handlePointerMove(e, dragState, thumb, container, content, customScrollbar) {
     if (!dragState.isDragging || content.classList.contains('sidebar_content')) return; // 次要滚动条不能拖动
 
     const currentY = e.clientY || e.touches[0].clientY;
@@ -140,14 +170,14 @@ function handlePointerMove(e, dragState, thumb, container, content) {
         top: (newTop / maxThumbTop) * maxScrollTop, behavior: "instant" // 滚动时不产生动画
     });
 
-    updateThumb(thumb, container, content, container.closest('scroll-view').querySelector('custom-scrollbar'));
+    updateThumb(thumb, container, content, customScrollbar);
 }
 
-function handlePointerDown(e, customThumb, container, content, dragState) {
+function handlePointerDown(e, customThumb, container, content, dragState, customScrollbar) {
     dragState.isDragging = true;
     dragState.startY = e.clientY || e.touches[0].clientY;
     dragState.initialThumbTop = customThumb.getBoundingClientRect().top - container.getBoundingClientRect().top;
-    const handlePointerMoveBound = (e) => handlePointerMove(e, dragState, customThumb, container, content);
+    const handlePointerMoveBound = (e) => handlePointerMove(e, dragState, customThumb, container, content, customScrollbar);
 
     document.addEventListener('pointermove', handlePointerMoveBound);
     document.addEventListener('touchmove', handlePointerMoveBound);
@@ -162,30 +192,34 @@ function handlePointerDown(e, customThumb, container, content, dragState) {
 
 // 绑定滚动事件的通用函数,使用节流处理滚动事件
 function bindScrollEvents(container, content, customScrollbar, customThumb) {
-    let scrollTimeout;
     const dragState = {isDragging: false, startY: 0, initialThumbTop: 0}; // 使用对象管理拖动状态
 
-    const throttledScroll = throttle(() => {
-        scrollTimeout = handleScroll(customScrollbar, customThumb, container, content, scrollTimeout);
-    }, 1); // 使用节流函数优化性能
+    const throttledUpdateAndShowScroll = throttle(() => {
+        handleScroll(customScrollbar, customThumb, container, content);
+    }, 1); // 使用节流函数优化性能(需要即时响应计算的场景)
+
+    const throttledShowOnly = throttle(() => {
+        showScroll(customScrollbar);
+    }, 100); // 使用节流函数优化性能(仅需显示滚动条的场景)
 
     // 自定义滚动条精确滚动
     customScrollbar.addEventListener('wheel', (e) => {
         let delta = e.deltaY > 0 ? 10 : -10;
         container.scrollTop += delta;
-        throttledScroll();
+        throttledUpdateAndShowScroll();
         e.preventDefault();
     });
 
-    container.addEventListener('scroll', throttledScroll);
-    window.addEventListener('resize', throttledScroll);
-    document.addEventListener('mousemove', throttledScroll);
-    document.addEventListener('touchmove', throttledScroll);
-
-    customThumb.addEventListener('pointerdown', (e) => handlePointerDown(e, customThumb, container, content, dragState));
-    customThumb.addEventListener('touchstart', (e) => handlePointerDown(e, customThumb, container, content, dragState));
+    // 仅需要显示滚动条的事件
+    document.addEventListener('mousemove', throttledShowOnly);
+    document.addEventListener('touchmove', throttledShowOnly);
+    // 需要显示和更新滚动条的事件
+    container.addEventListener('scroll', throttledUpdateAndShowScroll);
+    window.addEventListener('resize', throttledUpdateAndShowScroll);
+    customThumb.addEventListener('pointerdown', (e) => handlePointerDown(e, customThumb, container, content, dragState, customScrollbar));
+    customThumb.addEventListener('touchstart', (e) => handlePointerDown(e, customThumb, container, content, dragState, customScrollbar));
     customScrollbar.addEventListener('click', (e) => handleScrollbarClick(e, dragState.isDragging, customScrollbar, customThumb, container, content));
-    window.addEventListener('load', () => setTimeout(throttledScroll, 10)); // 页面加载完成后延时触发
+    window.addEventListener('load', () => setTimeout(throttledUpdateAndShowScroll, 10)); // 页面加载完成后延时触发
 }
 
 // 获取并处理所有滚动容器
@@ -193,10 +227,22 @@ function initializeScrollContainers() {
     const containers = document.querySelectorAll('.main_scroll_container, .sidebar_scroll_container');
 
     containers.forEach((container) => {
-        const content = container.querySelector('.scroll_container, .sidebar_content');
-        const customScrollbar = content.closest('scroll-view').querySelector('custom-scrollbar');
-        const customThumb = customScrollbar.querySelector('custom-scrollbar-thumb');
-        bindScrollEvents(container, content, customScrollbar, customThumb);
+        // 为当前容器查询核心滚动元素
+        const contentElement = container.querySelector('.scroll_container, .sidebar_content');
+        const scrollViewElement = contentElement.closest('scroll-view');
+        const customScrollbarElement = scrollViewElement.querySelector('custom-scrollbar');
+        const customThumbElement = customScrollbarElement.querySelector('custom-scrollbar-thumb');
+        bindScrollEvents(container, contentElement, customScrollbarElement, customThumbElement); // 为所有容器绑定标准的滚动事件
+
+        // 监听元素尺寸变化
+        const ScrollHandlerForResize = createHandleScroll(customScrollbarElement, customThumbElement, container, contentElement);
+        const throttledScrollHandler = throttle(ScrollHandlerForResize, 1);
+        const observer = new ResizeObserver(() => {
+            throttledScrollHandler();
+        }); // 创建ResizeObserver实例
+        observer.observe(container); // 观察主容器本身
+        observer.observe(contentElement); // 同时观察其内容元素
+
     });
 }
 
@@ -207,9 +253,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 使用带有内部状态的滚动处理闭包函数
 function createHandleScroll(customScrollbar, customThumb, container, content) {
-    let scrollTimeout;
     return function () {
-        scrollTimeout = handleScroll(customScrollbar, customThumb, container, content, scrollTimeout);
+        handleScroll(customScrollbar, customThumb, container, content);
     };
 }
 
@@ -218,17 +263,6 @@ const mainScrollContainer = document.querySelector('.main_scroll_container');
 const mainHandleScroll = throttle(createHandleScroll( // NOTE 在有涉及到自定义高度变化的地方要调用这个代码
     document.querySelector('.scroll_container').closest('scroll-view').querySelector('custom-scrollbar'), document.querySelector('.scroll_container').closest('scroll-view').querySelector('custom-scrollbar-thumb'), mainScrollContainer, document.querySelector('.scroll_container')
 ), 1);
-
-let lastScrollHeight = mainScrollContainer.scrollHeight;
-
-function watchHeightChange() { // 检查高度变化 NOTE 在有容器高度平滑变化的地方要调用这个代码
-    const currentScrollHeight = mainScrollContainer.scrollHeight;
-    if (lastScrollHeight !== currentScrollHeight) {
-        mainHandleScroll(); // 联动自定义网页滚动条
-        lastScrollHeight = currentScrollHeight;
-    }
-    requestAnimationFrame(watchHeightChange); // 在下一帧再次检查
-}
 
 // 点击顶栏回到顶部
 document.addEventListener("DOMContentLoaded", function () {
@@ -574,7 +608,7 @@ const donorOnlyModal = `
             <modal_button_area>
                 <modal_button_group>
                     <modal_button_list>
-                        <custom-button data="modal|green||modal_agree_btn|false||" js="hideModal(this);jumpToPage('./about/donate.html');" text="前往捐赠"></custom-button>
+                        <custom-button data="modal|green|||false||" js="hideModal(this);jumpToPage('./about/donate.html');" text="前往捐赠"></custom-button>
                         <custom-button data="modal|red|||false||" js="hideModal(this);" text="以后再说"></custom-button>
                     </modal_button_list>
                 </modal_button_group>
@@ -770,7 +804,8 @@ const soundPaths = {
     pop: rootPath + 'sounds/pop.ogg',
     hide: rootPath + 'sounds/hide.ogg',
     open: rootPath + 'sounds/drawer_open.ogg',
-    close: rootPath + 'sounds/drawer_close.ogg'
+    close: rootPath + 'sounds/drawer_close.ogg',
+    toast: rootPath + 'sounds/toast.ogg'
 };
 
 function playSound(type) {
@@ -1064,7 +1099,6 @@ function initializeCards() {
 
             setCardState(expandableCard, expandableContent, cardImage, isExpanded);
             expandableCard.addEventListener('click', () => {
-                requestAnimationFrame(watchHeightChange);
                 isExpanded = expandableCard.classList.contains("expanded");
                 if (isExpanded) {
                     setCardState(expandableCard, expandableContent, cardImage, false);
