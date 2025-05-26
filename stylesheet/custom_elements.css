@@ -687,6 +687,7 @@ modal_button_list {
     pointer-events: none;
     position: fixed;
     transform: translateX(-50%);
+    width: min(90%, 500px);
     z-index: 3;
 }
 
