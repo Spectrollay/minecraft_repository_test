@@ -131,7 +131,7 @@ header {
     justify-content: space-between;
     min-width: 330px;
     position: relative;
-    z-index: 9;
+    z-index: 10;
 }
 
 .header_left {
@@ -340,41 +340,6 @@ main {
     color: #FFFFFF;
     min-width: 330px;
     width: 100vw;
-}
-
-/* 主要滚动条 */
-custom-scrollbar {
-    display: block;
-    opacity: 1;
-    overflow-y: hidden;
-    position: absolute;
-    right: 0;
-    transition: opacity 1s;
-    width: 22px;
-}
-
-custom-scrollbar-track {
-    background-color: #58585A;
-    display: block;
-    height: calc(100% - 16px);
-    overflow-y: hidden;
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    width: 6px;
-}
-
-custom-scrollbar-thumb {
-    background-color: #E6E8EB;
-    border: 2px solid #000000;
-    box-shadow: inset 0 -4px #58585A, inset 0 -7px #F9FAFA, inset 3px 3px #F9FAFA, inset -3px 0 #F9FAFA;
-    cursor: pointer;
-    display: block;
-    min-height: 20px;
-    overflow-y: hidden;
-    position: absolute;
-    right: 3px;
-    width: 12px;
 }
 
 /* TabBar标签栏组件 */
@@ -1203,7 +1168,7 @@ td {
     top: 0;
     transition: left 0.6s, width 0.6s;
     width: 180px;
-    z-index: 2;
+    z-index: 10;
 }
 
 .sidebar.old { /* TODO 旧页面完成迭代后移除 */
@@ -1222,39 +1187,16 @@ td {
     }
 }
 
-.sidebar_scroll_container {
+.secondary_scroll_container {
     height: 100%;
     top: 0;
     width: 180px;
 }
 
-.sidebar_scroll_container.old { /* TODO 旧页面完成迭代后移除 */
+.secondary_scroll_container.old { /* TODO 旧页面完成迭代后移除 */
     height: calc(100% - 44px);
     top: 44px;
     width: 180px;
-}
-
-.sidebar custom-scrollbar {
-    height: 100%;
-    top: 0;
-    width: 18px;
-}
-
-.sidebar custom-scrollbar-track {
-    background-color: transparent;
-    height: 100%;
-    right: 6px;
-    top: 0;
-    width: 6px;
-}
-
-.sidebar custom-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.4);
-    border: 0;
-    box-shadow: unset;
-    cursor: default;
-    right: 4px;
-    width: 10px;
 }
 
 .sidebar a {

@@ -109,7 +109,7 @@
     </div>
 </header>
 <scroll-view>
-    <scroll-container class="tab main_scroll_container">
+    <scroll-container class="tab primary_scroll_container">
         <main class="scroll_container main_with_tab_bar" id="main">
             <div class="tab_bar_area main_tab_bar">
                 <div class="tab_bar">
@@ -325,12 +325,14 @@
                                                 <article_list_content>
                                                     <article_list_title>更改</article_list_title>
                                                     <article_list>文本转语音现在不属于实验性功能了</article_list>
+                                                    <article_list>将自定义滚动条移入自定义组件</article_list>
                                                     <article_list>优化了自定义滚动条</article_list>
                                                     <article_list_level2>优化了定时器的绑定与解除</article_list_level2>
                                                     <article_list_level2>优化了调用链中元素的传递</article_list_level2>
                                                     <article_list_level2>优化了元素尺寸变化的判定</article_list_level2>
                                                     <article_list_level2>优化了对不同指针事件的判定</article_list_level2>
                                                     <article_list_level2>优化了对边界值和元素溢出的判定</article_list_level2>
+                                                    <article_list_level2>将滚动条的最小高度由20px调整至35px</article_list_level2>
                                                     <article_list_level2>现在主要滚动条会以点击位置作为滚动中点</article_list_level2>
                                                     <article_list_level2>移除了一些重复的函数调用和元素查询</article_list_level2>
                                                     <article_list>优化了格式化代码渲染器页面部分信息的显示</article_list>
@@ -4478,7 +4480,7 @@
             </div>
         </main>
     </scroll-container>
-    <custom-scrollbar class="main_custom_scrollbar">
+    <custom-scrollbar class="primary_custom_scrollbar">
         <custom-scrollbar-track></custom-scrollbar-track>
         <custom-scrollbar-thumb></custom-scrollbar-thumb>
     </custom-scrollbar>

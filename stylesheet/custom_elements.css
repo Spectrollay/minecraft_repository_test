@@ -20,6 +20,76 @@
  * SOFTWARE.
  */
 
+/* 自定义滚动条 */
+custom-scrollbar {
+    display: block;
+    opacity: 1;
+    overflow-y: hidden;
+    position: absolute;
+    right: 0; /* 右侧显示 */
+    transition: opacity 1s;
+}
+
+custom-scrollbar-track {
+    display: block;
+    overflow-y: hidden;
+    position: absolute;
+}
+
+custom-scrollbar-thumb {
+    display: block;
+    min-height: 35px;
+    overflow-y: hidden;
+    position: absolute;
+}
+
+/* 主要滚动条 */
+custom-scrollbar.primary_custom_scrollbar {
+    width: 22px;
+}
+
+custom-scrollbar.primary_custom_scrollbar custom-scrollbar-track {
+    background-color: #58585A;
+    height: calc(100% - 16px);
+    right: 8px;
+    top: 8px;
+    width: 6px;
+}
+
+custom-scrollbar.primary_custom_scrollbar custom-scrollbar-thumb {
+    background-color: #E6E8EB;
+    border: 2px solid #000000;
+    box-shadow: inset 0 -4px #58585A, inset 0 -7px #F9FAFA, inset 3px 3px #F9FAFA, inset -3px 0 #F9FAFA;
+    cursor: pointer;
+    right: 3px;
+    width: 12px;
+}
+
+/* 次要滚动条 */
+custom-scrollbar.secondary_custom_scrollbar {
+    height: 100%;
+    top: 0;
+    width: 18px;
+}
+
+custom-scrollbar.secondary_custom_scrollbar custom-scrollbar-track {
+    background-color: transparent;
+    height: 100%;
+    right: 6px;
+    top: 0;
+    width: 6px;
+}
+
+custom-scrollbar.secondary_custom_scrollbar custom-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0;
+    box-shadow: unset;
+    cursor: default;
+    right: 4px;
+    width: 10px;
+}
+
+
 /* 文章样式 */
 article_block {
     display: block;
@@ -688,7 +758,7 @@ modal_button_list {
     position: fixed;
     transform: translateX(-50%);
     width: min(90%, 500px);
-    z-index: 3;
+    z-index: 100;
 }
 
 .pop {
@@ -762,7 +832,7 @@ modal_button_list {
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
     height: 28px;
-    position: absolute; /* 相对于包含它的 .slider 元素绝对定位 */
+    position: absolute; /* 相对于包含它的.slider元素绝对定位 */
     top: 50%; /* 滑块垂直居中 */
     transform: translate(-50%, -50%); /* 水平和垂直居中 */
     transition: left 100ms linear;
