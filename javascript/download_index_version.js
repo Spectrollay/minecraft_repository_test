@@ -307,7 +307,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
 
 document.title = `${platformName} - ${version} - ${edition} - 星月Minecraft版本库`;
 platformIcon.src = `${rootPath}images/logo/${platformName}.png`;
-mainTitle.innerHTML = `${platformName} - ${version} - ${edition}<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href);" src="./images/ExternalLink_white.png">`;
+mainTitle.innerHTML = `${platformName} - ${version} - ${edition}<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href, 'link');" src="./images/ExternalLink_white.png">`;
 sidebarTitle.innerHTML = `${version}`;
 
 document.addEventListener("DOMContentLoaded", function () {

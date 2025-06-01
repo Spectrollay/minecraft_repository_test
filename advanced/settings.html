@@ -375,7 +375,7 @@
         <modal_title_area>
             <modal_title>详情</modal_title>
             <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                <img alt="" class="modal_close_btn_img" src=""/>
+                <img alt="" class="modal_close_btn_img" src="./images/cross_white.png"/>
             </modal_close_btn>
         </modal_title_area>
         <modal_content>
@@ -385,7 +385,7 @@
             <modal_button_group>
                 <modal_button_list>
                     <custom-button data="modal|green|||false||" js="hideModal(this);" text="好的"></custom-button>
-                    <custom-button data="modal|normal|||false||" js="copyText(document.getElementById('project_hash').innerText);hideModal(this);" text="复制校验码"></custom-button>
+                    <custom-button data="modal|normal|||false||" js="copyText(document.getElementById('project_hash').innerText, 'text');hideModal(this);" text="复制校验码"></custom-button>
                 </modal_button_list>
             </modal_button_group>
         </modal_button_area>
@@ -468,7 +468,7 @@
         <modal_title_area>
             <modal_title>捐赠支持</modal_title>
             <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                <img alt="" class="modal_close_btn_img" src=""/>
+                <img alt="" class="modal_close_btn_img" src="./images/cross_white.png"/>
             </modal_close_btn>
         </modal_title_area>
         <modal_content id="donate_message">
@@ -490,7 +490,7 @@
         <modal_title_area>
             <modal_title>特别鸣谢</modal_title>
             <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                <img alt="" class="modal_close_btn_img" src=""/>
+                <img alt="" class="modal_close_btn_img" src="./images/cross_white.png"/>
             </modal_close_btn>
         </modal_title_area>
         <modal_content id="acknowledgments">

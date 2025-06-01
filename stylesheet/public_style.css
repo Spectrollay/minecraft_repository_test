@@ -1060,7 +1060,7 @@ link-block:hover, link-block:active {
     margin: 8px 0;
 }
 
-.contact_description {
+.contact_description, .support_description {
     margin: 6px;
     max-width: 400px;
     text-align: justify;

@@ -232,7 +232,7 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
                     <modal_title_area>
                         <modal_title>测试仓库提示</modal_title>
                         <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                            <img alt="" class="modal_close_btn_img" src=""/>
+                            <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
                         </modal_close_btn>
                     </modal_title_area>
                     <modal_content class="main_page_alert">
@@ -269,7 +269,7 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
                     <modal_title_area>
                         <modal_title>内部测试邀请</modal_title>
                         <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                            <img alt="" class="modal_close_btn_img" src=""/>
+                            <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
                         </modal_close_btn>
                     </modal_title_area>
                     <modal_content class="main_page_alert">
@@ -405,7 +405,7 @@ const donorOnlyModal = `
             <modal_title_area>
                 <modal_title><img alt="" class="small_icon" src="./images/Crown.png">捐赠专享</modal_title>
                 <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                    <img alt="" class="modal_close_btn_img" src=""/>
+                    <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
                 </modal_close_btn>
             </modal_title_area>
             <modal_content>
@@ -774,10 +774,21 @@ function toTop() {
 }
 
 // 复制文本
-function copyText(text) {
+function copyText(text, type) {
+    let display;
+    if (type === "text") {
+        display = "文本";
+    } else if (type === "link") {
+        display = "链接";
+    } else {
+        display = "内容";
+    }
+
     navigator.clipboard.writeText(text).then(() => {
+        showPop(`复制${display}成功!`,'' , 'success');
         logManager.log("复制成功: " + text);
     }).catch(error => {
+        showPop(`复制${display}失败!`,'' , 'error');
         logManager.log("复制失败: " + error, 'error');
     });
 }

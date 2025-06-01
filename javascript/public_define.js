@@ -25,12 +25,12 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".6"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".52"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".53"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250526" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20250602" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -199,7 +199,7 @@ const texts = {
     preview_detail1: "我们想听听你对这个新设计的意见.",
     preview_detail2: "请注意: 新设计仍未完工,可能会缺失部分功能.",
     preview_btn1: "开发日志",
-    preview_btn2: "<img alt='' class='link_img' src=''/>提出反馈",
+    preview_btn2: "<img alt='' class='link_img' src='images/ExternalLink_white.png'/>提出反馈",
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
     minecraft_wiki: "中文Minecraft Wiki",
@@ -209,16 +209,16 @@ const texts = {
     download_channel3_old: "123云盘",
     download_channel4_old: "天翼云盘",
     download_channel5_old: "百度云盘",
-    download_channel6_old: "<img alt='' class='link_img_black' src=''/>外部链接",
+    download_channel6_old: "<img alt='' class='link_img_black' src='images/ExternalLink.png'/>外部链接",
     download_channel1: "OneDrive",
     download_channel2: "百度网盘",
     download_channel3: "夸克网盘",
     download_channel4: "123云盘",
     download_channel5: "蓝奏云",
     download_channel6: "huang1111网盘",
-    download_channel7: "<img alt='' class='link_img_black' src=''/>外部链接",
+    download_channel7: "<img alt='' class='link_img_black' src='images/ExternalLink.png'/>外部链接",
     download_type1: "官方原版",
-    download_type1_out: "<img alt='' class='link_img_black' src=''/>官方原版(外部链接)",
+    download_type1_out: "<img alt='' class='link_img_black' src='images/ExternalLink.png'/>官方原版(外部链接)",
     download_type2: "中文译名修正",
     download_type3: "去验证版",
     download_type4: "多架构版",
@@ -598,7 +598,7 @@ if (StarmoonTitleShort && StarmoonTitleLong) {
     }
 }
 
-// 常见文本赋值
+// 常见内容赋值
 window.addEventListener('load', () => setTimeout(function () {
     setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
     setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
@@ -665,25 +665,44 @@ window.addEventListener('load', () => setTimeout(function () {
         updateButtonText(button);
     });
 
-    let linkImg = document.getElementsByClassName('link_img');
-    let linkImgBlack = document.getElementsByClassName('link_img_black');
-    if (linkImg) {
-        for (let i = 0; i < linkImg.length; i++) {
-            linkImg[i].src = rootPath + 'images/ExternalLink_white.png';
-        }
-    }
-    if (linkImgBlack) {
-        for (let i = 0; i < linkImgBlack.length; i++) {
-            linkImgBlack[i].src = rootPath + 'images/ExternalLink.png';
-        }
-    }
+    // 加载占位图
+    const loadingImage = rootPath + 'images/Loading_white.gif';
+    const loadingImageBlack = rootPath + 'images/Loading.gif';
+    const loadingImageError = rootPath + 'images/ErrorMessage.png';
+    const blackImageClassList = ['header_left_icon', 'header_right_icon', 'title_icon', 'link_img_black'];
 
-    let modal_close_btn_img = document.getElementsByClassName('modal_close_btn_img');
-    if (modal_close_btn_img) {
-        for (let i = 0; i < modal_close_btn_img.length; i++) {
-            modal_close_btn_img[i].src = rootPath + 'images/cross_white.png';
+    document.querySelectorAll('img').forEach(img => {
+        const originalSrc = img.getAttribute('data-src') || img.src;
+        const useBlackImage = blackImageClassList.some(className => img.classList.contains(className));
+        const placeholderSrc = useBlackImage ? loadingImageBlack : loadingImage;
+        const originalStyle = img.getAttribute('style') || '';
+
+        // 替换加载中的图片
+        img.src = placeholderSrc;
+
+        const isUpdateLogo = img.classList.contains('update_logo');
+        if (isUpdateLogo) {
+            img.style.height = '100px';
+            img.style.width = '100px';
         }
-    }
+
+        setTimeout(() => {
+            img.onload = () => {
+                // 还原样式
+                if (isUpdateLogo) {
+                    img.setAttribute('style', originalStyle);
+                }
+            };
+
+            img.onerror = () => {
+                img.src = loadingImageError;
+                logManager.log("图片加载失败: " + originalSrc, 'warn');
+            };
+
+            // 还原图片
+            img.src = originalSrc;
+        }, 0);
+    });
 
     // 禁止拖动元素
     let cantDraggableElements = document.querySelectorAll("img, a");
