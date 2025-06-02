@@ -116,7 +116,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                 // 添加到容器中
                 mainContainer.appendChild(mainBlock);
                 sidebarContainer.appendChild(sidebarBlock);
-                replaceLoadingImages(); // 占位图逻辑
+                setTimeout(replaceLoadingImages, 100); // 占位图逻辑
             });
             setTimeout(function () {
                 mainHandleScroll(); // 联动自定义网页滚动条

@@ -52,7 +52,7 @@ data = hostPath + "/data";
                     <div class="link_description">${link.desc}</div>
                 `;
                 container.appendChild(block);
-                replaceLoadingImages(); // 占位图逻辑
+                setTimeout(replaceLoadingImages, 100); // 占位图逻辑
             });
         }
     } catch (error) {
