@@ -30,7 +30,7 @@ const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Al
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250602" + ".02"; // NOTE 小版本,有提交就变
+const update_count = "20250603" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -593,45 +593,6 @@ if (StarmoonTitleShort && StarmoonTitleLong) {
     }
 }
 
-// 加载占位图
-const loadingImage = rootPath + '/images/Loading_white.gif';
-const loadingImageBlack = rootPath + '/images/Loading.gif';
-const loadingImageError = rootPath + '/images/ErrorMessage.png';
-const blackImageClassList = ['header_left_icon', 'header_right_icon', 'title_icon', 'link_img_black'];
-
-document.querySelectorAll('img').forEach(img => {
-    const originalSrc = img.getAttribute('data-src') || img.src;
-    const useBlackImage = blackImageClassList.some(className => img.classList.contains(className));
-    const placeholderSrc = useBlackImage ? loadingImageBlack : loadingImage;
-    const originalStyle = img.getAttribute('style') || '';
-
-    // 替换加载中的图片
-    img.src = placeholderSrc;
-
-    const isUpdateLogo = img.classList.contains('update_logo');
-    if (isUpdateLogo) {
-        img.style.height = '100px';
-        img.style.width = '100px';
-    }
-
-    setTimeout(() => {
-        img.onload = () => {
-            // 还原样式
-            if (isUpdateLogo) {
-                img.setAttribute('style', originalStyle);
-            }
-        };
-
-        img.onerror = () => {
-            img.src = loadingImageError;
-            logManager.log("图片加载失败: " + originalSrc, 'warn');
-        };
-
-        // 还原图片
-        img.src = originalSrc;
-    }, 0);
-});
-
 // 常见内容赋值
 setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
 setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
@@ -683,6 +644,45 @@ if (pageInfo) {
 }
 
 window.addEventListener('load', () => setTimeout(function () {
+
+// 加载占位图
+    const loadingImage = rootPath + '/images/Loading_white.gif';
+    const loadingImageBlack = rootPath + '/images/Loading.gif';
+    const loadingImageError = rootPath + '/images/ErrorMessage.png';
+    const blackImageClassList = ['header_left_icon', 'header_right_icon', 'title_icon', 'link_img_black'];
+
+    document.querySelectorAll('img').forEach(img => {
+        const originalSrc = img.getAttribute('data-src') || img.src;
+        const useBlackImage = blackImageClassList.some(className => img.classList.contains(className));
+        const placeholderSrc = useBlackImage ? loadingImageBlack : loadingImage;
+        const originalStyle = img.getAttribute('style') || '';
+
+        // 替换加载中的图片
+        img.src = placeholderSrc;
+
+        const isUpdateLogo = img.classList.contains('update_logo');
+        if (isUpdateLogo) {
+            img.style.height = '100px';
+            img.style.width = '100px';
+        }
+
+        setTimeout(() => {
+            img.onload = () => {
+                // 还原样式
+                if (isUpdateLogo) {
+                    img.setAttribute('style', originalStyle);
+                }
+            };
+
+            img.onerror = () => {
+                img.src = loadingImageError;
+                logManager.log("图片加载失败: " + originalSrc, 'warn');
+            };
+
+            // 还原图片
+            img.src = originalSrc;
+        }, 0);
+    });
 
     // 更新按钮文本
     const buttons = document.querySelectorAll('.btn, custom-button');
