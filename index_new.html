@@ -598,6 +598,7 @@
 
 <script src="./javascript/loading.js"></script>
 <script src="./library/accessibility.js"></script>
+<script src="./library/lazyLoadImage.js"></script>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/custom_elements.js"></script>
@@ -605,8 +606,12 @@
 <script src="javascript/mcfc.js"></script>
 <script>
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
-    const repositoryAttribute = localStorage.getItem('minecraft_repository_attribute');
 
+    // 惰性加载
+    const lazyImage = new LazyLoadImage('img');
+    lazyImage.init();
+
+    const repositoryAttribute = localStorage.getItem('minecraft_repository_attribute');
     if (repositoryAttribute) {
         if (repositoryAttribute.includes('test=true')) {
             if (!rootPath.includes('_test')) {
