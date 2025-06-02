@@ -33,7 +33,7 @@ const version_nickname = secondary_version_name + "-" + version_type_count; // �
 const update_count = "20250603" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
-let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
+let commit = "#2025060302"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
 if (commit === "#") {
     commit = "#" + update_count.replace(/\./g, "");
 }
@@ -643,21 +643,24 @@ if (pageInfo) {
     </div>`;
 }
 
-window.addEventListener('load', () => setTimeout(function () {
-
 // 加载占位图
+function replaceLoadingImages() {
     const loadingImage = rootPath + '/images/Loading_white.gif';
     const loadingImageBlack = rootPath + '/images/Loading.gif';
     const loadingImageError = rootPath + '/images/ErrorMessage.png';
     const blackImageClassList = ['header_left_icon', 'header_right_icon', 'title_icon', 'link_img_black'];
 
     document.querySelectorAll('img').forEach(img => {
+
+        if (img.dataset.processed === 'true') return; // 避免重复处理
+        img.dataset.processed = 'true'; // 标记为已处理
+
         const originalSrc = img.getAttribute('data-src') || img.src;
         const useBlackImage = blackImageClassList.some(className => img.classList.contains(className));
         const placeholderSrc = useBlackImage ? loadingImageBlack : loadingImage;
         const originalStyle = img.getAttribute('style') || '';
 
-        // 替换加载中的图片
+        // 设置加载中占位图
         img.src = placeholderSrc;
 
         const isUpdateLogo = img.classList.contains('update_logo');
@@ -666,9 +669,9 @@ window.addEventListener('load', () => setTimeout(function () {
             img.style.width = '100px';
         }
 
+        // 还原样式
         setTimeout(() => {
             img.onload = () => {
-                // 还原样式
                 if (isUpdateLogo) {
                     img.setAttribute('style', originalStyle);
                 }
@@ -683,6 +686,11 @@ window.addEventListener('load', () => setTimeout(function () {
             img.src = originalSrc;
         }, 0);
     });
+}
+
+window.addEventListener('load', () => setTimeout(function () {
+
+    replaceLoadingImages(); // 占位图逻辑
 
     // 更新按钮文本
     const buttons = document.querySelectorAll('.btn, custom-button');

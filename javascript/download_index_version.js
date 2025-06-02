@@ -301,6 +301,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath}/)dropdown_val
                 // 添加到容器中
                 mainContainer.appendChild(mainBlock);
                 sidebarContainer.appendChild(sidebarBlock);
+                replaceLoadingImages(); // 占位图逻辑
             });
 
             setTimeout(function () {

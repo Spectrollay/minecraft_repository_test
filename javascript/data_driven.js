@@ -46,12 +46,13 @@ data = hostPath + "/data";
                 block.setAttribute("onclick", `playSound('click');openLink('${link.url}');`);
                 block.innerHTML = `
                     <div class="link_title">
-                        <img alt="" class="link_title_img" src="${link.img}">
+                        <img alt="" class="link_title_img" loading="lazy" src="${link.img}">
                         <span class="link_title_text">${link.name}</span>
                     </div>
                     <div class="link_description">${link.desc}</div>
                 `;
                 container.appendChild(block);
+                replaceLoadingImages(); // 占位图逻辑
             });
         }
     } catch (error) {
