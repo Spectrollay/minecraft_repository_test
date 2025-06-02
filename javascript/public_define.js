@@ -38,14 +38,14 @@ if (commit === "#") {
     commit = "#" + update_count.replace(/\./g, "");
 }
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
 hostPath = window.location.origin;
-switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
-const data = hostPath + "/data";
+switchValues = JSON.parse(localStorage.getItem(`(${rootPath}/)switch_value`)) || {};
+let data = hostPath + "/data";
 
 async function getProjectHash() {
     try {
-        const response = await fetch(rootPath + 'Verification/project-hash.json');
+        const response = await fetch(rootPath + '/Verification/project-hash.json');
         if (response.ok) {
             const hash = await response.json();
             return hash.projectHash;
@@ -101,10 +101,10 @@ logManager.log("发布版本: " + publish_version_name);
 
 // 网站状态
 let status;
-if (window.location.origin.includes('https')) {
-    status = data + rootPath + 'status.xml';
+if (hostPath.includes('https')) {
+    status = data + rootPath + '/status.xml';
 } else {
-    status = rootPath + 'status.xml';
+    status = rootPath + '/data/status.xml';
 }
 
 fetch(status)
@@ -132,13 +132,13 @@ fetch(status)
         // 获取状态码
         switch (siteStatus) {
             case "error":
-                location.replace(`${rootPath}default/error_default.html?redirected=true&source=${currentUrl}`);
+                location.replace(`${rootPath}/default/error_default.html?redirected=true&source=${currentUrl}`);
                 return;
             case "warn":
-                location.replace(`${rootPath}default/under_maintenance.html?redirected=true&source=${currentUrl}`);
+                location.replace(`${rootPath}/default/under_maintenance.html?redirected=true&source=${currentUrl}`);
                 return;
             case "404":
-                location.replace(`${rootPath}404.html?redirected=true`);
+                location.replace(`${rootPath}/404.html?redirected=true`);
                 return;
             case "200":
                 break;
@@ -195,11 +195,6 @@ fetch(status)
 
 // 字符常量
 const texts = {
-    preview_title: "欢迎观看设计预览!",
-    preview_detail1: "我们想听听你对这个新设计的意见.",
-    preview_detail2: "请注意: 新设计仍未完工,可能会缺失部分功能.",
-    preview_btn1: "开发日志",
-    preview_btn2: "<img alt='' class='link_img' src='images/ExternalLink_white.png'/>提出反馈",
     sidebar_bottom_title: "Minecraft Kit",
     sidebar_bottom_detail1: "© 2020 Spectrollay",
     minecraft_wiki: "中文Minecraft Wiki",
@@ -590,70 +585,106 @@ const randomValue = Math.floor(Math.random() * 1000); // 0.1%
 
 if (StarmoonTitleShort && StarmoonTitleLong) {
     if (randomValue < 1) {
-        StarmoonTitleShort.src = rootPath + 'images/logo/Starmoon_title_ee.png';
-        StarmoonTitleLong.src = rootPath + 'images/logo/Starmoon_title_long_ee.png';
+        StarmoonTitleShort.src = rootPath + '/images/logo/Starmoon_title_ee.png';
+        StarmoonTitleLong.src = rootPath + '/images/logo/Starmoon_title_long_ee.png';
     } else {
-        StarmoonTitleShort.src = rootPath + 'images/logo/Starmoon_title.png';
-        StarmoonTitleLong.src = rootPath + 'images/logo/Starmoon_title_long.png';
+        StarmoonTitleShort.src = rootPath + '/images/logo/Starmoon_title.png';
+        StarmoonTitleLong.src = rootPath + '/images/logo/Starmoon_title_long.png';
     }
 }
 
+// 加载占位图
+const loadingImage = rootPath + '/images/Loading_white.gif';
+const loadingImageBlack = rootPath + '/images/Loading.gif';
+const loadingImageError = rootPath + '/images/ErrorMessage.png';
+const blackImageClassList = ['header_left_icon', 'header_right_icon', 'title_icon', 'link_img_black'];
+
+document.querySelectorAll('img').forEach(img => {
+    const originalSrc = img.getAttribute('data-src') || img.src;
+    const useBlackImage = blackImageClassList.some(className => img.classList.contains(className));
+    const placeholderSrc = useBlackImage ? loadingImageBlack : loadingImage;
+    const originalStyle = img.getAttribute('style') || '';
+
+    // 替换加载中的图片
+    img.src = placeholderSrc;
+
+    const isUpdateLogo = img.classList.contains('update_logo');
+    if (isUpdateLogo) {
+        img.style.height = '100px';
+        img.style.width = '100px';
+    }
+
+    setTimeout(() => {
+        img.onload = () => {
+            // 还原样式
+            if (isUpdateLogo) {
+                img.setAttribute('style', originalStyle);
+            }
+        };
+
+        img.onerror = () => {
+            img.src = loadingImageError;
+            logManager.log("图片加载失败: " + originalSrc, 'warn');
+        };
+
+        // 还原图片
+        img.src = originalSrc;
+    }, 0);
+});
+
 // 常见内容赋值
+setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
+setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
+setElementText("setting_version", version_name_short);
+setElementText("setting_version_detail", version_info);
+setElementText("experiment_banner", texts.experiment_banner);
+
+const support_message = document.getElementById('support_message');
+if (support_message) {
+    support_message.innerHTML = `
+    <span>在2020年, 我们发布了第一个公开版本, 版本库的故事由此而起. 当时, 我们的想法只是做一个好的游戏分享平台, 这些年过去了, 我们仍在坚持. 但我们也深知, 为爱发电并不能长久, 因此我们一直在积极寻求能够稳定发展的道路. 如果你认为本站对你有所帮助, 不妨通过以下页面了解如何支持我们, 助力我们进一步发展.</span>
+    `;
+}
+
+const donate_message = document.getElementById('donate_message');
+if (donate_message) {
+    donate_message.innerHTML = `
+    <div>
+        <p>我们深知这个版本库还很不尽人意, 界面简陋, 功能稀少, 甚至可能还有一堆的问题. 因此我们一直在不断地完善改进它, 希望能给每一个使用版本库的你, 带来更好的体验.</p>
+        <p>如果你喜欢它, 且已经实现了经济独立, 可以考虑通过捐赠来支持我们. 这可以在很大程度上用于提升环境配置及开发积极性. 否则请你不要打赏, 分享与宣传也是对我们的强有力的支持.</p>
+    </div>`;
+}
+
+const acknowledgments = document.getElementById('acknowledgments');
+if (acknowledgments) {
+    acknowledgments.innerHTML = `
+    <div>
+        <p>这是一个始于2020年的项目, 做它的初衷, 只是为了给我玩的为数不多的游戏一个版本留档, 当时这还只是一个私有项目, 并不对外开放.</p>
+        <p>后来, 渐渐的我发现有许多人, 因为各种各样的原因, 有心购买游戏却无力, 亦或是需要某个特定的版本来完成特定的事, 在网上苦苦寻找却不得. 我想, 既然我有这些资源, 为什么不公开出来供大家一起使用呢? 这便是版本库对外开放的契因.</p>
+        <p>在最早的时候, 版本库只是一个共享文档, 从V1开始, 经历了默认HTML样式到仿Knowledge Base样式再到OreUI样式, 一点点完善一点点进步, 才形成了现在的模样. 这一路的坎坷何谈容易, 其中还不乏因为各种各样的原因导致的数据丢失及被迫停更, 但好在最终都坚持下来了.</p>
+        <p>所以啊, 最应该感谢的是每一个使用版本库支持版本库的你. 正因为有你们的支持与陪伴, 版本库才会坚持做下去, 走向未来. 没有你们, 就不会有版本库的今天.</p>
+    </div>`;
+}
+
+const pageInfo = document.getElementById('page_info');
+if (pageInfo) {
+    pageInfo.innerHTML = `
+    <div>
+        <div class="page_info"><br></div>
+        <div class="page_info_title">INFORMATION</div>
+        <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}<br>Commited: ${commit}</span></div>
+        <div class="page_info_title">BASED ON</div>
+        <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank">HTML5</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">Web API</a> | <a href="https://webkit.org/" target="_blank">WebKit</a> | <a href="https://github.com/Spectrollay/OreUI" target="_blank">OreUI</a></span></div>
+        <div class="page_info_title">ABOUT US</div>
+        <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank">Telegram</a> | <a href="https://qm.qq.com/q/AqLmKLH9mM" target="_blank">QQ</a> | <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" target="_blank">Telegram</a> | <a href="https://pd.qq.com/s/h8a7gt2u4" target="_blank">QQ</a><span></div>
+        <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
+        <div class="page_info"><br></div>
+    </div>`;
+}
+
 window.addEventListener('load', () => setTimeout(function () {
-    setElementText("sidebar_bottom_title", texts.sidebar_bottom_title);
-    setElementText("sidebar_bottom_detail1", texts.sidebar_bottom_detail1);
-    setElementText("preview_title", texts.preview_title);
-    setElementText("preview_detail1", texts.preview_detail1);
-    setElementText("preview_detail2", texts.preview_detail2);
-    setElementText("preview_btn1", texts.preview_btn1);
-    setElementText("preview_btn2", texts.preview_btn2);
-    setElementText("setting_version", version_name_short);
-    setElementText("setting_version_detail", version_info);
-    setElementText("experiment_banner", texts.experiment_banner);
 
-    const support_message = document.getElementById('support_message');
-    if (support_message) {
-        support_message.innerHTML = `
-        <span>在2020年, 我们发布了第一个公开版本, 版本库的故事由此而起. 当时, 我们的想法只是做一个好的游戏分享平台, 这些年过去了, 我们仍在坚持. 但我们也深知, 为爱发电并不能长久, 因此我们一直在积极寻求能够稳定发展的道路. 如果你认为本站对你有所帮助, 不妨通过以下页面了解如何支持我们, 助力我们进一步发展.</span>
-        `;
-    }
-
-    const donate_message = document.getElementById('donate_message');
-    if (donate_message) {
-        donate_message.innerHTML = `
-        <div>
-            <p>我们深知这个版本库还很不尽人意, 界面简陋, 功能稀少, 甚至可能还有一堆的问题. 因此我们一直在不断地完善改进它, 希望能给每一个使用版本库的你, 带来更好的体验.</p>
-            <p>如果你喜欢它, 且已经实现了经济独立, 可以考虑通过捐赠来支持我们. 这可以在很大程度上用于提升环境配置及开发积极性. 否则请你不要打赏, 分享与宣传也是对我们的强有力的支持.</p>
-        </div>`;
-    }
-
-    const acknowledgments = document.getElementById('acknowledgments');
-    if (acknowledgments) {
-        acknowledgments.innerHTML = `
-        <div>
-            <p>这是一个始于2020年的项目, 做它的初衷, 只是为了给我玩的为数不多的游戏一个版本留档, 当时这还只是一个私有项目, 并不对外开放.</p>
-            <p>后来, 渐渐的我发现有许多人, 因为各种各样的原因, 有心购买游戏却无力, 亦或是需要某个特定的版本来完成特定的事, 在网上苦苦寻找却不得. 我想, 既然我有这些资源, 为什么不公开出来供大家一起使用呢? 这便是版本库对外开放的契因.</p>
-            <p>在最早的时候, 版本库只是一个共享文档, 从V1开始, 经历了默认HTML样式到仿Knowledge Base样式再到OreUI样式, 一点点完善一点点进步, 才形成了现在的模样. 这一路的坎坷何谈容易, 其中还不乏因为各种各样的原因导致的数据丢失及被迫停更, 但好在最终都坚持下来了.</p>
-            <p>所以啊, 最应该感谢的是每一个使用版本库支持版本库的你. 正因为有你们的支持与陪伴, 版本库才会坚持做下去, 走向未来. 没有你们, 就不会有版本库的今天.</p>
-        </div>`;
-    }
-
-    const pageInfo = document.getElementById('page_info');
-    if (pageInfo) {
-        pageInfo.innerHTML = `
-        <div>
-            <div class="page_info"><br></div>
-            <div class="page_info_title">INFORMATION</div>
-            <div class="page_info"><span>Version: ${version_name}<br>Server Version: ${server_version}<br>Updated: ${update_count}<br>Commited: ${commit}</span></div>
-            <div class="page_info_title">BASED ON</div>
-            <div class="page_info"><span><a href="https://html.spec.whatwg.org/" target="_blank">HTML5</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">Web API</a> | <a href="https://webkit.org/" target="_blank">WebKit</a> | <a href="https://github.com/Spectrollay/OreUI" target="_blank">OreUI</a></span></div>
-            <div class="page_info_title">ABOUT US</div>
-            <div class="page_info"><span>Developer: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>Maintainer: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>Program Group: <a href="https://t.me/Spectrollay_MCW" target="_blank">Telegram</a> | <a href="https://qm.qq.com/q/AqLmKLH9mM" target="_blank">QQ</a> | <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank">云湖</a><br>Official Channel: <a href="https://t.me/spectrollay_minecraft_repository" target="_blank">Telegram</a> | <a href="https://pd.qq.com/s/h8a7gt2u4" target="_blank">QQ</a><span></div>
-            <div class="page_info_title">MADE WITH ❤️ IN CHINA</div>
-            <div class="page_info"><br></div>
-        </div>`;
-    }
-
+    // 更新按钮文本
     const buttons = document.querySelectorAll('.btn, custom-button');
 
     function updateButtonText(button) {
@@ -670,45 +701,6 @@ window.addEventListener('load', () => setTimeout(function () {
 
     buttons.forEach(button => {
         updateButtonText(button);
-    });
-
-    // 加载占位图
-    const loadingImage = rootPath + 'images/Loading_white.gif';
-    const loadingImageBlack = rootPath + 'images/Loading.gif';
-    const loadingImageError = rootPath + 'images/ErrorMessage.png';
-    const blackImageClassList = ['header_left_icon', 'header_right_icon', 'title_icon', 'link_img_black'];
-
-    document.querySelectorAll('img').forEach(img => {
-        const originalSrc = img.getAttribute('data-src') || img.src;
-        const useBlackImage = blackImageClassList.some(className => img.classList.contains(className));
-        const placeholderSrc = useBlackImage ? loadingImageBlack : loadingImage;
-        const originalStyle = img.getAttribute('style') || '';
-
-        // 替换加载中的图片
-        img.src = placeholderSrc;
-
-        const isUpdateLogo = img.classList.contains('update_logo');
-        if (isUpdateLogo) {
-            img.style.height = '100px';
-            img.style.width = '100px';
-        }
-
-        setTimeout(() => {
-            img.onload = () => {
-                // 还原样式
-                if (isUpdateLogo) {
-                    img.setAttribute('style', originalStyle);
-                }
-            };
-
-            img.onerror = () => {
-                img.src = loadingImageError;
-                logManager.log("图片加载失败: " + originalSrc, 'warn');
-            };
-
-            // 还原图片
-            img.src = originalSrc;
-        }, 0);
     });
 
     // 禁止拖动元素
@@ -742,7 +734,7 @@ if (mclang_cn_fix) {
                 <div class="link_block_group_title">访问项目</div>
                 <link-block onclick="playSound('click');openLink('https://spectrollay.github.io/mclang_cn/');">
                     <div class="link_title">
-                        <img alt="" class="link_title_img" src="${rootPath}images/logo/mclang_cn_fix.png"/>中文译名修正项目
+                        <img alt="" class="link_title_img" src="${rootPath}/images/logo/mclang_cn_fix.png"/>中文译名修正项目
                     </div>
                 </link-block>
             </div>

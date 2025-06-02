@@ -20,21 +20,21 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
 
 // 点击Debug图标事件
 function debugPage() {
-    ifNavigating("jump", rootPath + "advanced/debug.html");
+    ifNavigating("jump", rootPath + "/advanced/debug.html");
 }
 
 // 点击环境指南按钮
 function enviPage() {
-    ifNavigating("jump", rootPath + "guidance/environment_guidance.html");
+    ifNavigating("jump", rootPath + "/guidance/environment_guidance.html");
 }
 
 // 清除存储
 function clearStorage() {
-    const keyPatterns = [`(${rootPath})`, "minecraft_repository_attribute"];
+    const keyPatterns = [`(${rootPath}/)`, "minecraft_repository_attribute"];
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (keyPatterns.some(pattern => key.includes(pattern))) {

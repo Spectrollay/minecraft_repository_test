@@ -20,7 +20,9 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
+hostPath = window.location.origin;
+data = hostPath + "/data";
 
 const currentUrl = window.location.href;
 const url = new URL(currentUrl);
@@ -32,7 +34,13 @@ const mainContainer = document.querySelector("generate-area.main_gen");
 const mainTitle = document.getElementById("main_title");
 const sidebarContainer = document.querySelector("generate-area.sidebar_gen");
 const sidebarTitle = document.getElementById("sidebar_title");
-let platform, platformName, edition, ifJump = "false", dataFile;
+let platform, platformName, edition, ifJump = "false", dataFile, dataPath;
+
+if (hostPath.includes('https')) {
+    dataPath = data + '/minecraft_repository';
+} else {
+    dataPath = rootPath + '/data';
+}
 
 if (url.searchParams.get('platform') === 'android') {
     platform = 'android';
@@ -55,7 +63,7 @@ if (!version) {
 }
 
 if (window.location.pathname.includes('download/bedrock/')) {
-    dataFile = 'data/bedrock_versions.json';
+    dataFile = dataPath + '/bedrock_versions.json';
     const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
     if (collator.compare(version, '1.2') < 0) {
         edition = '携带版';
@@ -63,38 +71,38 @@ if (window.location.pathname.includes('download/bedrock/')) {
         edition = '基岩版';
     }
 } else if (window.location.pathname.includes('download/java/')) {
-    // dataFile = 'data/java_versions.json';
+    // dataFile = dataPath + '/java_versions.json';
     edition = 'Java版';
 } else if (window.location.pathname.includes('download/education/')) {
-    // dataFile = 'data/education_versions.json';
+    // dataFile = dataPath + '/education_versions.json';
     edition = '教育版';
 } else if (window.location.pathname.includes('download/server/')) {
-    // dataFile = 'data/server_versions.json';
+    // dataFile = dataPath + '/server_versions.json';
     edition = '服务端';
 } else if (window.location.pathname.includes('download/trial/')) {
-    // dataFile = 'data/trial_versions.json';
+    // dataFile = dataPath + '/trial_versions.json';
     edition = '试玩版';
 } else if (window.location.pathname.includes('download/story_mode/')) {
-    // dataFile = 'data/story_mode_versions.json';
+    // dataFile = dataPath + '/story_mode_versions.json';
     edition = '故事模式';
 } else if (window.location.pathname.includes('download/earth/')) {
-    // dataFile = 'data/earth_versions.json';
+    // dataFile = dataPath + '/earth_versions.json';
     edition = 'Earth';
 } else if (window.location.pathname.includes('download/dungeons/')) {
-    // dataFile = 'data/dungeons_versions.json';
+    // dataFile = dataPath + '/dungeons_versions.json';
     edition = 'Dungeons';
 } else if (window.location.pathname.includes('download/legends/')) {
-    // dataFile = 'data/legends_versions.json';
+    // dataFile = dataPath + '/legends_versions.json';
     edition = 'Legends';
 }
 
 // 获取下拉菜单数据
-const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_value`)) || {};
+const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath}/)dropdown_value`)) || {};
 
 (async () => {
     if (dataFile && mainContainer && sidebarContainer) {
         try {
-            const response = await fetch(rootPath + dataFile);
+            const response = await fetch(dataFile);
             let rawJson = await response.text(); // 获取原始文本
             const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
             const data = JSON.parse(cleanedJson); // 解析为JSON对象
@@ -309,7 +317,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
 })();
 
 document.title = `${platformName} - ${version} - ${edition} - 星月Minecraft版本库`;
-platformIcon.src = `${rootPath}images/logo/${platformName}.png`;
+platformIcon.src = `${rootPath}/images/logo/${platformName}.png`;
 mainTitle.innerHTML = `${platformName} - ${version} - ${edition}<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href, 'link');" src="./images/ExternalLink_white.png"/>`;
 sidebarTitle.innerHTML = `${version}`;
 
@@ -320,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // 若存在则停止检查
         if (dropdowns.length > 0) {
             clearInterval(checkDropdownsExist);  // 清除定时器
-            const dropdownValues = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_value`)) || {};
+            const dropdownValues = JSON.parse(localStorage.getItem(`(${rootPath}/)dropdown_value`)) || {};
 
             dropdowns.forEach(dropdown => {
                 const dropdownValue = dropdownValues[dropdown.id] || dropdown.getAttribute('data-selected');

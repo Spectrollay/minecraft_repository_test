@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
 
 const maintenanceModal = `
     <div class="overlay" id="overlay_maintenance_notice" style="z-index: 51;"></div>
@@ -29,7 +29,7 @@ const maintenanceModal = `
             <modal_title_area>
                 <modal_title>数据库调整维护通知</modal_title>
                 <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                    <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
+                    <img alt="" class="modal_close_btn_img" src="${rootPath}/images/cross_white.png"/>
                 </modal_close_btn>
             </modal_title_area>
             <modal_content>

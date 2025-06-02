@@ -36,7 +36,10 @@
     <meta content="Minecraft, MC, 我的世界, 版本库, 国际版, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球" name="keywords"/>
     <meta content="星月Minecraft版本库是一个开放共享的资源站,专注于收录Minecraft发布过的所有版本." name="description"/>
     <meta content="Spectrollay" name="author"/>
-    <link rel="preload" href="./images/Loading_white.gif" as="image">
+    <link as="image" href="./images/Loading_white.gif" rel="preload">
+    <link as="font" crossorigin="anonymous" href="./fonts/NotoSans-Bold.ttf" rel="preload" type="font/ttf">
+    <link as="font" crossorigin="anonymous" href="./fonts/Minecraft-Ten.otf" rel="preload" type="font/otf">
+    <link as="font" crossorigin="anonymous" href="./fonts/Minecraft-Seven.otf" rel="preload" type="font/otf">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./stylesheet/public_style.css" rel="stylesheet">
     <link href="./stylesheet/advanced.css" rel="stylesheet">
@@ -98,6 +101,19 @@
             text-align: left;
         }
     </style>
+    <script defer>
+        const audios = {};
+
+        function registerAudio(name, path) {
+            const audio = new Audio(path);
+            audio.preload = 'auto';
+            audio.load();
+            audios[name] = audio;
+        }
+
+        registerAudio('click', './sounds/click.ogg');
+        registerAudio('button', './sounds/button.ogg');
+    </script>
     <title>星月Minecraft版本库</title>
 </head>
 
@@ -153,8 +169,7 @@
                     <div class="preview_detail">响应式布局现已开启测试,欢迎体验!</div>
                     <div class="preview_detail">不用担心,在测试期间你可以随时返回旧设计.</div>
                     <div class="btn_group">
-                        <custom-button data="default|normal|small||false||" js="jumpToPage('./index_new.html');localStorage.setItem(`(${rootPath})new_home_test`, 'true');" text="前往新设计"></custom-button>
-                        <custom-button data="default|green|small|preview_btn2|false||" js="contact();" text=""></custom-button>
+                        <custom-button data="default|normal|large||false||" js="jumpToPage('./index_new.html');localStorage.setItem(`(${rootPath}/)new_home_test`, 'true');" text="前往新设计"></custom-button>
                     </div>
                 </div>
                 <div class="block_spacing"></div>
@@ -615,20 +630,20 @@
 <script src="./javascript/data_driven.js"></script>
 <script src="javascript/mcfc.js"></script>
 <script>
+    rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
+
     // TODO 新主页测试跳转逻辑
-    if (localStorage.getItem(`(${rootPath})new_home_test`) === 'true') {
+    if (localStorage.getItem(`(${rootPath}/)new_home_test`) === 'true') {
         ifNavigating("direct", "./index_new.html");
     }
 
-    switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
+    switchValues = JSON.parse(localStorage.getItem(`(${rootPath}/)switch_value`)) || {};
     expNewUiState = switchValues['exp_new_ui'] || false; // 默认禁用
     if (expNewUiState === 'on') {
         document.querySelector('.responsive_design_test').style.display = 'block';
     }
 
-    rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
     const repositoryAttribute = localStorage.getItem('minecraft_repository_attribute');
-
     if (repositoryAttribute) {
         if (repositoryAttribute.includes('test=true')) {
             if (!rootPath.includes('_test')) {

@@ -20,13 +20,20 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
+hostPath = window.location.origin;
+data = hostPath + "/data";
 
 // 友链
 (async function () {
-    const dataFile = "data/reciprocal_links.json";
+    let reciprocal_links;
+    if (hostPath.includes('https')) {
+        reciprocal_links = data + '/minecraft_repository' + '/reciprocal_links.json';
+    } else {
+        reciprocal_links = rootPath + '/data/reciprocal_links.json';
+    }
     try {
-        const response = await fetch(rootPath + dataFile);
+        const response = await fetch(reciprocal_links);
         let rawJson = await response.text(); // 获取原始文本
         const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
         const data = JSON.parse(cleanedJson); // 解析为JSON对象
@@ -54,9 +61,14 @@ rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0
 
 // 捐赠列表
 (async function () {
-    const dataFile = "data/donors.json";
+    let donors;
+    if (window.location.origin.includes('https')) {
+        donors = data + '/minecraft_repository' + '/donors.json';
+    } else {
+        donors = rootPath + '/data/donors.json';
+    }
     try {
-        const response = await fetch(rootPath + dataFile);
+        const response = await fetch(donors);
         let rawJson = await response.text(); // 获取原始文本
         const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
         const data = JSON.parse(cleanedJson); // 解析为JSON对象

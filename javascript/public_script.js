@@ -25,7 +25,7 @@ const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
 let hostPath = window.location.origin;
 const parts = currentPagePath.split('/').filter(Boolean);
-let rootPath = '/' + (parts.length > 0 ? parts[0] + '/' : '');
+let rootPath = '/' + (parts.length > 0 ? parts[0] : '');
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
 // 日志管理器
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 自动清除存储
-let firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
+let firstVisit = localStorage.getItem(`(${rootPath}/)firstVisit`);
 if (firstVisit < '2024-05-25') { // NOTE 只在涉及到不兼容改变时更新
     clearStorage();
 }
@@ -117,9 +117,9 @@ function ifNavigating(way, url) {
 
 // 重载页面
 function reloadPage() {
-    let refreshCount = parseInt(localStorage.getItem(`(${rootPath})refreshTimes`) || '0');
+    let refreshCount = parseInt(localStorage.getItem(`(${rootPath}/)refreshTimes`) || '0');
     refreshCount++;
-    localStorage.setItem(`(${rootPath})refreshTimes`, refreshCount.toString());
+    localStorage.setItem(`(${rootPath}/)refreshTimes`, refreshCount.toString());
     setTimeout(function () {
         location.reload();
     }, 600);
@@ -214,14 +214,14 @@ if (rootPath.includes('_test') && !localStorage.getItem('minecraft_repository_at
 
 if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/minecraft_repository_test/index.html' || currentPagePath === '/minecraft_repository_test/index_new.html') { // TODO 在测试结束后移除
     if (rootPath.includes('_test')) {
-        const neverShowIn15Days = localStorage.getItem(`(${rootPath})neverShowIn15Days`);
+        const neverShowIn15Days = localStorage.getItem(`(${rootPath}/)neverShowIn15Days`);
         if (neverShowIn15Days) {
             const lastHideTime = new Date(parseInt(neverShowIn15Days, 10));
             const now = new Date();
             const diff = now - lastHideTime;
             const fifteenDays = 15 * 24 * 60 * 60 * 1000; // 15天
             if (diff > fifteenDays) {
-                localStorage.removeItem(`(${rootPath})neverShowIn15Days`);
+                localStorage.removeItem(`(${rootPath}/)neverShowIn15Days`);
             } else {
                 logManager.log("时间未到,不显示测试仓库提示");
             }
@@ -232,7 +232,7 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
                     <modal_title_area>
                         <modal_title>测试仓库提示</modal_title>
                         <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                            <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
+                            <img alt="" class="modal_close_btn_img" src="${rootPath}/images/cross_white.png"/>
                         </modal_close_btn>
                     </modal_title_area>
                     <modal_content class="main_page_alert">
@@ -269,7 +269,7 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
                     <modal_title_area>
                         <modal_title>内部测试邀请</modal_title>
                         <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                            <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
+                            <img alt="" class="modal_close_btn_img" src="${rootPath}/images/cross_white.png"/>
                         </modal_close_btn>
                     </modal_title_area>
                     <modal_content class="main_page_alert">
@@ -374,7 +374,7 @@ function joinTest() {
 
 function leaveTest() {
     localStorage.setItem('minecraft_repository_attribute', 'test=false');
-    localStorage.removeItem(`(${rootPath})neverShowIn15Days`);
+    localStorage.removeItem(`(${rootPath}/)neverShowIn15Days`);
     ifNavigating("jump", hostPath + "/minecraft_repository");
 }
 
@@ -405,7 +405,7 @@ const donorOnlyModal = `
             <modal_title_area>
                 <modal_title><img alt="" class="small_icon" src="./images/Crown.png"/>捐赠专享</modal_title>
                 <modal_close_btn class="close_btn" onclick="hideModal(this);">
-                    <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
+                    <img alt="" class="modal_close_btn_img" src="${rootPath}/images/cross_white.png"/>
                 </modal_close_btn>
             </modal_title_area>
             <modal_content>
@@ -451,7 +451,7 @@ const compatibilityModal = `
 // document.body.insertAdjacentHTML('afterbegin', compatibilityModal);
 
 // window.addEventListener('load', () => setTimeout(function () {
-//     if (localStorage.getItem(`(${rootPath})neverShowCompatibilityModalAgain`) !== '1') {
+//     if (localStorage.getItem(`(${rootPath}/)neverShowCompatibilityModalAgain`) !== '1') {
 //         const overlay = document.getElementById("overlay_compatibility_modal");
 //         const modal = document.getElementById("compatibility_modal");
 //         overlay.style.display = "block";
@@ -472,7 +472,7 @@ function hideCompatibilityModal(button) {
 
 function neverShowCompatibilityModalAgain(button) {
     hideCompatibilityModal(button);
-    localStorage.setItem(`(${rootPath})neverShowCompatibilityModalAgain`, '1');
+    localStorage.setItem(`(${rootPath}/)neverShowCompatibilityModalAgain`, '1');
     logManager.log("关闭兼容性提示弹窗且不再提示");
 }
 
@@ -501,29 +501,29 @@ const firstVisitTodayModal = `
 document.body.insertAdjacentHTML('afterbegin', firstVisitTodayModal);
 
 function checkFirstVisit() {
-    firstVisit = localStorage.getItem(`(${rootPath})firstVisit`);
+    firstVisit = localStorage.getItem(`(${rootPath}/)firstVisit`);
     const is404Page = document.title.includes("404 NOT FOUND");
 
     // 精确匹配的文件路径
     const allowedFiles = [
-        `${rootPath}`,
-        `${rootPath}index.html`,
-        `${rootPath}index_new.html`, // TODO 在完成新主页测试后移除
-        `${rootPath}home.html`,
-        `${rootPath}advanced/status.html`
+        `${rootPath}/`,
+        `${rootPath}/index.html`,
+        `${rootPath}/index_new.html`, // TODO 在完成新主页测试后移除
+        `${rootPath}/home.html`,
+        `${rootPath}/advanced/status.html`
     ];
 
     // 包含判断的文件夹路径
     const allowedFolders = [
-        `${rootPath}about/`,
-        `${rootPath}default/`,
-        `${rootPath}guidance/`,
-        `${rootPath}mcfc/`,
-        `${rootPath}mclang_cn/`,
-        `${rootPath}notifications/`,
-        `${rootPath}starcoin/`,
-        `${rootPath}Template/`,
-        `${rootPath}updatelog/`
+        `${rootPath}/about/`,
+        `${rootPath}/default/`,
+        `${rootPath}/guidance/`,
+        `${rootPath}/mcfc/`,
+        `${rootPath}/mclang_cn/`,
+        `${rootPath}/notifications/`,
+        `${rootPath}/starcoin/`,
+        `${rootPath}/Template/`,
+        `${rootPath}/updatelog/`
     ];
 
     const currentPath = window.location.pathname;
@@ -540,8 +540,8 @@ function checkFirstVisit() {
     }
 }
 
-if (window.location.pathname === `${rootPath}` || window.location.pathname === `${rootPath}index.html` || window.location.pathname === `${rootPath}index_new.html`) { // TODO 在完成新主页测试后移除index_new.html
-    localStorage.setItem(`(${rootPath})firstVisit`, today);
+if (window.location.pathname === `${rootPath}/` || window.location.pathname === `${rootPath}/index.html` || window.location.pathname === `${rootPath}/index_new.html`) { // TODO 在完成新主页测试后移除index_new.html
+    localStorage.setItem(`(${rootPath}/)firstVisit`, today);
 }
 
 function hideFirstVisitTodayModal(button) {
@@ -605,13 +605,13 @@ function howToBuyGame(button, state, url) {
 let userVolume = 1;
 
 const soundPaths = {
-    click: rootPath + 'sounds/click.ogg',
-    button: rootPath + 'sounds/button.ogg',
-    pop: rootPath + 'sounds/pop.ogg',
-    hide: rootPath + 'sounds/hide.ogg',
-    open: rootPath + 'sounds/drawer_open.ogg',
-    close: rootPath + 'sounds/drawer_close.ogg',
-    toast: rootPath + 'sounds/toast.ogg'
+    click: rootPath + '/sounds/click.ogg',
+    button: rootPath + '/sounds/button.ogg',
+    pop: rootPath + '/sounds/pop.ogg',
+    hide: rootPath + '/sounds/hide.ogg',
+    open: rootPath + '/sounds/drawer_open.ogg',
+    close: rootPath + '/sounds/drawer_close.ogg',
+    toast: rootPath + '/sounds/toast.ogg'
 };
 
 function playSound(type) {
@@ -667,17 +667,17 @@ function clickedMenu() {
 }
 
 function toUpdatelog() {
-    const updatelogPath = rootPath + 'updatelog/';
+    const updatelogPath = rootPath + '/updatelog/';
     ifNavigating("jump", updatelogPath);
 }
 
 function toMessage() {
-    const messagePath = rootPath + 'notifications/';
+    const messagePath = rootPath + '/notifications/';
     ifNavigating("jump", messagePath);
 }
 
 function contact() {
-    ifNavigating("jump", rootPath + "about/contact.html");
+    ifNavigating("jump", rootPath + "/about/contact.html");
 }
 
 // 重试按钮事件
@@ -714,8 +714,7 @@ function repoPage() {
 
 // 点击设置图标事件
 function settingsPage() {
-    playSound('click');
-    ifNavigating("jump", rootPath + "advanced/settings.html");
+    ifNavigating("jump", rootPath + "/advanced/settings.html");
 }
 
 // 跳转主页

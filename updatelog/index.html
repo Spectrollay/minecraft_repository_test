@@ -33,7 +33,10 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta content="webkit" name="renderer">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link rel="preload" href="./images/Loading_white.gif" as="image">
+    <link as="image" href="./images/Loading_white.gif" rel="preload">
+    <link as="font" crossorigin="anonymous" href="./fonts/NotoSans-Bold.ttf" rel="preload" type="font/ttf">
+    <link as="font" crossorigin="anonymous" href="./fonts/Minecraft-Ten.otf" rel="preload" type="font/otf">
+    <link as="font" crossorigin="anonymous" href="./fonts/Minecraft-Seven.otf" rel="preload" type="font/otf">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./stylesheet/public_style.css" rel="stylesheet">
     <link href="./stylesheet/advanced.css" rel="stylesheet">
@@ -76,6 +79,19 @@
         .previous_version {
         }
     </style>
+    <script defer>
+        const audios = {};
+
+        function registerAudio(name, path) {
+            const audio = new Audio(path);
+            audio.preload = 'auto';
+            audio.load();
+            audios[name] = audio;
+        }
+
+        registerAudio('click', './sounds/click.ogg');
+        registerAudio('button', './sounds/button.ogg');
+    </script>
     <title>开发日志 - 星月Minecraft版本库</title>
 </head>
 
@@ -293,6 +309,30 @@
                             </div>
                             <div class="expandable_card_down_area">
                                 <div class="expandable_card_down">
+                                    <div class="expandable_card_down_content">
+                                        <article_block>
+                                            <article_title>4.6.20250603.01</article_title>
+                                            <article_subtitle>(V) 4.6.6.54</article_subtitle>
+                                            <article_detail>
+                                                <article_note>
+                                                    我们推送了一个新的版本, 以下为更新详情, 请查阅.
+                                                </article_note>
+                                                <article_list_content>
+                                                    <article_list_title>更改</article_list_title>
+                                                    <article_list>更改了数据的获取方式</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>修复</article_list_title>
+                                                    <article_list>修复了点击设置图标会播放两次点击音效的问题</article_list>
+                                                </article_list_content>
+                                                <article_list_content>
+                                                    <article_list_title>技术性</article_list_title>
+                                                    <article_list>更新了页面架构</article_list>
+                                                </article_list_content>
+                                            </article_detail>
+                                        </article_block>
+                                    </div>
+                                    <line></line>
                                     <div class="expandable_card_down_content">
                                         <article_block>
                                             <article_title>4.6.20250602.02</article_title>

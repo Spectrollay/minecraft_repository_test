@@ -22,7 +22,7 @@
 
 // 实验性
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
 
 // 新的实验性页面
 let newFlagsPageSwitch = document.getElementById('new_flags_page');
@@ -31,14 +31,14 @@ let switchValues;
 
 function flagsPage() {
     if (!rootPath.includes('_test')) {
-        ifNavigating("jump", rootPath + "flags/");
+        ifNavigating("jump", rootPath + "/flags/");
     } else {
-        switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
+        switchValues = JSON.parse(localStorage.getItem(`(${rootPath}/)switch_value`)) || {};
         newFlagsPageState = switchValues['new_flags_page'] || newFlagsPageSwitch.getAttribute('active'); // 默认禁用
         if (newFlagsPageState === 'on') {
-            ifNavigating("jump", rootPath + "flags/");
+            ifNavigating("jump", rootPath + "/flags/");
         } else {
-            ifNavigating("jump", rootPath + "experiments/");
+            ifNavigating("jump", rootPath + "/experiments/");
         }
     }
 }

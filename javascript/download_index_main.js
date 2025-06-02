@@ -20,43 +20,50 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
+hostPath = window.location.origin;
+data = hostPath + "/data";
 
 const mainContainer = document.querySelector("generate-area.main_gen");
 const sidebarContainer = document.querySelector("generate-area.sidebar_gen");
-let dataFile, edition;
+let dataFile, dataPath, edition;
+if (hostPath.includes('https')) {
+    dataPath = data + '/minecraft_repository';
+} else {
+    dataPath = rootPath + '/data';
+}
 
 if (window.location.pathname.includes('download/bedrock/')) {
-    dataFile = 'data/bedrock_main.json';
+    dataFile = dataPath + '/bedrock_main.json';
     edition = 'bedrock';
 } else if (window.location.pathname.includes('download/java/')) {
-    // dataFile = 'data/java_main.json';
+    // dataFile = dataPath + '/java_main.json';
     edition = 'java';
 } else if (window.location.pathname.includes('download/education/')) {
-    dataFile = 'data/education_main.json';
+    dataFile = dataPath + '/education_main.json';
     edition = 'education';
 } else if (window.location.pathname.includes('download/server/')) {
-    // dataFile = 'data/server_main.json';
+    // dataFile = dataPath + '/server_main.json';
     edition = 'server';
 } else if (window.location.pathname.includes('download/trial/')) {
-    // dataFile = 'data/trial_main.json';
+    // dataFile = dataPath + '/trial_main.json';
     edition = 'trial';
 } else if (window.location.pathname.includes('download/story_mode/')) {
-    // dataFile = 'data/story_mode_main.json';
+    // dataFile = dataPath + '/story_mode_main.json';
     edition = 'story_mode';
 } else if (window.location.pathname.includes('download/earth/')) {
-    // dataFile = 'data/earth_main.json';
+    // dataFile = dataPath + '/earth_main.json';
     edition = 'earth';
 } else if (window.location.pathname.includes('download/dungeons/')) {
-    // dataFile = 'data/dungeons_main.json';
+    // dataFile = dataPath + '/dungeons_main.json';
     edition = 'dungeons';
 } else if (window.location.pathname.includes('download/legends/')) {
-    // dataFile = 'data/legends_main.json';
+    // dataFile = dataPath + '/legends_main.json';
     edition = 'legends';
 }
 
 if (dataFile && mainContainer && sidebarContainer) {
-    fetch(rootPath + dataFile)
+    fetch(dataFile)
         .then(response => response.text())
         .then(rawJson => {
             const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
@@ -78,11 +85,11 @@ if (dataFile && mainContainer && sidebarContainer) {
                             <div>
                                 <div class="title2 download_block_title">${version.title}</div>
                                 ${version.logo ? `<div class="update_logo_area">
-                                    <img alt="" class="update_logo" src="${rootPath}images/update/logo/${version.logo}"/>
+                                    <img alt="" class="update_logo" src="${rootPath}/images/update/logo/${version.logo}"/>
                                 </div>` : ""}
                             </div>
                             <div class="update_artwork_area">
-                                <img alt="" class="update_artwork" src="${rootPath}images/update/artwork/${version.artwork}"/>
+                                <img alt="" class="update_artwork" src="${rootPath}/images/update/artwork/${version.artwork}"/>
                             </div>
                         </div>
                         <div class="block_main wrap_flex">
@@ -91,9 +98,9 @@ if (dataFile && mainContainer && sidebarContainer) {
                                 <div class="link_block_group_title">下载</div>
                                 <div class="wrap_flex">
                                     ${Object.entries(version.platform).map(([platformKey, platformName]) => `
-                                    <link-block onclick="playSound('click');jumpToPage('${rootPath}download/${edition}/versions.html?version=${version.id}&platform=${platformKey.toLowerCase()}');">
+                                    <link-block onclick="playSound('click');jumpToPage('${rootPath}/download/${edition}/versions.html?version=${version.id}&platform=${platformKey.toLowerCase()}');">
                                         <div class="link_title">
-                                            <img alt="" class="link_title_img" src="${rootPath}images/logo/${platformKey}.png"/>${platformName}
+                                            <img alt="" class="link_title_img" src="${rootPath}/images/logo/${platformKey}.png"/>${platformName}
                                         </div>
                                     </link-block>`).join("")}
                                 </div>

@@ -20,8 +20,8 @@
  * SOFTWARE.
  */
 
-rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] + '/' : '');
-switchValues = JSON.parse(localStorage.getItem(`(${rootPath})switch_value`)) || {};
+rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
+switchValues = JSON.parse(localStorage.getItem(`(${rootPath}/)switch_value`)) || {};
 
 // 焦点事件
 // 选择多个元素
