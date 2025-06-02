@@ -30,8 +30,10 @@
 <head>
     <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="webkit" name="renderer">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="preload" href="./images/Loading_white.gif" as="image">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./stylesheet/public_style.css" rel="stylesheet">
     <link href="./stylesheet/advanced.css" rel="stylesheet">
@@ -113,7 +115,7 @@
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
-            <div class="spinner"><span class="spinner_text">载入中</span></div>
+            <div class="spinner"><span class="spinner_text">生成世界中</span></div>
         </div>
         <noscript>
             <style>
@@ -213,7 +215,12 @@
                             <div class="donate_message">请在捐赠后及时与我们<a href="./about/contact.html">取得联系</a>以便将你的信息加入捐赠列表中.</div>
                         </div>
                     </div>
-                    <div id="page_info"></div>
+                    <div id="page_info">
+                        <div class="data_loading_area">
+                            <img alt="" class="data_loading_img" src="./images/Loading_white.gif"/>
+                            <div class="data_loading_text">区块加载中</div>
+                        </div>
+                    </div>
                 </main>
             </scroll-container>
             <custom-scrollbar class="primary_custom_scrollbar">

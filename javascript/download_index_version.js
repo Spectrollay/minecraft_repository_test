@@ -127,12 +127,12 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                     const prevLink = `${currentUrl.origin}${currentUrl.pathname}?${searchParams.toString()}`;
                     prevButton.setAttribute('data', 'default|normal|extra_small||false||');
                     prevButton.setAttribute('js', `ifNavigating("jump", "${prevLink}");`);
-                    prevButton.setAttribute('text', `<img alt='' class='button_img left' src='./images/arrowLeft.png'>${prev_version}`
+                    prevButton.setAttribute('text', `<img alt='' class='button_img left' src='./images/arrowLeft.png'/>${prev_version}`
                     );
                 } else {
                     prevButton.setAttribute('data', 'default|disabled|extra_small||false||');
                     prevButton.setAttribute('js', '');
-                    prevButton.setAttribute('text', `<img alt='' class='button_img left' src='./images/arrowLeft.png'>上个版本`);
+                    prevButton.setAttribute('text', `<img alt='' class='button_img left' src='./images/arrowLeft.png'/>上个版本`);
                 }
             })
 
@@ -143,15 +143,18 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                     const nextLink = `${currentUrl.origin}${currentUrl.pathname}?${searchParams.toString()}`;
                     nextButton.setAttribute('data', 'default|normal|extra_small||false||');
                     nextButton.setAttribute('js', `ifNavigating("jump", "${nextLink}");`);
-                    nextButton.setAttribute('text', `${next_version}<img alt='' class='button_img right' src='./images/arrowRight.png'>`
+                    nextButton.setAttribute('text', `${next_version}<img alt='' class='button_img right' src='./images/arrowRight.png'/>`
                     );
                 } else {
                     nextButton.setAttribute('data', 'default|disabled|extra_small||false||');
                     nextButton.setAttribute('js', '');
-                    nextButton.setAttribute('text', `下个版本<img alt='' class='button_img right' src='./images/arrowRight.png'>`);
+                    nextButton.setAttribute('text', `下个版本<img alt='' class='button_img right' src='./images/arrowRight.png'/>`);
                 }
             })
 
+            // 清除原有内容
+            mainContainer.innerHTML = '';
+            sidebarContainer.innerHTML = '';
 
             // 遍历该大版本的所有小版本
             majorVersion.child_versions.forEach((currentVersion) => {
@@ -172,7 +175,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                         <div class="version_info">
                             <div class="title2 download_block_title">${currentVersion.version_name}</div>
                             ${currentVersion.update_artwork ? `<div class="drop_artwork_area">
-                                <img alt="" class="update_artwork" src="./images/update/artwork/${currentVersion.update_artwork}">
+                                <img alt="" class="update_artwork" src="./images/update/artwork/${currentVersion.update_artwork}"/>
                             </div>` : ""}
                         </div>
                         <div class="wrap_flex">
@@ -191,7 +194,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
                                 ${currentVersion.platforms[platform].style === 'type' ? `
                                     <!-- 按版本类型 -->
                                     <div class="dropdown_container">
-                                        <custom-dropdown data-option='["<div class=\\"wrap_flex\\"><img class=\\"small_icon\\" src=\\"./images/Crown.png\\">OneDrive</div>", "百度网盘", "夸克网盘", "123云盘"]' data-selected="2" id="${platform}_${currentVersion.id}" status="enabled" unselected-text="请选择下载渠道"></custom-dropdown>
+                                        <custom-dropdown data-option='["<div class=\\"wrap_flex\\"><img class=\\"small_icon\\" src=\\"./images/Crown.png\\"/>OneDrive</div>", "百度网盘", "夸克网盘", "123云盘"]' data-selected="2" id="${platform}_${currentVersion.id}" status="enabled" unselected-text="请选择下载渠道"></custom-dropdown>
                                     </div>
                                 ` : ""}
                                 <div>
@@ -307,7 +310,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath})dropdown_valu
 
 document.title = `${platformName} - ${version} - ${edition} - 星月Minecraft版本库`;
 platformIcon.src = `${rootPath}images/logo/${platformName}.png`;
-mainTitle.innerHTML = `${platformName} - ${version} - ${edition}<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href, 'link');" src="./images/ExternalLink_white.png">`;
+mainTitle.innerHTML = `${platformName} - ${version} - ${edition}<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href, 'link');" src="./images/ExternalLink_white.png"/>`;
 sidebarTitle.innerHTML = `${version}`;
 
 document.addEventListener("DOMContentLoaded", function () {

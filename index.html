@@ -30,10 +30,13 @@
 <head>
     <base href="./"><!-- 项目根路径 -->
     <meta charset="UTF-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="webkit" name="renderer">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Minecraft, MC, 我的世界, 版本库, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球" name="keywords"/>
+    <meta content="Minecraft, MC, 我的世界, 版本库, 国际版, Minecraft Bedrock Edition, 基岩版, Minecraft Education Edition, 教育版, Minecraft Trial, 试玩版, Minecraft Demo, 演示版, Minecraft Legends, 传奇, Minecraft Dungeons, 地下城, Minecraft Story Mode, 故事模式, Minecraft Earth, 地球" name="keywords"/>
     <meta content="星月Minecraft版本库是一个开放共享的资源站,专注于收录Minecraft发布过的所有版本." name="description"/>
+    <meta content="Spectrollay" name="author"/>
+    <link rel="preload" href="./images/Loading_white.gif" as="image">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./stylesheet/public_style.css" rel="stylesheet">
     <link href="./stylesheet/advanced.css" rel="stylesheet">
@@ -102,7 +105,7 @@
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
-            <div class="spinner"><span class="spinner_text">载入中</span></div>
+            <div class="spinner"><span class="spinner_text">生成世界中</span></div>
         </div>
         <noscript>
             <style>
@@ -151,7 +154,7 @@
                     <div class="preview_detail">不用担心,在测试期间你可以随时返回旧设计.</div>
                     <div class="btn_group">
                         <custom-button data="default|normal|small||false||" js="jumpToPage('./index_new.html');localStorage.setItem(`(${rootPath})new_home_test`, 'true');" text="前往新设计"></custom-button>
-                        <custom-button data="default|green|small||false||" js="contact();" text="<img alt='' class='link_img' src='./images/ExternalLink_white.png'/>提出反馈"></custom-button>
+                        <custom-button data="default|green|small|preview_btn2|false||" js="contact();" text=""></custom-button>
                     </div>
                 </div>
                 <div class="block_spacing"></div>
@@ -511,7 +514,12 @@
                 <div class="main footer_notice_body">
                     <div class="title3">捐赠支持</div>
                     <div class="description2">
-                        <div id="donate_message"></div>
+                        <div id="donate_message">
+                            <div class="data_loading_area">
+                                <img alt="" class="data_loading_img" src="./images/Loading_white.gif"/>
+                                <div class="data_loading_text">区块加载中</div>
+                            </div>
+                        </div>
                         <div class="btn_group">
                             <custom-button data="default|normal|large||false||" js="jumpToPage('./about/donate.html');" text="打赏"></custom-button>
                         </div>
@@ -520,18 +528,33 @@
                 <div class="main footer_notice_body">
                     <div class="title3">特别鸣谢</div>
                     <div class="description2">
-                        <div id="acknowledgments"></div>
+                        <div id="acknowledgments">
+                            <div class="data_loading_area">
+                                <img alt="" class="data_loading_img" src="./images/Loading_white.gif"/>
+                                <div class="data_loading_text">区块加载中</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="main footer_notice_body">
                     <div class="title3">友情链接</div>
                     <div class="description2">
-                        <div class="wrap_flex" id="reciprocal_link_list"></div>
+                        <div class="wrap_flex" id="reciprocal_link_list">
+                            <div class="data_loading_area">
+                                <img alt="" class="data_loading_img" src="./images/Loading_white.gif"/>
+                                <div class="data_loading_text">区块加载中</div>
+                            </div>
+                        </div>
                         <p><a href="https://wj.qq.com/s2/15430190/90c5/" target="_blank"><img alt="link" class="link_img" src="./images/ExternalLink_white.png"/>交换友链 (验证码: spec6)</a></p>
                     </div>
                 </div>
             </div>
-            <div id="page_info"></div>
+            <div id="page_info">
+                <div class="data_loading_area">
+                    <img alt="" class="data_loading_img" src="./images/Loading_white.gif"/>
+                    <div class="data_loading_text">区块加载中</div>
+                </div>
+            </div>
         </main>
     </scroll-container>
     <custom-scrollbar class="primary_custom_scrollbar">

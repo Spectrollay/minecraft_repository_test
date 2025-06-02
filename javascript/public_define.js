@@ -25,12 +25,12 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".6"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".53"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".54"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250602" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20250602" + ".02"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -611,6 +611,13 @@ window.addEventListener('load', () => setTimeout(function () {
     setElementText("setting_version_detail", version_info);
     setElementText("experiment_banner", texts.experiment_banner);
 
+    const support_message = document.getElementById('support_message');
+    if (support_message) {
+        support_message.innerHTML = `
+        <span>在2020年, 我们发布了第一个公开版本, 版本库的故事由此而起. 当时, 我们的想法只是做一个好的游戏分享平台, 这些年过去了, 我们仍在坚持. 但我们也深知, 为爱发电并不能长久, 因此我们一直在积极寻求能够稳定发展的道路. 如果你认为本站对你有所帮助, 不妨通过以下页面了解如何支持我们, 助力我们进一步发展.</span>
+        `;
+    }
+
     const donate_message = document.getElementById('donate_message');
     if (donate_message) {
         donate_message.innerHTML = `
@@ -735,7 +742,7 @@ if (mclang_cn_fix) {
                 <div class="link_block_group_title">访问项目</div>
                 <link-block onclick="playSound('click');openLink('https://spectrollay.github.io/mclang_cn/');">
                     <div class="link_title">
-                        <img alt="" class="link_title_img" src="${rootPath}images/logo/mclang_cn_fix.png">中文译名修正项目
+                        <img alt="" class="link_title_img" src="${rootPath}images/logo/mclang_cn_fix.png"/>中文译名修正项目
                     </div>
                 </link-block>
             </div>

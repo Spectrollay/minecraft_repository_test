@@ -61,6 +61,12 @@ if (dataFile && mainContainer && sidebarContainer) {
         .then(rawJson => {
             const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
             const versions = JSON.parse(cleanedJson);
+
+            // 清除原有内容
+            mainContainer.innerHTML = '';
+            sidebarContainer.innerHTML = '';
+
+            // 遍历所有版本
             versions.forEach(version => {
                 const mainBlock = document.createElement("div");
                 const sidebarBlock = document.createElement("div");
@@ -72,11 +78,11 @@ if (dataFile && mainContainer && sidebarContainer) {
                             <div>
                                 <div class="title2 download_block_title">${version.title}</div>
                                 ${version.logo ? `<div class="update_logo_area">
-                                    <img alt="" class="update_logo" src="${rootPath}images/update/logo/${version.logo}">
+                                    <img alt="" class="update_logo" src="${rootPath}images/update/logo/${version.logo}"/>
                                 </div>` : ""}
                             </div>
                             <div class="update_artwork_area">
-                                <img alt="" class="update_artwork" src="${rootPath}images/update/artwork/${version.artwork}">
+                                <img alt="" class="update_artwork" src="${rootPath}images/update/artwork/${version.artwork}"/>
                             </div>
                         </div>
                         <div class="block_main wrap_flex">
@@ -87,7 +93,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                                     ${Object.entries(version.platform).map(([platformKey, platformName]) => `
                                     <link-block onclick="playSound('click');jumpToPage('${rootPath}download/${edition}/versions.html?version=${version.id}&platform=${platformKey.toLowerCase()}');">
                                         <div class="link_title">
-                                            <img alt="" class="link_title_img" src="${rootPath}images/logo/${platformKey}.png">${platformName}
+                                            <img alt="" class="link_title_img" src="${rootPath}images/logo/${platformKey}.png"/>${platformName}
                                         </div>
                                     </link-block>`).join("")}
                                 </div>
@@ -100,6 +106,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                     <a class="sidebar_item" href="${window.location}#${version.id}"><article_list>${version.id}</article_list></a>
                 `;
 
+                // 添加到容器中
                 mainContainer.appendChild(mainBlock);
                 sidebarContainer.appendChild(sidebarBlock);
             });

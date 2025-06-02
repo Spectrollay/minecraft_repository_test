@@ -403,7 +403,7 @@ const donorOnlyModal = `
     <modal_area class="normal_modal" id="donor_only_modal" style="display: none;">
         <modal>
             <modal_title_area>
-                <modal_title><img alt="" class="small_icon" src="./images/Crown.png">捐赠专享</modal_title>
+                <modal_title><img alt="" class="small_icon" src="./images/Crown.png"/>捐赠专享</modal_title>
                 <modal_close_btn class="close_btn" onclick="hideModal(this);">
                     <img alt="" class="modal_close_btn_img" src="${rootPath}images/cross_white.png"/>
                 </modal_close_btn>
@@ -785,10 +785,10 @@ function copyText(text, type) {
     }
 
     navigator.clipboard.writeText(text).then(() => {
-        showPop(`复制${display}成功!`,'' , 'success');
+        showPop(`复制${display}成功!`, '', 'success');
         logManager.log("复制成功: " + text);
     }).catch(error => {
-        showPop(`复制${display}失败!`,'' , 'error');
+        showPop(`复制${display}失败!`, '', 'error');
         logManager.log("复制失败: " + error, 'error');
     });
 }

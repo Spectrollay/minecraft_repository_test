@@ -30,8 +30,10 @@
 <head>
     <base href="../"><!-- 项目根路径 -->
     <meta charset="UTF-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="webkit" name="renderer">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="preload" href="./images/Loading_white.gif" as="image">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./stylesheet/public_style.css" rel="stylesheet">
     <link href="./stylesheet/advanced.css" rel="stylesheet">
@@ -207,7 +209,7 @@
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
-            <div class="spinner"><span class="spinner_text">载入中</span></div>
+            <div class="spinner"><span class="spinner_text">生成世界中</span></div>
         </div>
         <noscript>
             <style>
@@ -330,7 +332,9 @@
                     <div>
                         <div class="page_info"><br></div>
                         <div class="page_info_title">项目信息</div>
-                        <div class="page_info" id="version_info"></div>
+                        <div class="page_info" id="version_info">
+                            <img alt="" class="data_loading_img_small" src="./images/Loading_white.gif"/>
+                        </div>
                         <div class="page_info_title">关于我们</div>
                         <div class="page_info">开发者: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>维护者: <a href="https://github.com/Spectrollay" target="_blank">@Spectrollay</a><br>聊天群组: <a href="https://t.me/Spectrollay_MCW" target="_blank">Telegram</a> | <a href="https://qm.qq.com/q/AqLmKLH9mM" target="_blank">QQ</a> | <a href="https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802" target="_blank">云湖</a></div>
                         <div class="page_info_title">用❤️制作</div>

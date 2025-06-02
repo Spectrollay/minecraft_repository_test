@@ -32,6 +32,7 @@ rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0
         const data = JSON.parse(cleanedJson); // 解析为JSON对象
         const container = document.getElementById("reciprocal_link_list");
         if (container) {
+            container.innerHTML = '';
             data.forEach(link => {
                 const block = document.createElement("link-block");
                 block.className = "reciprocal_link_block";

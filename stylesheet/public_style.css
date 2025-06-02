@@ -773,6 +773,31 @@ a {
     background-color: #F46D6D;
 }
 
+.data_loading_area {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.data_loading_img {
+    height: 50px;
+    margin: 6px;
+    width: 50px;
+}
+
+.data_loading_img_small {
+    height: 20px;
+    margin: 6px;
+    width: 20px;
+}
+
+.data_loading_text {
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
 .small_icon {
     height: 20px;
 }
@@ -1019,6 +1044,7 @@ link-block:hover, link-block:active {
         width: 400px;
     }
 }
+
 @media screen and (min-width: 1100px) {
     .download_block_description {
         width: 500px;
