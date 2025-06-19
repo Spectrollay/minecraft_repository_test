@@ -527,11 +527,11 @@ function checkFirstVisit() {
     ];
 
     const currentPath = window.location.pathname;
-
     const isAllowedFile = allowedFiles.includes(currentPath);
     const isAllowedFolder = allowedFolders.some(folder => currentPath.startsWith(folder));
+    const disableFirstVisitTodayModal = switchValues['limited_access_modal'] === 'off';
 
-    if (firstVisit !== today && !isAllowedFile && !isAllowedFolder && !is404Page) {
+    if (firstVisit !== today && !isAllowedFile && !isAllowedFolder && !is404Page && !disableFirstVisitTodayModal) {
         const overlay = document.getElementById("overlay_first_visit_today_modal");
         const modal = document.getElementById("first_visit_today_modal");
         overlay.style.display = "block";

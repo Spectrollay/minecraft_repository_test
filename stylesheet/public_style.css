@@ -101,7 +101,7 @@ html.grayscale {
 }
 
 body {
-    background: #48494A;
+    background-color: #48494A;
     font-family: "NotoSans Bold", sans-serif;
     height: 100%;
     margin: 0;
@@ -247,8 +247,12 @@ header {
 
 /* 标题文字 */
 .header_title {
+    align-items: center;
+    display: flex;
     font-family: "Minecraft Ten", sans-serif;
     font-size: 30px;
+    justify-content: center;
+    line-height: 1;
     height: 38px;
 }
 
@@ -400,7 +404,7 @@ main {
 }
 
 .tab_bar_btn::after {
-    background-color: white;
+    background-color: #FFFFFF;
     bottom: 0;
     content: "";
     height: 3px;
@@ -919,7 +923,7 @@ link-block::before {
     left: -150%;
     width: 15px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.6);
     transform: skewX(-45deg);
     transition: none;
     z-index: 2;
@@ -932,7 +936,7 @@ link-block::after {
     left: -150%;
     width: 6px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     transform: skewX(-45deg);
     transition: none;
     z-index: 1;

@@ -299,6 +299,7 @@ customElements.define('custom-button', CustomButton);
 class CustomCheckbox extends HTMLElement {
     constructor() {
         super();
+        this.beforeToggle = null; // 可被外部设置的钩子函数
         this.render();
 
         const parentElement = this.parentElement;
@@ -334,8 +335,23 @@ class CustomCheckbox extends HTMLElement {
         `;
     }
 
+    shouldAllowToggle() {
+        if (typeof this.beforeToggle === 'function') {
+            const allowed = this.beforeToggle(this);
+            if (!allowed) {
+                this.dispatchEvent(new CustomEvent('checkbox-toggle-blocked', {
+                    bubbles: true,
+                    detail: {checkboxId: this.id}
+                }));
+                return false;
+            }
+        }
+        return true;
+    }
+
     toggleCheckbox() {
         if (this.getAttribute('status') !== 'enabled') return;
+        if (!this.shouldAllowToggle()) return;
 
         const isChecked = this.getAttribute('active') === 'on';
         const checkboxData = JSON.parse(localStorage.getItem(`(${rootPath}/)checkbox_value`)) || {};
@@ -542,21 +558,38 @@ function showModal(modal) {
     frame.dispatchEvent(modalShowEvent);
 }
 
-function hideModal(button) {
-    let frameId;
-    let currentElement = button.parentElement;
+function hideModal(source) {
+    let frameId = null;
 
-    while (currentElement) {
-        if (currentElement.tagName.toLowerCase() === 'modal_area') {
-            frameId = currentElement.id;
-            break;
+    if (source instanceof HTMLElement) {
+        let currentElement = source.parentElement;
+        while (currentElement) {
+            if (currentElement.tagName.toLowerCase() === 'modal_area') {
+                frameId = currentElement.id;
+                break;
+            }
+            currentElement = currentElement.parentElement;
         }
-        currentElement = currentElement.parentElement;
+
+        if (!frameId) {
+            logManager.log("未在DOM层级中找到弹窗元素", 'warm');
+            return;
+        }
+    } else if (typeof source === 'string') {
+        frameId = source;
+    } else {
+        logManager.log("非法的传入参数类型", 'warm');
+        return;
     }
 
     const overlay = document.getElementById("overlay_" + frameId);
     const frame = document.getElementById(frameId);
-    playSoundType(button);
+
+    if (!overlay || !frame) {
+        logManager.log("找不到弹窗元素,传入参数为: " + frameId, 'warm');
+        return;
+    }
+
     overlay.style.display = "none";
     frame.style.display = "none";
     logManager.log("隐藏弹窗 " + frameId);
@@ -568,6 +601,12 @@ function hideModal(button) {
     });
     frame.dispatchEvent(modalHideEvent);
 }
+
+document.querySelectorAll('modal_close_btn').forEach(modal_close_btn => {
+    modal_close_btn.addEventListener('click', () => {
+        playSoundType(modal_close_btn);
+    })
+})
 
 
 // Pop弹窗
@@ -956,6 +995,7 @@ customElements.define('custom-slider', CustomSlider);
 class CustomSwitch extends HTMLElement {
     constructor() {
         super();
+        this.beforeToggle = null; // 可被外部设置的钩子函数
         this.isSwitchOn = false; // 用于存储当前开关的状态
         this.isSwitchDisabled = false; // 用于存储当前开关的禁用状态
         this.startX = 0; // 用于拖动时记录起始位置
@@ -1005,6 +1045,20 @@ class CustomSwitch extends HTMLElement {
         }
     }
 
+    shouldAllowToggle() {
+        if (typeof this.beforeToggle === 'function') {
+            const allowed = this.beforeToggle(this);
+            if (!allowed) {
+                this.dispatchEvent(new CustomEvent('switch-toggle-blocked', {
+                    bubbles: true,
+                    detail: {switchId: this.id}
+                }));
+                return false;
+            }
+        }
+        return true;
+    }
+
     bindEvents() {
         const switchElement = this.querySelector(".switch");
         const switchSlider = this.querySelector(".switch_slider");
@@ -1029,11 +1083,15 @@ class CustomSwitch extends HTMLElement {
                 if (this.isDragging) {
                     const currentX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
                     const distanceMoved = currentX - this.startX;
-                    if (distanceMoved > 10 && !this.isSwitchOn) { // 向右拖动
-                        this.isSwitchOn = true;
-                        this.updateSwitchState(this.isSwitchOn);
-                    } else if (distanceMoved < -10 && this.isSwitchOn) { // 向左拖动
-                        this.isSwitchOn = false;
+                    const newState = distanceMoved > 10 ? true : distanceMoved < -10 ? false : this.isSwitchOn;
+
+                    if (newState !== this.isSwitchOn) {
+                        if (!this.shouldAllowToggle()) {
+                            this.isDragging = false;
+                            switchSlider.classList.remove('active');
+                            return;
+                        }
+                        this.isSwitchOn = newState;
                         this.updateSwitchState(this.isSwitchOn);
                     }
                 }
@@ -1045,6 +1103,7 @@ class CustomSwitch extends HTMLElement {
 
             const handleClick = () => {
                 if (!this.isDragging) {
+                    if (!this.shouldAllowToggle()) return;
                     this.isSwitchOn = !this.isSwitchOn;
                     this.updateSwitchState(this.isSwitchOn);
                 }

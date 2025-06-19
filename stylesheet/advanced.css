@@ -55,7 +55,9 @@ main {
 }
 
 .setting_title_content {
+    align-items: center;
     align-self: center;
+    display: flex;
     flex: 1;
 }
 

@@ -489,7 +489,7 @@ vertical-line {
 }
 
 
-/* 自定义Dropdown下拉菜单 */
+/* Dropdown 下拉菜单 */
 custom-dropdown {
     cursor: pointer;
     display: block;
@@ -794,6 +794,11 @@ modal_button_list {
     color: #FEE039;
 }
 
+.pop.debug_text {
+    background-color: #FFE866;
+    color: #000000;
+}
+
 
 /* Slider 滑块 */
 .slider_content {
@@ -806,7 +811,7 @@ modal_button_list {
 }
 
 .slider {
-    background: #8C8D90;
+    background-color: #8C8D90;
     border: 2px solid #1E1E1F;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
     cursor: pointer;
@@ -817,7 +822,7 @@ modal_button_list {
 }
 
 .slider_process {
-    background: #3C8527;
+    background-color: #3C8527;
     bottom: 0;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
     left: 0;
@@ -863,7 +868,7 @@ modal_button_list {
 }
 
 .disabled_slider.slider {
-    background: #CFD0D4;
+    background-color: #CFD0D4;
     border: 2px solid #8C8D90;
 }
 
@@ -872,7 +877,7 @@ modal_button_list {
 }
 
 .disabled_slider .slider_process {
-    background: #CFD0D4;
+    background-color: #CFD0D4;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
 }
 
@@ -910,7 +915,7 @@ modal_button_list {
 }
 
 .disabled_switch {
-    background: #D0D1D4;
+    background-color: #D0D1D4;
     border: 2px solid #8C8D90;
     cursor: not-allowed;
 }
@@ -1055,7 +1060,7 @@ text-field {
 }
 
 .input::selection {
-    background: rgba(108, 195, 73, 0.5);
+    background-color: rgba(108, 195, 73, 0.5);
 }
 
 .hint {

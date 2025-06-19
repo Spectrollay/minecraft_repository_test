@@ -40,9 +40,12 @@
     <link href="./stylesheet/custom_elements.css" rel="stylesheet">
     <link href="./stylesheet/mcfc.css" rel="stylesheet">
     <link href="./images/Debug.png" rel="icon">
-    <!--<style>-->
-    <!--    -->
-    <!--</style>-->
+    <style>
+        .modal_dividing_line {
+            background-color: #333334;
+            height: 2px;
+        }
+    </style>
     <title>调试 - 星月Minecraft版本库</title>
 </head>
 
@@ -74,7 +77,7 @@
         </div>
         <div class="header_logo">
             <img alt="" class="title_icon" src="./images/Debug.png"/>
-            <span class="header_title">Debug</span>
+            <div class="header_title">Debug</div>
         </div>
         <div class="header_item header_item_right header_right_blank"></div>
     </header>
@@ -157,6 +160,30 @@
 <!-- Pop弹窗 -->
 <div class="pop_area" id="pop_area"></div>
 
+<!-- 调试口令弹窗 -->
+<div class="overlay normal_overlay" id="overlay_debug_password_modal"></div>
+<modal_area class="normal_modal" id="debug_password_modal" style="display: none;">
+    <modal>
+        <modal_title_area>
+            <modal_title>请输入口令</modal_title>
+        </modal_title_area>
+        <div class="modal_dividing_line"></div>
+        <modal_textfield_area>
+            <div class="text_field_container do_not_save" id="debug_password_input">
+                <text-field hint="在此输入.." single-line="true" status="enabled" type="all"></text-field>
+            </div>
+        </modal_textfield_area>
+        <modal_button_area>
+            <modal_button_group>
+                <modal_button_list>
+                    <custom-button data="modal|normal|||false||" js="clickedBack();" text="返回"></custom-button>
+                    <custom-button data="modal|green|||false||" js="verifyDebugPassword(document.querySelector('#debug_password_input text-field').getValue().trim());" text="确定"></custom-button>
+                </modal_button_list>
+            </modal_button_group>
+        </modal_button_area>
+    </modal>
+</modal_area>
+
 </body>
 
 <script src="./javascript/loading.js"></script>
@@ -166,17 +193,34 @@
 <script src="./javascript/custom_elements.js"></script>
 <script src="./javascript/mcfc.js"></script>
 <script>
-    // if (!sessionStorage.getItem("enableDebug")) {
-    //     location.replace("./default/error_no-access.html");
-    // }
+    const debug_password = "spectrollay_mcarc_debug";
+
+    if (!sessionStorage.getItem("enableDebug")) {
+        location.replace("./default/error_no-access.html");
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showModal('debug_password_modal');
+    });
 
     function enableDonateDebug() {
         localStorage.setItem("donate", "true");
+        showPop('调试模式 - 已启用捐赠专享', 3000, 'debug_text');
     }
 
     function disableDonateDebug() {
         localStorage.removeItem("donate");
+        showPop('调试模式 - 已撤销捐赠专享', 3000, 'debug_text');
     }
+
+    function verifyDebugPassword(input_password) {
+        if (input_password !== debug_password) {
+            showPop('口令错误', 3000, 'error');
+        } else {
+            hideModal('debug_password_modal');
+        }
+    }
+
 </script>
 
 </html>

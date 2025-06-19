@@ -32,6 +32,17 @@ function enviPage() {
     ifNavigating("jump", rootPath + "/guidance/environment_guidance.html");
 }
 
+// 捐赠专享
+const limitedSwitch = document.getElementById('limited_access_modal');
+
+limitedSwitch.beforeToggle = function () {
+    return localStorage.getItem("donate") === "true";
+};
+
+limitedSwitch.addEventListener('switch-toggle-blocked', function () {
+    showModal('donor_only_modal');
+});
+
 // 清除存储
 function clearStorage() {
     const keyPatterns = [`(${rootPath}/)`, "minecraft_repository_attribute"];
@@ -138,7 +149,7 @@ if (developerBlock) {
 
 const checkInput = document.querySelector('#check_input text-field');
 
-function checkInputValue() {
+function checkContinue() {
     const inputValue = checkInput.getValue().trim(); // 获取并去除输入值的空格
     const requiredValue = "我知道我在做什么"; // 预期的文本
     const checkContinueBtn = document.getElementById('check_continue');
@@ -159,5 +170,5 @@ function checkInputValue() {
 }
 
 if (checkInput) {
-    checkInput.addEventListener('input', checkInputValue);
+    checkInput.addEventListener('input', checkContinue);
 }
