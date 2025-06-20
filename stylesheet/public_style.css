@@ -748,12 +748,18 @@ a {
 }
 
 /* Tag */
+.tag_area {
+    align-items: center;
+    justify-content: center;
+}
+
 .tag {
-    align-self: center;
     color: #000000;
+    display: inline-flex;
     font-size: 12px;
-    margin: 4px;
+    margin: 0 4px;
     padding: 0 2px;
+    text-wrap: nowrap;
 }
 
 .black_tag {

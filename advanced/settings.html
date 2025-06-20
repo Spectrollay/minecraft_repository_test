@@ -191,9 +191,14 @@
                         </div>
                     </div>
                     <div class="main_block setting_block">
-                        <div class="setting_title_content">实验性新UI</div>
-                        <div class="setting_control_right">
-                            <custom-switch active="off" id="exp_new_ui" status="enabled"></custom-switch>
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content">实验性新UI</div>
+                                <div class="setting_control_right">
+                                    <custom-switch active="off" id="exp_new_ui" status="enabled"></custom-switch>
+                                </div>
+                            </div>
+                            <div class="setting_block_description">决定是否启用仍在实验中的新UI</div>
                         </div>
                     </div>
                     <div class="main_block setting_block">
@@ -212,9 +217,14 @@
                         </div>
                     </div>
                     <div class="main_block setting_block">
-                        <div class="setting_title_content"><img alt="" class="small_icon" src="./images/Crown.png"/>访问受限弹窗</div>
-                        <div class="setting_control_right">
-                            <custom-switch active="on" id="limited_access_modal" status="enabled"></custom-switch>
+                        <div class="setting_block_content">
+                            <div class="setting_block_title flex">
+                                <div class="setting_title_content"><img alt="" class="small_icon" src="./images/Crown.png"/>访问受限弹窗</div>
+                                <div class="setting_control_right">
+                                    <custom-switch active="on" id="limited_access_modal" status="enabled"></custom-switch>
+                                </div>
+                            </div>
+                            <div class="setting_block_description">控制当天的首次访问是否需要从首页开始</div>
                         </div>
                     </div>
                     <div class="main_block setting_block">
@@ -270,7 +280,9 @@
                         </div>
                     </div>
                     <div class="main_block setting_block exp_envi_guide">
-                        <div class="setting_title_content">环境指南<span class="tag yellow_tag exp_tag">实验性</span></div>
+                        <div class="setting_title_content">
+                            <div class="tag_area"><span>环境指南</span><span class="tag yellow_tag exp_tag">实验性</span></div>
+                        </div>
                         <div class="setting_control_right">
                             <custom-button data="setting|normal|||false||" js="enviPage();" text="阅读"></custom-button>
                         </div>

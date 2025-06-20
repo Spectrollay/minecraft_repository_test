@@ -4,7 +4,7 @@
   "about\\donate.html": "e588f8c5bc16002ec349ab847cf16087",
   "about\\support.html": "adeef87bdacd6a02c7e684fb3e07fcb7",
   "advanced\\debug.html": "8ad20961431ceb835fb9c906706bd9c0",
-  "advanced\\settings.html": "1be091b3a2e2d4fac65d9a6fe0131ac9",
+  "advanced\\settings.html": "041e49a84b30e316f5e522fb24c85381",
   "advanced\\status.html": "772ef54c05aa8642f432c871a6c23e29",
   "default\\coming_soon.html": "497d4f0e78e229641acfc34a92ae748f",
   "default\\error_default.html": "c537b5e341d69ea583ac7d6c4868519d",
@@ -242,7 +242,7 @@
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
   "stylesheet\\loading_mask.css": "ece11e6b8e65aacc739a061d3ab3a738",
   "stylesheet\\mcfc.css": "78a25ed75ca2e95d3e07b4a9fa202891",
-  "stylesheet\\public_style.css": "a234b66040f6ded7401ad3f62fcb5751",
+  "stylesheet\\public_style.css": "e550a2e36c6b31d352d795f582b008d2",
   "Template\\index.html": "81f78ff1b4e100b71b052ef3444ad4ae",
-  "updatelog\\index.html": "58785819fe866847d8ae6a13bd99cda1"
+  "updatelog\\index.html": "eeefbbbe18ecafd9bc1d99276ee21a7e"
 }
