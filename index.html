@@ -653,7 +653,7 @@
     if (repositoryAttribute) {
         if (repositoryAttribute.includes('test=true')) {
             if (!rootPath.includes('_test')) {
-                ifNavigating("direct", window.location.origin + "/minecraft_repository_test");
+                ifNavigating("direct", window.location.origin + "/minecraft_repository" + "_test");
             }
         } else if (repositoryAttribute.includes('test=false')) {
             if (rootPath.includes('_test')) {

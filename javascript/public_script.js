@@ -730,7 +730,7 @@ function jumpToPage(link) {
 
 // 打开网页
 function openLink(url) {
-    if (url.includes('mcarc')) { // TODO 在移除全部相关链接后删除判定
+    if (url.includes('mcarc.github.io')) { // TODO 在移除全部相关链接后删除判定
         ifNavigating("open", "/minecraft_repository_test/default/error_not-found.html");
     } else {
         ifNavigating("open", url);
