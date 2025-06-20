@@ -137,7 +137,8 @@ if (hostPath.includes('file:///')) {
 } else if (hostPath.includes('localhost')) {
     logManager.log("当前运行在本地服务器");
 } else {
-    logManager.log("当前运行在" + hostPath);// 禁用右键菜单
+    logManager.log("当前运行在" + hostPath);
+    // 禁用右键菜单
     document.addEventListener('contextmenu', function (event) {
         event.preventDefault();
     });
