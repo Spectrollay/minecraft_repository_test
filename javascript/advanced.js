@@ -35,13 +35,15 @@ function enviPage() {
 // 捐赠专享
 const limitedSwitch = document.getElementById('limited_access_modal');
 
-limitedSwitch.beforeToggle = function () {
-    return localStorage.getItem("donate") === "true";
-};
+if (limitedSwitch) {
+    limitedSwitch.beforeToggle = function () {
+        return localStorage.getItem("donate") === "true";
+    };
 
-limitedSwitch.addEventListener('switch-toggle-blocked', function () {
-    showModal('donor_only_modal');
-});
+    limitedSwitch.addEventListener('switch-toggle-blocked', function () {
+        showModal('donor_only_modal');
+    });
+}
 
 // 清除存储
 function clearStorage() {
