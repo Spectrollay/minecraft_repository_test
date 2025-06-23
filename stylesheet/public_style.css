@@ -75,7 +75,6 @@
 
 * {
     -webkit-tap-highlight-color: transparent; /* 禁用高亮 */
-    overscroll-behavior: contain; /* 禁用过度滚动 */
     touch-action: manipulation; /* 禁用长按菜单 */
 }
 
@@ -93,6 +92,7 @@
 /* 总体样式 */
 html {
     height: 100%;
+    overscroll-behavior: contain;
 }
 
 html.grayscale {
@@ -106,7 +106,9 @@ body {
     height: 100%;
     margin: 0;
     min-width: 330px;
-    overflow-x: hidden;
+    overflow: hidden;
+    position: relative;
+    scrollbar-width: none;
     -webkit-user-select: none;
 }
 
@@ -126,7 +128,6 @@ header {
     background-color: #E6E8EB;
     border-bottom: 4px solid #B1B2B5;
     display: flex;
-    flex-shrink: 0;
     height: 40px;
     justify-content: space-between;
     min-width: 330px;
@@ -291,8 +292,11 @@ display-body {
     position: relative;
 }
 
-.main_scroll_view {
+scroll-view {
+    display: flex;
+    height: 100%;
     overflow: hidden;
+    width: 100%;
 }
 
 .main_scroll_view.animate {
@@ -306,18 +310,11 @@ display-body {
     }
 }
 
-scroll-view {
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
 scroll-container {
     display: grid;
     flex: 1;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
     position: relative;
     scroll-behavior: smooth;
     scrollbar-width: none;

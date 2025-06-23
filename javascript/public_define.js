@@ -24,10 +24,10 @@
 // TODO 需在每次提交前检查
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
-const secondary_version_name = primary_version_name + ".6"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".55"; // 例 4.0.0.1  NOTE 小版本
-const version_type = "Stable"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
-const version_type_count = version_type + ""; // 例 Build1  NOTE 小版本,可为空
+const secondary_version_name = primary_version_name + ".7"; // 例 4.0.0
+const version_name_short = secondary_version_name + ".1"; // 例 4.0.0.1  NOTE 小版本
+const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
+const version_type_count = version_type + "1"; // 例 Build1  NOTE 小版本
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
 const update_count = "20250620" + ".01"; // NOTE 小版本,有提交就变
@@ -244,35 +244,39 @@ let tipsWithWeights;
 const commonTips = [
     {
         text: "<span>发现问题或有好的建议?<a href='https://github.com/Spectrollay/minecraft_repository_test/issues/new' target='_blank'>欢迎提出</a>!</span>",
-        weight: 12
+        weight: 10
     },
     {
         text: "<span>想和大家一起闲聊吹水?<br>快加入<a href='https://t.me/Spectrollay_MCW' target='_blank'>Telegram</a> / <a href='https://qm.qq.com/q/AqLmKLH9mM' target='_blank'>QQ</a> / <a href='https://yhfx.jwznb.com/share?key=VyTE7W7sLwRl&ts=1684642802' target='_blank'>云湖</a>群聊!</span>",
-        weight: 12
+        weight: 10
     },
     {
         text: "<span>欢迎加入版本库官方频道: <a href='https://t.me/spectrollay_minecraft_repository' target='_blank'>Telegram</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' target='_blank'>QQ</a></span>",
-        weight: 12
+        weight: 10
     },
     {
         text: "<span>记住我们的<a href='https://github.com/Spectrollay/minecraft_repository_test/' target='_blank'>官方网站</a>!</span>",
-        weight: 12
+        weight: 10
     },
     {
-        text: "<span>也来看看我们的<a href='https://spectrollay.github.io/mclang_cn/' target='_blank'>中文译名修正项目</a>!</span>",
-        weight: 12
+        text: "<span>也来看看我们的<a href='https://spectrollay.github.io/mclang_cn/' target='_blank'>Minecraft基岩版中文译名修正项目</a>!</span>",
+        weight: 10
     },
-    {text: "Made by Spectrollay!", weight: 12},
-    {text: "← 点击框框内部可以切换提示标语 →", weight: 12},
-    {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 12},
-    {text: "本站指向的站外内容可能不受保障!", weight: 12},
-    {text: "请直接分享本站而不是转载其中的内容!", weight: 12},
-    {text: "你知道吗,正是像你这样的玩家创造了无限的社区！", weight: 12},
-    {text: "感谢你使用星月Minecraft版本库!", weight: 12},
+    {
+        text: "<span>也来看看我们的<a href='https://spectrollay.github.io/minecraft_formatting_code_online/' target='_blank'>Minecraft格式化代码渲染器</a>!</span>",
+        weight: 10
+    },
+    {text: "Made by Spectrollay!", weight: 10},
+    {text: "← 点击框框内部可以切换提示标语 →", weight: 10},
+    {text: "↑ 点击标题栏可以快速回到顶部 ↑", weight: 10},
+    {text: "本站指向的站外内容可能不受保障!", weight: 10},
+    {text: "请直接分享本站而不是转载其中的内容!", weight: 10},
+    {text: "你知道吗,正是像你这样的玩家创造了无限的社区！", weight: 10},
+    {text: "感谢你使用星月Minecraft版本库!", weight: 10},
 ];
 const fullVersionTips = [
     {text: "你完成你的事情了吗?", weight: 5},
-    {text: "你最好已经购买了正版!", weight: 5},
+    {text: "你最好已经购买了正版游戏!", weight: 5},
     {text: "我们保留了一些bug,这样你才知道你在使用的是星月Minecraft版本库.", weight: 5},
     {text: "你知道吗,你知道吗?", weight: 5},
     {text: "你知道吗,版本库的第一个版本仅用了两天时间构建.", weight: 5},
@@ -292,6 +296,7 @@ const fullVersionTips = [
     {text: "不妨试着点点我?你可能会发现什么.", weight: 5},
     {text: "网页\"星月Minecraft版本库\"没有响应", weight: 5},
     {text: "版本库是这样的,开发者只要更新版本就可以了,而用户要考虑的事情就很多了.", weight: 5},
+    {text: "我的出租屋里真的有很多蟑螂，但我认识的MC玩家真的没有几个.", weight: 5},
     {text: "有一个人前来下载MC.", weight: 5},
     {text: "Minecraft, 启动!", weight: 5},
     {text: "看到这条提示标语就去启动Minecraft吧!", weight: 5},
@@ -304,6 +309,7 @@ const fullVersionTips = [
     {text: "今天是一个不错的日子,你说对吗?", weight: 5},
     {text: "你有些事情需要在今天结束的时候考虑一下...", weight: 5},
     {text: "你看到了这条提示标语,这使你充满了决心.", weight: 5},
+    {text: "人生将从此展开新的一页.<br>...但前途必然是光明的!", weight: 5},
     {text: "背上行囊出发吧,去触摸山川湖海的心跳.", weight: 5},
     {text: "什么Bug?哪里有Bug?你不要乱讲,那是特性!", weight: 5},
     {text: "完全随机的提示标语!", weight: 5},
@@ -386,22 +392,23 @@ const replaceTips = (newTips) => {
     tipsWithWeights = [...newTips];
 };
 
+const testTips = [
+    {text: "很高兴你能够加入测试!", weight: 10},
+    {text: "你当前使用的是测试仓库!", weight: 10},
+    {text: "开发版本并不代表最终品质!", weight: 10},
+    {text: "发现了漏洞?快来向我们反馈吧!", weight: 10},
+    {text: "你觉得我们有什么需要改进的地方吗?", weight: 10},
+    {text: "我们想听听你对新功能的想法!快来告诉我们吧!", weight: 10},
+    {text: "想和我们聊聊?加入官方频道或群组与开发者交流!", weight: 10},
+    {text: "想要退出测试?前往设置页面选择退出.期待你的下次加入!", weight: 10},
+    {text: "想要贡献自己的代码?你可以在Github上协助我们一起开发!", weight: 10},
+    {text: "我们欢迎你的反馈!前往项目仓库提交或直接向开发者汇报你的发现!", weight: 10},
+    {text: "不要担心漏洞!测试仓库中发现的问题往往会在发布仓库更新前得以解决.", weight: 10},
+    ...commonTips];
+
 if (isRelease) {
     tipsWithWeights = [...commonTips, ...fullVersionTips];
 } else {
-    const testTips = [
-        {text: "很高兴你能够加入测试!", weight: 12},
-        {text: "你当前使用的是测试仓库!", weight: 12},
-        {text: "开发版本并不代表最终品质!", weight: 12},
-        {text: "发现了漏洞?快来向我们反馈吧!", weight: 12},
-        {text: "你觉得我们有什么需要改进的地方吗?", weight: 12},
-        {text: "我们想听听你对新功能的想法!快来告诉我们吧!", weight: 12},
-        {text: "想和我们聊聊?加入官方频道或群组与开发者交流!", weight: 12},
-        {text: "想要退出测试?前往设置页面选择退出.期待你的下次加入!", weight: 12},
-        {text: "想要贡献自己的代码?你可以在Github上协助我们一起开发!", weight: 12},
-        {text: "我们欢迎你的反馈!前往项目仓库提交或直接向开发者汇报你的发现!", weight: 12},
-        {text: "不要担心漏洞!测试仓库中发现的问题往往会在发布仓库更新前得以解决.", weight: 12},
-        ...commonTips];
     if (isAllTip === 'on') {
         addTips(testTips, fullVersionTips);
     } else {
@@ -409,31 +416,47 @@ if (isRelease) {
     }
 }
 
-if (!isFullVersion) {
-    const notFullVersionTips = [
-        {text: `你当前使用的是${mode}模式!`, weight: 12},
-        {text: `要想体验完整的版本库功能,你需要退出${mode}模式.`, weight: 12},
-        {text: `在退出${mode}模式时遇到了问题?加入官方频道或群组进行咨询!`, weight: 12},
-        ...commonTips];
-    replaceTips(notFullVersionTips);
+const notFullVersionTips = [
+    {text: `你当前使用的是${mode}模式!`, weight: 10},
+    {text: `要想体验完整的版本库功能,你需要退出${mode}模式.`, weight: 10},
+    {text: `在退出${mode}模式时遇到了问题?加入官方频道或群组进行咨询!`, weight: 10},
+    ...commonTips];
 
+if (!isFullVersion) {
+    replaceTips(notFullVersionTips);
     if (version_type === "Demo") {
         addTips([
-            {text: "演示模式仅供演示使用,无法调用版本库核心功能!", weight: 12},
+            {text: "演示模式仅供演示使用,无法调用版本库核心功能!", weight: 10},
         ], notFullVersionTips);
     } else if (version_type === "Trial") {
         addTips([
-            {text: "试用模式缺少部分版本库核心功能!", weight: 12},
-            {text: "试用模式在部分功能上有所限制!", weight: 12},
-            {text: "试用模式将会在一定期限后到期!", weight: 12},
+            {text: "试用模式缺少部分版本库核心功能!", weight: 10},
+            {text: "试用模式在部分功能上有所限制!", weight: 10},
+            {text: "试用模式将会在一定期限后到期!", weight: 10},
         ], notFullVersionTips);
     } else if (version_type === "Lite") {
         addTips([
-            {text: "精简模式提供了极简的版本库设计,适合喜欢简单的你!", weight: 12},
-            {text: "精简模式拥有大多数的版本库核心功能,但是诸如个性化等功能将不受支持!", weight: 12},
-            {text: "在精简模式下部分完整版本的特性将会受到限制或无法使用!", weight: 12},
+            {text: "精简模式提供了极简的版本库设计,适合喜欢简单的你!", weight: 10},
+            {text: "精简模式拥有大多数的版本库核心功能,但是诸如个性化等功能将不受支持!", weight: 10},
+            {text: "在精简模式下部分完整版本的特性将会受到限制或无法使用!", weight: 10},
         ], notFullVersionTips);
     }
+}
+
+const downloadTips = [
+    {text: "请直接分享本站而不是转载其中的内容!", weight: 10},
+    {text: "你最好已经购买了正版游戏!", weight: 10},
+    {text: "本站提供的安装包资源仅供正版玩家学习 / 研究或欣赏, 不得传播 / 出售或用于其他任何商业或非商业用途!", weight: 10},
+    {text: "本站的所有安装包资源未经允许禁止传播!", weight: 10},
+    {text: "请在24小时内删除从本站下载到的安装包!", weight: 10},
+    {text: "指向的下载链接错误或失效?请通过右上角反馈按钮向我们反馈!", weight: 10},
+    {text: "下载到的文件有问题?点击右上角反馈按钮向我们反馈!", weight: 10},
+    {text: "使用本站即代表你已同意版本库的使用条款与免责声明.", weight: 10},
+    {text: "你知道吗,你可以协助我们共同维护版本库的数据库资源.", weight: 10},
+];
+
+if (window.location.href.includes('download/')){
+    replaceTips(downloadTips);
 }
 
 if (hostPath.includes('file:///') || hostPath.includes('localhost')) {

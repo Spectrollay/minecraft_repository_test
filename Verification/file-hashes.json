@@ -11,8 +11,8 @@
   "default\\error_no-access.html": "8c1866d87d06c721d6f3dc8d1e260385",
   "default\\error_not-found.html": "e1374c597f292e3f7a259c5f238cf50b",
   "default\\under_maintenance.html": "6c6cd463173ff3cc557542e6a4ee03a4",
-  "download\\bedrock\\index.html": "eec73b2dc062f02a9ce0d20d8724d9f9",
-  "download\\bedrock\\versions.html": "33d3fadd145f5e895d0d588c9deced8e",
+  "download\\bedrock\\index.html": "dca6422f35ae375273c6a3f052705734",
+  "download\\bedrock\\versions.html": "7d3631adfecc509cc321a2b4e4d0af15",
   "download\\education\\index.html": "d6133e438b2081fff062a86cf34899e1",
   "experiments\\index.css": "f227348871eca5403b0aca19d0edd65e",
   "experiments\\index.html": "00b5bb9f82c69fc770782df4d7c971aa",
@@ -207,7 +207,7 @@
   "images\\update\\logo\\Update_Aquatic.png": "843e7142cc527b46235382953fcf6ee0",
   "images\\update\\logo\\Village&Pillage.png": "64035ee412fb814e9b9bdcbe4bc42090",
   "images\\Wait.png": "12509b848ee9d86bb7c8b3c4a4996a90",
-  "index.html": "6952af0b42f97c906f5a0bf825a2b923",
+  "index.html": "fad3132325498c539b98c3f7fade900b",
   "index_new.html": "b09a9252238b95bdce43632607ed1486",
   "javascript\\advanced.js": "a1832e036dd068d9838d90b064585d0a",
   "javascript\\custom_elements.js": "5cdedd4804287d3e5e5bf2aa8da9b75b",
@@ -217,7 +217,7 @@
   "javascript\\editions.js": "abe035809030aa057cf601a57aafc114",
   "javascript\\loading.js": "d7a7ffdb350583d5e93dd1becf7587f4",
   "javascript\\mcfc.js": "5d536f799eae19ba5108d3594e62b3bb",
-  "javascript\\public_define.js": "eab6fe414dc0f0c96a0b39f243111be3",
+  "javascript\\public_define.js": "adf42bda1335c2a68811e402bdd024e2",
   "javascript\\public_script.js": "63255faf7f1fe0e59cccbd83aa62cd3c",
   "javascript\\text_to_speech.js": "50c29c83768354558bb11341641dd998",
   "library\\accessibility.js": "14dca8670633cc0604b172ed682d1a84",
@@ -242,7 +242,7 @@
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
   "stylesheet\\loading_mask.css": "ece11e6b8e65aacc739a061d3ab3a738",
   "stylesheet\\mcfc.css": "78a25ed75ca2e95d3e07b4a9fa202891",
-  "stylesheet\\public_style.css": "e550a2e36c6b31d352d795f582b008d2",
+  "stylesheet\\public_style.css": "cfebee35d2aac5c5e5ff0d0b0621fe17",
   "Template\\index.html": "81f78ff1b4e100b71b052ef3444ad4ae",
-  "updatelog\\index.html": "eeefbbbe18ecafd9bc1d99276ee21a7e"
+  "updatelog\\index.html": "82c3689945f3225fd9149ec1da6920de"
 }
