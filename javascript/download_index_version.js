@@ -1,5 +1,5 @@
 /*
- *  Copyright © 2020. Spectrollay
+ * Copyright © 2020. Spectrollay
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,12 @@ data = hostPath + "/data";
 
 const currentUrl = window.location.href;
 const url = new URL(currentUrl);
+
+// TODO 在加入基岩版Windows平台版本时移除
+if (currentUrl.includes("/download/") &&
+    url.searchParams.get("platform") === "windows") {
+    jumpToPage('./default/coming_soon.html');
+}
 
 // 获取URL参数
 const version = url.searchParams.get('version');
