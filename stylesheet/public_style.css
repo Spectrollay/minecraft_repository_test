@@ -117,17 +117,19 @@ body.old { /* TODO 旧页面完成迭代后移除 */
 }
 
 body.test::after {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='300' height='200' viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='80' font-family='Arial' font-size='20' fill='%23000' transform='rotate(-45 50 50)'%3E开发仓库%3C/text%3E%3Ctext x='160' y='180' font-family='Arial' font-size='20' fill='%23000' transform='rotate(-45 200 150)'%3E开发仓库%3C/text%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='80' text-anchor='start' font-family='sans-serif' font-size='20' fill='%23FFFFFF' transform='rotate(-45 20 80)'%3E开发仓库%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml;charset=UTF-8,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='80' text-anchor='start' font-family='sans-serif' font-size='20' fill='%23FFFFFF' transform='rotate(-45 20 80)'%3E开发仓库%3C/text%3E%3C/svg%3E");
     background-repeat: repeat;
-    background-size: 300px 200px;
+    background-position: 0 0, 90px 90px;
+    background-size: 180px 180px;
     content: "";
-    height: calc(100% + 40px);
-    left: -20px;
-    opacity: 0.3;
+    height: 100%;
+    left: 0;
+    opacity: 0.15;
     pointer-events: none;
     position: fixed;
-    top: -20px;
-    width: calc(100% + 40px);
+    top: 0;
+    width: 100%;
     z-index: 1000;
 }
 
