@@ -91,6 +91,7 @@
 
 /* 总体样式 */
 html {
+    font-family: "NotoSans Bold", sans-serif;
     height: 100%;
     overscroll-behavior: contain;
 }
@@ -102,7 +103,6 @@ html.grayscale {
 
 body {
     background-color: #48494A;
-    font-family: "NotoSans Bold", sans-serif;
     height: 100%;
     margin: 0;
     min-width: 330px;
