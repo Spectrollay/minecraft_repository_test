@@ -148,9 +148,10 @@ if (hostPath.includes('file:///')) {
     });
 }
 if (rootPath.includes('_test')) {
-    logManager.log("环境为测试环境");
+    document.body.classList.add('test');
+    logManager.log("当前为开发环境");
 } else {
-    logManager.log("环境为标准环境");
+    logManager.log("当前为发布环境");
 }
 
 // 输出错误日志
@@ -224,24 +225,24 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
             if (diff > fifteenDays) {
                 localStorage.removeItem(`(${rootPath}/)neverShowIn15Days`);
             } else {
-                logManager.log("时间未到,不显示测试仓库提示");
+                logManager.log("时间未到,不显示提示");
             }
         } else {
             const modal = document.getElementById("alert_modal");
             modal.innerHTML = `
                 <modal>
                     <modal_title_area>
-                        <modal_title>测试仓库提示</modal_title>
+                        <modal_title>提示</modal_title>
                         <modal_close_btn class="close_btn" onclick="hideModal(this);">
                             <img alt="" class="modal_close_btn_img" src="${rootPath}/images/cross_white.png"/>
                         </modal_close_btn>
                     </modal_title_area>
                     <modal_content class="main_page_alert">
                         <div>
-                            <p>你正在使用的是测试仓库, 在继续之前, 你需要了解以下内容: </p>
-                            <article_list>测试仓库可能包含部分未完成的功能和各种已知或未知的错误, 我们鼓励你在发现问题时及时提供反馈, 帮助我们进行改进.</article_list>
-                            <article_list>测试仓库可能包含部分未启用的或处于实验阶段的功能, 这些功能可能会在后续的版本发生变动, 请不要过度依赖于这些功能.</article_list>
-                            <article_list>测试仓库发布的均为快速迭代版本, 更新频率较高, 请加入版本库官方 <a href='https://t.me/spectrollay_minecraft_repository' onclick=\"playSound('click');\" target='_blank'>Telegram频道</a> 或 <a href='https://pd.qq.com/s/h8a7gt2u4' onclick=\"playSound('click');\" target='_blank'>QQ频道</a> 获取开发动态及最新消息推送.</article_list>
+                            <p>你正在使用的是开发仓库, 在继续之前, 你需要了解以下内容: </p>
+                            <article_list>开发仓库可能包含部分未完成的功能和各种已知或未知的错误, 我们鼓励你在发现问题时及时提供反馈, 帮助我们进行改进.</article_list>
+                            <article_list>开发仓库可能包含部分未启用的或处于实验阶段的功能, 这些功能可能会在后续的版本发生变动, 请不要过度依赖于这些功能.</article_list>
+                            <article_list>开发仓库发布的均为快速迭代版本, 更新频率较高, 请加入版本库官方 <a href='https://t.me/spectrollay_minecraft_repository' onclick=\"playSound('click');\" target='_blank'>Telegram频道</a> 或 <a href='https://pd.qq.com/s/h8a7gt2u4' onclick=\"playSound('click');\" target='_blank'>QQ频道</a> 获取开发动态及最新消息推送.</article_list>
                             <article_list>如果你在使用过程中想要退出测试, 可以前往设置页面选择"退出测试"以重定向至发布仓库. 后续你还可以通过邀测重新加入测试.</article_list>
                             <p>如果你不能承受内测带来的风险且不同意上述内容, 请选择返回发布仓库.</p>
                         </div>
@@ -258,7 +259,7 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
                     </modal_button_area>
                 </modal>`;
             showAlertModal();
-            logManager.log("开发环境,显示测试仓库提示");
+            logManager.log("开发环境,显示开发仓库提示");
         }
         logManager.log("开发环境,不显示内测邀请");
     } else {
@@ -277,8 +278,8 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
                         <div>
                             <p>哇哦! 祝贺你被选中参加测试, 成为小部分可以抢先体验新版本的用户! 这里有一些你需要了解的内容: </p>
                             <article_list>请加入版本库官方频道以获取开发动态及最新消息推送:  <a href='https://t.me/spectrollay_minecraft_repository' onclick=\"playSound('click');\" target='_blank'>Telegram频道</a> / <a href='https://pd.qq.com/s/h8a7gt2u4' onclick=\"playSound('click');\" target='_blank'>QQ频道</a></article_list>
-                            <article_list>加入测试后你将无法访问发布仓库, 直到你选择退出测试. 访问发布仓库将会被重定向至测试仓库.</article_list>
-                            <article_list>不同于发布仓库, 测试仓库并不稳定, 可能存在部分问题以及正在测试的内容. 因此我们需要你在发现问题或有想法时及时向我们反馈.</article_list>
+                            <article_list>加入测试后你将无法访问发布仓库, 直到你选择退出测试. 访问发布仓库将会被重定向至开发仓库.</article_list>
+                            <article_list>不同于发布仓库, 开发仓库并不稳定, 可能存在部分问题以及正在测试的内容. 因此我们需要你在发现问题或有想法时及时向我们反馈.</article_list>
                             <article_list>悄悄地说一句, 积极参与内测可能会有奖励哦.</article_list>
                             <p>如果你可以承受内测带来的风险并同意上述内容, 请选择加入测试, 否则请取消.</p>
                         </div>
@@ -295,7 +296,7 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
             showAlertModal();
             logManager.log("显示内测邀请");
         }
-        logManager.log("正式环境,不显示测试仓库提示");
+        logManager.log("正式环境,不显示开发仓库提示");
     }
 
     window.addEventListener("load", function () {

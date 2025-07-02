@@ -46,7 +46,7 @@
             display: none;
         }
 
-        #quit_test, #show_all_tip {
+        #quit_test, #toggle_new_ui, #show_all_tip {
             display: none;
         }
 
@@ -190,7 +190,7 @@
                             <div class="setting_block_description">OreUI主题下无法启用</div>
                         </div>
                     </div>
-                    <div class="main_block setting_block">
+                    <div class="main_block setting_block" id="toggle_new_ui">
                         <div class="setting_block_content">
                             <div class="setting_block_title flex">
                                 <div class="setting_title_content">实验性新UI</div>
@@ -533,6 +533,7 @@
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
     if (rootPath.includes('_test')) {
         document.getElementById('quit_test').style.display = "flex";
+        document.getElementById('toggle_new_ui').style.display = "flex";
         document.getElementById('use_all_tip').style.display = "flex";
     }
 

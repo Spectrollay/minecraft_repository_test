@@ -116,6 +116,21 @@ body.old { /* TODO 旧页面完成迭代后移除 */
     height: auto;
 }
 
+body.test::after {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='300' height='200' viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='80' font-family='Arial' font-size='20' fill='%23000' transform='rotate(-45 50 50)'%3E开发仓库%3C/text%3E%3Ctext x='160' y='180' font-family='Arial' font-size='20' fill='%23000' transform='rotate(-45 200 150)'%3E开发仓库%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 300px 200px;
+    content: "";
+    height: calc(100% + 40px);
+    left: -20px;
+    opacity: 0.3;
+    pointer-events: none;
+    position: fixed;
+    top: -20px;
+    width: calc(100% + 40px);
+    z-index: 1000;
+}
+
 dispaly-area {
     display: flex;
     flex-direction: column;

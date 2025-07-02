@@ -4,7 +4,7 @@
   "about\\donate.html": "e588f8c5bc16002ec349ab847cf16087",
   "about\\support.html": "adeef87bdacd6a02c7e684fb3e07fcb7",
   "advanced\\debug.html": "8ad20961431ceb835fb9c906706bd9c0",
-  "advanced\\settings.html": "e3ff45ec929fcb0137a02425c1dc1f2c",
+  "advanced\\settings.html": "a0079aff523aecebd0f5b7187695b52a",
   "advanced\\status.html": "772ef54c05aa8642f432c871a6c23e29",
   "default\\coming_soon.html": "497d4f0e78e229641acfc34a92ae748f",
   "default\\error_default.html": "a60d4bd272b08e7ccfac7c1ac8868682",
@@ -224,8 +224,8 @@
   "javascript\\editions.js": "abe035809030aa057cf601a57aafc114",
   "javascript\\loading.js": "d7a7ffdb350583d5e93dd1becf7587f4",
   "javascript\\mcfc.js": "1dc27b49319bebe0faa7ad16dc12eed1",
-  "javascript\\public_define.js": "c5e997773d6b8931ebe4c7c3f894e3d0",
-  "javascript\\public_script.js": "63255faf7f1fe0e59cccbd83aa62cd3c",
+  "javascript\\public_define.js": "1ec3004fe7af853d9f2a7f2b7b7f4126",
+  "javascript\\public_script.js": "a5a41d5fb399ef1bb9f7cf37f497bba4",
   "javascript\\text_to_speech.js": "50c29c83768354558bb11341641dd998",
   "library\\accessibility.js": "14dca8670633cc0604b172ed682d1a84",
   "library\\axios.min.js": "8d395f4901858a8d5e48bf4c3b94e1df",
@@ -234,7 +234,7 @@
   "LICENSE": "1d67e842dcbb5ca57d364cd01b24b5ff",
   "mcfc\\index.html": "82c9ab72b80ba22161a81b35944c3471",
   "mclang_cn\\index.html": "bb22386daa7e47070009493c1d257c3d",
-  "notifications\\index.html": "73791ca59c5d44eb45e932bb21f802ea",
+  "notifications\\index.html": "e4e898af5d9e703bc7290f2ce6f95436",
   "sounds\\button.ogg": "543573dd41a4e5962f7e5ef0510077b0",
   "sounds\\click.ogg": "697d86282cec21fea5e64a58db441432",
   "sounds\\drawer_close.ogg": "91b209908fec33a76c2425203ade1a1b",
@@ -249,7 +249,7 @@
   "stylesheet\\editions.css": "f630b5c3734bdb6805dc8574ebd578f9",
   "stylesheet\\loading_mask.css": "ece11e6b8e65aacc739a061d3ab3a738",
   "stylesheet\\mcfc.css": "ac391b301b9b2c78ff1d04cd9b355055",
-  "stylesheet\\public_style.css": "e31ab6780fa67595817b4058e1c8bf38",
+  "stylesheet\\public_style.css": "fede650430ddeaa4910be4f2042f53fb",
   "Template\\index.html": "81f78ff1b4e100b71b052ef3444ad4ae",
-  "updatelog\\index.html": "2b2142c7e02266180182785a7801c3fe"
+  "updatelog\\index.html": "a0c2aa382e6a6849d7140eb643d32f79"
 }

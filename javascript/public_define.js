@@ -25,12 +25,12 @@
 const main_version_name = "4";
 const primary_version_name = main_version_name + ".6"; // 例 4.0
 const secondary_version_name = primary_version_name + ".7"; // 例 4.0.0
-const version_name_short = secondary_version_name + ".2"; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + ".3"; // 例 4.0.0.1  NOTE 小版本
 const version_type = "Canary"; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
-const version_type_count = version_type + "2"; // 例 Build1  NOTE 小版本
+const version_type_count = version_type + "3"; // 例 Build1  NOTE 小版本
 const version_name = version_name_short + "." + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + "-" + version_type_count; // 例 4.0.0-Build1
-const update_count = "20250625" + ".01"; // NOTE 小版本,有提交就变
+const update_count = "20250703" + ".01"; // NOTE 小版本,有提交就变
 const publish_version_name = primary_version_name + "." + update_count; // 例 4.20240101.01
 const server_version = "4.0";
 let commit = "#"; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 有不更改版本的提交就变
@@ -394,7 +394,7 @@ const replaceTips = (newTips) => {
 
 const testTips = [
     {text: "很高兴你能够加入测试!", weight: 10},
-    {text: "你当前使用的是测试仓库!", weight: 10},
+    {text: "你当前使用的是开发仓库!", weight: 10},
     {text: "开发版本并不代表最终品质!", weight: 10},
     {text: "发现了漏洞?快来向我们反馈吧!", weight: 10},
     {text: "你觉得我们有什么需要改进的地方吗?", weight: 10},
@@ -403,7 +403,7 @@ const testTips = [
     {text: "想要退出测试?前往设置页面选择退出.期待你的下次加入!", weight: 10},
     {text: "想要贡献自己的代码?你可以在Github上协助我们一起开发!", weight: 10},
     {text: "我们欢迎你的反馈!前往项目仓库提交或直接向开发者汇报你的发现!", weight: 10},
-    {text: "不要担心漏洞!测试仓库中发现的问题往往会在发布仓库更新前得以解决.", weight: 10},
+    {text: "不要担心漏洞!开发仓库中发现的问题往往会在发布仓库更新前得以解决.", weight: 10},
     ...commonTips];
 
 if (isRelease) {
