@@ -522,19 +522,21 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/lunar.js"></script>
 <script src="./library/accessibility.js"></script>
 <script src="./experiments/index.js"></script>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/events.js"></script>
 <script src="./javascript/advanced.js"></script>
 <script src="./javascript/mcfc.js"></script>
 <script>
     rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
     if (rootPath.includes('_test')) {
-        document.getElementById('quit_test').style.display = "flex";
-        document.getElementById('toggle_new_ui').style.display = "flex";
-        document.getElementById('use_all_tip').style.display = "flex";
+        document.getElementById('quit_test').style.display = 'flex';
+        document.getElementById('toggle_new_ui').style.display = 'flex';
+        document.getElementById('use_all_tip').style.display = 'flex';
     }
 
     // 新的实验性内容页面  TODO: 在旧的实验性内容页面被移除时时删除

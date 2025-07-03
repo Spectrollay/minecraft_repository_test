@@ -258,15 +258,17 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/lunar.js"></script>
 <script src="./library/accessibility.js"></script>
 <script src="./library/lazyLoadImage.js"></script>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/events.js"></script>
 <script src="./javascript/download_index_version.js"></script>
 <script src="./javascript/mcfc.js"></script>
 <script>
-    document.getElementById("ctr_sidebar").href = window.location.origin + window.location.pathname + window.location.search + "#mclang_cn_fix";
+    document.getElementById('ctr_sidebar').href = window.location.origin + window.location.pathname + window.location.search + '#mclang_cn_fix';
 
     // 惰性加载
     const lazyImage = new LazyLoadImage('img');

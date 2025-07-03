@@ -153,10 +153,10 @@
 <scroll-view>
     <scroll-container class="old primary_scroll_container">
         <main class="scroll_container" id="main">
-            <div class="banner_area" id="holiday_tip1">
+            <div class="banner_area" id="event_tip1">
                 <div class="banner important_banner" style="margin-bottom: 0"></div>
             </div>
-            <div class="banner_area" id="holiday_tip2">
+            <div class="banner_area" id="event_tip2">
                 <div class="banner important_banner" style="margin-bottom: 0"></div>
             </div>
             <div class="banner_area">
@@ -624,11 +624,13 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/lunar.js"></script>
 <script src="./library/accessibility.js"></script>
 <script src="./library/lazyLoadImage.js"></script>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/events.js"></script>
 <script src="./javascript/data_driven.js"></script>
 <script src="javascript/mcfc.js"></script>
 <script>
@@ -640,7 +642,7 @@
 
     // TODO 新主页测试跳转逻辑
     if (localStorage.getItem(`(${rootPath}/)new_home_test`) === 'true') {
-        ifNavigating("direct", "./index_new.html");
+        ifNavigating('direct', './index_new.html');
     }
 
     switchValues = JSON.parse(localStorage.getItem(`(${rootPath}/)switch_value`)) || {};
@@ -653,7 +655,7 @@
     if (repositoryAttribute) {
         if (repositoryAttribute.includes('test=true')) {
             if (!rootPath.includes('_test')) {
-                ifNavigating("direct", window.location.origin + "/minecraft_repository" + "_test");
+                ifNavigating('direct', window.location.origin + '/minecraft_repository' + '_test');
             }
         } else if (repositoryAttribute.includes('test=false')) {
             if (rootPath.includes('_test')) {

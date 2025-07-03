@@ -241,10 +241,12 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
+<script src="./library/lunar.js"></script>
 <script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/custom_elements.js"></script>
+<script src="./javascript/events.js"></script>
 <script src="./javascript/data_driven.js"></script>
 <script src="./javascript/mcfc.js"></script>
 <script>
@@ -351,10 +353,10 @@
     document.body.insertAdjacentHTML('afterbegin', verifyDonorOnlyModal);
 
     function activeDonorOnly() {
-        if (localStorage.getItem("donate") === "true") {
+        if (localStorage.getItem('donate') === 'true') {
             showPop('已激活过捐赠专享,无需重复激活!', 3000, 'error');
         } else {
-            localStorage.setItem("donate", "true");
+            localStorage.setItem('donate', 'true');
             showPop('好耶!已成功验证并激活捐赠专享!', 3000, 'vip');
         }
     }

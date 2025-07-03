@@ -22,10 +22,10 @@
 
 rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
 hostPath = window.location.origin;
-data = hostPath + "/data";
+data = hostPath + '/data';
 
-const mainContainer = document.querySelector("generate-area.main_gen");
-const sidebarContainer = document.querySelector("generate-area.sidebar_gen");
+const mainContainer = document.querySelector('generate-area.main_gen');
+const sidebarContainer = document.querySelector('generate-area.sidebar_gen');
 let dataFile, dataPath, edition;
 if (hostPath.includes('https')) {
     dataPath = data + '/minecraft_repository';
@@ -66,7 +66,7 @@ if (dataFile && mainContainer && sidebarContainer) {
     fetch(dataFile)
         .then(response => response.text())
         .then(rawJson => {
-            const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, "").trim(); // 移除注释
+            const cleanedJson = rawJson.replace(/ \/\/.*|\/\*[\s\S]*?\*\//g, '').trim(); // 移除注释
             const versions = JSON.parse(cleanedJson);
 
             // 清除原有内容
@@ -75,8 +75,8 @@ if (dataFile && mainContainer && sidebarContainer) {
 
             // 遍历所有版本
             versions.forEach(version => {
-                const mainBlock = document.createElement("div");
-                const sidebarBlock = document.createElement("div");
+                const mainBlock = document.createElement('div');
+                const sidebarBlock = document.createElement('div');
 
                 mainBlock.innerHTML = `
                     <div class="block_spacing"></div>
@@ -86,7 +86,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                                 <div class="title2 download_block_title">${version.title}</div>
                                 ${version.logo ? `<div class="update_logo_area">
                                     <img alt="" class="update_logo" src="${rootPath}/images/update/logo/${version.logo}"/>
-                                </div>` : ""}
+                                </div>` : ''}
                             </div>
                             <div class="update_artwork_area">
                                 <img alt="" class="update_artwork" src="${rootPath}/images/update/artwork/${version.artwork}"/>
@@ -102,7 +102,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                                         <div class="link_title">
                                             <img alt="" class="link_title_img" src="${rootPath}/images/logo/${platformKey}.png"/>${platformName}
                                         </div>
-                                    </link-block>`).join("")}
+                                    </link-block>`).join('')}
                                 </div>
                             </div>
                         </div>

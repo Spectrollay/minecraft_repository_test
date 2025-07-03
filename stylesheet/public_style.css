@@ -116,9 +116,10 @@ body.old { /* TODO 旧页面完成迭代后移除 */
     height: auto;
 }
 
+/* 开发仓库全局水印 */
 body.test::after {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='80' text-anchor='start' font-family='sans-serif' font-size='20' fill='%23000000' transform='rotate(-45 20 80)'%3E开发仓库%3C/text%3E%3C/svg%3E"),
-    url("data:image/svg+xml;charset=UTF-8,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='80' text-anchor='start' font-family='sans-serif' font-size='20' fill='%23000000' transform='rotate(-45 20 80)'%3E开发仓库%3C/text%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='80' text-anchor='start' font-family='sans-serif' font-size='20' fill='%23000000' transform='rotate(-45 20 80)'%3E%E5%BC%80%E5%8F%91%E4%BB%93%E5%BA%93%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml;charset=UTF-8,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='80' text-anchor='start' font-family='sans-serif' font-size='20' fill='%23000000' transform='rotate(-45 20 80)'%3E%E5%BC%80%E5%8F%91%E4%BB%93%E5%BA%93%3C/text%3E%3C/svg%3E");
     background-repeat: repeat;
     background-position: 0 0, 90px 90px;
     background-size: 180px 180px;
@@ -487,7 +488,7 @@ main {
     text-align: center;
 }
 
-#holiday_tip1, #holiday_tip2 {
+#event_tip1, #event_tip2 {
     display: none;
 }
 
@@ -666,6 +667,10 @@ a {
     justify-content: center;
 }
 
+.coming_soon-img {
+    height: 80px;
+}
+
 .notice_img {
     width: 280px;
 }
@@ -727,6 +732,10 @@ a {
     background-color: #FFE866;
     color: #000000;
     font-weight: bolder;
+}
+
+#banner_tip {
+    cursor: pointer;
 }
 
 /* Badge */
