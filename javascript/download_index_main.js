@@ -82,7 +82,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                     <div class="block_spacing"></div>
                     <div class="block" id="${version.id}">
                         <div class="block_main wrap_flex">
-                            <div>
+                            <div class="version_info">
                                 <div class="title2 download_block_title">${version.title}</div>
                                 ${version.logo ? `<div class="update_logo_area">
                                     <img alt="" class="update_logo" src="${rootPath}/images/update/logo/${version.logo}"/>
@@ -93,7 +93,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                             </div>
                         </div>
                         <div class="block_main wrap_flex">
-                            <div class="download_block_description">${version.description}</div>
+                            <div class="download_block_description release_description">${version.description}</div>
                             <div class="link_block_group">
                                 <div class="link_block_group_title">下载</div>
                                 <div class="wrap_flex">
@@ -110,7 +110,7 @@ if (dataFile && mainContainer && sidebarContainer) {
                 `;
 
                 sidebarBlock.innerHTML = `
-                    <a class="sidebar_item" href="${window.location}#${version.id}"><article_list>${version.id}</article_list></a>
+                    <a class="sidebar_item" href="${window.location}#${version.id}"><article_list>${version.title}</article_list></a>
                 `;
 
                 // 添加到容器中

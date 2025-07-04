@@ -194,7 +194,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath}/)dropdown_val
                         </div>
                         <div class="wrap_flex">
                             ${currentVersion.platforms[platform].info === 'false' ? '' : `
-                                <div class="download_block_description">
+                                <div class="download_block_description update_description">
                                     <div>正式版本: ${currentVersion.platforms[platform].release}</div>
                                     <div>测试版本: ${currentVersion.platforms[platform].build}</div>
                                     <div>${currentVersion.platforms[platform].support}</div>
@@ -300,7 +300,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath}/)dropdown_val
                 // 填充侧边栏块
                 sidebarBlock.innerHTML = `
                     <a class="sidebar_item" href="${window.location.origin}${window.location.pathname}${window.location.search}#${currentVersion.id}">
-                        <article_list>${currentVersion.id}</article_list>
+                        <article_list>${currentVersion.version_name}</article_list>
                     </a>
                 `;
 

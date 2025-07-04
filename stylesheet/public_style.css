@@ -238,7 +238,7 @@ header {
     display: none;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
     #menu {
         display: none;
     }
@@ -321,10 +321,10 @@ scroll-view {
     transition: margin-left 0.6s, width 0.6s;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
     .main_scroll_view.with_sidebar {
-        margin-left: 182px;
-        width: calc(100% - 182px);
+        margin-left: 240px; /* NOTE 侧边栏的显示宽度 */
+        width: calc(100% - 240px); /* NOTE 要减去侧边栏的显示宽度 */
     }
 }
 
@@ -687,29 +687,6 @@ a {
     height: 20px;
 }
 
-/* Banner区域 */
-.banner_area {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-/* Banner主体 */
-.banner {
-    align-items: center;
-    color: #FFFFFF;
-    display: flex;
-    font-family: "NotoSans Bold", sans-serif;
-    hyphens: auto;
-    justify-content: center;
-    margin: 10px 20px;
-    min-height: 30px;
-    padding: 10px;
-    text-align: center;
-    width: calc(100% - 40px);
-    word-wrap: break-word;
-}
-
 .top_banner {
     margin-bottom: 0;
 }
@@ -720,86 +697,8 @@ a {
     width: 100%;
 }
 
-.neutral_banner {
-    background-color: #1E1E1F;
-}
-
-.information_banner {
-    background-color: #2E6BE5;
-}
-
-.important_banner {
-    background-color: #FFE866;
-    color: #000000;
-    font-weight: bolder;
-}
-
 #banner_tip {
     cursor: pointer;
-}
-
-/* Badge */
-.badge_area {
-    align-items: center;
-    display: flex;
-}
-
-.badge {
-    height: 6px;
-    margin-right: 6px;
-    width: 6px;
-}
-
-.green_badge {
-    background-color: #6CC349;
-}
-
-.blue_badge {
-    background-color: #8CB3FF;
-}
-
-.yellow_badge {
-    background-color: #FFE866;
-}
-
-.red_badge {
-    background-color: #F46D6D;
-}
-
-/* Tag */
-.tag_area {
-    align-items: center;
-    justify-content: center;
-}
-
-.tag {
-    color: #000000;
-    display: inline-flex;
-    font-size: 12px;
-    margin: 0 4px;
-    padding: 0 2px;
-    text-wrap: nowrap;
-}
-
-.black_tag {
-    background-color: #1E1E1F;
-    color: #FFFFFF;
-}
-
-.green_tag {
-    background-color: #6CC349;
-}
-
-.blue_tag {
-    background-color: #8CB3FF;
-}
-
-.yellow_tag {
-    background-color: #FFE866;
-}
-
-.red_tag {
-    background-color: #F46D6D;
 }
 
 .data_loading_area {
@@ -1051,7 +950,6 @@ link-block:hover, link-block:active {
 
 .download_block_title {
     margin: 8px 16px;
-    width: 318px;
 }
 
 .share_img_title {
@@ -1061,21 +959,37 @@ link-block:hover, link-block:active {
     margin-top: 4px; /* 在视觉上居中 */
 }
 
+.version_info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+}
+
 .download_block_description {
     color: rgba(255, 255, 255, 0.8);
     margin: 8px 16px;
     text-align: left;
-    width: min(95%, 400px);
+    width: 95%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 460px) {
     .download_block_description {
-        width: 400px;
+        transition: 0.6s;
+        width: 380px;
     }
 }
 
-@media screen and (min-width: 1100px) {
-    .download_block_description {
+@media screen and (min-width: 1200px) {
+    .download_block_description.release_description {
+        max-width: 510px;
+        transition: none;
+        width: max(380px, 30vw);
+    }
+
+    .download_block_description.update_description {
+        transition: 0.6s;
         width: 500px;
     }
 }
@@ -1212,13 +1126,13 @@ td {
     display: flex;
     font-family: "NotoSans Bold", sans-serif;
     height: 100%;
-    left: -182px; /* 初始隐藏到屏幕左侧 */
+    left: -240px; /* NOTE 侧边栏的显示宽度 */
     overflow-x: hidden;
     overflow-y: hidden;
     position: absolute;
     top: 0;
     transition: left 0.6s, width 0.6s;
-    width: 180px;
+    width: 238px; /* NOTE 侧边栏的宽度 */
     z-index: 10;
 }
 
@@ -1228,26 +1142,26 @@ td {
     top: 44px;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
     .sidebar.new {
         left: 0 !important;
     }
 
     .sidebar.old { /* TODO 旧页面完成迭代后移除 */
-        left: -182px;
+        left: -240px; /* NOTE 侧边栏的显示宽度 */
     }
 }
 
 .secondary_scroll_container {
     height: 100%;
     top: 0;
-    width: 180px;
+    width: 100%;
 }
 
 .secondary_scroll_container.old { /* TODO 旧页面完成迭代后移除 */
     height: calc(100% - 44px);
     top: 44px;
-    width: 180px;
+    width: 240px; /* NOTE 侧边栏的显示宽度 */
 }
 
 .sidebar a {
@@ -1285,7 +1199,7 @@ td {
     display: flex;
     height: 40px;
     padding-left: 10px;
-    width: 170px;
+    width: 100%;
 }
 
 .sidebar_detail_title {
@@ -1340,7 +1254,7 @@ td {
     z-index: 9;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
     .overlay_main.new { /* TODO 旧页面完成迭代后移除 */
         display: none !important;
     }
