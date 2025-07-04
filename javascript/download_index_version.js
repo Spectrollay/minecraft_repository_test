@@ -133,6 +133,7 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath}/)dropdown_val
 
             // 更新标题
             updateName.innerHTML = `${version_name}`;
+            sidebarTitle.innerHTML = `${version_name.replace(' - ', '<br>')}`;
 
             // 更新上一个版本按钮
             prevButtons.forEach(prevButton => {
@@ -326,7 +327,6 @@ const dropdownData = JSON.parse(localStorage.getItem(`(${rootPath}/)dropdown_val
 document.title = `${platformName} - ${version} - ${edition} - 星月Minecraft版本库`;
 platformIcon.src = `${rootPath}/images/logo/${platformName}.png`;
 mainTitle.innerHTML = `${platformName} - ${version} - ${edition}<img alt="" class="share_img_title" onclick="playSound('click');copyText(window.location.href, 'link');" src="./images/ExternalLink_white.png"/>`;
-sidebarTitle.innerHTML = `${version}`;
 
 document.addEventListener('DOMContentLoaded', function () {
     const checkDropdownsExist = setInterval(() => {
