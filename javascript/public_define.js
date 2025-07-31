@@ -25,15 +25,15 @@
 const main_version_name = '4';
 const primary_version_name = main_version_name + '.6'; // 例 4.0
 const secondary_version_name = primary_version_name + '.7'; // 例 4.0.0
-const version_name_short = secondary_version_name + '.6'; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + '.8'; // 例 4.0.0.1  NOTE 小版本
 const version_type = 'Canary'; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
-const version_type_count = version_type + '5'; // 例 Build1  NOTE 小版本
+const version_type_count = version_type + '6'; // 例 Build1  NOTE 小版本
 const version_name = version_name_short + '.' + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + '-' + version_type_count; // 例 4.0.0-Build1
-const update_count = '20250705' + '.01'; // NOTE 小版本,有更改版本的提交就变
+const update_count = '20250731' + '.01'; // NOTE 小版本,有更改版本的提交就变
 const publish_version_name = primary_version_name + '.' + update_count; // 例 4.20240101.01
 const server_version = '4.0';
-let commit = '#2025070502'; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 提交编号,有不更改版本的提交就变
+let commit = '#'; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 提交编号,有不更改版本的提交就变
 if (commit === '#') {
     commit = '#' + update_count.replace(/\./g, '');
 }
@@ -217,7 +217,7 @@ const tipElement = document.getElementById('banner_tip');
 let tipsWithWeights;
 const commonTips = [
     {
-        text: `<span>发现问题或有好的建议?<a href='https://github.com/Spectrollay/minecraft_repository_test/issues/new/choose' target='_blank'>欢迎提出</a>!</span>`,
+        text: `<span>发现问题或有好的建议?<a href='/minecraft_repository_test/about/contact.html' target='_blank'>欢迎提出</a>!</span>`,
         weight: 10
     },
     {
@@ -423,8 +423,8 @@ const downloadTips = [
     {text: '本站提供的安装包资源仅供正版玩家学习 / 研究或欣赏, 不得传播 / 出售或用于其他任何商业或非商业用途!', weight: 10},
     {text: '本站的所有安装包资源未经允许禁止传播!', weight: 10},
     {text: '请在24小时内删除从本站下载到的安装包!', weight: 10},
-    {text: '指向的下载链接错误或失效?请通过右上角反馈按钮向我们反馈!', weight: 10},
-    {text: '下载到的文件有问题?点击右上角反馈按钮向我们反馈!', weight: 10},
+    {text: '指向的下载链接错误或失效?请通过右上角联系我们按钮向我们反馈!', weight: 10},
+    {text: '下载到的文件有问题?点击右上角联系我们按钮向我们反馈!', weight: 10},
     {text: '使用本站即代表你已同意版本库的使用条款与免责声明.', weight: 10},
     {text: '你知道吗,你可以协助我们共同维护版本库的数据库资源.', weight: 10},
 ];
