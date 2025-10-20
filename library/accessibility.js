@@ -38,7 +38,7 @@ const exclusionSelectors = [
 // 新增焦点列表
 const inclusionSelectors = [
     '.clickable_no_link',
-    '.header_item:not(.header_right_blank)',
+    '.header_item:not(.header_item_blank)',
     '#banner_tip',
     '.image_load_error',
     'modal_close_btn',

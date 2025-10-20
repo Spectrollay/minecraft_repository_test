@@ -1,8 +1,4 @@
 <!--
- * @Author: Spectrollay
- * @WebUI: OreUI V2
- -->
-<!--
   ~ Copyright © 2020. Spectrollay
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,9 +30,6 @@
     <meta content="webkit" name="renderer">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link as="image" href="./images/Loading_white.gif" rel="preload">
-    <link as="font" crossorigin="anonymous" href="./fonts/NotoSans-Bold.ttf" rel="preload" type="font/ttf">
-    <link as="font" crossorigin="anonymous" href="./fonts/Minecraft-Ten.otf" rel="preload" type="font/otf">
-    <link as="font" crossorigin="anonymous" href="./fonts/Minecraft-Seven.otf" rel="preload" type="font/otf">
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./stylesheet/public_style.css" rel="stylesheet">
     <link href="./stylesheet/advanced.css" rel="stylesheet">
@@ -45,20 +38,7 @@
     <!--<style>-->
     <!--    -->
     <!--</style>-->
-    <script defer>
-        const audios = {};
-
-        function registerAudio(name, path) {
-            const audio = new Audio(path);
-            audio.preload = 'auto';
-            audio.load();
-            audios[name] = audio;
-        }
-
-        registerAudio('click', './sounds/click.ogg');
-        registerAudio('button', './sounds/button.ogg');
-    </script>
-    <title>网站维护中 - Minecraft Kit</title>
+    <title>模板页</title>
 </head>
 
 <div class="loading_mask" id="loading_mask">
@@ -95,16 +75,8 @@
     <display-body>
         <scroll-view class="main_scroll_view">
             <scroll-container class="primary_scroll_container">
-                <main class="main_content_center scroll_container" id="main">
-                    <div class="display">
-                        <div class="under_maintenance-img"><img alt="Under Maintenance Image" class="notice_img" src="./images/Wait.png"/></div>
-                        <p class="main_detail_center">网站维护中</p>
-                        <p class="main_detail_center" style="font-size: 16px">请稍后重试</p>
-                        <div class="main_detail_center btn_group">
-                            <custom-button data="default|green|small||false||" js="retry();" text="重试"></custom-button>
-                            <custom-button data="default|normal|small||false||" js="mainPage();" text="首页"></custom-button>
-                        </div>
-                    </div>
+                <main class="scroll_container" id="main">
+
                 </main>
             </scroll-container>
             <custom-scrollbar class="primary_custom_scrollbar">
@@ -125,12 +97,11 @@
 </body>
 
 <script src="./javascript/loading.js"></script>
-<script src="./library/lunar.js"></script>
 <script src="./library/accessibility.js"></script>
+<script src="./javascript/events.js"></script>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/public_define.js"></script>
 <script src="./javascript/custom_elements.js"></script>
-<script src="./javascript/events.js"></script>
 <script src="./javascript/mcfc.js"></script>
 <!--<script>-->
 <!--    -->

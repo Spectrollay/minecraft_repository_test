@@ -22,6 +22,17 @@
 
 rootPath = '/' + (window.location.pathname.split('/').filter(Boolean).length > 0 ? window.location.pathname.split('/').filter(Boolean)[0] : '');
 
+// 节流函数,防止事件频繁触发
+function throttle(func, delay) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = new Date().getTime();
+        if (now - lastCall < delay) return;
+        lastCall = now;
+        return func(...args);
+    };
+}
+
 // 自定义滚动条
 // 处理滚动条显示逻辑
 function showScroll(customScrollbar) {
@@ -245,7 +256,7 @@ class CustomButton extends HTMLElement {
         if (ctype === 'default') {
             if (cisTip === true) {
                 this.innerHTML = `
-                    <div class="btn_with_tooltip_cont">
+                    <div class="btn_with_tooltip_content">
                         <button class="btn ${csize}_btn ${status}_btn" id="${cid}">${text}</button>
                         <div class="btn_tooltip">${ctip}</div>
                         <img alt="" class="tip_icon" src="${rootPath}/images/${icon}.png"/>
@@ -1280,7 +1291,6 @@ class TextField extends HTMLElement {
         if (this.parentNode && this.parentNode.id) {
             this.classList.add(this.parentNode.id);
         }
-
 
         this.getTextFieldValue(); // 先获取值
 

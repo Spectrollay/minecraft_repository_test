@@ -59,17 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// 节流函数,防止事件频繁触发
-function throttle(func, delay) {
-    let lastCall = 0;
-    return function (...args) {
-        const now = new Date().getTime();
-        if (now - lastCall < delay) return;
-        lastCall = now;
-        return func(...args);
-    };
-}
-
 // 点击顶栏回到顶部
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.header_logo').addEventListener('click', scrollToTop);
@@ -225,14 +214,14 @@ if (currentPagePath === '/minecraft_repository_test/' || currentPagePath === '/m
             if (diff > fifteenDays) {
                 localStorage.removeItem(`(${rootPath}/)neverShowIn15Days`);
             } else {
-                logManager.log("时间未到,不显示提示");
+                logManager.log("时间未到,不显示开发仓库提示");
             }
         } else {
             const modal = document.getElementById('alert_modal');
             modal.innerHTML = `
                 <modal>
                     <modal_title_area>
-                        <modal_title>提示</modal_title>
+                        <modal_title>开发仓库提示</modal_title>
                         <modal_close_btn class="close_btn" onclick="hideModal(this);">
                             <img alt="" class="modal_close_btn_img" src="${rootPath}/images/cross_white.png"/>
                         </modal_close_btn>

@@ -45,13 +45,13 @@
 }
 
 #spinner_img {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 }
 
 .spinner_text {
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 #spinner_img_error {
