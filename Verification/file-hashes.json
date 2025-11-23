@@ -229,7 +229,7 @@
   "javascript\\events.js": "ecaa1b1ddb791c3c99a911606f518bd5",
   "javascript\\loading.js": "d7a7ffdb350583d5e93dd1becf7587f4",
   "javascript\\mcfc.js": "8de5462bccf9655903ad6d8ead6740f5",
-  "javascript\\public_define.js": "675e4de9a90c7d4f9e995c87b4ff9c32",
+  "javascript\\public_define.js": "51225d5aea6be01d15118292da147d97",
   "javascript\\public_script.js": "ddc2b543936b2a50a3ecee6b3756c63d",
   "javascript\\text_to_speech.js": "50c29c83768354558bb11341641dd998",
   "library\\accessibility.js": "ad3d9622181c707548fcc63a1ad8b136",
@@ -257,5 +257,5 @@
   "stylesheet\\mcfc.css": "ac391b301b9b2c78ff1d04cd9b355055",
   "stylesheet\\public_style.css": "3fd1456e8c415339bcc729fad0985869",
   "Template\\index.html": "1557495aff4e4872d513fdd370faf433",
-  "updatelog\\index.html": "13abae223e9ed9e6c5172b4beb1f9091"
+  "updatelog\\index.html": "b53b37ba3c4e7e2260f63eb5d7b48047"
 }

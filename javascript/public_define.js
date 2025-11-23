@@ -25,12 +25,12 @@
 const main_version_name = '4';
 const primary_version_name = main_version_name + '.6'; // 例 4.0
 const secondary_version_name = primary_version_name + '.8'; // 例 4.0.0
-const version_name_short = secondary_version_name + '.120'; // 例 4.0.0.1  NOTE 小版本
+const version_name_short = secondary_version_name + '.121'; // 例 4.0.0.1  NOTE 小版本
 const version_type = 'Canary'; // Preview/Insider_(Preview/Alpha/Beta)/Canary/Alpha/Beta/Pre/RC/Stable/Release/SP
 const version_type_count = version_type + '1'; // 例 Build1  NOTE 小版本编号
 const version_name = version_name_short + '.' + version_type; // 例 4.0.0.1.Build
 const version_nickname = secondary_version_name + '-' + version_type_count; // 例 4.0.0-Build1
-const update_count = '20251020' + '.01'; // NOTE 小版本,有更改版本的提交就变
+const update_count = '20251124' + '.01'; // NOTE 小版本,有更改版本的提交就变
 const publish_version_name = primary_version_name + '.' + update_count; // 例 4.20240101.01
 const server_version = '4.0';
 let commit = '#'; // 例 #2025010101 , 仅留 # 则从 update_count 提取  NOTE 提交编号,有不更改版本的提交就变
@@ -333,6 +333,7 @@ const fullVersionTips = [
     {text: '别杀怪物,你这个海豚!', weight: 2},
     {text: '你要去码头整点薯条吗?', weight: 2},
     {text: '真的会有人看这些吗?', weight: 2},
+    {text: '你又在期待什么呢?', weight: 2},
     {
         text: `<span style='background: linear-gradient(to right, #1C0DFF, #3CBBFC, #B02FED, #FF57AC, #FFB515, #FFEA45, #99FF55, #00FFAA); -webkit-background-clip: text; background-clip: text; color: transparent;'>这是一条彩色的提示标语!</span>`,
         weight: 2
