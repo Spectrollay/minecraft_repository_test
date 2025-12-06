@@ -223,13 +223,13 @@
   "javascript\\advanced.js": "bc40e0973abb7bd1267d07da6f6e6793",
   "javascript\\custom_elements.js": "492937bcd212ce53a3b5185f86811f6f",
   "javascript\\data_driven.js": "e5b90750ed44a97047385a7e1a5d41b2",
-  "javascript\\download_index_main.js": "494d1e01caf931de3ca09646dbd88be4",
+  "javascript\\download_index_main.js": "64c06128648a048a3997fc948f80d9b6",
   "javascript\\download_index_version.js": "bccb2e7474567994f016f4d3f2c11e1c",
   "javascript\\editions.js": "1c336c108b6aab1791de8ca06bd10817",
   "javascript\\events.js": "ecaa1b1ddb791c3c99a911606f518bd5",
   "javascript\\loading.js": "d7a7ffdb350583d5e93dd1becf7587f4",
   "javascript\\mcfc.js": "8de5462bccf9655903ad6d8ead6740f5",
-  "javascript\\public_define.js": "51225d5aea6be01d15118292da147d97",
+  "javascript\\public_define.js": "1bf9931da60d60008800f9a40fc2617f",
   "javascript\\public_script.js": "ddc2b543936b2a50a3ecee6b3756c63d",
   "javascript\\text_to_speech.js": "50c29c83768354558bb11341641dd998",
   "library\\accessibility.js": "ad3d9622181c707548fcc63a1ad8b136",
@@ -257,5 +257,5 @@
   "stylesheet\\mcfc.css": "ac391b301b9b2c78ff1d04cd9b355055",
   "stylesheet\\public_style.css": "3fd1456e8c415339bcc729fad0985869",
   "Template\\index.html": "1557495aff4e4872d513fdd370faf433",
-  "updatelog\\index.html": "b53b37ba3c4e7e2260f63eb5d7b48047"
+  "updatelog\\index.html": "ac608c85012df8ee45b79323c0961588"
 }
