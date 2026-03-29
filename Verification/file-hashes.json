@@ -206,6 +206,7 @@
   "images\\update\\artwork\\Spring_to_Life_Artwork.jpg": "ce69fd6bc2d520eb5f20d22525f48241",
   "images\\update\\artwork\\The_Copper_Age_Key_Art.png": "a6762e217d08ed9047d26469f689c6ef",
   "images\\update\\artwork\\The_Garden_Awakens_Artwork.jpg": "320413cfc3125a364a505fa357de6fa7",
+  "images\\update\\artwork\\Tiny_Takeover_Key_Art.png": "b6d4dec0d610cd7ed1f559f7888936a4",
   "images\\update\\artwork\\Trails_&_Tales_Artwork.jpg": "3f06c1816826d8c0964efc5691bbaa12",
   "images\\update\\artwork\\Tricky_Trials_Artwork.png": "e9debc7c8c8e9175e7e007f297b0941c",
   "images\\update\\artwork\\Update_Aquatic_Artwork.jpg": "f06d372a6f90cb655b85433552af8c29",
@@ -231,7 +232,7 @@
   "javascript\\events.js": "ecaa1b1ddb791c3c99a911606f518bd5",
   "javascript\\loading.js": "d7a7ffdb350583d5e93dd1becf7587f4",
   "javascript\\mcfc.js": "8de5462bccf9655903ad6d8ead6740f5",
-  "javascript\\public_define.js": "b54ae0996d597e45dd3e2e438da805db",
+  "javascript\\public_define.js": "d78dc4e6ebcc02d19298e96e91dea4d9",
   "javascript\\public_script.js": "ddc2b543936b2a50a3ecee6b3756c63d",
   "javascript\\text_to_speech.js": "50c29c83768354558bb11341641dd998",
   "library\\accessibility.js": "ad3d9622181c707548fcc63a1ad8b136",
@@ -241,7 +242,7 @@
   "library\\lunar.js": "223903532366a19d997fe5f63858f2bd",
   "LICENSE": "1d67e842dcbb5ca57d364cd01b24b5ff",
   "mcfc\\index.html": "d6ccf6c79c116e92cd26fbd81293fe4c",
-  "mclang_cn\\index.html": "6ed2c698a6eab391a319617e01344207",
+  "mclang_cn\\index.html": "20bb501e2aacc362fc84113700c98514",
   "notifications\\index.html": "19d1793b779548db6544a6338baf425e",
   "sounds\\button.ogg": "543573dd41a4e5962f7e5ef0510077b0",
   "sounds\\click.ogg": "697d86282cec21fea5e64a58db441432",
@@ -259,5 +260,5 @@
   "stylesheet\\mcfc.css": "ac391b301b9b2c78ff1d04cd9b355055",
   "stylesheet\\public_style.css": "3fd1456e8c415339bcc729fad0985869",
   "Template\\index.html": "1557495aff4e4872d513fdd370faf433",
-  "updatelog\\index.html": "1b9008d05650cb71eaa368c989e38cf1"
+  "updatelog\\index.html": "380aadf104c85df7098c14a8da60c061"
 }
