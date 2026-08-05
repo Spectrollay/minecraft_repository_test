@@ -82,7 +82,6 @@
 html {
     font-family: "NotoSans Bold", sans-serif;
     height: 100%;
-    overscroll-behavior: contain;
 }
 
 .flex {
