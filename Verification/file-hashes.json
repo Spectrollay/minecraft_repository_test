@@ -232,8 +232,8 @@
   "javascript\\editions.js": "1c336c108b6aab1791de8ca06bd10817",
   "javascript\\events.js": "61980a1b818112c1057f3284fa7a246c",
   "javascript\\loading.js": "d7a7ffdb350583d5e93dd1becf7587f4",
-  "javascript\\mcfc.js": "8de5462bccf9655903ad6d8ead6740f5",
-  "javascript\\public_define.js": "c2b57584c73528d6ed3b12202f69e3ed",
+  "javascript\\mcfc.js": "057869a6afe6c919d326b716614fcc6b",
+  "javascript\\public_define.js": "7df01767214b8f3853a3095996833152",
   "javascript\\public_script.js": "ddc2b543936b2a50a3ecee6b3756c63d",
   "javascript\\text_to_speech.js": "50c29c83768354558bb11341641dd998",
   "library\\accessibility.js": "ad3d9622181c707548fcc63a1ad8b136",
@@ -242,7 +242,7 @@
   "library\\lazyLoadImage.js": "c750536512ca3ed856c712ce1dfe533a",
   "library\\lunar.js": "223903532366a19d997fe5f63858f2bd",
   "LICENSE": "1d67e842dcbb5ca57d364cd01b24b5ff",
-  "mcfc\\index.html": "d6ccf6c79c116e92cd26fbd81293fe4c",
+  "mcfc\\index.html": "57d64ca82c92ef7bf1a9b193c100f8bb",
   "mclang_cn\\index.html": "8e6949553a3c51015b4a41644cbc2336",
   "notifications\\index.html": "19d1793b779548db6544a6338baf425e",
   "sounds\\button.ogg": "543573dd41a4e5962f7e5ef0510077b0",
@@ -261,5 +261,5 @@
   "stylesheet\\mcfc.css": "ac391b301b9b2c78ff1d04cd9b355055",
   "stylesheet\\public_style.css": "3fd1456e8c415339bcc729fad0985869",
   "Template\\index.html": "1557495aff4e4872d513fdd370faf433",
-  "updatelog\\index.html": "e8a78cb4bfbd1bdad3fbb3004462c7a0"
+  "updatelog\\index.html": "b4a05cc838ce6017ce6ac778cdf11e29"
 }
